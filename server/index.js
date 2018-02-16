@@ -28,10 +28,10 @@ app.use(ApolloReduxReactSSR({
   reducers,
   routes,
   Error500Page,
-  networkInterfaceOptions: {
-    uri: 'http://127.0.0.1:8000/graphql/',
-    credentials: 'same-origin',
-  },
+  // networkInterfaceOptions: {
+  //   uri: 'http://127.0.0.1:8000/graphql/',
+  //   credentials: 'same-origin',
+  // },
 }))
 
 app.listen(3000, () => {

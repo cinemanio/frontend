@@ -8,7 +8,7 @@ const emptyHead = {
 }
 
 // ran a benchmark, interpolation was faster than concat and waaay faster than react
-export default (markup, head, initialState) => {
+export default (markup, head, state) => {
   const safeHead = head || emptyHead
   return `<!DOCTYPE html>
 <html ${safeHead.htmlAttributes.toString()}>
@@ -26,7 +26,7 @@ export default (markup, head, initialState) => {
   <body>
     <div id="react-container">${markup}</div>
     <script id="initial-state-script">
-      window.__INITIAL_STATE__=${JSON.stringify(initialState)};
+      window.__INITIAL_STATE__=${JSON.stringify(state).replace(/</g, '\\u003c')};
     </script>
   </body>
 </html>

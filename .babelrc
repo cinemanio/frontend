@@ -1,0 +1,31 @@
+{
+  "presets": [
+    "latest",
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "react-hot-loader/babel",
+    [
+      "react-css-modules",
+      {
+        "webpackHotModuleReloading": true,
+        "generateScopedName": "[name]__[local]__[hash:base64:5]",
+        "exclude": "/node_modules/",
+        "filetypes": {
+          ".scss": "postcss-scss"
+        }
+      }
+    ],
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true
+      }
+    ]
+  ]
+}

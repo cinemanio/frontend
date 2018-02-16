@@ -1,0 +1,120 @@
+---
+parser: babel-eslint
+
+extends:
+  - airbnb
+  - plugin:flowtype/recommended
+  - plugin:import/recommended
+  - plugin:jsx-a11y/recommended
+
+plugins:
+  - brackets
+  - react
+  - flowtype
+  - import
+  - jsx-a11y
+  - promise
+
+globals:
+  __DEBUG_SERVER_ERRORS__: true
+  __SERVER_ERRORS__: true
+
+env:
+  browser: true
+  node: true
+  mocha: true
+
+rules:
+  ### Variables
+  no-undef: error
+  no-unused-vars: [error, {vars: all, args: none}]
+  no-underscore-dangle: [error, {allowAfterThis: true}]
+
+  ### Stylistic issues
+  id-length: [error, {min: 2, exceptions: [_, e, i, d, j, k, v, s, q], properties: never}]
+  max-len: [error, 99, 2, {ignoreUrls: true}]
+  indent: [error, 4, {FunctionDeclaration: {parameters: first}}]
+  spaced-comment: off
+  object-curly-spacing: off
+  quotes: off
+  no-else-return: off
+  class-methods-use-this: warn
+  function-paren-newline: off
+  object-curly-newline: [error, {consistent: true}]
+
+  ### Brackets
+  brackets/array-bracket-newline: error
+  brackets/conditional-parens-newline: error
+  brackets/object-curly-newline: error
+  brackets/call-parens-newline: off
+  brackets/func-parens-newline: off
+
+  ### Promises
+  promise/always-return: error
+  promise/no-return-wrap: error
+  promise/param-names: error
+  promise/catch-or-return: error
+  promise/no-native: off
+  promise/no-nesting: warn
+  promise/no-promise-in-callback: warn
+  promise/no-callback-in-promise: warn
+  promise/avoid-new: warn
+
+  ### React
+  jsx-quotes: [warn, prefer-double]
+  react/jsx-indent: [error, 4]
+  react/jsx-boolean-value: warn
+  react/jsx-curly-spacing: warn
+  react/jsx-indent-props: off
+  react/jsx-first-prop-new-line: off
+  react/jsx-space-before-closing: off
+  react/jsx-tag-spacing: off
+  react/jsx-max-props-per-line: off
+  react/jsx-closing-tag-location: off
+  react/jsx-closing-bracket-location: off
+  react/forbid-prop-types: [error, {forbid: ['all']}]
+  react/sort-comp: [error, {order: ['static-methods', 'type-annotations', 'lifecycle', 'everything-else', 'render']}]
+  react/prefer-stateless-function: [error, {ignorePureComponents: true}]
+
+  ### Flowtype
+  flowtype/boolean-style: [error, boolean]
+  flowtype/define-flow-type: warn
+  flowtype/delimiter-dangle: [error, always-multiline]
+  flowtype/generic-spacing: [error, never]
+  flowtype/no-weak-types: off
+  flowtype/object-type-delimiter: [error, comma]
+  flowtype/require-parameter-type: [error, {excludeArrowFunctions: true}]
+  # TODO: temporary switched off due to https://github.com/gajus/eslint-plugin-flowtype/issues/253
+  flowtype/require-return-type: [off, never, {annotateUndefined: never}]
+  flowtype/require-valid-file-annotation: error
+  flowtype/semi: [error, always]
+  flowtype/space-after-type-colon: [error, always]
+  flowtype/space-before-generic-bracket: [error, never]
+  flowtype/space-before-type-colon: [error, never]
+  flowtype/type-id-match: [error, "^([A-Z][a-zA-Z0-9]+)?(Type|Props|State)$"]
+  flowtype/union-intersection-spacing: [error, always]
+  flowtype/use-flow-type: warn
+  flowtype/valid-syntax: warn
+
+  ### Import
+  import/no-unresolved: off
+  import/named: error
+  import/namespace: error
+  import/default: error
+  import/export: error
+  import/unambiguous: off
+  import/no-extraneous-dependencies: [error, {devDependencies: true}]
+
+  ### JSX-a11y
+  jsx-a11y/label-has-for: off
+  jsx-a11y/img-has-alt: off
+  jsx-a11y/click-events-have-key-events: off
+  jsx-a11y/no-static-element-interactions: off
+  jsx-a11y/onclick-has-focus: off
+
+settings:
+  flowtype:
+    onlyFilesWithFlowAnnotation: false
+  import/resolver:
+    webpack:
+      config: 'webpack.base.config.js'

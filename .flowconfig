@@ -1,12 +1,25 @@
 [ignore]
-.*/public/.*
-.*/node_modules/.*fbjs/.*
+.*/node_modules/jsonlint/.*
+.*/node_modules/fbjs/.*
+.*y18n
 
 [include]
+./components
+./libs
 
 [libs]
-declarations.flow.js
+./flow/typed
 
 [options]
-suppress_comment=.*\\$FlowIssue.*
-suppress_comment=.*\\$FlowIgnore.*
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+esproposal.decorators=ignore
+
+# solution from here https://stackoverflow.com/questions/36912675/flow-required-module-not-found
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/assets/flow/stub/css-modules.js'
+module.name_mapper='^\(libs\|stores\|components\)\/\(.*\)$' -> '<PROJECT_ROOT>/\1/\2'
+
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+
+# for using webpack aliases
+module.system.node.resolve_dirname=node_modules
