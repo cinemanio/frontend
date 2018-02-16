@@ -7,8 +7,10 @@ import gql from 'graphql-tag'
 class MoviePage extends React.Component {
   renderCast() {
     const { data: { movie } } = this.props
-    return movie.cast.edges.map(({ node }) =>
-      <div>{node.person.firstName} {node.person.lastName} {node.person.gender} ({node.role.name}: {node.name})</div>
+    return movie.cast.edges.map(({ node }, i) =>
+      <div key={i}>
+        {node.person.firstName} {node.person.lastName} {node.person.gender} ({node.role.name}: {node.name})
+      </div>
     )
   }
 

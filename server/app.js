@@ -3,21 +3,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/server'
 import Helmet from 'react-helmet'
 import { toInteger } from 'lodash'
-// import { createStore, combineReducers } from 'redux'
 import { match, RouterContext } from 'react-router'
-// import { routerReducer } from 'react-router-redux'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
-import { ApolloProvider, renderToStringWithData, getDataFromTree } from 'react-apollo'
-import { createLocation } from 'history'
-// var renderToStringWithData = require("react-apollo").renderToStringWithData;
+import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 
 import renderHtmlPage from './renderHtmlPage'
 
 const matchRoute = async (...args) => new Promise((resolve, reject) => {
   match(...args, (error, redirectLocation, renderProps) => {
-    // console.log(error)
-    // console.log(redirectLocation)
-    // console.log(renderProps)
     if (error) {
       reject(error)
     } else {
@@ -31,14 +24,11 @@ async function fetchDataAndRenderBody(client, app) {
   let initialState = undefined
   let head = null
   try {
-    // console.log(app);
     markup = await renderToStringWithData(app)
-    // console.log(client.extract())
     initialState = client.extract()
   } finally {
     head = Helmet.rewind()
   }
-  // const { markup, initialState } = renderResult
   return { markup, head, initialState }
 }
 
@@ -72,25 +62,18 @@ function ApolloReduxReactSSR({ reducers, routes, Error500Page }) {
 
     const client = new ApolloClient({
       ssrMode: true,
-      link: new HttpLink({ uri: 'http://127.0.0.1:8000/graphql/' }),
+      link: new HttpLink({
+        uri: 'http://127.0.0.1:8000/graphql/',
+        // headers: ctx.request.headers,
+      }),
       cache: new InMemoryCache(),
-      // networkInterface: createNetworkInterface(Object.assign({}, networkInterfaceOptions, {
-      //     headers: ctx.request.headers,
-      //   },
-      // )),
     })
-
-    // const store = createStore(combineReducers(Object.assign({}, reducers, {
-    //   apollo: client.reducer(),
-    //   routing: routerReducer,
-    // })))
 
     const app = (
       <ApolloProvider client={client}>
         <RouterContext {...renderProps} />
       </ApolloProvider>
     )
-    // console.log({ app, client, renderProps })
 
     let status = null
     let renderResult = null
@@ -98,9 +81,7 @@ function ApolloReduxReactSSR({ reducers, routes, Error500Page }) {
       renderResult = await fetchDataAndRenderBody(client, app)
       status = renderProps.routes.reduce((prev, route) => Math.max(toInteger(route.status), prev), 200)
       status = 200
-      // console.log(renderResult)
     } catch (error) {
-      // console.log(error)
       status = 500
       renderResult = errorPage
     }
