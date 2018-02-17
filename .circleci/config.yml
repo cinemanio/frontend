@@ -3,6 +3,8 @@ jobs:
   build:
     docker:
       - image: circleci/node:9
+        environment:
+          COVERALLS_REPO_TOKEN: IHVcd1AKKlvp3Fr018Oi4OoBh4kVnGXim
     steps:
       - checkout
       # Download and cache dependencies
