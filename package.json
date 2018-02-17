@@ -31,8 +31,7 @@
     "babel-polyfill": "6.26.0",
     "core-js": "2.5.3",
     "fecha": "2.3.2",
-    "koa-react-router": "3.0.0",
-    "lodash": "4.17.4",
+    "lodash": "4.17.5",
     "mobx": "3.3.1",
     "mobx-react": "4.3.4",
     "pluralize": "7.0.0",
@@ -42,11 +41,8 @@
     "react-dom": "16.2.0",
     "react-helmet": "5.2.0",
     "react-hot-loader": "3.0.0-beta.7",
-    "react-redux": "4.4.5",
     "react-router": "3.2.0",
-    "react-router-named-routes": "0.0.20",
-    "react-router-redux": "4.0.8",
-    "redux": "3.6.0"
+    "react-router-named-routes": "0.0.20"
   },
   "devDependencies": {
     "apollo-client": "2.2.5",
@@ -97,7 +93,6 @@
     "koa-mount": "next",
     "koa-proxy": "0.6.0",
     "koa-static": "next",
-    "lodash": "4.16.6",
     "node-sass": "4.6.1",
     "nodemon": "1.14.12",
     "postcss-loader": "2.0.8",
