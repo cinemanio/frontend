@@ -5,16 +5,16 @@
   "repository": "https://github.com/cinemanio/frontend.git",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage .",
-    "test-dev": "jest --watch .",
+    "test": "npm run jest && npm run flow && npm run lint",
+    "jest:watch": "jest --watch .",
+    "jest": "jest --coverage .",
+    "flow": "flow check",
+    "lint": "eslint --ext .js,.jsx .",
     "start": "npm run client:start & npm run server:start",
     "client:start": "webpack -w --config ./webpack.dev.config.js",
     "server:start": "nodemon --ignore public --ignore client --ignore webpack-stats.json --inspect index.js",
     "client:build": "",
-    "server:build": "",
-    "flow": "flow check",
-    "lint": "eslint --ext .js,.jsx .",
-    "check": "npm run test && npm run flow && npm run lint"
+    "server:build": ""
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/tests/setup.js",
@@ -66,6 +66,7 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
     "babel-register": "6.26.0",
+    "coveralls": "3.0.0",
     "css-loader": "0.28.7",
     "enzyme": "3.2.0",
     "enzyme-adapter-react-16": "1.1.0",

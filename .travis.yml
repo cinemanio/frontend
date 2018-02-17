@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "9"
+script:
+  - npm test
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+notifications:
+  email:
+    recipients:
+      - ramusus@gmail.com
+    on_success: change
+    on_failure: change
