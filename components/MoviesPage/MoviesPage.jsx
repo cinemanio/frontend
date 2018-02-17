@@ -1,20 +1,27 @@
 // @flow
 import React from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-named-routes'
 import { graphql } from 'react-apollo'
+import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+type Props = { data: Object }
 
-class MoviesPage extends React.Component {
+class MoviesPage extends React.PureComponent<Props> {
+  static propTypes = {
+    data: PropTypes.object.isRequired
+  }
+
   render() {
-    const { data: { movies } } = this.props
+    const { movies } = this.props.data
     return (
       <div>
+        <h1>Movies</h1>
         <ul>
           {movies && movies.edges.map(({ movie }) =>
-            <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
-            </li>
+            (<li key={movie.id}>
+              <Link to="movie.detail" params={{ movieId: movie.id }}>{movie.title}</Link>
+            </li>)
           )}
         </ul>
       </div>

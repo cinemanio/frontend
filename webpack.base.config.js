@@ -14,7 +14,7 @@ module.exports = {
       // 'babel-polyfill',
       'react',
       'react-dom',
-      path.resolve('client/index.js'),
+      path.resolve('client/index.jsx'),
     ],
   },
   output: {
@@ -24,7 +24,8 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: '[name]-[hash].css',
+      // filename: '[name]-[hash].css',
+      filename: '[name].bundle.css',
       disable: process.env.NODE_ENV === 'development',
       allChunks: true,
     }),
@@ -35,7 +36,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules\/(?!(pretty-bytes))/,
-        use: [ { loader: 'babel-loader' } ],
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.s?css$/,
@@ -58,7 +59,7 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [ path.join(__dirname, 'styles/') ],
+                includePaths: [path.join(__dirname, 'styles/')],
                 // data: '@import "assets/styles/variables";',
               },
             },
@@ -67,38 +68,38 @@ module.exports = {
       },
       {
         test: /\.(map|png)$/,
-        use: [ {
+        use: [{
           loader: 'url-loader',
           options: {
             limit: 10000,
           },
-        } ],
+        }],
       },
       {
         test: /\.woff(2)?(\?\S*)?$/,
-        use: [ {
+        use: [{
           loader: 'url-loader',
           options: {
             limit: 10000,
             mimetype: 'application/font-woff',
           },
-        } ],
+        }],
       },
       {
         test: /\.(ttf|eot|svg)(\?\S*)?$/,
-        use: [ { loader: 'file-loader' } ],
+        use: [{ loader: 'file-loader' }],
       },
     ],
   },
   resolve: {
-    modules: [ 'node_modules', 'bower_components' ],
-    descriptionFiles: [ 'package.json' ],
-    extensions: [ '.js', '.jsx' ],
+    modules: ['node_modules', 'bower_components'],
+    descriptionFiles: ['package.json'],
+    extensions: ['.js', '.jsx'],
     alias: {
-      libs: path.join(__dirname, 'assets/libs'),
-      tests: path.join(__dirname, 'assets/tests'),
-      stores: path.join(__dirname, 'assets/stores'),
-      components: path.join(__dirname, 'assets/components'),
+      libs: path.join(__dirname, 'libs'),
+      tests: path.join(__dirname, 'tests'),
+      stores: path.join(__dirname, 'stores'),
+      components: path.join(__dirname, 'components'),
     },
   },
 }

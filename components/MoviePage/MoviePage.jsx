@@ -1,26 +1,32 @@
 // @flow
 import React from 'react'
-import { Link } from 'react-router'
 import { graphql } from 'react-apollo'
+import { Link } from 'react-router-named-routes'
+import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-class MoviePage extends React.Component {
+type Props = { data: Object }
+
+export class MoviePage extends React.Component<Props> {
+  static propTypes = {
+    data: PropTypes.object.isRequired
+  }
+
   renderCast() {
-    const { data: { movie } } = this.props
-    return movie.cast.edges.map(({ node }, i) =>
-      <div key={i}>
+    return this.props.data.movie.cast.edges.map(({ node }, i) =>
+      (<div key={node.id}>
         {node.person.firstName} {node.person.lastName} {node.person.gender} ({node.role.name}: {node.name})
-      </div>
+      </div>)
     )
   }
 
   render() {
-    const { data: { movie } } = this.props
+    const { movie } = this.props.data
     if (!movie) return null
     return (
       <div>
-        <div><Link to="/movies/">movies</Link></div>
-        <div><h1>{movie.title}</h1></div>
+        <div><Link to="movie.list">movies</Link></div>
+        <h1>{movie.title}</h1>
         <div>{movie.year}</div>
         <div>{movie.runtime}</div>
         <div>{movie.imdb.id} - {movie.imdb.rating}</div>
@@ -47,6 +53,7 @@ const MovieQuery = gql`
       cast {
         edges {
           node {
+            id 
             name
             person { firstName, lastName, gender }
             role { name }
@@ -58,5 +65,5 @@ const MovieQuery = gql`
 `
 
 export default graphql(MovieQuery, {
-  options: ({ params: { movieId } }) => ({ variables: { movieId } }),
+  options: ({ params: { movieId } }) => ({ variables: { movieId } })
 })(MoviePage)

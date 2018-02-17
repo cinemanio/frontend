@@ -19,20 +19,20 @@ const matchRoute = async (...args) => new Promise((resolve, reject) => {
   })
 })
 
-async function fetchDataAndRenderBody(client, app) {
+async function fetchDataAndRenderBody(client: Object, app: Object) {
   let markup = ''
-  let initialState = undefined
+  let initialState
   let head = null
   try {
     markup = await renderToStringWithData(app)
     initialState = client.extract()
   } finally {
-    head = Helmet.rewind()
+    head = Helmet.renderStatic()
   }
   return { markup, head, initialState }
 }
 
-function renderErrorPage(errorPage) {
+function renderErrorPage(errorPage: Object) {
   const initialState = { error: true } // TODO: think of something better...
   let markup = null
   let head = null
@@ -44,15 +44,14 @@ function renderErrorPage(errorPage) {
   return { markup, head, initialState }
 }
 
-function ApolloReduxReactSSR({ reducers, routes, Error500Page }) {
-  // generate this on boot, b/c it really sucks when your error pages crsash
+function ApolloReduxReactSSR({ routes, Error500Page }: Object) {
+  // generate this on boot, b/c it really sucks when your error pages crash
   const errorPage = renderErrorPage(Error500Page)
 
-  return async function apolloReduxReactSSR(ctx: Ctx) {
-
+  return async function apolloReduxReactSSR(ctx: Object) {
     const { redirectLocation, renderProps } = await matchRoute({
       routes,
-      location: ctx.request.url,
+      location: ctx.request.url
     })
 
     if (redirectLocation) {
@@ -60,13 +59,14 @@ function ApolloReduxReactSSR({ reducers, routes, Error500Page }) {
       return
     }
 
+    const apiUrl = 'http://127.0.0.1:8000/graphql/'
     const client = new ApolloClient({
       ssrMode: true,
       link: new HttpLink({
-        uri: 'http://127.0.0.1:8000/graphql/',
+        uri: apiUrl
         // headers: ctx.request.headers,
       }),
-      cache: new InMemoryCache(),
+      cache: new InMemoryCache()
     })
 
     const app = (
@@ -88,7 +88,7 @@ function ApolloReduxReactSSR({ reducers, routes, Error500Page }) {
     const { markup, head, initialState } = renderResult
 
     ctx.status = status
-    ctx.body = renderHtmlPage(markup, head, initialState)
+    ctx.body = renderHtmlPage(markup, head, initialState, apiUrl)
   }
 }
 

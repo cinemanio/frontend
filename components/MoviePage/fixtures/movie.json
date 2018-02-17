@@ -1,0 +1,255 @@
+{
+  "data": {
+    "movie": {
+      "id": "TW92aWVOb2RlOjk2MDc=",
+      "title": "Kids",
+      "year": 1995,
+      "runtime": 91,
+      "imdb": {
+        "id": 113540,
+        "rating": 7.0,
+        "__typename": "ImdbMovieNode"
+      },
+      "genres": [
+        {
+          "name": "Drama",
+          "__typename": "GenreNode"
+        }
+      ],
+      "countries": [
+        {
+          "name": "USA",
+          "__typename": "CountryNode"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "__typename": "LanguageNode"
+        }
+      ],
+      "cast": {
+        "edges": [
+          {
+            "node": {
+              "id": "10092",
+              "name": "Jennie",
+              "person": {
+                "firstName": "Chlo\u00eb",
+                "lastName": "Sevigny",
+                "gender": "A_0",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Actor",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "16771",
+              "name": "Ruby",
+              "person": {
+                "firstName": "Rosario",
+                "lastName": "Dawson",
+                "gender": "A_0",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Actor",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "56009",
+              "name": "Telly",
+              "person": {
+                "firstName": "Leo",
+                "lastName": "Fitzpatrick",
+                "gender": null,
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Actor",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "56010",
+              "name": "Casper",
+              "person": {
+                "firstName": "Justin",
+                "lastName": "Pierce",
+                "gender": "A_1",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Actor",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "56011",
+              "name": "Steven",
+              "person": {
+                "firstName": "Jon",
+                "lastName": "Abrahams",
+                "gender": "A_1",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Actor",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "163782",
+              "name": "Club Kid, (uncredited",
+              "person": {
+                "firstName": "Harmony",
+                "lastName": "Korine",
+                "gender": "A_1",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Actor",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "8767",
+              "name": "",
+              "person": {
+                "firstName": "Larry",
+                "lastName": "Clark",
+                "gender": "A_1",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Director",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "56012",
+              "name": "",
+              "person": {
+                "firstName": "Gus",
+                "lastName": "Van Sant",
+                "gender": "A_1",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Producer",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "62638",
+              "name": "",
+              "person": {
+                "firstName": "Cathy",
+                "lastName": "Konrad",
+                "gender": "A_0",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Producer",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "10090",
+              "name": "",
+              "person": {
+                "firstName": "Harmony",
+                "lastName": "Korine",
+                "gender": "A_1",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Scenarist",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "11202",
+              "name": "",
+              "person": {
+                "firstName": "Larry",
+                "lastName": "Clark",
+                "gender": "A_1",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Scenarist",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "147840",
+              "name": "",
+              "person": {
+                "firstName": "Larry",
+                "lastName": "Clark",
+                "gender": "A_1",
+                "__typename": "PersonNode"
+              },
+              "role": {
+                "name": "Writer",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          }
+        ],
+        "__typename": "CastNodeConnection"
+      },
+      "__typename": "MovieNode"
+    }
+  }
+}

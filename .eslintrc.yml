@@ -14,6 +14,7 @@ plugins:
   - import
   - jsx-a11y
   - promise
+  - jest
 
 globals:
   __DEBUG_SERVER_ERRORS__: true
@@ -23,6 +24,7 @@ env:
   browser: true
   node: true
   mocha: true
+  jest/globals: true
 
 rules:
   ### Variables
@@ -32,11 +34,13 @@ rules:
 
   ### Stylistic issues
   id-length: [error, {min: 2, exceptions: [_, e, i, d, j, k, v, s, q], properties: never}]
-  max-len: [error, 99, 2, {ignoreUrls: true}]
-  indent: [error, 4, {FunctionDeclaration: {parameters: first}}]
+  max-len: [error, 121, 2, {ignoreUrls: true}]
+  indent: [error, 2, {FunctionDeclaration: {parameters: first}}]
   spaced-comment: off
-  object-curly-spacing: off
-  quotes: off
+#  object-curly-spacing: off
+#  quotes: off
+  comma-dangle: [error, only-multiline, {functions: never}]
+  semi: off
   no-else-return: off
   class-methods-use-this: warn
   function-paren-newline: off
@@ -62,7 +66,7 @@ rules:
 
   ### React
   jsx-quotes: [warn, prefer-double]
-  react/jsx-indent: [error, 4]
+  react/jsx-indent: [error, 2]
   react/jsx-boolean-value: warn
   react/jsx-curly-spacing: warn
   react/jsx-indent-props: off
@@ -87,7 +91,7 @@ rules:
   # TODO: temporary switched off due to https://github.com/gajus/eslint-plugin-flowtype/issues/253
   flowtype/require-return-type: [off, never, {annotateUndefined: never}]
   flowtype/require-valid-file-annotation: error
-  flowtype/semi: [error, always]
+  flowtype/semi: [error, never]
   flowtype/space-after-type-colon: [error, always]
   flowtype/space-before-generic-bracket: [error, never]
   flowtype/space-before-type-colon: [error, never]
@@ -106,11 +110,19 @@ rules:
   import/no-extraneous-dependencies: [error, {devDependencies: true}]
 
   ### JSX-a11y
+  jsx-a11y/anchor-is-valid: [error, {components: [Link], specialLink: [to]}]
   jsx-a11y/label-has-for: off
   jsx-a11y/img-has-alt: off
   jsx-a11y/click-events-have-key-events: off
   jsx-a11y/no-static-element-interactions: off
   jsx-a11y/onclick-has-focus: off
+
+  ### Jest
+  jest/no-disabled-tests: warn
+  jest/no-focused-tests: error
+  jest/no-identical-title: error
+  jest/prefer-to-have-length: warn
+  jest/valid-expect: error
 
 settings:
   flowtype:

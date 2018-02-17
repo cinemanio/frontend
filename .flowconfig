@@ -8,7 +8,7 @@
 ./libs
 
 [libs]
-./flow/typed
+# ./flow/typed
 
 [options]
 esproposal.class_static_fields=enable
@@ -16,7 +16,7 @@ esproposal.class_instance_fields=enable
 esproposal.decorators=ignore
 
 # solution from here https://stackoverflow.com/questions/36912675/flow-required-module-not-found
-module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/assets/flow/stub/css-modules.js'
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/stub/css-modules.js'
 module.name_mapper='^\(libs\|stores\|components\)\/\(.*\)$' -> '<PROJECT_ROOT>/\1/\2'
 
 suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
