@@ -16,7 +16,6 @@ class MoviesPage extends React.PureComponent<Props> {
     const { movies } = this.props.data
     return (
       <div>
-        <h1>Movies</h1>
         <ul>
           {movies && movies.edges.map(({ movie }) =>
             (<li key={movie.id}>

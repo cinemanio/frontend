@@ -86,8 +86,13 @@ module.exports = {
         }],
       },
       {
-        test: /\.(ttf|eot|svg)(\?\S*)?$/,
-        use: [{ loader: 'file-loader' }],
+        test: /\.(ttf|eot|svg|ico)(\?\S*)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+          },
+        }],
       },
     ],
   },

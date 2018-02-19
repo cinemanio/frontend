@@ -15,7 +15,10 @@ export class MoviePage extends React.Component<Props> {
   renderCast() {
     return this.props.data.movie.cast.edges.map(({ node }, i) =>
       (<div key={node.id}>
-        {node.person.firstName} {node.person.lastName} {node.person.gender} ({node.role.name}: {node.name})
+        <Link to="person.detail" params={{ personId: node.person.id }}>
+          {node.person.firstName} {node.person.lastName} {node.person.gender}
+        </Link>
+        ({node.role.name}: {node.name})
       </div>)
     )
   }
@@ -55,7 +58,7 @@ const MovieQuery = gql`
           node {
             id 
             name
-            person { firstName, lastName, gender }
+            person { id, firstName, lastName, gender }
             role { name }
           }
         }

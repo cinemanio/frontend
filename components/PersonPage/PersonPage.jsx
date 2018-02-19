@@ -1,0 +1,69 @@
+// @flow
+import React from 'react'
+import { graphql } from 'react-apollo'
+import { Link } from 'react-router-named-routes'
+import { PropTypes } from 'prop-types'
+import gql from 'graphql-tag'
+
+type Props = { data: Object }
+
+export class PersonPage extends React.Component<Props> {
+  static propTypes = {
+    data: PropTypes.object.isRequired
+  }
+
+  renderCast() {
+    return this.props.data.person.career.edges.map(({ node }, i) =>
+      (<div key={node.id}>
+        <Link to="movie.detail" params={{ movieId: node.movie.id }}>
+          {node.movie.title} {node.movie.year}
+        </Link>
+        ({node.role.name}: {node.name})
+      </div>)
+    )
+  }
+
+  render() {
+    const { person } = this.props.data
+    if (!person) return null
+    return (
+      <div>
+        <div><Link to="person.list">persons</Link></div>
+        <h1>{person.firstName} {person.lastName}</h1>
+        <div>{person.country.name}</div>
+        <div>{person.gender}</div>
+        <div>{person.dateBirth}</div>
+        <div>{person.dateDeath}</div>
+        <div>{person.imdb.id}</div>
+        {this.renderCast()}
+      </div>
+    )
+  }
+}
+
+const PersonQuery = gql`
+  query Person($personId: ID!) {
+    person(id: $personId) {
+      id
+      firstName
+      lastName
+      gender
+      country { id, name }
+      imdb { id }
+      career {
+        edges {
+          node {
+            id 
+            name
+            movie { id, title, year }
+            role { name }
+          }
+        }
+      }      
+    }
+  }
+`
+
+export default graphql(PersonQuery, {
+  options: ({ params: { personId } }) => ({ variables: { personId } })
+})(PersonPage)

@@ -59,7 +59,7 @@ function ApolloReduxReactSSR({ routes, Error500Page }: Object) {
       return
     }
 
-    const apiUrl = 'http://127.0.0.1:8000/graphql/'
+    const apiUrl = 'https://cinemanio-backend.herokuapp.com/graphql/'
     const client = new ApolloClient({
       ssrMode: true,
       link: new HttpLink({
