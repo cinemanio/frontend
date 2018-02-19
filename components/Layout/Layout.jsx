@@ -21,8 +21,8 @@ export default class Layout extends React.PureComponent<Props> {
           defaultTitle="cineman.io"
         >
           <script type="text/javascript" src="/public/app.bundle.js" async={true}/>
-          <link rel="icon" type="image/ico" href="/public/favicon.ico"/>
           <link rel="stylesheet" type="text/css" href="/public/app.bundle.css"/>
+          <link rel="icon" type="image/ico" href="/public/favicon.ico"/>
         </Helmet>
         <header><Link to="index">cineman.io</Link></header>
         <div styleName="container">
