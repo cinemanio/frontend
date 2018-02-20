@@ -4,7 +4,7 @@ import { Link } from 'react-router-named-routes'
 import { PropTypes } from 'prop-types'
 import slugify from 'slugify'
 
-type Props = { to: string, children: Object, parts: Array<mixed> }
+type Props = { to: string, children: mixed, parts: Array<string> }
 
 export default class ObjectLink extends React.PureComponent<Props> {
   static propTypes = {
@@ -13,7 +13,7 @@ export default class ObjectLink extends React.PureComponent<Props> {
     children: PropTypes.node.isRequired
   }
 
-  get params() {
+  get params(): {slug: string} {
     const id = this.props.parts.splice(-1, 1)
     return {
       slug: this.props.parts

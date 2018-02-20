@@ -12,7 +12,9 @@ export default class MovieLink extends React.PureComponent<Props> {
     movie: PropTypes.object.isRequired
   }
 
-  get parts() {
+  static fragments: Object
+
+  get parts(): Array<string> {
     return [
       this.props.movie.titleEn,
       this.props.movie.id

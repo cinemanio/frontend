@@ -12,7 +12,9 @@ export default class PersonLink extends React.PureComponent<Props> {
     person: PropTypes.object.isRequired
   }
 
-  get parts() {
+  static fragments: Object
+
+  get parts(): Array<string> {
     return [
       this.props.person.firstNameEn,
       this.props.person.lastNameEn,
