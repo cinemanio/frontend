@@ -1,11 +1,10 @@
 // @flow
-import React, { Fragment } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/server'
 import Helmet from 'react-helmet'
 import { toInteger } from 'lodash'
 import { match, RouterContext } from 'react-router'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
-import { createNetworkStatusNotifier } from 'react-apollo-network-status'
 import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 
 import renderHtmlPage from './renderHtmlPage'
@@ -60,26 +59,12 @@ function ApolloReduxReactSSR({ routes, Error500Page }: Object) {
       return
     }
 
-    const {
-      NetworkStatusNotifier,
-      link: networkStatusNotifierLink
-    } = createNetworkStatusNotifier()
-
-    // const apiUrl = 'https://cinemanio-backend.herokuapp.com/graphql/'
-    const apiUrl = 'http://127.0.0.1:8000/graphql/'
+    const apiUrl = 'https://cinemanio-backend.herokuapp.com/graphql/'
     const client = new ApolloClient({
       ssrMode: true,
-      link: networkStatusNotifierLink.concat(new HttpLink({ uri: apiUrl })),
+      link: new HttpLink({ uri: apiUrl }),
       cache: new InMemoryCache()
     })
-    //     <Fragment>
-    //     <NetworkStatusNotifier render={({ loading, error }) => (
-    //     <div>
-    //       {loading && <p>Loading …</p>}
-    //       {error && <p>Error: {JSON.stringify(error)}</p>}
-    //     </div>
-    //   )}/>
-    // </Fragment>
 
     const app = (
       <ApolloProvider client={client}>

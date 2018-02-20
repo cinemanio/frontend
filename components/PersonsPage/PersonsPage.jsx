@@ -1,6 +1,5 @@
 // @flow
 import React from 'react'
-import { Link } from 'react-router-named-routes'
 import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
