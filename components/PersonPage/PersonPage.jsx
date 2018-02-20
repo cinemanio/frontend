@@ -5,6 +5,9 @@ import { Link } from 'react-router-named-routes'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+import MovieLink from '../../components/MovieLink/MovieLink'
+import { getIdFromSlug } from '../../components/ObjectLink/ObjectLink'
+
 type Props = { data: Object }
 
 export class PersonPage extends React.Component<Props> {
@@ -15,9 +18,7 @@ export class PersonPage extends React.Component<Props> {
   renderCast() {
     return this.props.data.person.career.edges.map(({ node }, i) =>
       (<div key={node.id}>
-        <Link to="movie.detail" params={{ movieId: node.movie.id }}>
-          {node.movie.title} {node.movie.year}
-        </Link>
+        <MovieLink movie={node.movie}/> ({node.movie.year})
         ({node.role.name}: {node.name})
       </div>)
     )
@@ -55,15 +56,19 @@ const PersonQuery = gql`
           node {
             id 
             name
-            movie { id, title, year }
+            movie {
+              ...MovieLink
+              year
+            }
             role { name }
           }
         }
       }      
     }
   }
+  ${MovieLink.fragments.movie}
 `
 
 export default graphql(PersonQuery, {
-  options: ({ params: { personId } }) => ({ variables: { personId } })
+  options: ({ params: { slug } }) => ({ variables: { personId: getIdFromSlug(slug) } })
 })(PersonPage)

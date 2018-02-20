@@ -1,9 +1,10 @@
 // @flow
 import React from 'react'
-import { Link } from 'react-router-named-routes'
 import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
+
+import MovieLink from '../../components/MovieLink/MovieLink'
 
 type Props = { data: Object }
 
@@ -19,7 +20,7 @@ class MoviesPage extends React.PureComponent<Props> {
         <ul>
           {movies && movies.edges.map(({ movie }) =>
             (<li key={movie.id}>
-              <Link to="movie.detail" params={{ movieId: movie.id }}>{movie.title}</Link>
+              <MovieLink movie={movie}/>
             </li>)
           )}
         </ul>
@@ -34,11 +35,12 @@ const MoviesQuery = gql`
       edges {
         movie: node {
           id
-          title
+          ...MovieLink
         }
       }
     }
   }
+  ${MovieLink.fragments.movie}
 `
 
 export default graphql(MoviesQuery)(MoviesPage)

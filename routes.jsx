@@ -16,9 +16,9 @@ const routes = (
   <Route path="/" component={Layout}>
     <IndexRedirect name="index" to="/movies"/>
     <Route name="movie.list" path="movies" component={MoviesPage}/>
-    <Route name="movie.detail" path="movies/:movieId" component={MoviePage}/>
+    <Route name="movie.detail" path="movies/:slug" component={MoviePage}/>
     <Route name="person.list" path="persons" component={PersonsPage}/>
-    <Route name="person.detail" path="persons/:personId" component={PersonPage}/>
+    <Route name="person.detail" path="persons/:slug" component={PersonPage}/>
     <Route path="*" status={404} component={Error404}/>
   </Route>
 )

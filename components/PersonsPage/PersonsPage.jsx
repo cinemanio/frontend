@@ -5,6 +5,8 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+import PersonLink from '../../components/PersonLink/PersonLink'
+
 type Props = { data: Object }
 
 class PersonsPage extends React.PureComponent<Props> {
@@ -19,7 +21,7 @@ class PersonsPage extends React.PureComponent<Props> {
         <ul>
           {persons && persons.edges.map(({ person }) =>
             (<li key={person.id}>
-              <Link to="person.detail" params={{ personId: person.id }}>{person.firstName} {person.lastName}</Link>
+              <PersonLink person={person}/>
             </li>)
           )}
         </ul>
@@ -34,12 +36,12 @@ const PersonsQuery = gql`
       edges {
         person: node {
           id
-          firstName
-          lastName
+          ...PersonLink
         }
       }
     }
   }
+  ${PersonLink.fragments.person}
 `
 
 export default graphql(PersonsQuery)(PersonsPage)
