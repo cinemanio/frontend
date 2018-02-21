@@ -1,10 +1,10 @@
 // @flow
 import React from 'react'
 import { graphql } from 'react-apollo'
-import { Link } from 'react-router-named-routes'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+import Menu from '../../components/Menu/Menu'
 import MovieLink from '../../components/MovieLink/MovieLink'
 import { getIdFromSlug } from '../../components/ObjectLink/ObjectLink'
 
@@ -29,13 +29,13 @@ export class PersonPage extends React.Component<Props> {
     if (!person) return null
     return (
       <div>
-        <div><Link to="person.list">persons</Link></div>
+        <Menu active="person" link/>
         <h1>{person.firstName} {person.lastName}</h1>
-        <div>{person.country.name}</div>
+        <div>{person.country && person.country.name}</div>
         <div>{person.gender}</div>
         <div>{person.dateBirth}</div>
         <div>{person.dateDeath}</div>
-        <div>{person.imdb.id}</div>
+        <div>{person.imdb && person.imdb.id}</div>
         {this.renderCast()}
       </div>
     )

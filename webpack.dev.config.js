@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
-const path = require('path')
-const webpack = require('webpack')
-const BundleTracker = require('webpack-bundle-tracker')
+import path from 'path'
+import webpack from 'webpack'
+import BundleTracker from 'webpack-bundle-tracker'
 
 const config = require('./webpack.base.config.js')
 

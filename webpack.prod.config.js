@@ -1,7 +1,8 @@
 /* eslint-disable no-param-reassign */
-const webpack = require('webpack')
-// const BundleTracker = require('webpack-bundle-tracker')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+import webpack from 'webpack'
+import BundleTracker from 'webpack-bundle-tracker'
+import UglifyJSPlugin from 'uglifyjs-webpack-plugin'
+
 
 const config = require('./webpack.base.config.js')
 
@@ -9,11 +10,11 @@ const config = require('./webpack.base.config.js')
 config.output.publicPath = '../../static/bundles/'
 
 config.plugins.push(
-  // new BundleTracker({ filename: './webpack-stats.json' }),
+  new BundleTracker({ filename: './webpack-stats.json' }),
   // removes a lot of debugging code in React
   new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
   // minifies your code
-  new UglifyJSPlugin(),
+  new UglifyJSPlugin()
 )
 
 // Configure SCSS: add minimize to css-loader
@@ -21,6 +22,6 @@ const extractSass = config.plugins[0]
 const extractSassConfig = config.module.rules[1].use
 extractSassConfig.use[0].options.minimize = true
 config.module.rules[1].use = extractSass.extract(extractSassConfig)
-config.devtool = 'source-map'
+// config.devtool = 'source-map'
 
 module.exports = config

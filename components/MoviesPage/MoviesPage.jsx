@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+import Menu from '../../components/Menu/Menu'
 import MovieLink from '../../components/MovieLink/MovieLink'
 
 type Props = { data: Object }
@@ -17,6 +18,7 @@ class MoviesPage extends React.PureComponent<Props> {
     const { movies } = this.props.data
     return (
       <div>
+        <Menu active="movie"/>
         <ul>
           {movies && movies.edges.map(({ movie }) =>
             (<li key={movie.id}>

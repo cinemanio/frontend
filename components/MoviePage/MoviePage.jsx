@@ -1,12 +1,14 @@
 // @flow
 import React from 'react'
 import { graphql } from 'react-apollo'
-import { Link } from 'react-router-named-routes'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+import Menu from '../../components/Menu/Menu'
 import PersonLink from '../../components/PersonLink/PersonLink'
 import { getIdFromSlug } from '../../components/ObjectLink/ObjectLink'
+
+import './MoviePage.scss'
 
 type Props = { data: Object }
 
@@ -29,14 +31,17 @@ export class MoviePage extends React.Component<Props> {
     if (!movie) return null
     return (
       <div>
-        <div><Link to="movie.list">movies</Link></div>
+        <Menu active="movie" link/>
         <h1>{movie.title}</h1>
-        <div>{movie.year}</div>
-        <div>{movie.runtime}</div>
+        <h2>{movie.title}</h2>
+        <div styleName="info">
+          {movie.year} -
+          {movie.runtime} -
+          {movie.genres.map(item => item.name).join(', ')} -
+          {movie.countries.map(item => item.name).join(', ')} -
+          {movie.languages.map(item => item.name).join(', ')}
+        </div>
         <div>{movie.imdb.id} - {movie.imdb.rating}</div>
-        <div>{movie.genres.map(item => item.name).join(', ')}</div>
-        <div>{movie.countries.map(item => item.name).join(', ')}</div>
-        <div>{movie.languages.map(item => item.name).join(', ')}</div>
         {this.renderCast()}
       </div>
     )

@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+import Menu from '../../components/Menu/Menu'
 import PersonLink from '../../components/PersonLink/PersonLink'
 
 type Props = { data: Object }
@@ -17,6 +18,7 @@ class PersonsPage extends React.PureComponent<Props> {
     const { persons } = this.props.data
     return (
       <div>
+        <Menu active="person"/>
         <ul>
           {persons && persons.edges.map(({ person }) =>
             (<li key={person.id}>
