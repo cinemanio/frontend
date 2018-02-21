@@ -12,29 +12,29 @@ module.exports = {
       // the order is important for IE
       // https://github.com/facebook/react/issues/8379#issuecomment-264858787
       // 'babel-polyfill',
-      path.resolve('client/index.jsx'),
-    ],
+      path.resolve('client/index.jsx')
+    ]
   },
   output: {
     // path: path.resolve('public'),
     // filename: '[name]-[hash].js',
-    filename: '[name].bundle.js',
+    filename: '[name].bundle.js'
   },
   plugins: [
     new ExtractTextPlugin({
       // filename: '[name]-[hash].css',
       filename: '[name].bundle.css',
       disable: process.env.NODE_ENV === 'development',
-      allChunks: true,
+      allChunks: true
     }),
-    new webpack.EnvironmentPlugin(Object.keys(process.env)),
+    new webpack.EnvironmentPlugin(Object.keys(process.env))
   ],
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules\/(?!(pretty-bytes))/,
-        use: [{ loader: 'babel-loader' }],
+        use: [{ loader: 'babel-loader' }]
       },
       {
         test: /\.s?css$/,
@@ -48,30 +48,30 @@ module.exports = {
               options: {
                 importLoaders: 2,
                 modules: true,
-                localIdentName: '[name]__[local]__[hash:base64:5]',
-              },
+                localIdentName: '[name]__[local]__[hash:base64:5]'
+              }
             },
             {
-              loader: 'postcss-loader',
+              loader: 'postcss-loader'
             },
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [path.join(__dirname, 'styles/')],
+                includePaths: [path.join(__dirname, 'styles/')]
                 // data: '@import "assets/styles/variables";',
-              },
-            },
-          ],
-        },
+              }
+            }
+          ]
+        }
       },
       {
         test: /\.(map|png)$/,
         use: [{
           loader: 'url-loader',
           options: {
-            limit: 10000,
-          },
-        }],
+            limit: 10000
+          }
+        }]
       },
       {
         test: /\.woff(2)?(\?\S*)?$/,
@@ -79,20 +79,20 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 10000,
-            mimetype: 'application/font-woff',
-          },
-        }],
+            mimetype: 'application/font-woff'
+          }
+        }]
       },
       {
         test: /\.(ttf|eot|svg|ico)(\?\S*)?$/,
         use: [{
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]',
-          },
-        }],
-      },
-    ],
+            name: '[name].[ext]'
+          }
+        }]
+      }
+    ]
   },
   resolve: {
     modules: ['node_modules', 'bower_components'],
@@ -102,7 +102,7 @@ module.exports = {
       libs: path.join(__dirname, 'libs'),
       tests: path.join(__dirname, 'tests'),
       stores: path.join(__dirname, 'stores'),
-      components: path.join(__dirname, 'components'),
-    },
-  },
+      components: path.join(__dirname, 'components')
+    }
+  }
 }

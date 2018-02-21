@@ -22,5 +22,6 @@ if (target) {
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
+  // $FlowFixMe
   module.hot.accept()
 }

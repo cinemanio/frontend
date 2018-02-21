@@ -48,7 +48,6 @@ function renderErrorPage(error: Object) {
 }
 
 function ApolloReduxReactSSR(routes: Object) {
-
   return async function apolloReduxReactSSR(ctx: Object) {
     const { redirectLocation, renderProps } = await matchRoute({
       routes,

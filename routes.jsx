@@ -9,7 +9,6 @@ import MoviesPage from './components/MoviesPage/MoviesPage'
 import MoviePage from './components/MoviePage/MoviePage'
 import PersonsPage from './components/PersonsPage/PersonsPage'
 import PersonPage from './components/PersonPage/PersonPage'
-import Error500 from './components/errors/Error500'
 import Error404 from './components/errors/Error404'
 
 const routes = (
