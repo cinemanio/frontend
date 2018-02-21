@@ -1,12 +1,14 @@
 // @flow
 import React from 'react'
-import ReactDOM from 'react-dom/server'
+import ReactDOMServer from 'react-dom/server'
 import Helmet from 'react-helmet'
+import RedBox from 'redbox-react'
 import { toInteger } from 'lodash'
 import { match, RouterContext } from 'react-router'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 
+import Layout from '../components/Layout/Layout'
 import renderHtmlPage from './renderHtmlPage'
 
 const matchRoute = async (...args) => new Promise((resolve, reject) => {
@@ -32,21 +34,20 @@ async function fetchDataAndRenderBody(client: Object, app: Object) {
   return { markup, head, initialState }
 }
 
-function renderErrorPage(errorPage: Object) {
+function renderErrorPage(error: Object) {
   const initialState = { error: true } // TODO: think of something better...
   let markup = null
   let head = null
   try {
-    markup = ReactDOM.renderToString(errorPage)
+    markup = ReactDOMServer.renderToString(<Layout><RedBox error={error}/></Layout>)
+    console.log(markup)
   } finally {
     head = Helmet.rewind()
   }
   return { markup, head, initialState }
 }
 
-function ApolloReduxReactSSR({ routes, Error500Page }: Object) {
-  // generate this on boot, b/c it really sucks when your error pages crash
-  const errorPage = renderErrorPage(Error500Page)
+function ApolloReduxReactSSR(routes: Object) {
 
   return async function apolloReduxReactSSR(ctx: Object) {
     const { redirectLocation, renderProps } = await matchRoute({
@@ -81,7 +82,7 @@ function ApolloReduxReactSSR({ routes, Error500Page }: Object) {
     } catch (error) {
       console.log(error)
       status = 500
-      renderResult = errorPage
+      renderResult = renderErrorPage(error)
     }
     const { markup, head, initialState } = renderResult
 

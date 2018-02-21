@@ -6,7 +6,7 @@ import mount from 'koa-mount'
 import favicon from 'koa-favicon'
 
 import ApolloReduxReactSSR from './app'
-import routes, { Error500Page } from '../routes'
+import routes from '../routes'
 
 const app = new Koa()
 
@@ -23,10 +23,7 @@ app.use(async (ctx, next) => {
 
 app.use(mount('/public', serve('public')))
 
-app.use(ApolloReduxReactSSR({
-  routes,
-  Error500Page,
-}))
+app.use(ApolloReduxReactSSR(routes))
 
 app.listen(3000, () => {
   console.log('serving...') // eslint-disable-line no-console

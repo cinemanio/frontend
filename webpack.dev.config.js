@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 const path = require('path')
 const webpack = require('webpack')
-// const BundleTracker = require('webpack-bundle-tracker')
+const BundleTracker = require('webpack-bundle-tracker')
 
 const config = require('./webpack.base.config.js')
 
@@ -12,12 +12,10 @@ config.entry.app = [
   path.resolve('client/index.jsx')
 ]
 
-// override django's STATIC_URL for webpack bundles
-// config.output.publicPath = `http://${proxyHost}/assets/bundles/`
-
 // Add HotModuleReplacementPlugin and BundleTracker plugins
 config.plugins.push(
-  // new BundleTracker({ filename: './webpack-stats.json' }),
+  new BundleTracker({ filename: './webpack-stats.json' }),
+  new webpack.NamedModulesPlugin(),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin() // don't reload if there is an error
 )
@@ -32,6 +30,6 @@ extractSassConfig.use.forEach((loader) => {
   loader.options.sourceMap = true
 })
 config.module.rules[1].use = extractSass.extract(extractSassConfig)
-config.devtool = 'source-map'
+config.devtool = 'cheap-module-source-map'
 
 module.exports = config

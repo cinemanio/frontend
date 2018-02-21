@@ -26,9 +26,3 @@ const routes = (
 NamedURLResolver.mergeRouteTree(routes, '/')
 
 export default routes
-
-export const Error500Page = (
-  <Layout>
-    <Error500/>
-  </Layout>
-)

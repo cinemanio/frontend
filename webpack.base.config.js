@@ -12,13 +12,11 @@ module.exports = {
       // the order is important for IE
       // https://github.com/facebook/react/issues/8379#issuecomment-264858787
       // 'babel-polyfill',
-      'react',
-      'react-dom',
       path.resolve('client/index.jsx'),
     ],
   },
   output: {
-    path: path.resolve('public'),
+    // path: path.resolve('public'),
     // filename: '[name]-[hash].js',
     filename: '[name].bundle.js',
   },

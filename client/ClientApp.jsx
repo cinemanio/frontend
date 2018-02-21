@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import { Router, browserHistory } from 'react-router'
