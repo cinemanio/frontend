@@ -1,0 +1,14 @@
+{
+  "data": {
+    "list": {
+      "totalCount": 39477,
+      "edges": [],
+      "pageInfo": {
+        "endCursor": "",
+        "hasNextPage": false,
+        "__typename": "PageInfo"
+      },
+      "__typename": "MovieNodeConnection"
+    }
+  }
+}

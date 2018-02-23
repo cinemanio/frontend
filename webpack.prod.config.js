@@ -1,13 +1,12 @@
 /* eslint-disable no-param-reassign */
-import webpack from 'webpack'
-import BundleTracker from 'webpack-bundle-tracker'
-import UglifyJSPlugin from 'uglifyjs-webpack-plugin'
-
+const webpack = require('webpack')
+const BundleTracker = require('webpack-bundle-tracker')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const config = require('./webpack.base.config.js')
 
 // path is relative to make it working with URLs like https://www.nihms.nih.gov/ms/submission/create/
-config.output.publicPath = '../../static/bundles/'
+config.output.publicPath = '/public/'
 
 config.plugins.push(
   new BundleTracker({ filename: './webpack-stats.json' }),

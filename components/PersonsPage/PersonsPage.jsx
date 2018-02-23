@@ -5,6 +5,8 @@ import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
 import Menu from '../../components/Menu/Menu'
+import ObjectList from '../../components/ObjectList/ObjectList'
+import { configObject } from '../../components/ObjectList/ObjectList'
 import PersonLink from '../../components/PersonLink/PersonLink'
 
 type Props = { data: Object }
@@ -14,35 +16,39 @@ class PersonsPage extends React.PureComponent<Props> {
     data: PropTypes.object.isRequired
   }
 
+  renderPerson = ({ person }) => <PersonLink person={person}/>
+
   render() {
-    const { persons } = this.props.data
     return (
       <div>
         <Menu active="person"/>
-        <ul>
-          {persons && persons.edges.map(({ person }) =>
-            (<li key={person.id}>
-              <PersonLink person={person}/>
-            </li>)
-          )}
-        </ul>
+        <ObjectList
+          noResultsMessage="There is no such persons. Try to change search parameters."
+          renderItem={this.renderPerson}
+          data={this.props.data}
+        />
       </div>
     )
   }
 }
 
 const PersonsQuery = gql`
-  query Persons {
-    persons(first: 100) {
+  query Persons($first: Int!, $after: String){
+    list: persons(first: $first, after: $after) {
+      totalCount
       edges {
         person: node {
           id
           ...PersonLink
         }
       }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
     }
   }
   ${PersonLink.fragments.person}
 `
 
-export default graphql(PersonsQuery)(PersonsPage)
+export default graphql(PersonsQuery, configObject)(PersonsPage)

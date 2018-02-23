@@ -69,6 +69,12 @@ const PersonQuery = gql`
   ${MovieLink.fragments.movie}
 `
 
-export default graphql(PersonQuery, {
-  options: ({ params: { slug } }) => ({ variables: { personId: getIdFromSlug(slug) } })
-})(PersonPage)
+export const configObject = {
+  options: ({ params: { slug } }: Object) => ({
+    variables: {
+      personId: getIdFromSlug(slug)
+    }
+  })
+}
+
+export default graphql(PersonQuery, configObject)(PersonPage)

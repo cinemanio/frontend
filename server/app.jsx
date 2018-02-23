@@ -59,7 +59,7 @@ function ApolloReduxReactSSR(routes: Object) {
       return
     }
 
-    const apiUrl = 'https://cinemanio-backend.herokuapp.com/graphql/'
+    const apiUrl = process.env.BACKEND_API_URL || 'http://127.0.0.1:8000/graphql/'
     const client = new ApolloClient({
       ssrMode: true,
       link: new HttpLink({ uri: apiUrl }),

@@ -8,6 +8,7 @@ import favicon from 'koa-favicon'
 import ApolloReduxReactSSR from './app'
 import routes from '../routes'
 
+const port = process.env.PORT || 3000
 const app = new Koa()
 
 app.use(favicon('public/favicon.ico'))
@@ -25,6 +26,6 @@ app.use(mount('/public', serve('public')))
 
 app.use(ApolloReduxReactSSR(routes))
 
-app.listen(3000, () => {
-  console.log('serving...') // eslint-disable-line no-console
+app.listen(port, () => {
+  console.log('Listening to %s', port) // eslint-disable-line no-console
 })

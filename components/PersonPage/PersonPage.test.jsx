@@ -2,14 +2,14 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import { PersonPage } from './PersonPage'
-import person from './fixtures/person.json'
+import { data } from './fixtures/person.json'
 
 describe('Person Page Component', () => {
   let element
   let wrapper
 
   beforeEach(() => {
-    element = <PersonPage params={{ personId: '' }} data={person.data}/>
+    element = <PersonPage params={{ personId: '' }} data={data}/>
     wrapper = mount(element)
   })
 

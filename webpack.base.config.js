@@ -1,6 +1,6 @@
-import path from 'path'
-import webpack from 'webpack'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 // hide webpack2 deprecation warnings
 process.noDeprecation = true
@@ -16,7 +16,7 @@ module.exports = {
     ]
   },
   output: {
-    // path: path.resolve('public'),
+    path: path.resolve('public'),
     // filename: '[name]-[hash].js',
     filename: '[name].bundle.js'
   },

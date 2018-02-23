@@ -5,6 +5,8 @@ import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
 import Menu from '../../components/Menu/Menu'
+import ObjectList from '../../components/ObjectList/ObjectList'
+import { configObject } from '../../components/ObjectList/ObjectList'
 import MovieLink from '../../components/MovieLink/MovieLink'
 
 type Props = { data: Object }
@@ -14,35 +16,39 @@ class MoviesPage extends React.PureComponent<Props> {
     data: PropTypes.object.isRequired
   }
 
+  renderMovie = ({ movie }) => <MovieLink movie={movie}/>
+
   render() {
-    const { movies } = this.props.data
     return (
       <div>
         <Menu active="movie"/>
-        <ul>
-          {movies && movies.edges.map(({ movie }) =>
-            (<li key={movie.id}>
-              <MovieLink movie={movie}/>
-            </li>)
-          )}
-        </ul>
+        <ObjectList
+          noResultsMessage="There is no such movies. Try to change search parameters."
+          renderItem={this.renderMovie}
+          data={this.props.data}
+        />
       </div>
     )
   }
 }
 
 const MoviesQuery = gql`
-  query Movies {
-    movies(first: 100) {
+  query Movies($first: Int!, $after: String){
+    list: movies(first: $first, after: $after) {
+      totalCount
       edges {
         movie: node {
           id
           ...MovieLink
         }
       }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
     }
   }
   ${MovieLink.fragments.movie}
 `
 
-export default graphql(MoviesQuery)(MoviesPage)
+export default graphql(MoviesQuery, configObject)(MoviesPage)

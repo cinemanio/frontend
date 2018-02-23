@@ -5,12 +5,12 @@ import { PropTypes } from 'prop-types'
 
 import './Menu.scss'
 
-type Props = { active: string, link: boolean }
+type Props = { active: string }
 
 export default class Menu extends React.PureComponent<Props> {
   static propTypes = {
-    active: PropTypes.string.isRequired,
-    // link: PropTypes.bool.isRequired
+    active: PropTypes.string.isRequired
+    // link: PropTypes.bool
   }
 
   menu = [

@@ -2,14 +2,14 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import { MoviePage } from './MoviePage'
-import movie from './fixtures/movie.json'
+import { data } from './fixtures/movie.json'
 
 describe('Movie Page Component', () => {
   let element
   let wrapper
 
   beforeEach(() => {
-    element = <MoviePage params={{ movieId: '' }} data={movie.data}/>
+    element = <MoviePage params={{ movieId: '' }} data={data}/>
     wrapper = mount(element)
   })
 
