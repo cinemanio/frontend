@@ -2,16 +2,16 @@
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
 
+import settings from '../settings'
+
 const config = require('../webpack.dev.config')
 
-const hostDev = process.env.WEBPACK_SERVER_HOST || '0.0.0.0:3001'
-
-config.entry.app = [`webpack-dev-server/client?http://${hostDev}`].concat(config.entry.app)
-config.output.publicPath = `http://${hostDev}/public/`
+config.entry.app = [`webpack-dev-server/client?http://${settings.webpackServerHost}`].concat(config.entry.app)
+config.output.publicPath = `http://${settings.webpackServerHost}/public/`
 config.output.devtoolModuleFilenameTemplate = '/home'
 
-const port = hostDev.split(':')[1]
-const host = hostDev.split(':')[0]
+const port = settings.webpackServerHost.split(':')[1]
+const host = settings.webpackServerHost.split(':')[0]
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
@@ -32,5 +32,5 @@ new WebpackDevServer(webpack(config), {
   if (err) {
     console.log(err)
   }
-  console.log(`Dev server listening at ${hostDev}`)
+  console.log(`Dev server listening at ${settings.webpackServerHost}`)
 })

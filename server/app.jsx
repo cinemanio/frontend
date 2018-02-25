@@ -9,6 +9,7 @@ import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 
 import Layout from '../components/Layout/Layout'
+import settings from '../settings'
 import renderHtmlPage from './renderHtmlPage'
 
 const matchRoute = async (...args) => new Promise((resolve, reject) => {
@@ -59,10 +60,9 @@ function ApolloReduxReactSSR(routes: Object) {
       return
     }
 
-    const apiUrl = process.env.BACKEND_API_URL || 'http://127.0.0.1:8000/graphql/'
     const client = new ApolloClient({
       ssrMode: true,
-      link: new HttpLink({ uri: apiUrl }),
+      link: new HttpLink({ uri: settings.backendApiUrl }),
       cache: new InMemoryCache()
     })
 
@@ -86,7 +86,7 @@ function ApolloReduxReactSSR(routes: Object) {
     const { markup, head, initialState } = renderResult
 
     ctx.status = status
-    ctx.body = renderHtmlPage(markup, head, initialState, apiUrl)
+    ctx.body = renderHtmlPage(markup, head, initialState, settings.backendApiUrl)
   }
 }
 

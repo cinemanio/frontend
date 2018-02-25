@@ -20,8 +20,8 @@ export default class Layout extends React.PureComponent<Props> {
           htmlAttributes={{ lang: 'en' }}
           defaultTitle="cineman.io"
         >
-          <script type="text/javascript" src="http://localhost:3001/public/app.js" async crossOrigin/>
-          <link rel="stylesheet" type="text/css" href="http://localhost:3001/public/app.css"/>
+          <script type="text/javascript" src="/public/app.js" async crossOrigin/>
+          <link rel="stylesheet" type="text/css" href="/public/app.css"/>
           <link rel="icon" type="image/ico" href="/public/favicon.ico"/>
         </Helmet>
         <header><Link to="index">cineman.io</Link></header>

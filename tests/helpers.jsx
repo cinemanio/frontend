@@ -7,7 +7,7 @@ import { ApolloProvider } from 'react-apollo'
 export const mountGraphql = (response, element) => {
   const mockedNetworkFetch = createMockedNetworkFetch(() => response, { timeout: 0 })
   const client = new ApolloClient({
-    link: new HttpLink({ uri: 'http://localhost:3000', fetch: mockedNetworkFetch }),
+    link: new HttpLink({ fetch: mockedNetworkFetch }),
     cache: new InMemoryCache()
   })
   return mount(

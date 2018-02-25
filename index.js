@@ -1,4 +1,3 @@
-// TODO: get rid of this file
 require('babel-register')({
   presets: ['react']
 })
