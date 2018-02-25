@@ -12,7 +12,15 @@ export default class MovieLink extends React.PureComponent<Props> {
     movie: PropTypes.object.isRequired
   }
 
-  static fragments: Object
+  static fragments = {
+    movie: gql`
+      fragment MovieLink on MovieNode {
+        id
+        title
+        titleEn
+      }
+    `
+  }
 
   get parts(): Array<string> {
     return [
@@ -28,14 +36,4 @@ export default class MovieLink extends React.PureComponent<Props> {
       </ObjectLink>
     )
   }
-}
-
-MovieLink.fragments = {
-  movie: gql`
-    fragment MovieLink on MovieNode {
-      id
-      title
-      titleEn
-    }
-  `
 }

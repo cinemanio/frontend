@@ -61,8 +61,8 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [path.join(__dirname, 'styles/')]
-                // data: '@import "assets/styles/variables";',
+                includePaths: [path.join(__dirname, 'styles/')],
+                data: '@import "styles/variables";',
               }
             }
           ]

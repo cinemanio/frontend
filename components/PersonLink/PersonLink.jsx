@@ -12,7 +12,17 @@ export default class PersonLink extends React.PureComponent<Props> {
     person: PropTypes.object.isRequired
   }
 
-  static fragments: Object
+  static fragments = {
+    person: gql`
+      fragment PersonLink on PersonNode {
+        id
+        firstName
+        lastName
+        firstNameEn
+        lastNameEn
+      }
+    `
+  }
 
   get parts(): Array<string> {
     return [
@@ -29,16 +39,4 @@ export default class PersonLink extends React.PureComponent<Props> {
       </ObjectLink>
     )
   }
-}
-
-PersonLink.fragments = {
-  person: gql`
-    fragment PersonLink on PersonNode {
-      id
-      firstName
-      lastName
-      firstNameEn
-      lastNameEn
-    }
-  `
 }

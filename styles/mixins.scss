@@ -1,0 +1,6 @@
+@import '~font-awesome/scss/font-awesome';
+
+@mixin fa-icon($type) {
+  @extend .fa;
+  @extend .fa-#{$type};
+}

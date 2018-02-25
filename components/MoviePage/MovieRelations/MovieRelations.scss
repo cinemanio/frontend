@@ -1,0 +1,55 @@
+@import 'mixins.scss';
+
+@mixin rel-fa-icon($type) {
+  i {
+    @include fa-icon($type);
+    margin-right: 0.5rem;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    background-color: #CCCCCC;
+    color: white;
+    padding: 0.3rem;
+  }
+}
+
+.relations {
+  float: right;
+  color: #999999;
+
+  > span {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+
+    > i {
+      font-size: 1.8rem;
+    }
+  }
+
+  .fav {
+    @include rel-fa-icon('star');
+  }
+
+  .like {
+    @include rel-fa-icon('thumbs-up');
+  }
+
+  .seen {
+    @include rel-fa-icon('eye');
+  }
+
+  .dislike {
+    @include rel-fa-icon('thumbs-down');
+  }
+
+  .want {
+    @include rel-fa-icon('check');
+  }
+
+  .ignore {
+    @include rel-fa-icon('eye-slash');
+  }
+
+  .have {
+    @include rel-fa-icon('save');
+  }
+}

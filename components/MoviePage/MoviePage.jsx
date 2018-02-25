@@ -4,6 +4,9 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+import MovieInfo from './MovieInfo/MovieInfo'
+import MovieImage from './MovieImage/MovieImage'
+import MovieRelations from './MovieRelations/MovieRelations'
 import Menu from '../../components/Menu/Menu'
 import PersonLink from '../../components/PersonLink/PersonLink'
 import { getIdFromSlug } from '../../components/ObjectLink/ObjectLink'
@@ -32,15 +35,11 @@ export class MoviePage extends React.Component<Props> {
     return (
       <div>
         <Menu active="movie" link/>
+        <MovieRelations counts={{ fav: 1, like: 10, seen: 10, dislike: 10, want: 3, have: 3, ignore: 0 }}/>
         <h1>{movie.title}</h1>
         <h2>{movie.title}</h2>
-        <div styleName="info">
-          {movie.year} -
-          {movie.runtime} -
-          {movie.genres.map(item => item.name).join(', ')} -
-          {movie.countries.map(item => item.name).join(', ')} -
-          {movie.languages.map(item => item.name).join(', ')}
-        </div>
+        <MovieInfo movie={movie}/>
+        <MovieImage movie={movie}/>
         <div>{movie.imdb.id} - {movie.imdb.rating}</div>
         {this.renderCast()}
       </div>
@@ -53,12 +52,8 @@ const MovieQuery = gql`
     movie(id: $movieId) {
       id
       title
-      year
-      runtime
       imdb { id, rating }
-      genres { name }
-      countries { name }
-      languages { name }
+      ...MovieInfo
       cast {
         edges {
           node {
@@ -75,6 +70,7 @@ const MovieQuery = gql`
     }
   }
   ${PersonLink.fragments.person}
+  ${MovieInfo.fragments.movie}
 `
 
 export const configObject = {
