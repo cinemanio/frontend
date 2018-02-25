@@ -5,8 +5,7 @@ import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
 import Menu from '../../components/Menu/Menu'
-import ObjectList from '../../components/ObjectList/ObjectList'
-import { configObject } from '../../components/ObjectList/ObjectList'
+import ObjectList, { configObject } from '../../components/ObjectList/ObjectList'
 import PersonLink from '../../components/PersonLink/PersonLink'
 
 type Props = { data: Object }

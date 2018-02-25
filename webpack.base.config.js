@@ -15,6 +15,10 @@ module.exports = {
       path.resolve('client/index.jsx')
     ]
   },
+  mode: process.env.NODE_ENV || 'development',
+  performance: {
+    hints: process.env.NODE_ENV === 'production' ? 'warning' : false
+  },
   output: {
     path: path.resolve('public'),
     // filename: '[name]-[hash].js',

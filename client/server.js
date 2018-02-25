@@ -30,7 +30,7 @@ new WebpackDevServer(webpack(config), {
   }
 }).listen(port, host, (err) => {
   if (err) {
-    console.log(err)
+    console.log(err) // eslint-disable-line no-console
   }
-  console.log(`Dev server listening at ${settings.webpackServerHost}`)
+  console.log(`Dev server listening at ${settings.webpackServerHost}`) // eslint-disable-line no-console
 })

@@ -41,7 +41,6 @@ function renderErrorPage(error: Object) {
   let head = null
   try {
     markup = ReactDOMServer.renderToString(<Layout><RedBox error={error}/></Layout>)
-    console.log(markup)
   } finally {
     head = Helmet.rewind()
   }
@@ -79,7 +78,6 @@ function ApolloReduxReactSSR(routes: Object) {
       status = renderProps.routes.reduce((prev, route) => Math.max(toInteger(route.status), prev), 200)
       status = 200
     } catch (error) {
-      console.log(error)
       status = 500
       renderResult = renderErrorPage(error)
     }
