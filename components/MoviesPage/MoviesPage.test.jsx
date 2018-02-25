@@ -20,7 +20,6 @@ describe('Movies Page Component', () => {
 
     it('should render movies from the intitial response', done => populated(done, wrapper, () => {
       wrapper.update()
-      console.log(wrapper.find('MovieLink').length)
       expect(wrapper.find('MovieLink').length).toBeGreaterThan(response.data.list.edges.length)
     }))
   })

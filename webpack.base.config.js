@@ -18,12 +18,12 @@ module.exports = {
   output: {
     path: path.resolve('public'),
     // filename: '[name]-[hash].js',
-    filename: '[name].bundle.js'
+    filename: '[name].js'
   },
   plugins: [
     new ExtractTextPlugin({
       // filename: '[name]-[hash].css',
-      filename: '[name].bundle.css',
+      filename: '[name].css',
       disable: process.env.NODE_ENV === 'development',
       allChunks: true
     }),

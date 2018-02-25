@@ -1,15 +1,14 @@
 // @flow
-// TODO: move this file to somewhere
 import React from 'react'
 import { IndexRedirect, Route } from 'react-router'
 import { NamedURLResolver } from 'react-router-named-routes'
 
-import Layout from './components/Layout/Layout'
-import MoviesPage from './components/MoviesPage/MoviesPage'
-import MoviePage from './components/MoviePage/MoviePage'
-import PersonsPage from './components/PersonsPage/PersonsPage'
-import PersonPage from './components/PersonPage/PersonPage'
-import Error404 from './components/errors/Error404'
+import Layout from '../components/Layout/Layout'
+import MoviesPage from '../components/MoviesPage/MoviesPage'
+import MoviePage from '../components/MoviePage/MoviePage'
+import PersonsPage from '../components/PersonsPage/PersonsPage'
+import PersonPage from '../components/PersonPage/PersonPage'
+import Error404 from '../components/errors/Error404'
 
 const routes = (
   <Route path="/" component={Layout}>

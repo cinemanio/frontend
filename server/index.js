@@ -4,9 +4,12 @@ import logger from 'koa-logger'
 import serve from 'koa-static'
 import mount from 'koa-mount'
 import favicon from 'koa-favicon'
+import register from 'ignore-styles'
 
 import ApolloReduxReactSSR from './app'
 import routes from '../routes'
+
+register(['.scss'])
 
 const port = process.env.PORT || 3000
 const app = new Koa()
@@ -27,5 +30,5 @@ app.use(mount('/public', serve('public')))
 app.use(ApolloReduxReactSSR(routes))
 
 app.listen(port, () => {
-  console.log('Listening to %s', port) // eslint-disable-line no-console
+  console.log('Server listening at %s', port) // eslint-disable-line no-console
 })

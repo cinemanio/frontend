@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+// eslint-disable no-param-reassign
 const webpack = require('webpack')
 const BundleTracker = require('webpack-bundle-tracker')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
@@ -21,6 +21,6 @@ const extractSass = config.plugins[0]
 const extractSassConfig = config.module.rules[1].use
 extractSassConfig.use[0].options.minimize = true
 config.module.rules[1].use = extractSass.extract(extractSassConfig)
-// config.devtool = 'source-map'
+// config.devtool = 'cheap-module-source-map'
 
 module.exports = config
