@@ -30,7 +30,7 @@ describe('Persons Page Component', () => {
     })
 
     it('should render message if no results in response', done => populated(done, wrapper, () => {
-      expect(wrapper.find('PersonLink').length).toBe(0)
+      expect(wrapper.find('PersonLink')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such persons.')
     }))
   })

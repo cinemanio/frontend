@@ -30,7 +30,7 @@ describe('Movies Page Component', () => {
     })
 
     it('should render message if no results in response', done => populated(done, wrapper, () => {
-      expect(wrapper.find('MovieLink').length).toBe(0)
+      expect(wrapper.find('MovieLink')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such movies.')
     }))
   })
