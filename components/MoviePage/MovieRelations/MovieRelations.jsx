@@ -23,7 +23,6 @@ export default class MovieRelations extends React.Component<Props> {
   type = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
 
   changeRelation = (type: string) => () => {
-    console.log(type)
   }
 
   renderButtons() {
