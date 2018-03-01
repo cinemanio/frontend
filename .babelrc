@@ -11,11 +11,14 @@
     [
       "react-css-modules",
       {
+        "context": ".",
         "webpackHotModuleReloading": true,
         "generateScopedName": "[name]__[local]__[hash:base64:5]",
-        "exclude": "/node_modules/",
+        "exclude": "./node_modules/",
         "filetypes": {
-          ".scss": "postcss-scss"
+          ".scss": {
+            "syntax": "postcss-scss"
+          }
         }
       }
     ],

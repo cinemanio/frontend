@@ -12,7 +12,7 @@ module.exports = {
       // the order is important for IE
       // https://github.com/facebook/react/issues/8379#issuecomment-264858787
       // 'babel-polyfill',
-      path.resolve('client/index.jsx')
+      path.resolve('client/index')
     ]
   },
   mode: process.env.NODE_ENV || 'development',
@@ -44,29 +44,30 @@ module.exports = {
         test: /\.s?css$/,
         // use value here is just configuration for ExtractTextPlugin.extract() method,
         // which get modificated and applied later in webpack.(dev|prod).config files.
-        use: {
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 2,
-                modules: true,
-                localIdentName: '[name]__[local]__[hash:base64:5]'
-              }
-            },
-            {
-              loader: 'postcss-loader'
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                includePaths: [path.join(__dirname, 'styles/')],
-                data: '@import "styles/variables";',
-              }
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              modules: true,
+              // this value should be equal to value in .babelrc
+              localIdentName: '[name]__[local]__[hash:base64:5]'
             }
-          ]
-        }
+          },
+          {
+            loader: 'postcss-loader'
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.resolve('styles')],
+              data: '@import "styles/variables";'
+            }
+          }
+        ]
       },
       {
         test: /\.(map|png)$/,
@@ -103,10 +104,10 @@ module.exports = {
     descriptionFiles: ['package.json'],
     extensions: ['.js', '.jsx'],
     alias: {
-      libs: path.join(__dirname, 'libs'),
-      tests: path.join(__dirname, 'tests'),
-      stores: path.join(__dirname, 'stores'),
-      components: path.join(__dirname, 'components')
+      libs: path.resolve('libs'),
+      tests: path.resolve('tests'),
+      stores: path.resolve('stores'),
+      components: path.resolve('components')
     }
   }
 }

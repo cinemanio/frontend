@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import { hot } from 'react-hot-loader'
 import { ApolloProvider } from 'react-apollo'
 import { Router, browserHistory } from 'react-router'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
@@ -12,8 +13,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache().restore(window.INITIAL_STATE)
 })
 
-export default () => (
+const ClientApp = () => (
   <ApolloProvider client={client}>
     <Router history={browserHistory} routes={routes}/>
   </ApolloProvider>
 )
+
+export default hot(module)(ClientApp)
