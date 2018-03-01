@@ -36,7 +36,7 @@ export default class MovieRelations extends React.Component<Props> {
 
   render() {
     return (
-      <div styleName="relations">
+      <div styleName="box">
         {this.renderButtons()}
       </div>
     )

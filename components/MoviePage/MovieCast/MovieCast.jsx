@@ -47,7 +47,7 @@ export default class MovieCast extends React.Component<Props> {
 
   render() {
     return (
-      <Block title="Cast" styleName="container">
+      <Block title="Cast" styleName="box">
         {this.renderCast()}
       </Block>
     )

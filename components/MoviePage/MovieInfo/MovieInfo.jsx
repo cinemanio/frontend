@@ -36,7 +36,7 @@ export default class MovieInfo extends React.PureComponent<Props> {
 
   render() {
     return (
-      <div styleName="info">
+      <div styleName="box">
         <span styleName="year">
           {this.props.movie.year}
         </span>
