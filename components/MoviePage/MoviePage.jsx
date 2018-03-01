@@ -7,8 +7,8 @@ import gql from 'graphql-tag'
 import MovieInfo from './MovieInfo/MovieInfo'
 import MovieImage from './MovieImage/MovieImage'
 import MovieRelations from './MovieRelations/MovieRelations'
+import MovieCast from './MovieCast/MovieCast'
 import Menu from '../../components/Menu/Menu'
-import PersonLink from '../../components/PersonLink/PersonLink'
 import { getIdFromSlug } from '../../components/ObjectLink/ObjectLink'
 
 import './MoviePage.scss'
@@ -18,15 +18,6 @@ type Props = { data: Object }
 export class MoviePage extends React.Component<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired
-  }
-
-  renderCast() {
-    return this.props.data.movie.cast.edges.map(({ node }, i) =>
-      (<div key={node.id}>
-        <PersonLink person={node.person}/>
-        ({node.role.name}: {node.name})
-      </div>)
-    )
   }
 
   render() {
@@ -39,9 +30,17 @@ export class MoviePage extends React.Component<Props> {
         <h1>{movie.title}</h1>
         <h2>{movie.title}</h2>
         <MovieInfo movie={movie}/>
-        <MovieImage movie={movie}/>
-        <div>{movie.imdb.id} - {movie.imdb.rating}</div>
-        {this.renderCast()}
+        <div className="row">
+          <div className="col-lg">
+            <MovieImage movie={movie}/>
+            <div>{movie.imdb.id} - {movie.imdb.rating}</div>
+          </div>
+          <div className="col-lg-7">
+            <MovieCast movie={movie}/>
+          </div>
+          <div className="col-lg-3">&nbsp;
+          </div>
+        </div>
       </div>
     )
   }
@@ -54,22 +53,10 @@ const MovieQuery = gql`
       title
       imdb { id, rating }
       ...MovieInfo
-      cast {
-        edges {
-          node {
-            id 
-            name
-            person {
-              ...PersonLink
-              gender
-            }
-            role { name }
-          }
-        }
-      }      
+      ...MovieCast
     }
   }
-  ${PersonLink.fragments.person}
+  ${MovieCast.fragments.movie}
   ${MovieInfo.fragments.movie}
 `
 

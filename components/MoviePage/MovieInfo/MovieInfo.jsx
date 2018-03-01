@@ -46,9 +46,9 @@ export default class MovieInfo extends React.PureComponent<Props> {
         <span styleName="countries">
           {this.props.movie.countries.map((item, i) => (
             <span key={item.name}>
+              {i > 0 ? ', ' : ''}
               <CountryFlag country={item}/>
               {item.name}
-              {i > 0 ? ', ' : ''}
             </span>
           ))}
         </span>
