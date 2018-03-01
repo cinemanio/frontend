@@ -78,6 +78,7 @@ function ApolloReduxReactSSR(routes: Object) {
       status = renderProps.routes.reduce((prev, route) => Math.max(toInteger(route.status), prev), 200)
       status = 200
     } catch (error) {
+      // console.log(error)
       status = 500
       renderResult = renderErrorPage(error)
     }

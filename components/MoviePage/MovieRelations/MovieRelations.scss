@@ -1,8 +1,11 @@
 @import 'mixins.scss';
 
-@mixin rel-fa-icon($type) {
+@mixin rel-fa-icon($type, $color) {
+  color: #999999;
+
   i {
     @include fa-icon($type);
+    font-size: 1.5rem;
     margin-right: 0.5rem;
     border: 1px solid #999999;
     border-radius: 5px;
@@ -10,46 +13,59 @@
     color: white;
     padding: 0.3rem;
   }
+
+  .active {
+    color: $color;
+
+    i {
+      background-color: $color;
+    }
+  }
+
+  &:hover {
+    color: #666666;
+
+    i {
+      border: 1px solid #666666;
+      background-color: #999999;
+    }
+  }
 }
 
 .relations {
   float: right;
-  color: #999999;
 
   > span {
     margin-left: 1rem;
-    font-size: 1.5rem;
-
-    > i {
-      font-size: 1.8rem;
-    }
+    font-size: 1.3rem;
+    cursor: pointer;
   }
 
   .fav {
-    @include rel-fa-icon('star');
+    @include rel-fa-icon('star', #e26500);
   }
 
   .like {
-    @include rel-fa-icon('thumbs-up');
+    @include rel-fa-icon('thumbs-up', #129800);
   }
 
   .seen {
-    @include rel-fa-icon('eye');
+    @include rel-fa-icon('eye', #2f598c);
   }
 
   .dislike {
-    @include rel-fa-icon('thumbs-down');
+    @include rel-fa-icon('thumbs-down', #cd371f);
   }
 
   .want {
-    @include rel-fa-icon('check');
+    @include rel-fa-icon('check', #009986);
   }
 
   .ignore {
-    @include rel-fa-icon('eye-slash');
+    @include rel-fa-icon('eye-slash', #804500);
   }
 
   .have {
-    @include rel-fa-icon('save');
+    @include rel-fa-icon('save', #d08d00);
   }
 }

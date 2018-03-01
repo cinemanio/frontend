@@ -20,16 +20,24 @@ export default class MovieRelations extends React.Component<Props> {
     `
   }
 
+  type = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
+
+  changeRelation = (type: string) => (e) => {
+    console.log(type)
+  }
+
+  renderButtons() {
+    return this.type.map(type => (
+      <span key={type} styleName={type} onClick={this.changeRelation(type)}>
+        <i/>{this.props.counts[type]}
+      </span>
+    ))
+  }
+
   render() {
     return (
       <div styleName="relations">
-        <span styleName="fav"><i/>{this.props.counts.fav}</span>
-        <span styleName="like"><i/>{this.props.counts.like}</span>
-        <span styleName="seen"><i/>{this.props.counts.seen}</span>
-        <span styleName="dislike"><i/>{this.props.counts.dislike}</span>
-        <span styleName="want"><i/>{this.props.counts.want}</span>
-        <span styleName="ignore"><i/>{this.props.counts.ignore}</span>
-        <span styleName="have"><i/>{this.props.counts.have}</span>
+        {this.renderButtons()}
       </div>
     )
   }
