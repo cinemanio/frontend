@@ -15,7 +15,7 @@ import './MoviePage.scss'
 
 type Props = { data: Object }
 
-export class MoviePage extends React.Component<Props> {
+export class MoviePage extends React.PureComponent<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired
   }
