@@ -18,6 +18,7 @@ export default class MovieLink extends React.PureComponent<Props> {
         id
         title
         titleEn
+        year
       }
     `
   }
@@ -25,6 +26,7 @@ export default class MovieLink extends React.PureComponent<Props> {
   get parts(): Array<string> {
     return [
       this.props.movie.titleEn,
+      String(this.props.movie.year),
       this.props.movie.id
     ]
   }

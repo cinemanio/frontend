@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
 import PersonLink from 'components/PersonLink/PersonLink'
+import PersonImage from 'components/PersonImage/PersonImage'
 import Block from 'components/Block/Block'
 
 import './MovieCast.scss'
@@ -38,18 +39,25 @@ export default class MovieCast extends React.Component<Props> {
 
   renderCast() {
     return this.props.movie.cast.edges.map(({ node }, i) =>
-      (<div key={node.id}>
-        <PersonLink person={node.person}/>
-        ({node.role.name}: {node.name})
+      (<div key={node.id} styleName="person">
+        <div styleName="image"><PersonImage person={node.person}/></div>
+        <div>
+          <div><PersonLink person={node.person}/></div>
+          <div>{node.name || node.role.name}</div>
+        </div>
       </div>)
     )
   }
 
   render() {
     return (
-      <Block title="Cast" styleName="box">
-        {this.renderCast()}
-      </Block>
+      <div styleName="box">
+        <Block title="Cast">
+          <div styleName="cast">
+            {this.renderCast()}
+          </div>
+        </Block>
+      </div>
     )
   }
 }

@@ -1,3 +1,25 @@
 .box {
   margin-top: 1rem;
+
+  .cast {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .person {
+    display: flex;
+    margin-bottom: 0.4rem;
+    font-size: 0.7rem;
+    color: #666666;
+    width: 50%;
+
+    a {
+      font-size: 0.8rem;
+      color: #333333;
+    }
+
+    .image {
+      margin-right: 0.5rem;
+    }
+  }
 }

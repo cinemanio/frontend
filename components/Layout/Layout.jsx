@@ -1,16 +1,27 @@
 // @flow
 import React from 'react'
 import Helmet from 'react-helmet'
+import RedBox from 'redbox-react'
 import { Link } from 'react-router-named-routes'
 import { PropTypes } from 'prop-types'
 
 import './Layout.scss'
 
 type Props = { children: Object }
+type State = { error: ?Error }
 
-export default class Layout extends React.PureComponent<Props> {
+export default class Layout extends React.PureComponent<Props, State> {
   static propTypes = {
     children: PropTypes.node.isRequired
+  }
+
+  constructor(props: Object) {
+    super(props)
+    this.state = { error: null }
+  }
+
+  componentDidCatch(error: Error) {
+    this.setState({ error })
   }
 
   render() {
@@ -26,7 +37,9 @@ export default class Layout extends React.PureComponent<Props> {
         </Helmet>
         <header><Link to="index">cineman.io</Link></header>
         <div styleName="container">
-          {this.props.children}
+          {this.state.error
+            ? <RedBox error={this.state.error}/>
+            : this.props.children}
         </div>
       </div>
     )

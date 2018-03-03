@@ -11,6 +11,7 @@ import MovieInfo from './MovieInfo/MovieInfo'
 import MovieImage from './MovieImage/MovieImage'
 import MovieRelations from './MovieRelations/MovieRelations'
 import MovieCast from './MovieCast/MovieCast'
+import MovieSites from './MovieSites/MovieSites'
 
 import './MoviePage.scss'
 
@@ -34,7 +35,7 @@ export class MoviePage extends React.PureComponent<Props> {
         <div className="row">
           <div className="col-lg">
             <MovieImage movie={movie}/>
-            <div>{movie.imdb.id} - {movie.imdb.rating}</div>
+            <MovieSites movie={movie}/>
           </div>
           <div className="col-lg-7">
             <MovieCast movie={movie}/>
@@ -52,11 +53,12 @@ const MovieQuery = gql`
     movie(id: $movieId) {
       id
       title
-      imdb { id, rating }
+      ...MovieSites
       ...MovieInfo
       ...MovieCast
     }
   }
+  ${MovieSites.fragments.movie}
   ${MovieCast.fragments.movie}
   ${MovieInfo.fragments.movie}
 `
