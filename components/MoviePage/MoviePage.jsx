@@ -4,12 +4,13 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+import Menu from 'components/Menu/Menu'
+import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
+
 import MovieInfo from './MovieInfo/MovieInfo'
 import MovieImage from './MovieImage/MovieImage'
 import MovieRelations from './MovieRelations/MovieRelations'
 import MovieCast from './MovieCast/MovieCast'
-import Menu from '../../components/Menu/Menu'
-import { getIdFromSlug } from '../../components/ObjectLink/ObjectLink'
 
 import './MoviePage.scss'
 

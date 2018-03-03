@@ -3,8 +3,8 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import PersonLink from '../../../components/PersonLink/PersonLink'
-import Block from '../../../components/Block/Block'
+import PersonLink from 'components/PersonLink/PersonLink'
+import Block from 'components/Block/Block'
 
 import './MovieCast.scss'
 

@@ -8,9 +8,10 @@ import { match, RouterContext } from 'react-router'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 
-import Layout from '../components/Layout/Layout'
-import settings from '../settings'
+import Layout from 'components/Layout/Layout'
+
 import renderHtmlPage from './renderHtmlPage'
+import settings from '../settings'
 
 const matchRoute = async (...args) => new Promise((resolve, reject) => {
   match(...args, (error, redirectLocation, renderProps) => {

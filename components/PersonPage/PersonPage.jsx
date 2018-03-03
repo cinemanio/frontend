@@ -4,9 +4,9 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import Menu from '../../components/Menu/Menu'
-import MovieLink from '../../components/MovieLink/MovieLink'
-import { getIdFromSlug } from '../../components/ObjectLink/ObjectLink'
+import Menu from 'components/Menu/Menu'
+import MovieLink from 'components/MovieLink/MovieLink'
+import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 
 type Props = { data: Object }
 
