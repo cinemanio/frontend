@@ -30,7 +30,7 @@ export class PersonPage extends React.Component<Props> {
     return (
       <div>
         <Menu active="person" link/>
-        <h1>{person.firstName} {person.lastName}</h1>
+        <h1>{person.name}</h1>
         <div>{person.country && person.country.name}</div>
         <div>{person.gender}</div>
         <div>{person.dateBirth}</div>
@@ -46,8 +46,7 @@ const PersonQuery = gql`
   query Person($personId: ID!) {
     person(id: $personId) {
       id
-      firstName
-      lastName
+      name
       gender
       country { id, name }
       imdb { id }

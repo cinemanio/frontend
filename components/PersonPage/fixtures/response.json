@@ -1,9 +1,8 @@
 {
   "data": {
     "person": {
-      "id": "UGVyc29uTm9kZTozNDY1",
-      "firstName": "Harmony",
-      "lastName": "Korine",
+      "id": "UGVyc29uTm9kZToxNTQ=",
+      "name": "David Fincher",
       "gender": "A_1",
       "country": {
         "id": "69",
@@ -11,23 +10,81 @@
         "__typename": "CountryNode"
       },
       "imdb": {
-        "id": 5101,
+        "id": 399,
         "__typename": "ImdbPersonNode"
       },
       "career": {
         "edges": [
           {
             "node": {
-              "id": "10093",
-              "name": "Boy on Couch",
+              "id": "3275",
+              "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjkyNjk=",
-                "title": "Gummo",
+                "id": "TW92aWVOb2RlOjExMTY0",
+                "title": "Being John Malkovich",
+                "titleEn": "Being John Malkovich",
+                "year": 1999,
+                "__typename": "MovieNode"
+              },
+              "role": {
+                "name": "Actor",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "114240",
+              "name": "",
+              "movie": {
+                "id": "TW92aWVOb2RlOjc0NzI=",
+                "title": "Full Frontal",
+                "titleEn": "Full Frontal",
+                "year": 2002,
+                "__typename": "MovieNode"
+              },
+              "role": {
+                "name": "Actor",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "214199",
+              "name": "Himself",
+              "movie": {
+                "id": "TW92aWVOb2RlOjI5NDA2",
+                "title": "Side by Side",
+                "titleEn": "Side by Side",
+                "year": 2012,
+                "__typename": "MovieNode"
+              },
+              "role": {
+                "name": "Actor",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "13",
+              "name": "",
+              "movie": {
+                "id": "TW92aWVOb2RlOjE4",
+                "title": "The Game",
+                "titleEn": "The Game",
                 "year": 1997,
                 "__typename": "MovieNode"
               },
               "role": {
-                "name": "Actor",
+                "name": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -36,52 +93,17 @@
           },
           {
             "node": {
-              "id": "149022",
-              "name": "Guy in Club",
+              "id": "3271",
+              "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjExMzAz",
-                "title": "Last Days",
-                "year": 2005,
-                "__typename": "MovieNode"
-              },
-              "role": {
-                "name": "Actor",
-                "__typename": "RoleNode"
-              },
-              "__typename": "CastNode"
-            },
-            "__typename": "CastNodeEdge"
-          },
-          {
-            "node": {
-              "id": "163781",
-              "name": "Jerve",
-              "movie": {
-                "id": "TW92aWVOb2RlOjk4NTg=",
-                "title": "Good Will Hunting",
-                "year": 1997,
-                "__typename": "MovieNode"
-              },
-              "role": {
-                "name": "Actor",
-                "__typename": "RoleNode"
-              },
-              "__typename": "CastNode"
-            },
-            "__typename": "CastNodeEdge"
-          },
-          {
-            "node": {
-              "id": "163782",
-              "name": "Club Kid, (uncredited",
-              "movie": {
-                "id": "TW92aWVOb2RlOjk2MDc=",
-                "title": "Kids",
+                "id": "TW92aWVOb2RlOjExMzc0",
+                "title": "Se7en",
+                "titleEn": "Se7en",
                 "year": 1995,
                 "__typename": "MovieNode"
               },
               "role": {
-                "name": "Actor",
+                "name": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -90,16 +112,17 @@
           },
           {
             "node": {
-              "id": "219876",
-              "name": "Mr. Feldman",
+              "id": "3272",
+              "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjI5ODgz",
-                "title": "Stoker",
-                "year": 2013,
+                "id": "TW92aWVOb2RlOjExNTkw",
+                "title": "Zodiac",
+                "titleEn": "Zodiac",
+                "year": 2007,
                 "__typename": "MovieNode"
               },
               "role": {
-                "name": "Actor",
+                "name": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -108,11 +131,12 @@
           },
           {
             "node": {
-              "id": "10091",
+              "id": "3273",
               "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjkyNzA=",
-                "title": "Julien Donkey-Boy",
+                "id": "TW92aWVOb2RlOjExNTIy",
+                "title": "Fight Club",
+                "titleEn": "Fight Club",
                 "year": 1999,
                 "__typename": "MovieNode"
               },
@@ -126,12 +150,13 @@
           },
           {
             "node": {
-              "id": "10094",
+              "id": "4552",
               "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjkyNjk=",
-                "title": "Gummo",
-                "year": 1997,
+                "id": "TW92aWVOb2RlOjEwNDA2",
+                "title": "Alien 3",
+                "titleEn": "Alien 3",
+                "year": 1992,
                 "__typename": "MovieNode"
               },
               "role": {
@@ -144,12 +169,13 @@
           },
           {
             "node": {
-              "id": "31434",
+              "id": "8314",
               "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjU3MTk=",
-                "title": "Mister Lonely",
-                "year": 2007,
+                "id": "TW92aWVOb2RlOjEwNDM1",
+                "title": "Panic Room",
+                "titleEn": "Panic Room",
+                "year": 2002,
                 "__typename": "MovieNode"
               },
               "role": {
@@ -162,11 +188,69 @@
           },
           {
             "node": {
-              "id": "216176",
+              "id": "23150",
               "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjI4NTQx",
-                "title": "\u0412i\u0434\u0432'\u044f\u0437\u043di \u043a\u0430\u043di\u043a\u0443\u043b\u0438",
+                "id": "TW92aWVOb2RlOjY3NTE=",
+                "title": "The Curious Case of Benjamin Button ",
+                "titleEn": "The Curious Case of Benjamin Button ",
+                "year": 2008,
+                "__typename": "MovieNode"
+              },
+              "role": {
+                "name": "Director",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "99269",
+              "name": "",
+              "movie": {
+                "id": "TW92aWVOb2RlOjE0MTgx",
+                "title": "The Social Network",
+                "titleEn": "The Social Network",
+                "year": 2010,
+                "__typename": "MovieNode"
+              },
+              "role": {
+                "name": "Director",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "131391",
+              "name": "",
+              "movie": {
+                "id": "TW92aWVOb2RlOjE5NzQz",
+                "title": "The Girl with the Dragon Tattoo",
+                "titleEn": "The Girl with the Dragon Tattoo",
+                "year": 2011,
+                "__typename": "MovieNode"
+              },
+              "role": {
+                "name": "Director",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "219072",
+              "name": "",
+              "movie": {
+                "id": "TW92aWVOb2RlOjI5ODIz",
+                "title": "House of Cards",
+                "titleEn": "House of Cards",
                 "year": 2013,
                 "__typename": "MovieNode"
               },
@@ -180,12 +264,32 @@
           },
           {
             "node": {
-              "id": "31437",
+              "id": "231159",
               "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjU3MTk=",
-                "title": "Mister Lonely",
-                "year": 2007,
+                "id": "TW92aWVOb2RlOjMwNjc3",
+                "title": "Gone Girl",
+                "titleEn": "Gone Girl",
+                "year": 2014,
+                "__typename": "MovieNode"
+              },
+              "role": {
+                "name": "Director",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
+              "id": "3274",
+              "name": "",
+              "movie": {
+                "id": "TW92aWVOb2RlOjEwNzY3",
+                "title": "Love and Other Disasters",
+                "titleEn": "Love and Other Disasters",
+                "year": 2006,
                 "__typename": "MovieNode"
               },
               "role": {
@@ -198,16 +302,17 @@
           },
           {
             "node": {
-              "id": "10090",
+              "id": "61894",
               "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjk2MDc=",
-                "title": "Kids",
-                "year": 1995,
+                "id": "TW92aWVOb2RlOjc4NDI=",
+                "title": "The Hire: The Follow",
+                "titleEn": "The Hire: The Follow",
+                "year": 2001,
                 "__typename": "MovieNode"
               },
               "role": {
-                "name": "Scenarist",
+                "name": "Producer",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -216,88 +321,17 @@
           },
           {
             "node": {
-              "id": "31435",
+              "id": "219082",
               "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjU3MTk=",
-                "title": "Mister Lonely",
-                "year": 2007,
-                "__typename": "MovieNode"
-              },
-              "role": {
-                "name": "Scenarist",
-                "__typename": "RoleNode"
-              },
-              "__typename": "CastNode"
-            },
-            "__typename": "CastNodeEdge"
-          },
-          {
-            "node": {
-              "id": "53908",
-              "name": "",
-              "movie": {
-                "id": "TW92aWVOb2RlOjkyNjk=",
-                "title": "Gummo",
-                "year": 1997,
-                "__typename": "MovieNode"
-              },
-              "role": {
-                "name": "Scenarist",
-                "__typename": "RoleNode"
-              },
-              "__typename": "CastNode"
-            },
-            "__typename": "CastNodeEdge"
-          },
-          {
-            "node": {
-              "id": "163783",
-              "name": "",
-              "movie": {
-                "id": "TW92aWVOb2RlOjk2MDY=",
-                "title": "Ken Park",
-                "year": 2002,
-                "__typename": "MovieNode"
-              },
-              "role": {
-                "name": "Scenarist",
-                "__typename": "RoleNode"
-              },
-              "__typename": "CastNode"
-            },
-            "__typename": "CastNodeEdge"
-          },
-          {
-            "node": {
-              "id": "163784",
-              "name": "",
-              "movie": {
-                "id": "TW92aWVOb2RlOjkyNzA=",
-                "title": "Julien Donkey-Boy",
-                "year": 1999,
-                "__typename": "MovieNode"
-              },
-              "role": {
-                "name": "Scenarist",
-                "__typename": "RoleNode"
-              },
-              "__typename": "CastNode"
-            },
-            "__typename": "CastNodeEdge"
-          },
-          {
-            "node": {
-              "id": "216184",
-              "name": "",
-              "movie": {
-                "id": "TW92aWVOb2RlOjI4NTQx",
-                "title": "\u0412i\u0434\u0432'\u044f\u0437\u043di \u043a\u0430\u043di\u043a\u0443\u043b\u0438",
+                "id": "TW92aWVOb2RlOjI5ODIz",
+                "title": "House of Cards",
+                "titleEn": "House of Cards",
                 "year": 2013,
                 "__typename": "MovieNode"
               },
               "role": {
-                "name": "Scenarist",
+                "name": "Producer",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"

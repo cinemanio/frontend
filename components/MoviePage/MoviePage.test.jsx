@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import { MoviePage } from './MoviePage'
-import { data } from './fixtures/movie.json'
+import { data } from './fixtures/response.json'
 
 describe('Movie Page Component', () => {
   let element

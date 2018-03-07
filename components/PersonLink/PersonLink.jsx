@@ -16,18 +16,15 @@ export default class PersonLink extends React.PureComponent<Props> {
     person: gql`
       fragment PersonLink on PersonNode {
         id
-        firstName
-        lastName
-        firstNameEn
-        lastNameEn
+        name
+        nameEn
       }
     `
   }
 
   get parts(): Array<string> {
     return [
-      this.props.person.firstNameEn,
-      this.props.person.lastNameEn,
+      this.props.person.nameEn,
       this.props.person.id
     ]
   }
@@ -35,7 +32,7 @@ export default class PersonLink extends React.PureComponent<Props> {
   render() {
     return (
       <ObjectLink to="person.detail" parts={this.parts}>
-        {this.props.person.firstName} {this.props.person.lastName}
+        {this.props.person.name}
       </ObjectLink>
     )
   }

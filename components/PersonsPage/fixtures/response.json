@@ -6,10 +6,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNTQ=",
-            "firstName": "David",
-            "lastName": "Fincher",
-            "firstNameEn": "David",
-            "lastNameEn": "Fincher",
+            "name": "David Fincher",
+            "nameEn": "David Fincher",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -17,10 +15,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNTU=",
-            "firstName": "Joachim",
-            "lastName": "Roenning",
-            "firstNameEn": "Joachim",
-            "lastNameEn": "Roenning",
+            "name": "Joachim Roenning",
+            "nameEn": "Joachim Roenning",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -28,10 +24,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNTY=",
-            "firstName": "Espen",
-            "lastName": "Sandberg",
-            "firstNameEn": "Espen",
-            "lastNameEn": "Sandberg",
+            "name": "Espen Sandberg",
+            "nameEn": "Espen Sandberg",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -39,10 +33,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNTc=",
-            "firstName": "Al",
-            "lastName": "Pacino",
-            "firstNameEn": "Al",
-            "lastNameEn": "Pacino",
+            "name": "Al Pacino",
+            "nameEn": "Al Pacino",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -50,10 +42,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNTg=",
-            "firstName": "Francis Ford",
-            "lastName": "Coppola",
-            "firstNameEn": "Francis Ford",
-            "lastNameEn": "Coppola",
+            "name": "Francis Ford Coppola",
+            "nameEn": "Francis Ford Coppola",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -61,10 +51,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNTk=",
-            "firstName": "Nino",
-            "lastName": "Rota",
-            "firstNameEn": "Nino",
-            "lastNameEn": "Rota",
+            "name": "Nino Rota",
+            "nameEn": "Nino Rota",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -72,10 +60,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNjA=",
-            "firstName": "Marlon",
-            "lastName": "Brando",
-            "firstNameEn": "Marlon",
-            "lastNameEn": "Brando",
+            "name": "Marlon Brando",
+            "nameEn": "Marlon Brando",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -83,10 +69,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNjE=",
-            "firstName": "Gordon",
-            "lastName": "Willis",
-            "firstNameEn": "Gordon",
-            "lastNameEn": "Willis",
+            "name": "Gordon Willis",
+            "nameEn": "Gordon Willis",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -94,10 +78,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNjI=",
-            "firstName": "James",
-            "lastName": "Caan",
-            "firstNameEn": "James",
-            "lastNameEn": "Caan",
+            "name": "James Caan",
+            "nameEn": "James Caan",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -105,10 +87,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNjM=",
-            "firstName": "Diane",
-            "lastName": "Keaton",
-            "firstNameEn": "Diane",
-            "lastNameEn": "Keaton",
+            "name": "Diane Keaton",
+            "nameEn": "Diane Keaton",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -116,10 +96,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNjQ=",
-            "firstName": "Jim",
-            "lastName": "Carrey",
-            "firstNameEn": "Jim",
-            "lastNameEn": "Carrey",
+            "name": "Jim Carrey",
+            "nameEn": "Jim Carrey",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -127,10 +105,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNjU=",
-            "firstName": "Robert",
-            "lastName": "De Niro",
-            "firstNameEn": "Robert",
-            "lastNameEn": "De Niro",
+            "name": "Robert De Niro",
+            "nameEn": "Robert De Niro",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -138,10 +114,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNjY=",
-            "firstName": "Brett",
-            "lastName": "Ratner",
-            "firstNameEn": "Brett",
-            "lastNameEn": "Ratner",
+            "name": "Brett Ratner",
+            "nameEn": "Brett Ratner",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -149,10 +123,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNjg=",
-            "firstName": "Sean",
-            "lastName": "Bean",
-            "firstNameEn": "Sean",
-            "lastNameEn": "Bean",
+            "name": "Sean Bean",
+            "nameEn": "Sean Bean",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -160,10 +132,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNjk=",
-            "firstName": "Ben",
-            "lastName": "Kingsley",
-            "firstNameEn": "Ben",
-            "lastNameEn": "Kingsley",
+            "name": "Ben Kingsley",
+            "nameEn": "Ben Kingsley",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -171,10 +141,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNzA=",
-            "firstName": "Josh",
-            "lastName": "Hartnett",
-            "firstNameEn": "Josh",
-            "lastNameEn": "Hartnett",
+            "name": "Josh Hartnett",
+            "nameEn": "Josh Hartnett",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -182,10 +150,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNzE=",
-            "firstName": "Morgan",
-            "lastName": "Freeman",
-            "firstNameEn": "Morgan",
-            "lastNameEn": "Freeman",
+            "name": "Morgan Freeman",
+            "nameEn": "Morgan Freeman",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -193,10 +159,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNzI=",
-            "firstName": "Bruce",
-            "lastName": "Willis",
-            "firstNameEn": "Bruce",
-            "lastNameEn": "Willis",
+            "name": "Bruce Willis",
+            "nameEn": "Bruce Willis",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -204,10 +168,8 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNzM=",
-            "firstName": "Lucas",
-            "lastName": "Black",
-            "firstNameEn": "Lucas",
-            "lastNameEn": "Black",
+            "name": "Lucas Black",
+            "nameEn": "Lucas Black",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -215,17 +177,15 @@
         {
           "person": {
             "id": "UGVyc29uTm9kZToxNzQ=",
-            "firstName": "Cameron",
-            "lastName": "Bright",
-            "firstNameEn": "Cameron",
-            "lastNameEn": "Bright",
+            "name": "Anatoliy Beliy",
+            "nameEn": "Anatoliy Beliy",
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
         }
       ],
       "pageInfo": {
-        "endCursor": "YXJyYXljb25uZWN0aW9uOjE5",
+        "endCursor": "YXJyYXljb25uZWN0aW9uOjk5",
         "hasNextPage": true,
         "__typename": "PageInfo"
       },
