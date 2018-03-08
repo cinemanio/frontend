@@ -9,6 +9,10 @@ describe('Persons Page Component', () => {
   let element
   let wrapper
 
+  beforeAll(() => {
+    global.console.warn = jest.fn()
+  })
+
   beforeEach(() => {
     element = <PersonsPage/>
   })

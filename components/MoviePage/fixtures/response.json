@@ -3,13 +3,19 @@
     "movie": {
       "id": "TW92aWVOb2RlOjk2MDc=",
       "title": "Kids",
-      "year": 1995,
-      "runtime": 91,
       "imdb": {
-        "id": 113540,
+        "url": "http://www.imdb.com/title/tt0113540/",
         "rating": 7.0,
         "__typename": "ImdbMovieNode"
       },
+      "kinopoisk": {
+        "url": "http://www.kinopoisk.ru/film/6384/",
+        "rating": 6.336,
+        "__typename": "KinopoiskMovieNode"
+      },
+      "__typename": "MovieNode",
+      "year": 1995,
+      "runtime": 91,
       "genres": [
         {
           "name": "Drama",
@@ -19,6 +25,7 @@
       "countries": [
         {
           "name": "USA",
+          "code": "us",
           "__typename": "CountryNode"
         }
       ],
@@ -35,10 +42,11 @@
               "id": "10092",
               "name": "Jennie",
               "person": {
-                "firstName": "Chlo\u00eb",
-                "lastName": "Sevigny",
-                "gender": "A_0",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZTozNDY2",
+                "name": "Chlo\u00eb Sevigny",
+                "nameEn": "Chlo\u00eb Sevigny",
+                "__typename": "PersonNode",
+                "gender": "A_0"
               },
               "role": {
                 "name": "Actor",
@@ -53,10 +61,11 @@
               "id": "16771",
               "name": "Ruby",
               "person": {
-                "firstName": "Rosario",
-                "lastName": "Dawson",
-                "gender": "A_0",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZTozMDcx",
+                "name": "Rosario Dawson",
+                "nameEn": "Rosario Dawson",
+                "__typename": "PersonNode",
+                "gender": "A_0"
               },
               "role": {
                 "name": "Actor",
@@ -71,10 +80,11 @@
               "id": "56009",
               "name": "Telly",
               "person": {
-                "firstName": "Leo",
-                "lastName": "Fitzpatrick",
-                "gender": null,
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZToxMjI5Mw==",
+                "name": "Leo Fitzpatrick",
+                "nameEn": "Leo Fitzpatrick",
+                "__typename": "PersonNode",
+                "gender": null
               },
               "role": {
                 "name": "Actor",
@@ -89,10 +99,11 @@
               "id": "56010",
               "name": "Casper",
               "person": {
-                "firstName": "Justin",
-                "lastName": "Pierce",
-                "gender": "A_1",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZToxNjg2NQ==",
+                "name": "Justin Pierce",
+                "nameEn": "Justin Pierce",
+                "__typename": "PersonNode",
+                "gender": "A_1"
               },
               "role": {
                 "name": "Actor",
@@ -107,10 +118,11 @@
               "id": "56011",
               "name": "Steven",
               "person": {
-                "firstName": "Jon",
-                "lastName": "Abrahams",
-                "gender": "A_1",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZTo2NzYz",
+                "name": "Jon Abrahams",
+                "nameEn": "Jon Abrahams",
+                "__typename": "PersonNode",
+                "gender": "A_1"
               },
               "role": {
                 "name": "Actor",
@@ -125,10 +137,11 @@
               "id": "163782",
               "name": "Club Kid, (uncredited",
               "person": {
-                "firstName": "Harmony",
-                "lastName": "Korine",
-                "gender": "A_1",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZTozNDY1",
+                "name": "Harmony Korine",
+                "nameEn": "Harmony Korine",
+                "__typename": "PersonNode",
+                "gender": "A_1"
               },
               "role": {
                 "name": "Actor",
@@ -143,10 +156,11 @@
               "id": "8767",
               "name": "",
               "person": {
-                "firstName": "Larry",
-                "lastName": "Clark",
-                "gender": "A_1",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZTozMTMy",
+                "name": "Larry Clark",
+                "nameEn": "Larry Clark",
+                "__typename": "PersonNode",
+                "gender": "A_1"
               },
               "role": {
                 "name": "Director",
@@ -161,10 +175,11 @@
               "id": "56012",
               "name": "",
               "person": {
-                "firstName": "Gus",
-                "lastName": "Van Sant",
-                "gender": "A_1",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZTo4NjY=",
+                "name": "Gus Van Sant",
+                "nameEn": "Gus Van Sant",
+                "__typename": "PersonNode",
+                "gender": "A_1"
               },
               "role": {
                 "name": "Producer",
@@ -179,10 +194,11 @@
               "id": "62638",
               "name": "",
               "person": {
-                "firstName": "Cathy",
-                "lastName": "Konrad",
-                "gender": "A_0",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZTo5NTQw",
+                "name": "Cathy Konrad",
+                "nameEn": "Cathy Konrad",
+                "__typename": "PersonNode",
+                "gender": "A_0"
               },
               "role": {
                 "name": "Producer",
@@ -197,10 +213,11 @@
               "id": "10090",
               "name": "",
               "person": {
-                "firstName": "Harmony",
-                "lastName": "Korine",
-                "gender": "A_1",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZTozNDY1",
+                "name": "Harmony Korine",
+                "nameEn": "Harmony Korine",
+                "__typename": "PersonNode",
+                "gender": "A_1"
               },
               "role": {
                 "name": "Scenarist",
@@ -215,10 +232,11 @@
               "id": "11202",
               "name": "",
               "person": {
-                "firstName": "Larry",
-                "lastName": "Clark",
-                "gender": "A_1",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZTozMTMy",
+                "name": "Larry Clark",
+                "nameEn": "Larry Clark",
+                "__typename": "PersonNode",
+                "gender": "A_1"
               },
               "role": {
                 "name": "Scenarist",
@@ -233,10 +251,11 @@
               "id": "147840",
               "name": "",
               "person": {
-                "firstName": "Larry",
-                "lastName": "Clark",
-                "gender": "A_1",
-                "__typename": "PersonNode"
+                "id": "UGVyc29uTm9kZTozMTMy",
+                "name": "Larry Clark",
+                "nameEn": "Larry Clark",
+                "__typename": "PersonNode",
+                "gender": "A_1"
               },
               "role": {
                 "name": "Writer",
@@ -248,8 +267,7 @@
           }
         ],
         "__typename": "CastNodeConnection"
-      },
-      "__typename": "MovieNode"
+      }
     }
   }
 }

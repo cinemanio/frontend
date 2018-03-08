@@ -12,9 +12,7 @@ export const mountGraphql = (response, element) => {
   })
   return mount(
     <ApolloProvider client={client}>
-      <div>
-        {element}
-      </div>
+      {element}
     </ApolloProvider>
   )
 }
