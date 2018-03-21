@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import Menu from 'components/Menu/Menu'
+import ObjectPage from 'components/ObjectPage/ObjectPage'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 
 import MovieInfo from './MovieInfo/MovieInfo'
@@ -22,12 +22,9 @@ export class MoviePage extends React.PureComponent<Props> {
     data: PropTypes.object.isRequired
   }
 
-  render() {
-    const { movie } = this.props.data
-    if (!movie) return null
+  renderLayout(movie: Object) {
     return (
       <div>
-        <Menu active="movie" link/>
         <MovieRelations counts={{ fav: 1, like: 10, seen: 10, dislike: 10, want: 3, have: 3, ignore: 0 }}/>
         <h1>{movie.title}</h1>
         <h2>{movie.title}</h2>
@@ -44,6 +41,12 @@ export class MoviePage extends React.PureComponent<Props> {
           </div>
         </div>
       </div>
+    )
+  }
+
+  render() {
+    return (
+      <ObjectPage type="movie" object={this.props.data.movie} renderLayout={this.renderLayout}/>
     )
   }
 }

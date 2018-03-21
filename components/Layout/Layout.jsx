@@ -24,6 +24,12 @@ export default class Layout extends React.PureComponent<Props, State> {
     this.setState({ error })
   }
 
+  renderContent() {
+    return this.state.error
+      ? <RedBox error={this.state.error}/>
+      : this.props.children
+  }
+
   render() {
     return (
       <div className="container">
@@ -37,9 +43,7 @@ export default class Layout extends React.PureComponent<Props, State> {
         </Helmet>
         <header><Link to="index">cineman.io</Link></header>
         <div styleName="container">
-          {this.state.error
-            ? <RedBox error={this.state.error}/>
-            : this.props.children}
+          {this.renderContent()}
         </div>
       </div>
     )

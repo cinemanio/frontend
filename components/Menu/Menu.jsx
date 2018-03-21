@@ -8,8 +8,12 @@ import './Menu.scss'
 type Props = { active: string }
 
 export default class Menu extends React.PureComponent<Props> {
+  static defaultProps = {
+    active: ''
+  }
+
   static propTypes = {
-    active: PropTypes.string.isRequired
+    active: PropTypes.string
     // link: PropTypes.bool
   }
 
@@ -38,6 +42,8 @@ export default class Menu extends React.PureComponent<Props> {
     return (
       <ul className="nav nav-tabs">
         {this.renderMenu()}
+        <Link to="person.detail" className="nav-link" params={{ slug: '404' }}>404</Link>
+        <Link to="/500" className="nav-link">500</Link>
       </ul>
     )
   }

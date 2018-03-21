@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import Menu from 'components/Menu/Menu'
+import ObjectPage from 'components/ObjectPage/ObjectPage'
 import MovieLink from 'components/MovieLink/MovieLink'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 
@@ -15,29 +15,28 @@ export class PersonPage extends React.Component<Props> {
     data: PropTypes.object.isRequired
   }
 
-  renderCast() {
-    return this.props.data.person.career.edges.map(({ node }, i) =>
-      (<div key={node.id}>
-        <MovieLink movie={node.movie}/> ({node.movie.year})
-        ({node.role.name}: {node.name})
-      </div>)
-    )
-  }
-
-  render() {
-    const { person } = this.props.data
-    if (!person) return null
+  renderLayout(person: Object) {
     return (
       <div>
-        <Menu active="person" link/>
         <h1>{person.name}</h1>
         <div>{person.country && person.country.name}</div>
         <div>{person.gender}</div>
         <div>{person.dateBirth}</div>
         <div>{person.dateDeath}</div>
         <div>{person.imdb && person.imdb.id}</div>
-        {this.renderCast()}
+        {person.career.edges.map(({ node }, i) =>
+          (<div key={node.id}>
+            <MovieLink movie={node.movie}/> ({node.movie.year})
+            ({node.role.name}: {node.name})
+          </div>)
+        )}
       </div>
+    )
+  }
+
+  render() {
+    return (
+      <ObjectPage type="person" object={this.props.data.person} renderLayout={this.renderLayout}/>
     )
   }
 }

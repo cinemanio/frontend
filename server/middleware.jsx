@@ -24,7 +24,7 @@ function ApolloReduxReactSSR(routes: Object, apolloHttpConf: Object) {
     })
   })
 
-  async function fetchDataAndRenderBody(client: Object, app: Object) {
+  const fetchDataAndRenderBody = async (client: Object, app: Object) => {
     let markup = ''
     let initialState
     let head = null
@@ -37,7 +37,7 @@ function ApolloReduxReactSSR(routes: Object, apolloHttpConf: Object) {
     return { markup, head, initialState }
   }
 
-  function renderErrorPage(error: Object) {
+  const renderErrorPage = (error: Object) => {
     const initialState = { error: true } // TODO: think of something better...
     let markup = null
     let head = null
@@ -78,7 +78,7 @@ function ApolloReduxReactSSR(routes: Object, apolloHttpConf: Object) {
       renderResult = await fetchDataAndRenderBody(client, app)
       status = renderProps.routes.reduce((prev, route) => Math.max(toInteger(route.status), prev), 200)
     } catch (error) {
-      // console.log(error)
+      // console.debug(error)
       renderResult = renderErrorPage(error)
       status = 500
     }

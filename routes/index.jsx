@@ -10,6 +10,10 @@ import PersonsPage from 'components/PersonsPage/PersonsPage'
 import PersonPage from 'components/PersonPage/PersonPage'
 import Error404 from 'components/errors/Error404'
 
+const Error500 = () => {
+  throw Error()
+}
+
 const routes = (
   <Route path="/" component={Layout}>
     <IndexRedirect name="index" to="/movies"/>
@@ -17,6 +21,7 @@ const routes = (
     <Route name="movie.detail" path="movies/:slug" component={MoviePage}/>
     <Route name="person.list" path="persons" component={PersonsPage}/>
     <Route name="person.detail" path="persons/:slug" component={PersonPage}/>
+    <Route path="500" component={Error500}/>
     <Route path="*" status={404} component={Error404}/>
   </Route>
 )
