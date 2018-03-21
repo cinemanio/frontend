@@ -31,11 +31,11 @@ describe('Server Routes', () => {
     expect(response.status).toEqual(302)
   })
 
-  it('should respond a favicon', async () => {
-    const response = await client().get('/public/favicon.ico')
-    expect(response.status).toEqual(200)
-    expect(response.type).toEqual('image/x-icon')
-  })
+  // it('should respond a favicon', async () => {
+  //   const response = await client().get('/public/favicon.ico')
+  //   expect(response.status).toEqual(200)
+  //   expect(response.type).toEqual('image/x-icon')
+  // })
 
   it('should respond 404 error page', async () => {
     const response = await client().get('/404')
