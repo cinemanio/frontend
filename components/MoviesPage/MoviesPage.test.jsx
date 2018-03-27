@@ -1,9 +1,9 @@
 import React from 'react'
 
 import MoviesPage from './MoviesPage'
-import { mountGraphql, populated } from '../../tests/helpers'
 import response from './fixtures/response.json'
 import emptyResponse from './fixtures/empty_response.json'
+import { mountGraphql, populated } from '../../tests/helpers'
 
 describe('Movies Page Component', () => {
   let element

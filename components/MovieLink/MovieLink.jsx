@@ -33,7 +33,7 @@ export default class MovieLink extends React.PureComponent<Props> {
 
   render() {
     return (
-      <ObjectLink to="movie.detail" parts={this.parts}>
+      <ObjectLink type="movie" parts={this.parts}>
         {this.props.movie.title}
       </ObjectLink>
     )

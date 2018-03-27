@@ -1,8 +1,8 @@
 import React from 'react'
-import { mount } from 'enzyme'
 
 import { MoviePage } from './MoviePage'
 import { data } from './fixtures/response.json'
+import { mountRouter } from '../../tests/helpers'
 
 describe('Movie Page Component', () => {
   let element
@@ -10,7 +10,7 @@ describe('Movie Page Component', () => {
 
   beforeEach(() => {
     element = <MoviePage params={{ movieId: '' }} data={data}/>
-    wrapper = mount(element)
+    wrapper = mountRouter(element)
   })
 
   it('should render movie title', () => {

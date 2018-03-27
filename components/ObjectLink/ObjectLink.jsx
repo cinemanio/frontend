@@ -1,14 +1,17 @@
 // @flow
 import React from 'react'
-import { Link } from 'react-router-named-routes'
+import { Link } from 'react-router-dom'
+import { formatRoute } from 'react-router-named-routes'
 import { PropTypes } from 'prop-types'
 import slugify from 'slugify'
 
-type Props = { to: string, children: mixed, parts: Array<string> }
+import routes from 'components/App/routes'
+
+type Props = { type: string, children: mixed, parts: Array<string> }
 
 export default class ObjectLink extends React.PureComponent<Props> {
   static propTypes = {
-    to: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
     parts: PropTypes.array.isRequired,
     children: PropTypes.node.isRequired
   }
@@ -26,7 +29,7 @@ export default class ObjectLink extends React.PureComponent<Props> {
 
   render() {
     return (
-      <Link to={this.props.to} params={this.params}>
+      <Link to={formatRoute(routes[this.props.type].detail, this.params)}>
         {this.props.children}
       </Link>
     )
@@ -35,5 +38,5 @@ export default class ObjectLink extends React.PureComponent<Props> {
 
 export const getIdFromSlug = (slug: string) => {
   const parts = slug.split('-')
-  return parts[parts.length - 1]
+  return decodeURIComponent(parts[parts.length - 1])
 }

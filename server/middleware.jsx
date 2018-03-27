@@ -3,27 +3,16 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import Helmet from 'react-helmet'
 import RedBox from 'redbox-react'
-import { toInteger } from 'lodash'
-import { match, RouterContext } from 'react-router'
+import { StaticRouter } from 'react-router-dom'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 
-import Layout from 'components/Layout/Layout'
+import App from 'components/App/App'
 
 import renderHtmlPage from './renderHtmlPage'
 import settings from '../settings'
 
-function ApolloReduxReactSSR(routes: Object, apolloHttpConf: Object) {
-  const matchRoute = async (...args) => new Promise((resolve, reject) => {
-    match(...args, (error, redirectLocation, renderProps) => {
-      if (error) {
-        reject(error)
-      } else {
-        resolve({ redirectLocation, renderProps })
-      }
-    })
-  })
-
+function ApolloReduxReactSSR(apolloHttpConf: Object) {
   const fetchDataAndRenderBody = async (client: Object, app: Object) => {
     let markup = ''
     let initialState
@@ -42,7 +31,7 @@ function ApolloReduxReactSSR(routes: Object, apolloHttpConf: Object) {
     let markup = null
     let head = null
     try {
-      markup = ReactDOMServer.renderToString(<Layout><RedBox error={error}/></Layout>)
+      markup = ReactDOMServer.renderToString(<RedBox error={error}/>)
     } finally {
       head = Helmet.rewind()
     }
@@ -50,25 +39,18 @@ function ApolloReduxReactSSR(routes: Object, apolloHttpConf: Object) {
   }
 
   return async function apolloReduxReactSSR(ctx: Object) {
-    const { redirectLocation, renderProps } = await matchRoute({
-      routes,
-      location: ctx.request.url
-    })
-
-    if (redirectLocation) {
-      ctx.redirect(redirectLocation.pathname + redirectLocation.search)
-      return
-    }
-
     const client = new ApolloClient({
       ssrMode: true,
       link: new HttpLink(apolloHttpConf),
       cache: new InMemoryCache()
     })
 
+    const context = {}
     const app = (
       <ApolloProvider client={client}>
-        <RouterContext {...renderProps} />
+        <StaticRouter location={ctx.request.url} context={context}>
+          <App/>
+        </StaticRouter>
       </ApolloProvider>
     )
 
@@ -76,13 +58,18 @@ function ApolloReduxReactSSR(routes: Object, apolloHttpConf: Object) {
     let renderResult = null
     try {
       renderResult = await fetchDataAndRenderBody(client, app)
-      status = renderProps.routes.reduce((prev, route) => Math.max(toInteger(route.status), prev), 200)
+      status = context.status || 200
     } catch (error) {
-      // console.debug(error)
+      console.error(error)
       renderResult = renderErrorPage(error)
       status = 500
     }
     const { markup, head, initialState } = renderResult
+
+    if (context.url) {
+      ctx.redirect(context.url)
+      return
+    }
 
     ctx.status = status
     ctx.body = renderHtmlPage(markup, head, initialState, settings.backendApiUrl)

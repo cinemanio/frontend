@@ -31,7 +31,7 @@ export default class PersonLink extends React.PureComponent<Props> {
 
   render() {
     return (
-      <ObjectLink to="person.detail" parts={this.parts}>
+      <ObjectLink type="person" parts={this.parts}>
         {this.props.person.name}
       </ObjectLink>
     )

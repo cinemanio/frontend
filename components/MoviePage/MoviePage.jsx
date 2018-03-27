@@ -19,7 +19,7 @@ type Props = { data: Object }
 
 export class MoviePage extends React.PureComponent<Props> {
   static propTypes = {
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
   }
 
   renderLayout(movie: Object) {
@@ -45,9 +45,11 @@ export class MoviePage extends React.PureComponent<Props> {
   }
 
   render() {
-    return (
-      <ObjectPage type="movie" object={this.props.data.movie} renderLayout={this.renderLayout}/>
-    )
+    return (<ObjectPage
+      type="movie"
+      object={this.props.data.movie}
+      renderLayout={this.renderLayout}
+    />)
   }
 }
 
@@ -67,7 +69,7 @@ const MovieQuery = gql`
 `
 
 export const configObject = {
-  options: ({ params: { slug } }: Object) => ({
+  options: ({ match: { params: { slug } } }: Object) => ({
     variables: {
       movieId: getIdFromSlug(slug)
     }

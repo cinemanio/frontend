@@ -1,8 +1,8 @@
 import React from 'react'
-import { mount } from 'enzyme'
 
 import { PersonPage } from './PersonPage'
 import response from './fixtures/response.json'
+import { mountRouter } from '../../tests/helpers'
 // import emptyResponse from './fixtures/empty_response.json'
 
 describe('Person Page Component', () => {
@@ -12,7 +12,7 @@ describe('Person Page Component', () => {
   describe('Populated with response', () => {
     beforeEach(() => {
       element = <PersonPage params={{ personId: '' }} data={response.data}/>
-      wrapper = mount(element)
+      wrapper = mountRouter(element)
     })
 
     it('should render person name', () => {

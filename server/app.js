@@ -7,7 +7,6 @@ import favicon from 'koa-favicon'
 import proxy from 'koa-proxies'
 
 import ApolloReduxReactSSR from './middleware'
-import routes from '../routes'
 import settings from '../settings'
 
 const getApp = (apolloHttpConf: Object) => {
@@ -33,7 +32,7 @@ const getApp = (apolloHttpConf: Object) => {
     app.use(mount('/public', serve('public')))
   }
 
-  app.use(ApolloReduxReactSSR(routes, apolloHttpConf))
+  app.use(ApolloReduxReactSSR(apolloHttpConf))
   return app
 }
 

@@ -1,7 +1,10 @@
 // @flow
 import React from 'react'
-import { Link } from 'react-router-named-routes'
+import { Link } from 'react-router-dom'
+import { formatRoute } from 'react-router-named-routes'
 import { PropTypes } from 'prop-types'
+
+import routes from 'components/App/routes'
 
 import './Menu.scss'
 
@@ -33,7 +36,7 @@ export default class Menu extends React.PureComponent<Props> {
   renderMenu() {
     return this.menu.map(([type, title]) => (
       <li className="nav-item" key={type}>
-        <Link to={`${type}.list`} className={this.getClass(type)}>{title}</Link>
+        <Link to={routes[type].list} className={this.getClass(type)}>{title}</Link>
       </li>
     ))
   }
@@ -42,7 +45,7 @@ export default class Menu extends React.PureComponent<Props> {
     return (
       <ul className="nav nav-tabs">
         {this.renderMenu()}
-        <Link to="person.detail" className="nav-link" params={{ slug: '404' }}>404</Link>
+        <Link to={formatRoute(routes.person.detail, { slug: '404' })} className="nav-link">404</Link>
         <Link to="/500" className="nav-link">500</Link>
       </ul>
     )

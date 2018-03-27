@@ -28,9 +28,6 @@ export default class ObjectPage extends React.Component<Props> {
 
   renderContent() {
     if (_.isNull(this.props.object)) {
-      if (this.context.router) {
-        this.context.router.routes[1].status = 404
-      }
       return <Error404/>
     } else if (_.isUndefined(this.props.object)) {
       return <Loader/>

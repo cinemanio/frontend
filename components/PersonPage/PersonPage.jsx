@@ -12,7 +12,7 @@ type Props = { data: Object }
 
 export class PersonPage extends React.Component<Props> {
   static propTypes = {
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
   }
 
   renderLayout(person: Object) {
@@ -35,9 +35,11 @@ export class PersonPage extends React.Component<Props> {
   }
 
   render() {
-    return (
-      <ObjectPage type="person" object={this.props.data.person} renderLayout={this.renderLayout}/>
-    )
+    return (<ObjectPage
+      type="person"
+      object={this.props.data.person}
+      renderLayout={this.renderLayout}
+    />)
   }
 }
 
@@ -68,7 +70,7 @@ const PersonQuery = gql`
 `
 
 export const configObject = {
-  options: ({ params: { slug } }: Object) => ({
+  options: ({ match: { params: { slug } } }: Object) => ({
     variables: {
       personId: getIdFromSlug(slug)
     }
