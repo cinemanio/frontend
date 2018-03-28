@@ -4,7 +4,6 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import Menu from 'components/Menu/Menu'
 import ObjectList, { configObject } from 'components/ObjectList/ObjectList'
 import PersonLink from 'components/PersonLink/PersonLink'
 
@@ -19,14 +18,11 @@ class PersonsPage extends React.PureComponent<Props> {
 
   render() {
     return (
-      <div>
-        <Menu active="person"/>
-        <ObjectList
-          noResultsMessage="There is no such persons. Try to change search parameters."
-          renderItem={this.renderPerson}
-          data={this.props.data}
-        />
-      </div>
+      <ObjectList
+        noResultsMessage="There is no such persons. Try to change search parameters."
+        renderItem={this.renderPerson}
+        data={this.props.data}
+      />
     )
   }
 }

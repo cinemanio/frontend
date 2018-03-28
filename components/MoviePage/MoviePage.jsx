@@ -46,7 +46,6 @@ export class MoviePage extends React.PureComponent<Props> {
 
   render() {
     return (<ObjectPage
-      type="movie"
       object={this.props.data.movie}
       renderLayout={this.renderLayout}
     />)

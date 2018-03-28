@@ -25,10 +25,10 @@ const App = () => (
     </Helmet>
     <Switch>
       <Route exact path="/" render={() => <Redirect to="/movies"/>}/>
-      <Layout path={routes.movie.detail} component={MoviePage}/>
-      <Layout path={routes.movie.list} component={MoviesPage}/>
-      <Layout path={routes.person.detail} component={PersonPage}/>
-      <Layout path={routes.person.list} component={PersonsPage}/>
+      <Layout path={routes.movie.detail} component={MoviePage} menuActive="movie"/>
+      <Layout path={routes.movie.list} component={MoviesPage} menuActive="movie"/>
+      <Layout path={routes.person.detail} component={PersonPage} menuActive="person"/>
+      <Layout path={routes.person.list} component={PersonsPage} menuActive="person"/>
       <Layout path="/500" component={Error500}/>
       <Layout path="*" component={Error404}/>
     </Switch>

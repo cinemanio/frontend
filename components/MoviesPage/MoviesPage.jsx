@@ -4,7 +4,6 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import Menu from 'components/Menu/Menu'
 import ObjectList, { configObject } from 'components/ObjectList/ObjectList'
 import MovieLink from 'components/MovieLink/MovieLink'
 
@@ -19,14 +18,11 @@ class MoviesPage extends React.PureComponent<Props> {
 
   render() {
     return (
-      <div>
-        <Menu active="movie"/>
-        <ObjectList
-          noResultsMessage="There is no such movies. Try to change search parameters."
-          renderItem={this.renderMovie}
-          data={this.props.data}
-        />
-      </div>
+      <ObjectList
+        noResultsMessage="There is no such movies. Try to change search parameters."
+        renderItem={this.renderMovie}
+        data={this.props.data}
+      />
     )
   }
 }

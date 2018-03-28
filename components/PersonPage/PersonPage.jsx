@@ -36,7 +36,6 @@ export class PersonPage extends React.Component<Props> {
 
   render() {
     return (<ObjectPage
-      type="person"
       object={this.props.data.person}
       renderLayout={this.renderLayout}
     />)

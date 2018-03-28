@@ -8,16 +8,15 @@ import routes from 'components/App/routes'
 
 import './Menu.scss'
 
-type Props = { active: string }
+type Props = { active?: string }
 
 export default class Menu extends React.PureComponent<Props> {
   static defaultProps = {
-    active: ''
+    active: undefined
   }
 
   static propTypes = {
     active: PropTypes.string
-    // link: PropTypes.bool
   }
 
   menu = [
