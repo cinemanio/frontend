@@ -11,23 +11,11 @@
     @include rel-fa-icon('thumbs-up', #129800);
   }
 
-  .seen {
+  .familiar {
     @include rel-fa-icon('eye', #2f598c);
   }
 
   .dislike {
     @include rel-fa-icon('thumbs-down', #cd371f);
-  }
-
-  .want {
-    @include rel-fa-icon('check', #009986);
-  }
-
-  .ignore {
-    @include rel-fa-icon('eye-slash', #804500);
-  }
-
-  .have {
-    @include rel-fa-icon('save', #d08d00);
   }
 }

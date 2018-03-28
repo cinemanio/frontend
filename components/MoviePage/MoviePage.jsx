@@ -5,10 +5,10 @@ import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
 import ObjectPage from 'components/ObjectPage/ObjectPage'
+import MovieImage from 'components/MovieImage/MovieImage'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 
 import MovieInfo from './MovieInfo/MovieInfo'
-import MovieImage from './MovieImage/MovieImage'
 import MovieRelations from './MovieRelations/MovieRelations'
 import MovieCast from './MovieCast/MovieCast'
 import MovieSites from './MovieSites/MovieSites'
@@ -57,14 +57,14 @@ const MovieQuery = gql`
     movie(id: $movieId) {
       id
       title
-      ...MovieSites
       ...MovieInfo
+      ...MovieSites
       ...MovieCast
     }
   }
+  ${MovieInfo.fragments.movie}
   ${MovieSites.fragments.movie}
   ${MovieCast.fragments.movie}
-  ${MovieInfo.fragments.movie}
 `
 
 export const configObject = {

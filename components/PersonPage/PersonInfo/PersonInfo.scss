@@ -1,0 +1,32 @@
+@import 'mixins.scss';
+
+.box {
+  @extend %info-box;
+
+  .gender-male {
+    i {
+      @include fa-icon('mars');
+      margin-right: 0.2rem;
+    }
+  }
+
+  .gender-female {
+    i {
+      @include fa-icon('venus');
+      margin-right: 0.2rem;
+    }
+  }
+
+  .date {
+    i {
+      @include fa-icon('calendar');
+      margin-right: 0.2rem;
+    }
+  }
+
+  .country {
+    i {
+      margin-right: 0.2rem;
+    }
+  }
+}

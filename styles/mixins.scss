@@ -4,3 +4,76 @@
   @extend .fa;
   @extend .fa-#{$type};
 }
+
+@mixin rel-fa-icon($type, $color) {
+  color: #999999;
+
+  i {
+    @include fa-icon($type);
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    background-color: #CCCCCC;
+    color: white;
+    padding: 0.3rem;
+  }
+
+  .active {
+    color: $color;
+
+    i {
+      background-color: $color;
+    }
+  }
+
+  &:hover {
+    color: #666666;
+
+    i {
+      border: 1px solid #666666;
+      background-color: #999999;
+    }
+  }
+}
+
+%rel-box {
+  float: right;
+
+  > span {
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+}
+
+%info-box {
+  font-size: 0.7rem;
+  color: #333333;
+
+  > span:not(:first-child) {
+    &:before {
+      content: '-';
+      margin: 0 0.3rem;
+    }
+  }
+}
+
+%sites-box {
+  ul {
+    padding-left: 0.9rem;
+    font-size: 0.8rem;
+
+    li {
+      list-style-type: square;
+
+      span {
+        font-weight: 600;
+
+        &:before {
+          content: ": ";
+        }
+      }
+    }
+  }
+}

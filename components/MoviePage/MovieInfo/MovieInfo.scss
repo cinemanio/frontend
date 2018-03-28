@@ -1,15 +1,7 @@
 @import 'mixins.scss';
 
 .box {
-  font-size: 0.7rem;
-  color: #333333;
-
-  > span:not(:first-child) {
-    &:before {
-      content: '-';
-      margin: 0 0.3rem;
-    }
-  }
+  @extend %info-box;
 
   .year {
   }

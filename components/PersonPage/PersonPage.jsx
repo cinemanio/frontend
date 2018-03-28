@@ -5,8 +5,13 @@ import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
 import ObjectPage from 'components/ObjectPage/ObjectPage'
-import MovieLink from 'components/MovieLink/MovieLink'
+import PersonImage from 'components/PersonImage/PersonImage'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
+
+import PersonRelations from './PersonRelations/PersonRelations'
+import PersonInfo from './PersonInfo/PersonInfo'
+import PersonSites from './PersonSites/PersonSites'
+import PersonCareer from './PersonCareer/PersonCareer'
 
 type Props = { data: Object }
 
@@ -18,18 +23,21 @@ export class PersonPage extends React.Component<Props> {
   renderLayout(person: Object) {
     return (
       <div>
+        <PersonRelations counts={{ fav: 1, like: 10, familiar: 10, dislike: 10 }}/>
         <h1>{person.name}</h1>
-        <div>{person.country && person.country.name}</div>
-        <div>{person.gender}</div>
-        <div>{person.dateBirth}</div>
-        <div>{person.dateDeath}</div>
-        <div>{person.imdb && person.imdb.id}</div>
-        {person.career.edges.map(({ node }, i) =>
-          (<div key={node.id}>
-            <MovieLink movie={node.movie}/> ({node.movie.year})
-            ({node.role.name}: {node.name})
-          </div>)
-        )}
+        <h2>{person.name}</h2>
+        <PersonInfo person={person}/>
+        <div className="row">
+          <div className="col-lg">
+            <PersonImage person={person}/>
+            <PersonSites person={person}/>
+          </div>
+          <div className="col-lg-7">
+            <PersonCareer person={person}/>
+          </div>
+          <div className="col-lg-3">&nbsp;
+          </div>
+        </div>
       </div>
     )
   }
@@ -47,25 +55,14 @@ const PersonQuery = gql`
     person(id: $personId) {
       id
       name
-      gender
-      country { id, name }
-      imdb { id }
-      career {
-        edges {
-          node {
-            id 
-            name
-            movie {
-              ...MovieLink
-              year
-            }
-            role { name }
-          }
-        }
-      }      
+      ...PersonInfo
+      ...PersonSites
+      ...PersonCareer      
     }
   }
-  ${MovieLink.fragments.movie}
+  ${PersonInfo.fragments.person}
+  ${PersonSites.fragments.person}
+  ${PersonCareer.fragments.person}
 `
 
 export const configObject = {
