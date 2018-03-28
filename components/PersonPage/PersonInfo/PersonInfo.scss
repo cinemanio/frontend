@@ -4,24 +4,15 @@
   @extend %info-box;
 
   .gender-male {
-    i {
-      @include fa-icon('mars');
-      margin-right: 0.2rem;
-    }
+    @include fa-icon-info('mars');
   }
 
   .gender-female {
-    i {
-      @include fa-icon('venus');
-      margin-right: 0.2rem;
-    }
+    @include fa-icon-info('venus');
   }
 
   .date {
-    i {
-      @include fa-icon('calendar');
-      margin-right: 0.2rem;
-    }
+    @include fa-icon-info('calendar');
   }
 
   .country {

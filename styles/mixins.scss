@@ -5,6 +5,13 @@
   @extend .fa-#{$type};
 }
 
+@mixin fa-icon-info($type) {
+  i {
+    @include fa-icon($type);
+    margin-right: 0.2rem;
+  }
+}
+
 @mixin rel-fa-icon($type, $color) {
   color: #999999;
 

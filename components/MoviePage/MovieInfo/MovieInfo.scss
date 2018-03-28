@@ -7,10 +7,7 @@
   }
 
   .runtime {
-    i {
-      @include fa-icon('clock-o');
-      margin-right: 0.2rem;
-    }
+    @include fa-icon-info('clock-o');
   }
 
   .genres {
