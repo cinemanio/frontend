@@ -22,7 +22,7 @@ export default class PersonImage extends React.Component<Props> {
 
   render() {
     return (
-      <div styleName="image">
+      <div>
         <a href="/"><img
           src="http://movister.ru/media/cache/ca/70/ca70184d3b3b7916cdf86d3056c486c1.jpg"
           alt={this.props.person.name}

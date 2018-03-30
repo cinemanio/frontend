@@ -34,7 +34,7 @@ export default class Layout extends React.Component<Props, State> {
     const { component: Component, menuActive, ...rest } = this.props
     return (
       <Route {...rest} render={matchProps => (
-        <div className="container">
+        <div className="container" styleName="box">
           <header><Link to="/">cineman.io</Link></header>
           <div styleName="container">
             <Menu active={menuActive}/>

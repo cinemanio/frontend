@@ -13,6 +13,8 @@ import PersonInfo from './PersonInfo/PersonInfo'
 import PersonSites from './PersonSites/PersonSites'
 import PersonCareer from './PersonCareer/PersonCareer'
 
+import './PersonPage.scss'
+
 type Props = { data: Object }
 
 export class PersonPage extends React.Component<Props> {
@@ -22,20 +24,20 @@ export class PersonPage extends React.Component<Props> {
 
   renderLayout(person: Object) {
     return (
-      <div>
+      <div styleName="box">
         <PersonRelations counts={{ fav: 1, like: 10, familiar: 10, dislike: 10 }}/>
         <h1>{person.name}</h1>
         <h2>{person.name}</h2>
         <PersonInfo person={person}/>
         <div className="row">
           <div className="col-lg">
-            <PersonImage person={person}/>
+            <div styleName="image">
+              <PersonImage person={person}/>
+            </div>
             <PersonSites person={person}/>
           </div>
-          <div className="col-lg-7">
+          <div className="col-lg-10">
             <PersonCareer person={person}/>
-          </div>
-          <div className="col-lg-3">&nbsp;
           </div>
         </div>
       </div>

@@ -24,20 +24,20 @@ export class MoviePage extends React.PureComponent<Props> {
 
   renderLayout(movie: Object) {
     return (
-      <div>
+      <div styleName="box">
         <MovieRelations counts={{ fav: 1, like: 10, seen: 10, dislike: 10, want: 3, have: 3, ignore: 0 }}/>
         <h1>{movie.title}</h1>
         <h2>{movie.title}</h2>
         <MovieInfo movie={movie}/>
         <div className="row">
           <div className="col-lg">
-            <MovieImage movie={movie}/>
+            <div styleName="image">
+              <MovieImage movie={movie}/>
+            </div>
             <MovieSites movie={movie}/>
           </div>
-          <div className="col-lg-7">
+          <div className="col-lg-10">
             <MovieCast movie={movie}/>
-          </div>
-          <div className="col-lg-3">&nbsp;
           </div>
         </div>
       </div>

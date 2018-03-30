@@ -22,12 +22,16 @@ a {
   text-decoration: underline;
 }
 
-.container {
-  background-color: #FFFFFF;
-  border-radius: 5px;
-  padding: 1.2rem;
-  box-shadow: 0.01rem 0.01rem 1rem #CCCCCC;
-  font-family: Arial, sans-serif;
-  font-size: 0.9rem;
-  margin-top: 30px;
+.box {
+  max-width: 1000px;
+
+  .container {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 1.2rem;
+    box-shadow: 0.01rem 0.01rem 1rem #CCCCCC;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    margin-top: 30px;
+  }
 }

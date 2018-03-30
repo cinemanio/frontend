@@ -84,8 +84,8 @@ export default class ObjectList extends React.Component<Props> {
             onRowsRendered={onRowsRendered}
             noRowsRenderer={this.renderNoResults}
             rowRenderer={this.renderItem}
-            height={500}
-            width={500}
+            height={800}
+            width={930}
             rowHeight={20}
             rowCount={rowCount}
             overscanRowCount={0}
