@@ -54,7 +54,7 @@ export default class MovieCast extends React.Component<Props> {
     return _.difference(_.difference(_.range(24), this.cast), this.creators)
   }
 
-  renderPersons(roles: Array<Object>) {
+  renderPersons(roles: Array<number>) {
     return this.props.movie.cast.edges
       .filter(({ node }) => roles.indexOf(Number(node.role.id)) !== -1)
       .map(({ node }, i) =>

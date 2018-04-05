@@ -4,6 +4,8 @@
       "id": "UGVyc29uTm9kZToxNTQ=",
       "name": "David Fincher",
       "gender": "A_1",
+      "dateBirth": "1962-08-28",
+      "dateDeath": null,
       "country": {
         "id": "69",
         "name": "USA",
