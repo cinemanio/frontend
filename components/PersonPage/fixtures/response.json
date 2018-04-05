@@ -13,6 +13,12 @@
         "id": 399,
         "__typename": "ImdbPersonNode"
       },
+      "roles": [
+        {
+          "name": "Director",
+          "__typename": "RoleNode"
+        }
+      ],
       "career": {
         "edges": [
           {
