@@ -20,6 +20,9 @@ export default class PersonInfo extends React.PureComponent<Props> {
         gender
         dateBirth
         dateDeath
+        roles {
+          name
+        }
         country {
           name
           ...CountryFlag
@@ -34,7 +37,10 @@ export default class PersonInfo extends React.PureComponent<Props> {
   render() {
     return (
       <div styleName="box">
-        <span styleName={`gender-${this.props.person.gender ? 'male' : 'female'}`}><i/></span>
+        <span styleName={`gender-${this.props.person.gender ? 'male' : 'female'}`}>
+          <i/>
+          {this.props.person.roles.map(item => item.name).join(', ')}
+        </span>
         {!this.props.person.dateBirth ? '' :
           (<span styleName="date">
             <i/>

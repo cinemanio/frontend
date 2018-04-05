@@ -12,10 +12,16 @@ export default class CountryFlag extends React.PureComponent<Props> {
     children: PropTypes.node.isRequired,
   }
 
+  renderTitle() {
+    return this.props.title
+      ? <h3>{this.props.title}</h3>
+      : ''
+  }
+
   render() {
     return (
       <div styleName="box">
-        <h3>{this.props.title}</h3>
+        {this.renderTitle()}
         {this.props.children}
       </div>
     )
