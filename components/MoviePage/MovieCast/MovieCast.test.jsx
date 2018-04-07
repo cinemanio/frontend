@@ -2,7 +2,7 @@ import React from 'react'
 
 import MovieCast from './MovieCast'
 import { data } from '../fixtures/response.json'
-import response_with_director from '../fixtures/response_with_director.json'
+import responseOnlyDirector from '../fixtures/response_only_director.json'
 import { mountRouter } from '../../../tests/helpers'
 
 describe('Movie Cast Component', () => {
@@ -37,7 +37,7 @@ describe('Movie Cast Component', () => {
   })
 
   it('should render 1 block if only creators in roles', () => {
-    element = <MovieCast movie={response_with_director.data.movie}/>
+    element = <MovieCast movie={responseOnlyDirector.data.movie}/>
     wrapper = mountRouter(element)
     expect(wrapper.find('Block')).toHaveLength(1)
   })
