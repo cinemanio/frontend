@@ -30,7 +30,7 @@ export class PersonPage extends React.Component<Props> {
         <h2>{person.name}</h2>
         <PersonInfo person={person}/>
         <div className="row">
-          <div className="col-lg">
+          <div className="col-lg-2">
             <div styleName="image">
               <PersonImage person={person}/>
             </div>

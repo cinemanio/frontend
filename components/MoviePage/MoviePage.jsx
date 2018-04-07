@@ -30,7 +30,7 @@ export class MoviePage extends React.PureComponent<Props> {
         <h2>{movie.title}</h2>
         <MovieInfo movie={movie}/>
         <div className="row">
-          <div className="col-lg">
+          <div className="col-lg-2">
             <div styleName="image">
               <MovieImage movie={movie}/>
             </div>
