@@ -18,7 +18,11 @@ const Error500 = () => {
 
 const App = () => (
   <div>
-    <Helmet htmlAttributes={{ lang: 'en' }} defaultTitle="cineman.io">
+    <Helmet
+      htmlAttributes={{ lang: 'en' }}
+      defaultTitle="cineman.io"
+      titleTemplate="%s | cineman.io"
+    >
       <script type="text/javascript" src="/public/app.js" async crossOrigin/>
       <link rel="stylesheet" type="text/css" href="/public/app.css"/>
       <link rel="icon" type="image/ico" href="/public/favicon.ico"/>

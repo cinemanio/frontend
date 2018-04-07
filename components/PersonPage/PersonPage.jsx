@@ -19,7 +19,7 @@ type Props = { data: Object }
 
 export class PersonPage extends React.Component<Props> {
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.object.isRequired
   }
 
   renderLayout(person: Object) {
@@ -44,8 +44,11 @@ export class PersonPage extends React.Component<Props> {
     )
   }
 
+  getTitle = (person: Object) => person.name
+
   render() {
     return (<ObjectPage
+      getTitle={this.getTitle}
       object={this.props.data.person}
       renderLayout={this.renderLayout}
     />)
@@ -55,7 +58,6 @@ export class PersonPage extends React.Component<Props> {
 const PersonQuery = gql`
   query Person($personId: ID!) {
     person(id: $personId) {
-      id
       name
       ...PersonInfo
       ...PersonSites
