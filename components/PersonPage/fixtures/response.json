@@ -33,7 +33,7 @@
           {
             "node": {
               "id": "3275",
-              "name": "",
+              "name": "Bobby",
               "movie": {
                 "id": "TW92aWVOb2RlOjExMTY0",
                 "title": "Being John Malkovich",
@@ -54,14 +54,14 @@
               "id": "114240",
               "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjc0NzI=",
-                "title": "Full Frontal",
-                "titleEn": "Full Frontal",
-                "year": 2002,
+                "id": "TW92aWVOb2RlOjExMTY0",
+                "title": "Being John Malkovich",
+                "titleEn": "Being John Malkovich",
+                "year": 1999,
                 "__typename": "MovieNode"
               },
               "role": {
-                "name": "Actor",
+                "name": "Scenarist",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -71,16 +71,16 @@
           {
             "node": {
               "id": "214199",
-              "name": "Himself",
+              "name": "",
               "movie": {
-                "id": "TW92aWVOb2RlOjI5NDA2",
-                "title": "Side by Side",
-                "titleEn": "Side by Side",
-                "year": 2012,
+                "id": "TW92aWVOb2RlOjExMTY0",
+                "title": "Being John Malkovich",
+                "titleEn": "Being John Malkovich",
+                "year": 1999,
                 "__typename": "MovieNode"
               },
               "role": {
-                "name": "Actor",
+                "name": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
