@@ -44,7 +44,7 @@ export class MoviePage extends React.PureComponent<Props> {
     )
   }
 
-  getTitle = (movie: Object) => movie.title
+  getTitle = (movie: Object) => [movie.title, movie.year].join(', ')
 
   render() {
     return (<ObjectPage

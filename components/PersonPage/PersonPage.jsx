@@ -44,7 +44,7 @@ export class PersonPage extends React.Component<Props> {
     )
   }
 
-  getTitle = (person: Object) => person.name
+  getTitle = (person: Object) => [person.name].concat(person.roles.map(role => role.name)).join(', ')
 
   render() {
     return (<ObjectPage
@@ -59,6 +59,9 @@ const PersonQuery = gql`
   query Person($personId: ID!) {
     person(id: $personId) {
       name
+      roles {
+        name
+      }
       ...PersonInfo
       ...PersonSites
       ...PersonCareer      
