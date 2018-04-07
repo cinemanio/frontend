@@ -59,6 +59,7 @@ const MovieQuery = gql`
   query Movie($movieId: ID!) {
     movie(id: $movieId) {
       title
+      year
       ...MovieInfo
       ...MovieSites
       ...MovieCast
