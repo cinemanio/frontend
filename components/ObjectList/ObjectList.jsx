@@ -2,6 +2,7 @@
 import React from 'react'
 import { InfiniteLoader, List } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
+import _ from 'lodash'
 
 type Props = {
   noResultsMessage: string,
@@ -105,13 +106,11 @@ export const configObject = {
     }
   }),
   force: true,
-  props: ({ ownProps, data: { loading, list, fetchMore } }: Object) => ({
-    data: {
-      loading,
-      list,
-      loadNextPage: () => fetchMore({
+  props: ({ ownProps, data }: Object) => ({
+    data: _.extend({}, data, {
+      loadNextPage: () => data.fetchMore({
         variables: {
-          after: list.pageInfo.endCursor
+          after: data.list.pageInfo.endCursor
         },
         updateQuery: (previousResult, { fetchMoreResult }) => ({
           // By returning `cursor` here, we update the `loadMore` function
@@ -123,6 +122,6 @@ export const configObject = {
           }
         })
       })
-    }
+    })
   })
 }
