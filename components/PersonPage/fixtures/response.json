@@ -9,11 +9,18 @@
       "country": {
         "id": "69",
         "name": "USA",
+        "code": "us",
         "__typename": "CountryNode"
       },
       "imdb": {
         "id": 399,
+        "url": "http://www.imdb.com/title/nm0000399/",
         "__typename": "ImdbPersonNode"
+      },
+      "kinopoisk": {
+        "id": 399,
+        "url": "http://www.kinopoisk.ru/name/399/",
+        "__typename": "KinopoiskPersonNode"
       },
       "roles": [
         {

@@ -39,7 +39,7 @@ export default class MovieCast extends React.Component<Props> {
     `
   }
 
-  // TODO: avoid using role names
+  // TODO: avoid using role names for filtering
   static creatorNames = ['Director', 'Scenarist', 'Writer', 'Composer', 'Producer']
   static castNames = ['Actor']
 
@@ -63,7 +63,7 @@ export default class MovieCast extends React.Component<Props> {
       - MovieCast.creatorNames.indexOf(edge2.node.role.name)
   }
 
-  renderPersons(roleFilter: Function, roleSort: Function) {
+  renderPersons(roleFilter: Function, roleSort?: Function) {
     let roles = this.props.movie.cast.edges.filter(({ node }) => roleFilter(node.role))
     if (roleSort) {
       roles = roles.sort(roleSort)
