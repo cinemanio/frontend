@@ -1,0 +1,64 @@
+{
+  "data": {
+    "movie": {
+      "id": "TW92aWVOb2RlOjk2MDc=",
+      "title": "Kids",
+      "imdb": {
+        "url": "http://www.imdb.com/title/tt0113540/",
+        "rating": 7.0,
+        "__typename": "ImdbMovieNode"
+      },
+      "kinopoisk": {
+        "url": "http://www.kinopoisk.ru/film/6384/",
+        "rating": 6.336,
+        "__typename": "KinopoiskMovieNode"
+      },
+      "__typename": "MovieNode",
+      "year": 1995,
+      "runtime": 91,
+      "genres": [
+        {
+          "name": "Drama",
+          "__typename": "GenreNode"
+        }
+      ],
+      "countries": [
+        {
+          "name": "USA",
+          "code": "us",
+          "__typename": "CountryNode"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "__typename": "LanguageNode"
+        }
+      ],
+      "cast": {
+        "edges": [
+          {
+            "node": {
+              "id": "8767",
+              "name": "",
+              "person": {
+                "id": "UGVyc29uTm9kZTozMTMy",
+                "name": "Larry Clark",
+                "nameEn": "Larry Clark",
+                "__typename": "PersonNode",
+                "gender": "A_1"
+              },
+              "role": {
+                "name": "Director",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          }
+        ],
+        "__typename": "CastNodeConnection"
+      }
+    }
+  }
+}

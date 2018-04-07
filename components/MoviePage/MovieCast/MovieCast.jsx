@@ -63,11 +63,15 @@ export default class MovieCast extends React.Component<Props> {
       - MovieCast.creatorNames.indexOf(edge2.node.role.name)
   }
 
-  renderPersons(roleFilter: Function, roleSort?: Function) {
+  getPersons(roleFilter: Function, roleSort?: Function) {
     let roles = this.props.movie.cast.edges.filter(({ node }) => roleFilter(node.role))
     if (roleSort) {
       roles = roles.sort(roleSort)
     }
+    return roles
+  }
+
+  renderPersons(roles: Array<Object>) {
     return roles.map(({ node }) =>
       (<div key={node.id} styleName="person">
         <div styleName="image"><PersonImage person={node.person}/></div>
@@ -79,24 +83,22 @@ export default class MovieCast extends React.Component<Props> {
     )
   }
 
+  renderBlock(title: string, persons: Array<Object>) {
+    return persons.length === 0 ? '' : (
+      <Block title={title}>
+        <div styleName="cast">
+          {this.renderPersons(persons)}
+        </div>
+      </Block>
+    )
+  }
+
   render() {
     return (
       <div styleName="box">
-        <Block title="">
-          <div styleName="cast">
-            {this.renderPersons(this.filterCreators, this.sortCreators)}
-          </div>
-        </Block>
-        <Block title="Cast">
-          <div styleName="cast">
-            {this.renderPersons(this.filterCast)}
-          </div>
-        </Block>
-        <Block title="Crew">
-          <div styleName="cast">
-            {this.renderPersons(this.filterCrew)}
-          </div>
-        </Block>
+        {this.renderBlock('', this.getPersons(this.filterCreators, this.sortCreators))}
+        {this.renderBlock('Cast', this.getPersons(this.filterCast))}
+        {this.renderBlock('Crew', this.getPersons(this.filterCrew))}
       </div>
     )
   }
