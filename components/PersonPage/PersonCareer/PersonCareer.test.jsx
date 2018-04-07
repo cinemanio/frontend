@@ -22,10 +22,11 @@ describe('Person Career Component', () => {
 
   it('should render blocks with roles', () => {
     expect(wrapper.find('Block')).toHaveLength(1)
-    expect(wrapper.find('Block').at(0).find('MovieLink')).toHaveLength(15)
+    expect(wrapper.find('Block').at(0).find('MovieLink')).toHaveLength(14)
   })
 
   it('should group roles for the same movie', () => {
     expect(getRole(0, 0)).toBe('Bobby, Scenarist, Director')
+    expect(getRole(0, 10)).toBe('Director, Producer')
   })
 })

@@ -43,20 +43,15 @@ export default class PersonCast extends React.Component<Props> {
    * @returns {Array}
    */
   get aggregatedCareerEdges(): Array<Object> {
-    const career = []
-    let movieId
+    const career = {}
     this.props.person.career.edges.forEach((edge: Object) => {
-      if (edge.node.movie.id !== movieId) {
-        career.push(_.cloneDeep(edge))
+      if (!career[edge.node.movie.id]) {
+        career[edge.node.movie.id] = _.cloneDeep(edge)
+        career[edge.node.movie.id].node.roles = []
       }
-      const lastEdge = career[career.length - 1]
-      if (!lastEdge.node.roles) {
-        lastEdge.node.roles = []
-      }
-      lastEdge.node.roles.push(edge.node.name || edge.node.role.name)
-      movieId = edge.node.movie.id
+      career[edge.node.movie.id].node.roles.push(edge.node.name || edge.node.role.name)
     })
-    return career
+    return _.values(career)
   }
 
   renderCareer() {
