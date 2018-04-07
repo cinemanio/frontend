@@ -6,7 +6,7 @@ import './Block.scss'
 
 type Props = { title: string, children: Object }
 
-export default class CountryFlag extends React.PureComponent<Props> {
+export default class Block extends React.PureComponent<Props> {
   static propTypes = {
     title: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,

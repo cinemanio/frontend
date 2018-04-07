@@ -153,25 +153,6 @@
           },
           {
             "node": {
-              "id": "8767",
-              "name": "",
-              "person": {
-                "id": "UGVyc29uTm9kZTozMTMy",
-                "name": "Larry Clark",
-                "nameEn": "Larry Clark",
-                "__typename": "PersonNode",
-                "gender": "A_1"
-              },
-              "role": {
-                "name": "Director",
-                "__typename": "RoleNode"
-              },
-              "__typename": "CastNode"
-            },
-            "__typename": "CastNodeEdge"
-          },
-          {
-            "node": {
               "id": "56012",
               "name": "",
               "person": {
@@ -191,6 +172,25 @@
           },
           {
             "node": {
+              "id": "8767",
+              "name": "",
+              "person": {
+                "id": "UGVyc29uTm9kZTozMTMy",
+                "name": "Larry Clark",
+                "nameEn": "Larry Clark",
+                "__typename": "PersonNode",
+                "gender": "A_1"
+              },
+              "role": {
+                "name": "Director",
+                "__typename": "RoleNode"
+              },
+              "__typename": "CastNode"
+            },
+            "__typename": "CastNodeEdge"
+          },
+          {
+            "node": {
               "id": "62638",
               "name": "",
               "person": {
@@ -201,7 +201,7 @@
                 "gender": "A_0"
               },
               "role": {
-                "name": "Producer",
+                "name": "Composer",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -220,7 +220,7 @@
                 "gender": "A_1"
               },
               "role": {
-                "name": "Scenarist",
+                "name": "Writer",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -258,7 +258,7 @@
                 "gender": "A_1"
               },
               "role": {
-                "name": "Writer",
+                "name": "Driver",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"

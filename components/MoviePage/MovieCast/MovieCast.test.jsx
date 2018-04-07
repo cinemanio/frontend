@@ -1,0 +1,37 @@
+import React from 'react'
+
+import MovieCast from './MovieCast'
+import { data } from '../fixtures/response.json'
+import { mountRouter } from '../../../tests/helpers'
+
+describe('Movie Cast Component', () => {
+  let element
+  let wrapper
+  const getRole = (block, position) =>
+    wrapper.find('Block').at(block).find('PersonLink').at(position)
+      .parents()
+      .at(0)
+      .children()
+      .at(1)
+      .text()
+
+  beforeEach(() => {
+    element = <MovieCast movie={data.movie}/>
+    wrapper = mountRouter(element)
+  })
+
+  it('should render 3 blocks with roles in each', () => {
+    expect(wrapper.find('Block')).toHaveLength(3)
+    expect(wrapper.find('Block').at(0).find('PersonLink')).toHaveLength(5)
+    expect(wrapper.find('Block').at(1).find('PersonLink')).toHaveLength(6)
+    expect(wrapper.find('Block').at(2).find('PersonLink')).toHaveLength(1)
+  })
+
+  it('should render creators sorted', () => {
+    expect(getRole(0, 0)).toBe('Director')
+    expect(getRole(0, 1)).toBe('Scenarist')
+    expect(getRole(0, 2)).toBe('Writer')
+    expect(getRole(0, 3)).toBe('Composer')
+    expect(getRole(0, 4)).toBe('Producer')
+  })
+})
