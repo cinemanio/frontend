@@ -25,8 +25,12 @@ export default class SelectFilter extends React.PureComponent<Props> {
 
   filterBy = (e: SyntheticEvent<HTMLSelectElement>) => {
     this.props.setFilter(this.props.code, e.currentTarget.value)
-    e.preventDefault()
     e.currentTarget.value = ''
+  }
+
+  renderOption(item: Object) {
+    return this.props.active.indexOf(item.id) !== -1 ? ''
+      : <option key={item.id} value={item.id}>{item.name}</option>
   }
 
   render() {
@@ -34,13 +38,7 @@ export default class SelectFilter extends React.PureComponent<Props> {
       // eslint-disable-next-line jsx-a11y/no-onchange
       <select name={this.props.code} onChange={this.filterBy}>
         <option value="">{this.props.title}</option>
-        {this.props.list.map((item: Object) => {
-          if (this.props.active.indexOf(item.id) === -1) {
-            return <option key={item.id} value={item.id}>{item.name}</option>
-          } else {
-            return ''
-          }
-        })}
+        {this.props.list.map((item: Object) => this.renderOption(item))}
       </select>
     )
   }
