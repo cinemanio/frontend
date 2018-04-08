@@ -3,10 +3,14 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
-import _ from 'lodash'
 
 import ObjectList, { configObject } from 'components/ObjectList/ObjectList'
 import MovieLink from 'components/MovieLink/MovieLink'
+
+import ActiveFilters from './ActiveFilters/ActiveFilters'
+import SelectFilter from './SelectFilter/SelectFilter'
+
+import './MoviesPage.scss'
 
 type Props = { data: Object }
 
@@ -26,13 +30,13 @@ class MoviesPage extends React.Component<Props> {
     }
   }
 
-  setFilter(name: string, value: string) {
+  setFilter = (name: string, value: string) => {
     const filter = this.state[name]
     filter.add(value)
     this.setState({ [name]: filter }, this.refreshList)
   }
 
-  removeFilter(name: string, value: string) {
+  removeFilter = (name: string, value: string) => {
     const filter = this.state[name]
     filter.delete(value)
     this.setState({ [name]: filter }, this.refreshList)
@@ -56,48 +60,32 @@ class MoviesPage extends React.Component<Props> {
     })
   }
 
-  filterBy = (type: string) => (e: Event) => this.setFilter(type, e.target.value)
-
   renderMovie = ({ movie }) => <MovieLink movie={movie}/>
 
-  renderFilterGenres() {
-    return (
-      <select name="genre" onChange={this.filterBy('genres')}>
-        <option value="">Genre</option>
-        {this.props.genreData.genres.map(genre =>
-          <option key={genre.id} value={genre.id}>{genre.name}</option>)}
-      </select>
-    )
-  }
-
-  renderFilterCountries() {
-    return (
-      <select name="country" onChange={this.filterBy('countries')}>
-        <option value="">Country</option>
-        {this.props.countryData.countries.map(country =>
-          <option key={country.id} value={country.id}>{country.name}</option>)}
-      </select>
-    )
-  }
-
-  renderActiveFilters() {
-    const filters = []
-    _.each(['genres', 'countries'], (filterName: string) => {
-      this.state[filterName].forEach((filter: string) => {
-        filters.push((<div
-          key={`${filterName}-${filter}`}
-          onClick={() => this.removeFilter(filterName, filter)}>{filter}</div>))
-      })
-    })
-    return filters
+  get filters() {
+    return {
+      genres: { title: 'Genre', list: this.props.genreData.genres },
+      countries: { title: 'Country', list: this.props.countryData.countries }
+    }
   }
 
   render() {
     return (
       <div>
-        {this.renderActiveFilters()}
-        {this.renderFilterGenres()}
-        {this.renderFilterCountries()}
+        <div styleName="filters">
+          <SelectFilter
+            code="genres" title="Genre" list={this.props.genreData.genres}
+            setFilter={this.setFilter} active={[...this.state.genres]}/>
+          <SelectFilter
+            code="countries" title="Country" list={this.props.countryData.countries}
+            setFilter={this.setFilter} active={[...this.state.countries]}/>
+        </div>
+        <ActiveFilters
+          code="genres" list={this.props.genreData.genres}
+          removeFilter={this.removeFilter} active={[...this.state.genres]}/>
+        <ActiveFilters
+          code="countries" list={this.props.countryData.countries}
+          removeFilter={this.removeFilter} active={[...this.state.countries]}/>
         <div>Results: {this.props.data.list.totalCount}</div>
         <ObjectList
           noResultsMessage="There is no such movies. Try to change search parameters."
@@ -110,8 +98,8 @@ class MoviesPage extends React.Component<Props> {
 }
 
 const MoviesQuery = gql`
-  query Movies($first: Int!, $after: String, $genres: [ID!]) {
-    list: movies(first: $first, after: $after, genres: $genres) {
+  query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!]) {
+    list: movies(first: $first, after: $after, genres: $genres, countries: $countries) {
       totalCount
       edges {
         movie: node {
