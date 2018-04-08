@@ -23,7 +23,7 @@ export default class ActiveFilters extends React.PureComponent<Props> {
     active: PropTypes.array.isRequired
   }
 
-  removeFilter = (value: string) => (e: Event) => {
+  removeFilter = (value: string) => () => {
     this.props.removeFilter(this.props.code, value)
   }
 

@@ -23,6 +23,7 @@ describe('Server Routes', () => {
 
   beforeAll(() => {
     global.console.log = jest.fn()
+    global.console.warn = jest.fn()
     Helmet.renderStatic = jest.fn()
   })
 

@@ -23,14 +23,15 @@ export default class SelectFilter extends React.PureComponent<Props> {
     active: PropTypes.array.isRequired
   }
 
-  filterBy = (e: Event) => {
+  filterBy = (e: SyntheticEvent<HTMLSelectElement>) => {
+    this.props.setFilter(this.props.code, e.currentTarget.value)
     e.preventDefault()
-    this.props.setFilter(this.props.code, e.target.value)
-    e.target.value = ''
+    e.currentTarget.value = ''
   }
 
   render() {
     return (
+      // eslint-disable-next-line jsx-a11y/no-onchange
       <select name={this.props.code} onChange={this.filterBy}>
         <option value="">{this.props.title}</option>
         {this.props.list.map((item: Object) => {

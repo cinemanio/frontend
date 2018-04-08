@@ -12,9 +12,19 @@ import SelectFilter from './SelectFilter/SelectFilter'
 
 import './MoviesPage.scss'
 
-type Props = { data: Object }
+type Props = {
+  data: Object,
+  genreData: Object,
+  countryData: Object,
+}
 
-class MoviesPage extends React.Component<Props> {
+type State = {
+  genres: Set<string>,
+  countries: Set<string>,
+  orderBy: string,
+}
+
+class MoviesPage extends React.Component<Props, State> {
   static propTypes = {
     data: PropTypes.object.isRequired,
     genreData: PropTypes.object.isRequired,
@@ -86,7 +96,7 @@ class MoviesPage extends React.Component<Props> {
         <ActiveFilters
           code="countries" list={this.props.countryData.countries}
           removeFilter={this.removeFilter} active={[...this.state.countries]}/>
-        <div>Results: {this.props.data.list.totalCount}</div>
+        <div>Results: {!this.props.data.loading && this.props.data.list.totalCount}</div>
         <ObjectList
           noResultsMessage="There is no such movies. Try to change search parameters."
           renderItem={this.renderMovie}
@@ -135,7 +145,7 @@ const CountryQuery = gql`
 `
 
 export default compose(
-  graphql(MoviesQuery, configObject),
   graphql(GenresQuery, { name: 'genreData' }),
-  graphql(CountryQuery, { name: 'countryData' })
+  graphql(CountryQuery, { name: 'countryData' }),
+  graphql(MoviesQuery, configObject)
 )(MoviesPage)
