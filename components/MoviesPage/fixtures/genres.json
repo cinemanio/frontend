@@ -1,0 +1,256 @@
+{
+  "data": {
+    "genres": [
+      {
+        "id": "3",
+        "name": "Action",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "18",
+        "name": "Adventure",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "40",
+        "name": "Animation",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "41",
+        "name": "Anime",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "43",
+        "name": "Based on novel",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "48",
+        "name": "Based on real story",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "2",
+        "name": "Biography",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "49",
+        "name": "Black and white",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "7",
+        "name": "Children's",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "30",
+        "name": "Comedy",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "31",
+        "name": "Crime",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "10",
+        "name": "Cyberpunk",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "6",
+        "name": "Detective story",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "9",
+        "name": "Disaster",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "42",
+        "name": "Documentary",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "29",
+        "name": "Drama",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "28",
+        "name": "Erotic",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "20",
+        "name": "Fable",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "35",
+        "name": "Family",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "27",
+        "name": "Fantasy",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "15",
+        "name": "Film-Noir",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "8",
+        "name": "History",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "26",
+        "name": "Horror",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "34",
+        "name": "Martial art",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "37",
+        "name": "Multi-parts",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "52",
+        "name": "Music",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "47",
+        "name": "Musical",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "12",
+        "name": "Mystery",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "16",
+        "name": "Parody",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "17",
+        "name": "Politics",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "50",
+        "name": "Prequel",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "44",
+        "name": "Remake",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "19",
+        "name": "Road",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "11",
+        "name": "Romance",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "14",
+        "name": "Sci-Fi",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "46",
+        "name": "Sequel",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "45",
+        "name": "Series",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "38",
+        "name": "Short",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "39",
+        "name": "Shorts digest",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "36",
+        "name": "Silent",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "33",
+        "name": "Space sci-fi",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "21",
+        "name": "Sport",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "22",
+        "name": "Surrealism",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "51",
+        "name": "Theater",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "25",
+        "name": "Thriller",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "23",
+        "name": "Tragedy",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "24",
+        "name": "Tragicomedy",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "5",
+        "name": "War",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "4",
+        "name": "Western",
+        "__typename": "GenreNode"
+      },
+      {
+        "id": "13",
+        "name": "Young",
+        "__typename": "GenreNode"
+      }
+    ]
+  }
+}

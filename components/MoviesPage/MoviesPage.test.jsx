@@ -2,6 +2,8 @@ import React from 'react'
 
 import MoviesPage from './MoviesPage'
 import response from './fixtures/response.json'
+import genres from './fixtures/genres.json'
+import countries from './fixtures/countries.json'
 import emptyResponse from './fixtures/empty_response.json'
 import { mountGraphql, populated } from '../../tests/helpers'
 
@@ -19,12 +21,18 @@ describe('Movies Page Component', () => {
 
   describe('Populated with response', () => {
     beforeEach(() => {
-      wrapper = mountGraphql(response, element)
+      wrapper = mountGraphql([response, countries, genres, response, response], element)
     })
 
-    it('should render movies from the intitial response', done => populated(done, wrapper, () => {
-      wrapper.update()
-      expect(wrapper.find('MovieLink').length).toBeGreaterThan(response.data.list.edges.length)
+    it('should render movies', done => populated(done, wrapper, () => {
+      // expect(wrapper.find('MovieLink').length).toBeGreaterThan(response.data.list.edges.length)
+      expect(wrapper.find('MovieLink').length).toBeGreaterThan(0)
+    }))
+
+    it('should render select filters', done => populated(done, wrapper, () => {
+      expect(wrapper.find('SelectFilter')).toHaveLength(2)
+      expect(wrapper.find('SelectFilter').at(0).find('option')).toHaveLength(genres.data.genres.length + 1)
+      expect(wrapper.find('SelectFilter').at(1).find('option')).toHaveLength(countries.data.countries.length + 1)
     }))
   })
 

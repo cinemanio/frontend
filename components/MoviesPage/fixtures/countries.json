@@ -1,0 +1,486 @@
+{
+  "data": {
+    "countries": [
+      {
+        "id": "8",
+        "name": "Afghanistan",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "4",
+        "name": "Albania",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "5",
+        "name": "Algeria",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "6",
+        "name": "Argentina",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "7",
+        "name": "Armenia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "1",
+        "name": "Australia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "2",
+        "name": "Austria",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "3",
+        "name": "Azerbaijan",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "9",
+        "name": "Belarus",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "10",
+        "name": "Belgium",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "11",
+        "name": "Benin",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "13",
+        "name": "Bolivia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "14",
+        "name": "Bosnia and Herzegovina",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "15",
+        "name": "Brazil",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "12",
+        "name": "Bulgaria",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "35",
+        "name": "Canada",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "85",
+        "name": "Chile",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "37",
+        "name": "China",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "38",
+        "name": "Columbia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "82",
+        "name": "Croatia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "39",
+        "name": "Cuba",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "83",
+        "name": "Czechoslovakia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "84",
+        "name": "Czech Republic",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "24",
+        "name": "Denmark",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "25",
+        "name": "Egypt",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "88",
+        "name": "Estonia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "96",
+        "name": "Faroe Islands",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "78",
+        "name": "Finland",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "81",
+        "name": "France",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "66",
+        "name": "FRG",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "19",
+        "name": "GDR",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "23",
+        "name": "Georgia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "20",
+        "name": "Germany",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "22",
+        "name": "Greece",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "21",
+        "name": "Hong Kong",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "17",
+        "name": "Hungary",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "31",
+        "name": "Iceland",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "27",
+        "name": "India",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "29",
+        "name": "Iran",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "28",
+        "name": "Iraq",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "30",
+        "name": "Ireland",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "26",
+        "name": "Israel",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "33",
+        "name": "Italy",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "94",
+        "name": "Jamaica",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "92",
+        "name": "Japan",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "34",
+        "name": "Kazakhstan",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "36",
+        "name": "Kenya",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "79",
+        "name": "Kuwait",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "40",
+        "name": "Latvia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "41",
+        "name": "Lebanon",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "42",
+        "name": "Liberia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "44",
+        "name": "Liechtenstein",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "43",
+        "name": "Lithuania",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "45",
+        "name": "Luxembourg",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "46",
+        "name": "Malaysia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "47",
+        "name": "Malta",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "49",
+        "name": "Mexico",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "50",
+        "name": "Monaco",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "51",
+        "name": "Mongolia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "48",
+        "name": "Morocco",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "53",
+        "name": "Netherlands",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "54",
+        "name": "New Zealand",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "52",
+        "name": "Nigeria",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "63",
+        "name": "North Korea",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "55",
+        "name": "Norway",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "56",
+        "name": "Pakistan",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "57",
+        "name": "Panama",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "93",
+        "name": "Peru",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "77",
+        "name": "Philippines",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "58",
+        "name": "Poland",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "59",
+        "name": "Portugal",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "60",
+        "name": "Puerto Rico",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "89",
+        "name": "Republic of Macedonia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "62",
+        "name": "Romania",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "61",
+        "name": "Russia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "80",
+        "name": "Serbia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "64",
+        "name": "Singapore",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "65",
+        "name": "Slovakia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "67",
+        "name": "Slovenia",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "90",
+        "name": "South Africa",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "91",
+        "name": "South Korea",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "68",
+        "name": "Soviet Union",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "32",
+        "name": "Spain",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "87",
+        "name": "Sweden",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "86",
+        "name": "Switzerland",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "71",
+        "name": "Taiwan",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "70",
+        "name": "Tajikistan",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "72",
+        "name": "Thailand",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "73",
+        "name": "Turkey",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "74",
+        "name": "Uganda",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "16",
+        "name": "UK",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "76",
+        "name": "Ukraine",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "69",
+        "name": "USA",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "75",
+        "name": "Uzbekistan",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "95",
+        "name": "Venezuela",
+        "__typename": "CountryNode"
+      },
+      {
+        "id": "18",
+        "name": "Vietnam",
+        "__typename": "CountryNode"
+      }
+    ]
+  }
+}
