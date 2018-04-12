@@ -8,13 +8,21 @@ type Props = {
   noResultsMessage: string,
   renderItem: Function,
   data: Object,
+  onScroll?: Function,
+  rowHeight: number,
 }
 
 export default class ObjectList extends React.Component<Props> {
+  static defaultProps = {
+    onScroll: () => {
+    }
+  }
   static propTypes = {
     noResultsMessage: PropTypes.string.isRequired,
     renderItem: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    onScroll: PropTypes.func,
+    rowHeight: PropTypes.number.isRequired
   }
 
   /**
@@ -84,10 +92,11 @@ export default class ObjectList extends React.Component<Props> {
             ref={registerChild}
             onRowsRendered={onRowsRendered}
             noRowsRenderer={this.renderNoResults}
+            onScroll={this.props.onScroll}
             rowRenderer={this.renderItem}
             height={800}
-            width={930}
-            rowHeight={20}
+            width={740}
+            rowHeight={this.props.rowHeight}
             rowCount={rowCount}
             overscanRowCount={0}
           />

@@ -14,6 +14,8 @@ class PersonsPage extends React.PureComponent<Props> {
     data: PropTypes.object.isRequired
   }
 
+  rowHeight: number = 20
+
   renderPerson = ({ person }) => <PersonLink person={person}/>
 
   render() {
@@ -22,6 +24,7 @@ class PersonsPage extends React.PureComponent<Props> {
         noResultsMessage="There is no such persons. Try to change search parameters."
         renderItem={this.renderPerson}
         data={this.props.data}
+        rowHeight={this.rowHeight}
       />
     )
   }
