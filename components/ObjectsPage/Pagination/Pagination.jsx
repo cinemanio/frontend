@@ -2,12 +2,12 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
+import './Pagination.scss'
+
 type Props = {
   data: Object,
   page: number,
 }
-
-import './Pagination.scss'
 
 export default class Pagination extends React.PureComponent<Props> {
   static propTypes = {

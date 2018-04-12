@@ -8,11 +8,13 @@ type Props = {
   setFilter: Function,
   list: Array<Object>,
   active: Array<string>,
+  multiple: boolean,
 }
 
 export default class SelectFilter extends React.PureComponent<Props> {
   static defaultProps = {
-    list: []
+    list: [],
+    multiple: false
   }
 
   static propTypes = {
@@ -20,7 +22,8 @@ export default class SelectFilter extends React.PureComponent<Props> {
     title: PropTypes.string.isRequired,
     setFilter: PropTypes.func.isRequired,
     list: PropTypes.array,
-    active: PropTypes.array.isRequired
+    active: PropTypes.array.isRequired,
+    multiple: PropTypes.bool
   }
 
   filterBy = (e: SyntheticEvent<HTMLSelectElement>) => {
@@ -34,7 +37,7 @@ export default class SelectFilter extends React.PureComponent<Props> {
   }
 
   render() {
-    return (
+    return (!this.props.multiple && this.props.active.length > 0) ? '' : (
       // eslint-disable-next-line jsx-a11y/no-onchange
       <select name={this.props.code} onChange={this.filterBy}>
         <option value="">{this.props.title}</option>

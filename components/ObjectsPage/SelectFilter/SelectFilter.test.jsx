@@ -14,14 +14,27 @@ describe('Select Filter Component', () => {
       list={[{ id: '1', name: '' }, { id: '2', name: '' }, { id: '3', name: '' }]}
       active={['1', '2']}
       setFilter={jest.fn()}
+      multiple
     />)
     wrapper = shallow(element)
   })
 
-  it('should render all options', () => {
+  it('should render select and all options', () => {
     expect(wrapper.find('select')).toHaveLength(1)
     expect(wrapper.find('option')).toHaveLength(2)
     expect(wrapper.find('option').at(0).text()).toBe('Filter')
+  })
+
+  it('should render select if multiple=False and active is not defined', () => {
+    wrapper = shallow(React.cloneElement(element, { multiple: false, active: [] }))
+    expect(wrapper.find('select')).toHaveLength(1)
+    expect(wrapper.find('option')).toHaveLength(4)
+  })
+
+  it('should not render select if multiple=False and active defined', () => {
+    wrapper = shallow(React.cloneElement(element, { multiple: false }))
+    expect(wrapper.find('select')).toHaveLength(0)
+    expect(wrapper.find('option')).toHaveLength(0)
   })
 
   it('should call setFilter on change', () => {
