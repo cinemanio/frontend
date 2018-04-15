@@ -4,10 +4,10 @@ import { graphql, compose } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import { configObject } from 'components/ObjectList/ObjectList'
-import ObjectsPage from 'components/ObjectsPage/ObjectsPage'
-import ActiveFilters from 'components/ObjectsPage/ActiveFilters/ActiveFilters'
-import SelectFilter from 'components/ObjectsPage/SelectFilter/SelectFilter'
+import { configObject } from 'components/ObjectListPage/ObjectList/ObjectList'
+import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
+import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
+import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
 import MovieLink from 'components/MovieLink/MovieLink'
 
 import './MoviesPage.scss'
@@ -49,18 +49,18 @@ class MoviesPage extends React.Component<Props, State> {
 
   // get filters() {
   //   return {
-  //     genres: { title: 'Genre', list: this.props.genreData.genres },
-  //     countries: { title: 'Country', list: this.props.countryData.countries }
+  //     genres: { title: 'Genre', list: this.props.genreData.list },
+  //     countries: { title: 'Country', list: this.props.countryData.list }
   //   }
   // }
 
   renderFilters = (setFilter: Function) => (
     <div>
       <SelectFilter
-        code="genres" title="Genre" list={this.props.genreData.genres}
+        code="genres" title="Genre" list={this.props.genreData.list}
         setFilter={setFilter} active={[...this.state.genres]} multiple/>
       <SelectFilter
-        code="countries" title="Country" list={this.props.countryData.countries}
+        code="countries" title="Country" list={this.props.countryData.list}
         setFilter={setFilter} active={[...this.state.countries]} multiple/>
     </div>
   )
@@ -68,17 +68,17 @@ class MoviesPage extends React.Component<Props, State> {
   renderActiveFilters = (removeFilter: Function) => (
     <span>
       <ActiveFilters
-        code="genres" list={this.props.genreData.genres}
+        code="genres" list={this.props.genreData.list}
         removeFilter={removeFilter} active={[...this.state.genres]}/>
       <ActiveFilters
-        code="countries" list={this.props.countryData.countries}
+        code="countries" list={this.props.countryData.list}
         removeFilter={removeFilter} active={[...this.state.countries]}/>
     </span>
   )
 
   render() {
     return (
-      <ObjectsPage
+      <ObjectListPage
         title="Movies"
         renderFilters={this.renderFilters}
         renderActiveFilters={this.renderActiveFilters}
@@ -115,7 +115,7 @@ const MoviesQuery = gql`
 
 const GenresQuery = gql`
   query Genres {
-    genres {
+    list: genres {
       id
       name
     }
@@ -124,7 +124,7 @@ const GenresQuery = gql`
 
 const CountryQuery = gql`
   query Countries {
-    countries {
+    list: countries {
       id
       name
     }

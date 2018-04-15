@@ -1,8 +1,8 @@
 // import React from 'react'
 
-// import ObjectsPage from './ObjectsPage'
+// import ObjectListPage from './ObjectListPage'
 
-describe('Objects Page Component', () => {
+describe('Object List Page Component', () => {
   // let element
   // let wrapper
   //

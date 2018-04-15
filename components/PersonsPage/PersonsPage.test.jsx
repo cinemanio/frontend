@@ -1,9 +1,11 @@
 import React from 'react'
 
 import PersonsPage from './PersonsPage'
-import { mountGraphql, populated } from '../../tests/helpers'
 import response from './fixtures/response.json'
+import roles from './fixtures/roles.json'
+import countries from './fixtures/countries.json'
 import emptyResponse from './fixtures/empty_response.json'
+import { mountGraphql, populated, mockAutoSizer } from '../../tests/helpers'
 
 describe('Persons Page Component', () => {
   let element
@@ -11,6 +13,7 @@ describe('Persons Page Component', () => {
 
   beforeAll(() => {
     global.console.warn = jest.fn()
+    mockAutoSizer()
   })
 
   beforeEach(() => {
@@ -19,12 +22,17 @@ describe('Persons Page Component', () => {
 
   describe('Populated with response', () => {
     beforeEach(() => {
-      wrapper = mountGraphql(response, element)
+      wrapper = mountGraphql([response, countries, roles, response, response], element)
     })
 
-    it('should render persons from the intitial response', done => populated(done, wrapper, () => {
-      wrapper.update()
-      expect(wrapper.find('PersonLink').length).toBeGreaterThan(response.data.list.edges.length)
+    it('should render persons', done => populated(done, wrapper, () => {
+      expect(wrapper.find('PersonLink').length).toBeGreaterThan(0)
+    }))
+
+    it('should render select filters', done => populated(done, wrapper, () => {
+      expect(wrapper.find('SelectFilter')).toHaveLength(2)
+      expect(wrapper.find('SelectFilter').at(0).find('option')).toHaveLength(roles.data.list.length + 1)
+      expect(wrapper.find('SelectFilter').at(1).find('option')).toHaveLength(countries.data.list.length + 1)
     }))
   })
 

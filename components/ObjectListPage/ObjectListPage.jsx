@@ -4,11 +4,10 @@ import { Helmet } from 'react-helmet'
 import { PropTypes } from 'prop-types'
 import _ from 'lodash'
 
-import ObjectList from 'components/ObjectList/ObjectList'
-
+import ObjectList from './ObjectList/ObjectList'
 import Pagination from './Pagination/Pagination'
 
-import './ObjectsPage.scss'
+import './ObjectListPage.scss'
 
 type Props = {
   data: Object,
@@ -26,7 +25,7 @@ type State = {
   scrollOffset: number,
 }
 
-export default class ObjectsPage extends React.Component<Props, State> {
+export default class ObjectListPage extends React.Component<Props, State> {
   static propTypes = {
     data: PropTypes.object.isRequired,
     filters: PropTypes.object.isRequired,
@@ -41,7 +40,7 @@ export default class ObjectsPage extends React.Component<Props, State> {
   constructor(props: Object) {
     super(props)
     this.state = {
-      scrollOffset: 0,
+      scrollOffset: 0
       // orderBy: ''
     }
   }
@@ -72,13 +71,15 @@ export default class ObjectsPage extends React.Component<Props, State> {
   }
 
   onScroll = ({ clientHeight, scrollTop }: Object) => {
-    this.setState({ scrollOffset: Math.floor(scrollTop / this.props.rowHeight) + (clientHeight / this.props.rowHeight) })
+    this.setState({
+      scrollOffset: Math.floor(scrollTop / this.props.rowHeight) + Math.floor(clientHeight / this.props.rowHeight)
+    })
   }
 
   render() {
-    const props = _.omit(this.props, ['title', 'getVariables', 'renderFilters', 'renderActiveFilters', 'setFilterState'])
+    const props = _.omit(this.props, ['title', 'renderFilters', 'renderActiveFilters', 'setFilterState'])
     return (
-      <div>
+      <div styleName="box">
         <Helmet>
           <title>{this.props.title}</title>
         </Helmet>
@@ -91,10 +92,12 @@ export default class ObjectsPage extends React.Component<Props, State> {
           <Pagination page={this.state.scrollOffset} data={this.props.data}/>
           {this.props.renderActiveFilters(this.removeFilter)}
         </div>
-        <ObjectList
-          onScroll={this.onScroll}
-          {...props}
-        />
+        <div styleName="list">
+          <ObjectList
+            onScroll={this.onScroll}
+            {...props}
+          />
+        </div>
       </div>
     )
   }

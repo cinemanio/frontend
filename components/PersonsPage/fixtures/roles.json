@@ -1,0 +1,121 @@
+{
+  "data": {
+    "list": [
+      {
+        "id": "19",
+        "name": "",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "17",
+        "name": "",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "13",
+        "name": "",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "20",
+        "name": "",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "1",
+        "name": "Actor",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "2",
+        "name": "Animator",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "6",
+        "name": "Casting",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "7",
+        "name": "Composer",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "8",
+        "name": "Consultant",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "16",
+        "name": "Director",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "15",
+        "name": "Editor",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "3",
+        "name": "Makeup artist",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "9",
+        "name": "Master of special effects",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "21",
+        "name": "Musician",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "10",
+        "name": "Operator",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "23",
+        "name": "Poet",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "14",
+        "name": "Producer",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "18",
+        "name": "Scenarist",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "4",
+        "name": "Soundman",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "5",
+        "name": "Stuntman",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "11",
+        "name": "Translator",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "22",
+        "name": "Voice",
+        "__typename": "RoleNode"
+      },
+      {
+        "id": "12",
+        "name": "Writer",
+        "__typename": "RoleNode"
+      }
+    ]
+  }
+}

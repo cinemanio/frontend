@@ -2,7 +2,6 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Helmet from 'react-helmet'
-
 import Layout from 'components/Layout/Layout'
 import MoviesPage from 'components/MoviesPage/MoviesPage'
 import MoviePage from 'components/MoviePage/MoviePage'

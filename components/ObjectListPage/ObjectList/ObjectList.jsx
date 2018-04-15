@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { InfiniteLoader, List } from 'react-virtualized'
+import { AutoSizer, InfiniteLoader, List } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
 import _ from 'lodash'
 
@@ -88,18 +88,22 @@ export default class ObjectList extends React.Component<Props> {
         rowCount={rowCount}
       >
         {({ onRowsRendered, registerChild }) => (
-          <List
-            ref={registerChild}
-            onRowsRendered={onRowsRendered}
-            noRowsRenderer={this.renderNoResults}
-            onScroll={this.props.onScroll}
-            rowRenderer={this.renderItem}
-            height={800}
-            width={740}
-            rowHeight={this.props.rowHeight}
-            rowCount={rowCount}
-            overscanRowCount={0}
-          />
+          <AutoSizer defaultHeight={400}>
+            {({ height, width }) => (
+              <List
+                ref={registerChild}
+                onRowsRendered={onRowsRendered}
+                noRowsRenderer={this.renderNoResults}
+                onScroll={this.props.onScroll}
+                rowRenderer={this.renderItem}
+                height={height - 30}
+                width={width - 190}
+                rowHeight={this.props.rowHeight}
+                rowCount={rowCount}
+                overscanRowCount={0}
+              />
+            )}
+          </AutoSizer>
         )}
       </InfiniteLoader>
     )
