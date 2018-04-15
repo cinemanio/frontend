@@ -82,21 +82,22 @@ export default class ObjectListPage extends React.Component<Props, State> {
       <div styleName="box">
         <Helmet>
           <title>{this.props.title}</title>
+          <body className="list"/>
         </Helmet>
-        <div styleName="filters">
-          <div>
-            {this.props.renderFilters(this.setFilter)}
-          </div>
-        </div>
-        <div styleName="caption">
-          <Pagination page={this.state.scrollOffset} data={this.props.data}/>
-          {this.props.renderActiveFilters(this.removeFilter)}
-        </div>
         <div styleName="list">
+          <div styleName="caption">
+            <Pagination page={this.state.scrollOffset} data={this.props.data}/>
+            {this.props.renderActiveFilters(this.removeFilter)}
+          </div>
           <ObjectList
             onScroll={this.onScroll}
             {...props}
           />
+        </div>
+        <div styleName="filters">
+          <div>
+            {this.props.renderFilters(this.setFilter)}
+          </div>
         </div>
       </div>
     )

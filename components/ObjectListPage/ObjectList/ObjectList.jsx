@@ -97,7 +97,7 @@ export default class ObjectList extends React.Component<Props> {
                 onScroll={this.props.onScroll}
                 rowRenderer={this.renderItem}
                 height={height - 30}
-                width={width - 190}
+                width={width - 10}
                 rowHeight={this.props.rowHeight}
                 rowCount={rowCount}
                 overscanRowCount={0}

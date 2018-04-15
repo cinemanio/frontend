@@ -1,14 +1,9 @@
 .box {
   flex: 1 1 auto;
+  display: flex;
 
   .filters {
-    float: right;
-    width: 180px;
-
-    div {
-      position: absolute;
-      width: 180px;
-    }
+    flex-grow: 0;
 
     select {
       display: block;
@@ -22,6 +17,6 @@
   }
 
   .list {
-    height: 100%;
+    flex-grow: 6;
   }
 }

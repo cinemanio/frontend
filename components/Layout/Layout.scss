@@ -1,12 +1,16 @@
-html {
-  height: 100%;
-}
+:global {
+  html {
+    height: 100%;
+  }
 
-body {
-  background-color: #EEEEEE;
-  height: 100%;
+  body {
+    background-color: #EEEEEE;
+  }
 
-  :global {
+  body.list {
+    @extend body;
+    height: 100%;
+
     div#react-container {
       height: 100%;
 
@@ -14,34 +18,41 @@ body {
         height: 100%;
       }
     }
-  }
-}
 
-header {
-  font-weight: bold;
-  font-size: 2rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
+    :local .box {
+      display: flex;
+      flex-direction: column;
 
-  a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
+      :local .container {
+        display: flex;
+      }
     }
   }
-}
 
-a {
-  color: #333333;
-  text-decoration: underline;
+  header {
+    font-weight: bold;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  a {
+    color: #333333;
+    text-decoration: underline;
+  }
 }
 
 .box {
   max-width: 1000px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
 
   .container {
     background-color: #FFFFFF;
@@ -53,6 +64,5 @@ a {
     margin-top: 30px;
     margin-bottom: 1rem;
     height: 100%;
-    display: flex;
   }
 }

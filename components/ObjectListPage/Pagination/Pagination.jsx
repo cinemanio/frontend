@@ -16,7 +16,7 @@ export default class Pagination extends React.PureComponent<Props> {
   }
 
   render() {
-    return this.props.data.loading ? ''
+    return (this.props.data.loading || !this.props.data.list) ? ''
       : (<span styleName="box">{this.props.page} / {this.props.data.list.totalCount}</span>)
   }
 }
