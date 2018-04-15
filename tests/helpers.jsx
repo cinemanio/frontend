@@ -47,6 +47,7 @@ export const populated = (done: Function, wrapper: Object, callback: Function) =
 
 
 export const mockAutoSizer = () => {
+  // $FlowFixMe
   spyOn(AutoSizer.prototype, 'render').and.callFake(function render() {
     return (
       <div ref={this._setRef}>

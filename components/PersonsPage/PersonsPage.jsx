@@ -17,7 +17,7 @@ type Props = {
 }
 
 type State = {
-  genres: Set<string>,
+  roles: Set<string>,
   country: string,
 }
 
