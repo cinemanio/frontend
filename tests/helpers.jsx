@@ -57,7 +57,7 @@ export const mockAutoSizer = () => {
   })
 }
 
-export const selectFilterChange = (wrapper, number, value) => {
+export const selectFilterChange = (wrapper: Object, number: number, value: string) => {
   // workaround instead of .simulate https://github.com/airbnb/enzyme/issues/218#issuecomment-332975628
   wrapper.find('SelectFilter').at(number).find('select').props()
     .onChange({ currentTarget: { value } })
