@@ -5,18 +5,12 @@ import response from './fixtures/response.json'
 import genres from './fixtures/genres.json'
 import countries from './fixtures/countries.json'
 import emptyResponse from './fixtures/empty_response.json'
-import { mountGraphql, populated, mockAutoSizer } from '../../tests/helpers'
+import { mountGraphql, populated, mockAutoSizer, selectFilterChange } from '../../tests/helpers'
 
 describe('Movies Page Component', () => {
   let element
   let wrapper
   let requestsLog
-  const selectFilterChange = (number, value) => {
-    // workaround instead of .simulate https://github.com/airbnb/enzyme/issues/218#issuecomment-332975628
-    wrapper.find('SelectFilter').at(number).find('select').props()
-      .onChange({ currentTarget: { value } })
-    wrapper.update()
-  }
 
   beforeAll(() => {
     global.console.warn = jest.fn()
@@ -49,7 +43,7 @@ describe('Movies Page Component', () => {
     it('should render active filter, when filter selected', done => populated(done, wrapper, () => {
       expect(wrapper.find('ActiveFilters')).toHaveLength(2)
       expect(wrapper.find('ActiveFilters').at(0).find('span')).toHaveLength(0)
-      selectFilterChange(0, '3')
+      selectFilterChange(wrapper, 0, '3')
       expect(wrapper.find('ActiveFilters').at(0).find('span')).toHaveLength(1)
     }))
 
@@ -58,12 +52,14 @@ describe('Movies Page Component', () => {
       expect(requestsLog[0].variables).toEqual({ first: 100, after: '' })
       expect(requestsLog[1].operationName).toBe('Countries')
       expect(requestsLog[2].operationName).toBe('Genres')
-      // expect(requestsLog[3].variables).toEqual({ first: 100, after: 'YXJyYXljb25uZWN0aW9uOjk5' })
-      // expect(requestsLog[4].variables).toEqual({ first: 100, after: 'YXJyYXljb25uZWN0aW9uOjk5' })
-      selectFilterChange(0, '3')
+      selectFilterChange(wrapper, 0, '3')
       await wrapper.find('ObjectListPage').instance().refreshList()
       expect(requestsLog).toHaveLength(4)
-      expect(requestsLog[3].variables).toEqual({ first: 100, after: '', genres: {}, countries: {} })
+      expect(requestsLog[3].variables).toEqual({ first: 100, after: '', genres: ['3'], countries: [] })
+      selectFilterChange(wrapper, 1, '4')
+      await wrapper.find('ObjectListPage').instance().refreshList()
+      expect(requestsLog).toHaveLength(5)
+      expect(requestsLog[4].variables).toEqual({ first: 100, after: '', genres: ['3'], countries: ['4'] })
     }))
   })
 
@@ -74,7 +70,6 @@ describe('Movies Page Component', () => {
 
     it('should render message if no results in response', done => populated(done, wrapper, () => {
       expect(wrapper.find('MovieLink')).toHaveLength(0)
-
       expect(wrapper.text()).toContain('There is no such movies.')
     }))
   })

@@ -41,38 +41,49 @@ class MoviesPage extends React.Component<Props, State> {
   rowHeight: number = 20
 
   getVariables = () => ({
-    genres: this.state.genres,
-    countries: this.state.countries
+    genres: [...this.state.genres],
+    countries: [...this.state.countries]
   })
 
   renderMovie = ({ movie }) => <MovieLink movie={movie}/>
 
-  // get filters() {
-  //   return {
-  //     genres: { title: 'Genre', list: this.props.genreData.list },
-  //     countries: { title: 'Country', list: this.props.countryData.list }
-  //   }
-  // }
-
-  renderFilters = (setFilter: Function) => (
+  renderFilters = (refreshList: Function) => (
     <div>
       <SelectFilter
-        code="genres" title="Genre" list={this.props.genreData.list}
-        setFilter={setFilter} active={[...this.state.genres]} multiple/>
+        code="genres"
+        title="Genre"
+        list={this.props.genreData.list}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+        multiple
+      />
       <SelectFilter
-        code="countries" title="Country" list={this.props.countryData.list}
-        setFilter={setFilter} active={[...this.state.countries]} multiple/>
+        code="countries"
+        title="Country"
+        list={this.props.countryData.list}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+        multiple
+      />
     </div>
   )
 
-  renderActiveFilters = (removeFilter: Function) => (
+  renderActiveFilters = (refreshList: Function) => (
     <span>
       <ActiveFilters
-        code="genres" list={this.props.genreData.list}
-        removeFilter={removeFilter} active={[...this.state.genres]}/>
+        code="genres"
+        list={this.props.genreData.list}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+        multiple
+      />
       <ActiveFilters
-        code="countries" list={this.props.countryData.list}
-        removeFilter={removeFilter} active={[...this.state.countries]}/>
+        code="countries"
+        list={this.props.countryData.list}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+        multiple
+      />
     </span>
   )
 
@@ -85,8 +96,6 @@ class MoviesPage extends React.Component<Props, State> {
         noResultsMessage="There is no such movies. Try to change search parameters."
         renderItem={this.renderMovie}
         getVariables={this.getVariables}
-        setFilterState={(params, callback) => this.setState(params, callback)}
-        filters={this.state}
         data={this.props.data}
         rowHeight={this.rowHeight}
       />

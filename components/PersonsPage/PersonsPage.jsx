@@ -39,31 +39,47 @@ class PersonsPage extends React.Component<Props, State> {
   rowHeight: number = 20
 
   getVariables = () => ({
-    roles: this.state.roles,
+    roles: [...this.state.roles],
     country: this.state.country
   })
 
   renderPerson = ({ person }) => <PersonLink person={person}/>
 
-  renderFilters = (setFilter: Function) => (
+  renderFilters = (refreshList: Function) => (
     <div>
       <SelectFilter
-        code="roles" title="Role" list={this.props.roleData.list}
-        setFilter={setFilter} active={[...this.state.roles]} multiple/>
+        code="roles"
+        title="Role"
+        list={this.props.roleData.list}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+        multiple
+      />
       <SelectFilter
-        code="countries" title="Country" list={this.props.countryData.list}
-        setFilter={setFilter} active={[...this.state.country]}/>
+        code="country"
+        title="Country"
+        list={this.props.countryData.list}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+      />
     </div>
   )
 
-  renderActiveFilters = (removeFilter: Function) => (
+  renderActiveFilters = (refreshList: Function) => (
     <span>
       <ActiveFilters
-        code="roles" list={this.props.roleData.list}
-        removeFilter={removeFilter} active={[...this.state.roles]}/>
+        code="roles"
+        list={this.props.roleData.list}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+        multiple
+      />
       <ActiveFilters
-        code="countries" list={this.props.countryData.list}
-        removeFilter={removeFilter} active={[...this.state.country]}/>
+        code="country"
+        list={this.props.countryData.list}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+      />
     </span>
   )
 
@@ -76,8 +92,6 @@ class PersonsPage extends React.Component<Props, State> {
         noResultsMessage="There is no such persons. Try to change search parameters."
         renderItem={this.renderPerson}
         getVariables={this.getVariables}
-        setFilterState={(params, callback) => this.setState(params, callback)}
-        filters={this.state}
         data={this.props.data}
         rowHeight={this.rowHeight}
       />

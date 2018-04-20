@@ -39,9 +39,9 @@ export const mountGraphql = (response: Object | Array<Object>, element: Object, 
 export const mountRouter = (element: Object) => mount(<MemoryRouter>{element}</MemoryRouter>)
 
 export const populated = (done: Function, wrapper: Object, callback: Function) =>
-  setTimeout(() => {
+  setTimeout(async () => {
     wrapper.update()
-    callback()
+    await callback()
     done()
   }, 0)
 
@@ -56,3 +56,11 @@ export const mockAutoSizer = () => {
     )
   })
 }
+
+export const selectFilterChange = (wrapper, number, value) => {
+  // workaround instead of .simulate https://github.com/airbnb/enzyme/issues/218#issuecomment-332975628
+  wrapper.find('SelectFilter').at(number).find('select').props()
+    .onChange({ currentTarget: { value } })
+  wrapper.update()
+}
+

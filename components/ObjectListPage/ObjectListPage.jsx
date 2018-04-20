@@ -11,11 +11,9 @@ import './ObjectListPage.scss'
 
 type Props = {
   data: Object,
-  filters: Object,
   getVariables: Function,
   renderActiveFilters: Function,
   renderFilters: Function,
-  setFilterState: Function,
   rowHeight: number,
   title: string,
 }
@@ -28,9 +26,7 @@ type State = {
 export default class ObjectListPage extends React.Component<Props, State> {
   static propTypes = {
     data: PropTypes.object.isRequired,
-    filters: PropTypes.object.isRequired,
     getVariables: PropTypes.func.isRequired,
-    setFilterState: PropTypes.func.isRequired,
     renderActiveFilters: PropTypes.func.isRequired,
     renderFilters: PropTypes.func.isRequired,
     rowHeight: PropTypes.number.isRequired,
@@ -45,30 +41,16 @@ export default class ObjectListPage extends React.Component<Props, State> {
     }
   }
 
-  setFilter = (name: string, value: string) => {
-    const filter = this.props.filters[name]
-    filter.add(value)
-    this.props.setFilterState({ [name]: filter }, this.refreshList)
-  }
-
-  removeFilter = (name: string, value: string) => {
-    const filter = this.props.filters[name]
-    filter.delete(value)
-    this.props.setFilterState({ [name]: filter }, this.refreshList)
-  }
-
-  refreshList = () => {
-    this.props.data.fetchMore({
-      variables: this.props.getVariables(),
-      updateQuery: (previousResult, { fetchMoreResult }) => ({
-        list: {
-          totalCount: fetchMoreResult.list.totalCount,
-          edges: fetchMoreResult.list.edges,
-          pageInfo: fetchMoreResult.list.pageInfo
-        }
-      })
+  refreshList = () => this.props.data.fetchMore({
+    variables: this.props.getVariables(),
+    updateQuery: (previousResult, { fetchMoreResult }) => ({
+      list: {
+        totalCount: fetchMoreResult.list.totalCount,
+        edges: fetchMoreResult.list.edges,
+        pageInfo: fetchMoreResult.list.pageInfo
+      }
     })
-  }
+  })
 
   onScroll = ({ clientHeight, scrollTop }: Object) => {
     this.setState({
@@ -87,7 +69,7 @@ export default class ObjectListPage extends React.Component<Props, State> {
         <div styleName="list">
           <div styleName="caption">
             <Pagination page={this.state.scrollOffset} data={this.props.data}/>
-            {this.props.renderActiveFilters(this.removeFilter)}
+            {this.props.renderActiveFilters(this.refreshList)}
           </div>
           <ObjectList
             onScroll={this.onScroll}
@@ -96,7 +78,7 @@ export default class ObjectListPage extends React.Component<Props, State> {
         </div>
         <div styleName="filters">
           <div>
-            {this.props.renderFilters(this.setFilter)}
+            {this.props.renderFilters(this.refreshList)}
           </div>
         </div>
       </div>

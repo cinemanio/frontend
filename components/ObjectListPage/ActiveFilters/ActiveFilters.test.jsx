@@ -11,8 +11,9 @@ describe('Active Filters Component', () => {
     element = (<ActiveFilters
       code="filter"
       list={[{ id: '1', name: 'Active 1' }, { id: '2', name: 'Active 2' }, { id: '3', name: '' }]}
-      active={['1', '2']}
-      removeFilter={jest.fn()}
+      filters={{ filter: new Set(['1', '2']) }}
+      setFilterState={jest.fn()}
+      multiple
     />)
     wrapper = mount(element)
   })
@@ -23,9 +24,26 @@ describe('Active Filters Component', () => {
     expect(wrapper.find('span').at(1).text()).toBe('Active 2')
   })
 
-  it('should call removeFilter on click', () => {
-    expect(element.props.removeFilter).not.toHaveBeenCalled()
-    wrapper.find('span').at(1).simulate('click')
-    expect(element.props.removeFilter).toHaveBeenCalledWith('filter', '2')
+  it('should call setFilterState on change', () => {
+    expect(element.props.setFilterState).not.toHaveBeenCalled()
+    wrapper.find('span').at(0).simulate('click')
+    expect(element.props.setFilterState).toHaveBeenCalledWith({ filter: new Set(['2']) })
+  })
+
+  describe('Multiple is off', () => {
+    beforeEach(() => {
+      wrapper = mount(React.cloneElement(element, { multiple: false, filters: { filter: '2' } }))
+    })
+
+    it('should render one active filter', () => {
+      expect(wrapper.find('span')).toHaveLength(1)
+      expect(wrapper.find('span').at(0).text()).toBe('Active 2')
+    })
+
+    it('should call setFilterState on change', () => {
+      expect(element.props.setFilterState).not.toHaveBeenCalled()
+      wrapper.find('span').at(0).simulate('click')
+      expect(element.props.setFilterState).toHaveBeenCalledWith({ filter: '' })
+    })
   })
 })
