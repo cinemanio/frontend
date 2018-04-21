@@ -26,17 +26,25 @@ export default class ObjectList extends React.Component<Props> {
   }
 
   /**
-   *  Are there more items to load? (This information comes from the most recent API request.)
+   * Check if data loaded and populated
+   * @returns {boolean}
+   */
+  get loaded(): boolean {
+    return !this.props.data.loading && this.props.data.list
+  }
+
+  /**
+   * Are there more items to load? (This information comes from the most recent API request.)
    */
   get hasNextPage(): boolean {
-    return !this.props.data.loading ? this.props.data.list.pageInfo.hasNextPage : true
+    return this.loaded ? this.props.data.list.pageInfo.hasNextPage : true
   }
 
   /**
    * List of items loaded so far
    */
   get list(): Array<Object> {
-    return !this.props.data.loading ? this.props.data.list.edges : []
+    return this.loaded ? this.props.data.list.edges : []
   }
 
   /**
