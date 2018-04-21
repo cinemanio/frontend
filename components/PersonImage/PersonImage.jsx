@@ -24,7 +24,7 @@ export default class PersonImage extends React.Component<Props> {
     return (
       <div>
         <a href="/"><img
-          src="http://movister.ru/media/cache/ca/70/ca70184d3b3b7916cdf86d3056c486c1.jpg"
+          src="https://st.kp.yandex.net/images/actor_iphone/iphone360_2286874.jpg"
           alt={this.props.person.name}
           title={this.props.person.name}
         /></a>

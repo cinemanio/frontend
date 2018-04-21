@@ -24,7 +24,7 @@ export default class MovieImage extends React.Component<Props> {
     return (
       <div>
         <a href="/"><img
-          src="http://movister.ru/media/cache/a8/27/a82760e6e94cbb587925585f4cdcc8e1.jpg"
+          src="https://st.kp.yandex.net/images/film_iphone/iphone360_1100779.jpg"
           alt={this.props.movie.title}
           title={this.props.movie.title}
         /></a>
