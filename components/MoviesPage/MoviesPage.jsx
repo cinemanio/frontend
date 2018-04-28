@@ -8,8 +8,10 @@ import { configObject } from 'components/ObjectListPage/ObjectList/ObjectList'
 import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
-import MovieLink from 'components/MovieLink/MovieLink'
+import SelectView from 'components/ObjectListPage/SelectView/SelectView'
 
+import MovieShort from './MovieShort/MovieShort'
+import MovieFull from './MovieFull/MovieFull'
 import './MoviesPage.scss'
 
 type Props = {
@@ -21,6 +23,7 @@ type Props = {
 type State = {
   genres: Set<string>,
   countries: Set<string>,
+  view: 'short' | 'full',
 }
 
 class MoviesPage extends React.Component<Props, State> {
@@ -34,24 +37,45 @@ class MoviesPage extends React.Component<Props, State> {
     super(props)
     this.state = {
       genres: new Set([]),
-      countries: new Set([])
+      countries: new Set([]),
+      view: 'short'
     }
   }
 
-  rowHeight: number = 20
+  rowHeight: number = 80
 
   getVariables = () => ({
     genres: [...this.state.genres],
     countries: [...this.state.countries]
   })
 
-  renderMovie = ({ movie }) => <MovieLink movie={movie}/>
+  get viewOptions() {
+    return [
+      { id: 'short', name: 'Short view' },
+      // { id: 'full', name: 'Full view' },
+    ]
+  }
+
+  renderMovie = ({ movie }) => {
+    if (this.state.view === 'short') {
+      return <MovieShort movie={movie}/>
+    } else if (this.state.view === 'full') {
+      return <MovieFull movie={movie}/>
+    } else {
+      throw Error('Wrong value of state.view')
+    }
+  }
 
   renderFilters = (refreshList: Function) => (
     <div>
+      <SelectView
+        list={this.viewOptions}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+      />
       <SelectFilter
         code="genres"
-        title="Genre"
+        title="Filter by genre"
         list={this.props.genreData.list}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
@@ -59,7 +83,7 @@ class MoviesPage extends React.Component<Props, State> {
       />
       <SelectFilter
         code="countries"
-        title="Country"
+        title="Filter by country"
         list={this.props.countryData.list}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
@@ -110,7 +134,7 @@ const MoviesQuery = gql`
       edges {
         movie: node {
           id
-          ...MovieLink
+          ...MovieShort
         }
       }
       pageInfo {
@@ -119,7 +143,7 @@ const MoviesQuery = gql`
       }
     }
   }
-  ${MovieLink.fragments.movie}
+  ${MovieShort.fragments.movie}
 `
 
 const GenresQuery = gql`

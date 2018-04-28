@@ -31,7 +31,7 @@ describe('Movies Page Component', () => {
 
     it('should render movies', done => populated(done, wrapper, () => {
       // expect(wrapper.find('MovieLink').length).toBeGreaterThan(response.data.list.edges.length)
-      expect(wrapper.find('MovieLink').length).toBeGreaterThan(0)
+      expect(wrapper.find('MovieShort').length).toBeGreaterThan(0)
     }))
 
     it('should render select filters', done => populated(done, wrapper, () => {

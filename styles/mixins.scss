@@ -14,16 +14,13 @@
 
 @mixin rel-fa-icon($type, $color) {
   color: #999999;
+  cursor: pointer;
 
   i {
     @include fa-icon($type);
-    font-size: 1.5rem;
-    margin-right: 0.5rem;
     border: 1px solid #999999;
-    border-radius: 5px;
     background-color: #CCCCCC;
     color: white;
-    padding: 0.3rem;
   }
 
   .active {
@@ -47,10 +44,29 @@
 %rel-box {
   float: right;
 
-  > span {
+  span {
     margin-left: 1rem;
     font-size: 1.3rem;
-    cursor: pointer;
+
+    i {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+      border-radius: 5px;
+      padding: 0.3rem;
+    }
+  }
+}
+
+%rel-short-box {
+  float: right;
+
+  span {
+    i {
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+      border-radius: 3px;
+      padding: 0.2rem;
+    }
   }
 }
 

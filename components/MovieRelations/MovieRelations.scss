@@ -1,8 +1,6 @@
 @import 'mixins.scss';
 
 .box {
-  @extend %rel-box;
-
   .fav {
     @include rel-fa-icon('star', #e26500);
   }

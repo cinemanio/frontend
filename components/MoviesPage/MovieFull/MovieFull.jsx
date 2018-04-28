@@ -3,20 +3,20 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import ObjectLink from '../ObjectLink/ObjectLink'
+import ObjectLink from '../../ObjectLink/ObjectLink'
 
-type Props = { movie: Object, children: Object }
+type Props = { movie: Object }
 
-export default class MovieLink extends React.PureComponent<Props> {
+export default class MovieFull extends React.PureComponent<Props> {
   static propTypes = {
-    movie: PropTypes.object.isRequired,
-    children: PropTypes.node.isRequired
+    movie: PropTypes.object.isRequired
   }
 
   static fragments = {
     movie: gql`
       fragment MovieLink on MovieNode {
         id
+        title
         titleEn
         year
       }
@@ -34,7 +34,7 @@ export default class MovieLink extends React.PureComponent<Props> {
   render() {
     return (
       <ObjectLink type="movie" parts={this.parts}>
-        {this.props.children}
+        {this.props.movie.title}
       </ObjectLink>
     )
   }

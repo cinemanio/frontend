@@ -6,10 +6,10 @@ import gql from 'graphql-tag'
 
 import ObjectPage from 'components/ObjectPage/ObjectPage'
 import MovieImage from 'components/MovieImage/MovieImage'
+import MovieRelations from 'components/MovieRelations/MovieRelations'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 
 import MovieInfo from './MovieInfo/MovieInfo'
-import MovieRelations from './MovieRelations/MovieRelations'
 import MovieCast from './MovieCast/MovieCast'
 import MovieSites from './MovieSites/MovieSites'
 
@@ -25,10 +25,12 @@ export class MoviePage extends React.PureComponent<Props> {
   renderLayout(movie: Object) {
     return (
       <div styleName="box">
-        <MovieRelations counts={{ fav: 1, like: 10, seen: 10, dislike: 10, want: 3, have: 3, ignore: 0 }}/>
+        <div styleName="relations">
+          <MovieRelations counts={{ fav: 1, like: 10, seen: 10, dislike: 10, want: 3, have: 3, ignore: 0 }}/>
+        </div>
         <h1>{movie.title}</h1>
         <h2>{movie.title}</h2>
-        <MovieInfo movie={movie}/>
+        <MovieInfo movie={movie} all/>
         <div className="row">
           <div className="col-lg-2">
             <div styleName="image">
@@ -60,12 +62,12 @@ const MovieQuery = gql`
     movie(id: $movieId) {
       title
       year
-      ...MovieInfo
+      ...MovieInfoAll
       ...MovieSites
       ...MovieCast
     }
   }
-  ${MovieInfo.fragments.movie}
+  ${MovieInfo.fragments.all}
   ${MovieSites.fragments.movie}
   ${MovieCast.fragments.movie}
 `

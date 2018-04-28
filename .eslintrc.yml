@@ -43,7 +43,7 @@ rules:
   comma-dangle: [error, only-multiline, {functions: never}]
   semi: off
   no-else-return: off
-  class-methods-use-this: warn
+  class-methods-use-this: off
   function-paren-newline: off
   object-curly-newline: [error, {consistent: true}]
 

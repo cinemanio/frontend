@@ -8,7 +8,7 @@ describe('Person Career Component', () => {
   let element
   let wrapper
   const getRole = (block, position) =>
-    wrapper.find('Block').at(block).find('MovieLink').at(position)
+    wrapper.find('Block').at(block).find('MovieLink').at((position * 2) + 1)
       .parents()
       .at(1)
       .children()
@@ -22,7 +22,7 @@ describe('Person Career Component', () => {
 
   it('should render blocks with roles', () => {
     expect(wrapper.find('Block')).toHaveLength(1)
-    expect(wrapper.find('Block').at(0).find('MovieLink')).toHaveLength(14)
+    expect(wrapper.find('Block').at(0).find('MovieImage')).toHaveLength(14)
   })
 
   it('should group roles for the same movie', () => {

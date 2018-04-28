@@ -26,10 +26,13 @@ export default class PersonCast extends React.Component<Props> {
               id 
               name
               movie {
-                ...MovieLink
+                title
                 year
+                ...MovieLink
               }
-              role { name }
+              role {
+                name
+              }
             }
           }
         }      
@@ -59,7 +62,12 @@ export default class PersonCast extends React.Component<Props> {
       (<div key={node.id} styleName="movie">
         <div styleName="image"><MovieImage movie={node.movie}/></div>
         <div>
-          <div><MovieLink movie={node.movie}/> ({node.movie.year})</div>
+          <div>
+            <MovieLink movie={node.movie}>
+              {node.movie.title}
+            </MovieLink>
+            ({node.movie.year})
+          </div>
           <div>{node.roles.join(', ')}</div>
         </div>
       </div>)

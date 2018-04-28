@@ -46,7 +46,11 @@
 
   a {
     color: #333333;
-    text-decoration: underline;
+
+    &:hover {
+      color: #333333;
+      text-decoration: underline;
+    }
   }
 }
 
