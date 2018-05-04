@@ -2,7 +2,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { formatRoute } from 'react-router-named-routes'
+import { translate } from 'react-i18next';
 import { PropTypes } from 'prop-types'
+import i18n from 'i18next'
 
 import routes from 'components/App/routes'
 
@@ -10,19 +12,23 @@ import './Menu.scss'
 
 type Props = { active?: string }
 
+@translate('', { wait: true })
 export default class Menu extends React.PureComponent<Props> {
   static defaultProps = {
     active: undefined
   }
 
   static propTypes = {
-    active: PropTypes.string
+    active: PropTypes.string,
+    t: PropTypes.func.isRequired
   }
 
-  menu = [
-    ['movie', 'Movies'],
-    ['person', 'Persons']
-  ]
+  get menu() {
+    return [
+      ['movie', this.props.t('menu.movies')],
+      ['person', this.props.t('menu.persons')]
+    ]
+  }
 
   getClass(type: string) {
     const classes = ['nav-link']
@@ -30,6 +36,11 @@ export default class Menu extends React.PureComponent<Props> {
       classes.push('active')
     }
     return classes.join(' ')
+  }
+
+  changeLang = (e, lang: string) => {
+    e.preventDefault()
+    i18n.changeLanguage(lang)
   }
 
   renderMenu() {
@@ -46,6 +57,8 @@ export default class Menu extends React.PureComponent<Props> {
         {this.renderMenu()}
         <Link to={formatRoute(routes.person.detail, { slug: '404' })} className="nav-link">404</Link>
         <Link to="/500" className="nav-link">500</Link>
+        <a href="#ru" onClick={e => this.changeLang(e, 'ru')} className="nav-link">ru</a>
+        <a href="#en" onClick={e => this.changeLang(e, 'en')} className="nav-link">en</a>
       </ul>
     )
   }

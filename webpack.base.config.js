@@ -105,6 +105,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       libs: path.resolve('libs'),
+      locales: path.resolve('locales'),
       tests: path.resolve('tests'),
       stores: path.resolve('stores'),
       components: path.resolve('components')

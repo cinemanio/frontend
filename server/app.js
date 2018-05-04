@@ -24,12 +24,17 @@ const getApp = (apolloHttpConf: Object) => {
   })
 
   if (settings.env === 'development') {
-    app.use(proxy('/public', {
+    const proxySettings = {
       target: `http://${settings.webpackServerHost}`,
       logs: true
-    }))
+    }
+    app
+      .use(proxy('/public', proxySettings))
+      .use(proxy('/locales', proxySettings))
   } else {
-    app.use(mount('/public', serve('public')))
+    app
+      .use(mount('/public', serve('public')))
+      .use(mount('/locales', serve('locales')))
   }
 
   app.use(ApolloReduxReactSSR(apolloHttpConf))
