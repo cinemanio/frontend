@@ -2,27 +2,27 @@
 
 .box {
   .fav {
-    @include rel-fa-icon('star', #e26500);
+    @include rel-fa-icon('star', #e25800);
   }
 
   .like {
-    @include rel-fa-icon('thumbs-up', #129800);
+    @include rel-fa-icon('thumbs-up', #6b983e);
   }
 
   .seen {
-    @include rel-fa-icon('eye', #2f598c);
+    @include rel-fa-icon('eye', #1c658c);
   }
 
   .dislike {
-    @include rel-fa-icon('thumbs-down', #cd371f);
+    @include rel-fa-icon('thumbs-down', #cd132c);
   }
 
   .want {
-    @include rel-fa-icon('check', #009986);
+    @include rel-fa-icon('check', #039988);
   }
 
   .ignore {
-    @include rel-fa-icon('eye-slash', #804500);
+    @include rel-fa-icon('ban', #804500);
   }
 
   .have {
