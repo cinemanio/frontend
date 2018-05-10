@@ -14,7 +14,7 @@ export default class MovieFull extends React.PureComponent<Props> {
 
   static fragments = {
     movie: gql`
-      fragment MovieLink on MovieNode {
+      fragment MovieFull on MovieNode {
         id
         title
         titleEn

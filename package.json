@@ -97,7 +97,7 @@
     "url-loader": "0.6.2",
     "webpack": "4.0.0",
     "webpack-bundle-tracker": "0.2.1",
-    "webpack-cli": "2.0.9"
+    "webpack-cli": "2.1.3"
   },
   "devDependencies": {
     "apollo-mocknetworkinterface": "2.0.0",

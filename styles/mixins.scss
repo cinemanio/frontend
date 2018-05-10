@@ -13,30 +13,32 @@
 }
 
 @mixin rel-fa-icon($type, $color) {
-  color: #999999;
   cursor: pointer;
+  color: #999999;
 
   i {
     @include fa-icon($type);
-    border: 1px solid #999999;
-    background-color: #CCCCCC;
-    color: white;
+    border: 1px solid #DDDDDD;
+    background-color: white;
+    color: #DDDDDD;
+  }
+
+  &:hover {
+    color: $color;
+
+    i {
+      border: 1px solid #BBBBBB;
+      background-color: transparentize(lighten($color, 50), 0.4);
+      color: $color;
+    }
   }
 
   .active {
     color: $color;
 
     i {
+      border: 1px solid $color;
       background-color: $color;
-    }
-  }
-
-  &:hover {
-    color: #666666;
-
-    i {
-      border: 1px solid #666666;
-      background-color: #999999;
     }
   }
 }
