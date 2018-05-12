@@ -18,7 +18,7 @@ describe('Persons Page Component', () => {
   })
 
   beforeEach(() => {
-    element = <PersonsPage/>
+    element = <PersonsPage t={() => ''}/>
   })
 
   describe('Populated with response', () => {

@@ -2,7 +2,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { formatRoute } from 'react-router-named-routes'
-import { translate } from 'react-i18next';
 import { PropTypes } from 'prop-types'
 import i18n from 'i18next'
 
@@ -12,7 +11,6 @@ import './Menu.scss'
 
 type Props = { active?: string }
 
-@translate('', { wait: true })
 export default class Menu extends React.PureComponent<Props> {
   static defaultProps = {
     active: undefined

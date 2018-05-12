@@ -3,14 +3,15 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
-import { AutoSizer } from 'react-virtualized';
+import { AutoSizer } from 'react-virtualized'
 import createMockedNetworkFetch from 'apollo-mocknetworkinterface'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 import _ from 'lodash'
 
-export const mountGraphql = (response: Object | Array<Object>, element: Object, requestsLog: ?Array<Object>) => {
+export const getMockedNetworkFetch = (response: Object | Array<Object>, requestsLog: ?Array<Object>) => {
   let i = 0
-  const mockedNetworkFetch = createMockedNetworkFetch((request: Object) => {
+  return createMockedNetworkFetch((request: Object) => {
+    // console.debug(request)
     if (requestsLog) {
       requestsLog.push(request)
     }
@@ -23,6 +24,10 @@ export const mountGraphql = (response: Object | Array<Object>, element: Object, 
     }
     return resp
   }, { timeout: 0 })
+}
+
+export const mountGraphql = (response: Object | Array<Object>, element: Object, requestsLog: ?Array<Object>) => {
+  const mockedNetworkFetch = getMockedNetworkFetch(response, requestsLog)
   const client = new ApolloClient({
     link: new HttpLink({ fetch: mockedNetworkFetch }),
     cache: new InMemoryCache()

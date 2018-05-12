@@ -18,7 +18,7 @@ describe('Movies Page Component', () => {
   })
 
   beforeEach(() => {
-    element = <MoviesPage/>
+    element = <MoviesPage t={() => ''}/>
   })
 
   describe('Populated with response', () => {

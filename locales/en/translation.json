@@ -1,6 +1,18 @@
 {
+  "title": {
+    "movies": "Movies",
+    "persons": "Persons"
+  },
   "menu": {
     "movies": "Movies",
     "persons": "Persons"
+  },
+  "filter": {
+    "view": {
+      "short": "Short view",
+      "full": "Full view"
+    },
+    "genre": "Filter by genre",
+    "country": "Filter by country"
   }
 }

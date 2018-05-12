@@ -10,10 +10,11 @@ import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 
 import App from 'components/App/App'
 import i18nServer from 'libs/i18nServer'
-import i18nStore from 'locales/ru/translation.json'
 
 import renderHtmlPage from './renderHtmlPage'
 import settings from '../settings'
+
+Helmet.canUseDOM = false
 
 function ApolloReduxReactSSR(apolloHttpConf: Object) {
   const fetchDataAndRenderBody = async (client: Object, app: Object) => {
@@ -24,7 +25,7 @@ function ApolloReduxReactSSR(apolloHttpConf: Object) {
       markup = await renderToStringWithData(app)
       initialState = client.extract()
     } finally {
-      head = Helmet.renderStatic()
+      head = Helmet.rewind()
     }
     return { markup, head, initialState }
   }
@@ -48,12 +49,15 @@ function ApolloReduxReactSSR(apolloHttpConf: Object) {
       cache: new InMemoryCache()
     })
 
+    const lang = i18nServer.services.languageDetector.detect(ctx)
+    i18nServer.changeLanguage(lang)
+
     const context = {}
     const app = (
       <ApolloProvider client={client}>
         <StaticRouter location={ctx.request.url} context={context}>
           <I18nextProvider i18n={i18nServer}>
-            <App/>
+            <App lang={lang}/>
           </I18nextProvider>
         </StaticRouter>
       </ApolloProvider>

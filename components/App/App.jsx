@@ -2,6 +2,7 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
 
 import Layout from 'components/Layout/Layout'
 import MoviesPage from 'components/MoviesPage/MoviesPage'
@@ -16,10 +17,10 @@ const Error500 = () => {
   throw Error()
 }
 
-const App = () => (
+const App = ({ lang }) => (
   <div>
     <Helmet
-      htmlAttributes={{ lang: 'en' }}
+      htmlAttributes={{ lang }}
       defaultTitle="cineman.io"
       titleTemplate="%s · cineman.io"
     >
@@ -38,5 +39,9 @@ const App = () => (
     </Switch>
   </div>
 )
+
+App.propTypes = {
+  lang: PropTypes.string.isRequired
+}
 
 export default App

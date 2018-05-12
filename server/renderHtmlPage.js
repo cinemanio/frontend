@@ -23,7 +23,7 @@ export default (markup, head, state, apiUrl) => {
     ${safeHead.style.toString()}
     ${safeHead.link.toString()}
   </head>
-  <body>
+  <body ${safeHead.bodyAttributes.toString()}>
     <div id="react-container">${markup}</div>
     <script id="initial-state-script">
       window.API_URL="${apiUrl}";

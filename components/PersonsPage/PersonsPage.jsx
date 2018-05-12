@@ -25,7 +25,8 @@ class PersonsPage extends React.Component<Props, State> {
   static propTypes = {
     data: PropTypes.object.isRequired,
     roleData: PropTypes.object.isRequired,
-    countryData: PropTypes.object.isRequired
+    countryData: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
   }
 
   constructor(props: Object) {
@@ -86,7 +87,7 @@ class PersonsPage extends React.Component<Props, State> {
   render() {
     return (
       <ObjectListPage
-        title="Persons"
+        title={this.props.t('title.persons')}
         renderFilters={this.renderFilters}
         renderActiveFilters={this.renderActiveFilters}
         noResultsMessage="There is no such persons. Try to change search parameters."

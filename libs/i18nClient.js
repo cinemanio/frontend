@@ -23,8 +23,7 @@ i18n
       nsMode: 'default'
     },
     detection: {
-      cookieMinutes: 1000000,
-      cookieDomain: settings.domain
+      order: ['htmlTag'],
     }
   })
 

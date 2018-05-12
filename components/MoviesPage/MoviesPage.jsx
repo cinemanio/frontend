@@ -30,7 +30,8 @@ class MoviesPage extends React.Component<Props, State> {
   static propTypes = {
     data: PropTypes.object.isRequired,
     genreData: PropTypes.object.isRequired,
-    countryData: PropTypes.object.isRequired
+    countryData: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
   }
 
   constructor(props: Object) {
@@ -51,8 +52,8 @@ class MoviesPage extends React.Component<Props, State> {
 
   get viewOptions() {
     return [
-      { id: 'short', name: 'Short view' },
-      // { id: 'full', name: 'Full view' },
+      { id: 'short', name: this.props.t('filter.view.short') },
+      { id: 'full', name: this.props.t('filter.view.full') },
     ]
   }
 
@@ -75,7 +76,7 @@ class MoviesPage extends React.Component<Props, State> {
       />
       <SelectFilter
         code="genres"
-        title="Filter by genre"
+        title={this.props.t('filter.genre')}
         list={this.props.genreData.list}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
@@ -83,7 +84,7 @@ class MoviesPage extends React.Component<Props, State> {
       />
       <SelectFilter
         code="countries"
-        title="Filter by country"
+        title={this.props.t('filter.country')}
         list={this.props.countryData.list}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
@@ -114,7 +115,7 @@ class MoviesPage extends React.Component<Props, State> {
   render() {
     return (
       <ObjectListPage
-        title="Movies"
+        title={this.props.t('title.movies')}
         renderFilters={this.renderFilters}
         renderActiveFilters={this.renderActiveFilters}
         noResultsMessage="There is no such movies. Try to change search parameters."

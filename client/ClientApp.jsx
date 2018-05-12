@@ -10,6 +10,7 @@ import fetch from 'unfetch'
 import App from 'components/App/App'
 import i18nClient from 'libs/i18nClient'
 
+const { lang } = document.getElementsByTagName('html')[0]
 const client = new ApolloClient({
   ssrForceFetchDelay: 100,
   link: new HttpLink({ uri: window.API_URL, fetch }),
@@ -20,7 +21,7 @@ const ClientApp = () => (
   <ApolloProvider client={client}>
     <BrowserRouter>
       <I18nextProvider i18n={i18nClient}>
-        <App/>
+        <App lang={lang}/>
       </I18nextProvider>
     </BrowserRouter>
   </ApolloProvider>
