@@ -17,7 +17,7 @@ const Error500 = () => {
   throw Error()
 }
 
-const App = ({ lang }) => (
+const App = ({ lang }: Object) => (
   <div>
     <Helmet
       htmlAttributes={{ lang }}

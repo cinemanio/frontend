@@ -11,7 +11,7 @@ import routes from 'components/App/routes'
 import './Menu.scss'
 import settings from '../../settings'
 
-type Props = { active?: string }
+type Props = { active?: string, t: Function }
 
 export default class Menu extends React.PureComponent<Props> {
   static defaultProps = {
@@ -23,7 +23,7 @@ export default class Menu extends React.PureComponent<Props> {
     t: PropTypes.func.isRequired
   }
 
-  get menu() {
+  get menu(): Array<Array<string>> {
     return [
       ['movie', this.props.t('menu.movies')],
       ['person', this.props.t('menu.persons')]
@@ -38,7 +38,7 @@ export default class Menu extends React.PureComponent<Props> {
     return classes.join(' ')
   }
 
-  changeLang = (e, lang: string) => {
+  changeLang = (e: Event, lang: string) => {
     e.preventDefault()
     i18n.changeLanguage(lang)
     Cookies.set(settings.i18nCookieName, lang)

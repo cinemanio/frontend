@@ -16,7 +16,7 @@ import settings from '../settings'
 
 describe('Server Routes', () => {
   let requestsLog
-  const client = (response: Object | Array<Object>) => {
+  const client = (response) => {
     const httpConf = { fetch: getMockedNetworkFetch(response, requestsLog) }
     return request(app(httpConf).callback())
   }
@@ -97,7 +97,6 @@ describe('Server Routes', () => {
   })
 
   describe('i18n. should translate to the language', () => {
-
     [
       ['ru', 'Фильмы'],
       ['en', 'Movies']

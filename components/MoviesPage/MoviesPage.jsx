@@ -18,6 +18,7 @@ type Props = {
   data: Object,
   genreData: Object,
   countryData: Object,
+  t: Function,
 }
 
 type State = {

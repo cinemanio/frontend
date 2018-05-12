@@ -14,6 +14,7 @@ type Props = {
   data: Object,
   roleData: Object,
   countryData: Object,
+  t: Function,
 }
 
 type State = {

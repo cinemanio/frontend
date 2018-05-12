@@ -9,7 +9,7 @@ import Menu from 'components/Menu/Menu'
 
 import './Layout.scss'
 
-type Props = { component: Function, menuActive?: string }
+type Props = { component: Function, menuActive?: string, t?: Function }
 type State = { error: ?Error }
 
 @translate()
@@ -33,6 +33,11 @@ export default class Layout extends React.Component<Props, State> {
     this.setState({ error })
   }
 
+  renderMenu(menuActive?: string) {
+    // fix flow issue, prop t comes from translate decorator
+    return this.props.t ? <Menu active={menuActive} t={this.props.t}/> : '';
+  }
+
   render() {
     const { component: Component, menuActive, ...rest } = this.props
     return (
@@ -40,7 +45,7 @@ export default class Layout extends React.Component<Props, State> {
         <div className="container" styleName="box">
           <header><Link to="/">cineman.io</Link></header>
           <div styleName="container">
-            <Menu active={menuActive} t={this.props.t}/>
+            {this.renderMenu(menuActive)}
             {this.state.error
               ? <RedBox error={this.state.error}/>
               : <Component {...matchProps} t={this.props.t}/>}
