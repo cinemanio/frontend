@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 import { formatRoute } from 'react-router-named-routes'
 import { PropTypes } from 'prop-types'
 import i18n from 'i18next'
+import Cookies from 'js-cookie'
 
 import routes from 'components/App/routes'
 
 import './Menu.scss'
+import settings from '../../settings'
 
 type Props = { active?: string }
 
@@ -39,6 +41,7 @@ export default class Menu extends React.PureComponent<Props> {
   changeLang = (e, lang: string) => {
     e.preventDefault()
     i18n.changeLanguage(lang)
+    Cookies.set(settings.i18nCookieName, lang)
   }
 
   renderMenu() {

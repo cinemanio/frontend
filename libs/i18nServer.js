@@ -27,28 +27,10 @@ i18n
       bindStore: 'added removed',
       nsMode: 'default'
     },
-    // detection: {
-    //   order: ['querystring', 'path', 'cookie', 'header', 'session'],
-    //
-    //   lookupQuerystring: 'lng',
-    //
-    //   lookupParam: 'lng', // for route like: 'path1/:lng/result'
-    //   lookupFromPathIndex: 0,
-    //
-    //   // currently using ctx.cookies
-    //   lookupCookie: 'i18next',
-    //   // cookieExpirationDate: new Date(), // default: +1 year
-    //   // cookieDomain: '', // default: current domain.
-    //
-    //   // currently using ctx.session
-    //   lookupSession: 'lng',
-    //
-    //   // other options
-    //   lookupMySession: 'lang',
-    //
-    //   // cache user language
-    //   caches: ['cookie']
-    // }
+    detection: {
+      order: ['cookie', 'header'],
+      lookupCookie: settings.i18nCookieName,
+    }
   })
 
 export default i18n

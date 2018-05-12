@@ -12,6 +12,7 @@ import noMovie from '../components/MoviePage/fixtures/empty_response.json'
 import persons from '../components/PersonsPage/fixtures/response.json'
 import person from '../components/PersonPage/fixtures/response.json'
 import noPerson from '../components/PersonPage/fixtures/empty_response.json'
+import settings from '../settings'
 
 describe('Server Routes', () => {
   let requestsLog
@@ -95,17 +96,24 @@ describe('Server Routes', () => {
     expect(response.type).toEqual('text/html')
   })
 
-  describe('i18n', () => {
-    it('should translate menu to the ru', async () => {
-      const response = await client([genres, countries, movies]).get('/movies/?lng=ru')
-      expect(response.text).toContain('<html lang="ru"')
-      expect(response.text).toContain('Фильмы')
-    })
+  describe('i18n. should translate to the language', () => {
 
-    it('should translate menu to the en', async () => {
-      const response = await client([genres, countries, movies]).get('/movies/?lng=en')
-      expect(response.text).toContain('<html lang="en"')
-      expect(response.text).toContain('Movies')
+    [
+      ['ru', 'Фильмы'],
+      ['en', 'Movies']
+    ].forEach(([lang, title]) => {
+      it(`${lang} if cookie defined`, async () => {
+        const cookie = `${settings.i18nCookieName}=${lang}`
+        const response = await client([genres, countries, movies]).get('/movies/').set('Cookie', [cookie])
+        expect(response.text).toContain(`<html lang="${lang}"`)
+        expect(response.text).toContain(title)
+      })
+
+      it(`${lang} if browser accept language`, async () => {
+        const response = await client([genres, countries, movies]).get('/movies/').set('Accept-Language', lang)
+        expect(response.text).toContain(`<html lang="${lang}"`)
+        expect(response.text).toContain(title)
+      })
     })
   })
 })
