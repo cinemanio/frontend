@@ -6,9 +6,7 @@ import Cookies from 'js-cookie'
 import './Languages.scss'
 import settings from '../../../settings'
 
-type Props = {}
-
-export default class Languages extends React.Component<Props> {
+export default class Languages extends React.Component<{}> {
   languages = [
     ['en', 'English'],
     ['ru', 'Русский']
