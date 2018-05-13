@@ -8,6 +8,7 @@ import { translate } from 'react-i18next'
 import Menu from 'components/Menu/Menu'
 
 import './Layout.scss'
+import Languages from './Languages/Languages'
 
 type Props = { component: Function, menuActive?: string, t?: Function }
 type State = { error: ?Error }
@@ -50,6 +51,11 @@ export default class Layout extends React.Component<Props, State> {
               ? <RedBox error={this.state.error}/>
               : <Component {...matchProps} t={this.props.t}/>}
           </div>
+          <footer>
+            <div styleName="languages">
+              <Languages/>
+            </div>
+          </footer>
         </div>
       )}/>
     )
