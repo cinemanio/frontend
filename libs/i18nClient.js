@@ -1,5 +1,4 @@
 import i18n from 'i18next'
-// import XHR from 'i18next-xhr-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { reactI18nextModule } from 'react-i18next'
 
@@ -8,13 +7,11 @@ import ru from '../locales/ru/translation.json'
 import en from '../locales/en/translation.json'
 
 i18n
-// .use(XHR)
   .use(LanguageDetector)
   .use(reactI18nextModule) // if not using I18nextProvider
   .init({
-    fallbackLng: 'en',
     debug: settings.debug,
-    // TODO: switch to more smart backend
+    fallbackLng: 'en',
     resources: {
       ru: { translation: ru },
       en: { translation: en }
@@ -31,7 +28,6 @@ i18n
     },
     detection: {
       order: ['htmlTag'],
-      lookupCookie: settings.i18nCookieName
     }
   })
 

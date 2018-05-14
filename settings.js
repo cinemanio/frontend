@@ -5,5 +5,6 @@ module.exports = {
   env: process.env.NODE_ENV || 'development',
   debug: process.env.NODE_ENV === 'development',
   domain: process.env.DOMAIN,
-  i18nCookieName: 'lang'
+  i18nCookieName: 'lang',
+  languages: ['en', 'ru'],
 }
