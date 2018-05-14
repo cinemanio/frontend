@@ -54,7 +54,7 @@ export default class Layout extends React.Component<Props, State> {
           </div>
           <footer>
             <div styleName="languages">
-              <Languages i18n={this.props.i18n}/>
+              {this.props.i18n ? <Languages i18n={this.props.i18n}/> : ''}
             </div>
           </footer>
         </div>

@@ -3,7 +3,6 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 import humanizeDuration from 'humanize-duration'
-import i18n from 'i18next'
 
 import CountryFlag from 'components/CountryFlag/CountryFlag'
 import { i18nFields, i18nField } from 'libs/i18n'
