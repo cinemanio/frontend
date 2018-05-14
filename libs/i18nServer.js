@@ -9,7 +9,7 @@ i18n
   .use(koaI18nextDetector)
   .init({
     debug: settings.debug,
-    preload: settings.languages,
+    preload: settings.languages.map(([lang]) => lang),
     fallbackLng: 'en',
     initImmediate: false,
     backend: {

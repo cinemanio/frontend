@@ -13,11 +13,6 @@ export default class Languages extends React.Component<Props> {
     i18n: PropTypes.object.isRequired
   }
 
-  languages = [
-    ['en', 'English'],
-    ['ru', 'Русский']
-  ]
-
   changeLanguage = (lang: string) => (e: Event) => {
     e.preventDefault()
     this.props.i18n.changeLanguage(lang)
@@ -27,7 +22,7 @@ export default class Languages extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
-        {this.languages.map(([lang, title]) => (this.props.i18n.language === lang
+        {settings.languages.map(([lang, title]) => (this.props.i18n.language === lang
           ? <strong key={lang}>{title}</strong>
           : <a key={lang} href={`#${lang}`} onClick={this.changeLanguage(lang)}>{title}</a>))}
       </div>
