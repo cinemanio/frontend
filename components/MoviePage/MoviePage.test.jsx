@@ -1,10 +1,10 @@
 import React from 'react'
 
 import i18n from 'libs/i18nClient'
+import { mountRouter } from 'tests/helpers'
 
 import { MoviePage } from './MoviePage'
 import { data } from './fixtures/response.json'
-import { mountRouter } from '../../tests/helpers'
 
 describe('Movie Page Component', () => {
   let element

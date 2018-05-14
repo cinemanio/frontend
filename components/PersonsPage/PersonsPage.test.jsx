@@ -1,11 +1,12 @@
 import React from 'react'
 
+import { mountGraphql, populated, mockAutoSizer, selectFilterChange } from 'tests/helpers'
+
 import PersonsPage from './PersonsPage'
 import response from './fixtures/response.json'
 import roles from './fixtures/roles.json'
 import countries from './fixtures/countries.json'
 import emptyResponse from './fixtures/empty_response.json'
-import { mountGraphql, populated, mockAutoSizer, selectFilterChange } from '../../tests/helpers'
 
 describe('Persons Page Component', () => {
   let element

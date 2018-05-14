@@ -1,9 +1,10 @@
 import React from 'react'
 
+import { mountRouter } from 'tests/helpers'
+
 import MovieCast from './MovieCast'
 import { data } from '../fixtures/response.json'
 import responseOnlyDirector from '../fixtures/response_only_director.json'
-import { mountRouter } from '../../../tests/helpers'
 
 describe('Movie Cast Component', () => {
   let element

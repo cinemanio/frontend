@@ -1,13 +1,13 @@
 import React from 'react'
 
 import i18n from 'libs/i18nClient'
+import { mountGraphql, populated, mockAutoSizer, selectFilterChange } from 'tests/helpers'
 
 import MoviesPage from './MoviesPage'
 import response from './fixtures/response.json'
 import genres from './fixtures/genres.json'
 import countries from './fixtures/countries.json'
 import emptyResponse from './fixtures/empty_response.json'
-import { mountGraphql, populated, mockAutoSizer, selectFilterChange } from '../../tests/helpers'
 
 describe('Movies Page Component', () => {
   let element

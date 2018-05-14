@@ -1,8 +1,9 @@
 import React from 'react'
 
+import { mountRouter } from 'tests/helpers'
+
 import { PersonPage } from './PersonPage'
 import response from './fixtures/response.json'
-import { mountRouter } from '../../tests/helpers'
 // import emptyResponse from './fixtures/empty_response.json'
 
 describe('Person Page Component', () => {

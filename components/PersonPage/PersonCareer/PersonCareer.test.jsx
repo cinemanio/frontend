@@ -1,8 +1,9 @@
 import React from 'react'
 
+import { mountRouter } from 'tests/helpers'
+
 import PersonCareer from './PersonCareer'
 import { data } from '../fixtures/response.json'
-import { mountRouter } from '../../../tests/helpers'
 
 describe('Person Career Component', () => {
   let element
