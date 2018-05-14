@@ -17,10 +17,7 @@ describe('Movies Page Component', () => {
   beforeAll(() => {
     global.console.warn = jest.fn()
     mockAutoSizer()
-  })
-
-  beforeEach(() => {
-    element = <MoviesPage t={() => ''} i18n={i18n}/>
+      element = <MoviesPage t={i => i18n.t(i)} i18n={i18n}/>
   })
 
   describe('Populated with response', () => {
@@ -32,7 +29,6 @@ describe('Movies Page Component', () => {
     })
 
     it('should render movies', done => populated(done, wrapper, () => {
-      // expect(wrapper.find('MovieLink').length).toBeGreaterThan(response.data.list.edges.length)
       expect(wrapper.find('MovieShort').length).toBeGreaterThan(0)
     }))
 

@@ -93,7 +93,7 @@ class PersonsPage extends React.Component<Props, State> {
         title={this.props.t('title.persons')}
         renderFilters={this.renderFilters}
         renderActiveFilters={this.renderActiveFilters}
-        noResultsMessage="There is no such persons. Try to change search parameters."
+        noResultsMessage={this.props.t('nothingFound.persons')}
         renderItem={this.renderPerson}
         getVariables={this.getVariables}
         data={this.props.data}

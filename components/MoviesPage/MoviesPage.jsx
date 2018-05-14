@@ -122,7 +122,7 @@ class MoviesPage extends React.Component<Props, State> {
         title={this.props.t('title.movies')}
         renderFilters={this.renderFilters}
         renderActiveFilters={this.renderActiveFilters}
-        noResultsMessage="There is no such movies. Try to change search parameters."
+        noResultsMessage={this.props.t('nothingFound.movies')}
         renderItem={this.renderMovie}
         getVariables={this.getVariables}
         data={this.props.data}

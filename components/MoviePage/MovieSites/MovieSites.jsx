@@ -34,7 +34,7 @@ export default class MovieSites extends React.PureComponent<Props> {
     return !site ? '' : (
       <li>
         <a href={site.url}>IMDb</a>
-        {site.rating ? <span title="IMDb rating">{site.rating}</span> : ''}
+        {site.rating ? <span title={this.props.t('movie.sites.imdbRating')}>{site.rating}</span> : ''}
       </li>
     )
   }
@@ -43,8 +43,8 @@ export default class MovieSites extends React.PureComponent<Props> {
     const site = this.props.movie.kinopoisk
     return !site ? '' : (
       <li>
-        <a href={site.url}>Кинопоиск</a>
-        {site.rating ? <span title="Кинопоиск рейтинг">{site.rating}</span> : ''}
+        <a href={site.url}>{this.props.t('movie.sites.kinopoisk')}</a>
+        {site.rating ? <span title={this.props.t('movie.sites.kinopoiskRating')}>{site.rating}</span> : ''}
       </li>
     )
   }

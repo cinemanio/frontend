@@ -22,7 +22,10 @@
       "language_plural": "languages"
     },
     "sites": {
-      "title": "This movie on"
+      "title": "This movie on",
+      "kinopoisk": "kinopoisk.ru",
+      "imdbRating": "IMDb rating",
+      "kinopoiskRating": "Kinopoisk.ru rating"
     },
     "cast": {
       "cast": "Cast",
@@ -36,5 +39,9 @@
     "sites": {
       "title": "This person on"
     }
+  },
+  "nothingFound": {
+    "persons": "There is no such persons. Try to change search parameters.",
+    "movies": "There is no such movies. Try to change search parameters."
   }
 }

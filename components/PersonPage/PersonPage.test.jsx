@@ -13,7 +13,7 @@ describe('Person Page Component', () => {
   let wrapper
 
   beforeEach(() => {
-    element = <PersonPage params={{ personId: '' }} data={data} t={() => ''} i18n={i18n}/>
+    element = <PersonPage params={{ personId: '' }} data={data} t={i => i18n.t(i)} i18n={i18n}/>
     wrapper = mountRouter(element)
   })
 
