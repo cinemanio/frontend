@@ -5,7 +5,7 @@ import gql from 'graphql-tag'
 import humanizeDuration from 'humanize-duration'
 
 import CountryFlag from 'components/CountryFlag/CountryFlag'
-import { i18nFields, i18nField } from 'libs/i18n'
+import i18n from 'libs/i18n'
 
 import './MovieInfo.scss'
 
@@ -49,14 +49,14 @@ export default class MovieInfo extends React.Component<Props> {
         year
         runtime
         genres {
-          ${i18nFields('name')}
+          ${i18n.gql('name')}
         }
         countries {
-          ${i18nFields('name')}
+          ${i18n.gql('name')}
           ...CountryFlag
         }
         languages {
-          ${i18nFields('name')}
+          ${i18n.gql('name')}
         }
       }
       ${CountryFlag.fragments.country}      
@@ -69,14 +69,14 @@ export default class MovieInfo extends React.Component<Props> {
     genres: gql`
       fragment MovieInfoGenres on MovieNode {
         genres {
-          ${i18nFields('name')}
+          ${i18n.gql('name')}
         }
       }
     `,
     countries: gql`
       fragment MovieInfoCountries on MovieNode {
         countries {
-          ${i18nFields('name')}
+          ${i18n.gql('name')}
           ...CountryFlag
         }
       }
@@ -90,7 +90,7 @@ export default class MovieInfo extends React.Component<Props> {
     languages: gql`
       fragment MovieInfoLanguages on MovieNode {
         languages {
-          ${i18nFields('name')}
+          ${i18n.gql('name')}
         }
       }
     `
@@ -107,7 +107,7 @@ export default class MovieInfo extends React.Component<Props> {
   renderGenres() {
     return (!this.props.genres && !this.props.all) ? '' : (
       <span styleName="genres">
-        {this.props.movie.genres.map(item => item[i18nField('name')]).join(', ')}
+        {this.props.movie.genres.map(item => item[i18n.f('name')]).join(', ')}
       </span>
     )
   }
@@ -116,10 +116,10 @@ export default class MovieInfo extends React.Component<Props> {
     return (!this.props.countries && !this.props.all) ? '' : (
       <span styleName="countries">
         {this.props.movie.countries.map((item, i) => (
-          <span key={item[i18nField('name')]}>
+          <span key={item[i18n.f('name')]}>
             {i > 0 ? ', ' : ''}
             <CountryFlag country={item}/>
-            {item[i18nField('name')]}
+            {item[i18n.f('name')]}
           </span>
         ))}
       </span>
@@ -141,7 +141,7 @@ export default class MovieInfo extends React.Component<Props> {
     const lang = this.props.t('movie.info.language', { count: this.props.movie.languages.length })
     return (
       <span styleName="languages">
-        {`${this.props.movie.languages.map(item => item[i18nField('name')]).join(', ')} ${lang}`}
+        {`${this.props.movie.languages.map(item => item[i18n.f('name')]).join(', ')} ${lang}`}
       </span>
     )
   }

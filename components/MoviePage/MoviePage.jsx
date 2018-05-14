@@ -8,7 +8,7 @@ import ObjectPage from 'components/ObjectPage/ObjectPage'
 import MovieImage from 'components/MovieImage/MovieImage'
 import MovieRelations from 'components/MovieRelations/MovieRelations'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
-import { i18nFields, i18nField } from 'libs/i18n'
+import i18n from 'libs/i18n'
 
 import MovieInfo from './MovieInfo/MovieInfo'
 import MovieCast from './MovieCast/MovieCast'
@@ -25,14 +25,14 @@ export class MoviePage extends React.Component<Props> {
     i18n: PropTypes.object.isRequired
   }
 
-  isTitlesEqual = (movie: Object) => movie[i18nField('title')] === movie.title
+  isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.title
 
   renderLayout = (movie: Object) => (
     <div styleName="box">
       <div styleName="relations">
         <MovieRelations counts={{ fav: 1, like: 10, seen: 10, dislike: 10, want: 3, have: 3, ignore: 0 }}/>
       </div>
-      <h1>{movie[i18nField('title')]}</h1>
+      <h1>{movie[i18n.f('title')]}</h1>
       <h2>{this.isTitlesEqual(movie) ? '' : movie.title}</h2>
       <MovieInfo movie={movie} t={this.props.t} i18n={this.props.i18n} all/>
       <div className="row">
@@ -51,7 +51,7 @@ export class MoviePage extends React.Component<Props> {
 
   getTitle = (movie: Object) => {
     const parts = []
-    parts.push(movie[i18nField('title')])
+    parts.push(movie[i18n.f('title')])
     if (!this.isTitlesEqual(movie)) {
       parts.push(movie.title)
     }
@@ -71,7 +71,7 @@ export class MoviePage extends React.Component<Props> {
 const MovieQuery = gql`
   query Movie($movieId: ID!) {
     movie(id: $movieId) {
-      ${i18nFields('title')}
+      ${i18n.gql('title')}
       title
       ...MovieImage
       ...MovieInfoAll

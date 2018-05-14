@@ -9,7 +9,7 @@ import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
 import SelectView from 'components/ObjectListPage/SelectView/SelectView'
-import { i18nFields } from 'libs/i18n'
+import i18n from 'libs/i18n'
 
 import MovieShort from './MovieShort/MovieShort'
 import MovieFull from './MovieFull/MovieFull'
@@ -155,7 +155,7 @@ const GenresQuery = gql`
   query Genres {
     list: genres {
       id
-      ${i18nFields('name')}
+      ${i18n.gql('name')}
     }
   }
 `
@@ -164,7 +164,7 @@ const CountryQuery = gql`
   query Countries {
     list: countries {
       id
-      ${i18nFields('name')}
+      ${i18n.gql('name')}
     }
   }
 `

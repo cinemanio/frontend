@@ -3,7 +3,7 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import { i18nFields, i18nField } from 'libs/i18n'
+import i18n from 'libs/i18n'
 
 import ObjectLink from '../ObjectLink/ObjectLink'
 
@@ -20,7 +20,7 @@ export default class PersonLink extends React.Component<Props> {
         id
         name
         nameEn
-        ${i18nFields('name')}
+        ${i18n.gql('name')}
       }
     `
   }
@@ -35,7 +35,7 @@ export default class PersonLink extends React.Component<Props> {
   render() {
     return (
       <ObjectLink type="person" parts={this.parts}>
-        {this.props.person[i18nField('name')]}
+        {this.props.person[i18n.f('name')]}
       </ObjectLink>
     )
   }

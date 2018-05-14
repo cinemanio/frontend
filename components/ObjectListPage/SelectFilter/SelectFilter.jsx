@@ -2,7 +2,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
-import { i18nField } from 'libs/i18n'
+import i18n from 'libs/i18n'
 
 type Props = {
   code: string,
@@ -56,7 +56,7 @@ export default class SelectFilter extends React.Component<Props> {
 
   renderOption(item: Object) {
     return this.active.indexOf(item.id) !== -1 ? ''
-      : <option key={item.id} value={item.id}>{item[i18nField('name')]}</option>
+      : <option key={item.id} value={item.id}>{item[i18n.f('name')]}</option>
   }
 
   render() {

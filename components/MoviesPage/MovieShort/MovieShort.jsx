@@ -7,7 +7,7 @@ import MovieLink from 'components/MovieLink/MovieLink'
 import MovieImage from 'components/MovieImage/MovieImage'
 import MovieInfo from 'components/MoviePage/MovieInfo/MovieInfo'
 import MovieRelations from 'components/MovieRelations/MovieRelations'
-import { i18nFields, i18nField } from 'libs/i18n'
+import i18n from 'libs/i18n'
 
 import './MovieShort.scss'
 
@@ -23,7 +23,7 @@ export default class MovieShort extends React.Component<Props> {
   static fragments = {
     movie: gql`
       fragment MovieShort on MovieNode {
-        ${i18nFields('title')}
+        ${i18n.gql('title')}
         title
         ...MovieImage
         ...MovieLink
@@ -37,7 +37,7 @@ export default class MovieShort extends React.Component<Props> {
     `
   }
 
-  isTitlesEqual = (movie: Object) => movie[i18nField('title')] === movie.title
+  isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.title
 
   render() {
     return (
@@ -48,7 +48,7 @@ export default class MovieShort extends React.Component<Props> {
             <MovieRelations/>
           </div>
           <MovieLink movie={this.props.movie}>
-            {this.props.movie[i18nField('title')]}
+            {this.props.movie[i18n.f('title')]}
           </MovieLink>
           <div styleName="subtitle">{this.isTitlesEqual(this.props.movie) ? '' : this.props.movie.title}</div>
           <MovieInfo movie={this.props.movie} t={this.props.t} i18n={this.props.i18n} year genres/>

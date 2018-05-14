@@ -6,6 +6,7 @@ import settings from '../settings'
 
 const getField = (field: string, lang: string) => `${field}${_.capitalize(lang)}`
 
-export const i18nField = (field: string) => getField(field, i18n.language)
-
-export const i18nFields = (field: string) => settings.languages.map(lang => getField(field, lang)).join(', ')
+export default {
+  f: (field: string) => getField(field, i18n.language),
+  gql: (field: string) => settings.languages.map(lang => getField(field, lang)).join(', ')
+}
