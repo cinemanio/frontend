@@ -2,253 +2,303 @@
   "data": {
     "list": [
       {
-        "id": "3",
-        "name": "Action",
+        "id": "R2VucmVOb2RlOjM=",
+        "nameEn": "Action",
+        "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
         "__typename": "GenreNode"
       },
       {
-        "id": "18",
-        "name": "Adventure",
+        "id": "R2VucmVOb2RlOjE4",
+        "nameEn": "Adventure",
+        "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
         "__typename": "GenreNode"
       },
       {
-        "id": "40",
-        "name": "Animation",
+        "id": "R2VucmVOb2RlOjQw",
+        "nameEn": "Animation",
+        "nameRu": "\u041c\u0443\u043b\u044c\u0442\u0438\u043f\u043b\u0438\u043a\u0430\u0446\u0438\u044f",
         "__typename": "GenreNode"
       },
       {
-        "id": "41",
-        "name": "Anime",
+        "id": "R2VucmVOb2RlOjQx",
+        "nameEn": "Anime",
+        "nameRu": "\u0410\u043d\u0438\u043c\u0435",
         "__typename": "GenreNode"
       },
       {
-        "id": "43",
-        "name": "Based on novel",
+        "id": "R2VucmVOb2RlOjQz",
+        "nameEn": "Based on novel",
+        "nameRu": "\u042d\u043a\u0440\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u044f",
         "__typename": "GenreNode"
       },
       {
-        "id": "48",
-        "name": "Based on real story",
+        "id": "R2VucmVOb2RlOjQ4",
+        "nameEn": "Based on real story",
+        "nameRu": "\u0420\u0435\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
         "__typename": "GenreNode"
       },
       {
-        "id": "2",
-        "name": "Biography",
+        "id": "R2VucmVOb2RlOjI=",
+        "nameEn": "Biography",
+        "nameRu": "\u0411\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f",
         "__typename": "GenreNode"
       },
       {
-        "id": "49",
-        "name": "Black and white",
+        "id": "R2VucmVOb2RlOjQ5",
+        "nameEn": "Black and white",
+        "nameRu": "\u0427\u0435\u0440\u043d\u043e-\u0431\u0435\u043b\u044b\u0439",
         "__typename": "GenreNode"
       },
       {
-        "id": "7",
-        "name": "Children's",
+        "id": "R2VucmVOb2RlOjc=",
+        "nameEn": "Children's",
+        "nameRu": "\u0414\u0435\u0442\u0441\u043a\u0438\u0439",
         "__typename": "GenreNode"
       },
       {
-        "id": "30",
-        "name": "Comedy",
+        "id": "R2VucmVOb2RlOjMw",
+        "nameEn": "Comedy",
+        "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
         "__typename": "GenreNode"
       },
       {
-        "id": "31",
-        "name": "Crime",
+        "id": "R2VucmVOb2RlOjMx",
+        "nameEn": "Crime",
+        "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
         "__typename": "GenreNode"
       },
       {
-        "id": "10",
-        "name": "Cyberpunk",
+        "id": "R2VucmVOb2RlOjEw",
+        "nameEn": "Cyberpunk",
+        "nameRu": "\u041a\u0438\u0431\u0435\u0440\u043f\u0430\u043d\u043a",
         "__typename": "GenreNode"
       },
       {
-        "id": "6",
-        "name": "Detective story",
+        "id": "R2VucmVOb2RlOjY=",
+        "nameEn": "Detective story",
+        "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
         "__typename": "GenreNode"
       },
       {
-        "id": "9",
-        "name": "Disaster",
+        "id": "R2VucmVOb2RlOjk=",
+        "nameEn": "Disaster",
+        "nameRu": "\u041a\u0430\u0442\u0430\u0441\u0442\u0440\u043e\u0444\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "42",
-        "name": "Documentary",
+        "id": "R2VucmVOb2RlOjQy",
+        "nameEn": "Documentary",
+        "nameRu": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0439",
         "__typename": "GenreNode"
       },
       {
-        "id": "29",
-        "name": "Drama",
+        "id": "R2VucmVOb2RlOjI5",
+        "nameEn": "Drama",
+        "nameRu": "\u0414\u0440\u0430\u043c\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "28",
-        "name": "Erotic",
+        "id": "R2VucmVOb2RlOjI4",
+        "nameEn": "Erotic",
+        "nameRu": "\u042d\u0440\u043e\u0442\u0438\u043a\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "20",
-        "name": "Fable",
+        "id": "R2VucmVOb2RlOjIw",
+        "nameEn": "Fable",
+        "nameRu": "\u0421\u043a\u0430\u0437\u043a\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "35",
-        "name": "Family",
+        "id": "R2VucmVOb2RlOjM1",
+        "nameEn": "Family",
+        "nameRu": "\u0421\u0435\u043c\u0435\u0439\u043d\u044b\u0439",
         "__typename": "GenreNode"
       },
       {
-        "id": "27",
-        "name": "Fantasy",
+        "id": "R2VucmVOb2RlOjI3",
+        "nameEn": "Fantasy",
+        "nameRu": "\u0424\u044d\u043d\u0442\u0435\u0437\u0438",
         "__typename": "GenreNode"
       },
       {
-        "id": "15",
-        "name": "Film-Noir",
+        "id": "R2VucmVOb2RlOjE1",
+        "nameEn": "Film-Noir",
+        "nameRu": "\u041d\u0443\u0430\u0440",
         "__typename": "GenreNode"
       },
       {
-        "id": "8",
-        "name": "History",
+        "id": "R2VucmVOb2RlOjg=",
+        "nameEn": "History",
+        "nameRu": "\u0418\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u0439",
         "__typename": "GenreNode"
       },
       {
-        "id": "26",
-        "name": "Horror",
+        "id": "R2VucmVOb2RlOjI2",
+        "nameEn": "Horror",
+        "nameRu": "\u0423\u0436\u0430\u0441\u044b",
         "__typename": "GenreNode"
       },
       {
-        "id": "34",
-        "name": "Martial art",
+        "id": "R2VucmVOb2RlOjM0",
+        "nameEn": "Martial art",
+        "nameRu": "\u0411\u043e\u0435\u0432\u044b\u0435 \u0438\u0441\u043a\u0443\u0441\u0441\u0442\u0432\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "37",
-        "name": "Multi-parts",
+        "id": "R2VucmVOb2RlOjM3",
+        "nameEn": "Multi-parts",
+        "nameRu": "\u041c\u043d\u043e\u0433\u043e\u0441\u0435\u0440\u0438\u0439\u043d\u044b\u0439",
         "__typename": "GenreNode"
       },
       {
-        "id": "52",
-        "name": "Music",
+        "id": "R2VucmVOb2RlOjUy",
+        "nameEn": "Music",
+        "nameRu": "\u041c\u0443\u0437\u044b\u043a\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "47",
-        "name": "Musical",
+        "id": "R2VucmVOb2RlOjQ3",
+        "nameEn": "Musical",
+        "nameRu": "\u041c\u0443\u0437\u044b\u043a\u0430\u043b\u044c\u043d\u044b\u0439",
         "__typename": "GenreNode"
       },
       {
-        "id": "12",
-        "name": "Mystery",
+        "id": "R2VucmVOb2RlOjEy",
+        "nameEn": "Mystery",
+        "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "16",
-        "name": "Parody",
+        "id": "R2VucmVOb2RlOjE2",
+        "nameEn": "Parody",
+        "nameRu": "\u041f\u0430\u0440\u043e\u0434\u0438\u044f",
         "__typename": "GenreNode"
       },
       {
-        "id": "17",
-        "name": "Politics",
+        "id": "R2VucmVOb2RlOjE3",
+        "nameEn": "Politics",
+        "nameRu": "\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "50",
-        "name": "Prequel",
+        "id": "R2VucmVOb2RlOjUw",
+        "nameEn": "Prequel",
+        "nameRu": "\u041f\u0440\u0438\u043a\u0432\u0435\u043b",
         "__typename": "GenreNode"
       },
       {
-        "id": "44",
-        "name": "Remake",
+        "id": "R2VucmVOb2RlOjQ0",
+        "nameEn": "Remake",
+        "nameRu": "\u0420\u0438\u043c\u0435\u0439\u043a",
         "__typename": "GenreNode"
       },
       {
-        "id": "19",
-        "name": "Road",
+        "id": "R2VucmVOb2RlOjE5",
+        "nameEn": "Road",
+        "nameRu": "\u0420\u043e\u0443\u0434-\u043c\u0443\u0432\u0438",
         "__typename": "GenreNode"
       },
       {
-        "id": "11",
-        "name": "Romance",
+        "id": "R2VucmVOb2RlOjEx",
+        "nameEn": "Romance",
+        "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "14",
-        "name": "Sci-Fi",
+        "id": "R2VucmVOb2RlOjE0",
+        "nameEn": "Sci-Fi",
+        "nameRu": "\u041d\u0430\u0443\u0447\u043d\u0430\u044f \u0444\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "46",
-        "name": "Sequel",
+        "id": "R2VucmVOb2RlOjQ2",
+        "nameEn": "Sequel",
+        "nameRu": "\u0421\u0438\u043a\u0432\u0435\u043b",
         "__typename": "GenreNode"
       },
       {
-        "id": "45",
-        "name": "Series",
+        "id": "R2VucmVOb2RlOjQ1",
+        "nameEn": "Series",
+        "nameRu": "\u0421\u0435\u0440\u0438\u0430\u043b",
         "__typename": "GenreNode"
       },
       {
-        "id": "38",
-        "name": "Short",
+        "id": "R2VucmVOb2RlOjM4",
+        "nameEn": "Short",
+        "nameRu": "\u041a\u043e\u0440\u043e\u0442\u043a\u043e\u043c\u0435\u0442\u0440\u0430\u0436\u043d\u044b\u0439",
         "__typename": "GenreNode"
       },
       {
-        "id": "39",
-        "name": "Shorts digest",
+        "id": "R2VucmVOb2RlOjM5",
+        "nameEn": "Shorts digest",
+        "nameRu": "\u0421\u0431\u043e\u0440\u043d\u0438\u043a \u043a\u043e\u0440\u043e\u0442\u043a\u043e\u043c\u0435\u0442\u0440\u0430\u0436\u0435\u043a",
         "__typename": "GenreNode"
       },
       {
-        "id": "36",
-        "name": "Silent",
+        "id": "R2VucmVOb2RlOjM2",
+        "nameEn": "Silent",
+        "nameRu": "\u041d\u0435\u043c\u043e\u0439",
         "__typename": "GenreNode"
       },
       {
-        "id": "33",
-        "name": "Space sci-fi",
+        "id": "R2VucmVOb2RlOjMz",
+        "nameEn": "Space sci-fi",
+        "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "21",
-        "name": "Sport",
+        "id": "R2VucmVOb2RlOjIx",
+        "nameEn": "Sport",
+        "nameRu": "\u0421\u043f\u043e\u0440\u0442",
         "__typename": "GenreNode"
       },
       {
-        "id": "22",
-        "name": "Surrealism",
+        "id": "R2VucmVOb2RlOjIy",
+        "nameEn": "Surrealism",
+        "nameRu": "\u0421\u044e\u0440\u0440\u0435\u0430\u043b\u0438\u0437\u043c",
         "__typename": "GenreNode"
       },
       {
-        "id": "51",
-        "name": "Theater",
+        "id": "R2VucmVOb2RlOjUx",
+        "nameEn": "Theater",
+        "nameRu": "\u0422\u0435\u0430\u0442\u0440",
         "__typename": "GenreNode"
       },
       {
-        "id": "25",
-        "name": "Thriller",
+        "id": "R2VucmVOb2RlOjI1",
+        "nameEn": "Thriller",
+        "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
         "__typename": "GenreNode"
       },
       {
-        "id": "23",
-        "name": "Tragedy",
+        "id": "R2VucmVOb2RlOjIz",
+        "nameEn": "Tragedy",
+        "nameRu": "\u0422\u0440\u0430\u0433\u0435\u0434\u0438\u044f",
         "__typename": "GenreNode"
       },
       {
-        "id": "24",
-        "name": "Tragicomedy",
+        "id": "R2VucmVOb2RlOjI0",
+        "nameEn": "Tragicomedy",
+        "nameRu": "\u0422\u0440\u0430\u0433\u0438\u043a\u043e\u043c\u0435\u0434\u0438\u044f",
         "__typename": "GenreNode"
       },
       {
-        "id": "5",
-        "name": "War",
+        "id": "R2VucmVOb2RlOjU=",
+        "nameEn": "War",
+        "nameRu": "\u0412\u043e\u0439\u043d\u0430",
         "__typename": "GenreNode"
       },
       {
-        "id": "4",
-        "name": "Western",
+        "id": "R2VucmVOb2RlOjQ=",
+        "nameEn": "Western",
+        "nameRu": "\u0412\u0435\u0441\u0442\u0435\u0440\u043d",
         "__typename": "GenreNode"
       },
       {
-        "id": "13",
-        "name": "Young",
+        "id": "R2VucmVOb2RlOjEz",
+        "nameEn": "Young",
+        "nameRu": "\u041c\u043e\u043b\u043e\u0434\u0435\u0436\u044c",
         "__typename": "GenreNode"
       }
     ]

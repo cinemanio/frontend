@@ -15,7 +15,7 @@ type Props = {
   getTitle?: Function,
 }
 
-export default class ObjectPage extends React.PureComponent<Props> {
+export default class ObjectPage extends React.Component<Props> {
   static defaultProps = {
     object: undefined,
     getTitle: undefined

@@ -2,483 +2,579 @@
   "data": {
     "list": [
       {
-        "id": "8",
-        "name": "Afghanistan",
+        "id": "Q291bnRyeU5vZGU6OA==",
+        "nameEn": "Afghanistan",
+        "nameRu": "\u0410\u0444\u0433\u0430\u043d\u0438\u0441\u0442\u0430\u043d",
         "__typename": "CountryNode"
       },
       {
-        "id": "4",
-        "name": "Albania",
+        "id": "Q291bnRyeU5vZGU6NA==",
+        "nameEn": "Albania",
+        "nameRu": "\u0410\u043b\u0431\u0430\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "5",
-        "name": "Algeria",
+        "id": "Q291bnRyeU5vZGU6NQ==",
+        "nameEn": "Algeria",
+        "nameRu": "\u0410\u043b\u0436\u0438\u0440",
         "__typename": "CountryNode"
       },
       {
-        "id": "6",
-        "name": "Argentina",
+        "id": "Q291bnRyeU5vZGU6Ng==",
+        "nameEn": "Argentina",
+        "nameRu": "\u0410\u0440\u0433\u0435\u043d\u0442\u0438\u043d\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "7",
-        "name": "Armenia",
+        "id": "Q291bnRyeU5vZGU6Nw==",
+        "nameEn": "Armenia",
+        "nameRu": "\u0410\u0440\u043c\u0435\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "1",
-        "name": "Australia",
+        "id": "Q291bnRyeU5vZGU6MQ==",
+        "nameEn": "Australia",
+        "nameRu": "\u0410\u0432\u0441\u0442\u0440\u0430\u043b\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "2",
-        "name": "Austria",
+        "id": "Q291bnRyeU5vZGU6Mg==",
+        "nameEn": "Austria",
+        "nameRu": "\u0410\u0432\u0441\u0442\u0440\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "3",
-        "name": "Azerbaijan",
+        "id": "Q291bnRyeU5vZGU6Mw==",
+        "nameEn": "Azerbaijan",
+        "nameRu": "\u0410\u0437\u0435\u0440\u0431\u0430\u0439\u0434\u0436\u0430\u043d",
         "__typename": "CountryNode"
       },
       {
-        "id": "9",
-        "name": "Belarus",
+        "id": "Q291bnRyeU5vZGU6OQ==",
+        "nameEn": "Belarus",
+        "nameRu": "\u0411\u0435\u043b\u043e\u0440\u0443\u0441\u0441\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "10",
-        "name": "Belgium",
+        "id": "Q291bnRyeU5vZGU6MTA=",
+        "nameEn": "Belgium",
+        "nameRu": "\u0411\u0435\u043b\u044c\u0433\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "11",
-        "name": "Benin",
+        "id": "Q291bnRyeU5vZGU6MTE=",
+        "nameEn": "Benin",
+        "nameRu": "\u0411\u0435\u043d\u0438\u043d",
         "__typename": "CountryNode"
       },
       {
-        "id": "13",
-        "name": "Bolivia",
+        "id": "Q291bnRyeU5vZGU6MTM=",
+        "nameEn": "Bolivia",
+        "nameRu": "\u0411\u043e\u043b\u0438\u0432\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "14",
-        "name": "Bosnia and Herzegovina",
+        "id": "Q291bnRyeU5vZGU6MTQ=",
+        "nameEn": "Bosnia and Herzegovina",
+        "nameRu": "\u0411\u043e\u0441\u043d\u0438\u044f \u0438 \u0413\u0435\u0440\u0446\u0435\u0433\u043e\u0432\u0438\u043d\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "15",
-        "name": "Brazil",
+        "id": "Q291bnRyeU5vZGU6MTU=",
+        "nameEn": "Brazil",
+        "nameRu": "\u0411\u0440\u0430\u0437\u0438\u043b\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "12",
-        "name": "Bulgaria",
+        "id": "Q291bnRyeU5vZGU6MTI=",
+        "nameEn": "Bulgaria",
+        "nameRu": "\u0411\u043e\u043b\u0433\u0430\u0440\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "35",
-        "name": "Canada",
+        "id": "Q291bnRyeU5vZGU6MzU=",
+        "nameEn": "Canada",
+        "nameRu": "\u041a\u0430\u043d\u0430\u0434\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "85",
-        "name": "Chile",
+        "id": "Q291bnRyeU5vZGU6ODU=",
+        "nameEn": "Chile",
+        "nameRu": "\u0427\u0438\u043b\u0438",
         "__typename": "CountryNode"
       },
       {
-        "id": "37",
-        "name": "China",
+        "id": "Q291bnRyeU5vZGU6Mzc=",
+        "nameEn": "China",
+        "nameRu": "\u041a\u0438\u0442\u0430\u0439",
         "__typename": "CountryNode"
       },
       {
-        "id": "38",
-        "name": "Columbia",
+        "id": "Q291bnRyeU5vZGU6Mzg=",
+        "nameEn": "Columbia",
+        "nameRu": "\u041a\u043e\u043b\u0443\u043c\u0431\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "82",
-        "name": "Croatia",
+        "id": "Q291bnRyeU5vZGU6ODI=",
+        "nameEn": "Croatia",
+        "nameRu": "\u0425\u043e\u0440\u0432\u0430\u0442\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "39",
-        "name": "Cuba",
+        "id": "Q291bnRyeU5vZGU6Mzk=",
+        "nameEn": "Cuba",
+        "nameRu": "\u041a\u0443\u0431\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "83",
-        "name": "Czechoslovakia",
+        "id": "Q291bnRyeU5vZGU6ODM=",
+        "nameEn": "Czechoslovakia",
+        "nameRu": "\u0427\u0435\u0445\u043e\u0441\u043b\u043e\u0432\u0430\u043a\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "84",
-        "name": "Czech Republic",
+        "id": "Q291bnRyeU5vZGU6ODQ=",
+        "nameEn": "Czech Republic",
+        "nameRu": "\u0427\u0435\u0448\u0441\u043a\u0430\u044f \u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "24",
-        "name": "Denmark",
+        "id": "Q291bnRyeU5vZGU6MjQ=",
+        "nameEn": "Denmark",
+        "nameRu": "\u0414\u0430\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "25",
-        "name": "Egypt",
+        "id": "Q291bnRyeU5vZGU6MjU=",
+        "nameEn": "Egypt",
+        "nameRu": "\u0415\u0433\u0438\u043f\u0435\u0442",
         "__typename": "CountryNode"
       },
       {
-        "id": "88",
-        "name": "Estonia",
+        "id": "Q291bnRyeU5vZGU6ODg=",
+        "nameEn": "Estonia",
+        "nameRu": "\u042d\u0441\u0442\u043e\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "96",
-        "name": "Faroe Islands",
+        "id": "Q291bnRyeU5vZGU6OTY=",
+        "nameEn": "Faroe Islands",
+        "nameRu": "\u0424\u0430\u0440\u0435\u0440\u0441\u043a\u0438\u0435 \u043e\u0441\u0442\u0440\u043e\u0432\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "78",
-        "name": "Finland",
+        "id": "Q291bnRyeU5vZGU6Nzg=",
+        "nameEn": "Finland",
+        "nameRu": "\u0424\u0438\u043d\u043b\u044f\u0434\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "81",
-        "name": "France",
+        "id": "Q291bnRyeU5vZGU6ODE=",
+        "nameEn": "France",
+        "nameRu": "\u0424\u0440\u0430\u043d\u0446\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "66",
-        "name": "FRG",
+        "id": "Q291bnRyeU5vZGU6NjY=",
+        "nameEn": "FRG",
+        "nameRu": "\u0424\u0420\u0413",
         "__typename": "CountryNode"
       },
       {
-        "id": "19",
-        "name": "GDR",
+        "id": "Q291bnRyeU5vZGU6MTk=",
+        "nameEn": "GDR",
+        "nameRu": "\u0413\u0414\u0420",
         "__typename": "CountryNode"
       },
       {
-        "id": "23",
-        "name": "Georgia",
+        "id": "Q291bnRyeU5vZGU6MjM=",
+        "nameEn": "Georgia",
+        "nameRu": "\u0413\u0440\u0443\u0437\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "20",
-        "name": "Germany",
+        "id": "Q291bnRyeU5vZGU6MjA=",
+        "nameEn": "Germany",
+        "nameRu": "\u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "22",
-        "name": "Greece",
+        "id": "Q291bnRyeU5vZGU6MjI=",
+        "nameEn": "Greece",
+        "nameRu": "\u0413\u0440\u0435\u0446\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "21",
-        "name": "Hong Kong",
+        "id": "Q291bnRyeU5vZGU6MjE=",
+        "nameEn": "Hong Kong",
+        "nameRu": "\u0413\u043e\u043d\u0433 \u041a\u043e\u043d\u0433",
         "__typename": "CountryNode"
       },
       {
-        "id": "17",
-        "name": "Hungary",
+        "id": "Q291bnRyeU5vZGU6MTc=",
+        "nameEn": "Hungary",
+        "nameRu": "\u0412\u0435\u043d\u0433\u0440\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "31",
-        "name": "Iceland",
+        "id": "Q291bnRyeU5vZGU6MzE=",
+        "nameEn": "Iceland",
+        "nameRu": "\u0418\u0441\u043b\u0430\u043d\u0434\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "27",
-        "name": "India",
+        "id": "Q291bnRyeU5vZGU6Mjc=",
+        "nameEn": "India",
+        "nameRu": "\u0418\u043d\u0434\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "29",
-        "name": "Iran",
+        "id": "Q291bnRyeU5vZGU6Mjk=",
+        "nameEn": "Iran",
+        "nameRu": "\u0418\u0440\u0430\u043d",
         "__typename": "CountryNode"
       },
       {
-        "id": "28",
-        "name": "Iraq",
+        "id": "Q291bnRyeU5vZGU6Mjg=",
+        "nameEn": "Iraq",
+        "nameRu": "\u0418\u0440\u0430\u043a",
         "__typename": "CountryNode"
       },
       {
-        "id": "30",
-        "name": "Ireland",
+        "id": "Q291bnRyeU5vZGU6MzA=",
+        "nameEn": "Ireland",
+        "nameRu": "\u0418\u0440\u043b\u0430\u043d\u0434\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "26",
-        "name": "Israel",
+        "id": "Q291bnRyeU5vZGU6MjY=",
+        "nameEn": "Israel",
+        "nameRu": "\u0418\u0437\u0440\u0430\u0438\u043b\u044c",
         "__typename": "CountryNode"
       },
       {
-        "id": "33",
-        "name": "Italy",
+        "id": "Q291bnRyeU5vZGU6MzM=",
+        "nameEn": "Italy",
+        "nameRu": "\u0418\u0442\u0430\u043b\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "94",
-        "name": "Jamaica",
+        "id": "Q291bnRyeU5vZGU6OTQ=",
+        "nameEn": "Jamaica",
+        "nameRu": "\u042f\u043c\u0430\u0439\u043a\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "92",
-        "name": "Japan",
+        "id": "Q291bnRyeU5vZGU6OTI=",
+        "nameEn": "Japan",
+        "nameRu": "\u042f\u043f\u043e\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "34",
-        "name": "Kazakhstan",
+        "id": "Q291bnRyeU5vZGU6MzQ=",
+        "nameEn": "Kazakhstan",
+        "nameRu": "\u041a\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043d",
         "__typename": "CountryNode"
       },
       {
-        "id": "36",
-        "name": "Kenya",
+        "id": "Q291bnRyeU5vZGU6MzY=",
+        "nameEn": "Kenya",
+        "nameRu": "\u041a\u0435\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "79",
-        "name": "Kuwait",
+        "id": "Q291bnRyeU5vZGU6Nzk=",
+        "nameEn": "Kuwait",
+        "nameRu": "\u041a\u0443\u0432\u0435\u0439\u0442",
         "__typename": "CountryNode"
       },
       {
-        "id": "40",
-        "name": "Latvia",
+        "id": "Q291bnRyeU5vZGU6NDA=",
+        "nameEn": "Latvia",
+        "nameRu": "\u041b\u0430\u0442\u0432\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "41",
-        "name": "Lebanon",
+        "id": "Q291bnRyeU5vZGU6NDE=",
+        "nameEn": "Lebanon",
+        "nameRu": "\u041b\u0438\u0432\u0430\u043d",
         "__typename": "CountryNode"
       },
       {
-        "id": "42",
-        "name": "Liberia",
+        "id": "Q291bnRyeU5vZGU6NDI=",
+        "nameEn": "Liberia",
+        "nameRu": "\u041b\u0438\u0432\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "44",
-        "name": "Liechtenstein",
+        "id": "Q291bnRyeU5vZGU6NDQ=",
+        "nameEn": "Liechtenstein",
+        "nameRu": "\u041b\u0438\u0445\u0442\u0435\u043d\u0448\u0442\u0435\u0439\u043d",
         "__typename": "CountryNode"
       },
       {
-        "id": "43",
-        "name": "Lithuania",
+        "id": "Q291bnRyeU5vZGU6NDM=",
+        "nameEn": "Lithuania",
+        "nameRu": "\u041b\u0438\u0442\u0432\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "45",
-        "name": "Luxembourg",
+        "id": "Q291bnRyeU5vZGU6NDU=",
+        "nameEn": "Luxembourg",
+        "nameRu": "\u041b\u044e\u043a\u0441\u0435\u043c\u0431\u0443\u0440\u0433",
         "__typename": "CountryNode"
       },
       {
-        "id": "46",
-        "name": "Malaysia",
+        "id": "Q291bnRyeU5vZGU6NDY=",
+        "nameEn": "Malaysia",
+        "nameRu": "\u041c\u0430\u043b\u0430\u0439\u0437\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "47",
-        "name": "Malta",
+        "id": "Q291bnRyeU5vZGU6NDc=",
+        "nameEn": "Malta",
+        "nameRu": "\u041c\u0430\u043b\u044c\u0442\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "49",
-        "name": "Mexico",
+        "id": "Q291bnRyeU5vZGU6NDk=",
+        "nameEn": "Mexico",
+        "nameRu": "\u041c\u0435\u043a\u0441\u0438\u043a\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "50",
-        "name": "Monaco",
+        "id": "Q291bnRyeU5vZGU6NTA=",
+        "nameEn": "Monaco",
+        "nameRu": "\u041c\u043e\u043d\u0430\u043a\u043e",
         "__typename": "CountryNode"
       },
       {
-        "id": "51",
-        "name": "Mongolia",
+        "id": "Q291bnRyeU5vZGU6NTE=",
+        "nameEn": "Mongolia",
+        "nameRu": "\u041c\u043e\u043d\u0433\u043e\u043b\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "48",
-        "name": "Morocco",
+        "id": "Q291bnRyeU5vZGU6NDg=",
+        "nameEn": "Morocco",
+        "nameRu": "\u041c\u0430\u0440\u043e\u043a\u043a\u043e",
         "__typename": "CountryNode"
       },
       {
-        "id": "53",
-        "name": "Netherlands",
+        "id": "Q291bnRyeU5vZGU6NTM=",
+        "nameEn": "Netherlands",
+        "nameRu": "\u041d\u0438\u0434\u0435\u0440\u043b\u0430\u043d\u0434\u044b",
         "__typename": "CountryNode"
       },
       {
-        "id": "54",
-        "name": "New Zealand",
+        "id": "Q291bnRyeU5vZGU6NTQ=",
+        "nameEn": "New Zealand",
+        "nameRu": "\u041d\u043e\u0432\u0430\u044f \u0417\u0435\u043b\u0430\u043d\u0434\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "52",
-        "name": "Nigeria",
+        "id": "Q291bnRyeU5vZGU6NTI=",
+        "nameEn": "Nigeria",
+        "nameRu": "\u041d\u0438\u0433\u0435\u0440\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "63",
-        "name": "North Korea",
+        "id": "Q291bnRyeU5vZGU6NjM=",
+        "nameEn": "North Korea",
+        "nameRu": "\u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u041a\u043e\u0440\u0435\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "55",
-        "name": "Norway",
+        "id": "Q291bnRyeU5vZGU6NTU=",
+        "nameEn": "Norway",
+        "nameRu": "\u041d\u043e\u0440\u0432\u0435\u0433\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "56",
-        "name": "Pakistan",
+        "id": "Q291bnRyeU5vZGU6NTY=",
+        "nameEn": "Pakistan",
+        "nameRu": "\u041f\u0430\u043a\u0438\u0441\u0442\u0430\u043d",
         "__typename": "CountryNode"
       },
       {
-        "id": "57",
-        "name": "Panama",
+        "id": "Q291bnRyeU5vZGU6NTc=",
+        "nameEn": "Panama",
+        "nameRu": "\u041f\u0430\u043d\u0430\u043c\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "93",
-        "name": "Peru",
+        "id": "Q291bnRyeU5vZGU6OTM=",
+        "nameEn": "Peru",
+        "nameRu": "\u041f\u0435\u0440\u0443",
         "__typename": "CountryNode"
       },
       {
-        "id": "77",
-        "name": "Philippines",
+        "id": "Q291bnRyeU5vZGU6Nzc=",
+        "nameEn": "Philippines",
+        "nameRu": "\u0424\u0438\u043b\u0438\u043f\u043f\u0438\u043d\u044b",
         "__typename": "CountryNode"
       },
       {
-        "id": "58",
-        "name": "Poland",
+        "id": "Q291bnRyeU5vZGU6NTg=",
+        "nameEn": "Poland",
+        "nameRu": "\u041f\u043e\u043b\u044c\u0448\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "59",
-        "name": "Portugal",
+        "id": "Q291bnRyeU5vZGU6NTk=",
+        "nameEn": "Portugal",
+        "nameRu": "\u041f\u043e\u0440\u0442\u0443\u0433\u0430\u043b\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "60",
-        "name": "Puerto Rico",
+        "id": "Q291bnRyeU5vZGU6NjA=",
+        "nameEn": "Puerto Rico",
+        "nameRu": "\u041f\u0443\u044d\u0440\u0442\u043e \u0420\u0438\u043a\u043e",
         "__typename": "CountryNode"
       },
       {
-        "id": "89",
-        "name": "Republic of Macedonia",
+        "id": "Q291bnRyeU5vZGU6ODk=",
+        "nameEn": "Republic of Macedonia",
+        "nameRu": "\u042e\u0433\u043e\u0441\u043b\u0430\u0432\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "62",
-        "name": "Romania",
+        "id": "Q291bnRyeU5vZGU6NjI=",
+        "nameEn": "Romania",
+        "nameRu": "\u0420\u0443\u043c\u044b\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "61",
-        "name": "Russia",
+        "id": "Q291bnRyeU5vZGU6NjE=",
+        "nameEn": "Russia",
+        "nameRu": "\u0420\u043e\u0441\u0441\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "80",
-        "name": "Serbia",
+        "id": "Q291bnRyeU5vZGU6ODA=",
+        "nameEn": "Serbia",
+        "nameRu": "\u0421\u0435\u0440\u0431\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "64",
-        "name": "Singapore",
+        "id": "Q291bnRyeU5vZGU6NjQ=",
+        "nameEn": "Singapore",
+        "nameRu": "\u0421\u0438\u043d\u0433\u0430\u043f\u0443\u0440",
         "__typename": "CountryNode"
       },
       {
-        "id": "65",
-        "name": "Slovakia",
+        "id": "Q291bnRyeU5vZGU6NjU=",
+        "nameEn": "Slovakia",
+        "nameRu": "\u0421\u043b\u043e\u0432\u0430\u043a\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "67",
-        "name": "Slovenia",
+        "id": "Q291bnRyeU5vZGU6Njc=",
+        "nameEn": "Slovenia",
+        "nameRu": "\u0421\u043b\u043e\u0432\u0435\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "90",
-        "name": "South Africa",
+        "id": "Q291bnRyeU5vZGU6OTA=",
+        "nameEn": "South Africa",
+        "nameRu": "\u042e\u0436\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "91",
-        "name": "South Korea",
+        "id": "Q291bnRyeU5vZGU6OTE=",
+        "nameEn": "South Korea",
+        "nameRu": "\u042e\u0436\u043d\u0430\u044f \u041a\u043e\u0440\u0435\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "68",
-        "name": "Soviet Union",
+        "id": "Q291bnRyeU5vZGU6Njg=",
+        "nameEn": "Soviet Union",
+        "nameRu": "\u0421\u0421\u0421\u0420",
         "__typename": "CountryNode"
       },
       {
-        "id": "32",
-        "name": "Spain",
+        "id": "Q291bnRyeU5vZGU6MzI=",
+        "nameEn": "Spain",
+        "nameRu": "\u0418\u0441\u043f\u0430\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "87",
-        "name": "Sweden",
+        "id": "Q291bnRyeU5vZGU6ODc=",
+        "nameEn": "Sweden",
+        "nameRu": "\u0428\u0432\u0435\u0446\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "86",
-        "name": "Switzerland",
+        "id": "Q291bnRyeU5vZGU6ODY=",
+        "nameEn": "Switzerland",
+        "nameRu": "\u0428\u0432\u0435\u0439\u0446\u0430\u0440\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "71",
-        "name": "Taiwan",
+        "id": "Q291bnRyeU5vZGU6NzE=",
+        "nameEn": "Taiwan",
+        "nameRu": "\u0422\u0430\u0439\u0432\u0430\u043d\u044c",
         "__typename": "CountryNode"
       },
       {
-        "id": "70",
-        "name": "Tajikistan",
+        "id": "Q291bnRyeU5vZGU6NzA=",
+        "nameEn": "Tajikistan",
+        "nameRu": "\u0422\u0430\u0434\u0436\u0438\u043a\u0438\u0441\u0442\u0430\u043d",
         "__typename": "CountryNode"
       },
       {
-        "id": "72",
-        "name": "Thailand",
+        "id": "Q291bnRyeU5vZGU6NzI=",
+        "nameEn": "Thailand",
+        "nameRu": "\u0422\u0430\u0439\u043b\u0430\u043d\u0434",
         "__typename": "CountryNode"
       },
       {
-        "id": "73",
-        "name": "Turkey",
+        "id": "Q291bnRyeU5vZGU6NzM=",
+        "nameEn": "Turkey",
+        "nameRu": "\u0422\u0443\u0440\u0446\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "74",
-        "name": "Uganda",
+        "id": "Q291bnRyeU5vZGU6NzQ=",
+        "nameEn": "Uganda",
+        "nameRu": "\u0423\u0433\u0430\u043d\u0434\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "16",
-        "name": "UK",
+        "id": "Q291bnRyeU5vZGU6MTY=",
+        "nameEn": "UK",
+        "nameRu": "\u0412\u0435\u043b\u0438\u043a\u043e\u0431\u0440\u0438\u0442\u0430\u043d\u0438\u044f",
         "__typename": "CountryNode"
       },
       {
-        "id": "76",
-        "name": "Ukraine",
+        "id": "Q291bnRyeU5vZGU6NzY=",
+        "nameEn": "Ukraine",
+        "nameRu": "\u0423\u043a\u0440\u0430\u0438\u043d\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "69",
-        "name": "USA",
+        "id": "Q291bnRyeU5vZGU6Njk=",
+        "nameEn": "USA",
+        "nameRu": "\u0421\u0428\u0410",
         "__typename": "CountryNode"
       },
       {
-        "id": "75",
-        "name": "Uzbekistan",
+        "id": "Q291bnRyeU5vZGU6NzU=",
+        "nameEn": "Uzbekistan",
+        "nameRu": "\u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d",
         "__typename": "CountryNode"
       },
       {
-        "id": "95",
-        "name": "Venezuela",
+        "id": "Q291bnRyeU5vZGU6OTU=",
+        "nameEn": "Venezuela",
+        "nameRu": "\u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0430",
         "__typename": "CountryNode"
       },
       {
-        "id": "18",
-        "name": "Vietnam",
+        "id": "Q291bnRyeU5vZGU6MTg=",
+        "nameEn": "Vietnam",
+        "nameRu": "\u0412\u044c\u0435\u0442\u043d\u0430\u043c",
         "__typename": "CountryNode"
       }
     ]

@@ -1,12 +1,18 @@
 // @flow
 import React from 'react'
-import i18n from 'i18next'
+import { PropTypes } from 'prop-types'
 import Cookies from 'js-cookie'
 
 import './Languages.scss'
 import settings from '../../../settings'
 
-export default class Languages extends React.Component<{}> {
+type Props = { i18n: Object }
+
+export default class Languages extends React.Component<Props> {
+  static propTypes = {
+    i18n: PropTypes.object.isRequired
+  }
+
   languages = [
     ['en', 'English'],
     ['ru', 'Русский']
@@ -14,14 +20,14 @@ export default class Languages extends React.Component<{}> {
 
   changeLanguage = (lang: string) => (e: Event) => {
     e.preventDefault()
-    i18n.changeLanguage(lang)
+    this.props.i18n.changeLanguage(lang)
     Cookies.set(settings.i18nCookieName, lang)
   }
 
   render() {
     return (
       <div styleName="box">
-        {this.languages.map(([lang, title]) => (i18n.language === lang
+        {this.languages.map(([lang, title]) => (this.props.i18n.language === lang
           ? <strong key={lang}>{title}</strong>
           : <a key={lang} href={`#${lang}`} onClick={this.changeLanguage(lang)}>{title}</a>))}
       </div>

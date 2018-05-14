@@ -3,6 +3,8 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+import { i18nFields, i18nField } from 'libs/i18n'
+
 import './CountryFlag.scss'
 
 type Props = { country: Object }
@@ -15,7 +17,7 @@ export default class CountryFlag extends React.PureComponent<Props> {
   static fragments = {
     country: gql`
       fragment CountryFlag on CountryNode {
-        name
+        ${i18nFields('name')}
         code
       }
     `
@@ -25,7 +27,7 @@ export default class CountryFlag extends React.PureComponent<Props> {
     return this.props.country.code ? (
       <i
         className={`flag flag-${this.props.country.code}`}
-        title={this.props.country.name}
+        title={this.props.country[i18nField('name')]}
       />
     ) : ''
   }

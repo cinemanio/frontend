@@ -9,6 +9,7 @@ import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
 import SelectView from 'components/ObjectListPage/SelectView/SelectView'
+import { i18nFields } from 'libs/i18n'
 
 import MovieShort from './MovieShort/MovieShort'
 import MovieFull from './MovieFull/MovieFull'
@@ -19,6 +20,7 @@ type Props = {
   genreData: Object,
   countryData: Object,
   t: Function,
+  i18n: Object,
 }
 
 type State = {
@@ -32,7 +34,8 @@ class MoviesPage extends React.Component<Props, State> {
     data: PropTypes.object.isRequired,
     genreData: PropTypes.object.isRequired,
     countryData: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired
+    t: PropTypes.func.isRequired,
+    i18n: PropTypes.object.isRequired
   }
 
   constructor(props: Object) {
@@ -54,15 +57,15 @@ class MoviesPage extends React.Component<Props, State> {
   get viewOptions() {
     return [
       { id: 'short', name: this.props.t('filter.view.short') },
-      { id: 'full', name: this.props.t('filter.view.full') },
+      { id: 'full', name: this.props.t('filter.view.full') }
     ]
   }
 
   renderMovie = ({ movie }) => {
     if (this.state.view === 'short') {
-      return <MovieShort movie={movie}/>
+      return <MovieShort movie={movie} t={this.props.t} i18n={this.props.i18n}/>
     } else if (this.state.view === 'full') {
-      return <MovieFull movie={movie}/>
+      return <MovieFull movie={movie} t={this.props.t} i18n={this.props.i18n}/>
     } else {
       throw Error('Wrong value of state.view')
     }
@@ -152,7 +155,7 @@ const GenresQuery = gql`
   query Genres {
     list: genres {
       id
-      name
+      ${i18nFields('name')}
     }
   }
 `
@@ -161,7 +164,7 @@ const CountryQuery = gql`
   query Countries {
     list: countries {
       id
-      name
+      ${i18nFields('name')}
     }
   }
 `

@@ -6,25 +6,30 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjE4",
-            "title": "The Game",
             "titleEn": "The Game",
+            "titleRu": "\u0418\u0433\u0440\u0430",
+            "title": "The Game",
             "year": 1997,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Adventure",
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Detective story",
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -34,25 +39,30 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjE5",
-            "title": "Bandidas",
             "titleEn": "Bandidas",
+            "titleRu": "\u0411\u0430\u043d\u0434\u0438\u0442\u043a\u0438",
+            "title": "Bandidas",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Crime",
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Western",
+                "nameEn": "Western",
+                "nameRu": "\u0412\u0435\u0441\u0442\u0435\u0440\u043d",
                 "__typename": "GenreNode"
               }
             ]
@@ -62,25 +72,30 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjIw",
-            "title": "Piranha",
             "titleEn": "Piranha",
+            "titleRu": "\u041e\u0445\u043e\u0442\u0430 \u043d\u0430 \u043f\u0438\u0440\u0430\u043d\u044c\u044e",
+            "title": "Piranha",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Adventure",
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -90,17 +105,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjIx",
-            "title": "The Omen",
             "titleEn": "The Omen",
+            "titleRu": "\u041e\u043c\u0435\u043d",
+            "title": "The Omen",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Horror",
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -110,21 +128,25 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjIy",
-            "title": "Junk",
             "titleEn": "Junk",
+            "titleRu": "\u0416\u0435\u0441\u0442\u044c",
+            "title": "Junk",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Horror",
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Mystery",
+                "nameEn": "Mystery",
+                "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -134,21 +156,25 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjIz",
-            "title": "Viy",
             "titleEn": "Viy",
+            "titleRu": "\u0412\u0438\u0439: \u0412\u043e\u0437\u0432\u0440\u0430\u0449\u0435\u043d\u0438\u0435",
+            "title": "Viy",
             "year": 2012,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Horror",
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Mystery",
+                "nameEn": "Mystery",
+                "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -158,21 +184,25 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjI0",
-            "title": "The Da Vinci Code",
             "titleEn": "The Da Vinci Code",
+            "titleRu": "\u041a\u043e\u0434 \u0414\u0430 \u0412\u0438\u043d\u0447\u0438",
+            "title": "The Da Vinci Code",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Mystery",
+                "nameEn": "Mystery",
+                "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -182,13 +212,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjI1",
-            "title": "Brokeback Mountain",
             "titleEn": "Brokeback Mountain",
+            "titleRu": "\u0413\u043e\u0440\u0431\u0430\u0442\u0430\u044f \u0433\u043e\u0440\u0430",
+            "title": "Brokeback Mountain",
             "year": 2005,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -198,25 +230,30 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjI2",
-            "title": "Chaos",
             "titleEn": "Chaos",
+            "titleRu": "\u0425\u0430\u043e\u0441",
+            "title": "Chaos",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Crime",
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -226,25 +263,30 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjI3",
-            "title": "Potseluy babochki",
             "titleEn": "Potseluy babochki",
+            "titleRu": "\u041f\u043e\u0446\u0435\u043b\u0443\u0439 \u0431\u0430\u0431\u043e\u0447\u043a\u0438",
+            "title": "Potseluy babochki",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Adventure",
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Detective story",
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Romance",
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -254,21 +296,25 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjI4",
-            "title": "Lovewrecked",
             "titleEn": "Lovewrecked",
+            "titleRu": "\u041b\u044e\u0431\u043e\u0432\u044c \u043d\u0430 \u043e\u0441\u0442\u0440\u043e\u0432\u0435",
+            "title": "Lovewrecked",
             "year": 2005,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Adventure",
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Romance",
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -278,13 +324,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjI5",
-            "title": "Playing the Victim",
             "titleEn": "Playing the Victim",
+            "titleRu": "\u0418\u0437\u043e\u0431\u0440\u0430\u0436\u0430\u044f \u0436\u0435\u0440\u0442\u0432\u0443",
+            "title": "Playing the Victim",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -294,25 +342,30 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjMw",
-            "title": "X-Men: The Last Stand",
             "titleEn": "X-Men: The Last Stand",
+            "titleRu": "\u041b\u044e\u0434\u0438 \u0418\u043a\u0441: \u041f\u043e\u0441\u043b\u0435\u0434\u043d\u044f\u044f \u0431\u0438\u0442\u0432\u0430",
+            "title": "X-Men: The Last Stand",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Fantasy",
+                "nameEn": "Fantasy",
+                "nameRu": "\u0424\u044d\u043d\u0442\u0435\u0437\u0438",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Space sci-fi",
+                "nameEn": "Space sci-fi",
+                "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -322,17 +375,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjMx",
-            "title": "Day Watch",
             "titleEn": "Day Watch",
+            "titleRu": "\u0414\u043d\u0435\u0432\u043d\u043e\u0439 \u0434\u043e\u0437\u043e\u0440",
+            "title": "Day Watch",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Mystery",
+                "nameEn": "Mystery",
+                "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -342,29 +398,35 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjMy",
-            "title": "Silent Hill",
             "titleEn": "Silent Hill",
+            "titleRu": "\u0421\u0430\u0439\u043b\u0435\u043d\u0442 \u0425\u0438\u043b\u043b",
+            "title": "Silent Hill",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Fantasy",
+                "nameEn": "Fantasy",
+                "nameRu": "\u0424\u044d\u043d\u0442\u0435\u0437\u0438",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Horror",
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Mystery",
+                "nameEn": "Mystery",
+                "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -374,17 +436,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjMz",
-            "title": "Over the Hedge",
             "titleEn": "Over the Hedge",
+            "titleRu": "\u041b\u0435\u0441\u043d\u0430\u044f \u0431\u0440\u0430\u0442\u0432\u0430",
+            "title": "Over the Hedge",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Children's",
+                "nameEn": "Children's",
+                "nameRu": "\u0414\u0435\u0442\u0441\u043a\u0438\u0439",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -394,13 +459,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjM0",
-            "title": "She's the Man",
             "titleEn": "She's the Man",
+            "titleRu": "\u041e\u043d\u0430 - \u043c\u0443\u0436\u0447\u0438\u043d\u0430",
+            "title": "She's the Man",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -410,21 +477,25 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjM1",
-            "title": "Mission: Impossible III",
             "titleEn": "Mission: Impossible III",
+            "titleRu": "\u041c\u0438\u0441\u0441\u0438\u044f \u043d\u0435\u0432\u044b\u043f\u043e\u043b\u043d\u0438\u043c\u0430 3",
+            "title": "Mission: Impossible III",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Adventure",
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -434,17 +505,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjM2",
-            "title": "Bob the Butler",
             "titleEn": "Bob the Butler",
+            "titleRu": "\u0414\u0432\u043e\u0440\u0435\u0446\u043a\u0438\u0439 \u0411\u043e\u0431",
+            "title": "Bob the Butler",
             "year": 2005,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Romance",
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -454,13 +528,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjM3",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041a\u0430\u043a\u0442\u0443\u0441",
+            "title": "",
             "year": 2005,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -470,13 +546,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjM4",
-            "title": "Human Zoo",
             "titleEn": "Human Zoo",
+            "titleRu": "\u0412\u043e\u043b\u044c\u0435\u0440",
+            "title": "Human Zoo",
             "year": 2009,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -486,17 +564,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjQw",
-            "title": "Captain Ron",
             "titleEn": "Captain Ron",
+            "titleRu": "\u041a\u0430\u043f\u0438\u0442\u0430\u043d \u0420\u043e\u043d",
+            "title": "Captain Ron",
             "year": 1992,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Adventure",
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -506,17 +587,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjQx",
-            "title": "Nirgendwo in Afrika",
             "titleEn": "Nirgendwo in Afrika",
+            "titleRu": "\u0412 \u0434\u0430\u043b\u0435\u043a\u043e\u0439 \u0410\u0444\u0440\u0438\u043a\u0435",
+            "title": "Nirgendwo in Afrika",
             "year": 2001,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Biography",
+                "nameEn": "Biography",
+                "nameRu": "\u0411\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -526,13 +610,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjQy",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041e\u043f\u0435\u0440\u0430\u0442\u0438\u0432\u043d\u0430\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430",
+            "title": "",
             "year": 2007,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Detective story",
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               }
             ]
@@ -542,17 +628,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjQ0",
-            "title": "Cop Wars",
             "titleEn": "Cop Wars",
+            "titleRu": "\u041c\u0435\u043d\u0442\u043e\u0432\u0441\u043a\u0438\u0435 \u0432\u043e\u0439\u043d\u044b",
+            "title": "Cop Wars",
             "year": 2005,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Crime",
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Detective story",
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               }
             ]
@@ -562,17 +651,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjQ2",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041c\u0443\u0436\u0441\u043a\u0430\u044f \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u044f",
+            "title": "",
             "year": 1992,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -582,13 +674,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjQ4",
-            "title": "Report from the Abyss",
             "titleEn": "Report from the Abyss",
+            "titleRu": "\u0420\u0435\u043f\u043e\u0440\u0442\u0430\u0436 \u0438\u0437 \u0431\u0435\u0437\u0434\u043d\u044b",
+            "title": "Report from the Abyss",
             "year": 1984,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Adventure",
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -598,13 +692,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjQ5",
-            "title": "Shadow Fury",
             "titleEn": "Shadow Fury",
+            "titleRu": "\u0422\u0435\u043d\u044c \u0443\u0431\u0438\u0439\u0446\u0430",
+            "title": "Shadow Fury",
             "year": 2001,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Space sci-fi",
+                "nameEn": "Space sci-fi",
+                "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -614,13 +710,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjUw",
-            "title": "My Wife and Kids",
             "titleEn": "My Wife and Kids",
+            "titleRu": "\u041c\u043e\u044f \u0436\u0435\u043d\u0430 \u0438 \u0434\u0435\u0442\u0438 (\u0441\u0435\u0440\u0438\u0430\u043b)",
+            "title": "My Wife and Kids",
             "year": 2001,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -630,29 +728,35 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjUx",
-            "title": "Dragonball Evolution",
             "titleEn": "Dragonball Evolution",
+            "titleRu": "\u0414\u0440\u0430\u043a\u043e\u043d\u0438\u0439 \u0436\u0435\u043c\u0447\u0443\u0433: \u042d\u0432\u043e\u043b\u044e\u0446\u0438\u044f",
+            "title": "Dragonball Evolution",
             "year": 2009,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Adventure",
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Fantasy",
+                "nameEn": "Fantasy",
+                "nameRu": "\u0424\u044d\u043d\u0442\u0435\u0437\u0438",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Space sci-fi",
+                "nameEn": "Space sci-fi",
+                "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -662,13 +766,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjUy",
-            "title": "The Tracey Fragments",
             "titleEn": "The Tracey Fragments",
+            "titleRu": "\u041a\u0443\u0441\u043e\u0447\u043a\u0438 \u0422\u0440\u0435\u0439\u0441\u0438",
+            "title": "The Tracey Fragments",
             "year": 2007,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -678,13 +784,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjUz",
-            "title": "A Film With Me in It",
             "titleEn": "A Film With Me in It",
+            "titleRu": "\u0424\u0438\u043b\u044c\u043c \u0441 \u043c\u043e\u0438\u043c \u0443\u0447\u0430\u0441\u0442\u0438\u0435\u043c",
+            "title": "A Film With Me in It",
             "year": 2008,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -694,13 +802,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjU0",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0412\u0430\u0436\u043d\u0435\u0435, \u0447\u0435\u043c \u043b\u044e\u0431\u043e\u0432\u044c",
+            "title": "",
             "year": 2007,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Romance",
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -710,8 +820,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjU1",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041a\u0430\u0437\u0430\u043a\u0438 -\u0440\u0430\u0437\u0431\u043e\u0439\u043d\u0438\u043a\u0438",
+            "title": "",
             "year": 2007,
             "__typename": "MovieNode",
             "genres": []
@@ -721,8 +832,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjU2",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0422\u0440\u0438 \u043f\u043e\u043b\u0443\u0433\u0440\u0430\u0446\u0438\u0438",
+            "title": "",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": []
@@ -732,8 +844,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjU3",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0423\u0447\u0438\u0442\u0435\u043b\u044c \u0432 \u0437\u0430\u043a\u043e\u043d\u0435",
+            "title": "",
             "year": 2007,
             "__typename": "MovieNode",
             "genres": []
@@ -743,17 +856,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjU5",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0425\u0440\u043e\u043d\u0438\u043a\u0430 \"\u0410\u0434\u0430\" (\u0413\u043b\u0430\u0432\u043d\u044b\u0439 \u043a\u0430\u043b\u0438\u0431\u0440)",
+            "title": "",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "War",
+                "nameEn": "War",
+                "nameRu": "\u0412\u043e\u0439\u043d\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -763,21 +879,25 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjYw",
-            "title": "Coup de torchon",
             "titleEn": "Coup de torchon",
+            "titleRu": "\u0421\u0441\u043e\u0440\u0430",
+            "title": "Coup de torchon",
             "year": 1981,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Crime",
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -787,13 +907,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjYx",
-            "title": "\u00a1Vampiros en La Habana!",
             "titleEn": "\u00a1Vampiros en La Habana!",
+            "titleRu": "\u0412\u0430\u043c\u043f\u0438\u0440\u044b \u0432 \u0413\u0430\u0432\u0430\u043d\u0435",
+            "title": "\u00a1Vampiros en La Habana!",
             "year": 1985,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -803,17 +925,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjY0",
-            "title": "The Man with One Red Shoe",
             "titleEn": "The Man with One Red Shoe",
+            "titleRu": "\u0427\u0435\u043b\u043e\u0432\u0435\u043a \u0432 \u043a\u0440\u0430\u0441\u043d\u043e\u043c \u0431\u043e\u0442\u0438\u043d\u043a\u0435",
+            "title": "The Man with One Red Shoe",
             "year": 1985,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Detective story",
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               }
             ]
@@ -823,8 +948,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjY1",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0410\u0440\u043a\u0442\u0438\u043a\u0430",
+            "title": "",
             "year": 2010,
             "__typename": "MovieNode",
             "genres": []
@@ -834,8 +960,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjY2",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0417\u0430\u0431\u043b\u0443\u0434\u0438\u0432\u0448\u0438\u0435\u0441\u044f",
+            "title": "",
             "year": 2005,
             "__typename": "MovieNode",
             "genres": []
@@ -845,8 +972,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjY3",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0435",
+            "title": "",
             "year": 2010,
             "__typename": "MovieNode",
             "genres": []
@@ -856,21 +984,25 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjY4",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041e\u0447\u0435\u043d\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0431\u043e\u0435\u0432\u0438\u043a (\u043d\u0435 \u0431\u044b\u043b \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d)",
+            "title": "",
             "year": 2019,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Parody",
+                "nameEn": "Parody",
+                "nameRu": "\u041f\u0430\u0440\u043e\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -880,17 +1012,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjY5",
-            "title": "Dark World",
             "titleEn": "Dark World",
+            "titleRu": "\u0422\u0435\u043c\u043d\u044b\u0439 \u041c\u0438\u0440",
+            "title": "Dark World",
             "year": 2010,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Space sci-fi",
+                "nameEn": "Space sci-fi",
+                "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -900,17 +1035,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjcw",
-            "title": "Dead Like Me: Life After Death",
             "titleEn": "Dead Like Me: Life After Death",
+            "titleRu": "\u041c\u0435\u0440\u0442\u0432\u044b\u0435 \u043a\u0430\u043a \u044f: \u0436\u0438\u0437\u043d\u044c \u043f\u043e\u0441\u043b\u0435 \u0441\u043c\u0435\u0440\u0442\u0438",
+            "title": "Dead Like Me: Life After Death",
             "year": 2009,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Space sci-fi",
+                "nameEn": "Space sci-fi",
+                "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -920,17 +1058,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjcx",
-            "title": "Green Street 2",
             "titleEn": "Green Street 2",
+            "titleRu": "\u0425\u0443\u043b\u0438\u0433\u0430\u043d\u044b \u0417\u0435\u043b\u0435\u043d\u043e\u0439 \u0443\u043b\u0438\u0446\u044b 2",
+            "title": "Green Street 2",
             "year": 2009,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Sport",
+                "nameEn": "Sport",
+                "nameRu": "\u0421\u043f\u043e\u0440\u0442",
                 "__typename": "GenreNode"
               }
             ]
@@ -940,25 +1081,30 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjcy",
-            "title": "Prosto uzhas",
             "titleEn": "Prosto uzhas",
+            "titleRu": "\u041f\u0440\u043e\u0441\u0442\u043e \u0443\u0436\u0430\u0441!",
+            "title": "Prosto uzhas",
             "year": 1982,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Adventure",
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Children's",
+                "nameEn": "Children's",
+                "nameRu": "\u0414\u0435\u0442\u0441\u043a\u0438\u0439",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Fable",
+                "nameEn": "Fable",
+                "nameRu": "\u0421\u043a\u0430\u0437\u043a\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -968,13 +1114,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjcz",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041c\u043e\u0441\u043a\u0432\u0430 \u0441\u043b\u0435\u0437\u0430\u043c \u043d\u0435 \u0432\u0435\u0440\u0438\u0442 2",
+            "title": "",
             "year": 2011,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Romance",
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -984,8 +1132,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjc1",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0413\u043e\u0440\u043e\u0434 \u0417\u0435\u0440\u043e 2",
+            "title": "",
             "year": 2011,
             "__typename": "MovieNode",
             "genres": []
@@ -995,8 +1144,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjc2",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041f\u043b\u0430\u0442\u0438\u043d\u0430",
+            "title": "",
             "year": 1997,
             "__typename": "MovieNode",
             "genres": []
@@ -1006,8 +1156,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjc3",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0427\u0435\u0440\u043d\u0430\u044f \u0411\u0435\u0437\u0434\u043d\u0430",
+            "title": "",
             "year": 1997,
             "__typename": "MovieNode",
             "genres": []
@@ -1017,17 +1168,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjc4",
-            "title": "\u041a\u0430\u043a \u044f \u043f\u043e\u0435\u0445\u0430\u043b \u043d\u0430 \u0432\u043e\u0439\u043d\u0443 \u0432 \u0427\u0435\u0447\u043d\u044e",
             "titleEn": "\u041a\u0430\u043a \u044f \u043f\u043e\u0435\u0445\u0430\u043b \u043d\u0430 \u0432\u043e\u0439\u043d\u0443 \u0432 \u0427\u0435\u0447\u043d\u044e",
+            "titleRu": "\u041a\u0430\u043a \u044f \u043f\u043e\u0435\u0445\u0430\u043b \u043d\u0430 \u0432\u043e\u0439\u043d\u0443 \u0432 \u0427\u0435\u0447\u043d\u044e",
+            "title": "\u041a\u0430\u043a \u044f \u043f\u043e\u0435\u0445\u0430\u043b \u043d\u0430 \u0432\u043e\u0439\u043d\u0443 \u0432 \u0427\u0435\u0447\u043d\u044e",
             "year": 2001,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Biography",
+                "nameEn": "Biography",
+                "nameRu": "\u0411\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "War",
+                "nameEn": "War",
+                "nameRu": "\u0412\u043e\u0439\u043d\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -1037,17 +1191,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjc5",
-            "title": "Return to Horror High",
             "titleEn": "Return to Horror High",
+            "titleRu": "\u0412\u043e\u0437\u0432\u0440\u0430\u0449\u0435\u043d\u0438\u0435 \u0432 \u0448\u043a\u043e\u043b\u0443 \u0443\u0436\u0430\u0441\u043e\u0432",
+            "title": "Return to Horror High",
             "year": 1987,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Horror",
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
                 "__typename": "GenreNode"
               }
             ]
@@ -1057,13 +1214,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjgw",
-            "title": "Les Diablesses",
             "titleEn": "Les Diablesses",
+            "titleRu": "\u041d\u0435\u043b\u044e\u0431\u0438\u043c\u044b\u0435",
+            "title": "Les Diablesses",
             "year": 2007,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -1073,21 +1232,25 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjgx",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0412 \u0441\u0442\u0430\u0440\u044b\u0445 \u0440\u0438\u0442\u043c\u0430\u0445",
+            "title": "",
             "year": 1982,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Detective story",
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Parody",
+                "nameEn": "Parody",
+                "nameRu": "\u041f\u0430\u0440\u043e\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
             ]
@@ -1097,8 +1260,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjgy",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0414\u0435\u0432\u043e\u0447\u043a\u0430",
+            "title": "",
             "year": 2008,
             "__typename": "MovieNode",
             "genres": []
@@ -1108,8 +1272,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjgz",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0428\u0435\u043f\u043e\u0442 \u043e\u0440\u0430\u043d\u0436\u0435\u0432\u044b\u0445 \u043e\u0431\u043b\u0430\u043a\u043e\u0432",
+            "title": "",
             "year": 2009,
             "__typename": "MovieNode",
             "genres": []
@@ -1119,8 +1284,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjg0",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041c\u043d\u0435 \u0441\u043a\u0443\u0447\u043d\u043e, \u0431\u0435\u0441",
+            "title": "",
             "year": 1993,
             "__typename": "MovieNode",
             "genres": []
@@ -1130,8 +1296,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjg1",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041a\u0430\u0440\u0430\u0441\u0442\u043e\u044f\u043d\u043e\u0432\u044b",
+            "title": "",
             "year": 1983,
             "__typename": "MovieNode",
             "genres": []
@@ -1141,8 +1308,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjg2",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0422\u0440\u0435\u0441\u043a",
+            "title": "",
             "year": 2009,
             "__typename": "MovieNode",
             "genres": []
@@ -1152,8 +1320,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjg3",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041d\u0430 \u0443\u0433\u043b\u0443 \u0443 \u041f\u0430\u0442\u0440\u0438\u0430\u0440\u0448\u0438\u0445 4",
+            "title": "",
             "year": 2004,
             "__typename": "MovieNode",
             "genres": []
@@ -1163,8 +1332,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjg4",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041b\u044e\u0431\u0438\u0442\u044c \u043f\u043e-\u0440\u0443\u0441\u0441\u043a\u0438 3. \u0413\u0443\u0431\u0435\u0440\u043d\u0430\u0442\u043e\u0440",
+            "title": "",
             "year": 1999,
             "__typename": "MovieNode",
             "genres": []
@@ -1174,13 +1344,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjg5",
-            "title": "Zazda strasti",
             "titleEn": "Zazda strasti",
+            "titleRu": "\u0416\u0430\u0436\u0434\u0430 \u0441\u0442\u0440\u0430\u0441\u0442\u0438",
+            "title": "Zazda strasti",
             "year": 1991,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -1190,8 +1362,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjkw",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0420\u0430\u0441\u043a\u043e\u043b",
+            "title": "",
             "year": 1989,
             "__typename": "MovieNode",
             "genres": []
@@ -1201,13 +1374,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjkx",
-            "title": "Shag ",
             "titleEn": "Shag ",
+            "titleRu": "\u0428\u0430\u0433",
+            "title": "Shag ",
             "year": 1988,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -1217,17 +1392,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjky",
-            "title": "Bumerang",
             "titleEn": "Bumerang",
+            "titleRu": "\u0421\u043b\u0435\u0434\u0441\u0442\u0432\u0438\u0435 \u0432\u0435\u0434\u0443\u0442 \u0437\u043d\u0430\u0442\u043e\u043a\u0438.  \u0414\u0435\u043b\u043e \u211620. \u0411\u0443\u043c\u0435\u0440\u0430\u043d\u0433",
+            "title": "Bumerang",
             "year": 1987,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Crime",
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Detective story",
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               }
             ]
@@ -1237,8 +1415,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjkz",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041c\u0430\u043c\u0430, \u0440\u043e\u0434\u043d\u0430\u044f, \u043b\u044e\u0431\u0438\u043c\u0430\u044f",
+            "title": "",
             "year": 1986,
             "__typename": "MovieNode",
             "genres": []
@@ -1248,8 +1427,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjk0",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0418 \u0432 \u0437\u0432\u0443\u043a\u0430\u0445 \u043f\u0430\u043c\u044f\u0442\u044c \u043e\u0442\u0437\u043e\u0432\u0451\u0442\u0441\u044f",
+            "title": "",
             "year": 1986,
             "__typename": "MovieNode",
             "genres": []
@@ -1259,8 +1439,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjk1",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0422\u0430\u0439\u043d\u044b \u0441\u0432\u044f\u0442\u043e\u0433\u043e \u042e\u0440\u0430",
+            "title": "",
             "year": 1982,
             "__typename": "MovieNode",
             "genres": []
@@ -1270,21 +1451,25 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjk2",
-            "title": "Zvezda i smert Khoakina Muryety",
             "titleEn": "Zvezda i smert Khoakina Muryety",
+            "titleRu": "\u0417\u0432\u0435\u0437\u0434\u0430 \u0438 \u0441\u043c\u0435\u0440\u0442\u044c \u0425\u043e\u0430\u043a\u0438\u043d\u0430 \u041c\u0443\u0440\u044c\u0435\u0442\u044b",
+            "title": "Zvezda i smert Khoakina Muryety",
             "year": 1982,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Romance",
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Western",
+                "nameEn": "Western",
+                "nameRu": "\u0412\u0435\u0441\u0442\u0435\u0440\u043d",
                 "__typename": "GenreNode"
               }
             ]
@@ -1294,8 +1479,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjk3",
-            "title": "Assol",
             "titleEn": "Assol",
+            "titleRu": "\u0410\u0441\u0441\u043e\u043b\u044c",
+            "title": "Assol",
             "year": 1982,
             "__typename": "MovieNode",
             "genres": []
@@ -1305,17 +1491,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjk4",
-            "title": "Na Granatovykh ostrovakh",
             "titleEn": "Na Granatovykh ostrovakh",
+            "titleRu": "\u041d\u0430 \u0413\u0440\u0430\u043d\u0430\u0442\u043e\u0432\u044b\u0445 \u043e\u0441\u0442\u0440\u043e\u0432\u0430\u0445",
+            "title": "Na Granatovykh ostrovakh",
             "year": 1981,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Politics",
+                "nameEn": "Politics",
+                "nameRu": "\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -1325,17 +1514,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjk5",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0423\u0434\u0430\u0440! \u0415\u0449\u0435 \u0443\u0434\u0430\u0440!",
+            "title": "",
             "year": 1967,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Sport",
+                "nameEn": "Sport",
+                "nameRu": "\u0421\u043f\u043e\u0440\u0442",
                 "__typename": "GenreNode"
               }
             ]
@@ -1345,17 +1537,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEwMA==",
-            "title": "Khod beloy korolevy",
             "titleEn": "Khod beloy korolevy",
+            "titleRu": "\u0425\u043e\u0434 \u0431\u0435\u043b\u043e\u0439 \u043a\u043e\u0440\u043e\u043b\u0435\u0432\u044b",
+            "title": "Khod beloy korolevy",
             "year": 1971,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Sport",
+                "nameEn": "Sport",
+                "nameRu": "\u0421\u043f\u043e\u0440\u0442",
                 "__typename": "GenreNode"
               }
             ]
@@ -1365,13 +1560,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEwMQ==",
-            "title": "Winter morning",
             "titleEn": "Winter morning",
+            "titleRu": "\u0417\u0438\u043c\u043d\u0435\u0435 \u0443\u0442\u0440\u043e",
+            "title": "Winter morning",
             "year": 1966,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -1381,8 +1578,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEwMg==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041c\u043e\u0439 \u0434\u043e\u0431\u0440\u044b\u0439 \u043f\u0430\u043f\u0430",
+            "title": "",
             "year": 1969,
             "__typename": "MovieNode",
             "genres": []
@@ -1392,8 +1590,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEwMw==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041d\u043e\u0432\u044b\u0435 \u043f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f \u0410\u0440\u0441\u0435\u043d\u0430 \u041b\u044e\u043f\u0435\u043d\u0430",
+            "title": "",
             "year": 1989,
             "__typename": "MovieNode",
             "genres": []
@@ -1403,8 +1602,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEwNA==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041c\u0435\u0447\u0442\u0430\u0442\u0435\u043b\u0438",
+            "title": "",
             "year": 1987,
             "__typename": "MovieNode",
             "genres": []
@@ -1414,8 +1614,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEwNQ==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0420\u0430\u0432\u043d\u043e\u0432\u0435\u0441\u0438\u0435",
+            "title": "",
             "year": 1983,
             "__typename": "MovieNode",
             "genres": []
@@ -1425,17 +1626,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEwNg==",
-            "title": "Lavina",
             "titleEn": "Lavina",
+            "titleRu": "\u041b\u0430\u0432\u0438\u043d\u0430",
+            "title": "Lavina",
             "year": 1982,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Adventure",
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -1445,13 +1649,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEwNw==",
-            "title": "The Border",
             "titleEn": "The Border",
+            "titleRu": "\u0413\u0440\u0430\u043d\u0438\u0446\u0430",
+            "title": "The Border",
             "year": 2006,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Romance",
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -1461,8 +1667,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEwOA==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u00ab\u0422\u043e\u043b\u044c\u043a\u043e \u0442\u043e, \u0447\u0442\u043e \u043a\u0430\u0436\u0435\u0442\u0441\u044f\u2026\u00bb",
+            "title": "",
             "year": 1999,
             "__typename": "MovieNode",
             "genres": []
@@ -1472,8 +1679,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEwOQ==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u00ab\u041b\u0430\u0433\u0443\u043d\u0430\u00bb",
+            "title": "",
             "year": 2005,
             "__typename": "MovieNode",
             "genres": []
@@ -1483,8 +1691,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjExMA==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u00ab\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u044b \u0432\u043e\u0439\u043d\u044b\u00bb",
+            "title": "",
             "year": 2005,
             "__typename": "MovieNode",
             "genres": []
@@ -1494,8 +1703,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjExMQ==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u00ab\u0428\u0442\u043e\u0440\u043c\u043e\u0432\u043e\u0435 \u043f\u0440\u0435\u0434\u0443\u043f\u0440\u0435\u0436\u0434\u0435\u043d\u0438\u0435\u00bb",
+            "title": "",
             "year": 1996,
             "__typename": "MovieNode",
             "genres": []
@@ -1505,8 +1715,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjExMg==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u00ab\u0422\u0430\u043c\u043e\u0436\u043d\u044f \u00ab\u0434\u043e\u0431\u0440\u043e\u00bb \u043d\u0435 \u0434\u0430\u0451\u0442\u00bb",
+            "title": "",
             "year": 1995,
             "__typename": "MovieNode",
             "genres": []
@@ -1516,8 +1727,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjExMw==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u00ab\u0417\u0435\u043c\u043b\u044f \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u043e\u0440\u0430 \u041a\u0440\u0435\u0439\u0442\u0435\u0440\u0430\u00bb",
+            "title": "",
             "year": 1991,
             "__typename": "MovieNode",
             "genres": []
@@ -1527,8 +1739,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjExNA==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u00ab\u0417\u0434\u0435\u0441\u044c \u0431\u0443\u0434\u0435\u0442 \u0433\u043e\u0440\u043e\u0434\u00bb",
+            "title": "",
             "year": 1990,
             "__typename": "MovieNode",
             "genres": []
@@ -1538,8 +1751,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjExNQ==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u0410\u043d\u0442\u0438\u043d\u043e\u043c\u0438\u044f",
+            "title": "",
             "year": 1989,
             "__typename": "MovieNode",
             "genres": []
@@ -1549,8 +1763,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjExNg==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u00ab\u0422\u0438\u0448\u0435! \u0418\u0434\u0435\u0442 \u0440\u0435\u043f\u0435\u0442\u0438\u0446\u0438\u044f\u2026\u00bb",
+            "title": "",
             "year": 1987,
             "__typename": "MovieNode",
             "genres": []
@@ -1560,8 +1775,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjExNw==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041a\u043b\u0435\u0442\u043a\u0430",
+            "title": "",
             "year": 1993,
             "__typename": "MovieNode",
             "genres": []
@@ -1571,8 +1787,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjExOA==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u00ab\u0416\u0438\u0437\u043d\u044c \u2013 \u041e\u0442\u0435\u0447\u0435\u0441\u0442\u0432\u0443, \u0447\u0435\u0441\u0442\u044c \u2013 \u043d\u0438\u043a\u043e\u043c\u0443!\u00bb",
+            "title": "",
             "year": 2009,
             "__typename": "MovieNode",
             "genres": []
@@ -1582,8 +1799,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjExOQ==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041d\u0435 37-\u0439..",
+            "title": "",
             "year": 1989,
             "__typename": "MovieNode",
             "genres": []
@@ -1593,17 +1811,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEyMA==",
-            "title": "Barierata",
             "titleEn": "Barierata",
+            "titleRu": "\u0411\u0430\u0440\u044c\u0435\u0440",
+            "title": "Barierata",
             "year": 1979,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Space sci-fi",
+                "nameEn": "Space sci-fi",
+                "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -1613,29 +1834,35 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEyMQ==",
-            "title": "C.S.I.: New York",
             "titleEn": "C.S.I.: New York",
+            "titleRu": "CSI. \u041c\u0435\u0441\u0442\u043e \u043f\u0440\u0435\u0441\u0442\u0443\u043f\u043b\u0435\u043d\u0438\u044f \u041d\u044c\u044e-\u0419\u043e\u0440\u043a",
+            "title": "C.S.I.: New York",
             "year": 2004,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Action",
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Crime",
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Detective story",
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Thriller",
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
             ]
@@ -1645,17 +1872,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEyMg==",
-            "title": "Waxwork",
             "titleEn": "Waxwork",
+            "titleRu": "\u041c\u0443\u0437\u0435\u0439 \u0432\u043e\u0441\u043a\u043e\u0432\u044b\u0445 \u0444\u0438\u0433\u0443\u0440",
+            "title": "Waxwork",
             "year": 1988,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Horror",
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Young",
+                "nameEn": "Young",
+                "nameRu": "\u041c\u043e\u043b\u043e\u0434\u0435\u0436\u044c",
                 "__typename": "GenreNode"
               }
             ]
@@ -1665,13 +1895,15 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEyMw==",
-            "title": "L'Homme bless\u00e9",
             "titleEn": "L'Homme bless\u00e9",
+            "titleRu": "\u0420\u0430\u043d\u0435\u043d\u044b\u0439 \u0447\u0435\u043b\u043e\u0432\u0435\u043a",
+            "title": "L'Homme bless\u00e9",
             "year": 1983,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]
@@ -1681,8 +1913,9 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEyNA==",
-            "title": "",
             "titleEn": "",
+            "titleRu": "\u041e\u0441\u0435\u0447\u043a\u0430",
+            "title": "",
             "year": 1993,
             "__typename": "MovieNode",
             "genres": []
@@ -1692,17 +1925,20 @@
         {
           "movie": {
             "id": "TW92aWVOb2RlOjEyNQ==",
-            "title": "Boys and girls",
             "titleEn": "Boys and girls",
+            "titleRu": "\u041c\u0430\u043b\u044c\u0447\u0438\u043a\u0438 \u0438 \u0434\u0435\u0432\u043e\u0447\u043a\u0438",
+            "title": "Boys and girls",
             "year": 2000,
             "__typename": "MovieNode",
             "genres": [
               {
-                "name": "Comedy",
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               },
               {
-                "name": "Drama",
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
             ]

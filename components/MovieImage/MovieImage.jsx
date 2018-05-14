@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
 import MovieLink from 'components/MovieLink/MovieLink'
+import { i18nFields, i18nField } from 'libs/i18n'
 
 import './MovieImage.scss'
 
@@ -17,7 +18,7 @@ export default class MovieImage extends React.Component<Props> {
   static fragments = {
     movie: gql`
       fragment MovieImage on MovieNode {
-        title
+        ${i18nFields('title')}
         ...MovieLink
       }
       ${MovieLink.fragments.movie}
@@ -30,8 +31,8 @@ export default class MovieImage extends React.Component<Props> {
         <MovieLink movie={this.props.movie}>
           <img
             src="https://st.kp.yandex.net/images/film_iphone/iphone360_1100779.jpg"
-            alt={this.props.movie.title}
-            title={this.props.movie.title}
+            alt={this.props.movie[i18nField('title')]}
+            title={this.props.movie[i18nField('title')]}
           />
         </MovieLink>
       </div>

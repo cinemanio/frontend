@@ -3,11 +3,13 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
+import { i18nFields, i18nField } from 'libs/i18n'
+
 import ObjectLink from '../ObjectLink/ObjectLink'
 
 type Props = { person: Object }
 
-export default class PersonLink extends React.PureComponent<Props> {
+export default class PersonLink extends React.Component<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired
   }
@@ -18,6 +20,7 @@ export default class PersonLink extends React.PureComponent<Props> {
         id
         name
         nameEn
+        ${i18nFields('name')}
       }
     `
   }
@@ -32,7 +35,7 @@ export default class PersonLink extends React.PureComponent<Props> {
   render() {
     return (
       <ObjectLink type="person" parts={this.parts}>
-        {this.props.person.name}
+        {this.props.person[i18nField('name')]}
       </ObjectLink>
     )
   }

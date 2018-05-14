@@ -37,6 +37,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjExMTY0",
                 "title": "Being John Malkovich",
+                "titleRu": "Being John Malkovich",
                 "titleEn": "Being John Malkovich",
                 "year": 1999,
                 "__typename": "MovieNode"
@@ -56,6 +57,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjExMTY0",
                 "title": "Being John Malkovich",
+                "titleRu": "Being John Malkovich",
                 "titleEn": "Being John Malkovich",
                 "year": 1999,
                 "__typename": "MovieNode"
@@ -75,6 +77,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjE4",
                 "title": "The Game",
+                "titleRu": "The Game",
                 "titleEn": "The Game",
                 "year": 1997,
                 "__typename": "MovieNode"
@@ -94,6 +97,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjExMTY0",
                 "title": "Being John Malkovich",
+                "titleRu": "Being John Malkovich",
                 "titleEn": "Being John Malkovich",
                 "year": 1999,
                 "__typename": "MovieNode"
@@ -113,6 +117,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjExMzc0",
                 "title": "Se7en",
+                "titleRu": "Se7en",
                 "titleEn": "Se7en",
                 "year": 1995,
                 "__typename": "MovieNode"
@@ -132,6 +137,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjExNTkw",
                 "title": "Zodiac",
+                "titleRu": "Zodiac",
                 "titleEn": "Zodiac",
                 "year": 2007,
                 "__typename": "MovieNode"
@@ -151,6 +157,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjExNTIy",
                 "title": "Fight Club",
+                "titleRu": "Fight Club",
                 "titleEn": "Fight Club",
                 "year": 1999,
                 "__typename": "MovieNode"
@@ -170,6 +177,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjEwNDA2",
                 "title": "Alien 3",
+                "titleRu": "Alien 3",
                 "titleEn": "Alien 3",
                 "year": 1992,
                 "__typename": "MovieNode"
@@ -189,6 +197,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjEwNDM1",
                 "title": "Panic Room",
+                "titleRu": "Panic Room",
                 "titleEn": "Panic Room",
                 "year": 2002,
                 "__typename": "MovieNode"
@@ -208,6 +217,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjY3NTE=",
                 "title": "The Curious Case of Benjamin Button ",
+                "titleRu": "The Curious Case of Benjamin Button ",
                 "titleEn": "The Curious Case of Benjamin Button ",
                 "year": 2008,
                 "__typename": "MovieNode"
@@ -227,6 +237,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjE0MTgx",
                 "title": "The Social Network",
+                "titleRu": "The Social Network",
                 "titleEn": "The Social Network",
                 "year": 2010,
                 "__typename": "MovieNode"
@@ -246,6 +257,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjE5NzQz",
                 "title": "The Girl with the Dragon Tattoo",
+                "titleRu": "The Girl with the Dragon Tattoo",
                 "titleEn": "The Girl with the Dragon Tattoo",
                 "year": 2011,
                 "__typename": "MovieNode"
@@ -265,6 +277,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjI5ODIz",
                 "title": "House of Cards",
+                "titleRu": "House of Cards",
                 "titleEn": "House of Cards",
                 "year": 2013,
                 "__typename": "MovieNode"
@@ -284,6 +297,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjMwNjc3",
                 "title": "Gone Girl",
+                "titleRu": "Gone Girl",
                 "titleEn": "Gone Girl",
                 "year": 2014,
                 "__typename": "MovieNode"
@@ -303,6 +317,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjEwNzY3",
                 "title": "Love and Other Disasters",
+                "titleRu": "Love and Other Disasters",
                 "titleEn": "Love and Other Disasters",
                 "year": 2006,
                 "__typename": "MovieNode"
@@ -322,6 +337,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjc4NDI=",
                 "title": "The Hire: The Follow",
+                "titleRu": "The Hire: The Follow",
                 "titleEn": "The Hire: The Follow",
                 "year": 2001,
                 "__typename": "MovieNode"
@@ -341,6 +357,7 @@
               "movie": {
                 "id": "TW92aWVOb2RlOjI5ODIz",
                 "title": "House of Cards",
+                "titleRu": "House of Cards",
                 "titleEn": "House of Cards",
                 "year": 2013,
                 "__typename": "MovieNode"

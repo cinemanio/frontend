@@ -1,5 +1,7 @@
 import React from 'react'
 
+import i18n from 'libs/i18nClient'
+
 import MoviesPage from './MoviesPage'
 import response from './fixtures/response.json'
 import genres from './fixtures/genres.json'
@@ -18,7 +20,7 @@ describe('Movies Page Component', () => {
   })
 
   beforeEach(() => {
-    element = <MoviesPage t={() => ''}/>
+    element = <MoviesPage t={() => ''} i18n={i18n}/>
   })
 
   describe('Populated with response', () => {
@@ -43,7 +45,7 @@ describe('Movies Page Component', () => {
     it('should render active filter, when filter selected', done => populated(done, wrapper, () => {
       expect(wrapper.find('ActiveFilters')).toHaveLength(2)
       expect(wrapper.find('ActiveFilters').at(0).find('span')).toHaveLength(0)
-      selectFilterChange(wrapper, 0, '3')
+      selectFilterChange(wrapper, 0, 'R2VucmVOb2RlOjQ=')
       expect(wrapper.find('ActiveFilters').at(0).find('span')).toHaveLength(1)
     }))
 
@@ -52,14 +54,18 @@ describe('Movies Page Component', () => {
       expect(requestsLog[0].variables).toEqual({ first: 100, after: '' })
       expect(requestsLog[1].operationName).toBe('Countries')
       expect(requestsLog[2].operationName).toBe('Genres')
-      selectFilterChange(wrapper, 0, '3')
+      selectFilterChange(wrapper, 0, 'R2VucmVOb2RlOjQ=')
       await wrapper.find('ObjectListPage').instance().refreshList()
       expect(requestsLog).toHaveLength(4)
-      expect(requestsLog[3].variables).toEqual({ first: 100, after: '', genres: ['3'], countries: [] })
-      selectFilterChange(wrapper, 1, '4')
+      expect(requestsLog[3].variables).toEqual({
+        first: 100, after: '', genres: ['R2VucmVOb2RlOjQ='], countries: []
+      })
+      selectFilterChange(wrapper, 1, 'Q291bnRyeU5vZGU6MTE=')
       await wrapper.find('ObjectListPage').instance().refreshList()
       expect(requestsLog).toHaveLength(5)
-      expect(requestsLog[4].variables).toEqual({ first: 100, after: '', genres: ['3'], countries: ['4'] })
+      expect(requestsLog[4].variables).toEqual({
+        first: 100, after: '', genres: ['R2VucmVOb2RlOjQ='], countries: ['Q291bnRyeU5vZGU6MTE=']
+      })
     }))
   })
 

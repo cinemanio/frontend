@@ -6,11 +6,12 @@ import gql from 'graphql-tag'
 import Block from 'components/Block/Block'
 import './MovieSites.scss'
 
-type Props = { movie: Object }
+type Props = { movie: Object, t: Function }
 
 export default class MovieSites extends React.PureComponent<Props> {
   static propTypes = {
-    movie: PropTypes.object.isRequired
+    movie: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
   }
 
   static fragments = {
@@ -51,7 +52,7 @@ export default class MovieSites extends React.PureComponent<Props> {
   render() {
     return (
       <div styleName="box">
-        <Block title="This movie on">
+        <Block title={this.props.t('movie.sites.title')}>
           <ul>
             {this.renderImdb()}
             {this.renderKinopoisk()}

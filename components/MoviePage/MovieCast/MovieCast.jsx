@@ -6,6 +6,7 @@ import gql from 'graphql-tag'
 import PersonLink from 'components/PersonLink/PersonLink'
 import PersonImage from 'components/PersonImage/PersonImage'
 import Block from 'components/Block/Block'
+import { i18nFields, i18nField } from 'libs/i18n'
 
 import './MovieCast.scss'
 
@@ -23,13 +24,14 @@ export default class MovieCast extends React.Component<Props> {
           edges {
             node {
               id 
-              name
+              ${i18nFields('name')}
               person {
                 ...PersonLink
                 gender
               }
               role {
                 name
+                ${i18nFields('name')}
               }
             }
           }
@@ -77,7 +79,7 @@ export default class MovieCast extends React.Component<Props> {
         <div styleName="image"><PersonImage person={node.person}/></div>
         <div>
           <PersonLink person={node.person}/>
-          <div>{node.name || node.role.name}</div>
+          <div>{node.name || node.role[i18nField('name')]}</div>
         </div>
       </div>)
     )

@@ -3,6 +3,8 @@
     "movie": {
       "id": "TW92aWVOb2RlOjk2MDc=",
       "title": "Kids",
+      "titleEn": "Kids",
+      "titleRu": "Детки",
       "imdb": {
         "url": "http://www.imdb.com/title/tt0113540/",
         "rating": 7.0,
@@ -18,20 +20,23 @@
       "runtime": 91,
       "genres": [
         {
-          "name": "Drama",
+          "nameEn": "Drama",
+          "nameRu": "Drama",
           "__typename": "GenreNode"
         }
       ],
       "countries": [
         {
-          "name": "USA",
+          "nameEn": "USA",
+          "nameRu": "USA",
           "code": "us",
           "__typename": "CountryNode"
         }
       ],
       "languages": [
         {
-          "name": "English",
+          "nameEn": "English",
+          "nameRu": "English",
           "__typename": "LanguageNode"
         }
       ],
@@ -45,11 +50,14 @@
                 "id": "UGVyc29uTm9kZTozMTMy",
                 "name": "Larry Clark",
                 "nameEn": "Larry Clark",
+                "nameRu": "Larry Clark",
                 "__typename": "PersonNode",
                 "gender": "A_1"
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"

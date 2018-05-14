@@ -42,7 +42,7 @@ describe('Persons Page Component', () => {
     it('should render active filter, when filter selected', done => populated(done, wrapper, () => {
       expect(wrapper.find('ActiveFilters')).toHaveLength(2)
       expect(wrapper.find('ActiveFilters').at(0).find('span')).toHaveLength(0)
-      selectFilterChange(wrapper, 0, '3')
+      selectFilterChange(wrapper, 0, 'Um9sZU5vZGU6MTE=')
       expect(wrapper.find('ActiveFilters').at(0).find('span')).toHaveLength(1)
     }))
 
@@ -51,14 +51,18 @@ describe('Persons Page Component', () => {
       expect(requestsLog[0].variables).toEqual({ first: 100, after: '' })
       expect(requestsLog[1].operationName).toBe('Countries')
       expect(requestsLog[2].operationName).toBe('Roles')
-      selectFilterChange(wrapper, 0, '3')
+      selectFilterChange(wrapper, 0, 'Um9sZU5vZGU6MTE=')
       await wrapper.find('ObjectListPage').instance().refreshList()
       expect(requestsLog).toHaveLength(4)
-      expect(requestsLog[3].variables).toEqual({ first: 100, after: '', roles: ['3'], country: '' })
-      selectFilterChange(wrapper, 1, '4')
+      expect(requestsLog[3].variables).toEqual({
+        first: 100, after: '', roles: ['Um9sZU5vZGU6MTE='], country: ''
+      })
+      selectFilterChange(wrapper, 1, 'Q291bnRyeU5vZGU6MTE=')
       await wrapper.find('ObjectListPage').instance().refreshList()
       expect(requestsLog).toHaveLength(5)
-      expect(requestsLog[4].variables).toEqual({ first: 100, after: '', roles: ['3'], country: '4' })
+      expect(requestsLog[4].variables).toEqual({
+        first: 100, after: '', roles: ['Um9sZU5vZGU6MTE='], country: 'Q291bnRyeU5vZGU6MTE='
+      })
     }))
   })
 

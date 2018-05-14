@@ -10,7 +10,7 @@ import Menu from 'components/Menu/Menu'
 import './Layout.scss'
 import Languages from './Languages/Languages'
 
-type Props = { component: Function, menuActive?: string, t?: Function }
+type Props = { component: Function, menuActive?: string, t?: Function, i18n?: Object }
 type State = { error: ?Error }
 
 @translate()
@@ -22,7 +22,8 @@ export default class Layout extends React.Component<Props, State> {
   static propTypes = {
     component: PropTypes.func.isRequired,
     menuActive: PropTypes.string,
-    t: PropTypes.func.isRequired
+    t: PropTypes.func.isRequired,
+    i18n: PropTypes.object.isRequired
   }
 
   constructor(props: Object) {
@@ -49,11 +50,11 @@ export default class Layout extends React.Component<Props, State> {
             {this.renderMenu(menuActive)}
             {this.state.error
               ? <RedBox error={this.state.error}/>
-              : <Component {...matchProps} t={this.props.t}/>}
+              : <Component {...matchProps} t={this.props.t} i18n={this.props.i18n}/>}
           </div>
           <footer>
             <div styleName="languages">
-              <Languages/>
+              <Languages i18n={this.props.i18n}/>
             </div>
           </footer>
         </div>

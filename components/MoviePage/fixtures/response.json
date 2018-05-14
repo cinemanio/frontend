@@ -3,6 +3,8 @@
     "movie": {
       "id": "TW92aWVOb2RlOjk2MDc=",
       "title": "Kids",
+      "titleEn": "Kids",
+      "titleRu": "Детки",
       "imdb": {
         "url": "http://www.imdb.com/title/tt0113540/",
         "rating": 7.0,
@@ -18,20 +20,23 @@
       "runtime": 91,
       "genres": [
         {
-          "name": "Drama",
+          "nameEn": "Drama",
+          "nameRu": "Drama",
           "__typename": "GenreNode"
         }
       ],
       "countries": [
         {
-          "name": "USA",
+          "nameEn": "USA",
+          "nameRu": "USA",
           "code": "us",
           "__typename": "CountryNode"
         }
       ],
       "languages": [
         {
-          "name": "English",
+          "nameEn": "English",
+          "nameRu": "English",
           "__typename": "LanguageNode"
         }
       ],
@@ -40,16 +45,20 @@
           {
             "node": {
               "id": "10092",
-              "name": "Jennie",
+              "nameEn": "Jennie",
+              "nameRu": "Jennie",
               "person": {
                 "id": "UGVyc29uTm9kZTozNDY2",
                 "name": "Chlo\u00eb Sevigny",
                 "nameEn": "Chlo\u00eb Sevigny",
+                "nameRu": "Chlo\u00eb Sevigny",
                 "__typename": "PersonNode",
                 "gender": "A_0"
               },
               "role": {
                 "name": "Actor",
+                "nameEn": "Actor",
+                "nameRu": "Actor",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -59,16 +68,20 @@
           {
             "node": {
               "id": "16771",
-              "name": "Ruby",
+              "nameEn": "Ruby",
+              "nameRu": "Ruby",
               "person": {
                 "id": "UGVyc29uTm9kZTozMDcx",
                 "name": "Rosario Dawson",
                 "nameEn": "Rosario Dawson",
+                "nameRu": "Rosario Dawson",
                 "__typename": "PersonNode",
                 "gender": "A_0"
               },
               "role": {
                 "name": "Actor",
+                "nameEn": "Actor",
+                "nameRu": "Actor",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -78,16 +91,20 @@
           {
             "node": {
               "id": "56009",
-              "name": "Telly",
+              "nameEn": "Telly",
+              "nameRu": "Telly",
               "person": {
                 "id": "UGVyc29uTm9kZToxMjI5Mw==",
                 "name": "Leo Fitzpatrick",
                 "nameEn": "Leo Fitzpatrick",
+                "nameRu": "Leo Fitzpatrick",
                 "__typename": "PersonNode",
                 "gender": null
               },
               "role": {
                 "name": "Actor",
+                "nameEn": "Actor",
+                "nameRu": "Actor",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -97,16 +114,20 @@
           {
             "node": {
               "id": "56010",
-              "name": "Casper",
+              "nameEn": "Casper",
+              "nameRu": "Casper",
               "person": {
                 "id": "UGVyc29uTm9kZToxNjg2NQ==",
                 "name": "Justin Pierce",
                 "nameEn": "Justin Pierce",
+                "nameRu": "Justin Pierce",
                 "__typename": "PersonNode",
                 "gender": "A_1"
               },
               "role": {
                 "name": "Actor",
+                "nameEn": "Actor",
+                "nameRu": "Actor",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -116,16 +137,20 @@
           {
             "node": {
               "id": "56011",
-              "name": "Steven",
+              "nameEn": "Steven",
+              "nameRu": "Steven",
               "person": {
                 "id": "UGVyc29uTm9kZTo2NzYz",
                 "name": "Jon Abrahams",
                 "nameEn": "Jon Abrahams",
+                "nameRu": "Jon Abrahams",
                 "__typename": "PersonNode",
                 "gender": "A_1"
               },
               "role": {
                 "name": "Actor",
+                "nameEn": "Actor",
+                "nameRu": "Actor",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -140,11 +165,14 @@
                 "id": "UGVyc29uTm9kZTozNDY1",
                 "name": "Harmony Korine",
                 "nameEn": "Harmony Korine",
+                "nameRu": "Harmony Korine",
                 "__typename": "PersonNode",
                 "gender": "A_1"
               },
               "role": {
                 "name": "Actor",
+                "nameEn": "Actor",
+                "nameRu": "Actor",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -159,11 +187,14 @@
                 "id": "UGVyc29uTm9kZTo4NjY=",
                 "name": "Gus Van Sant",
                 "nameEn": "Gus Van Sant",
+                "nameRu": "Gus Van Sant",
                 "__typename": "PersonNode",
                 "gender": "A_1"
               },
               "role": {
                 "name": "Producer",
+                "nameEn": "Producer",
+                "nameRu": "Producer",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -178,11 +209,14 @@
                 "id": "UGVyc29uTm9kZTozMTMy",
                 "name": "Larry Clark",
                 "nameEn": "Larry Clark",
+                "nameRu": "Larry Clark",
                 "__typename": "PersonNode",
                 "gender": "A_1"
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -197,11 +231,14 @@
                 "id": "UGVyc29uTm9kZTo5NTQw",
                 "name": "Cathy Konrad",
                 "nameEn": "Cathy Konrad",
+                "nameRu": "Cathy Konrad",
                 "__typename": "PersonNode",
                 "gender": "A_0"
               },
               "role": {
                 "name": "Composer",
+                "nameEn": "Composer",
+                "nameRu": "Composer",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -216,11 +253,14 @@
                 "id": "UGVyc29uTm9kZTozNDY1",
                 "name": "Harmony Korine",
                 "nameEn": "Harmony Korine",
+                "nameRu": "Harmony Korine",
                 "__typename": "PersonNode",
                 "gender": "A_1"
               },
               "role": {
                 "name": "Writer",
+                "nameEn": "Writer",
+                "nameRu": "Writer",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -235,11 +275,14 @@
                 "id": "UGVyc29uTm9kZTozMTMy",
                 "name": "Larry Clark",
                 "nameEn": "Larry Clark",
+                "nameRu": "Larry Clark",
                 "__typename": "PersonNode",
                 "gender": "A_1"
               },
               "role": {
                 "name": "Scenarist",
+                "nameEn": "Scenarist",
+                "nameRu": "Scenarist",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -254,11 +297,14 @@
                 "id": "UGVyc29uTm9kZTozMTMy",
                 "name": "Larry Clark",
                 "nameEn": "Larry Clark",
+                "nameRu": "Larry Clark",
                 "__typename": "PersonNode",
                 "gender": "A_1"
               },
               "role": {
                 "name": "Driver",
+                "nameEn": "Driver",
+                "nameRu": "Driver",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"

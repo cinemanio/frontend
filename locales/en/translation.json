@@ -12,7 +12,17 @@
       "short": "Short view",
       "full": "Full view"
     },
+    "role": "Filter by role",
     "genre": "Filter by genre",
     "country": "Filter by country"
+  },
+  "movie": {
+    "info": {
+      "language": "language",
+      "language_plural": "languages"
+    },
+    "sites": {
+      "title": "This movie on"
+    }
   }
 }

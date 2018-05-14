@@ -3,8 +3,11 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 import humanizeDuration from 'humanize-duration'
+import i18n from 'i18next'
 
 import CountryFlag from 'components/CountryFlag/CountryFlag'
+import { i18nFields, i18nField } from 'libs/i18n'
+
 import './MovieInfo.scss'
 
 type Props = {
@@ -15,16 +18,18 @@ type Props = {
   runtime: ?boolean,
   languages: ?boolean,
   all: ?boolean,
+  t: Function,
+  i18n: Object,
 }
 
-export default class MovieInfo extends React.PureComponent<Props> {
+export default class MovieInfo extends React.Component<Props> {
   static defaultProps = {
     year: false,
     genres: false,
     countries: false,
     runtime: false,
     languages: false,
-    all: false,
+    all: false
   }
 
   static propTypes = {
@@ -34,7 +39,9 @@ export default class MovieInfo extends React.PureComponent<Props> {
     countries: PropTypes.bool,
     runtime: PropTypes.bool,
     languages: PropTypes.bool,
-    all: PropTypes.bool
+    all: PropTypes.bool,
+    t: PropTypes.func.isRequired,
+    i18n: PropTypes.object.isRequired
   }
 
   static fragments = {
@@ -43,14 +50,14 @@ export default class MovieInfo extends React.PureComponent<Props> {
         year
         runtime
         genres {
-          name
+          ${i18nFields('name')}
         }
         countries {
-          name
+          ${i18nFields('name')}
           ...CountryFlag
         }
         languages {
-          name
+          ${i18nFields('name')}
         }
       }
       ${CountryFlag.fragments.country}      
@@ -63,14 +70,14 @@ export default class MovieInfo extends React.PureComponent<Props> {
     genres: gql`
       fragment MovieInfoGenres on MovieNode {
         genres {
-          name
+          ${i18nFields('name')}
         }
       }
     `,
     countries: gql`
       fragment MovieInfoCountries on MovieNode {
         countries {
-          name
+          ${i18nFields('name')}
           ...CountryFlag
         }
       }
@@ -84,7 +91,7 @@ export default class MovieInfo extends React.PureComponent<Props> {
     languages: gql`
       fragment MovieInfoLanguages on MovieNode {
         languages {
-          name
+          ${i18nFields('name')}
         }
       }
     `
@@ -101,7 +108,7 @@ export default class MovieInfo extends React.PureComponent<Props> {
   renderGenres() {
     return (!this.props.genres && !this.props.all) ? '' : (
       <span styleName="genres">
-        {this.props.movie.genres.map(item => item.name).join(', ')}
+        {this.props.movie.genres.map(item => item[i18nField('name')]).join(', ')}
       </span>
     )
   }
@@ -110,10 +117,10 @@ export default class MovieInfo extends React.PureComponent<Props> {
     return (!this.props.countries && !this.props.all) ? '' : (
       <span styleName="countries">
         {this.props.movie.countries.map((item, i) => (
-          <span key={item.name}>
+          <span key={item[i18nField('name')]}>
             {i > 0 ? ', ' : ''}
             <CountryFlag country={item}/>
-            {item.name}
+            {item[i18nField('name')]}
           </span>
         ))}
       </span>
@@ -123,15 +130,19 @@ export default class MovieInfo extends React.PureComponent<Props> {
   renderRuntime() {
     return (!this.props.runtime && !this.props.all) ? '' : (
       <span styleName="runtime">
-        <i/>{humanizeDuration(this.props.movie.runtime * 60 * 1000)}
+        <i/>{humanizeDuration(this.props.movie.runtime * 60 * 1000, { language: this.props.i18n.language })}
       </span>
     )
   }
 
   renderLanguages() {
-    return (!this.props.languages && !this.props.all) ? '' : (
+    if (!this.props.movie.languages || (!this.props.languages && !this.props.all)) {
+      return ''
+    }
+    const lang = this.props.t('movie.info.language', { count: this.props.movie.languages.length })
+    return (
       <span styleName="languages">
-        {this.props.movie.languages.map(item => item.name).join(', ')}
+        {`${this.props.movie.languages.map(item => item[i18nField('name')]).join(', ')} ${lang}`}
       </span>
     )
   }

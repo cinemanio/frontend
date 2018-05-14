@@ -9,6 +9,7 @@ import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
 import PersonLink from 'components/PersonLink/PersonLink'
+import { i18nFields } from 'libs/i18n'
 
 type Props = {
   data: Object,
@@ -51,7 +52,7 @@ class PersonsPage extends React.Component<Props, State> {
     <div>
       <SelectFilter
         code="roles"
-        title="Role"
+        title={this.props.t('filter.role')}
         list={this.props.roleData.list}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
@@ -59,7 +60,7 @@ class PersonsPage extends React.Component<Props, State> {
       />
       <SelectFilter
         code="country"
-        title="Country"
+        title={this.props.t('filter.country')}
         list={this.props.countryData.list}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
@@ -124,7 +125,7 @@ const RolesQuery = gql`
   query Roles {
     list: roles {
       id
-      name
+      ${i18nFields('name')}
     }
   }
 `
@@ -133,7 +134,7 @@ const CountryQuery = gql`
   query Countries {
     list: countries {
       id
-      name
+      ${i18nFields('name')}
     }
   }
 `

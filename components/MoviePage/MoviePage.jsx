@@ -8,6 +8,7 @@ import ObjectPage from 'components/ObjectPage/ObjectPage'
 import MovieImage from 'components/MovieImage/MovieImage'
 import MovieRelations from 'components/MovieRelations/MovieRelations'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
+import { i18nFields, i18nField } from 'libs/i18n'
 
 import MovieInfo from './MovieInfo/MovieInfo'
 import MovieCast from './MovieCast/MovieCast'
@@ -15,38 +16,48 @@ import MovieSites from './MovieSites/MovieSites'
 
 import './MoviePage.scss'
 
-type Props = { data: Object }
+type Props = { data: Object, t: Function, i18n: Object }
 
-export class MoviePage extends React.PureComponent<Props> {
+export class MoviePage extends React.Component<Props> {
   static propTypes = {
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired,
+    i18n: PropTypes.object.isRequired
   }
 
-  renderLayout(movie: Object) {
-    return (
-      <div styleName="box">
-        <div styleName="relations">
-          <MovieRelations counts={{ fav: 1, like: 10, seen: 10, dislike: 10, want: 3, have: 3, ignore: 0 }}/>
+  isTitlesEqual = (movie: Object) => movie[i18nField('title')] === movie.title
+
+  renderLayout = (movie: Object) => (
+    <div styleName="box">
+      <div styleName="relations">
+        <MovieRelations counts={{ fav: 1, like: 10, seen: 10, dislike: 10, want: 3, have: 3, ignore: 0 }}/>
+      </div>
+      <h1>{movie[i18nField('title')]}</h1>
+      <h2>{this.isTitlesEqual(movie) ? '' : movie.title}</h2>
+      <MovieInfo movie={movie} t={this.props.t} i18n={this.props.i18n} all/>
+      <div className="row">
+        <div className="col-lg-2">
+          <div styleName="image">
+            <MovieImage movie={movie}/>
+          </div>
+          <MovieSites movie={movie} t={this.props.t}/>
         </div>
-        <h1>{movie.title}</h1>
-        <h2>{movie.title}</h2>
-        <MovieInfo movie={movie} all/>
-        <div className="row">
-          <div className="col-lg-2">
-            <div styleName="image">
-              <MovieImage movie={movie}/>
-            </div>
-            <MovieSites movie={movie}/>
-          </div>
-          <div className="col-lg-10">
-            <MovieCast movie={movie}/>
-          </div>
+        <div className="col-lg-10">
+          <MovieCast movie={movie}/>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 
-  getTitle = (movie: Object) => [movie.title, movie.year].join(', ')
+  getTitle = (movie: Object) => {
+    const parts = []
+    parts.push(movie[i18nField('title')])
+    if (!this.isTitlesEqual(movie)) {
+      parts.push(movie.title)
+    }
+    parts.push(movie.year)
+    return parts.join(', ')
+  }
 
   render() {
     return (<ObjectPage
@@ -60,14 +71,16 @@ export class MoviePage extends React.PureComponent<Props> {
 const MovieQuery = gql`
   query Movie($movieId: ID!) {
     movie(id: $movieId) {
+      ${i18nFields('title')}
       title
-      year
+      ...MovieImage
       ...MovieInfoAll
       ...MovieSites
       ...MovieCast
     }
   }
   ${MovieInfo.fragments.all}
+  ${MovieImage.fragments.movie}
   ${MovieSites.fragments.movie}
   ${MovieCast.fragments.movie}
 `

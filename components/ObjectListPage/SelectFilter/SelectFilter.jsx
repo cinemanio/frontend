@@ -2,6 +2,8 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
+import { i18nField } from 'libs/i18n'
+
 type Props = {
   code: string,
   title: string,
@@ -11,7 +13,7 @@ type Props = {
   setFilterState: Function,
 }
 
-export default class SelectFilter extends React.PureComponent<Props> {
+export default class SelectFilter extends React.Component<Props> {
   static defaultProps = {
     list: [],
     multiple: false
@@ -54,7 +56,7 @@ export default class SelectFilter extends React.PureComponent<Props> {
 
   renderOption(item: Object) {
     return this.active.indexOf(item.id) !== -1 ? ''
-      : <option key={item.id} value={item.id}>{item.name}</option>
+      : <option key={item.id} value={item.id}>{item[i18nField('name')]}</option>
   }
 
   render() {

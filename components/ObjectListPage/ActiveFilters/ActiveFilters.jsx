@@ -2,6 +2,8 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
+import { i18nField } from 'libs/i18n'
+
 import './ActiveFilters.scss'
 
 type Props = {
@@ -12,7 +14,7 @@ type Props = {
   setFilterState: Function,
 }
 
-export default class ActiveFilters extends React.PureComponent<Props> {
+export default class ActiveFilters extends React.Component<Props> {
   static defaultProps = {
     list: [],
     multiple: false
@@ -49,7 +51,7 @@ export default class ActiveFilters extends React.PureComponent<Props> {
 
   notFilterBy = (value: string) => () => this.removeFilter(this.props.code, value)
 
-  getFilterName = (filter: string) => this.props.list.filter(item => item.id === filter)[0].name
+  getFilterName = (filter: string) => this.props.list.filter(item => item.id === filter)[0][i18nField('name')]
 
   render() {
     return this.active.map((filter: string) =>

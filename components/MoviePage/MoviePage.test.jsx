@@ -1,5 +1,7 @@
 import React from 'react'
 
+import i18n from 'libs/i18nClient'
+
 import { MoviePage } from './MoviePage'
 import { data } from './fixtures/response.json'
 import { mountRouter } from '../../tests/helpers'
@@ -9,7 +11,7 @@ describe('Movie Page Component', () => {
   let wrapper
 
   beforeEach(() => {
-    element = <MoviePage params={{ movieId: '' }} data={data}/>
+    element = <MoviePage params={{ movieId: '' }} data={data} t={() => ''} i18n={i18n}/>
     wrapper = mountRouter(element)
   })
 
