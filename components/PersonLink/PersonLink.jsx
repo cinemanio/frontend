@@ -3,24 +3,21 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import i18n from 'libs/i18n'
-
 import ObjectLink from '../ObjectLink/ObjectLink'
 
-type Props = { person: Object }
+type Props = { person: Object, children: Object }
 
 export default class PersonLink extends React.Component<Props> {
   static propTypes = {
-    person: PropTypes.object.isRequired
+    person: PropTypes.object.isRequired,
+    children: PropTypes.node.isRequired
   }
 
   static fragments = {
     person: gql`
       fragment PersonLink on PersonNode {
         id
-        name
         nameEn
-        ${i18n.gql('name')}
       }
     `
   }
@@ -35,7 +32,7 @@ export default class PersonLink extends React.Component<Props> {
   render() {
     return (
       <ObjectLink type="person" parts={this.parts}>
-        {this.props.person[i18n.f('name')]}
+        {this.props.children}
       </ObjectLink>
     )
   }

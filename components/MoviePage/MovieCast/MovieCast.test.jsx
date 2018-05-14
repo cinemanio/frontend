@@ -10,7 +10,7 @@ describe('Movie Cast Component', () => {
   let element
   let wrapper
   const getRole = (block, position) =>
-    wrapper.find('Block').at(block).find('PersonLink').at(position)
+    wrapper.find('Block').at(block).find('PersonLink').at((position * 2) + 1)
       .parents()
       .at(0)
       .children()
@@ -18,15 +18,15 @@ describe('Movie Cast Component', () => {
       .text()
 
   beforeEach(() => {
-    element = <MovieCast movie={data.movie}/>
+    element = <MovieCast movie={data.movie} t={() => ''}/>
     wrapper = mountRouter(element)
   })
 
   it('should render 3 blocks with roles in each', () => {
     expect(wrapper.find('Block')).toHaveLength(3)
-    expect(wrapper.find('Block').at(0).find('PersonLink')).toHaveLength(5)
-    expect(wrapper.find('Block').at(1).find('PersonLink')).toHaveLength(6)
-    expect(wrapper.find('Block').at(2).find('PersonLink')).toHaveLength(1)
+    expect(wrapper.find('Block').at(0).find('PersonImage')).toHaveLength(5)
+    expect(wrapper.find('Block').at(1).find('PersonImage')).toHaveLength(6)
+    expect(wrapper.find('Block').at(2).find('PersonImage')).toHaveLength(1)
   })
 
   it('should render creators sorted', () => {
@@ -38,7 +38,7 @@ describe('Movie Cast Component', () => {
   })
 
   it('should render 1 block if only creators in roles', () => {
-    element = <MovieCast movie={responseOnlyDirector.data.movie}/>
+    element = <MovieCast movie={responseOnlyDirector.data.movie} t={() => ''}/>
     wrapper = mountRouter(element)
     expect(wrapper.find('Block')).toHaveLength(1)
   })

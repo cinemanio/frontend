@@ -10,11 +10,12 @@ import i18n from 'libs/i18n'
 
 import './MovieCast.scss'
 
-type Props = { movie: Object }
+type Props = { movie: Object, t: Function }
 
 export default class MovieCast extends React.Component<Props> {
   static propTypes = {
-    movie: PropTypes.object.isRequired
+    movie: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
   }
 
   static fragments = {
@@ -26,8 +27,9 @@ export default class MovieCast extends React.Component<Props> {
               id 
               ${i18n.gql('name')}
               person {
-                ...PersonLink
+                ${i18n.gql('name')}
                 gender
+                ...PersonLink
               }
               role {
                 name
@@ -78,7 +80,9 @@ export default class MovieCast extends React.Component<Props> {
       (<div key={node.id} styleName="person">
         <div styleName="image"><PersonImage person={node.person}/></div>
         <div>
-          <PersonLink person={node.person}/>
+          <PersonLink person={node.person}>
+            {node.person[i18n.f('name')]}
+          </PersonLink>
           <div>{node.name || node.role[i18n.f('name')]}</div>
         </div>
       </div>)
@@ -99,8 +103,8 @@ export default class MovieCast extends React.Component<Props> {
     return (
       <div styleName="box">
         {this.renderBlock('', this.getPersons(this.filterCreators, this.sortCreators))}
-        {this.renderBlock('Cast', this.getPersons(this.filterCast))}
-        {this.renderBlock('Crew', this.getPersons(this.filterCrew))}
+        {this.renderBlock(this.props.t('movie.cast.cast'), this.getPersons(this.filterCast))}
+        {this.renderBlock(this.props.t('movie.cast.crew'), this.getPersons(this.filterCrew))}
       </div>
     )
   }

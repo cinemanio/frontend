@@ -43,7 +43,7 @@ export class MoviePage extends React.Component<Props> {
           <MovieSites movie={movie} t={this.props.t}/>
         </div>
         <div className="col-lg-10">
-          <MovieCast movie={movie}/>
+          <MovieCast movie={movie} t={this.props.t}/>
         </div>
       </div>
     </div>

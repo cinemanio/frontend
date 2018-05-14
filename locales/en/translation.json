@@ -23,6 +23,18 @@
     },
     "sites": {
       "title": "This movie on"
+    },
+    "cast": {
+      "cast": "Cast",
+      "crew": "Crew"
+    }
+  },
+  "person": {
+    "career": {
+      "title": "Filmography"
+    },
+    "sites": {
+      "title": "This person on"
     }
   }
 }

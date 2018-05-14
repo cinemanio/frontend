@@ -1,5 +1,6 @@
 import React from 'react'
 
+import i18n from 'libs/i18nClient'
 import { mountRouter } from 'tests/helpers'
 
 import { PersonPage } from './PersonPage'
@@ -12,7 +13,7 @@ describe('Person Page Component', () => {
 
   describe('Populated with response', () => {
     beforeEach(() => {
-      element = <PersonPage params={{ personId: '' }} data={response.data}/>
+      element = <PersonPage params={{ personId: '' }} data={response.data} t={() => ''} i18n={i18n}/>
       wrapper = mountRouter(element)
     })
 

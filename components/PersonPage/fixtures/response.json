@@ -3,12 +3,16 @@
     "person": {
       "id": "UGVyc29uTm9kZToxNTQ=",
       "name": "David Fincher",
+      "nameEn": "David Fincher",
+      "nameRu": "David Fincher",
       "gender": "A_1",
       "dateBirth": "1962-08-28",
       "dateDeath": null,
       "country": {
         "id": "69",
         "name": "USA",
+        "nameEn": "USA",
+        "nameRu": "USA",
         "code": "us",
         "__typename": "CountryNode"
       },
@@ -25,6 +29,8 @@
       "roles": [
         {
           "name": "Director",
+          "nameEn": "Director",
+          "nameRu": "Director",
           "__typename": "RoleNode"
         }
       ],
@@ -34,6 +40,8 @@
             "node": {
               "id": "3275",
               "name": "Bobby",
+              "nameEn": "Bobby",
+              "nameRu": "Bobby",
               "movie": {
                 "id": "TW92aWVOb2RlOjExMTY0",
                 "title": "Being John Malkovich",
@@ -44,6 +52,8 @@
               },
               "role": {
                 "name": "Actor",
+                "nameEn": "Actor",
+                "nameRu": "Actor",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -64,6 +74,8 @@
               },
               "role": {
                 "name": "Scenarist",
+                "nameEn": "Scenarist",
+                "nameRu": "Scenarist",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -84,6 +96,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -104,6 +118,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -124,6 +140,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -144,6 +162,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -164,6 +184,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -184,6 +206,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -204,6 +228,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -224,6 +250,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -244,6 +272,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -264,6 +294,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -284,6 +316,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -304,6 +338,8 @@
               },
               "role": {
                 "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Director",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -324,6 +360,8 @@
               },
               "role": {
                 "name": "Producer",
+                "nameEn": "Producer",
+                "nameRu": "Producer",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -344,6 +382,8 @@
               },
               "role": {
                 "name": "Producer",
+                "nameEn": "Producer",
+                "nameRu": "Producer",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"
@@ -364,6 +404,8 @@
               },
               "role": {
                 "name": "Producer",
+                "nameEn": "Producer",
+                "nameRu": "Producer",
                 "__typename": "RoleNode"
               },
               "__typename": "CastNode"

@@ -7,14 +7,16 @@ import _ from 'lodash'
 import MovieLink from 'components/MovieLink/MovieLink'
 import MovieImage from 'components/MovieImage/MovieImage'
 import Block from 'components/Block/Block'
+import i18n from 'libs/i18n'
 
 import './PersonCareer.scss'
 
-type Props = { person: Object }
+type Props = { person: Object, t: Function }
 
 export default class PersonCast extends React.Component<Props> {
   static propTypes = {
-    person: PropTypes.object.isRequired
+    person: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
   }
 
   static fragments = {
@@ -24,14 +26,14 @@ export default class PersonCast extends React.Component<Props> {
           edges {
             node {
               id 
-              name
+              ${i18n.gql('name')}
               movie {
-                title
+                ${i18n.gql('title')}
                 year
                 ...MovieLink
               }
               role {
-                name
+                ${i18n.gql('name')}
               }
             }
           }
@@ -52,7 +54,7 @@ export default class PersonCast extends React.Component<Props> {
         career[edge.node.movie.id] = _.cloneDeep(edge)
         career[edge.node.movie.id].node.roles = []
       }
-      career[edge.node.movie.id].node.roles.push(edge.node.name || edge.node.role.name)
+      career[edge.node.movie.id].node.roles.push(edge.node[i18n.f('name')] || edge.node.role[i18n.f('name')])
     })
     return _.values(career)
   }
@@ -62,9 +64,9 @@ export default class PersonCast extends React.Component<Props> {
       (<div key={node.id} styleName="movie">
         <div styleName="image"><MovieImage movie={node.movie}/></div>
         <div>
-          <div>
+          <div styleName="title">
             <MovieLink movie={node.movie}>
-              {node.movie.title}
+              {node.movie[i18n.f('title')]}
             </MovieLink>
             ({node.movie.year})
           </div>
@@ -77,7 +79,7 @@ export default class PersonCast extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
-        <Block title="Career">
+        <Block title={this.props.t('person.career.title')}>
           <div styleName="career">
             {this.renderCareer()}
           </div>

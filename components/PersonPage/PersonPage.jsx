@@ -7,6 +7,7 @@ import gql from 'graphql-tag'
 import ObjectPage from 'components/ObjectPage/ObjectPage'
 import PersonImage from 'components/PersonImage/PersonImage'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
+import i18n from 'libs/i18n'
 
 import PersonRelations from './PersonRelations/PersonRelations'
 import PersonInfo from './PersonInfo/PersonInfo'
@@ -15,36 +16,45 @@ import PersonCareer from './PersonCareer/PersonCareer'
 
 import './PersonPage.scss'
 
-type Props = { data: Object }
+type Props = { data: Object, t: Function }
 
 export class PersonPage extends React.Component<Props> {
   static propTypes = {
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
   }
 
-  renderLayout(person: Object) {
-    return (
-      <div styleName="box">
-        <PersonRelations counts={{ fav: 1, like: 10, familiar: 10, dislike: 10 }}/>
-        <h1>{person.name}</h1>
-        <h2>{person.name}</h2>
-        <PersonInfo person={person}/>
-        <div className="row">
-          <div className="col-lg-2">
-            <div styleName="image">
-              <PersonImage person={person}/>
-            </div>
-            <PersonSites person={person}/>
+  isNamesEqual = (person: Object) => person[i18n.f('name')] === person.name
+
+  renderLayout = (person: Object) => (
+    <div styleName="box">
+      <PersonRelations counts={{ fav: 1, like: 10, familiar: 10, dislike: 10 }}/>
+      <h1>{person[i18n.f('name')]}</h1>
+      <h2>{this.isNamesEqual(person) ? '' : person.name}</h2>
+      <PersonInfo person={person}/>
+      <div className="row">
+        <div className="col-lg-2">
+          <div styleName="image">
+            <PersonImage person={person}/>
           </div>
-          <div className="col-lg-10">
-            <PersonCareer person={person}/>
-          </div>
+          <PersonSites person={person} t={this.props.t}/>
+        </div>
+        <div className="col-lg-10">
+          <PersonCareer person={person} t={this.props.t}/>
         </div>
       </div>
-    )
+    </div>
+  )
+
+  getTitle = (person: Object) => {
+    const parts = []
+    parts.push(person[i18n.f('name')])
+    if (!this.isNamesEqual(person)) {
+      parts.push(person.name)
+    }
+    return parts.concat(person.roles.map(role => role[i18n.f('name')])).join(', ')
   }
 
-  getTitle = (person: Object) => [person.name].concat(person.roles.map(role => role.name)).join(', ')
 
   render() {
     return (<ObjectPage
@@ -58,15 +68,18 @@ export class PersonPage extends React.Component<Props> {
 const PersonQuery = gql`
   query Person($personId: ID!) {
     person(id: $personId) {
+      ${i18n.gql('name')}
       name
       roles {
-        name
+        ${i18n.gql('name')}
       }
+      ...PersonImage
       ...PersonInfo
       ...PersonSites
       ...PersonCareer      
     }
   }
+  ${PersonImage.fragments.person}
   ${PersonInfo.fragments.person}
   ${PersonSites.fragments.person}
   ${PersonCareer.fragments.person}

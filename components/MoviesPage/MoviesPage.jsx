@@ -138,7 +138,6 @@ const MoviesQuery = gql`
       totalCount
       edges {
         movie: node {
-          id
           ...MovieShort
         }
       }

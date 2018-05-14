@@ -17,7 +17,7 @@ describe('Person Career Component', () => {
       .text()
 
   beforeEach(() => {
-    element = <PersonCareer person={data.person}/>
+    element = <PersonCareer person={data.person} t={() => ''}/>
     wrapper = mountRouter(element)
   })
 

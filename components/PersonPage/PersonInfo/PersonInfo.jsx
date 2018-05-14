@@ -5,11 +5,13 @@ import gql from 'graphql-tag'
 import fecha from 'fecha'
 
 import CountryFlag from 'components/CountryFlag/CountryFlag'
+import i18n from 'libs/i18n'
+
 import './PersonInfo.scss'
 
 type Props = { person: Object }
 
-export default class PersonInfo extends React.PureComponent<Props> {
+export default class PersonInfo extends React.Component<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired
   }
@@ -21,10 +23,10 @@ export default class PersonInfo extends React.PureComponent<Props> {
         dateBirth
         dateDeath
         roles {
-          name
+          ${i18n.gql('name')}
         }
         country {
-          name
+          ${i18n.gql('name')}
           ...CountryFlag
         }
       }
@@ -39,7 +41,7 @@ export default class PersonInfo extends React.PureComponent<Props> {
       <div styleName="box">
         <span styleName={`gender-${this.props.person.gender ? 'male' : 'female'}`}>
           <i/>
-          {this.props.person.roles.map(item => item.name).join(', ')}
+          {this.props.person.roles.map(item => item[i18n.f('name')]).join(', ')}
         </span>
         {!this.props.person.dateBirth ? '' :
           (<span styleName="date">
@@ -51,7 +53,7 @@ export default class PersonInfo extends React.PureComponent<Props> {
         {!this.props.person.country ? '' :
           (<span styleName="country">
             <CountryFlag country={this.props.person.country}/>
-            {this.props.person.country.name}
+            {this.props.person.country[i18n.f('name')]}
           </span>)
         }
       </div>

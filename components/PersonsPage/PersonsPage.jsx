@@ -8,8 +8,9 @@ import { configObject } from 'components/ObjectListPage/ObjectList/ObjectList'
 import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
-import PersonLink from 'components/PersonLink/PersonLink'
 import i18n from 'libs/i18n'
+
+import PersonShort from './PersonShort/PersonShort'
 
 type Props = {
   data: Object,
@@ -46,7 +47,7 @@ class PersonsPage extends React.Component<Props, State> {
     country: this.state.country
   })
 
-  renderPerson = ({ person }) => <PersonLink person={person}/>
+  renderPerson = ({ person }) => <PersonShort person={person}/>
 
   renderFilters = (refreshList: Function) => (
     <div>
@@ -108,8 +109,7 @@ const PersonsQuery = gql`
       totalCount
       edges {
         person: node {
-          id
-          ...PersonLink
+          ...PersonShort
         }
       }
       pageInfo {
@@ -118,7 +118,7 @@ const PersonsQuery = gql`
       }
     }
   }
-  ${PersonLink.fragments.person}
+  ${PersonShort.fragments.person}
 `
 
 const RolesQuery = gql`
