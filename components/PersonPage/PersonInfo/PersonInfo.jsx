@@ -2,18 +2,19 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
-import fecha from 'fecha'
 
 import CountryFlag from 'components/CountryFlag/CountryFlag'
 import i18n from 'libs/i18n'
+import getFecha from 'libs/fecha'
 
 import './PersonInfo.scss'
 
-type Props = { person: Object }
+type Props = { person: Object, i18n: Object }
 
 export default class PersonInfo extends React.Component<Props> {
   static propTypes = {
-    person: PropTypes.object.isRequired
+    person: PropTypes.object.isRequired,
+    i18n: PropTypes.object.isRequired
   }
 
   static fragments = {
@@ -34,7 +35,10 @@ export default class PersonInfo extends React.Component<Props> {
     `
   }
 
-  formatDate = (date: string) => fecha.format(fecha.parse(date, 'YYYY-MM-DD'), 'mediumDate')
+  formatDate = (date: string) => {
+    const fecha = getFecha(this.props.i18n.language)
+    return fecha.format(fecha.parse(date, 'YYYY-MM-DD'), 'mediumDate')
+  }
 
   render() {
     return (

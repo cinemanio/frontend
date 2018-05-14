@@ -16,12 +16,13 @@ import PersonCareer from './PersonCareer/PersonCareer'
 
 import './PersonPage.scss'
 
-type Props = { data: Object, t: Function }
+type Props = { data: Object, t: Function, i18n: Object }
 
 export class PersonPage extends React.Component<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired
+    t: PropTypes.func.isRequired,
+    i18n: PropTypes.object.isRequired
   }
 
   isNamesEqual = (person: Object) => person[i18n.f('name')] === person.name
@@ -31,7 +32,7 @@ export class PersonPage extends React.Component<Props> {
       <PersonRelations counts={{ fav: 1, like: 10, familiar: 10, dislike: 10 }}/>
       <h1>{person[i18n.f('name')]}</h1>
       <h2>{this.isNamesEqual(person) ? '' : person.name}</h2>
-      <PersonInfo person={person}/>
+      <PersonInfo person={person} i18n={this.props.i18n}/>
       <div className="row">
         <div className="col-lg-2">
           <div styleName="image">

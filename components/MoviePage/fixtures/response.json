@@ -28,7 +28,7 @@
       "countries": [
         {
           "nameEn": "USA",
-          "nameRu": "USA",
+          "nameRu": "США",
           "code": "us",
           "__typename": "CountryNode"
         }
@@ -36,7 +36,7 @@
       "languages": [
         {
           "nameEn": "English",
-          "nameRu": "English",
+          "nameRu": "Английский",
           "__typename": "LanguageNode"
         }
       ],
@@ -46,7 +46,7 @@
             "node": {
               "id": "10092",
               "nameEn": "Jennie",
-              "nameRu": "Jennie",
+              "nameRu": "Дженни",
               "person": {
                 "id": "UGVyc29uTm9kZTozNDY2",
                 "name": "Chlo\u00eb Sevigny",

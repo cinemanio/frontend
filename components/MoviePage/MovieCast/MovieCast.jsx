@@ -83,7 +83,7 @@ export default class MovieCast extends React.Component<Props> {
           <PersonLink person={node.person}>
             {node.person[i18n.f('name')]}
           </PersonLink>
-          <div>{node.name || node.role[i18n.f('name')]}</div>
+          <div>{node[i18n.f('name')] || node.role[i18n.f('name')]}</div>
         </div>
       </div>)
     )

@@ -4,7 +4,7 @@
       "id": "UGVyc29uTm9kZToxNTQ=",
       "name": "David Fincher",
       "nameEn": "David Fincher",
-      "nameRu": "David Fincher",
+      "nameRu": "Дэвид Финчер",
       "gender": "A_1",
       "dateBirth": "1962-08-28",
       "dateDeath": null,
@@ -12,7 +12,7 @@
         "id": "69",
         "name": "USA",
         "nameEn": "USA",
-        "nameRu": "USA",
+        "nameRu": "США",
         "code": "us",
         "__typename": "CountryNode"
       },
@@ -30,7 +30,7 @@
         {
           "name": "Director",
           "nameEn": "Director",
-          "nameRu": "Director",
+          "nameRu": "Режиссер",
           "__typename": "RoleNode"
         }
       ],
@@ -41,7 +41,7 @@
               "id": "3275",
               "name": "Bobby",
               "nameEn": "Bobby",
-              "nameRu": "Bobby",
+              "nameRu": "Бобби",
               "movie": {
                 "id": "TW92aWVOb2RlOjExMTY0",
                 "title": "Being John Malkovich",
