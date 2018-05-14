@@ -17,7 +17,7 @@ describe('Movies Page Component', () => {
   beforeAll(() => {
     global.console.warn = jest.fn()
     mockAutoSizer()
-      element = <MoviesPage t={i => i18n.t(i)} i18n={i18n}/>
+    element = <MoviesPage t={i => i18n.t(i)} i18n={i18n}/>
   })
 
   describe('Populated with response', () => {
