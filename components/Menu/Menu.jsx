@@ -47,8 +47,6 @@ export default class Menu extends React.PureComponent<Props> {
     return (
       <ul className="nav nav-tabs">
         {this.renderMenu()}
-        <Link to={formatRoute(routes.person.detail, { slug: '404' })} className="nav-link">404</Link>
-        <Link to="/500" className="nav-link">500</Link>
       </ul>
     )
   }
