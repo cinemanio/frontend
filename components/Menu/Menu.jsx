@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { formatRoute } from 'react-router-named-routes'
 import { PropTypes } from 'prop-types'
 
 import routes from 'components/App/routes'
