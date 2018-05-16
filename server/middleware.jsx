@@ -49,7 +49,7 @@ function ApolloReduxReactSSR(apolloHttpConf: Object) {
       cache: new InMemoryCache()
     })
 
-    const lang = i18nServer.services.languageDetector.detect(ctx)
+    const lang = i18nServer.services.languageDetector.detect(ctx).slice(0, 2)
     i18nServer.changeLanguage(lang)
 
     const context = {}
