@@ -72,6 +72,6 @@ export const selectFilterChange = (wrapper: Object, number: number, value: strin
 }
 
 export const i18nProps = {
-  t: i => i18nClient.t(i),
+  t: (i: string) => i18nClient.t(i),
   i18n: i18nClient,
 }
