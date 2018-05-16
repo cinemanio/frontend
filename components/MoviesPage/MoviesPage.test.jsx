@@ -1,7 +1,6 @@
 import React from 'react'
 
-import i18n from 'libs/i18nClient'
-import { mountGraphql, populated, mockAutoSizer, selectFilterChange } from 'tests/helpers'
+import { mountGraphql, populated, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
 
 import MoviesPage from './MoviesPage'
 import response from './fixtures/response.json'
@@ -17,7 +16,7 @@ describe('Movies Page Component', () => {
   beforeAll(() => {
     global.console.warn = jest.fn()
     mockAutoSizer()
-    element = <MoviesPage t={i => i18n.t(i)} i18n={i18n}/>
+    element = <MoviesPage {...i18nProps}/>
   })
 
   describe('Populated with response', () => {

@@ -8,6 +8,8 @@ import createMockedNetworkFetch from 'apollo-mocknetworkinterface'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 import _ from 'lodash'
 
+import i18nClient from 'libs/i18nClient'
+
 export const getMockedNetworkFetch = (response: Object | Array<Object>, requestsLog: ?Array<Object>) => {
   let i = 0
   return createMockedNetworkFetch((request: Object) => {
@@ -69,3 +71,7 @@ export const selectFilterChange = (wrapper: Object, number: number, value: strin
   wrapper.update()
 }
 
+export const i18nProps = {
+  t: i => i18nClient.t(i),
+  i18n: i18nClient,
+}

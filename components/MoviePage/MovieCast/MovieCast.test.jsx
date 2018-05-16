@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { mountRouter } from 'tests/helpers'
+import { mountRouter, i18nProps } from 'tests/helpers'
 
 import MovieCast from './MovieCast'
 import { data } from '../fixtures/response.json'
@@ -18,7 +18,7 @@ describe('Movie Cast Component', () => {
       .text()
 
   beforeEach(() => {
-    element = <MovieCast movie={data.movie} t={() => ''}/>
+    element = <MovieCast movie={data.movie} {...i18nProps}/>
     wrapper = mountRouter(element)
   })
 
@@ -38,7 +38,7 @@ describe('Movie Cast Component', () => {
   })
 
   it('should render 1 block if only creators in roles', () => {
-    element = <MovieCast movie={responseOnlyDirector.data.movie} t={() => ''}/>
+    element = <MovieCast movie={responseOnlyDirector.data.movie} {...i18nProps}/>
     wrapper = mountRouter(element)
     expect(wrapper.find('Block')).toHaveLength(1)
   })

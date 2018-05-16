@@ -18,7 +18,7 @@ import './PersonPage.scss'
 
 type Props = { data: Object, t: Function, i18n: Object }
 
-export class PersonPage extends React.Component<Props> {
+class PersonPage extends React.Component<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,
     t: PropTypes.func.isRequired,
@@ -86,7 +86,7 @@ const PersonQuery = gql`
   ${PersonCareer.fragments.person}
 `
 
-export const configObject = {
+const configObject = {
   options: ({ match: { params: { slug } } }: Object) => ({
     variables: {
       personId: getIdFromSlug(slug)

@@ -18,7 +18,7 @@ import './MoviePage.scss'
 
 type Props = { data: Object, t: Function, i18n: Object }
 
-export class MoviePage extends React.Component<Props> {
+class MoviePage extends React.Component<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,
     t: PropTypes.func.isRequired,
@@ -85,7 +85,7 @@ const MovieQuery = gql`
   ${MovieCast.fragments.movie}
 `
 
-export const configObject = {
+const configObject = {
   options: ({ match: { params: { slug } } }: Object) => ({
     variables: {
       movieId: getIdFromSlug(slug)
