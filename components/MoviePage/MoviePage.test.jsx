@@ -10,9 +10,8 @@ import emptyResponse from './fixtures/empty_response.json'
 describe('Movie Page Component', () => {
   let element
   let wrapper
-  let requestsLog
 
-  describe('Unit test', () => {
+  describe('Unit', () => {
     beforeEach(() => {
       element = (<MoviePage.WrappedComponent
         params={{ movieId: '' }} data={response.data} {...i18nProps}/>)
@@ -53,33 +52,36 @@ describe('Movie Page Component', () => {
     })
   })
 
-  describe('Populated with response', () => {
-    beforeAll(() => {
-      global.console.warn = jest.fn()
+  describe('GraphQL', () => {
+    let requestsLog
+
+    describe('Populated with response', () => {
+      beforeAll(() => {
+        global.console.warn = jest.fn()
+      })
+
+      beforeEach(() => {
+        element = <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>
+        requestsLog = []
+        wrapper = mountGraphql([response], element, requestsLog)
+      })
+
+      it('should send requests', done => populated(done, wrapper, () => {
+        expect(requestsLog).toHaveLength(1)
+        expect(requestsLog[0].variables).toEqual({ movieId: response.data.movie.id })
+      }))
     })
 
-    beforeEach(() => {
-      element = <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>
-      requestsLog = []
-      wrapper = mountGraphql([response], element, requestsLog)
+    describe('Populated with empty response', () => {
+      beforeEach(() => {
+        element = <MoviePage match={{ params: { slug: '' } }} {...i18nProps}/>
+        wrapper = mountGraphql([emptyResponse], element)
+      })
+
+      it('should render 404 page', done => populated(done, wrapper, () => {
+        expect(wrapper.find('Status[code=404]')).toHaveLength(1)
+        expect(wrapper.text()).toContain('Sorry, can’t find that.')
+      }))
     })
-
-    it('should send requests', done => populated(done, wrapper, async () => {
-      expect(requestsLog).toHaveLength(1)
-      expect(requestsLog[0].variables).toEqual({ movieId: response.data.movie.id })
-    }))
-  })
-
-  describe('Populated with empty response', () => {
-    beforeEach(() => {
-      element = <MoviePage match={{ params: { slug: '' } }} {...i18nProps}/>
-      requestsLog = []
-      wrapper = mountGraphql([emptyResponse], element, requestsLog)
-    })
-
-    it('should render 404 page', done => populated(done, wrapper, async () => {
-      expect(wrapper.find('Status[code=404]')).toHaveLength(1)
-      expect(wrapper.text()).toContain('Sorry, can’t find that.')
-    }))
   })
 })
