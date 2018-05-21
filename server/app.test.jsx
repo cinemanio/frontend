@@ -17,7 +17,8 @@ import settings from '../settings'
 describe('Server Routes', () => {
   let requestsLog
   const client = (response) => {
-    const httpConf = { fetch: getMockedNetworkFetch(response, requestsLog) }
+    const mock = getMockedNetworkFetch(response, requestsLog)
+    const httpConf = { fetch: mock, customFetch: mock }
     return request(app(httpConf).callback())
   }
 
@@ -42,6 +43,27 @@ describe('Server Routes', () => {
     expect(response.type).toEqual('image/x-icon')
   })
 
+  it('should respond a image', async () => {
+    const poster = {
+      data: {
+        movie: {
+          poster: {
+            detail: 'http://upload.wikimedia.org/wikipedia/commons/9/9e/Francis_Ford_Coppola_2007_crop.jpg'
+          }
+        }
+      }
+    }
+    const response = await client(poster).get('/images/movie/poster/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
+    expect(requestsLog).toHaveLength(1)
+    expect(requestsLog[0].operationName).toEqual('Movie')
+    expect(requestsLog[0].query).toContain('movie')
+    expect(requestsLog[0].query).toContain('poster')
+    expect(requestsLog[0].query).toContain('detail')
+    expect(requestsLog[0].variables).toEqual({ id: 'TW92aWVOb2RlOjk2MDc=' })
+    expect(response.status).toEqual(200)
+    expect(response.type).toEqual('image/jpeg')
+  })
+
   it('should respond 404 error page', async () => {
     const response = await client().get('/404')
     expect(response.status).toEqual(404)
@@ -50,6 +72,7 @@ describe('Server Routes', () => {
 
   it('should respond a movies page', async () => {
     const response = await client(movies).get('/movies')
+    expect(requestsLog).toHaveLength(3)
     expect(requestsLog[2].operationName).toEqual('Movies')
     expect(requestsLog[2].variables).toEqual({ after: '', first: 100 })
     expect(response.status).toEqual(200)
@@ -58,6 +81,7 @@ describe('Server Routes', () => {
 
   it('should respond a movie page', async () => {
     const response = await client(movie).get('/movies/kids-1995-TW92aWVOb2RlOjk2MDc%3D')
+    expect(requestsLog).toHaveLength(1)
     expect(requestsLog[0].operationName).toEqual('Movie')
     expect(requestsLog[0].variables).toEqual({ movieId: 'TW92aWVOb2RlOjk2MDc=' })
     expect(response.status).toEqual(200)
@@ -66,6 +90,7 @@ describe('Server Routes', () => {
 
   it('should not respond a wrong movie page', async () => {
     const response = await client(noMovie).get('/movies/404')
+    expect(requestsLog).toHaveLength(1)
     expect(requestsLog[0].operationName).toEqual('Movie')
     expect(requestsLog[0].variables).toEqual({ movieId: '404' })
     expect(response.status).toEqual(404)
@@ -74,6 +99,7 @@ describe('Server Routes', () => {
 
   it('should respond a persons page', async () => {
     const response = await client(persons).get('/persons')
+    expect(requestsLog).toHaveLength(3)
     expect(requestsLog[2].operationName).toEqual('Persons')
     expect(requestsLog[2].variables).toEqual({ after: '', first: 100 })
     expect(response.status).toEqual(200)
@@ -82,6 +108,7 @@ describe('Server Routes', () => {
 
   it('should respond a person page', async () => {
     const response = await client(person).get('/persons/david-fincher-UGVyc29uTm9kZToxNTQ%3D')
+    expect(requestsLog).toHaveLength(1)
     expect(requestsLog[0].operationName).toEqual('Person')
     expect(requestsLog[0].variables).toEqual({ personId: 'UGVyc29uTm9kZToxNTQ=' })
     expect(response.status).toEqual(200)
@@ -90,6 +117,7 @@ describe('Server Routes', () => {
 
   it('should not respond a wrong person page', async () => {
     const response = await client(noPerson).get('/persons/404')
+    expect(requestsLog).toHaveLength(1)
     expect(requestsLog[0].operationName).toEqual('Person')
     expect(requestsLog[0].variables).toEqual({ personId: '404' })
     expect(response.status).toEqual(404)

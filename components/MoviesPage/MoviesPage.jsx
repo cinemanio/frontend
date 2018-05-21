@@ -57,7 +57,7 @@ class MoviesPage extends React.Component<Props, State> {
   get viewOptions() {
     return [
       { id: 'short', name: this.props.t('filter.view.short') },
-      { id: 'full', name: this.props.t('filter.view.full') }
+      // { id: 'full', name: this.props.t('filter.view.full') }
     ]
   }
 

@@ -5,12 +5,17 @@ import serve from 'koa-static'
 import mount from 'koa-mount'
 import favicon from 'koa-favicon'
 import proxy from 'koa-proxies'
+import Router from 'koa-router'
 
-import ApolloReduxReactSSR from './middleware'
+import apolloReactSSR from './apolloReactSSR'
+import image from './image'
 import settings from '../settings'
 
 const getApp = (apolloHttpConf: Object) => {
   const app = new Koa()
+  const router = new Router()
+
+  router.get('/images/:type/:image/:size/:id.jpg', image(apolloHttpConf))
 
   app.use(favicon('public/favicon.ico'))
   app.use(logger())
@@ -39,7 +44,10 @@ const getApp = (apolloHttpConf: Object) => {
       .use(mount('/locales', serve('locales')))
   }
 
-  app.use(ApolloReduxReactSSR(apolloHttpConf))
+  app.use(router.routes())
+  app.use(router.allowedMethods())
+  app.use(apolloReactSSR(apolloHttpConf))
+
   return app
 }
 

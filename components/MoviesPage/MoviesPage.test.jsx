@@ -13,6 +13,8 @@ describe('Movies Page Component', () => {
   let element
   let wrapper
 
+  beforeAll(mockAutoSizer)
+
   describe('Unit', () => {
     beforeEach(() => {
       const data = _.clone(response.data)
@@ -21,6 +23,10 @@ describe('Movies Page Component', () => {
       element = (<MoviesPage.WrappedComponent
         data={data} genreData={genres.data} countryData={countries.data} {...i18nProps}/>)
       wrapper = mountRouter(element)
+    })
+
+    it('should render movies', () => {
+      expect(wrapper.find('MovieShort').length).toBeGreaterThan(0)
     })
 
     it('should render select filters', () => {
@@ -42,7 +48,6 @@ describe('Movies Page Component', () => {
 
     beforeAll(() => {
       global.console.warn = jest.fn()
-      mockAutoSizer()
       element = <MoviesPage {...i18nProps}/>
     })
 

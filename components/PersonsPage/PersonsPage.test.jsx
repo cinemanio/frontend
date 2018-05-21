@@ -13,6 +13,8 @@ describe('Persons Page Component', () => {
   let element
   let wrapper
 
+  beforeAll(mockAutoSizer)
+
   describe('Unit', () => {
     beforeEach(() => {
       const data = _.clone(response.data)
@@ -21,6 +23,10 @@ describe('Persons Page Component', () => {
       element = (<PersonsPage.WrappedComponent
         data={data} roleData={roles.data} countryData={countries.data} {...i18nProps}/>)
       wrapper = mountRouter(element)
+    })
+
+    it('should render persons', () => {
+      expect(wrapper.find('PersonLink').length).toBeGreaterThan(0)
     })
 
     it('should render select filters', () => {
@@ -42,7 +48,6 @@ describe('Persons Page Component', () => {
 
     beforeAll(() => {
       global.console.warn = jest.fn()
-      mockAutoSizer()
       element = <PersonsPage {...i18nProps}/>
     })
 

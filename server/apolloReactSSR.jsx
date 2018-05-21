@@ -16,7 +16,7 @@ import settings from '../settings'
 
 Helmet.canUseDOM = false
 
-function ApolloReduxReactSSR(apolloHttpConf: Object) {
+export default (apolloHttpConf: Object) => {
   const fetchDataAndRenderBody = async (client: Object, app: Object) => {
     let markup = ''
     let initialState
@@ -42,7 +42,7 @@ function ApolloReduxReactSSR(apolloHttpConf: Object) {
     return { markup, head, initialState }
   }
 
-  return async function apolloReduxReactSSR(ctx: Object) {
+  return async (ctx: Object) => {
     const client = new ApolloClient({
       ssrMode: true,
       link: new HttpLink(apolloHttpConf),
@@ -84,5 +84,3 @@ function ApolloReduxReactSSR(apolloHttpConf: Object) {
     ctx.body = renderHtmlPage(markup, head, initialState, settings.backendApiUrl)
   }
 }
-
-export default ApolloReduxReactSSR
