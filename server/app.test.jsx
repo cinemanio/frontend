@@ -4,6 +4,10 @@ import Helmet from 'react-helmet'
 import { getMockedNetworkFetch } from 'tests/helpers'
 
 import app from './app'
+import poster from './fixtures/poster.json'
+import photo from './fixtures/photo.json'
+import noPoster from './fixtures/no_poster.json'
+import noPhoto from './fixtures/no_photo.json'
 import movies from '../components/MoviesPage/fixtures/response.json'
 import genres from '../components/MoviesPage/fixtures/genres.json'
 import countries from '../components/MoviesPage/fixtures/countries.json'
@@ -43,25 +47,55 @@ describe('Server Routes', () => {
     expect(response.type).toEqual('image/x-icon')
   })
 
-  it('should respond a image', async () => {
-    const poster = {
-      data: {
-        movie: {
-          poster: {
-            detail: 'http://upload.wikimedia.org/wikipedia/commons/9/9e/Francis_Ford_Coppola_2007_crop.jpg'
-          }
-        }
-      }
-    }
-    const response = await client(poster).get('/images/movie/poster/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
-    expect(requestsLog).toHaveLength(1)
-    expect(requestsLog[0].operationName).toEqual('Movie')
-    expect(requestsLog[0].query).toContain('movie')
-    expect(requestsLog[0].query).toContain('poster')
-    expect(requestsLog[0].query).toContain('detail')
-    expect(requestsLog[0].variables).toEqual({ id: 'TW92aWVOb2RlOjk2MDc=' })
-    expect(response.status).toEqual(200)
-    expect(response.type).toEqual('image/jpeg')
+  describe('Random Image', () => {
+    it('should respond a movie poster', async () => {
+      const response = await client(poster).get('/images/movie/poster/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
+      expect(response.status).toEqual(200)
+      expect(requestsLog).toHaveLength(1)
+      expect(requestsLog[0].operationName).toEqual('Movie')
+      expect(requestsLog[0].query).toContain('movie')
+      expect(requestsLog[0].query).toContain('poster')
+      expect(requestsLog[0].query).toContain('detail')
+      expect(requestsLog[0].variables).toEqual({ id: 'TW92aWVOb2RlOjk2MDc=' })
+      expect(response.status).toEqual(200)
+      expect(response.type).toEqual('image/jpeg')
+    })
+
+    it('should respond a person photo', async () => {
+      const response = await client(photo).get('/images/person/photo/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
+      expect(response.status).toEqual(200)
+      expect(requestsLog).toHaveLength(1)
+      expect(requestsLog[0].operationName).toEqual('Person')
+      expect(requestsLog[0].query).toContain('person')
+      expect(requestsLog[0].query).toContain('photo')
+      expect(requestsLog[0].query).toContain('detail')
+      expect(requestsLog[0].variables).toEqual({ id: 'TW92aWVOb2RlOjk2MDc=' })
+      expect(response.status).toEqual(200)
+      expect(response.type).toEqual('image/jpeg')
+    })
+
+    it('should make a right camel cased request', async () => {
+      await client(photo).get('/images/person/photo/small_card/TW92aWVOb2RlOjk2MDc%3D.jpg')
+      expect(requestsLog[0].query).toContain('smallCard')
+    })
+
+    it('should respond 404 for no movie poster', async () => {
+      const response = await client(noPoster).get('/images/movie/poster/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
+      expect(response.status).toEqual(404)
+      expect(requestsLog).toHaveLength(1)
+    })
+
+    it('should respond 404 for no person photo', async () => {
+      const response = await client(noPhoto).get('/images/person/photo/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
+      expect(response.status).toEqual(404)
+      expect(requestsLog).toHaveLength(1)
+    })
+
+    it('should respond 404 for no wrong request', async () => {
+      const response = await client(noPhoto).get('/images/blabla/poster/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
+      expect(response.status).toEqual(404)
+      expect(requestsLog).toHaveLength(0)
+    })
   })
 
   it('should respond 404 error page', async () => {
@@ -127,7 +161,7 @@ describe('Server Routes', () => {
   describe('i18n. should translate to the language', () => {
     [
       ['ru', 'Фильмы'],
-      ['en', 'Movies']
+      ['en', 'Movies'],
     ].forEach(([lang, title]) => {
       it(`${lang} if cookie defined`, async () => {
         const cookie = `${settings.i18nCookieName}=${lang}`

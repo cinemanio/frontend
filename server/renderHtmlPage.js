@@ -1,15 +1,12 @@
-const emptyHead = {
-  htmlAttributes: '',
-  meta: '',
-  title: '',
-  script: '',
-  link: '',
-  style: '',
-}
-
-// ran a benchmark, interpolation was faster than concat and waaay faster than react
 export default (markup, head, state, apiUrl) => {
-  const safeHead = head || emptyHead
+  const safeHead = head || {
+    htmlAttributes: '',
+    meta: '',
+    title: '',
+    script: '',
+    link: '',
+    style: '',
+  }
   return `<!DOCTYPE html>
 <html ${safeHead.htmlAttributes.toString()}>
   <head>
@@ -30,6 +27,5 @@ export default (markup, head, state, apiUrl) => {
       window.INITIAL_STATE=${JSON.stringify(state).replace(/</g, '\\u003c')};
     </script>
   </body>
-</html>
-`
+</html>`
 }
