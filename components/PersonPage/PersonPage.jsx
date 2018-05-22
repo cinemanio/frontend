@@ -36,7 +36,7 @@ class PersonPage extends React.Component<Props> {
       <div className="row">
         <div className="col-lg-2">
           <div styleName="image">
-            <PersonImage person={person}/>
+            <PersonImage person={person} type="detail"/>
           </div>
           <PersonSites person={person} t={this.props.t}/>
         </div>

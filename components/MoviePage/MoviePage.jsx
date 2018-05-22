@@ -38,7 +38,7 @@ class MoviePage extends React.Component<Props> {
       <div className="row">
         <div className="col-lg-2">
           <div styleName="image">
-            <MovieImage movie={movie}/>
+            <MovieImage movie={movie} type="detail"/>
           </div>
           <MovieSites movie={movie} t={this.props.t}/>
         </div>

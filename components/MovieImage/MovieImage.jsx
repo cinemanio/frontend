@@ -8,11 +8,12 @@ import i18n from 'libs/i18n'
 
 import './MovieImage.scss'
 
-type Props = { movie: Object }
+type Props = { movie: Object, type: string }
 
 export default class MovieImage extends React.Component<Props> {
   static propTypes = {
-    movie: PropTypes.object.isRequired
+    movie: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired
   }
 
   static fragments = {
@@ -30,7 +31,7 @@ export default class MovieImage extends React.Component<Props> {
       <div>
         <MovieLink movie={this.props.movie}>
           <img
-            src="https://st.kp.yandex.net/images/film_iphone/iphone360_1100779.jpg"
+            src={`/images/movie/poster/${this.props.type}/${this.props.movie.id}.jpg`}
             alt={this.props.movie[i18n.f('title')]}
             title={this.props.movie[i18n.f('title')]}
           />

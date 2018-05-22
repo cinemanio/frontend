@@ -8,11 +8,12 @@ import i18n from 'libs/i18n'
 
 import './PersonImage.scss'
 
-type Props = { person: Object }
+type Props = { person: Object, type: string }
 
 export default class PersonImage extends React.Component<Props> {
   static propTypes = {
-    person: PropTypes.object.isRequired
+    person: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired
   }
 
   static fragments = {
@@ -30,7 +31,7 @@ export default class PersonImage extends React.Component<Props> {
       <div>
         <PersonLink person={this.props.person}>
           <img
-            src="https://st.kp.yandex.net/images/actor_iphone/iphone360_2286874.jpg"
+            src={`/images/person/photo/${this.props.type}/${this.props.person.id}.jpg`}
             alt={this.props.person[i18n.f('name')]}
             title={this.props.person[i18n.f('name')]}
           />
