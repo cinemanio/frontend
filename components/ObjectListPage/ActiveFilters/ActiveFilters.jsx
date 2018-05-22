@@ -53,7 +53,7 @@ export default class ActiveFilters extends React.Component<Props> {
 
   getFilterName = (filter: string) => this.props.list.filter(item => item.id === filter)[0][i18n.f('name')]
 
-  render() {
+  render(): Array<React.Fragment> {
     return this.active.map((filter: string) =>
       <span key={filter} styleName="box" onClick={this.notFilterBy(filter)}>{this.getFilterName(filter)}<i/></span>)
   }

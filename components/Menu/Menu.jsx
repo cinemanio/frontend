@@ -34,7 +34,7 @@ export default class Menu extends React.PureComponent<Props> {
     return classes.join(' ')
   }
 
-  renderMenu() {
+  renderMenu(): Array<React.Fragment> {
     return this.menu.map(([type, title]) => (
       <li className="nav-item" key={type}>
         <Link to={routes[type].list} className={this.getClass(type)}>{title}</Link>
