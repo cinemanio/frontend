@@ -42,7 +42,7 @@ export default class MovieShort extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
-        <MovieImage movie={this.props.movie} type="small_card"/>
+        <MovieImage movie={this.props.movie} type="short_card"/>
         <div styleName="right">
           <div styleName="relations">
             <MovieRelations/>

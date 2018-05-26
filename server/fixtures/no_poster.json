@@ -1,5 +1,7 @@
 {
   "data": {
-    "movie": null
+    "movie": {
+      "poster": null
+    }
   }
 }

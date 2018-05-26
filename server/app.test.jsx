@@ -1,5 +1,6 @@
 import request from 'supertest'
 import Helmet from 'react-helmet'
+import _ from 'lodash'
 
 import { getMockedNetworkFetch } from 'tests/helpers'
 
@@ -41,127 +42,102 @@ describe('Server Routes', () => {
     expect(response.status).toEqual(302)
   })
 
-  xit('should respond a favicon', async () => {
-    const response = await client().get('/public/favicon.ico')
-    expect(response.status).toEqual(200)
-    expect(response.type).toEqual('image/x-icon')
-  })
-
-  describe('Random Image', () => {
-    it('should respond a movie poster', async () => {
-      const response = await client(poster).get('/images/movie/poster/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
-      expect(response.status).toEqual(200)
-      expect(requestsLog).toHaveLength(1)
-      expect(requestsLog[0].operationName).toEqual('Movie')
-      expect(requestsLog[0].query).toContain('movie')
-      expect(requestsLog[0].query).toContain('poster')
-      expect(requestsLog[0].query).toContain('detail')
-      expect(requestsLog[0].variables).toEqual({ id: 'TW92aWVOb2RlOjk2MDc=' })
-      expect(response.status).toEqual(200)
-      expect(response.type).toEqual('image/jpeg')
-    })
-
-    it('should respond a person photo', async () => {
-      const response = await client(photo).get('/images/person/photo/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
-      expect(response.status).toEqual(200)
-      expect(requestsLog).toHaveLength(1)
-      expect(requestsLog[0].operationName).toEqual('Person')
-      expect(requestsLog[0].query).toContain('person')
-      expect(requestsLog[0].query).toContain('photo')
-      expect(requestsLog[0].query).toContain('detail')
-      expect(requestsLog[0].variables).toEqual({ id: 'TW92aWVOb2RlOjk2MDc=' })
-      expect(response.status).toEqual(200)
-      expect(response.type).toEqual('image/jpeg')
-    })
-
-    it('should make a right camel cased request', async () => {
-      await client(photo).get('/images/person/photo/small_card/TW92aWVOb2RlOjk2MDc%3D.jpg')
-      expect(requestsLog[0].query).toContain('smallCard')
-    })
-
-    it('should respond 404 for no movie poster', async () => {
-      const response = await client(noPoster).get('/images/movie/poster/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
-      expect(response.status).toEqual(404)
-      expect(requestsLog).toHaveLength(1)
-    })
-
-    it('should respond 404 for no person photo', async () => {
-      const response = await client(noPhoto).get('/images/person/photo/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
-      expect(response.status).toEqual(404)
-      expect(requestsLog).toHaveLength(1)
-    })
-
-    it('should respond 404 for no wrong request', async () => {
-      const response = await client(noPhoto).get('/images/blabla/poster/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
-      expect(response.status).toEqual(404)
-      expect(requestsLog).toHaveLength(0)
-    })
-  })
-
   it('should respond 404 error page', async () => {
     const response = await client().get('/404')
     expect(response.status).toEqual(404)
     expect(response.type).toEqual('text/html')
   })
 
-  it('should respond a movies page', async () => {
-    const response = await client(movies).get('/movies')
-    expect(requestsLog).toHaveLength(3)
-    expect(requestsLog[2].operationName).toEqual('Movies')
-    expect(requestsLog[2].variables).toEqual({ after: '', first: 100 })
+  xit('should respond a favicon', async () => {
+    const response = await client().get('/public/favicon.ico')
     expect(response.status).toEqual(200)
-    expect(response.type).toEqual('text/html')
+    expect(response.type).toEqual('image/x-icon')
   })
 
-  it('should respond a movie page', async () => {
-    const response = await client(movie).get('/movies/kids-1995-TW92aWVOb2RlOjk2MDc%3D')
-    expect(requestsLog).toHaveLength(1)
-    expect(requestsLog[0].operationName).toEqual('Movie')
-    expect(requestsLog[0].variables).toEqual({ movieId: 'TW92aWVOb2RlOjk2MDc=' })
-    expect(response.status).toEqual(200)
-    expect(response.type).toEqual('text/html')
+  describe('Image app', () => {
+    [
+      ['movie', 'poster', poster, noMovie, noPoster],
+      ['person', 'photo', photo, noPerson, noPhoto]
+    ].forEach(([object, image, imageResponse, noObjectResponse, noImageResponse]) => {
+      const url = `/images/${object}/${image}/detail/TW92aWVOb2RlOjk2MDc%3D.jpg`
+
+      it(`should respond a ${object} ${image}`, async () => {
+        const response = await client(imageResponse).get(url)
+        expect(response.status).toEqual(200)
+        expect(requestsLog).toHaveLength(1)
+        expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
+        expect(requestsLog[0].query).toContain(object)
+        expect(requestsLog[0].query).toContain(image)
+        expect(requestsLog[0].query).toContain('detail')
+        expect(requestsLog[0].variables).toEqual({ id: 'TW92aWVOb2RlOjk2MDc=' })
+        expect(response.status).toEqual(200)
+        expect(response.type).toEqual('image/jpeg')
+      })
+
+      it(`should respond 404 for no ${object} ${image}`, async () => {
+        const response = await client(noObjectResponse).get(url)
+        expect(requestsLog).toHaveLength(1)
+        expect(response.status).toEqual(404)
+      })
+
+      it(`should respond 404 for ${object} no ${image}`, async () => {
+        const response = await client(noImageResponse).get(url)
+        expect(requestsLog).toHaveLength(1)
+        expect(response.status).toEqual(200)
+        expect(response.type).toEqual('image/jpeg')
+      })
+    })
+
+    it('should make a right camel cased request', async () => {
+      await client(photo).get('/images/person/photo/short_card/TW92aWVOb2RlOjk2MDc%3D.jpg')
+      expect(requestsLog[0].query).toContain('shortCard')
+    })
+
+    it('should respond 404 for wrong request', async () => {
+      const response = await client(noPhoto).get('/images/blabla/poster/detail/TW92aWVOb2RlOjk2MDc%3D.jpg')
+      expect(response.status).toEqual(404)
+      expect(requestsLog).toHaveLength(0)
+    })
   })
 
-  it('should not respond a wrong movie page', async () => {
-    const response = await client(noMovie).get('/movies/404')
-    expect(requestsLog).toHaveLength(1)
-    expect(requestsLog[0].operationName).toEqual('Movie')
-    expect(requestsLog[0].variables).toEqual({ movieId: '404' })
-    expect(response.status).toEqual(404)
-    expect(response.type).toEqual('text/html')
-  })
+  describe('Object(s) pages', () => {
+    [
+      ['movie', 'movies', 'kids-1995-TW92aWVOb2RlOjk2MDc%3D', 'TW92aWVOb2RlOjk2MDc=', movies, movie, noMovie],
+      ['person', 'persons', 'david-fincher-UGVyc29uTm9kZToxNTQ%3D', 'UGVyc29uTm9kZToxNTQ=', persons, person, noPerson]
+    ].forEach(([object, objects, slug, id, objectsResponse, objectResponse, noResponse]) => {
+      it(`should respond a ${objects} page`, async () => {
+        const response = await client(objectsResponse).get(`/${objects}`)
+        expect(requestsLog).toHaveLength(3)
+        expect(requestsLog[2].operationName).toEqual(_.capitalize(objects))
+        expect(requestsLog[2].variables).toEqual({ after: '', first: 100 })
+        expect(response.status).toEqual(200)
+        expect(response.type).toEqual('text/html')
+      })
 
-  it('should respond a persons page', async () => {
-    const response = await client(persons).get('/persons')
-    expect(requestsLog).toHaveLength(3)
-    expect(requestsLog[2].operationName).toEqual('Persons')
-    expect(requestsLog[2].variables).toEqual({ after: '', first: 100 })
-    expect(response.status).toEqual(200)
-    expect(response.type).toEqual('text/html')
-  })
+      it(`should respond a ${object} page`, async () => {
+        const response = await client(objectResponse).get(`/${objects}/${slug}`)
+        expect(requestsLog).toHaveLength(1)
+        expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
+        expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: id })
+        expect(response.status).toEqual(200)
+        expect(response.type).toEqual('text/html')
+      })
 
-  it('should respond a person page', async () => {
-    const response = await client(person).get('/persons/david-fincher-UGVyc29uTm9kZToxNTQ%3D')
-    expect(requestsLog).toHaveLength(1)
-    expect(requestsLog[0].operationName).toEqual('Person')
-    expect(requestsLog[0].variables).toEqual({ personId: 'UGVyc29uTm9kZToxNTQ=' })
-    expect(response.status).toEqual(200)
-    expect(response.type).toEqual('text/html')
-  })
-
-  it('should not respond a wrong person page', async () => {
-    const response = await client(noPerson).get('/persons/404')
-    expect(requestsLog).toHaveLength(1)
-    expect(requestsLog[0].operationName).toEqual('Person')
-    expect(requestsLog[0].variables).toEqual({ personId: '404' })
-    expect(response.status).toEqual(404)
-    expect(response.type).toEqual('text/html')
+      it(`should not respond a wrong ${object} page`, async () => {
+        const response = await client(noResponse).get(`/${objects}/none`)
+        expect(requestsLog).toHaveLength(1)
+        expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
+        expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: 'none' })
+        expect(response.status).toEqual(404)
+        expect(response.type).toEqual('text/html')
+      })
+    })
   })
 
   describe('i18n. should translate to the language', () => {
     [
       ['ru', 'Фильмы'],
-      ['en', 'Movies'],
+      ['en', 'Movies']
     ].forEach(([lang, title]) => {
       it(`${lang} if cookie defined`, async () => {
         const cookie = `${settings.i18nCookieName}=${lang}`

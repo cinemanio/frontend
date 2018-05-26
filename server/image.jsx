@@ -2,42 +2,62 @@
 import { createApolloFetch } from 'apollo-fetch'
 import fetch from 'isomorphic-fetch'
 import _ from 'lodash'
+import readFilePromise from 'fs-readfile-promise'
 
 export default (apolloHttpConf: Object) => async (ctx: Object) => {
   if (
     ['movie', 'person'].indexOf(ctx.params.type) === -1 ||
     ['poster', 'photo'].indexOf(ctx.params.image) === -1 ||
-    ['detail', 'icon', 'small_card', 'full_card'].indexOf(ctx.params.size) === -1
+    ['detail', 'icon', 'short_card', 'full_card'].indexOf(ctx.params.size) === -1
   ) {
     ctx.status = 404
     return
   }
 
   const apolloFetch = createApolloFetch(apolloHttpConf)
+  const { type, image } = ctx.params
   const operationName = _.capitalize(ctx.params.type)
+  const size = _.camelCase(ctx.params.size)
   const query = `query ${operationName}($id: ID!) {
-    ${ctx.params.type}(id: $id) {
-      ${ctx.params.image} {
-        ${_.camelCase(ctx.params.size)}
+    ${type}(id: $id) {
+      ${image} {
+        ${size}
       }
     }
   }`
 
+  const processBackendResponse = async (response: Object) => {
+    if (!response.data[type]) {
+      throw Error('No object in response')
+    } else if (!response.data[type][image]) {
+      await readFilePromise('/Users/ramusus/workspace/cinemanio-frontend/images/grey.jpg')
+        .then((content: Object) => {
+          ctx.status = 200
+          ctx.type = 'image/jpeg'
+          ctx.body = content
+          return true
+        })
+    } else if (!response.data[type][image][size]) {
+      throw Error('No image in response')
+    } else {
+      await fetch(response.data[type][image][size])
+        .then((responseImage: Object) => {
+          ctx.status = responseImage.status
+          ctx.type = responseImage.headers.get('content-type')
+          ctx.body = responseImage.body
+          return true
+        })
+    }
+  }
+
   await apolloFetch({
     operationName,
     query,
-    variables: { id: ctx.params.id },
+    variables: { id: ctx.params.id }
   })
-    .then((response: Object) => response.data[ctx.params.type][ctx.params.image][ctx.params.size])
-    .then(url => fetch(url))
-    .then((response: Object) => {
-      ctx.status = response.status
-      ctx.type = response.headers.get('content-type')
-      ctx.body = response.body
-      return true
-    })
-    .catch(() => {
-      // TODO: log errors
+    .then(processBackendResponse)
+    .catch((e) => {
+      console.warn(e)
       ctx.status = 404
     })
 }
