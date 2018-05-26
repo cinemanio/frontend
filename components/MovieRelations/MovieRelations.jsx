@@ -28,7 +28,7 @@ export default class MovieRelations extends React.Component<Props> {
   changeRelation = (type: string) => () => {
   }
 
-  renderButtons() {
+  renderButtons(): Array<React.Fragment> {
     return this.type.map(type => (
       <span key={type} styleName={type} onClick={this.changeRelation(type)}>
         <i/>{this.props.counts && this.props.counts[type]}

@@ -59,7 +59,7 @@ export default class PersonCast extends React.Component<Props> {
     return _.values(career)
   }
 
-  renderCareer() {
+  renderCareer(): Array<React.Fragment> {
     return this.aggregatedCareerEdges.map(({ node }) =>
       (<div key={node.id} styleName="movie">
         <div styleName="image"><MovieImage movie={node.movie} type="icon"/></div>
