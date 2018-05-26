@@ -3,6 +3,11 @@ import { createApolloFetch } from 'apollo-fetch'
 import fetch from 'isomorphic-fetch'
 import _ from 'lodash'
 import readFilePromise from 'fs-readfile-promise'
+import path from 'path'
+
+import settings from '../settings'
+
+const stubPath = path.resolve(settings.baseDir, 'images/grey.jpg')
 
 export default (apolloHttpConf: Object) => async (ctx: Object) => {
   if (
@@ -30,7 +35,7 @@ export default (apolloHttpConf: Object) => async (ctx: Object) => {
     if (!response.data[type]) {
       throw Error('No object in response')
     } else if (!response.data[type][image]) {
-      await readFilePromise('/Users/ramusus/workspace/cinemanio-frontend/images/grey.jpg')
+      await readFilePromise(stubPath)
         .then((content: Object) => {
           ctx.status = 200
           ctx.type = 'image/jpeg'
