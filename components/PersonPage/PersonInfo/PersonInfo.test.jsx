@@ -5,7 +5,6 @@ import { i18nProps, itShouldRenderBlocks } from 'tests/helpers'
 
 import PersonInfo from './PersonInfo'
 import actress from './fixtures/actress.json'
-import _ from 'lodash'
 
 describe('Person Info Component', () => {
   let element

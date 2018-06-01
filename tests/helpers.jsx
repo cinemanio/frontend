@@ -77,11 +77,13 @@ export const i18nProps = {
 }
 
 
-export const itShouldRenderBlocks = (content, element) => (props) => {
+export const itShouldRenderBlocks = (content: Object, element: Object) => (props: Object) => {
+  // $FlowFixMe
   it(`should render only ${Object.keys(props)} blocks`, () => {
     element.props.i18n.changeLanguage('en')
     const wrapper = mount(React.cloneElement(element, props))
     _.forEach(content, (value, key) => {
+      // $FlowFixMe
       let expectation = expect(wrapper.text())
       // props does not contain key
       if (Object.keys(props).indexOf(key) === -1 && props.all !== true) {
