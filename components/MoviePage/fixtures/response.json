@@ -53,7 +53,7 @@
                 "nameEn": "Chlo\u00eb Sevigny",
                 "nameRu": "Chlo\u00eb Sevigny",
                 "__typename": "PersonNode",
-                "gender": "A_0"
+                "gender": "FEMALE"
               },
               "role": {
                 "name": "Actor",
@@ -76,7 +76,7 @@
                 "nameEn": "Rosario Dawson",
                 "nameRu": "Rosario Dawson",
                 "__typename": "PersonNode",
-                "gender": "A_0"
+                "gender": "FEMALE"
               },
               "role": {
                 "name": "Actor",
@@ -122,7 +122,7 @@
                 "nameEn": "Justin Pierce",
                 "nameRu": "Justin Pierce",
                 "__typename": "PersonNode",
-                "gender": "A_1"
+                "gender": "MALE"
               },
               "role": {
                 "name": "Actor",
@@ -145,7 +145,7 @@
                 "nameEn": "Jon Abrahams",
                 "nameRu": "Jon Abrahams",
                 "__typename": "PersonNode",
-                "gender": "A_1"
+                "gender": "MALE"
               },
               "role": {
                 "name": "Actor",
@@ -167,7 +167,7 @@
                 "nameEn": "Harmony Korine",
                 "nameRu": "Harmony Korine",
                 "__typename": "PersonNode",
-                "gender": "A_1"
+                "gender": "MALE"
               },
               "role": {
                 "name": "Actor",
@@ -189,7 +189,7 @@
                 "nameEn": "Gus Van Sant",
                 "nameRu": "Gus Van Sant",
                 "__typename": "PersonNode",
-                "gender": "A_1"
+                "gender": "MALE"
               },
               "role": {
                 "name": "Producer",
@@ -211,7 +211,7 @@
                 "nameEn": "Larry Clark",
                 "nameRu": "Larry Clark",
                 "__typename": "PersonNode",
-                "gender": "A_1"
+                "gender": "MALE"
               },
               "role": {
                 "name": "Director",
@@ -233,7 +233,7 @@
                 "nameEn": "Cathy Konrad",
                 "nameRu": "Cathy Konrad",
                 "__typename": "PersonNode",
-                "gender": "A_0"
+                "gender": "FEMALE"
               },
               "role": {
                 "name": "Composer",
@@ -255,7 +255,7 @@
                 "nameEn": "Harmony Korine",
                 "nameRu": "Harmony Korine",
                 "__typename": "PersonNode",
-                "gender": "A_1"
+                "gender": "MALE"
               },
               "role": {
                 "name": "Writer",
@@ -277,7 +277,7 @@
                 "nameEn": "Larry Clark",
                 "nameRu": "Larry Clark",
                 "__typename": "PersonNode",
-                "gender": "A_1"
+                "gender": "MALE"
               },
               "role": {
                 "name": "Scenarist",
@@ -299,7 +299,7 @@
                 "nameEn": "Larry Clark",
                 "nameRu": "Larry Clark",
                 "__typename": "PersonNode",
-                "gender": "A_1"
+                "gender": "MALE"
               },
               "role": {
                 "name": "Driver",

@@ -43,7 +43,7 @@ export default class PersonInfo extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
-        <span styleName={`gender-${this.props.person.gender ? 'male' : 'female'}`}>
+        <span styleName={`gender-${this.props.person.gender.toLowerCase()}`}>
           <i/>
           {this.props.person.roles.map(item => item[i18n.f('name')]).join(', ')}
         </span>

@@ -52,7 +52,7 @@
                 "nameEn": "Larry Clark",
                 "nameRu": "Larry Clark",
                 "__typename": "PersonNode",
-                "gender": "A_1"
+                "gender": "MALE"
               },
               "role": {
                 "name": "Director",
