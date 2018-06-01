@@ -23,7 +23,8 @@ describe('Person Page Component', () => {
 
       it('should render person name', () => expect(wrapper.find('h1').text()).toBe('David Fincher'))
       it('should not render person original name', () => expect(wrapper.find('h2').text()).toBe(''))
-      it('should render person birth date', () => expect(wrapper.text()).toContain('Aug 28, 1962'))
+      it('should render person birth and death dates', () => expect(wrapper.text())
+        .toContain('Aug 28, 1962 – Jan 28, 2100'))
       it('should render person country', () => expect(wrapper.text()).toContain('USA'))
       it('should render person roles', () => expect(wrapper.text()).toContain('Director'))
       it('should render role name', () => expect(wrapper.text()).toContain('Bobby'))
@@ -35,7 +36,8 @@ describe('Person Page Component', () => {
 
       it('should render person name', () => expect(wrapper.find('h1').text()).toBe('Дэвид Финчер'))
       it('should not render person original name', () => expect(wrapper.find('h2').text()).toBe('David Fincher'))
-      it('should render person birth date', () => expect(wrapper.text()).toContain('Авг 28, 1962'))
+      it('should render person birth and death dates', () => expect(wrapper.text())
+        .toContain('Авг 28, 1962 – Янв 28, 2100'))
       it('should render person country', () => expect(wrapper.text()).toContain('США'))
       it('should render person roles', () => expect(wrapper.text()).toContain('Режиссер'))
       it('should render role name', () => expect(wrapper.text()).toContain('Бобби'))

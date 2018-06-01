@@ -75,3 +75,19 @@ export const i18nProps = {
   t: (i: string) => i18nClient.t(i),
   i18n: i18nClient,
 }
+
+
+export const itShouldRenderBlocks = (content, element) => (props) => {
+  it(`should render only ${Object.keys(props)} blocks`, () => {
+    element.props.i18n.changeLanguage('en')
+    const wrapper = mount(React.cloneElement(element, props))
+    _.forEach(content, (value, key) => {
+      let expectation = expect(wrapper.text())
+      // props does not contain key
+      if (Object.keys(props).indexOf(key) === -1 && props.all !== true) {
+        expectation = expectation.not
+      }
+      expectation.toContain(value)
+    })
+  })
+}

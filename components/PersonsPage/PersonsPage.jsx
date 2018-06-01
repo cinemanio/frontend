@@ -8,6 +8,7 @@ import { configObject } from 'components/ObjectListPage/ObjectList/ObjectList'
 import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
+import SelectView from 'components/ObjectListPage/SelectView/SelectView'
 import i18n from 'libs/i18n'
 
 import PersonShort from './PersonShort/PersonShort'
@@ -17,11 +18,13 @@ type Props = {
   roleData: Object,
   countryData: Object,
   t: Function,
+  i18n: Object,
 }
 
 type State = {
   roles: Set<string>,
   country: string,
+  view: 'short' | 'full',
 }
 
 class PersonsPage extends React.Component<Props, State> {
@@ -29,28 +32,50 @@ class PersonsPage extends React.Component<Props, State> {
     data: PropTypes.object.isRequired,
     roleData: PropTypes.object.isRequired,
     countryData: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired
+    t: PropTypes.func.isRequired,
+    i18n: PropTypes.object.isRequired
   }
 
   constructor(props: Object) {
     super(props)
     this.state = {
       roles: new Set([]),
-      country: ''
+      country: '',
+      view: 'short',
     }
   }
 
-  rowHeight: number = 20
+  rowHeight: number = 80
 
   getVariables = () => ({
     roles: [...this.state.roles],
     country: this.state.country
   })
 
-  renderPerson = ({ person }) => <PersonShort person={person}/>
+  get viewOptions() {
+    return [
+      { id: 'short', name: this.props.t('filter.view.short') },
+      // { id: 'full', name: this.props.t('filter.view.full') }
+    ]
+  }
+
+  renderPerson = ({ person }) => {
+    if (this.state.view === 'short') {
+      return <PersonShort person={person} t={this.props.t} i18n={this.props.i18n}/>
+    } else if (this.state.view === 'full') {
+      return <PersonShort person={person} t={this.props.t} i18n={this.props.i18n}/>
+    } else {
+      throw Error('Wrong value of state.view')
+    }
+  }
 
   renderFilters = (refreshList: Function) => (
     <div>
+      <SelectView
+        list={this.viewOptions}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+      />
       <SelectFilter
         code="roles"
         title={this.props.t('filter.role')}

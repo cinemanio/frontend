@@ -7,7 +7,7 @@
       "nameRu": "Дэвид Финчер",
       "gender": "MALE",
       "dateBirth": "1962-08-28",
-      "dateDeath": null,
+      "dateDeath": "2100-01-28",
       "country": {
         "id": "69",
         "name": "USA",

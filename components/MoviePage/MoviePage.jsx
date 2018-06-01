@@ -6,7 +6,7 @@ import gql from 'graphql-tag'
 
 import ObjectPage from 'components/ObjectPage/ObjectPage'
 import MovieImage from 'components/MovieImage/MovieImage'
-import MovieRelations from 'components/MovieRelations/MovieRelations'
+import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 import i18n from 'libs/i18n'
 

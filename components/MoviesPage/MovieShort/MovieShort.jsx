@@ -6,7 +6,7 @@ import gql from 'graphql-tag'
 import MovieLink from 'components/MovieLink/MovieLink'
 import MovieImage from 'components/MovieImage/MovieImage'
 import MovieInfo from 'components/MoviePage/MovieInfo/MovieInfo'
-import MovieRelations from 'components/MovieRelations/MovieRelations'
+import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import i18n from 'libs/i18n'
 
 import './MovieShort.scss'

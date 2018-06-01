@@ -29,10 +29,12 @@ class PersonPage extends React.Component<Props> {
 
   renderLayout = (person: Object) => (
     <div styleName="box">
-      <PersonRelations counts={{ fav: 1, like: 10, familiar: 10, dislike: 10 }}/>
+      <div styleName="relations">
+        <PersonRelations counts={{ fav: 1, like: 10, familiar: 10, dislike: 10 }}/>
+      </div>
       <h1>{person[i18n.f('name')]}</h1>
       <h2>{this.isNamesEqual(person) ? '' : person.name}</h2>
-      <PersonInfo person={person} i18n={this.props.i18n}/>
+      <PersonInfo person={person} i18n={this.props.i18n} all/>
       <div className="row">
         <div className="col-lg-2">
           <div styleName="image">
@@ -75,13 +77,13 @@ const PersonQuery = gql`
         ${i18n.gql('name')}
       }
       ...PersonImage
-      ...PersonInfo
+      ...PersonInfoAll
       ...PersonSites
       ...PersonCareer      
     }
   }
   ${PersonImage.fragments.person}
-  ${PersonInfo.fragments.person}
+  ${PersonInfo.fragments.all}
   ${PersonSites.fragments.person}
   ${PersonCareer.fragments.person}
 `

@@ -11,14 +11,14 @@ import './MovieInfo.scss'
 
 type Props = {
   movie: Object,
+  t: Function,
+  i18n: Object,
   year: ?boolean,
   genres: ?boolean,
   countries: ?boolean,
   runtime: ?boolean,
   languages: ?boolean,
   all: ?boolean,
-  t: Function,
-  i18n: Object,
 }
 
 export default class MovieInfo extends React.Component<Props> {
@@ -33,14 +33,14 @@ export default class MovieInfo extends React.Component<Props> {
 
   static propTypes = {
     movie: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired,
+    i18n: PropTypes.object.isRequired,
     year: PropTypes.bool,
     genres: PropTypes.bool,
     countries: PropTypes.bool,
     runtime: PropTypes.bool,
     languages: PropTypes.bool,
     all: PropTypes.bool,
-    t: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired
   }
 
   static fragments = {
@@ -97,7 +97,7 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderYear() {
-    return (!this.props.year && !this.props.all) ? '' : (
+    return (
       <span styleName="year">
         {this.props.movie.year}
       </span>
@@ -105,7 +105,7 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderGenres() {
-    return (!this.props.genres && !this.props.all) ? '' : (
+    return (
       <span styleName="genres">
         {this.props.movie.genres.map(item => item[i18n.f('name')]).join(', ')}
       </span>
@@ -113,7 +113,7 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderCountries() {
-    return (!this.props.countries && !this.props.all) ? '' : (
+    return (
       <span styleName="countries">
         {this.props.movie.countries.map((item, i) => (
           <span key={item[i18n.f('name')]}>
@@ -127,7 +127,7 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderRuntime() {
-    return (!this.props.runtime && !this.props.all) ? '' : (
+    return (
       <span styleName="runtime">
         <i/>{humanizeDuration(this.props.movie.runtime * 60 * 1000, { language: this.props.i18n.language })}
       </span>
@@ -135,7 +135,7 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderLanguages() {
-    if (!this.props.movie.languages || (!this.props.languages && !this.props.all)) {
+    if (!this.props.movie.languages) {
       return ''
     }
     const lang = this.props.t('movie.info.language', { count: this.props.movie.languages.length })
@@ -149,11 +149,11 @@ export default class MovieInfo extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
-        {this.renderYear()}
-        {this.renderGenres()}
-        {this.renderCountries()}
-        {this.renderRuntime()}
-        {this.renderLanguages()}
+        {(this.props.year || this.props.all) && this.renderYear()}
+        {(this.props.genres || this.props.all) && this.renderGenres()}
+        {(this.props.countries || this.props.all) && this.renderCountries()}
+        {(this.props.runtime || this.props.all) && this.renderRuntime()}
+        {(this.props.languages || this.props.all) && this.renderLanguages()}
       </div>
     )
   }

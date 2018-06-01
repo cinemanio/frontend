@@ -10,4 +10,8 @@
       width: 180px;
     }
   }
+
+  .relations {
+    @extend %rel-box;
+  }
 }

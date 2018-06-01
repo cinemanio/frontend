@@ -9,6 +9,15 @@
             "name": "David Fincher",
             "nameEn": "David Fincher",
             "nameRu": "\u0414\u044d\u0432\u0438\u0434 \u0424\u0438\u043d\u0447\u0435\u0440",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -19,6 +28,15 @@
             "name": "Joachim Roenning",
             "nameEn": "Joachim Roenning",
             "nameRu": "\u0419\u043e\u0430\u0445\u0438\u043c \u0420\u043e\u043d\u043d\u0438\u043d\u0433",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -29,6 +47,15 @@
             "name": "Espen Sandberg",
             "nameEn": "Espen Sandberg",
             "nameRu": "\u042d\u0441\u043f\u0435\u043d \u0421\u0430\u043d\u0434\u0431\u0435\u0440\u0433",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -39,6 +66,15 @@
             "name": "Al Pacino",
             "nameEn": "Al Pacino",
             "nameRu": "\u0410\u043b\u044c \u041f\u0430\u0447\u0438\u043d\u043e",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -49,6 +85,15 @@
             "name": "Francis Ford Coppola",
             "nameEn": "Francis Ford Coppola",
             "nameRu": "\u0424\u0440\u044d\u043d\u0441\u0438\u0441 \u0424\u043e\u0440\u0434 \u041a\u043e\u043f\u043f\u043e\u043b\u0430",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -59,6 +104,15 @@
             "name": "Nino Rota",
             "nameEn": "Nino Rota",
             "nameRu": "\u041d\u0438\u043d\u043e \u0420\u043e\u0442\u0430",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -69,6 +123,15 @@
             "name": "Marlon Brando",
             "nameEn": "Marlon Brando",
             "nameRu": "\u041c\u0430\u0440\u043b\u043e\u043d \u0411\u0440\u0430\u043d\u0434\u043e",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -79,6 +142,15 @@
             "name": "Gordon Willis",
             "nameEn": "Gordon Willis",
             "nameRu": "\u0413\u043e\u0440\u0434\u043e\u043d \u0423\u0438\u043b\u043b\u0438\u0441",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -89,6 +161,15 @@
             "name": "James Caan",
             "nameEn": "James Caan",
             "nameRu": "\u0414\u0436\u0435\u0439\u043c\u0441 \u041a\u0430\u0430\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -99,6 +180,15 @@
             "name": "Diane Keaton",
             "nameEn": "Diane Keaton",
             "nameRu": "\u0414\u0430\u0439\u0430\u043d \u041a\u0438\u0442\u043e\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -109,6 +199,15 @@
             "name": "Jim Carrey",
             "nameEn": "Jim Carrey",
             "nameRu": "\u0414\u0436\u0438\u043c \u041a\u044d\u0440\u0440\u0438",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -119,6 +218,15 @@
             "name": "Robert De Niro",
             "nameEn": "Robert De Niro",
             "nameRu": "\u0420\u043e\u0431\u0435\u0440\u0442 \u0414\u0435 \u041d\u0438\u0440\u043e",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -129,6 +237,15 @@
             "name": "Brett Ratner",
             "nameEn": "Brett Ratner",
             "nameRu": "\u0411\u0440\u0435\u0442\u0442 \u0420\u0430\u0442\u043d\u0435\u0440",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -139,6 +256,15 @@
             "name": "Sean Bean",
             "nameEn": "Sean Bean",
             "nameRu": "\u0428\u043e\u043d \u0411\u0438\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -149,6 +275,15 @@
             "name": "Ben Kingsley",
             "nameEn": "Ben Kingsley",
             "nameRu": "\u0411\u0435\u043d \u041a\u0438\u043d\u0433\u0441\u043b\u0438",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -159,6 +294,15 @@
             "name": "Josh Hartnett",
             "nameEn": "Josh Hartnett",
             "nameRu": "\u0414\u0436\u043e\u0448 \u0425\u0430\u0440\u0442\u043d\u0435\u0442\u0442",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -169,6 +313,15 @@
             "name": "Morgan Freeman",
             "nameEn": "Morgan Freeman",
             "nameRu": "\u041c\u043e\u0440\u0433\u0430\u043d \u0424\u0440\u0438\u043c\u0435\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -179,6 +332,15 @@
             "name": "Bruce Willis",
             "nameEn": "Bruce Willis",
             "nameRu": "\u0411\u0440\u044e\u0441 \u0423\u0438\u043b\u043b\u0438\u0441",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -189,6 +351,15 @@
             "name": "Lucas Black",
             "nameEn": "Lucas Black",
             "nameRu": "\u041b\u0443\u043a\u0430\u0441 \u0411\u043b\u044d\u043a",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -199,6 +370,15 @@
             "name": "Cameron Bright",
             "nameEn": "Cameron Bright",
             "nameRu": "\u041a\u044d\u043c\u0435\u0440\u043e\u043d \u0411\u0440\u0430\u0439\u0442",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -209,6 +389,15 @@
             "name": "Paul Walker",
             "nameEn": "Paul Walker",
             "nameRu": "\u041f\u043e\u043b \u0423\u043e\u043a\u0435\u0440",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -219,6 +408,15 @@
             "name": "Mark Isham",
             "nameEn": "Mark Isham",
             "nameRu": "\u041c\u0430\u0440\u043a \u0410\u0439\u0448\u0435\u043c",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -229,6 +427,15 @@
             "name": "Chris Pine",
             "nameEn": "Chris Pine",
             "nameRu": "\u041a\u0440\u0438\u0441 \u041f\u0430\u0439\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -239,6 +446,15 @@
             "name": "Lindsay Lohan",
             "nameEn": "Lindsay Lohan",
             "nameRu": "\u041b\u0438\u043d\u0434\u0441\u0438 \u041b\u043e\u0445\u0430\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -249,6 +465,15 @@
             "name": "Teddy Castellucci",
             "nameEn": "Teddy Castellucci",
             "nameRu": "\u0422\u0435\u0434\u0434\u0438 \u041a\u0430\u0441\u0442\u0435\u043b\u0443\u0447\u0447\u0438",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -259,6 +484,15 @@
             "name": "Spike Lee",
             "nameEn": "Spike Lee",
             "nameRu": "\u0421\u043f\u0430\u0439\u043a \u041b\u0438",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -269,6 +503,15 @@
             "name": "Ilya Maksimov",
             "nameEn": "Ilya Maksimov",
             "nameRu": "\u0418\u043b\u044c\u044f \u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -279,6 +522,15 @@
             "name": "Oksana Bychkova",
             "nameEn": "Oksana Bychkova",
             "nameRu": "\u041e\u043a\u0441\u0430\u043d\u0430 \u0411\u044b\u0447\u043a\u043e\u0432\u0430",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -289,6 +541,15 @@
             "name": "Vladimir Mashkov",
             "nameEn": "Vladimir Mashkov",
             "nameRu": "\u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440 \u041c\u0430\u0448\u043a\u043e\u0432",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -299,6 +560,15 @@
             "name": "Evgeniy Tsyganov",
             "nameEn": "Evgeniy Tsyganov",
             "nameRu": "\u0415\u0432\u0433\u0435\u043d\u0438\u0439 \u0426\u044b\u0433\u0430\u043d\u043e\u0432",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -309,6 +579,15 @@
             "name": "Artem Semakin",
             "nameEn": "Artem Semakin",
             "nameRu": "\u0410\u0440\u0442\u0435\u043c \u0421\u0435\u043c\u0430\u043a\u0438\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -319,6 +598,15 @@
             "name": "Tom Cruise",
             "nameEn": "Tom Cruise",
             "nameRu": "\u0422\u043e\u043c \u041a\u0440\u0443\u0437",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -329,6 +617,15 @@
             "name": "J.J. Abrams",
             "nameEn": "J.J. Abrams",
             "nameRu": "\u0414\u0436\u0435\u0439 \u0414\u0436\u0435\u0439 \u0410\u0431\u0440\u0430\u043c\u0441",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -339,6 +636,15 @@
             "name": "Richard Donner",
             "nameEn": "Richard Donner",
             "nameRu": "\u0420\u0438\u0447\u0430\u0440\u0434 \u0414\u043e\u043d\u043d\u0435\u0440",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -349,6 +655,15 @@
             "name": "Tom Hanks",
             "nameEn": "Tom Hanks",
             "nameRu": "\u0422\u043e\u043c \u0425\u044d\u043d\u043a\u0441",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -359,6 +674,15 @@
             "name": "Audrey Tautou",
             "nameEn": "Audrey Tautou",
             "nameRu": "\u041e\u0434\u0440\u0438 \u0422\u043e\u0442\u0443",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -369,6 +693,15 @@
             "name": "Jean Reno",
             "nameEn": "Jean Reno",
             "nameRu": "\u0416\u0430\u043d \u0420\u0435\u043d\u043e",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -379,6 +712,15 @@
             "name": "Ron Howard",
             "nameEn": "Ron Howard",
             "nameRu": "\u0420\u043e\u043d \u0425\u043e\u0432\u0430\u0440\u0434",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -389,6 +731,15 @@
             "name": "Pen\u00e9lope Cruz",
             "nameEn": "Pen\u00e9lope Cruz",
             "nameRu": "\u041f\u0435\u043d\u0435\u043b\u043e\u043f\u0430 \u041a\u0440\u0443\u0441",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -399,6 +750,15 @@
             "name": "Luc Besson",
             "nameEn": "Luc Besson",
             "nameRu": "\u041b\u044e\u043a \u0411\u0435\u0441\u0441\u043e\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -409,6 +769,15 @@
             "name": "Richard Dreyfuss",
             "nameEn": "Richard Dreyfuss",
             "nameRu": "\u0420\u0438\u0447\u0430\u0440\u0434 \u0414\u0440\u0435\u0439\u0444\u0443\u0441\u0441",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -419,6 +788,15 @@
             "name": "Kurt Russell",
             "nameEn": "Kurt Russell",
             "nameRu": "\u041a\u0443\u0440\u0442 \u0420\u0430\u0441\u0441\u0435\u043b",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -429,6 +807,15 @@
             "name": "James Wong",
             "nameEn": "James Wong",
             "nameRu": "\u0414\u0436\u0435\u0439\u043c\u0441 \u0412\u043e\u043d\u0433",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -439,6 +826,15 @@
             "name": "Glen Morgan",
             "nameEn": "Glen Morgan",
             "nameRu": "\u0413\u043b\u0435\u043d \u041c\u043e\u0440\u0433\u0430\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -449,6 +845,15 @@
             "name": "Jet Li \u674e\u8fde\u6770",
             "nameEn": "Jet Li \u674e\u8fde\u6770",
             "nameRu": "\u0414\u0436\u0435\u0442 \u041b\u0438",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -459,6 +864,15 @@
             "name": "Ryan Merriman",
             "nameEn": "Ryan Merriman",
             "nameRu": "\u0420\u0430\u0439\u0430\u043d \u041c\u0435\u0440\u0440\u0438\u043c\u0430\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -469,6 +883,15 @@
             "name": "David Duchovny",
             "nameEn": "David Duchovny",
             "nameRu": "\u0414\u044d\u0432\u0438\u0434 \u0414\u0443\u0445\u043e\u0432\u043d\u044b",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -479,6 +902,15 @@
             "name": "T\u00e9a Leoni",
             "nameEn": "T\u00e9a Leoni",
             "nameRu": "\u0422\u0435\u0430 \u041b\u0435\u043e\u043d\u0438",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -489,6 +921,15 @@
             "name": "Gillian Anderson",
             "nameEn": "Gillian Anderson",
             "nameRu": "\u0414\u0436\u0438\u043b\u043b\u0438\u0430\u043d \u0410\u043d\u0434\u0435\u0440\u0441\u043e\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -499,6 +940,15 @@
             "name": "Kate Beckinsale",
             "nameEn": "Kate Beckinsale",
             "nameRu": "\u041a\u0435\u0439\u0442 \u0411\u0435\u043a\u0438\u043d\u0441\u0435\u0439\u043b",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -509,6 +959,15 @@
             "name": "Len Wiseman",
             "nameEn": "Len Wiseman",
             "nameRu": "\u041b\u0435\u043d \u0423\u0430\u0439\u0437\u043c\u0435\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -519,6 +978,15 @@
             "name": "Hugh Grant",
             "nameEn": "Hugh Grant",
             "nameRu": "\u0425\u044c\u044e \u0413\u0440\u0430\u043d\u0442",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -529,6 +997,15 @@
             "name": "Paul Weitz",
             "nameEn": "Paul Weitz",
             "nameRu": "\u041f\u043e\u043b \u0412\u0435\u0439\u0446",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -539,6 +1016,15 @@
             "name": "Dennis Quaid",
             "nameEn": "Dennis Quaid",
             "nameRu": "\u0414\u0435\u043d\u043d\u0438\u0441 \u041a\u0443\u044d\u0439\u0434",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -549,6 +1035,15 @@
             "name": "Jake Gyllenhaal",
             "nameEn": "Jake Gyllenhaal",
             "nameRu": "\u0414\u0436\u0435\u0439\u043a \u0414\u0436\u0438\u043b\u043b\u0435\u043d\u0445\u043e\u043b",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -559,6 +1054,15 @@
             "name": "Roland Emmerich",
             "nameEn": "Roland Emmerich",
             "nameRu": "\u0420\u043e\u043b\u0430\u043d\u0434 \u042d\u043c\u043c\u0435\u0440\u0438\u0445",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -569,6 +1073,15 @@
             "name": "Emmy Rossum",
             "nameEn": "Emmy Rossum",
             "nameRu": "\u042d\u043c\u043c\u0438 \u0420\u043e\u0441\u0441\u0430\u043c",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -579,6 +1092,15 @@
             "name": "Keira Knightley",
             "nameEn": "Keira Knightley",
             "nameRu": "\u041a\u0438\u0440\u0430 \u041d\u0430\u0439\u0442\u043b\u0438",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -589,6 +1111,15 @@
             "name": "Ashton Kutcher",
             "nameEn": "Ashton Kutcher",
             "nameRu": "\u042d\u0448\u0442\u043e\u043d \u041a\u0430\u0442\u0447\u0435\u0440",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -599,6 +1130,15 @@
             "name": "Amy Smart",
             "nameEn": "Amy Smart",
             "nameRu": "\u042d\u043c\u0438 \u0421\u043c\u0430\u0440\u0442",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -609,6 +1149,15 @@
             "name": "Mel Gibson",
             "nameEn": "Mel Gibson",
             "nameRu": "\u041c\u0435\u043b \u0413\u0438\u0431\u0441\u043e\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -619,6 +1168,15 @@
             "name": "Heath Ledger",
             "nameEn": "Heath Ledger",
             "nameRu": "\u0425\u0438\u0442 \u041b\u0435\u0434\u0436\u0435\u0440",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -629,6 +1187,15 @@
             "name": "Matt Damon",
             "nameEn": "Matt Damon",
             "nameRu": "\u041c\u044d\u0442\u0442 \u0414\u044d\u0439\u043c\u043e\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -639,6 +1206,15 @@
             "name": "Terry Gilliam",
             "nameEn": "Terry Gilliam",
             "nameRu": "\u0422\u0435\u0440\u0440\u0438 \u0413\u0438\u043b\u043b\u0438\u0430\u043c",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -649,6 +1225,15 @@
             "name": "Eric Roth",
             "nameEn": "Eric Roth",
             "nameRu": "\u042d\u0440\u0438\u043a \u0420\u043e\u0442",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -659,6 +1244,15 @@
             "name": "Joe Pesci",
             "nameEn": "Joe Pesci",
             "nameRu": "\u0414\u0436\u043e \u041f\u0435\u0448\u0438",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -669,6 +1263,15 @@
             "name": "Angelina Jolie",
             "nameEn": "Angelina Jolie",
             "nameRu": "\u0410\u043d\u0434\u0436\u0435\u043b\u0438\u043d\u0430 \u0414\u0436\u043e\u043b\u0438",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -679,6 +1282,15 @@
             "name": "Johnny Depp",
             "nameEn": "Johnny Depp",
             "nameRu": "\u0414\u0436\u043e\u043d\u043d\u0438 \u0414\u0435\u043f\u043f",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -689,6 +1301,15 @@
             "name": "Benicio Del Toro",
             "nameEn": "Benicio Del Toro",
             "nameRu": "\u0411\u0435\u043d\u0438\u0441\u0438\u043e \u0414\u0435\u043b\u044c \u0422\u043e\u0440\u043e",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -699,6 +1320,15 @@
             "name": "Hunter Thompson",
             "nameEn": "Hunter Thompson",
             "nameRu": "\u0425\u0430\u043d\u0442\u0435\u0440 \u0421\u0442\u043e\u043a\u0442\u043e\u043d \u0422\u043e\u043c\u043f\u0441\u043e\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -709,6 +1339,15 @@
             "name": "George Lucas",
             "nameEn": "George Lucas",
             "nameRu": "\u0414\u0436\u043e\u0440\u0434\u0436 \u041b\u0443\u043a\u0430\u0441",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -719,6 +1358,15 @@
             "name": "Harrison Ford",
             "nameEn": "Harrison Ford",
             "nameRu": "\u0425\u0430\u0440\u0440\u0438\u0441\u043e\u043d \u0424\u043e\u0440\u0434",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -729,6 +1377,15 @@
             "name": "Rupert Wainwright",
             "nameEn": "Rupert Wainwright",
             "nameRu": "\u0420\u0443\u043f\u0435\u0440\u0442 \u0423\u044d\u0439\u043d\u0440\u0430\u0439\u0442",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -739,6 +1396,15 @@
             "name": "Patricia Arquette",
             "nameEn": "Patricia Arquette",
             "nameRu": "\u041f\u0430\u0442\u0440\u0438\u0446\u0438\u044f \u0410\u0440\u043a\u0435\u0442\u0442",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -749,6 +1415,15 @@
             "name": "Gabriel Byrne",
             "nameEn": "Gabriel Byrne",
             "nameRu": "\u0413\u044d\u0431\u0440\u0438\u0435\u043b \u0411\u0438\u0440\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -759,6 +1434,15 @@
             "name": "Salma Hayek",
             "nameEn": "Salma Hayek",
             "nameRu": "\u0421\u0430\u043b\u044c\u043c\u0430 \u0425\u0430\u0439\u0435\u043a",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -769,6 +1453,15 @@
             "name": "Michael Douglas",
             "nameEn": "Michael Douglas",
             "nameRu": "\u041c\u0430\u0439\u043a\u043b \u0414\u0443\u0433\u043b\u0430\u0441",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -779,6 +1472,15 @@
             "name": "Howard Shore",
             "nameEn": "Howard Shore",
             "nameRu": "\u0413\u043e\u0432\u0430\u0440\u0434 \u0428\u043e\u0440",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -789,6 +1491,15 @@
             "name": "Sean Penn",
             "nameEn": "Sean Penn",
             "nameRu": "\u0428\u043e\u043d \u041f\u0435\u043d\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -799,6 +1510,15 @@
             "name": "Michael Ferris",
             "nameEn": "Michael Ferris",
             "nameRu": "\u041c\u0430\u0439\u043a\u043b \u0424\u0435\u0440\u0440\u0438\u0441",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -809,6 +1529,15 @@
             "name": "Andrey Merzlikin",
             "nameEn": "Andrey Merzlikin",
             "nameRu": "\u0410\u043d\u0434\u0440\u0435\u0439 \u041c\u0435\u0440\u0437\u043b\u0438\u043a\u0438\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -819,6 +1548,15 @@
             "name": "Aleksandr Bushkov",
             "nameEn": "Aleksandr Bushkov",
             "nameRu": "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0411\u0443\u0448\u043a\u043e\u0432",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -829,6 +1567,15 @@
             "name": "Andrei Kavun",
             "nameEn": "Andrei Kavun",
             "nameRu": "\u0410\u043d\u0434\u0440\u0435\u0439 \u041a\u0430\u0432\u0443\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -839,6 +1586,15 @@
             "name": "Sergey Garmash",
             "nameEn": "Sergey Garmash",
             "nameRu": "\u0421\u0435\u0440\u0433\u0435\u0439 \u0413\u0430\u0440\u043c\u0430\u0448",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -849,6 +1605,15 @@
             "name": "Viktoriya Isakova",
             "nameEn": "Viktoriya Isakova",
             "nameRu": "\u0412\u0438\u043a\u0442\u043e\u0440\u0438\u044f \u0418\u0441\u0430\u043a\u043e\u0432\u0430",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -859,6 +1624,15 @@
             "name": "Evgeniy Mironov",
             "nameEn": "Evgeniy Mironov",
             "nameRu": "\u0415\u0432\u0433\u0435\u043d\u0438\u0439 \u041c\u0438\u0440\u043e\u043d\u043e\u0432",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -869,6 +1643,15 @@
             "name": "Valeriy Todorovsky",
             "nameEn": "Valeriy Todorovsky",
             "nameRu": "\u0412\u0430\u043b\u0435\u0440\u0438\u0439 \u0422\u043e\u0434\u043e\u0440\u043e\u0432\u0441\u043a\u0438\u0439",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -879,6 +1662,15 @@
             "name": "Dane Cook",
             "nameEn": "Dane Cook",
             "nameRu": "\u0414\u044d\u0439\u043d \u041a\u0443\u043a",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -889,6 +1681,15 @@
             "name": "Andrey Smolyakov",
             "nameEn": "Andrey Smolyakov",
             "nameRu": "\u0410\u043d\u0434\u0440\u0435\u0439 \u0421\u043c\u043e\u043b\u044f\u043a\u043e\u0432",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -899,6 +1700,15 @@
             "name": "Aleksey Serebryakov",
             "nameEn": "Aleksey Serebryakov",
             "nameRu": "\u0410\u043b\u0435\u043a\u0441\u0435\u0439 \u0421\u0435\u0440\u0435\u0431\u0440\u044f\u043a\u043e\u0432",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -909,6 +1719,15 @@
             "name": "James Cameron",
             "nameEn": "James Cameron",
             "nameRu": "\u0414\u0436\u0435\u0439\u043c\u0441 \u041a\u0430\u043c\u0435\u0440\u043e\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -919,6 +1738,15 @@
             "name": "Vince Vaughn",
             "nameEn": "Vince Vaughn",
             "nameRu": "\u0412\u0438\u043d\u0441 \u0412\u043e\u043d",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -929,6 +1757,15 @@
             "name": "Julia Stiles",
             "nameEn": "Julia Stiles",
             "nameRu": "\u0414\u0436\u0443\u043b\u0438\u044f \u0421\u0442\u0430\u0439\u043b\u0437",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -939,6 +1776,15 @@
             "name": "Liev Schreiber",
             "nameEn": "Liev Schreiber",
             "nameRu": "\u041b\u0438\u0432 \u0428\u0440\u0430\u0439\u0431\u0435\u0440",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -949,6 +1795,15 @@
             "name": "Jerry Goldsmith",
             "nameEn": "Jerry Goldsmith",
             "nameRu": "\u0414\u0436\u0435\u0440\u0440\u0438 \u0413\u043e\u043b\u0434\u0441\u043c\u0438\u0442",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -959,6 +1814,15 @@
             "name": "Marco Beltrami",
             "nameEn": "Marco Beltrami",
             "nameRu": "\u041c\u0430\u0440\u043a\u043e \u0411\u0435\u043b\u0442\u0440\u0430\u043c\u0438",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -969,6 +1833,15 @@
             "name": "John Moore",
             "nameEn": "John Moore",
             "nameRu": "\u0414\u0436\u043e\u043d \u041c\u0443\u0440",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -979,6 +1852,15 @@
             "name": "Renata Litvinova",
             "nameEn": "Renata Litvinova",
             "nameRu": "\u0420\u0435\u043d\u0430\u0442\u0430 \u041b\u0438\u0442\u0432\u0438\u043d\u043e\u0432\u0430",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -989,6 +1871,15 @@
             "name": "Anatoliy Beliy",
             "nameEn": "Anatoliy Beliy",
             "nameRu": "\u0410\u043d\u0430\u0442\u043e\u043b\u0438\u0439 \u0411\u0435\u043b\u044b\u0439",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"
@@ -999,6 +1890,15 @@
             "name": "Gosha Kucenko",
             "nameEn": "Gosha Kucenko",
             "nameRu": "\u0413\u043e\u0448\u0430 \u041a\u0443\u0446\u0435\u043d\u043a\u043e",
+            "gender": "MALE",
+            "roles": [
+              {
+                "name": "Director",
+                "nameEn": "Director",
+                "nameRu": "Режиссер",
+                "__typename": "RoleNode"
+              }
+            ],
             "__typename": "PersonNode"
           },
           "__typename": "PersonNodeEdge"

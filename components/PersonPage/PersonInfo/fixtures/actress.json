@@ -1,0 +1,23 @@
+{
+  "data": {
+    "person": {
+      "gender": "FEMALE",
+      "dateBirth": "1962-08-28",
+      "dateDeath": "2100-01-28",
+      "country": {
+        "id": "69",
+        "name": "USA",
+        "nameEn": "USA",
+        "nameRu": "США",
+        "code": "us",
+        "__typename": "CountryNode"
+      },
+      "roles": [
+        {
+          "nameEn": "Actor",
+          "nameRu": "Актер"
+        }
+      ]
+    }
+  }
+}
