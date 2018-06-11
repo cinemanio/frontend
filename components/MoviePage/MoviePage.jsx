@@ -30,7 +30,7 @@ class MoviePage extends React.Component<Props> {
   renderLayout = (movie: Object) => (
     <div styleName="box">
       <div styleName="relations">
-        <MovieRelations counts={{ fav: 1, like: 10, seen: 10, dislike: 10, want: 3, have: 3, ignore: 0 }}/>
+        <MovieRelations movie={movie}/>
       </div>
       <h1>{movie[i18n.f('title')]}</h1>
       <h2>{this.isTitlesEqual(movie) ? '' : movie.title}</h2>
@@ -77,12 +77,14 @@ const MovieQuery = gql`
       ...MovieInfoAll
       ...MovieSites
       ...MovieCast
+      ...MovieRelations
     }
   }
   ${MovieInfo.fragments.all}
   ${MovieImage.fragments.movie}
   ${MovieSites.fragments.movie}
   ${MovieCast.fragments.movie}
+  ${MovieRelations.fragments.movie}
 `
 
 const configObject = {

@@ -13,32 +13,47 @@
 }
 
 @mixin rel-fa-icon($type, $color) {
-  cursor: pointer;
-  color: #999999;
-
-  i {
-    @include fa-icon($type);
-    border: 1px solid #DDDDDD;
-    background-color: white;
-    color: #DDDDDD;
-  }
-
-  &:hover {
-    color: $color;
+  span {
+    cursor: pointer;
+    color: #999999;
 
     i {
-      border: 1px solid #BBBBBB;
-      background-color: transparentize(lighten($color, 50), 0.4);
+      @include fa-icon($type);
+      border: 1px solid #DDDDDD;
+      background-color: white;
+      color: #DDDDDD;
+    }
+
+    &:hover {
       color: $color;
+
+      i {
+        border: 1px solid $color;
+        background-color: lighten($color, 30);
+        color: #FFFFFF;
+      }
     }
   }
 
-  .active {
-    color: $color;
+  :global {
+    span.active {
+      color: $color;
 
-    i {
-      border: 1px solid $color;
-      background-color: $color;
+      i {
+        border: 1px solid #BBBBBB;
+        background-color: transparentize(lighten($color, 50), 0.4);
+        color: $color;
+      }
+
+      &:hover {
+        color: $color;
+
+        i {
+          border: 1px solid $color;
+          background-color: lighten($color, 30);
+          color: #FFFFFF;
+        }
+      }
     }
   }
 }
@@ -47,7 +62,7 @@
   float: right;
 
   span {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     font-size: 1.3rem;
 
     i {

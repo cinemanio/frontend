@@ -40,6 +40,26 @@
           "__typename": "LanguageNode"
         }
       ],
+      "relation": {
+        "fav": false,
+        "like": true,
+        "seen": true,
+        "dislike": false,
+        "want": false,
+        "ignore": false,
+        "have": true,
+        "__typename": "MovieRelationNode"
+      },
+      "relationsCount": {
+        "fav": 2,
+        "like": 5,
+        "seen": 10,
+        "dislike": 2,
+        "want": 4,
+        "ignore": 2,
+        "have": 3,
+        "__typename": "MovieRelationCountNode"
+      },
       "cast": {
         "edges": [
           {

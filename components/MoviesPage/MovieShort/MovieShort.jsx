@@ -29,11 +29,13 @@ export default class MovieShort extends React.Component<Props> {
         ...MovieLink
         ...MovieInfoYear
         ...MovieInfoGenres
+        ...MovieRelations
       }
       ${MovieImage.fragments.movie}
       ${MovieLink.fragments.movie}
       ${MovieInfo.fragments.year}
       ${MovieInfo.fragments.genres}
+      ${MovieRelations.fragments.movie}
     `
   }
 
@@ -45,7 +47,7 @@ export default class MovieShort extends React.Component<Props> {
         <MovieImage movie={this.props.movie} type="short_card"/>
         <div styleName="right">
           <div styleName="relations">
-            <MovieRelations/>
+            <MovieRelations movie={this.props.movie} displayCounts={false}/>
           </div>
           <MovieLink movie={this.props.movie}>
             {this.props.movie[i18n.f('title')]}

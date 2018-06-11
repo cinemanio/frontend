@@ -9,6 +9,7 @@ import fetch from 'unfetch'
 
 import App from 'components/App/App'
 import i18nClient from 'libs/i18nClient'
+// import fragmentMatcher from 'libs/fragments/matcher'
 
 const { lang } = document.getElementsByTagName('html')[0]
 const client = new ApolloClient({

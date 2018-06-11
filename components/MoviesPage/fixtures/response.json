@@ -32,7 +32,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -65,7 +85,27 @@
                 "nameRu": "\u0412\u0435\u0441\u0442\u0435\u0440\u043d",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -98,7 +138,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -121,7 +181,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -149,7 +229,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -177,7 +277,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -205,7 +325,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -223,7 +363,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -256,7 +416,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -289,7 +469,27 @@
                 "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -317,7 +517,27 @@
                 "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -335,7 +555,27 @@
                 "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -368,7 +608,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -391,7 +651,27 @@
                 "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -429,7 +709,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -452,7 +752,27 @@
                 "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -470,7 +790,27 @@
                 "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -498,7 +838,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -521,7 +881,27 @@
                 "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -539,7 +919,27 @@
                 "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -557,7 +957,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -580,7 +1000,27 @@
                 "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -603,7 +1043,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -621,7 +1081,27 @@
                 "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -644,7 +1124,27 @@
                 "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -667,7 +1167,27 @@
                 "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -685,7 +1205,27 @@
                 "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -703,7 +1243,27 @@
                 "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -721,7 +1281,27 @@
                 "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -759,7 +1339,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -777,7 +1377,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -795,7 +1415,27 @@
                 "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -813,7 +1453,27 @@
                 "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -825,7 +1485,27 @@
             "title": "",
             "year": 2007,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -837,7 +1517,27 @@
             "title": "",
             "year": 2006,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -849,7 +1549,27 @@
             "title": "",
             "year": 2007,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -872,7 +1592,27 @@
                 "nameRu": "\u0412\u043e\u0439\u043d\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -900,7 +1640,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -918,7 +1678,27 @@
                 "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -941,7 +1721,27 @@
                 "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -953,7 +1753,27 @@
             "title": "",
             "year": 2010,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -965,7 +1785,27 @@
             "title": "",
             "year": 2005,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -977,7 +1817,27 @@
             "title": "",
             "year": 2010,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1005,7 +1865,27 @@
                 "nameRu": "\u041f\u0430\u0440\u043e\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1028,7 +1908,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1051,7 +1951,27 @@
                 "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1074,7 +1994,27 @@
                 "nameRu": "\u0421\u043f\u043e\u0440\u0442",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1107,7 +2047,27 @@
                 "nameRu": "\u0421\u043a\u0430\u0437\u043a\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1125,7 +2085,27 @@
                 "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1137,7 +2117,27 @@
             "title": "",
             "year": 2011,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1149,7 +2149,27 @@
             "title": "",
             "year": 1997,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1161,7 +2181,27 @@
             "title": "",
             "year": 1997,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1184,7 +2224,27 @@
                 "nameRu": "\u0412\u043e\u0439\u043d\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1207,7 +2267,27 @@
                 "nameRu": "\u0423\u0436\u0430\u0441\u044b",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1225,7 +2305,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1253,7 +2353,27 @@
                 "nameRu": "\u041f\u0430\u0440\u043e\u0434\u0438\u044f",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1265,7 +2385,27 @@
             "title": "",
             "year": 2008,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1277,7 +2417,27 @@
             "title": "",
             "year": 2009,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1289,7 +2449,27 @@
             "title": "",
             "year": 1993,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1301,7 +2481,27 @@
             "title": "",
             "year": 1983,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1313,7 +2513,27 @@
             "title": "",
             "year": 2009,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1325,7 +2545,27 @@
             "title": "",
             "year": 2004,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1337,7 +2577,27 @@
             "title": "",
             "year": 1999,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1355,7 +2615,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1367,7 +2647,27 @@
             "title": "",
             "year": 1989,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1385,7 +2685,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1408,7 +2728,27 @@
                 "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1420,7 +2760,27 @@
             "title": "",
             "year": 1986,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1432,7 +2792,27 @@
             "title": "",
             "year": 1986,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1444,7 +2824,27 @@
             "title": "",
             "year": 1982,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1472,7 +2872,27 @@
                 "nameRu": "\u0412\u0435\u0441\u0442\u0435\u0440\u043d",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1484,7 +2904,27 @@
             "title": "Assol",
             "year": 1982,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1507,7 +2947,27 @@
                 "nameRu": "\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1530,7 +2990,27 @@
                 "nameRu": "\u0421\u043f\u043e\u0440\u0442",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1553,7 +3033,27 @@
                 "nameRu": "\u0421\u043f\u043e\u0440\u0442",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1571,7 +3071,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1583,7 +3103,27 @@
             "title": "",
             "year": 1969,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1595,7 +3135,27 @@
             "title": "",
             "year": 1989,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1607,7 +3167,27 @@
             "title": "",
             "year": 1987,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1619,7 +3199,27 @@
             "title": "",
             "year": 1983,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1642,7 +3242,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1660,7 +3280,27 @@
                 "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1672,7 +3312,27 @@
             "title": "",
             "year": 1999,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1684,7 +3344,27 @@
             "title": "",
             "year": 2005,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1696,7 +3376,27 @@
             "title": "",
             "year": 2005,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1708,7 +3408,27 @@
             "title": "",
             "year": 1996,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1720,7 +3440,27 @@
             "title": "",
             "year": 1995,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1732,7 +3472,27 @@
             "title": "",
             "year": 1991,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1744,7 +3504,27 @@
             "title": "",
             "year": 1990,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1756,7 +3536,27 @@
             "title": "",
             "year": 1989,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1768,7 +3568,27 @@
             "title": "",
             "year": 1987,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1780,7 +3600,27 @@
             "title": "",
             "year": 1993,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1792,7 +3632,27 @@
             "title": "",
             "year": 2009,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1804,7 +3664,27 @@
             "title": "",
             "year": 1989,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1827,7 +3707,27 @@
                 "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1865,7 +3765,27 @@
                 "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1888,7 +3808,27 @@
                 "nameRu": "\u041c\u043e\u043b\u043e\u0434\u0435\u0436\u044c",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1906,7 +3846,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1918,7 +3878,27 @@
             "title": "",
             "year": 1993,
             "__typename": "MovieNode",
-            "genres": []
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         },
@@ -1941,7 +3921,27 @@
                 "nameRu": "\u0414\u0440\u0430\u043c\u0430",
                 "__typename": "GenreNode"
               }
-            ]
+            ],
+            "relation": {
+              "fav": false,
+              "like": true,
+              "seen": true,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": true,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 2,
+              "like": 5,
+              "seen": 10,
+              "dislike": 2,
+              "want": 4,
+              "ignore": 2,
+              "have": 3,
+              "__typename": "MovieRelationCountNode"
+            }
           },
           "__typename": "MovieNodeEdge"
         }

@@ -5,33 +5,47 @@ import gql from 'graphql-tag'
 
 import './MovieRelations.scss'
 
-type Props = { counts: ?Object }
+type Props = { movie: Object, displayCounts: boolean }
+
+const MovieRelationsCodes = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
 
 export default class MovieRelations extends React.Component<Props> {
   static defaultProps = {
-    counts: undefined
+    displayCounts: true,
   }
   static propTypes = {
-    counts: PropTypes.object
+    movie: PropTypes.object.isRequired,
+    displayCounts: PropTypes.bool,
   }
 
   static fragments = {
     movie: gql`
       fragment MovieRelations on MovieNode {
-        title
+        relation {
+          ...RelationFields
+        }
+        relationsCount {
+          ...RelationCountFields
+        }
+      }
+      fragment RelationFields on MovieRelationNode {
+        ${MovieRelationsCodes.join(', ')}
+      }
+      fragment RelationCountFields on MovieRelationCountNode {
+        ${MovieRelationsCodes.join(', ')}
       }
     `
   }
-
-  type = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
 
   changeRelation = (type: string) => () => {
   }
 
   renderButtons(): Array<React.Fragment> {
-    return this.type.map(type => (
+    return MovieRelationsCodes.map(type => (
       <span key={type} styleName={type} onClick={this.changeRelation(type)}>
-        <i/>{this.props.counts && this.props.counts[type]}
+        <span className={this.props.movie.relation[type] ? 'active' : ''}>
+          <i/>{this.props.displayCounts ? this.props.movie.relationsCount[type] : ''}
+        </span>
       </span>
     ))
   }

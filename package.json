@@ -17,7 +17,8 @@
     "start": "npm run server-start & npm run client-start",
     "server-start": "nodemon --inspect",
     "client-start": "webpack-dev-server --config ./webpack.dev.config.js",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
+    "fetch-fragments-types": "babel-node ./lib/fragments/fetcher.js"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/tests/setup.js",

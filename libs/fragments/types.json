@@ -1,0 +1,1 @@
+{"__schema":{"types":[{"kind":"INTERFACE","name":"Node","possibleTypes":[{"name":"PersonNode"},{"name":"MovieNode"}]},{"kind":"UNION","name":"RelationNode","possibleTypes":[{"name":"MovieRelationNode"},{"name":"PersonRelationNode"}]},{"kind":"UNION","name":"RelationCountNode","possibleTypes":[{"name":"MovieRelationCountNode"},{"name":"PersonRelationCountNode"}]}]}}
