@@ -1,46 +1,33 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import gql from 'graphql-tag'
+
+import relationFragment from 'components/RelationIcon/relationFragment'
+import RelationIcon from 'components/RelationIcon/RelationIcon'
 
 import './PersonRelations.scss'
 
-type Props = { counts: ?Object }
+type Props = { person: Object }
 
 export default class PersonRelations extends React.Component<Props> {
-  static defaultProps = {
-    counts: undefined
-  }
   static propTypes = {
-    counts: PropTypes.object
+    person: PropTypes.object.isRequired,
   }
 
-  static fragments = {
-    movie: gql`
-      fragment PersonRelations on MovieNode {
-        title
-      }
-    `
-  }
+  static codes = ['fav', 'like', 'dislike']
+  static fragments: Object
 
-  type = ['fav', 'like', 'familiar', 'dislike']
-
-  changeRelation = (type: string) => () => {
-  }
-
-  renderButtons(): Array<React.Fragment> {
-    return this.type.map(type => (
-      <span key={type} styleName={type} onClick={this.changeRelation(type)}>
-        <i/>{this.props.counts && this.props.counts[type]}
-      </span>
-    ))
-  }
-
-  render() {
-    return (
-      <div styleName="box">
-        {this.renderButtons()}
-      </div>
+  render(): Array<React.Fragment> {
+    return PersonRelations.codes.map(code =>
+      (<RelationIcon
+        key={code}
+        styleName={code}
+        code={code}
+        object={this.props.person}
+        {...this.props}
+      />),
     )
   }
 }
+
+PersonRelations.fragments = { person: relationFragment('Person', PersonRelations.codes) }

@@ -28,10 +28,12 @@ export default class PersonShort extends React.Component<Props> {
         ...PersonImage
         ...PersonLink
         ...PersonInfoRoles
+        ...PersonRelations
       }
       ${PersonImage.fragments.person}
       ${PersonLink.fragments.person}
       ${PersonInfo.fragments.roles}
+      ${PersonRelations.fragments.person}
     `,
   }
 
@@ -43,7 +45,7 @@ export default class PersonShort extends React.Component<Props> {
         <PersonImage person={this.props.person} type="short_card"/>
         <div styleName="right">
           <div styleName="relations">
-            <PersonRelations/>
+            <PersonRelations person={this.props.person} displayCounts={false}/>
           </div>
           <PersonLink person={this.props.person}>
             {this.props.person[i18n.f('name')]}

@@ -1,31 +1,29 @@
-@import 'mixins';
+@import 'mixins.scss';
 
-.box {
-  .fav {
-    @include rel-fa-icon('star', #e25800);
-  }
+.fav {
+  @include rel-fa-icon('star', #e25800);
+}
 
-  .like {
-    @include rel-fa-icon('thumbs-up', #6b983e);
-  }
+.like {
+  @include rel-fa-icon('thumbs-up', #6b983e);
+}
 
-  .seen {
-    @include rel-fa-icon('eye', #1c658c);
-  }
+.seen {
+  @include rel-fa-icon('eye', #1c658c);
+}
 
-  .dislike {
-    @include rel-fa-icon('thumbs-down', #cd132c);
-  }
+.dislike {
+  @include rel-fa-icon('thumbs-down', #cd132c);
+}
 
-  .want {
-    @include rel-fa-icon('check', #039988);
-  }
+.want {
+  @include rel-fa-icon('check', #039988);
+}
 
-  .ignore {
-    @include rel-fa-icon('ban', #804500);
-  }
+.ignore {
+  @include rel-fa-icon('ban', #804500);
+}
 
-  .have {
-    @include rel-fa-icon('save', #d08d00);
-  }
+.have {
+  @include rel-fa-icon('save', #d08d00);
 }

@@ -1,19 +1,17 @@
 @import 'mixins.scss';
 
-.box {
-  .fav {
-    @include rel-fa-icon('star', #e26500);
-  }
+.fav {
+  @include rel-fa-icon('star', #e26500);
+}
 
-  .like {
-    @include rel-fa-icon('thumbs-up', #129800);
-  }
+.like {
+  @include rel-fa-icon('thumbs-up', #129800);
+}
 
-  .familiar {
-    @include rel-fa-icon('eye', #2f598c);
-  }
+.familiar {
+  @include rel-fa-icon('eye', #2f598c);
+}
 
-  .dislike {
-    @include rel-fa-icon('thumbs-down', #cd371f);
-  }
+.dislike {
+  @include rel-fa-icon('thumbs-down', #cd371f);
 }

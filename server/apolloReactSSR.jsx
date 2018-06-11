@@ -10,7 +10,6 @@ import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 
 import App from 'components/App/App'
 import i18nServer from 'libs/i18nServer'
-// import fragmentMatcher from 'libs/fragments/matcher'
 
 import renderHtmlPage from './renderHtmlPage'
 import settings from '../settings'

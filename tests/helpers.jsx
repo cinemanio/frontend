@@ -9,7 +9,6 @@ import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 import _ from 'lodash'
 
 import i18nClient from 'libs/i18nClient'
-// import fragmentMatcher from 'libs/fragments/matcher'
 
 export const getMockedNetworkFetch = (response: Object | Array<Object>, requestsLog: ?Array<Object>) => {
   let i = 0
