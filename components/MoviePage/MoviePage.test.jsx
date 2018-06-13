@@ -1,9 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountRouter, mountGraphql, populated, i18nProps } from 'tests/helpers'
+import { mountRouter, mountGraphql1, i18nProps } from 'tests/helpers'
 
-import MoviePage from './MoviePage'
+import MoviePage, { MovieQuery } from './MoviePage'
 import response from './fixtures/response.json'
 import emptyResponse from './fixtures/empty_response.json'
 
@@ -55,33 +55,30 @@ describe('Movie Page Component', () => {
   describe('GraphQL', () => {
     let requestsLog
 
-    describe('Populated with response', () => {
-      beforeAll(() => {
-        global.console.warn = jest.fn()
-      })
+    // describe('Populated with response', () => {
+    //   beforeAll(() => {
+    //     global.console.warn = jest.fn()
+    //   })
+    //
+    //   beforeEach(() => {
+    //     element = <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>
+    //     requestsLog = []
+    //     wrapper = mountGraphql([response], element, requestsLog)
+    //   })
+    //
+    //   it('should send requests', async () => {
+    //     expect(requestsLog).toHaveLength(1)
+    //     expect(requestsLog[0].variables).toEqual({ movieId: response.data.movie.id })
+    //   })
+    // })
 
-      beforeEach(() => {
-        element = <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>
-        requestsLog = []
-        wrapper = mountGraphql([response], element, requestsLog)
-      })
-
-      it('should send requests', done => populated(done, wrapper, () => {
-        expect(requestsLog).toHaveLength(1)
-        expect(requestsLog[0].variables).toEqual({ movieId: response.data.movie.id })
-      }))
-    })
-
-    describe('Populated with empty response', () => {
-      beforeEach(() => {
-        element = <MoviePage match={{ params: { slug: '' } }} {...i18nProps}/>
-        wrapper = mountGraphql([emptyResponse], element)
-      })
-
-      it('should render 404 page', done => populated(done, wrapper, () => {
-        expect(wrapper.find('Status[code=404]')).toHaveLength(1)
-        expect(wrapper.text()).toContain('Sorry, can’t find that.')
-      }))
+    it('should render 404 page when response empty', async () => {
+      wrapper = await mountGraphql1(<MoviePage match={{ params: { slug: '' } }} {...i18nProps}/>, [{
+        request: { query: MovieQuery, variables: { movieId: '' } },
+        result: emptyResponse,
+      }])
+      expect(wrapper.find('Status[code=404]')).toHaveLength(1)
+      expect(wrapper.text()).toContain('Sorry, can’t find that.')
     })
   })
 })

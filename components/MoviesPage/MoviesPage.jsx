@@ -132,7 +132,7 @@ class MoviesPage extends React.Component<Props, State> {
   }
 }
 
-const MoviesQuery = gql`
+export const MoviesQuery = gql`
   query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!]) {
     list: movies(first: $first, after: $after, genres: $genres, countries: $countries) {
       totalCount
@@ -150,7 +150,7 @@ const MoviesQuery = gql`
   ${MovieShort.fragments.movie}
 `
 
-const GenresQuery = gql`
+export const GenresQuery = gql`
   query Genres {
     list: genres {
       id
@@ -159,7 +159,7 @@ const GenresQuery = gql`
   }
 `
 
-const CountryQuery = gql`
+export const CountryQuery = gql`
   query Countries {
     list: countries {
       id

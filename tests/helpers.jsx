@@ -3,6 +3,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
+import { MockedProvider } from 'react-apollo/test-utils'
 import { AutoSizer } from 'react-virtualized'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost'
 import _ from 'lodash'
@@ -44,6 +45,19 @@ export const mountGraphql = (response: Object | Array<Object>, element: Object, 
       </MemoryRouter>
     </ApolloProvider>,
   )
+}
+
+export const mountGraphql1 = async (element, mocks) => {
+  const wrapper = mount(
+    <MockedProvider mocks={mocks}>
+      <MemoryRouter>
+        {element}
+      </MemoryRouter>
+    </MockedProvider>,
+  )
+  await new Promise(resolve => setTimeout(resolve))
+  wrapper.update()
+  return wrapper
 }
 
 export const mountRouter = (element: Object) => mount(<MemoryRouter>{element}</MemoryRouter>)

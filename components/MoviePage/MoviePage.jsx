@@ -68,7 +68,7 @@ class MoviePage extends React.Component<Props> {
   }
 }
 
-const MovieQuery = gql`
+export const MovieQuery = gql`
   query Movie($movieId: ID!) {
     movie(id: $movieId) {
       ${i18n.gql('title')}
