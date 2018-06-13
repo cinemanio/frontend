@@ -50,8 +50,8 @@ export default class SelectFilter extends React.Component<Props> {
   }
 
   filterBy = (e: SyntheticEvent<HTMLSelectElement>) => {
-    this.setFilter(this.props.code, e.currentTarget.value)
-    e.currentTarget.value = ''
+    this.setFilter(this.props.code, e.target.value)
+    e.target.value = ''
   }
 
   renderOption(item: Object) {

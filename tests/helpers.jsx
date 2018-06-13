@@ -4,15 +4,15 @@ import { mount } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
 import { AutoSizer } from 'react-virtualized'
-import createMockedNetworkFetch from 'apollo-mocknetworkinterface'
-import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
+import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost'
 import _ from 'lodash'
 
 import i18nClient from 'libs/i18nClient'
 
 export const getMockedNetworkFetch = (response: Object | Array<Object>, requestsLog: ?Array<Object>) => {
   let i = 0
-  return createMockedNetworkFetch((request: Object) => {
+  return (uri, data) => {
+    const request = JSON.parse(data.body)
     // console.debug(request)
     if (requestsLog) {
       requestsLog.push(request)
@@ -24,22 +24,25 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
     } else {
       resp = response
     }
-    return resp
-  }, { timeout: 0 })
+    // console.log(resp)
+    return new Promise(input => input({
+      text: () => new Promise(fullfil => fullfil(JSON.stringify(resp))),
+    }))
+  }
 }
 
 export const mountGraphql = (response: Object | Array<Object>, element: Object, requestsLog: ?Array<Object>) => {
   const mockedNetworkFetch = getMockedNetworkFetch(response, requestsLog)
   const client = new ApolloClient({
     link: new HttpLink({ fetch: mockedNetworkFetch }),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   })
   return mount(
     <ApolloProvider client={client}>
       <MemoryRouter>
         {element}
       </MemoryRouter>
-    </ApolloProvider>
+    </ApolloProvider>,
   )
 }
 
@@ -65,9 +68,7 @@ export const mockAutoSizer = () => {
 }
 
 export const selectFilterChange = (wrapper: Object, number: number, value: string) => {
-  // workaround instead of .simulate https://github.com/airbnb/enzyme/issues/218#issuecomment-332975628
-  wrapper.find('SelectFilter').at(number).find('select').props()
-    .onChange({ currentTarget: { value } })
+  wrapper.find('SelectFilter').at(number).find('select').simulate('change', { target: { value } })
   wrapper.update()
 }
 

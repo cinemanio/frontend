@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import RedBox from 'redbox-react'
 import { StaticRouter } from 'react-router-dom'
 import { I18nextProvider } from 'react-i18next'
-import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
+import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost'
 import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 
 import App from 'components/App/App'
