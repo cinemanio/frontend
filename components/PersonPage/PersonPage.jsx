@@ -68,7 +68,7 @@ class PersonPage extends React.Component<Props> {
   }
 }
 
-const PersonQuery = gql`
+export const PersonQuery = gql`
   query Person($personId: ID!) {
     person(id: $personId) {
       ${i18n.gql('name')}

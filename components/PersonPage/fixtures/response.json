@@ -75,7 +75,8 @@
           {
             "node": {
               "id": "114240",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjExMTY0",
                 "title": "Being John Malkovich",
@@ -97,7 +98,8 @@
           {
             "node": {
               "id": "13",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjE4",
                 "title": "The Game",
@@ -119,7 +121,8 @@
           {
             "node": {
               "id": "214199",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjExMTY0",
                 "title": "Being John Malkovich",
@@ -141,7 +144,8 @@
           {
             "node": {
               "id": "3271",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjExMzc0",
                 "title": "Se7en",
@@ -163,7 +167,8 @@
           {
             "node": {
               "id": "3272",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjExNTkw",
                 "title": "Zodiac",
@@ -185,7 +190,8 @@
           {
             "node": {
               "id": "3273",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjExNTIy",
                 "title": "Fight Club",
@@ -207,7 +213,8 @@
           {
             "node": {
               "id": "4552",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjEwNDA2",
                 "title": "Alien 3",
@@ -229,7 +236,8 @@
           {
             "node": {
               "id": "8314",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjEwNDM1",
                 "title": "Panic Room",
@@ -251,7 +259,8 @@
           {
             "node": {
               "id": "23150",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjY3NTE=",
                 "title": "The Curious Case of Benjamin Button ",
@@ -273,7 +282,8 @@
           {
             "node": {
               "id": "99269",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjE0MTgx",
                 "title": "The Social Network",
@@ -295,7 +305,8 @@
           {
             "node": {
               "id": "131391",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjE5NzQz",
                 "title": "The Girl with the Dragon Tattoo",
@@ -317,7 +328,8 @@
           {
             "node": {
               "id": "219072",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjI5ODIz",
                 "title": "House of Cards",
@@ -339,7 +351,8 @@
           {
             "node": {
               "id": "231159",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjMwNjc3",
                 "title": "Gone Girl",
@@ -361,7 +374,8 @@
           {
             "node": {
               "id": "3274",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjEwNzY3",
                 "title": "Love and Other Disasters",
@@ -383,7 +397,8 @@
           {
             "node": {
               "id": "61894",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjc4NDI=",
                 "title": "The Hire: The Follow",
@@ -405,7 +420,8 @@
           {
             "node": {
               "id": "219082",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "movie": {
                 "id": "TW92aWVOb2RlOjI5ODIz",
                 "title": "House of Cards",

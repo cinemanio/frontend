@@ -1,9 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountRouter, mountGraphql, populated, i18nProps } from 'tests/helpers'
+import { mountRouter, mountGraphql, i18nProps } from 'tests/helpers'
 
-import PersonPage from './PersonPage'
+import PersonPage, { PersonQuery } from './PersonPage'
 import response from './fixtures/response.json'
 import emptyResponse from './fixtures/empty_response.json'
 
@@ -46,35 +46,25 @@ describe('Person Page Component', () => {
   })
 
   describe('GraphQL', () => {
-    let requestsLog
-
-    describe('Populated with response', () => {
-      beforeAll(() => {
-        global.console.warn = jest.fn()
-      })
-
-      beforeEach(() => {
-        element = <PersonPage match={{ params: { slug: response.data.person.id } }} {...i18nProps}/>
-        requestsLog = []
-        wrapper = mountGraphql([response], element, requestsLog)
-      })
-
-      it('should send requests', done => populated(done, wrapper, () => {
-        expect(requestsLog).toHaveLength(1)
-        expect(requestsLog[0].variables).toEqual({ personId: response.data.person.id })
-      }))
+    it('should render person page', async () => {
+      wrapper = await mountGraphql(
+        <PersonPage match={{ params: { slug: response.data.person.id } }} {...i18nProps}/>,
+        [{
+          request: { query: PersonQuery, variables: { personId: response.data.person.id } },
+          result: response
+        }])
+      expect(wrapper.find('PersonInfo')).toHaveLength(1)
+      expect(wrapper.find('PersonImage')).toHaveLength(1)
     })
 
-    describe('Populated with empty response', () => {
-      beforeEach(() => {
-        element = <PersonPage match={{ params: { slug: '' } }} {...i18nProps}/>
-        wrapper = mountGraphql([emptyResponse], element)
-      })
-
-      it('should render 404 page', done => populated(done, wrapper, () => {
-        expect(wrapper.find('Status[code=404]')).toHaveLength(1)
-        expect(wrapper.text()).toContain('Sorry, can’t find that.')
-      }))
+    it('should render 404 page when response empty', async () => {
+      wrapper = await mountGraphql(
+        <PersonPage match={{ params: { slug: '' } }} {...i18nProps}/>,
+        [{
+          request: { query: PersonQuery, variables: { personId: '' } },
+          result: emptyResponse
+        }])
+      expect(wrapper.find('Status[code=404]')).toHaveLength(1)
     })
   })
 })

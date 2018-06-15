@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountRouter, mountGraphql1, i18nProps } from 'tests/helpers'
+import { mountRouter, mountGraphql, i18nProps } from 'tests/helpers'
 
 import MoviePage, { MovieQuery } from './MoviePage'
 import response from './fixtures/response.json'
@@ -53,32 +53,25 @@ describe('Movie Page Component', () => {
   })
 
   describe('GraphQL', () => {
-    let requestsLog
-
-    // describe('Populated with response', () => {
-    //   beforeAll(() => {
-    //     global.console.warn = jest.fn()
-    //   })
-    //
-    //   beforeEach(() => {
-    //     element = <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>
-    //     requestsLog = []
-    //     wrapper = mountGraphql([response], element, requestsLog)
-    //   })
-    //
-    //   it('should send requests', async () => {
-    //     expect(requestsLog).toHaveLength(1)
-    //     expect(requestsLog[0].variables).toEqual({ movieId: response.data.movie.id })
-    //   })
-    // })
+    it('should render movie page', async () => {
+      wrapper = await mountGraphql(
+        <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>,
+        [{
+          request: { query: MovieQuery, variables: { movieId: response.data.movie.id } },
+          result: response
+        }])
+      expect(wrapper.find('MovieInfo')).toHaveLength(1)
+      expect(wrapper.find('MovieImage')).toHaveLength(1)
+    })
 
     it('should render 404 page when response empty', async () => {
-      wrapper = await mountGraphql1(<MoviePage match={{ params: { slug: '' } }} {...i18nProps}/>, [{
-        request: { query: MovieQuery, variables: { movieId: '' } },
-        result: emptyResponse,
-      }])
+      wrapper = await mountGraphql(
+        <MoviePage match={{ params: { slug: '' } }} {...i18nProps}/>,
+        [{
+          request: { query: MovieQuery, variables: { movieId: '' } },
+          result: emptyResponse
+        }])
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
-      expect(wrapper.text()).toContain('Sorry, can’t find that.')
     })
   })
 })

@@ -180,7 +180,8 @@
           {
             "node": {
               "id": "163782",
-              "name": "Club Kid, (uncredited",
+              "nameEn": "Club Kid, (uncredited",
+              "nameRu": "Club Kid, (uncredited",
               "person": {
                 "id": "UGVyc29uTm9kZTozNDY1",
                 "name": "Harmony Korine",
@@ -202,7 +203,8 @@
           {
             "node": {
               "id": "56012",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "person": {
                 "id": "UGVyc29uTm9kZTo4NjY=",
                 "name": "Gus Van Sant",
@@ -224,7 +226,8 @@
           {
             "node": {
               "id": "8767",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "person": {
                 "id": "UGVyc29uTm9kZTozMTMy",
                 "name": "Larry Clark",
@@ -246,7 +249,8 @@
           {
             "node": {
               "id": "62638",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "person": {
                 "id": "UGVyc29uTm9kZTo5NTQw",
                 "name": "Cathy Konrad",
@@ -268,7 +272,8 @@
           {
             "node": {
               "id": "10090",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "person": {
                 "id": "UGVyc29uTm9kZTozNDY1",
                 "name": "Harmony Korine",
@@ -290,7 +295,8 @@
           {
             "node": {
               "id": "11202",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "person": {
                 "id": "UGVyc29uTm9kZTozMTMy",
                 "name": "Larry Clark",
@@ -312,7 +318,8 @@
           {
             "node": {
               "id": "147840",
-              "name": "",
+              "nameEn": "",
+              "nameRu": "",
               "person": {
                 "id": "UGVyc29uTm9kZTozMTMy",
                 "name": "Larry Clark",

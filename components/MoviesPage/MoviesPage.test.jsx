@@ -1,9 +1,9 @@
 import React from 'react'
 import _ from 'lodash'
 
-import { mountRouter, mountGraphql, populated, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
+import { mountRouter, mountGraphql, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
 
-import MoviesPage from './MoviesPage'
+import MoviesPage, { MoviesQuery, GenresQuery, CountryQuery } from './MoviesPage'
 import response from './fixtures/response.json'
 import genres from './fixtures/genres.json'
 import countries from './fixtures/countries.json'
@@ -44,54 +44,45 @@ describe('Movies Page Component', () => {
   })
 
   describe('GraphQL', () => {
-    let requestsLog
+    const mockMovies = { request: { query: MoviesQuery, variables: { first: 100, after: '' } }, result: response }
+    const mockCountries = { request: { query: CountryQuery }, result: countries }
+    const mockGenres = { request: { query: GenresQuery }, result: genres }
 
-    beforeAll(() => {
-      global.console.warn = jest.fn()
-      element = <MoviesPage {...i18nProps}/>
+    it('should render movies', async () => {
+      wrapper = await mountGraphql(<MoviesPage {...i18nProps}/>, [mockMovies, mockCountries, mockGenres])
+      expect(wrapper.find('MovieShort').length).toBeGreaterThan(0)
+      expect(wrapper.find('SelectFilter[code="genres"]').find('option').length).toBeGreaterThan(1)
+      expect(wrapper.find('SelectFilter[code="countries"]').find('option').length).toBeGreaterThan(1)
     })
 
-    describe('Populated with response', () => {
-      beforeEach(() => {
-        requestsLog = []
-        wrapper = mountGraphql(
-          [response, countries, genres, response, response, response, response, response],
-          element, requestsLog)
-      })
-
-      it('should render movies', done => populated(done, wrapper, () => {
-        expect(wrapper.find('MovieShort').length).toBeGreaterThan(0)
-      }))
-
-      it('should send filter params in request', done => populated(done, wrapper, async () => {
-        expect(requestsLog).toHaveLength(3)
-        expect(requestsLog[0].variables).toEqual({ first: 100, after: '' })
-        expect(requestsLog[1].operationName).toBe('Countries')
-        expect(requestsLog[2].operationName).toBe('Genres')
-        selectFilterChange(wrapper, 0, 'R2VucmVOb2RlOjQ=')
-        await wrapper.find('ObjectListPage').instance().refreshList()
-        expect(requestsLog).toHaveLength(4)
-        expect(requestsLog[3].variables).toEqual({
-          first: 100, after: '', genres: ['R2VucmVOb2RlOjQ='], countries: []
-        })
-        selectFilterChange(wrapper, 1, 'Q291bnRyeU5vZGU6MTE=')
-        await wrapper.find('ObjectListPage').instance().refreshList()
-        expect(requestsLog).toHaveLength(5)
-        expect(requestsLog[4].variables).toEqual({
-          first: 100, after: '', genres: ['R2VucmVOb2RlOjQ='], countries: ['Q291bnRyeU5vZGU6MTE=']
-        })
-      }))
+    it('should send filter params in request', async () => {
+      wrapper = await mountGraphql(
+        <MoviesPage {...i18nProps}/>,
+        [
+          mockMovies, mockCountries, mockGenres,
+          {
+            ...mockMovies,
+            request: {
+              query: MoviesQuery,
+              variables: { first: 100, after: '', genres: ['R2VucmVOb2RlOjQ='], countries: [] }
+            }
+          },
+          {
+            ...mockMovies,
+            request: {
+              query: MoviesQuery,
+              variables: { first: 100, after: '', genres: ['R2VucmVOb2RlOjQ='], countries: ['Q291bnRyeU5vZGU6MTE='] }
+            }
+          }
+        ])
+      selectFilterChange(wrapper, 0, 'R2VucmVOb2RlOjQ=')
+      selectFilterChange(wrapper, 1, 'Q291bnRyeU5vZGU6MTE=')
     })
 
-    describe('Populated with empty response', () => {
-      beforeEach(() => {
-        wrapper = mountGraphql([emptyResponse, countries, genres], element)
-      })
-
-      it('should render message if no results in response', done => populated(done, wrapper, () => {
-        expect(wrapper.find('MovieLink')).toHaveLength(0)
-        expect(wrapper.text()).toContain('There is no such movies.')
-      }))
+    it('should render message if no results in response', async () => {
+      wrapper = await mountGraphql(<MoviesPage {...i18nProps}/>, [{ ...mockMovies, result: emptyResponse }])
+      expect(wrapper.find('MovieShort')).toHaveLength(0)
+      expect(wrapper.text()).toContain('There is no such movies.')
     })
   })
 })

@@ -41,18 +41,16 @@ export default class ObjectListPage extends React.Component<Props, State> {
     }
   }
 
-  refreshList = () => {
-    this.props.data.fetchMore({
-      variables: this.props.getVariables(),
-      updateQuery: (previousResult, { fetchMoreResult }) => ({
-        list: {
-          totalCount: fetchMoreResult.list.totalCount,
-          edges: fetchMoreResult.list.edges,
-          pageInfo: fetchMoreResult.list.pageInfo
-        }
-      })
+  refreshList = () => this.props.data.fetchMore({
+    variables: this.props.getVariables(),
+    updateQuery: (previousResult, { fetchMoreResult }) => ({
+      list: {
+        totalCount: fetchMoreResult.list.totalCount,
+        edges: fetchMoreResult.list.edges,
+        pageInfo: fetchMoreResult.list.pageInfo
+      }
     })
-  }
+  })
 
   onScroll = ({ clientHeight, scrollTop }: Object) => {
     this.setState({

@@ -1,9 +1,9 @@
 import React from 'react'
 import _ from 'lodash'
 
-import { mountRouter, mountGraphql, populated, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
+import { mountRouter, mountGraphql, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
 
-import PersonsPage from './PersonsPage'
+import PersonsPage, { PersonsQuery, CountryQuery, RolesQuery } from './PersonsPage'
 import response from './fixtures/response.json'
 import roles from './fixtures/roles.json'
 import countries from './fixtures/countries.json'
@@ -44,54 +44,45 @@ describe('Persons Page Component', () => {
   })
 
   describe('GraphQL', () => {
-    let requestsLog
+    const mockPersons = { request: { query: PersonsQuery, variables: { first: 100, after: '' } }, result: response }
+    const mockCountries = { request: { query: CountryQuery }, result: countries }
+    const mockRoles = { request: { query: RolesQuery }, result: roles }
 
-    beforeAll(() => {
-      global.console.warn = jest.fn()
-      element = <PersonsPage {...i18nProps}/>
+    it('should render persons', async () => {
+      wrapper = await mountGraphql(<PersonsPage {...i18nProps}/>, [mockPersons, mockCountries, mockRoles])
+      expect(wrapper.find('PersonShort').length).toBeGreaterThan(0)
+      expect(wrapper.find('SelectFilter[code="roles"]').find('option').length).toBeGreaterThan(1)
+      expect(wrapper.find('SelectFilter[code="country"]').find('option').length).toBeGreaterThan(1)
     })
 
-    describe('Populated with response', () => {
-      beforeEach(() => {
-        requestsLog = []
-        wrapper = mountGraphql(
-          [response, countries, roles, response, response],
-          element, requestsLog)
-      })
-
-      it('should render persons', done => populated(done, wrapper, () => {
-        expect(wrapper.find('PersonLink').length).toBeGreaterThan(0)
-      }))
-
-      it('should send filter params in request', done => populated(done, wrapper, async () => {
-        expect(requestsLog).toHaveLength(3)
-        expect(requestsLog[0].variables).toEqual({ first: 100, after: '' })
-        expect(requestsLog[1].operationName).toBe('Countries')
-        expect(requestsLog[2].operationName).toBe('Roles')
-        selectFilterChange(wrapper, 0, 'Um9sZU5vZGU6MTE=')
-        await wrapper.find('ObjectListPage').instance().refreshList()
-        expect(requestsLog).toHaveLength(4)
-        expect(requestsLog[3].variables).toEqual({
-          first: 100, after: '', roles: ['Um9sZU5vZGU6MTE='], country: ''
-        })
-        selectFilterChange(wrapper, 1, 'Q291bnRyeU5vZGU6MTE=')
-        await wrapper.find('ObjectListPage').instance().refreshList()
-        expect(requestsLog).toHaveLength(5)
-        expect(requestsLog[4].variables).toEqual({
-          first: 100, after: '', roles: ['Um9sZU5vZGU6MTE='], country: 'Q291bnRyeU5vZGU6MTE='
-        })
-      }))
+    it('should send filter params in request', async () => {
+      wrapper = await mountGraphql(
+        <PersonsPage {...i18nProps}/>,
+        [
+          mockPersons, mockCountries, mockRoles,
+          {
+            ...mockPersons,
+            request: {
+              query: PersonsQuery,
+              variables: { first: 100, after: '', roles: ['Um9sZU5vZGU6MTE='], country: '' }
+            }
+          },
+          {
+            ...mockPersons,
+            request: {
+              query: PersonsQuery,
+              variables: { first: 100, after: '', roles: ['Um9sZU5vZGU6MTE='], country: 'Q291bnRyeU5vZGU6MTE=' }
+            }
+          }
+        ])
+      selectFilterChange(wrapper, 0, 'Um9sZU5vZGU6MTE=')
+      selectFilterChange(wrapper, 1, 'Q291bnRyeU5vZGU6MTE=')
     })
 
-    describe('Populated with empty response', () => {
-      beforeEach(() => {
-        wrapper = mountGraphql([emptyResponse, countries, roles], element)
-      })
-
-      it('should render message if no results in response', done => populated(done, wrapper, () => {
-        expect(wrapper.find('PersonLink')).toHaveLength(0)
-        expect(wrapper.text()).toContain('There is no such persons.')
-      }))
+    it('should render message if no results in response', async () => {
+      wrapper = await mountGraphql(<PersonsPage {...i18nProps}/>, [{ ...mockPersons, result: emptyResponse }])
+      expect(wrapper.find('PersonShort')).toHaveLength(0)
+      expect(wrapper.text()).toContain('There is no such persons.')
     })
   })
 })

@@ -33,7 +33,7 @@ describe('Select Filter Component', () => {
 
   it('should call setFilterState on change', () => {
     expect(element.props.setFilterState).not.toHaveBeenCalled()
-    wrapper.find('select').simulate('change', { target: { value: '3' } })
+    wrapper.find('select').simulate('change', { currentTarget: { value: '3' } })
     expect(element.props.setFilterState).toHaveBeenCalledWith({ filter: new Set(['1', '2', '3']) })
   })
 
@@ -49,7 +49,7 @@ describe('Select Filter Component', () => {
 
     it('should call setFilterState on change', () => {
       expect(element.props.setFilterState).not.toHaveBeenCalled()
-      wrapper.find('select').simulate('change', { target: { value: '3' } })
+      wrapper.find('select').simulate('change', { currentTarget: { value: '3' } })
       expect(element.props.setFilterState).toHaveBeenCalledWith({ filter: '3' })
     })
   })

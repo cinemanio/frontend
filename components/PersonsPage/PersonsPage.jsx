@@ -128,7 +128,7 @@ class PersonsPage extends React.Component<Props, State> {
   }
 }
 
-const PersonsQuery = gql`
+export const PersonsQuery = gql`
   query Persons($first: Int!, $after: String, $roles: [ID!], $country: ID) {
     list: persons(first: $first, after: $after, roles: $roles, country: $country) {
       totalCount
@@ -146,7 +146,7 @@ const PersonsQuery = gql`
   ${PersonShort.fragments.person}
 `
 
-const RolesQuery = gql`
+export const RolesQuery = gql`
   query Roles {
     list: roles {
       id
@@ -155,7 +155,7 @@ const RolesQuery = gql`
   }
 `
 
-const CountryQuery = gql`
+export const CountryQuery = gql`
   query Countries {
     list: countries {
       id
