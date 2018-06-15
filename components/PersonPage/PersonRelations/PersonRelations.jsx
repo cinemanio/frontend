@@ -2,8 +2,9 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
-import relationFragment from 'components/RelationIcon/relationFragment'
-import RelationIcon from 'components/RelationIcon/RelationIcon'
+import relationFragment from 'components/Relation/relationFragment'
+import relationMutation from 'components/Relation/relationMutation'
+import Relation from 'components/Relation/Relation'
 
 import './PersonRelations.scss'
 
@@ -19,11 +20,12 @@ export default class PersonRelations extends React.Component<Props> {
 
   render(): Array<React.Fragment> {
     return PersonRelations.codes.map(code =>
-      (<RelationIcon
+      (<Relation
         key={code}
         styleName={code}
         code={code}
         object={this.props.person}
+        mutation={relationMutation('Movie', PersonRelations.codes)}
         {...this.props}
       />),
     )
