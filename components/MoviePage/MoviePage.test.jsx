@@ -2,8 +2,10 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import { mountRouter, mountGraphql, i18nProps } from 'tests/helpers'
+import relationMutation from 'components/Relation/relationMutation'
 
 import MoviePage, { MovieQuery } from './MoviePage'
+import MovieRelations from './MovieRelations/MovieRelations'
 import response from './fixtures/response.json'
 import emptyResponse from './fixtures/empty_response.json'
 
@@ -53,13 +55,14 @@ describe('Movie Page Component', () => {
   })
 
   describe('GraphQL', () => {
+    const mockMovie = {
+      request: { query: MovieQuery, variables: { movieId: response.data.movie.id } },
+      result: response,
+    }
+
     it('should render movie page', async () => {
       wrapper = await mountGraphql(
-        <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>,
-        [{
-          request: { query: MovieQuery, variables: { movieId: response.data.movie.id } },
-          result: response
-        }])
+        <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>, [mockMovie])
       expect(wrapper.find('MovieInfo')).toHaveLength(1)
       expect(wrapper.find('MovieImage')).toHaveLength(1)
     })
@@ -69,9 +72,43 @@ describe('Movie Page Component', () => {
         <MoviePage match={{ params: { slug: '' } }} {...i18nProps}/>,
         [{
           request: { query: MovieQuery, variables: { movieId: '' } },
-          result: emptyResponse
+          result: emptyResponse,
         }])
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
+    })
+
+    it('should change relation and relations count', async () => {
+      const relateMutation = relationMutation('Movie', MovieRelations.codes)
+      wrapper = await mountGraphql(
+        <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>,
+        [
+          mockMovie,
+          {
+            request: { query: relateMutation, variables: { id: response.data.movie.id, code: 'fav' } },
+            result: {
+              data: {
+                relate: {
+                  relation: {
+                    ...response.data.movie.relation,
+                    fav: true,
+                    __typename: 'MovieRelationNode',
+                  },
+                  count: {
+                    ...response.data.movie.relationsCount,
+                    fav: response.data.movie.relationsCount.fav + 1,
+                    __typename: 'MovieRelationCountNode',
+                  },
+                  __typename: 'Relate',
+                },
+              },
+            },
+          },
+        ])
+      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(0)
+      expect(wrapper.find('Relation[code="fav"]').text()).toBe('2')
+      wrapper.find('Relation[code="fav"]').find('span').first().simulate('click')
+      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(1)
+      expect(wrapper.find('Relation[code="fav"]').text()).toBe('3')
     })
   })
 })

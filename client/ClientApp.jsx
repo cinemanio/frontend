@@ -9,12 +9,13 @@ import fetch from 'unfetch'
 
 import App from 'components/App/App'
 import i18nClient from 'libs/i18nClient'
+import graphqlAuth from 'libs/graphqlAuth'
 
 const { lang } = document.getElementsByTagName('html')[0]
 const client = new ApolloClient({
   ssrForceFetchDelay: 100,
-  link: new HttpLink({ uri: window.API_URL, fetch }),
-  cache: new InMemoryCache().restore(window.INITIAL_STATE)
+  link: graphqlAuth.concat(new HttpLink({ uri: window.API_URL, fetch })),
+  cache: new InMemoryCache().restore(window.INITIAL_STATE),
 })
 
 const ClientApp = () => (

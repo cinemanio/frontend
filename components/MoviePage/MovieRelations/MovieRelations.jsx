@@ -18,6 +18,14 @@ export default class MovieRelations extends React.Component<Props> {
   static codes = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
   static fragments: Object
 
+  modifyOptimisticResponse = (response: Object, code: string, value: boolean) => {
+    if (code === 'fav' && value) {
+      response.relate.relation.like = true
+      response.relate.relation.seen = true
+    }
+    return response;
+  }
+
   render(): Array<React.Fragment> {
     return MovieRelations.codes.map(code =>
       (<Relation
@@ -26,6 +34,8 @@ export default class MovieRelations extends React.Component<Props> {
         code={code}
         object={this.props.movie}
         mutation={relationMutation('Movie', MovieRelations.codes)}
+        fragment={relationFragment('Movie', MovieRelations.codes)}
+        modifyOptimisticResponse={this.modifyOptimisticResponse}
         {...this.props}
       />),
     )

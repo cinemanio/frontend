@@ -63,17 +63,25 @@ describe('Persons Page Component', () => {
           {
             ...mockPersons,
             request: {
-              query: PersonsQuery,
-              variables: { first: 100, after: '', roles: ['Um9sZU5vZGU6MTE='], country: '' }
-            }
+              ...mockPersons.request,
+              variables: {
+                ...mockPersons.request.variables,
+                roles: ['Um9sZU5vZGU6MTE='],
+                country: '',
+              },
+            },
           },
           {
             ...mockPersons,
             request: {
-              query: PersonsQuery,
-              variables: { first: 100, after: '', roles: ['Um9sZU5vZGU6MTE='], country: 'Q291bnRyeU5vZGU6MTE=' }
-            }
-          }
+              ...mockPersons.request,
+              variables: {
+                ...mockPersons.request.variables,
+                roles: ['Um9sZU5vZGU6MTE='],
+                country: 'Q291bnRyeU5vZGU6MTE=',
+              },
+            },
+          },
         ])
       selectFilterChange(wrapper, 0, 'Um9sZU5vZGU6MTE=')
       selectFilterChange(wrapper, 1, 'Q291bnRyeU5vZGU6MTE=')

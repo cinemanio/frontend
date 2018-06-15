@@ -34,9 +34,10 @@
   "author": "ramusus <ramusus@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "apollo-client": "2.3.3",
     "apollo-boost": "0.1.7",
+    "apollo-client": "2.3.3",
     "apollo-fetch": "0.7.0",
+    "apollo-link-context": "^1.0.8",
     "autoprefixer": "8.0.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.3",

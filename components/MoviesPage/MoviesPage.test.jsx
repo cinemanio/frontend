@@ -63,17 +63,25 @@ describe('Movies Page Component', () => {
           {
             ...mockMovies,
             request: {
-              query: MoviesQuery,
-              variables: { first: 100, after: '', genres: ['R2VucmVOb2RlOjQ='], countries: [] }
-            }
+              ...mockMovies.request,
+              variables: {
+                ...mockMovies.request.variables,
+                genres: ['R2VucmVOb2RlOjQ='],
+                countries: [],
+              },
+            },
           },
           {
             ...mockMovies,
             request: {
-              query: MoviesQuery,
-              variables: { first: 100, after: '', genres: ['R2VucmVOb2RlOjQ='], countries: ['Q291bnRyeU5vZGU6MTE='] }
-            }
-          }
+              ...mockMovies.request,
+              variables: {
+                ...mockMovies.request.variables,
+                genres: ['R2VucmVOb2RlOjQ='],
+                countries: ['Q291bnRyeU5vZGU6MTE='],
+              },
+            },
+          },
         ])
       selectFilterChange(wrapper, 0, 'R2VucmVOb2RlOjQ=')
       selectFilterChange(wrapper, 1, 'Q291bnRyeU5vZGU6MTE=')
