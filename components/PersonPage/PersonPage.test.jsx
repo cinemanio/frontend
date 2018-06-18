@@ -1,9 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountRouter, mountGraphql, i18nProps } from 'tests/helpers'
+import { mountGraphql, i18nProps } from 'tests/helpers'
+import mutationResponse from 'components/Relation/mutationResponse'
 
 import PersonPage, { PersonQuery } from './PersonPage'
+import PersonRelations from './PersonRelations/PersonRelations'
 import response from './fixtures/response.json'
 import emptyResponse from './fixtures/empty_response.json'
 
@@ -12,10 +14,10 @@ describe('Person Page Component', () => {
   let wrapper
 
   describe('Unit', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       element = (<PersonPage.WrappedComponent
         params={{ personId: '' }} data={response.data} {...i18nProps}/>)
-      wrapper = mountRouter(element)
+      wrapper = await mountGraphql(element)
     })
 
     describe('i18n. en', () => {
@@ -46,13 +48,14 @@ describe('Person Page Component', () => {
   })
 
   describe('GraphQL', () => {
+    const mockPerson = {
+      request: { query: PersonQuery, variables: { personId: response.data.person.id } },
+      result: response,
+    }
+
     it('should render person page', async () => {
       wrapper = await mountGraphql(
-        <PersonPage match={{ params: { slug: response.data.person.id } }} {...i18nProps}/>,
-        [{
-          request: { query: PersonQuery, variables: { personId: response.data.person.id } },
-          result: response
-        }])
+        <PersonPage match={{ params: { slug: response.data.person.id } }} {...i18nProps}/>, [mockPerson])
       expect(wrapper.find('PersonInfo')).toHaveLength(1)
       expect(wrapper.find('PersonImage')).toHaveLength(1)
     })
@@ -62,9 +65,29 @@ describe('Person Page Component', () => {
         <PersonPage match={{ params: { slug: '' } }} {...i18nProps}/>,
         [{
           request: { query: PersonQuery, variables: { personId: '' } },
-          result: emptyResponse
+          result: emptyResponse,
         }])
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
+    })
+
+    it('should change relation and relations count', async () => {
+      wrapper = await mountGraphql(
+        <PersonPage match={{ params: { slug: response.data.person.id } }} {...i18nProps}/>,
+        [
+          mockPerson,
+          {
+            request: {
+              query: PersonRelations.fragments.relate,
+              variables: { id: response.data.person.id, code: 'fav' },
+            },
+            result: { data: mutationResponse(response.data.person, 'fav') },
+          },
+        ])
+      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(0)
+      expect(wrapper.find('Relation[code="fav"]').text()).toBe('2')
+      wrapper.find('Relation[code="fav"]').find('span').first().simulate('click')
+      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(1)
+      expect(wrapper.find('Relation[code="fav"]').text()).toBe('3')
     })
   })
 })

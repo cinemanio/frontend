@@ -1,8 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountRouter, mountGraphql, i18nProps } from 'tests/helpers'
-import relationMutation from 'components/Relation/relationMutation'
+import { mountGraphql, i18nProps } from 'tests/helpers'
+import mutationResponse from 'components/Relation/mutationResponse'
 
 import MoviePage, { MovieQuery } from './MoviePage'
 import MovieRelations from './MovieRelations/MovieRelations'
@@ -14,10 +14,10 @@ describe('Movie Page Component', () => {
   let wrapper
 
   describe('Unit', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       element = (<MoviePage.WrappedComponent
         params={{ movieId: '' }} data={response.data} {...i18nProps}/>)
-      wrapper = mountRouter(element)
+      wrapper = await mountGraphql(element)
     })
 
     it('should render movie IMDb rating', () => expect(wrapper.text()).toContain('7'))
@@ -78,30 +78,16 @@ describe('Movie Page Component', () => {
     })
 
     it('should change relation and relations count', async () => {
-      const relateMutation = relationMutation('Movie', MovieRelations.codes)
       wrapper = await mountGraphql(
         <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>,
         [
           mockMovie,
           {
-            request: { query: relateMutation, variables: { id: response.data.movie.id, code: 'fav' } },
-            result: {
-              data: {
-                relate: {
-                  relation: {
-                    ...response.data.movie.relation,
-                    fav: true,
-                    __typename: 'MovieRelationNode',
-                  },
-                  count: {
-                    ...response.data.movie.relationsCount,
-                    fav: response.data.movie.relationsCount.fav + 1,
-                    __typename: 'MovieRelationCountNode',
-                  },
-                  __typename: 'Relate',
-                },
-              },
+            request: {
+              query: MovieRelations.fragments.relate,
+              variables: { id: response.data.movie.id, code: 'fav' }
             },
+            result: { data: mutationResponse(response.data.movie, 'fav') },
           },
         ])
       expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(0)

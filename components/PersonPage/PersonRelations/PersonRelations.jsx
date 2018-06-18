@@ -2,11 +2,13 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
-import relationFragment from 'components/Relation/relationFragment'
-import relationMutation from 'components/Relation/relationMutation'
+import fragment from 'components/Relation/fragment'
+import mutation from 'components/Relation/mutation'
 import Relation from 'components/Relation/Relation'
 
 import './PersonRelations.scss'
+
+export const PersonRelationsCodes = ['fav', 'like', 'dislike']
 
 type Props = { person: Object }
 
@@ -15,21 +17,30 @@ export default class PersonRelations extends React.Component<Props> {
     person: PropTypes.object.isRequired,
   }
 
-  static codes = ['fav', 'like', 'dislike']
-  static fragments: Object
+  static fragments = {
+    person: fragment('Person', PersonRelationsCodes),
+    relate: mutation('Person', PersonRelationsCodes),
+  }
+
+  modifyOptimisticResponse = (response: Object, code: string, value: boolean) => {
+    if (code === 'fav' && value) {
+      response.relate.relation.like = true
+    }
+    return response;
+  }
 
   render(): Array<React.Fragment> {
-    return PersonRelations.codes.map(code =>
+    return PersonRelationsCodes.map(code =>
       (<Relation
         key={code}
         styleName={code}
         code={code}
         object={this.props.person}
-        mutation={relationMutation('Movie', PersonRelations.codes)}
+        mutation={PersonRelations.fragments.relate}
+        fragment={PersonRelations.fragments.person}
+        modifyOptimisticResponse={this.modifyOptimisticResponse}
         {...this.props}
       />),
     )
   }
 }
-
-PersonRelations.fragments = { person: relationFragment('Person', PersonRelations.codes) }

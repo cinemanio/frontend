@@ -2,7 +2,8 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import { Mutation } from 'react-apollo'
-import _ from 'lodash'
+
+import mutationResponse from './mutationResponse'
 
 type Props = {
   className?: string,
@@ -29,24 +30,25 @@ export default class Relation extends React.Component<Props> {
   }
 
   changeRelation = (relate: Function) => () => {
-    const { code } = this.props
-    const relation = _.clone(this.props.object.relation)
-    const count = _.clone(this.props.object.relationsCount)
-    count[code] += !relation[code] ? 1 : -1
-    relation[code] = !relation[code]
-    const optimisticResponse = { relate: { relation, count, __typename: 'Relate' } }
+    const optimisticResponse = mutationResponse(this.props.object, this.props.code)
     return relate({
-      variables: { id: this.props.object.id, code },
-      optimisticResponse: this.props.modifyOptimisticResponse(optimisticResponse, code, relation[code]),
+      variables: {
+        id: this.props.object.id,
+        code: this.props.code,
+      },
+      optimisticResponse: this.props.modifyOptimisticResponse(optimisticResponse,
+        this.props.code, this.props.object.relation[this.props.code]),
     })
   }
 
   updateCache = (cache, { data: { relate: { relation, count } } }) => {
+    // eslint-disable-next-line no-underscore-dangle
+    const type = this.props.object.__typename.replace('Node', '')
     cache.writeFragment({
-      id: `MovieNode:${this.props.object.id}`,
+      id: `${type}Node:${this.props.object.id}`,
       fragment: this.props.fragment,
-      fragmentName: 'MovieRelations',
-      data: { relation, relationsCount: count, __typename: 'MovieNode' },
+      fragmentName: `${type}Relations`,
+      data: { relation, relationsCount: count, __typename: `${type}Node` },
     })
   }
 

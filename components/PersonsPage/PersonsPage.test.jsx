@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 
-import { mountRouter, mountGraphql, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
+import { mountGraphql, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
 
 import PersonsPage, { PersonsQuery, CountryQuery, RolesQuery } from './PersonsPage'
 import response from './fixtures/response.json'
@@ -16,13 +16,13 @@ describe('Persons Page Component', () => {
   beforeAll(mockAutoSizer)
 
   describe('Unit', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       const data = _.clone(response.data)
       data.fetchMore = jest.fn()
       data.loadNextPage = jest.fn()
       element = (<PersonsPage.WrappedComponent
         data={data} roleData={roles.data} countryData={countries.data} {...i18nProps}/>)
-      wrapper = mountRouter(element)
+      wrapper = await mountGraphql(element)
     })
 
     it('should render persons', () => {

@@ -2,11 +2,13 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
-import relationFragment from 'components/Relation/relationFragment'
-import relationMutation from 'components/Relation/relationMutation'
+import fragment from 'components/Relation/fragment'
+import mutation from 'components/Relation/mutation'
 import Relation from 'components/Relation/Relation'
 
 import './MovieRelations.scss'
+
+export const MovieRelationCodes = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
 
 type Props = { movie: Object }
 
@@ -15,8 +17,10 @@ export default class MovieRelations extends React.Component<Props> {
     movie: PropTypes.object.isRequired,
   }
 
-  static codes = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
-  static fragments: Object
+  static fragments = {
+    movie: fragment('Movie', MovieRelationCodes),
+    relate: mutation('Movie', MovieRelationCodes),
+  }
 
   modifyOptimisticResponse = (response: Object, code: string, value: boolean) => {
     if (code === 'fav' && value) {
@@ -27,19 +31,17 @@ export default class MovieRelations extends React.Component<Props> {
   }
 
   render(): Array<React.Fragment> {
-    return MovieRelations.codes.map(code =>
+    return MovieRelationCodes.map(code =>
       (<Relation
         key={code}
         styleName={code}
         code={code}
         object={this.props.movie}
-        mutation={relationMutation('Movie', MovieRelations.codes)}
-        fragment={relationFragment('Movie', MovieRelations.codes)}
+        mutation={MovieRelations.fragments.relate}
+        fragment={MovieRelations.fragments.movie}
         modifyOptimisticResponse={this.modifyOptimisticResponse}
         {...this.props}
       />),
     )
   }
 }
-
-MovieRelations.fragments = { movie: relationFragment('Movie', MovieRelations.codes) }
