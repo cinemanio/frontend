@@ -2,6 +2,8 @@ import React from 'react'
 import _ from 'lodash'
 
 import { mountGraphql, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
+import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
+import mutationResponse from 'components/Relation/mutationResponse'
 
 import MoviesPage, { MoviesQuery, GenresQuery, CountryQuery } from './MoviesPage'
 import response from './fixtures/response.json'
@@ -85,6 +87,26 @@ describe('Movies Page Component', () => {
         ])
       selectFilterChange(wrapper, 0, 'R2VucmVOb2RlOjQ=')
       selectFilterChange(wrapper, 1, 'Q291bnRyeU5vZGU6MTE=')
+    })
+
+    it('should change relation', async () => {
+      wrapper = await mountGraphql(
+        <MoviesPage {...i18nProps}/>,
+        [
+          mockMovies, mockCountries, mockGenres,
+          {
+            request: {
+              query: MovieRelations.fragments.relate,
+              variables: { id: response.data.list.edges[0].movie.id, code: 'fav' }
+            },
+            result: { data: mutationResponse(response.data.list.edges[0].movie, 'fav') },
+          },
+        ])
+      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(0)
+      // expect(wrapper.find('Relation[code="fav"]').first().text()).toBe('2')
+      wrapper.find('Relation[code="fav"]').find('span').first().simulate('click')
+      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(1)
+      // expect(wrapper.find('Relation[code="fav"]').first().text()).toBe('3')
     })
 
     it('should render message if no results in response', async () => {

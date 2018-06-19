@@ -109,6 +109,7 @@ export default class ObjectList extends React.Component<Props> {
                 rowHeight={this.props.rowHeight}
                 rowCount={rowCount}
                 overscanRowCount={0}
+                _forceUpdateWhenChanged={this.props.data}
               />
             )}
           </AutoSizer>

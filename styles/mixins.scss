@@ -51,7 +51,7 @@
         i {
           border: 1px solid $color;
           background-color: lighten($color, 30);
-          color: #FFFFFF;
+          color: $color;
         }
       }
     }
