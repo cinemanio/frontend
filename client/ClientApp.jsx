@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader'
 import { ApolloProvider } from 'react-apollo'
 import { BrowserRouter } from 'react-router-dom'
 import { I18nextProvider } from 'react-i18next'
-import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost'
+import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 import fetch from 'unfetch'
 
 import App from 'components/App/App'
