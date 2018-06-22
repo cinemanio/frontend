@@ -33,15 +33,15 @@ describe('Persons Page Component', () => {
 
     it('should render select filters', () => {
       expect(wrapper.find('SelectFilter')).toHaveLength(2)
-      expect(wrapper.find('SelectFilter').at(0).find('option')).toHaveLength(roles.data.list.length + 1)
-      expect(wrapper.find('SelectFilter').at(1).find('option')).toHaveLength(countries.data.list.length + 1)
+      expect(wrapper.find('SelectFilter[code="roles"]').find('option')).toHaveLength(roles.data.list.length + 1)
+      expect(wrapper.find('SelectFilter[code="country"]').find('option')).toHaveLength(countries.data.list.length + 1)
     })
 
     it('should render active filter, when filter selected', () => {
       expect(wrapper.find('ActiveFilters')).toHaveLength(2)
-      expect(wrapper.find('ActiveFilters').at(0).find('span')).toHaveLength(0)
-      selectFilterChange(wrapper, 0, 'Um9sZU5vZGU6MTE=')
-      expect(wrapper.find('ActiveFilters').at(0).find('span')).toHaveLength(1)
+      expect(wrapper.find('ActiveFilters[code="roles"]').find('span')).toHaveLength(0)
+      selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
+      expect(wrapper.find('ActiveFilters[code="roles"]').find('span')).toHaveLength(1)
     })
   })
 
@@ -85,8 +85,8 @@ describe('Persons Page Component', () => {
             },
           },
         ])
-      selectFilterChange(wrapper, 0, 'Um9sZU5vZGU6MTE=')
-      selectFilterChange(wrapper, 1, 'Q291bnRyeU5vZGU6MTE=')
+      selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
+      selectFilterChange(wrapper, 'SelectFilter[code="country"]', 'Q291bnRyeU5vZGU6MTE=')
     })
 
     it('should change relation', async () => {

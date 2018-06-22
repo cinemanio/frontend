@@ -3,12 +3,15 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
+import _ from 'lodash'
 
-import { configObject } from 'components/ObjectListPage/ObjectList/ObjectList'
+import { getConfigObject } from 'components/ObjectListPage/ObjectList/ObjectList'
 import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
 import SelectView from 'components/ObjectListPage/SelectView/SelectView'
+import SelectOrder from 'components/ObjectListPage/SelectOrder/SelectOrder'
+import { MovieRelationCodes } from 'components/MoviePage/MovieRelations/MovieRelations'
 import i18n from 'libs/i18n'
 
 import MovieShort from './MovieShort/MovieShort'
@@ -24,9 +27,11 @@ type Props = {
 }
 
 type State = {
+  relation: ?string,
   genres: Set<string>,
   countries: Set<string>,
   view: 'short' | 'full',
+  orderBy: string,
 }
 
 class MoviesPage extends React.Component<Props, State> {
@@ -35,30 +40,53 @@ class MoviesPage extends React.Component<Props, State> {
     genreData: PropTypes.object.isRequired,
     countryData: PropTypes.object.isRequired,
     t: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired
+    i18n: PropTypes.object.isRequired,
+  }
+
+  static defaults = {
+    orderBy: 'year',
   }
 
   constructor(props: Object) {
     super(props)
     this.state = {
+      relation: null,
       genres: new Set([]),
       countries: new Set([]),
-      view: 'short'
+      view: 'short',
+      ...MoviesPage.defaults,
     }
   }
 
   rowHeight: number = 80
 
   getVariables = () => ({
+    relation: this.state.relation,
     genres: [...this.state.genres],
-    countries: [...this.state.countries]
+    countries: [...this.state.countries],
+    orderBy: this.state.orderBy,
   })
 
   get viewOptions() {
     return [
       { id: 'short', name: this.props.t('filter.view.short') },
-      // { id: 'full', name: this.props.t('filter.view.full') }
+      { id: 'full', name: this.props.t('filter.view.full') },
     ]
+  }
+
+  get orderByOptions() {
+    return [
+      { id: 'year', name: this.props.t('filter.order.year') },
+      { id: 'relations_count__like', name: this.props.t('filter.order.like') },
+      { id: 'relations_count__dislike', name: this.props.t('filter.order.dislike') },
+    ]
+  }
+
+  get relationFilterOptions() {
+    return MovieRelationCodes.map(code => ({
+      id: code,
+      [`name${_.capitalize(this.props.i18n.language)}`]: this.props.t(`filter.relation.${code}`),
+    }))
   }
 
   renderMovie = ({ movie }) => {
@@ -75,6 +103,19 @@ class MoviesPage extends React.Component<Props, State> {
     <div>
       <SelectView
         list={this.viewOptions}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+      />
+      <SelectOrder
+        list={this.orderByOptions}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+        t={this.props.t}
+      />
+      <SelectFilter
+        code="relation"
+        title={this.props.t('filter.relation.name')}
+        list={this.relationFilterOptions}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
       />
@@ -99,6 +140,12 @@ class MoviesPage extends React.Component<Props, State> {
 
   renderActiveFilters = (refreshList: Function) => (
     <span>
+      <ActiveFilters
+        code="relation"
+        list={this.relationFilterOptions}
+        filters={this.state}
+        setFilterState={params => this.setState(params, refreshList)}
+      />
       <ActiveFilters
         code="genres"
         list={this.props.genreData.list}
@@ -133,8 +180,15 @@ class MoviesPage extends React.Component<Props, State> {
 }
 
 export const MoviesQuery = gql`
-  query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!]) {
-    list: movies(first: $first, after: $after, genres: $genres, countries: $countries) {
+  query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String) {
+    list: movies(
+      first: $first, 
+      after: $after, 
+      genres: $genres, 
+      countries: $countries, 
+      relation: $relation,
+      orderBy: $orderBy 
+    ) {
       totalCount
       edges {
         movie: node {
@@ -171,5 +225,5 @@ export const CountryQuery = gql`
 export default compose(
   graphql(GenresQuery, { name: 'genreData' }),
   graphql(CountryQuery, { name: 'countryData' }),
-  graphql(MoviesQuery, configObject)
+  graphql(MoviesQuery, getConfigObject(MoviesPage.defaults)),
 )(MoviesPage)

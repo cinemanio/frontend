@@ -12,6 +12,22 @@
       "short": "Краткие карточки",
       "full": "Полные карточки"
     },
+    "order": {
+      "name": "Order by",
+      "year": "Year",
+      "like": "Likes",
+      "dislike": "Dislikes"
+    },
+    "relation": {
+      "name": "Filter by relation",
+      "fav": "Fav",
+      "like": "Like",
+      "seen": "Seen",
+      "dislike": "Dislike",
+      "want": "Want",
+      "ignore": "Ignore",
+      "have": "Have"
+    },
     "role": "Фильтровать по роли",
     "genre": "Фильтровать по жанру",
     "country": "Фильтровать по стране"

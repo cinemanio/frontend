@@ -12,6 +12,22 @@
       "short": "Short view",
       "full": "Full view"
     },
+    "order": {
+      "name": "Order by",
+      "year": "Year",
+      "like": "Likes",
+      "dislike": "Dislikes"
+    },
+    "relation": {
+      "name": "Filter by relation",
+      "fav": "Fav",
+      "like": "Like",
+      "seen": "Seen",
+      "dislike": "Dislike",
+      "want": "Want",
+      "ignore": "Ignore",
+      "have": "Have"
+    },
     "role": "Filter by role",
     "genre": "Filter by genre",
     "country": "Filter by country"

@@ -4,7 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 
-import { configObject } from 'components/ObjectListPage/ObjectList/ObjectList'
+import { getConfigObject } from 'components/ObjectListPage/ObjectList/ObjectList'
 import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
@@ -167,5 +167,5 @@ export const CountryQuery = gql`
 export default compose(
   graphql(RolesQuery, { name: 'roleData' }),
   graphql(CountryQuery, { name: 'countryData' }),
-  graphql(PersonsQuery, configObject)
+  graphql(PersonsQuery, getConfigObject())
 )(PersonsPage)

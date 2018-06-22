@@ -57,7 +57,7 @@ describe('Server Routes', () => {
   describe('Image app', () => {
     [
       ['movie', 'poster', poster, noMovie, noPoster],
-      ['person', 'photo', photo, noPerson, noPhoto]
+      ['person', 'photo', photo, noPerson, noPhoto],
     ].forEach(([object, image, imageResponse, noObjectResponse, noImageResponse]) => {
       const url = `/images/${object}/${image}/detail/TW92aWVOb2RlOjk2MDc%3D.jpg`
 
@@ -102,14 +102,20 @@ describe('Server Routes', () => {
 
   describe('Object(s) pages', () => {
     [
-      ['movie', 'movies', 'kids-1995-TW92aWVOb2RlOjk2MDc%3D', 'TW92aWVOb2RlOjk2MDc=', movies, movie, noMovie],
-      ['person', 'persons', 'david-fincher-UGVyc29uTm9kZToxNTQ%3D', 'UGVyc29uTm9kZToxNTQ=', persons, person, noPerson]
-    ].forEach(([object, objects, slug, id, objectsResponse, objectResponse, noResponse]) => {
+      [
+        'movie', 'movies', 'kids-1995-TW92aWVOb2RlOjk2MDc%3D', 'TW92aWVOb2RlOjk2MDc=', movies, movie, noMovie,
+        { orderBy: 'year' },
+      ],
+      [
+        'person', 'persons', 'david-fincher-UGVyc29uTm9kZToxNTQ%3D', 'UGVyc29uTm9kZToxNTQ=', persons, person, noPerson,
+        {},
+      ],
+    ].forEach(([object, objects, slug, id, objectsResponse, objectResponse, noResponse, defaults]) => {
       it(`should respond a ${objects} page`, async () => {
         const response = await client(objectsResponse).get(`/${objects}`)
         expect(requestsLog).toHaveLength(3)
         expect(requestsLog[2].operationName).toEqual(_.capitalize(objects))
-        expect(requestsLog[2].variables).toEqual({ after: '', first: 100 })
+        expect(requestsLog[2].variables).toEqual({ after: '', first: 100, ...defaults })
         expect(response.status).toEqual(200)
         expect(response.type).toEqual('text/html')
       })
@@ -137,7 +143,7 @@ describe('Server Routes', () => {
   describe('i18n. should translate to the language', () => {
     [
       ['ru', 'Фильмы'],
-      ['en', 'Movies']
+      ['en', 'Movies'],
     ].forEach(([lang, title]) => {
       it(`${lang} if cookie defined`, async () => {
         const cookie = `${settings.i18nCookieName}=${lang}`

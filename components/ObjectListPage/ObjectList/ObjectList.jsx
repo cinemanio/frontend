@@ -119,12 +119,13 @@ export default class ObjectList extends React.Component<Props> {
   }
 }
 
-export const configObject = {
+export const getConfigObject = (vars: Object) => ({
   options: (props: Object) => ({
     // $FlowFixMe
     variables: {
       first: 100,
-      after: ''
+      after: '',
+      ...vars,
     }
   }),
   force: true,
@@ -146,4 +147,4 @@ export const configObject = {
       })
     })
   })
-}
+})
