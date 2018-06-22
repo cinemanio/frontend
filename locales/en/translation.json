@@ -9,17 +9,19 @@
   },
   "filter": {
     "view": {
-      "short": "Short view",
-      "full": "Full view"
+      "sectionTitle": "Display",
+      "short": "Short",
+      "full": "Full"
     },
-    "order": {
-      "name": "Order by",
+    "orderBy": {
+      "sectionTitle": "Order by",
       "year": "Year",
       "like": "Likes",
       "dislike": "Dislikes"
     },
+    "sectionTitle": "Filter by",
     "relation": {
-      "name": "Filter by relation",
+      "sectionTitle": "Relation",
       "fav": "Fav",
       "like": "Like",
       "seen": "Seen",
@@ -28,9 +30,10 @@
       "ignore": "Ignore",
       "have": "Have"
     },
-    "role": "Filter by role",
-    "genre": "Filter by genre",
-    "country": "Filter by country"
+    "roles": "Roles",
+    "country": "Country",
+    "genres": "Genres",
+    "countries": "Countries"
   },
   "movie": {
     "info": {

@@ -41,7 +41,7 @@ export default class Relation extends React.Component<Props> {
     })
   }
 
-  updateCache = (cache, { data: { relate: { relation, count } } }) => {
+  updateCache = (cache: Object, { data: { relate: { relation, count } } }: Object) => {
     // eslint-disable-next-line no-underscore-dangle
     const type = this.props.object.__typename.replace('Node', '')
     cache.writeFragment({
@@ -56,9 +56,9 @@ export default class Relation extends React.Component<Props> {
     return (
       <Mutation mutation={this.props.mutation} update={this.updateCache}>
         {(relate, { data, loading }) => {
-          // console.log(loading)
+          const params = loading ? {} : { onClick: this.changeRelation(relate) }
           return (
-            <span className={this.props.className} onClick={this.changeRelation(relate)}>
+            <span className={this.props.className} {...params}>
               <span className={this.props.object.relation[this.props.code] ? 'active' : ''}>
                 <i/>{this.props.displayCounts ? this.props.object.relationsCount[this.props.code] : ''}
               </span>

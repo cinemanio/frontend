@@ -1,18 +1,18 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import SelectOrder from './SelectOrder'
+import SelectGeneric from './SelectGeneric'
 
-describe('Select View Component', () => {
+describe('Select Generic Component', () => {
   let element
   let wrapper
 
   beforeEach(() => {
-    element = (<SelectOrder
+    element = (<SelectGeneric
       list={[{ id: '1', name: '' }, { id: '2', name: '' }, { id: '3', name: '' }]}
+      code="view"
       filters={{ view: '1' }}
       setFilterState={jest.fn()}
-      t={jest.fn()}
     />)
     wrapper = shallow(element)
   })
@@ -25,6 +25,6 @@ describe('Select View Component', () => {
   it('should call setFilterState on change', () => {
     expect(element.props.setFilterState).not.toHaveBeenCalled()
     wrapper.find('select').simulate('change', { currentTarget: { value: '3' } })
-    expect(element.props.setFilterState).toHaveBeenCalledWith({ orderBy: '3' })
+    expect(element.props.setFilterState).toHaveBeenCalledWith({ view: '3' })
   })
 })

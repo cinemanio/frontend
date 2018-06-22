@@ -1,5 +1,5 @@
 import React from 'react'
-import _ from 'lodash'
+import Helmet from 'react-helmet'
 
 import { mountGraphql, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
 import MovieRelations, { MovieRelationCodes } from 'components/MoviePage/MovieRelations/MovieRelations'
@@ -30,10 +30,9 @@ describe('Movies Page Component', () => {
     })
 
     it('should render select filters', () => {
-      expect(wrapper.find('SelectView')).toHaveLength(1)
-      expect(wrapper.find('SelectView').find('option')).toHaveLength(2)
-      expect(wrapper.find('SelectOrder')).toHaveLength(1)
-      expect(wrapper.find('SelectOrder').find('option')).toHaveLength(3)
+      expect(wrapper.find('SelectGeneric')).toHaveLength(2)
+      expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(2)
+      expect(wrapper.find('SelectGeneric[code="orderBy"]').find('option')).toHaveLength(3)
       expect(wrapper.find('SelectFilter')).toHaveLength(3)
       expect(wrapper.find('SelectFilter[code="relation"]').find('option')).toHaveLength(MovieRelationCodes.length + 1)
       expect(wrapper.find('SelectFilter[code="genres"]').find('option')).toHaveLength(genres.data.list.length + 1)
@@ -45,6 +44,17 @@ describe('Movies Page Component', () => {
       expect(wrapper.find('ActiveFilters[code="genres"]').find('span')).toHaveLength(0)
       selectFilterChange(wrapper, 'SelectFilter[code="genres"]', 'R2VucmVOb2RlOjQ=')
       expect(wrapper.find('ActiveFilters[code="genres"]').find('span')).toHaveLength(1)
+    })
+
+    describe('i18n. en', () => {
+      beforeAll(() => i18nProps.i18n.changeLanguage('en'))
+      it('should render filter relation options', () => expect(wrapper.text()).toContain('Relation'))
+      it('should render page title', () => expect(Helmet.peek().title).toBe('Movies'))
+    })
+
+    describe('i18n. ru', () => {
+      beforeAll(() => i18nProps.i18n.changeLanguage('ru'))
+      it('should render page title', () => expect(Helmet.peek().title).toBe('Фильмы'))
     })
   })
 
@@ -74,6 +84,7 @@ describe('Movies Page Component', () => {
     })
 
     it('should send filter params in request', async () => {
+      global.console.warn = jest.fn()
       wrapper = await mountGraphql(
         <MoviesPage {...i18nProps}/>,
         [
@@ -106,7 +117,7 @@ describe('Movies Page Component', () => {
       selectFilterChange(wrapper, 'SelectFilter[code="genres"]', 'R2VucmVOb2RlOjQ=')
       selectFilterChange(wrapper, 'SelectFilter[code="countries"]', 'Q291bnRyeU5vZGU6MTE=')
       selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
-      selectFilterChange(wrapper, 'SelectOrder', 'relations_count__like')
+      selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'relations_count__like')
     })
 
     it('should change relation', async () => {
@@ -130,6 +141,7 @@ describe('Movies Page Component', () => {
     })
 
     it('should render message if no results in response', async () => {
+      i18nProps.i18n.changeLanguage('en')
       wrapper = await mountGraphql(<MoviesPage {...i18nProps}/>, [{ ...mockMovies, result: emptyResponse }])
       expect(wrapper.find('MovieShort')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such movies.')

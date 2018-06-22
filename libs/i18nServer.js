@@ -30,7 +30,10 @@ i18n
     detection: {
       order: ['cookie', 'header'],
       lookupCookie: settings.i18nCookieName,
-    }
+    },
+    saveMissing: true,
+    missingKeyHandler: (lng, ns, key, fallbackValue) =>
+      console.error(`Key "${key}" not found in namespace "${ns}" of language "${lng}"`)
   })
 
 export default i18n

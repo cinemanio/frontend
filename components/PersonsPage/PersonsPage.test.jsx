@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import _ from 'lodash'
 
 import { mountGraphql, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
@@ -43,6 +44,16 @@ describe('Persons Page Component', () => {
       selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
       expect(wrapper.find('ActiveFilters[code="roles"]').find('span')).toHaveLength(1)
     })
+
+    describe('i18n. en', () => {
+      beforeAll(() => i18nProps.i18n.changeLanguage('en'))
+      it('should render page title', () => expect(Helmet.peek().title).toBe('Persons'))
+    })
+
+    describe('i18n. ru', () => {
+      beforeAll(() => i18nProps.i18n.changeLanguage('ru'))
+      it('should render page title', () => expect(Helmet.peek().title).toBe('Персоны'))
+    })
   })
 
   describe('GraphQL', () => {
@@ -58,6 +69,7 @@ describe('Persons Page Component', () => {
     })
 
     it('should send filter params in request', async () => {
+      global.console.warn = jest.fn()
       wrapper = await mountGraphql(
         <PersonsPage {...i18nProps}/>,
         [
@@ -110,6 +122,7 @@ describe('Persons Page Component', () => {
     })
 
     it('should render message if no results in response', async () => {
+      i18nProps.i18n.changeLanguage('en')
       wrapper = await mountGraphql(<PersonsPage {...i18nProps}/>, [{ ...mockPersons, result: emptyResponse }])
       expect(wrapper.find('PersonShort')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such persons.')

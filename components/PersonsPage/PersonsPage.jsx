@@ -8,7 +8,7 @@ import { getConfigObject } from 'components/ObjectListPage/ObjectList/ObjectList
 import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
-import SelectView from 'components/ObjectListPage/SelectView/SelectView'
+import SelectGeneric from 'components/ObjectListPage/SelectGeneric/SelectGeneric'
 import i18n from 'libs/i18n'
 
 import PersonShort from './PersonShort/PersonShort'
@@ -71,14 +71,15 @@ class PersonsPage extends React.Component<Props, State> {
 
   renderFilters = (refreshList: Function) => (
     <div>
-      <SelectView
+      <SelectGeneric
+        code="view"
         list={this.viewOptions}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
       />
       <SelectFilter
         code="roles"
-        title={this.props.t('filter.role')}
+        title={this.props.t('filter.roles')}
         list={this.props.roleData.list}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}

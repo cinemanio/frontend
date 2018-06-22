@@ -1,24 +1,27 @@
 // @flow
+/* eslint-disable jsx-a11y/no-onchange */
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
 type Props = {
   list: Array<Object>,
   setFilterState: Function,
+  code: string,
 }
 
-export default class SelectView extends React.PureComponent<Props> {
+export default class SelectGeneric extends React.PureComponent<Props> {
   static defaultProps = {
-    list: []
+    list: [],
   }
 
   static propTypes = {
     setFilterState: PropTypes.func.isRequired,
-    list: PropTypes.array
+    list: PropTypes.array,
+    code: PropTypes.string.isRequired,
   }
 
   change = (e: SyntheticEvent<HTMLSelectElement>) => {
-    this.props.setFilterState({ view: e.currentTarget.value })
+    this.props.setFilterState({ [this.props.code]: e.currentTarget.value })
   }
 
   renderOptions() {
@@ -27,8 +30,7 @@ export default class SelectView extends React.PureComponent<Props> {
 
   render() {
     return (
-      // eslint-disable-next-line jsx-a11y/no-onchange
-      <select name="view" onChange={this.change}>
+      <select name={this.props.code} onChange={this.change}>
         {this.renderOptions()}
       </select>
     )

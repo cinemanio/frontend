@@ -9,8 +9,8 @@ import { getConfigObject } from 'components/ObjectListPage/ObjectList/ObjectList
 import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
-import SelectView from 'components/ObjectListPage/SelectView/SelectView'
-import SelectOrder from 'components/ObjectListPage/SelectOrder/SelectOrder'
+import FieldSection from 'components/ObjectListPage/FieldSection/FieldSection'
+import SelectGeneric from 'components/ObjectListPage/SelectGeneric/SelectGeneric'
 import { MovieRelationCodes } from 'components/MoviePage/MovieRelations/MovieRelations'
 import i18n from 'libs/i18n'
 
@@ -76,9 +76,9 @@ class MoviesPage extends React.Component<Props, State> {
 
   get orderByOptions() {
     return [
-      { id: 'year', name: this.props.t('filter.order.year') },
-      { id: 'relations_count__like', name: this.props.t('filter.order.like') },
-      { id: 'relations_count__dislike', name: this.props.t('filter.order.dislike') },
+      { id: 'year', name: this.props.t('filter.orderBy.year') },
+      { id: 'relations_count__like', name: this.props.t('filter.orderBy.like') },
+      { id: 'relations_count__dislike', name: this.props.t('filter.orderBy.dislike') },
     ]
   }
 
@@ -101,40 +101,47 @@ class MoviesPage extends React.Component<Props, State> {
 
   renderFilters = (refreshList: Function) => (
     <div>
-      <SelectView
-        list={this.viewOptions}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-      />
-      <SelectOrder
-        list={this.orderByOptions}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-        t={this.props.t}
-      />
-      <SelectFilter
-        code="relation"
-        title={this.props.t('filter.relation.name')}
-        list={this.relationFilterOptions}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-      />
-      <SelectFilter
-        code="genres"
-        title={this.props.t('filter.genre')}
-        list={this.props.genreData.list}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-        multiple
-      />
-      <SelectFilter
-        code="countries"
-        title={this.props.t('filter.country')}
-        list={this.props.countryData.list}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-        multiple
-      />
+      <FieldSection title={this.props.t('filter.view.sectionTitle')}>
+        <SelectGeneric
+          code="view"
+          list={this.viewOptions}
+          filters={this.state}
+          setFilterState={params => this.setState(params, refreshList)}
+        />
+      </FieldSection>
+      <FieldSection title={this.props.t('filter.orderBy.sectionTitle')}>
+        <SelectGeneric
+          code="orderBy"
+          list={this.orderByOptions}
+          filters={this.state}
+          setFilterState={params => this.setState(params, refreshList)}
+        />
+      </FieldSection>
+      <FieldSection title={this.props.t('filter.sectionTitle')}>
+        <SelectFilter
+          code="relation"
+          title={this.props.t('filter.relation.sectionTitle')}
+          list={this.relationFilterOptions}
+          filters={this.state}
+          setFilterState={params => this.setState(params, refreshList)}
+        />
+        <SelectFilter
+          code="genres"
+          title={this.props.t('filter.genres')}
+          list={this.props.genreData.list}
+          filters={this.state}
+          setFilterState={params => this.setState(params, refreshList)}
+          multiple
+        />
+        <SelectFilter
+          code="countries"
+          title={this.props.t('filter.countries')}
+          list={this.props.countryData.list}
+          filters={this.state}
+          setFilterState={params => this.setState(params, refreshList)}
+          multiple
+        />
+      </FieldSection>
     </div>
   )
 
