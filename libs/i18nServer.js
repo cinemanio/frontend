@@ -8,32 +8,18 @@ i18n
   .use(Backend)
   .use(koaI18nextDetector)
   .init({
-    debug: settings.debug,
+    ...settings.i18n,
     preload: settings.languages.map(([lang]) => lang),
-    // fallbackLng: 'en',
     initImmediate: false,
     backend: {
       loadPath: 'locales/{{lng}}/{{ns}}.json',
       addPath: 'locales/{{lng}}/{{ns}}.missing.json',
       jsonIndent: 2
     },
-    interpolation: {
-      escapeValue: false // not needed for react!!
-    },
-    // react i18next special options (optional)
-    react: {
-      wait: false,
-      bindI18n: 'languageChanged loaded',
-      bindStore: 'added removed',
-      nsMode: 'default'
-    },
     detection: {
       order: ['cookie', 'header'],
       lookupCookie: settings.i18nCookieName,
-    },
-    saveMissing: true,
-    missingKeyHandler: (lng, ns, key, fallbackValue) =>
-      console.error(`Key "${key}" not found in namespace "${ns}" of language "${lng}"`)
+    }
   })
 
 export default i18n
