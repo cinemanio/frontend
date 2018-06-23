@@ -2,11 +2,11 @@
 import { setContext } from 'apollo-link-context';
 
 export default setContext((_, { headers }) => {
-  const token = '';
+  // const token = '';
   return {
     headers: {
       ...headers,
-      authorization: token ? `JWT ${token}` : '',
+      // authorization: token ? `JWT ${token}` : '',
     }
   }
 });
