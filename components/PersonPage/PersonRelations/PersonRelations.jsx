@@ -8,7 +8,7 @@ import Relation from 'components/Relation/Relation'
 
 import './PersonRelations.scss'
 
-export const PersonRelationsCodes = ['fav', 'like', 'dislike']
+const codes = ['fav', 'like', 'dislike']
 
 type Props = { person: Object }
 
@@ -17,9 +17,11 @@ export default class PersonRelations extends React.Component<Props> {
     person: PropTypes.object.isRequired,
   }
 
+  static codes = codes
+
   static fragments = {
-    person: fragment('Person', PersonRelationsCodes),
-    relate: mutation('Person', PersonRelationsCodes),
+    person: fragment('Person', codes),
+    relate: mutation('Person', codes),
   }
 
   modifyOptimisticResponse = (response: Object, code: string, value: boolean) => {
@@ -30,7 +32,7 @@ export default class PersonRelations extends React.Component<Props> {
   }
 
   render(): Array<React.Fragment> {
-    return PersonRelationsCodes.map(code =>
+    return codes.map(code =>
       (<Relation
         key={code}
         styleName={code}

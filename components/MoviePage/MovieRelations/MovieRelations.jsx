@@ -8,7 +8,7 @@ import Relation from 'components/Relation/Relation'
 
 import './MovieRelations.scss'
 
-export const MovieRelationCodes = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
+const codes = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
 
 type Props = { movie: Object }
 
@@ -17,9 +17,11 @@ export default class MovieRelations extends React.Component<Props> {
     movie: PropTypes.object.isRequired,
   }
 
+  static codes = codes
+
   static fragments = {
-    movie: fragment('Movie', MovieRelationCodes),
-    relate: mutation('Movie', MovieRelationCodes),
+    movie: fragment('Movie', codes),
+    relate: mutation('Movie', codes),
   }
 
   modifyOptimisticResponse = (response: Object, code: string, value: boolean) => {
@@ -31,7 +33,7 @@ export default class MovieRelations extends React.Component<Props> {
   }
 
   render(): Array<React.Fragment> {
-    return MovieRelationCodes.map(code =>
+    return codes.map(code =>
       (<Relation
         key={code}
         styleName={code}

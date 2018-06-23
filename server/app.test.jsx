@@ -104,11 +104,11 @@ describe('Server Routes', () => {
     [
       [
         'movie', 'movies', 'kids-1995-TW92aWVOb2RlOjk2MDc%3D', 'TW92aWVOb2RlOjk2MDc=', movies, movie, noMovie,
-        { orderBy: 'year' },
+        { orderBy: 'relations_count__like' },
       ],
       [
         'person', 'persons', 'david-fincher-UGVyc29uTm9kZToxNTQ%3D', 'UGVyc29uTm9kZToxNTQ=', persons, person, noPerson,
-        {},
+        { orderBy: 'relations_count__like' },
       ],
     ].forEach(([object, objects, slug, id, objectsResponse, objectResponse, noResponse, defaults]) => {
       it(`should respond a ${objects} page`, async () => {

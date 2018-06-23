@@ -3,13 +3,16 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 
 type Props = {
-  children: Object,
+  children: Array<React.Fragment> | React.Fragment,
   title: string,
 }
 
 export default class FieldSection extends React.PureComponent<Props> {
   static propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.array,
+    ]).isRequired,
     title: PropTypes.string.isRequired,
   }
 

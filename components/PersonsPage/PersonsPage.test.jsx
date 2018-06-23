@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import _ from 'lodash'
 
 import { mountGraphql, mockAutoSizer, selectFilterChange } from 'tests/helpers'
 import PersonRelations from 'components/PersonPage/PersonRelations/PersonRelations'
@@ -22,9 +21,7 @@ describe('Persons Page Component', () => {
   describe('Unit', () => {
     beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
-      const data = _.clone(response.data)
-      data.fetchMore = jest.fn()
-      data.loadNextPage = jest.fn()
+      const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: jest.fn() }
       element = (<PersonsPage.WrappedComponent
         data={data} roleData={roles.data} countryData={countries.data}/>)
       wrapper = await mountGraphql(element)
@@ -35,13 +32,17 @@ describe('Persons Page Component', () => {
     })
 
     it('should render select filters', () => {
-      expect(wrapper.find('SelectFilter')).toHaveLength(2)
+      expect(wrapper.find('SelectGeneric')).toHaveLength(2)
+      expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(1)
+      expect(wrapper.find('SelectGeneric[code="orderBy"]').find('option')).toHaveLength(2)
+      expect(wrapper.find('SelectFilter')).toHaveLength(3)
+      expect(wrapper.find('SelectFilter[code="relation"]').find('option')).toHaveLength(PersonRelations.codes.length + 1)
       expect(wrapper.find('SelectFilter[code="roles"]').find('option')).toHaveLength(roles.data.list.length + 1)
       expect(wrapper.find('SelectFilter[code="country"]').find('option')).toHaveLength(countries.data.list.length + 1)
     })
 
     it('should render active filter, when filter selected', () => {
-      expect(wrapper.find('ActiveFilters')).toHaveLength(2)
+      expect(wrapper.find('ActiveFilters')).toHaveLength(3)
       expect(wrapper.find('ActiveFilters[code="roles"]').find('span')).toHaveLength(0)
       selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
       expect(wrapper.find('ActiveFilters[code="roles"]').find('span')).toHaveLength(1)
@@ -59,9 +60,22 @@ describe('Persons Page Component', () => {
   })
 
   describe('GraphQL', () => {
-    const mockPersons = { request: { query: PersonsQuery, variables: { first: 100, after: '' } }, result: response }
+    const mockPersons = {
+      request: { query: PersonsQuery, variables: { first: 100, after: '', orderBy: 'relations_count__like' } },
+      result: response,
+    }
     const mockCountries = { request: { query: CountryQuery }, result: countries }
     const mockRoles = { request: { query: RolesQuery }, result: roles }
+    const mockWithParams = params => ({
+      ...mockPersons,
+      request: {
+        ...mockPersons.request,
+        variables: {
+          ...mockPersons.request.variables,
+          ...params
+        },
+      },
+    })
 
     beforeAll(() => i18nClient.changeLanguage('en'))
 
@@ -78,31 +92,32 @@ describe('Persons Page Component', () => {
         <PersonsPage/>,
         [
           mockPersons, mockCountries, mockRoles,
-          {
-            ...mockPersons,
-            request: {
-              ...mockPersons.request,
-              variables: {
-                ...mockPersons.request.variables,
-                roles: ['Um9sZU5vZGU6MTE='],
-                country: '',
-              },
-            },
-          },
-          {
-            ...mockPersons,
-            request: {
-              ...mockPersons.request,
-              variables: {
-                ...mockPersons.request.variables,
-                roles: ['Um9sZU5vZGU6MTE='],
-                country: 'Q291bnRyeU5vZGU6MTE=',
-              },
-            },
-          },
+          mockWithParams({
+            relation: null,
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: '',
+          }),
+          mockWithParams({
+            relation: null,
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: 'Q291bnRyeU5vZGU6MTE=',
+          }),
+          mockWithParams({
+            relation: 'fav',
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: 'Q291bnRyeU5vZGU6MTE=',
+          }),
+          mockWithParams({
+            orderBy: 'relations_count__dislike',
+            relation: 'fav',
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: 'Q291bnRyeU5vZGU6MTE=',
+          }),
         ])
       selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
       selectFilterChange(wrapper, 'SelectFilter[code="country"]', 'Q291bnRyeU5vZGU6MTE=')
+      selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
+      selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'relations_count__dislike')
     })
 
     it('should change relation', async () => {
@@ -113,7 +128,7 @@ describe('Persons Page Component', () => {
           {
             request: {
               query: PersonRelations.fragments.relate,
-              variables: { id: response.data.list.edges[0].person.id, code: 'fav' }
+              variables: { id: response.data.list.edges[0].person.id, code: 'fav' },
             },
             result: { data: mutationResponse(response.data.list.edges[0].person, 'fav') },
           },

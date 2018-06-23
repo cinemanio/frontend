@@ -9,14 +9,13 @@ import { getConfigObject } from 'components/ObjectListPage/ObjectList/ObjectList
 import ObjectListPage from 'components/ObjectListPage/ObjectListPage'
 import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters'
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
-import FieldSection from 'components/ObjectListPage/FieldSection/FieldSection'
 import SelectGeneric from 'components/ObjectListPage/SelectGeneric/SelectGeneric'
-import { MovieRelationCodes } from 'components/MoviePage/MovieRelations/MovieRelations'
+import FieldSection from 'components/ObjectListPage/FieldSection/FieldSection'
+import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import i18n from 'libs/i18n'
 
 import MovieShort from './MovieShort/MovieShort'
 import MovieFull from './MovieFull/MovieFull'
-import './MoviesPage.scss'
 
 type Props = {
   data: Object,
@@ -44,7 +43,7 @@ class MoviesPage extends React.Component<Props, State> {
   }
 
   static defaults = {
-    orderBy: 'year',
+    orderBy: 'relations_count__like',
   }
 
   constructor(props: Object) {
@@ -70,7 +69,7 @@ class MoviesPage extends React.Component<Props, State> {
   get viewOptions() {
     return [
       { id: 'short', name: this.context.i18n.t('filter.view.short') },
-      { id: 'full', name: this.context.i18n.t('filter.view.full') },
+      // { id: 'full', name: this.context.i18n.t('filter.view.full') },
     ]
   }
 
@@ -83,7 +82,7 @@ class MoviesPage extends React.Component<Props, State> {
   }
 
   get relationFilterOptions() {
-    return MovieRelationCodes.map(code => ({
+    return MovieRelations.codes.map(code => ({
       id: code,
       [`name${_.capitalize(this.context.i18n.language)}`]: this.context.i18n.t(`filter.relation.${code}`),
     }))
@@ -190,11 +189,11 @@ export const MoviesQuery = gql`
   query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String) {
     list: movies(
       first: $first, 
-      after: $after, 
-      genres: $genres, 
-      countries: $countries, 
+      after: $after,
+      genres: $genres,
+      countries: $countries,
       relation: $relation,
-      orderBy: $orderBy 
+      orderBy: $orderBy
     ) {
       totalCount
       edges {

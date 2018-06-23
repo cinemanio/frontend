@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import { mountGraphql, mockAutoSizer, selectFilterChange } from 'tests/helpers'
-import MovieRelations, { MovieRelationCodes } from 'components/MoviePage/MovieRelations/MovieRelations'
+import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
 
@@ -33,10 +33,10 @@ describe('Movies Page Component', () => {
 
     it('should render select filters', () => {
       expect(wrapper.find('SelectGeneric')).toHaveLength(2)
-      expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(2)
+      expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(1)
       expect(wrapper.find('SelectGeneric[code="orderBy"]').find('option')).toHaveLength(3)
       expect(wrapper.find('SelectFilter')).toHaveLength(3)
-      expect(wrapper.find('SelectFilter[code="relation"]').find('option')).toHaveLength(MovieRelationCodes.length + 1)
+      expect(wrapper.find('SelectFilter[code="relation"]').find('option')).toHaveLength(MovieRelations.codes.length + 1)
       expect(wrapper.find('SelectFilter[code="genres"]').find('option')).toHaveLength(genres.data.list.length + 1)
       expect(wrapper.find('SelectFilter[code="countries"]').find('option')).toHaveLength(countries.data.list.length + 1)
     })
@@ -62,7 +62,7 @@ describe('Movies Page Component', () => {
 
   describe('GraphQL', () => {
     const mockMovies = {
-      request: { query: MoviesQuery, variables: { first: 100, after: '', orderBy: 'year' } },
+      request: { query: MoviesQuery, variables: { first: 100, after: '', orderBy: 'relations_count__like' } },
       result: response,
     }
     const mockCountries = { request: { query: CountryQuery }, result: countries }
@@ -97,31 +97,28 @@ describe('Movies Page Component', () => {
             relation: null,
             genres: ['R2VucmVOb2RlOjQ='],
             countries: [],
-            orderBy: 'year',
           }),
           mockWithParams({
             relation: null,
             genres: ['R2VucmVOb2RlOjQ='],
             countries: ['Q291bnRyeU5vZGU6MTE='],
-            orderBy: 'year',
+          }),
+          mockWithParams({
+            relation: 'fav',
+            genres: ['R2VucmVOb2RlOjQ='],
+            countries: ['Q291bnRyeU5vZGU6MTE='],
           }),
           mockWithParams({
             relation: 'fav',
             genres: ['R2VucmVOb2RlOjQ='],
             countries: ['Q291bnRyeU5vZGU6MTE='],
             orderBy: 'year',
-          }),
-          mockWithParams({
-            relation: 'fav',
-            genres: ['R2VucmVOb2RlOjQ='],
-            countries: ['Q291bnRyeU5vZGU6MTE='],
-            orderBy: 'relations_count__like',
           }),
         ])
       selectFilterChange(wrapper, 'SelectFilter[code="genres"]', 'R2VucmVOb2RlOjQ=')
       selectFilterChange(wrapper, 'SelectFilter[code="countries"]', 'Q291bnRyeU5vZGU6MTE=')
       selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
-      selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'relations_count__like')
+      selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'year')
     })
 
     it('should change relation', async () => {
@@ -145,7 +142,6 @@ describe('Movies Page Component', () => {
     })
 
     it('should render message if no results in response', async () => {
-      i18nClient.changeLanguage('en')
       wrapper = await mountGraphql(<MoviesPage/>, [{ ...mockMovies, result: emptyResponse }])
       expect(wrapper.find('MovieShort')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such movies.')
