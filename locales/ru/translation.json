@@ -10,8 +10,8 @@
   "filter": {
     "view": {
       "sectionTitle": "Показывать",
-      "short": "Краткие карточки",
-      "full": "Полные карточки"
+      "short": "Кратко",
+      "full": "Полно"
     },
     "orderBy": {
       "sectionTitle": "Сортировать",
@@ -22,17 +22,17 @@
     "sectionTitle": "Фильтровать по",
     "relation": {
       "sectionTitle": "Отношению",
-      "fav": "Fav",
-      "like": "Like",
-      "seen": "Seen",
-      "dislike": "Dislike",
-      "want": "Want",
-      "ignore": "Ignore",
-      "have": "Have"
+      "fav": "Любимые",
+      "like": "Нравятся",
+      "seen": "Видел",
+      "dislike": "Не нравятся",
+      "want": "Хочу посмотреть",
+      "ignore": "Не хочу смотреть",
+      "have": "Есть в колекции"
     },
     "roles": "Ролям",
     "country": "Стране",
-    "genres": "Жарнам",
+    "genres": "Жанрам",
     "countries": "Странам"
   },
   "movie": {
