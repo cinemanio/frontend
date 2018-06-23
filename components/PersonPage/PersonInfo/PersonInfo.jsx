@@ -11,7 +11,6 @@ import './PersonInfo.scss'
 
 type Props = {
   person: Object,
-  i18n: Object,
   roles: ?boolean,
   dates: ?boolean,
   country: ?boolean,
@@ -28,11 +27,14 @@ export default class PersonInfo extends React.Component<Props> {
 
   static propTypes = {
     person: PropTypes.object.isRequired,
-    i18n: PropTypes.object.isRequired,
     roles: PropTypes.bool,
     dates: PropTypes.bool,
     country: PropTypes.bool,
     all: PropTypes.bool,
+  }
+
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -77,7 +79,7 @@ export default class PersonInfo extends React.Component<Props> {
   }
 
   formatDate = (date: string) => {
-    const fecha = getFecha(this.props.i18n.language)
+    const fecha = getFecha(this.context.i18n.language)
     return fecha.format(fecha.parse(date, 'YYYY-MM-DD'), 'mediumDate')
   }
 

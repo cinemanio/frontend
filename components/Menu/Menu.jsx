@@ -7,7 +7,7 @@ import routes from 'components/App/routes'
 
 import './Menu.scss'
 
-type Props = { active?: string, t: Function }
+type Props = { active?: string }
 
 export default class Menu extends React.PureComponent<Props> {
   static defaultProps = {
@@ -16,13 +16,16 @@ export default class Menu extends React.PureComponent<Props> {
 
   static propTypes = {
     active: PropTypes.string,
-    t: PropTypes.func.isRequired
+  }
+
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired,
   }
 
   get menu(): Array<Array<string>> {
     return [
-      ['movie', this.props.t('menu.movies')],
-      ['person', this.props.t('menu.persons')]
+      ['movie', this.context.i18n.t('menu.movies')],
+      ['person', this.context.i18n.t('menu.persons')]
     ]
   }
 

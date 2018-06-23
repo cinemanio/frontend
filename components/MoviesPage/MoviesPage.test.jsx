@@ -1,9 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountGraphql, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
+import { mountGraphql, mockAutoSizer, selectFilterChange } from 'tests/helpers'
 import MovieRelations, { MovieRelationCodes } from 'components/MoviePage/MovieRelations/MovieRelations'
 import mutationResponse from 'components/Relation/mutationResponse'
+import i18nClient from 'libs/i18nClient'
 
 import MoviesPage, { MoviesQuery, GenresQuery, CountryQuery } from './MoviesPage'
 import response from './fixtures/response.json'
@@ -18,10 +19,11 @@ describe('Movies Page Component', () => {
   beforeAll(mockAutoSizer)
 
   describe('Unit', () => {
+    beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
       const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: jest.fn() }
       element = (<MoviesPage.WrappedComponent
-        data={data} genreData={genres.data} countryData={countries.data} {...i18nProps}/>)
+        data={data} genreData={genres.data} countryData={countries.data}/>)
       wrapper = await mountGraphql(element)
     })
 
@@ -47,13 +49,13 @@ describe('Movies Page Component', () => {
     })
 
     describe('i18n. en', () => {
-      beforeAll(() => i18nProps.i18n.changeLanguage('en'))
+      beforeAll(() => i18nClient.changeLanguage('en'))
       it('should render filter relation options', () => expect(wrapper.text()).toContain('Relation'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Movies'))
     })
 
     describe('i18n. ru', () => {
-      beforeAll(() => i18nProps.i18n.changeLanguage('ru'))
+      beforeAll(() => i18nClient.changeLanguage('ru'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Фильмы'))
     })
   })
@@ -76,8 +78,10 @@ describe('Movies Page Component', () => {
       },
     })
 
+    beforeAll(() => i18nClient.changeLanguage('en'))
+
     it('should render movies', async () => {
-      wrapper = await mountGraphql(<MoviesPage {...i18nProps}/>, [mockMovies, mockCountries, mockGenres])
+      wrapper = await mountGraphql(<MoviesPage/>, [mockMovies, mockCountries, mockGenres])
       expect(wrapper.find('MovieShort').length).toBeGreaterThan(0)
       expect(wrapper.find('SelectFilter[code="genres"]').find('option').length).toBeGreaterThan(1)
       expect(wrapper.find('SelectFilter[code="countries"]').find('option').length).toBeGreaterThan(1)
@@ -86,7 +90,7 @@ describe('Movies Page Component', () => {
     it('should send filter params in request', async () => {
       global.console.warn = jest.fn()
       wrapper = await mountGraphql(
-        <MoviesPage {...i18nProps}/>,
+        <MoviesPage/>,
         [
           mockMovies, mockCountries, mockGenres,
           mockWithParams({
@@ -122,7 +126,7 @@ describe('Movies Page Component', () => {
 
     it('should change relation', async () => {
       wrapper = await mountGraphql(
-        <MoviesPage {...i18nProps}/>,
+        <MoviesPage/>,
         [
           mockMovies, mockCountries, mockGenres,
           {
@@ -141,8 +145,8 @@ describe('Movies Page Component', () => {
     })
 
     it('should render message if no results in response', async () => {
-      i18nProps.i18n.changeLanguage('en')
-      wrapper = await mountGraphql(<MoviesPage {...i18nProps}/>, [{ ...mockMovies, result: emptyResponse }])
+      i18nClient.changeLanguage('en')
+      wrapper = await mountGraphql(<MoviesPage/>, [{ ...mockMovies, result: emptyResponse }])
       expect(wrapper.find('MovieShort')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such movies.')
     })

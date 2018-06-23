@@ -10,12 +10,15 @@ import i18n from 'libs/i18n'
 
 import './MovieCast.scss'
 
-type Props = { movie: Object, t: Function }
+type Props = { movie: Object }
 
 export default class MovieCast extends React.Component<Props> {
   static propTypes = {
     movie: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired
+  }
+
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -40,7 +43,7 @@ export default class MovieCast extends React.Component<Props> {
         }      
       }
       ${PersonLink.fragments.person}      
-    `
+    `,
   }
 
   // TODO: avoid using role names for filtering
@@ -85,7 +88,7 @@ export default class MovieCast extends React.Component<Props> {
           </PersonLink>
           <div>{node[i18n.f('name')] || node.role[i18n.f('name')]}</div>
         </div>
-      </div>)
+      </div>),
     )
   }
 
@@ -103,8 +106,8 @@ export default class MovieCast extends React.Component<Props> {
     return (
       <div styleName="box">
         {this.renderBlock('', this.getPersons(this.filterCreators, this.sortCreators))}
-        {this.renderBlock(this.props.t('movie.cast.cast'), this.getPersons(this.filterCast))}
-        {this.renderBlock(this.props.t('movie.cast.crew'), this.getPersons(this.filterCrew))}
+        {this.renderBlock(this.context.i18n.t('movie.cast.cast'), this.getPersons(this.filterCast))}
+        {this.renderBlock(this.context.i18n.t('movie.cast.crew'), this.getPersons(this.filterCrew))}
       </div>
     )
   }

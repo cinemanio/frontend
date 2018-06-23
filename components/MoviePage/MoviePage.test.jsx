@@ -1,8 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountGraphql, i18nProps } from 'tests/helpers'
+import { mountGraphql } from 'tests/helpers'
 import mutationResponse from 'components/Relation/mutationResponse'
+import i18nClient from 'libs/i18nClient'
 
 import MoviePage, { MovieQuery } from './MoviePage'
 import MovieRelations from './MovieRelations/MovieRelations'
@@ -14,9 +15,10 @@ describe('Movie Page Component', () => {
   let wrapper
 
   describe('Unit', () => {
+    beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
       element = (<MoviePage.WrappedComponent
-        params={{ movieId: '' }} data={response.data} {...i18nProps}/>)
+        params={{ movieId: '' }} data={response.data}/>)
       wrapper = await mountGraphql(element)
     })
 
@@ -24,7 +26,7 @@ describe('Movie Page Component', () => {
     it('should render movie Kinopoisk rating', () => expect(wrapper.text()).toContain('6.336'))
 
     describe('i18n. en', () => {
-      beforeAll(() => i18nProps.i18n.changeLanguage('en'))
+      beforeAll(() => i18nClient.changeLanguage('en'))
 
       it('should render movie title', () => expect(wrapper.find('h1').text()).toBe('Kids'))
       it('should not render movie original title', () => expect(wrapper.find('h2').text()).toBe(''))
@@ -39,7 +41,7 @@ describe('Movie Page Component', () => {
     })
 
     describe('i18n. ru', () => {
-      beforeAll(() => i18nProps.i18n.changeLanguage('ru'))
+      beforeAll(() => i18nClient.changeLanguage('ru'))
 
       it('should render movie title', () => expect(wrapper.find('h1').text()).toBe('Детки'))
       it('should not render movie original title', () => expect(wrapper.find('h2').text()).toBe('Kids'))
@@ -62,14 +64,14 @@ describe('Movie Page Component', () => {
 
     it('should render movie page', async () => {
       wrapper = await mountGraphql(
-        <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>, [mockMovie])
+        <MoviePage match={{ params: { slug: response.data.movie.id } }}/>, [mockMovie])
       expect(wrapper.find('MovieInfo')).toHaveLength(1)
       expect(wrapper.find('MovieImage')).toHaveLength(1)
     })
 
     it('should render 404 page when response empty', async () => {
       wrapper = await mountGraphql(
-        <MoviePage match={{ params: { slug: '' } }} {...i18nProps}/>,
+        <MoviePage match={{ params: { slug: '' } }}/>,
         [{
           request: { query: MovieQuery, variables: { movieId: '' } },
           result: emptyResponse,
@@ -79,7 +81,7 @@ describe('Movie Page Component', () => {
 
     it('should change relation and relations count', async () => {
       wrapper = await mountGraphql(
-        <MoviePage match={{ params: { slug: response.data.movie.id } }} {...i18nProps}/>,
+        <MoviePage match={{ params: { slug: response.data.movie.id } }}/>,
         [
           mockMovie,
           {

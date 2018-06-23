@@ -11,12 +11,15 @@ import i18n from 'libs/i18n'
 
 import './PersonCareer.scss'
 
-type Props = { person: Object, t: Function }
+type Props = { person: Object }
 
 export default class PersonCast extends React.Component<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired
+  }
+
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -79,7 +82,7 @@ export default class PersonCast extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
-        <Block title={this.props.t('person.career.title')}>
+        <Block title={this.context.i18n.t('person.career.title')}>
           <div styleName="career">
             {this.renderCareer()}
           </div>

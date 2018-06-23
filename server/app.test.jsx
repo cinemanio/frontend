@@ -43,7 +43,7 @@ describe('Server Routes', () => {
   })
 
   it('should respond 404 error page', async () => {
-    const response = await client().get('/404')
+    const response = await client().get('/404').set('Accept-Language', 'en')
     expect(response.status).toEqual(404)
     expect(response.type).toEqual('text/html')
   })
@@ -112,7 +112,7 @@ describe('Server Routes', () => {
       ],
     ].forEach(([object, objects, slug, id, objectsResponse, objectResponse, noResponse, defaults]) => {
       it(`should respond a ${objects} page`, async () => {
-        const response = await client(objectsResponse).get(`/${objects}`)
+        const response = await client(objectsResponse).get(`/${objects}`).set('Accept-Language', 'en')
         expect(requestsLog).toHaveLength(3)
         expect(requestsLog[2].operationName).toEqual(_.capitalize(objects))
         expect(requestsLog[2].variables).toEqual({ after: '', first: 100, ...defaults })
@@ -121,7 +121,7 @@ describe('Server Routes', () => {
       })
 
       it(`should respond a ${object} page`, async () => {
-        const response = await client(objectResponse).get(`/${objects}/${slug}`)
+        const response = await client(objectResponse).get(`/${objects}/${slug}`).set('Accept-Language', 'en')
         expect(requestsLog).toHaveLength(1)
         expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
         expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: id })
@@ -130,7 +130,7 @@ describe('Server Routes', () => {
       })
 
       it(`should not respond a wrong ${object} page`, async () => {
-        const response = await client(noResponse).get(`/${objects}/none`)
+        const response = await client(noResponse).get(`/${objects}/none`).set('Accept-Language', 'en')
         expect(requestsLog).toHaveLength(1)
         expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
         expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: 'none' })

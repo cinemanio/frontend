@@ -10,7 +10,7 @@ i18n
   .init({
     debug: settings.debug,
     preload: settings.languages.map(([lang]) => lang),
-    fallbackLng: 'en',
+    // fallbackLng: 'en',
     initImmediate: false,
     backend: {
       loadPath: 'locales/{{lng}}/{{ns}}.json',

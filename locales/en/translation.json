@@ -42,8 +42,8 @@
     },
     "sites": {
       "title": "This movie on",
-      "kinopoisk": "kinopoisk.ru",
       "imdbRating": "IMDb rating",
+      "kinopoisk": "kinopoisk.ru",
       "kinopoiskRating": "Kinopoisk.ru rating"
     },
     "cast": {

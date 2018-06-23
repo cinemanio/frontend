@@ -16,13 +16,11 @@ import MovieSites from './MovieSites/MovieSites'
 
 import './MoviePage.scss'
 
-type Props = { data: Object, t: Function, i18n: Object }
+type Props = { data: Object }
 
 class MoviePage extends React.Component<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired
   }
 
   isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.title
@@ -34,16 +32,16 @@ class MoviePage extends React.Component<Props> {
       </div>
       <h1>{movie[i18n.f('title')]}</h1>
       <h2>{this.isTitlesEqual(movie) ? '' : movie.title}</h2>
-      <MovieInfo movie={movie} t={this.props.t} i18n={this.props.i18n} all/>
+      <MovieInfo movie={movie} all/>
       <div className="row">
         <div className="col-lg-2">
           <div styleName="image">
             <MovieImage movie={movie} type="detail"/>
           </div>
-          <MovieSites movie={movie} t={this.props.t}/>
+          <MovieSites movie={movie}/>
         </div>
         <div className="col-lg-10">
-          <MovieCast movie={movie} t={this.props.t}/>
+          <MovieCast movie={movie}/>
         </div>
       </div>
     </div>
@@ -90,9 +88,9 @@ export const MovieQuery = gql`
 const configObject = {
   options: ({ match: { params: { slug } } }: Object) => ({
     variables: {
-      movieId: getIdFromSlug(slug)
-    }
-  })
+      movieId: getIdFromSlug(slug),
+    },
+  }),
 }
 
 export default graphql(MovieQuery, configObject)(MoviePage)

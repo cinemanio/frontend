@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { mountRouter, i18nProps } from 'tests/helpers'
+import { mountRouter } from 'tests/helpers'
+import i18nClient from 'libs/i18nClient'
 
 import PersonCareer from './PersonCareer'
 import { data } from '../fixtures/response.json'
@@ -17,7 +18,8 @@ describe('Person Career Component', () => {
       .text()
 
   beforeEach(() => {
-    element = <PersonCareer person={data.person} {...i18nProps}/>
+    i18nClient.changeLanguage('en')
+    element = <PersonCareer person={data.person}/>
     wrapper = mountRouter(element)
   })
 

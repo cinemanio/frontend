@@ -11,13 +11,11 @@ import i18n from 'libs/i18n'
 
 import './MovieShort.scss'
 
-type Props = { movie: Object, t: Function, i18n: Object }
+type Props = { movie: Object }
 
 export default class MovieShort extends React.Component<Props> {
   static propTypes = {
     movie: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired
   }
 
   static fragments = {
@@ -53,7 +51,7 @@ export default class MovieShort extends React.Component<Props> {
             {this.props.movie[i18n.f('title')]}
           </MovieLink>
           <div styleName="subtitle">{this.isTitlesEqual(this.props.movie) ? '' : this.props.movie.title}</div>
-          <MovieInfo movie={this.props.movie} t={this.props.t} i18n={this.props.i18n} year genres/>
+          <MovieInfo movie={this.props.movie} year genres/>
         </div>
       </div>
     )

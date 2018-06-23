@@ -11,7 +11,7 @@ i18n
   .use(reactI18nextModule) // if not using I18nextProvider
   .init({
     debug: settings.debug,
-    fallbackLng: 'en',
+    // fallbackLng: 'en',
     resources: {
       ru: { translation: ru },
       en: { translation: en }

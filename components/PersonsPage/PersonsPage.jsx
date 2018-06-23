@@ -17,8 +17,6 @@ type Props = {
   data: Object,
   roleData: Object,
   countryData: Object,
-  t: Function,
-  i18n: Object,
 }
 
 type State = {
@@ -32,8 +30,10 @@ class PersonsPage extends React.Component<Props, State> {
     data: PropTypes.object.isRequired,
     roleData: PropTypes.object.isRequired,
     countryData: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired
+  }
+
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired,
   }
 
   constructor(props: Object) {
@@ -54,16 +54,16 @@ class PersonsPage extends React.Component<Props, State> {
 
   get viewOptions() {
     return [
-      { id: 'short', name: this.props.t('filter.view.short') },
-      // { id: 'full', name: this.props.t('filter.view.full') }
+      { id: 'short', name: this.context.i18n.t('filter.view.short') },
+      // { id: 'full', name: this.context.i18n.t('filter.view.full') }
     ]
   }
 
   renderPerson = ({ person }) => {
     if (this.state.view === 'short') {
-      return <PersonShort person={person} t={this.props.t} i18n={this.props.i18n}/>
+      return <PersonShort person={person}/>
     } else if (this.state.view === 'full') {
-      return <PersonShort person={person} t={this.props.t} i18n={this.props.i18n}/>
+      return <PersonShort person={person}/>
     } else {
       throw Error('Wrong value of state.view')
     }
@@ -79,7 +79,7 @@ class PersonsPage extends React.Component<Props, State> {
       />
       <SelectFilter
         code="roles"
-        title={this.props.t('filter.roles')}
+        title={this.context.i18n.t('filter.roles')}
         list={this.props.roleData.list}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
@@ -87,7 +87,7 @@ class PersonsPage extends React.Component<Props, State> {
       />
       <SelectFilter
         code="country"
-        title={this.props.t('filter.country')}
+        title={this.context.i18n.t('filter.country')}
         list={this.props.countryData.list}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
@@ -116,10 +116,10 @@ class PersonsPage extends React.Component<Props, State> {
   render() {
     return (
       <ObjectListPage
-        title={this.props.t('title.persons')}
+        title={this.context.i18n.t('title.persons')}
         renderFilters={this.renderFilters}
         renderActiveFilters={this.renderActiveFilters}
-        noResultsMessage={this.props.t('nothingFound.persons')}
+        noResultsMessage={this.context.i18n.t('nothingFound.persons')}
         renderItem={this.renderPerson}
         getVariables={this.getVariables}
         data={this.props.data}

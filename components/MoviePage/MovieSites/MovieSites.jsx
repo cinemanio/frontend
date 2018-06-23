@@ -6,12 +6,15 @@ import gql from 'graphql-tag'
 import Block from 'components/Block/Block'
 import './MovieSites.scss'
 
-type Props = { movie: Object, t: Function }
+type Props = { movie: Object}
 
 export default class MovieSites extends React.PureComponent<Props> {
   static propTypes = {
     movie: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired
+  }
+
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -34,7 +37,7 @@ export default class MovieSites extends React.PureComponent<Props> {
     return !site ? '' : (
       <li>
         <a href={site.url}>IMDb</a>
-        {site.rating ? <span title={this.props.t('movie.sites.imdbRating')}>{site.rating}</span> : ''}
+        {site.rating ? <span title={this.context.i18n.t('movie.sites.imdbRating')}>{site.rating}</span> : ''}
       </li>
     )
   }
@@ -43,8 +46,8 @@ export default class MovieSites extends React.PureComponent<Props> {
     const site = this.props.movie.kinopoisk
     return !site ? '' : (
       <li>
-        <a href={site.url}>{this.props.t('movie.sites.kinopoisk')}</a>
-        {site.rating ? <span title={this.props.t('movie.sites.kinopoiskRating')}>{site.rating}</span> : ''}
+        <a href={site.url}>{this.context.i18n.t('movie.sites.kinopoisk')}</a>
+        {site.rating ? <span title={this.context.i18n.t('movie.sites.kinopoiskRating')}>{site.rating}</span> : ''}
       </li>
     )
   }
@@ -52,7 +55,7 @@ export default class MovieSites extends React.PureComponent<Props> {
   render() {
     return (
       <div styleName="box">
-        <Block title={this.props.t('movie.sites.title')}>
+        <Block title={this.context.i18n.t('movie.sites.title')}>
           <ul>
             {this.renderImdb()}
             {this.renderKinopoisk()}

@@ -2,9 +2,10 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import _ from 'lodash'
 
-import { mountGraphql, mockAutoSizer, selectFilterChange, i18nProps } from 'tests/helpers'
+import { mountGraphql, mockAutoSizer, selectFilterChange } from 'tests/helpers'
 import PersonRelations from 'components/PersonPage/PersonRelations/PersonRelations'
 import mutationResponse from 'components/Relation/mutationResponse'
+import i18nClient from 'libs/i18nClient'
 
 import PersonsPage, { PersonsQuery, CountryQuery, RolesQuery } from './PersonsPage'
 import response from './fixtures/response.json'
@@ -19,12 +20,13 @@ describe('Persons Page Component', () => {
   beforeAll(mockAutoSizer)
 
   describe('Unit', () => {
+    beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
       const data = _.clone(response.data)
       data.fetchMore = jest.fn()
       data.loadNextPage = jest.fn()
       element = (<PersonsPage.WrappedComponent
-        data={data} roleData={roles.data} countryData={countries.data} {...i18nProps}/>)
+        data={data} roleData={roles.data} countryData={countries.data}/>)
       wrapper = await mountGraphql(element)
     })
 
@@ -46,12 +48,12 @@ describe('Persons Page Component', () => {
     })
 
     describe('i18n. en', () => {
-      beforeAll(() => i18nProps.i18n.changeLanguage('en'))
+      beforeAll(() => i18nClient.changeLanguage('en'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Persons'))
     })
 
     describe('i18n. ru', () => {
-      beforeAll(() => i18nProps.i18n.changeLanguage('ru'))
+      beforeAll(() => i18nClient.changeLanguage('ru'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Персоны'))
     })
   })
@@ -61,8 +63,10 @@ describe('Persons Page Component', () => {
     const mockCountries = { request: { query: CountryQuery }, result: countries }
     const mockRoles = { request: { query: RolesQuery }, result: roles }
 
+    beforeAll(() => i18nClient.changeLanguage('en'))
+
     it('should render persons', async () => {
-      wrapper = await mountGraphql(<PersonsPage {...i18nProps}/>, [mockPersons, mockCountries, mockRoles])
+      wrapper = await mountGraphql(<PersonsPage/>, [mockPersons, mockCountries, mockRoles])
       expect(wrapper.find('PersonShort').length).toBeGreaterThan(0)
       expect(wrapper.find('SelectFilter[code="roles"]').find('option').length).toBeGreaterThan(1)
       expect(wrapper.find('SelectFilter[code="country"]').find('option').length).toBeGreaterThan(1)
@@ -71,7 +75,7 @@ describe('Persons Page Component', () => {
     it('should send filter params in request', async () => {
       global.console.warn = jest.fn()
       wrapper = await mountGraphql(
-        <PersonsPage {...i18nProps}/>,
+        <PersonsPage/>,
         [
           mockPersons, mockCountries, mockRoles,
           {
@@ -103,7 +107,7 @@ describe('Persons Page Component', () => {
 
     it('should change relation', async () => {
       wrapper = await mountGraphql(
-        <PersonsPage {...i18nProps}/>,
+        <PersonsPage/>,
         [
           mockPersons, mockCountries, mockRoles,
           {
@@ -122,8 +126,7 @@ describe('Persons Page Component', () => {
     })
 
     it('should render message if no results in response', async () => {
-      i18nProps.i18n.changeLanguage('en')
-      wrapper = await mountGraphql(<PersonsPage {...i18nProps}/>, [{ ...mockPersons, result: emptyResponse }])
+      wrapper = await mountGraphql(<PersonsPage/>, [{ ...mockPersons, result: emptyResponse }])
       expect(wrapper.find('PersonShort')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such persons.')
     })

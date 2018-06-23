@@ -11,8 +11,6 @@ import './MovieInfo.scss'
 
 type Props = {
   movie: Object,
-  t: Function,
-  i18n: Object,
   year: ?boolean,
   genres: ?boolean,
   countries: ?boolean,
@@ -33,14 +31,16 @@ export default class MovieInfo extends React.Component<Props> {
 
   static propTypes = {
     movie: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired,
     year: PropTypes.bool,
     genres: PropTypes.bool,
     countries: PropTypes.bool,
     runtime: PropTypes.bool,
     languages: PropTypes.bool,
     all: PropTypes.bool,
+  }
+
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -129,7 +129,7 @@ export default class MovieInfo extends React.Component<Props> {
   renderRuntime() {
     return (
       <span styleName="runtime">
-        <i/>{humanizeDuration(this.props.movie.runtime * 60 * 1000, { language: this.props.i18n.language })}
+        <i/>{humanizeDuration(this.props.movie.runtime * 60 * 1000, { language: this.context.i18n.language })}
       </span>
     )
   }
@@ -138,7 +138,7 @@ export default class MovieInfo extends React.Component<Props> {
     if (!this.props.movie.languages) {
       return ''
     }
-    const lang = this.props.t('movie.info.language', { count: this.props.movie.languages.length })
+    const lang = this.context.i18n.t('movie.info.language', { count: this.props.movie.languages.length })
     return (
       <span styleName="languages">
         {`${this.props.movie.languages.map(item => item[i18n.f('name')]).join(', ')} ${lang}`}

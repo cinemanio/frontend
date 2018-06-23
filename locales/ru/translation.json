@@ -9,17 +9,19 @@
   },
   "filter": {
     "view": {
+      "sectionTitle": "Показывать",
       "short": "Краткие карточки",
       "full": "Полные карточки"
     },
-    "order": {
-      "name": "Order by",
-      "year": "Year",
-      "like": "Likes",
-      "dislike": "Dislikes"
+    "orderBy": {
+      "sectionTitle": "Сортировать",
+      "year": "Году",
+      "like": "Популярности",
+      "dislike": "Неприязни"
     },
+    "sectionTitle": "Фильтровать по",
     "relation": {
-      "name": "Filter by relation",
+      "sectionTitle": "Отношению",
       "fav": "Fav",
       "like": "Like",
       "seen": "Seen",
@@ -28,9 +30,10 @@
       "ignore": "Ignore",
       "have": "Have"
     },
-    "role": "Фильтровать по роли",
-    "genre": "Фильтровать по жанру",
-    "country": "Фильтровать по стране"
+    "roles": "Ролям",
+    "country": "Стране",
+    "genres": "Жарнам",
+    "countries": "Странам"
   },
   "movie": {
     "info": {

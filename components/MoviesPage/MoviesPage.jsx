@@ -22,8 +22,6 @@ type Props = {
   data: Object,
   genreData: Object,
   countryData: Object,
-  t: Function,
-  i18n: Object,
 }
 
 type State = {
@@ -39,7 +37,9 @@ class MoviesPage extends React.Component<Props, State> {
     data: PropTypes.object.isRequired,
     genreData: PropTypes.object.isRequired,
     countryData: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired,
+  }
+
+  static contextTypes = {
     i18n: PropTypes.object.isRequired,
   }
 
@@ -69,31 +69,31 @@ class MoviesPage extends React.Component<Props, State> {
 
   get viewOptions() {
     return [
-      { id: 'short', name: this.props.t('filter.view.short') },
-      { id: 'full', name: this.props.t('filter.view.full') },
+      { id: 'short', name: this.context.i18n.t('filter.view.short') },
+      { id: 'full', name: this.context.i18n.t('filter.view.full') },
     ]
   }
 
   get orderByOptions() {
     return [
-      { id: 'year', name: this.props.t('filter.orderBy.year') },
-      { id: 'relations_count__like', name: this.props.t('filter.orderBy.like') },
-      { id: 'relations_count__dislike', name: this.props.t('filter.orderBy.dislike') },
+      { id: 'year', name: this.context.i18n.t('filter.orderBy.year') },
+      { id: 'relations_count__like', name: this.context.i18n.t('filter.orderBy.like') },
+      { id: 'relations_count__dislike', name: this.context.i18n.t('filter.orderBy.dislike') },
     ]
   }
 
   get relationFilterOptions() {
     return MovieRelationCodes.map(code => ({
       id: code,
-      [`name${_.capitalize(this.props.i18n.language)}`]: this.props.t(`filter.relation.${code}`),
+      [`name${_.capitalize(this.context.i18n.language)}`]: this.context.i18n.t(`filter.relation.${code}`),
     }))
   }
 
   renderMovie = ({ movie }) => {
     if (this.state.view === 'short') {
-      return <MovieShort movie={movie} t={this.props.t} i18n={this.props.i18n}/>
+      return <MovieShort movie={movie}/>
     } else if (this.state.view === 'full') {
-      return <MovieFull movie={movie} t={this.props.t} i18n={this.props.i18n}/>
+      return <MovieFull movie={movie}/>
     } else {
       throw Error('Wrong value of state.view')
     }
@@ -101,7 +101,7 @@ class MoviesPage extends React.Component<Props, State> {
 
   renderFilters = (refreshList: Function) => (
     <div>
-      <FieldSection title={this.props.t('filter.view.sectionTitle')}>
+      <FieldSection title={this.context.i18n.t('filter.view.sectionTitle')}>
         <SelectGeneric
           code="view"
           list={this.viewOptions}
@@ -109,7 +109,7 @@ class MoviesPage extends React.Component<Props, State> {
           setFilterState={params => this.setState(params, refreshList)}
         />
       </FieldSection>
-      <FieldSection title={this.props.t('filter.orderBy.sectionTitle')}>
+      <FieldSection title={this.context.i18n.t('filter.orderBy.sectionTitle')}>
         <SelectGeneric
           code="orderBy"
           list={this.orderByOptions}
@@ -117,17 +117,17 @@ class MoviesPage extends React.Component<Props, State> {
           setFilterState={params => this.setState(params, refreshList)}
         />
       </FieldSection>
-      <FieldSection title={this.props.t('filter.sectionTitle')}>
+      <FieldSection title={this.context.i18n.t('filter.sectionTitle')}>
         <SelectFilter
           code="relation"
-          title={this.props.t('filter.relation.sectionTitle')}
+          title={this.context.i18n.t('filter.relation.sectionTitle')}
           list={this.relationFilterOptions}
           filters={this.state}
           setFilterState={params => this.setState(params, refreshList)}
         />
         <SelectFilter
           code="genres"
-          title={this.props.t('filter.genres')}
+          title={this.context.i18n.t('filter.genres')}
           list={this.props.genreData.list}
           filters={this.state}
           setFilterState={params => this.setState(params, refreshList)}
@@ -135,7 +135,7 @@ class MoviesPage extends React.Component<Props, State> {
         />
         <SelectFilter
           code="countries"
-          title={this.props.t('filter.countries')}
+          title={this.context.i18n.t('filter.countries')}
           list={this.props.countryData.list}
           filters={this.state}
           setFilterState={params => this.setState(params, refreshList)}
@@ -173,10 +173,10 @@ class MoviesPage extends React.Component<Props, State> {
   render() {
     return (
       <ObjectListPage
-        title={this.props.t('title.movies')}
+        title={this.context.i18n.t('title.movies')}
         renderFilters={this.renderFilters}
         renderActiveFilters={this.renderActiveFilters}
-        noResultsMessage={this.props.t('nothingFound.movies')}
+        noResultsMessage={this.context.i18n.t('nothingFound.movies')}
         renderItem={this.renderMovie}
         getVariables={this.getVariables}
         data={this.props.data}

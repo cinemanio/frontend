@@ -11,13 +11,11 @@ import i18n from 'libs/i18n'
 
 import './PersonShort.scss'
 
-type Props = { person: Object, t: Function, i18n: Object }
+type Props = { person: Object }
 
 export default class PersonShort extends React.Component<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -51,7 +49,7 @@ export default class PersonShort extends React.Component<Props> {
             {this.props.person[i18n.f('name')]}
           </PersonLink>
           <div styleName="subtitle">{this.isNamesEqual(this.props.person) ? '' : this.props.person.name}</div>
-          <PersonInfo person={this.props.person} t={this.props.t} i18n={this.props.i18n} roles/>
+          <PersonInfo person={this.props.person} roles/>
         </div>
       </div>
     )

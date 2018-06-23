@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { i18nProps, itShouldRenderBlocks } from 'tests/helpers'
+import { itShouldRenderBlocks } from 'tests/helpers'
 
 import MovieInfo from './MovieInfo'
 import response from '../fixtures/response.json'
@@ -10,7 +10,7 @@ describe('Movie Info Component', () => {
   // let wrapper
 
   describe('flags', () => {
-    element = <MovieInfo movie={response.data.movie} {...i18nProps}/>
+    element = <MovieInfo movie={response.data.movie}/>
     const content = {
       year: '1995',
       genres: 'Drama',

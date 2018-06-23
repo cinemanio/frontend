@@ -1,8 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountGraphql, i18nProps } from 'tests/helpers'
+import { mountGraphql } from 'tests/helpers'
 import mutationResponse from 'components/Relation/mutationResponse'
+import i18nClient from 'libs/i18nClient'
 
 import PersonPage, { PersonQuery } from './PersonPage'
 import PersonRelations from './PersonRelations/PersonRelations'
@@ -16,12 +17,12 @@ describe('Person Page Component', () => {
   describe('Unit', () => {
     beforeEach(async () => {
       element = (<PersonPage.WrappedComponent
-        params={{ personId: '' }} data={response.data} {...i18nProps}/>)
+        params={{ personId: '' }} data={response.data}/>)
       wrapper = await mountGraphql(element)
     })
 
     describe('i18n. en', () => {
-      beforeAll(() => i18nProps.i18n.changeLanguage('en'))
+      beforeAll(() => i18nClient.changeLanguage('en'))
 
       it('should render person name', () => expect(wrapper.find('h1').text()).toBe('David Fincher'))
       it('should not render person original name', () => expect(wrapper.find('h2').text()).toBe(''))
@@ -34,7 +35,7 @@ describe('Person Page Component', () => {
     })
 
     describe('i18n. ru', () => {
-      beforeAll(() => i18nProps.i18n.changeLanguage('ru'))
+      beforeAll(() => i18nClient.changeLanguage('ru'))
 
       it('should render person name', () => expect(wrapper.find('h1').text()).toBe('Дэвид Финчер'))
       it('should not render person original name', () => expect(wrapper.find('h2').text()).toBe('David Fincher'))
@@ -55,14 +56,14 @@ describe('Person Page Component', () => {
 
     it('should render person page', async () => {
       wrapper = await mountGraphql(
-        <PersonPage match={{ params: { slug: response.data.person.id } }} {...i18nProps}/>, [mockPerson])
+        <PersonPage match={{ params: { slug: response.data.person.id } }}/>, [mockPerson])
       expect(wrapper.find('PersonInfo')).toHaveLength(1)
       expect(wrapper.find('PersonImage')).toHaveLength(1)
     })
 
     it('should render 404 page when response empty', async () => {
       wrapper = await mountGraphql(
-        <PersonPage match={{ params: { slug: '' } }} {...i18nProps}/>,
+        <PersonPage match={{ params: { slug: '' } }}/>,
         [{
           request: { query: PersonQuery, variables: { personId: '' } },
           result: emptyResponse,
@@ -72,7 +73,7 @@ describe('Person Page Component', () => {
 
     it('should change relation and relations count', async () => {
       wrapper = await mountGraphql(
-        <PersonPage match={{ params: { slug: response.data.person.id } }} {...i18nProps}/>,
+        <PersonPage match={{ params: { slug: response.data.person.id } }}/>,
         [
           mockPerson,
           {

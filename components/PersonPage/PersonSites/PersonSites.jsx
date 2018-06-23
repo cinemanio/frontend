@@ -6,12 +6,15 @@ import gql from 'graphql-tag'
 import Block from 'components/Block/Block'
 import './PersonSites.scss'
 
-type Props = { person: Object, t: Function }
+type Props = { person: Object }
 
 export default class PersonSites extends React.PureComponent<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired,
-    t: PropTypes.func.isRequired
+  }
+
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -48,7 +51,7 @@ export default class PersonSites extends React.PureComponent<Props> {
   render() {
     return (
       <div styleName="box">
-        <Block title={this.props.t('person.sites.title')}>
+        <Block title={this.context.i18n.t('person.sites.title')}>
           <ul>
             {this.renderImdb()}
             {this.renderKinopoisk()}

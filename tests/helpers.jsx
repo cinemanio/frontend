@@ -5,9 +5,19 @@ import { mount } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import { MockedProvider } from 'react-apollo/test-utils'
 import { AutoSizer } from 'react-virtualized'
+import PropTypes from 'prop-types'
 import _ from 'lodash'
 
 import i18nClient from 'libs/i18nClient'
+
+export const mountOptions = {
+  context: {
+    i18n: i18nClient,
+  },
+  childContextTypes: {
+    i18n: PropTypes.object,
+  },
+}
 
 export const getMockedNetworkFetch = (response: Object | Array<Object>, requestsLog: ?Array<Object>) => {
   let i = 0
@@ -29,7 +39,7 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
   }
 }
 
-export const mountRouter = (element: Object) => mount(<MemoryRouter>{element}</MemoryRouter>)
+export const mountRouter = (element: Object) => mount(<MemoryRouter>{element}</MemoryRouter>, mountOptions)
 
 export const mountGraphql = async (element: React.Fragment, mocks: Array<Object>) => {
   const wrapper = mountRouter(<MockedProvider mocks={mocks}>{element}</MockedProvider>)
@@ -57,17 +67,11 @@ export const selectFilterChange = (wrapper: Object, selector: string, value: str
   wrapper.update()
 }
 
-export const i18nProps = {
-  t: (i: string) => i18nClient.t(i),
-  i18n: i18nClient
-}
-
-
 export const itShouldRenderBlocks = (content: Object, element: Object) => (props: Object) => {
   // $FlowFixMe
   it(`should render only ${Object.keys(props)} blocks`, () => {
-    element.props.i18n.changeLanguage('en')
-    const wrapper = mount(React.cloneElement(element, props))
+    i18nClient.changeLanguage('en')
+    const wrapper = mount(React.cloneElement(element, props), mountOptions)
     _.forEach(content, (value, key) => {
       // $FlowFixMe
       let expectation = expect(wrapper.text())

@@ -1,7 +1,8 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import { i18nProps, itShouldRenderBlocks } from 'tests/helpers'
+import { itShouldRenderBlocks, mountOptions } from 'tests/helpers'
+import i18nClient from 'libs/i18nClient'
 
 import PersonInfo from './PersonInfo'
 import actress from './fixtures/actress.json'
@@ -12,24 +13,24 @@ describe('Person Info Component', () => {
 
   describe('Genderize', () => {
     beforeAll(() => {
-      element = <PersonInfo person={actress.data.person} {...i18nProps} roles/>
+      element = <PersonInfo person={actress.data.person} roles/>
     })
 
     it('should render actress instead of actor for en lang', () => {
-      i18nProps.i18n.changeLanguage('en')
-      wrapper = mount(element)
+      i18nClient.changeLanguage('en')
+      wrapper = mount(element, mountOptions)
       expect(wrapper.text()).toContain('Actress')
     })
 
     it('should render actress instead of actor for ru lang', () => {
-      i18nProps.i18n.changeLanguage('ru')
-      wrapper = mount(element)
+      i18nClient.changeLanguage('ru')
+      wrapper = mount(element, mountOptions)
       expect(wrapper.text()).toContain('Актриса')
     })
   })
 
   describe('flags', () => {
-    element = <PersonInfo person={actress.data.person} {...i18nProps}/>
+    element = <PersonInfo person={actress.data.person}/>
     const content = {
       roles: 'Actress',
       country: 'USA',
