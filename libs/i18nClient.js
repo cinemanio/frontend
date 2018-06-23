@@ -10,7 +10,7 @@ i18n
   .use(LanguageDetector)
   .use(reactI18nextModule) // if not using I18nextProvider
   .init({
-    ...settings.i18nSettings,
+    ...settings.i18n,
     resources: {
       ru: { translation: ru },
       en: { translation: en }
