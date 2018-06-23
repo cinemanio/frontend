@@ -10,28 +10,14 @@ i18n
   .use(LanguageDetector)
   .use(reactI18nextModule) // if not using I18nextProvider
   .init({
-    debug: settings.debug,
-    // fallbackLng: 'en',
+    ...settings.i18nSettings,
     resources: {
       ru: { translation: ru },
       en: { translation: en }
     },
-    interpolation: {
-      escapeValue: false // not needed for react!!
-    },
-    // react i18next special options (optional)
-    react: {
-      wait: false,
-      bindI18n: 'languageChanged loaded',
-      bindStore: 'added removed',
-      nsMode: 'default'
-    },
     detection: {
       order: ['htmlTag'],
-    },
-    saveMissing: true,
-    missingKeyHandler: (lng, ns, key, fallbackValue) =>
-      console.error(`Key "${key}" not found in namespace "${ns}" of language "${lng}"`)
+    }
   })
 
 export default i18n
