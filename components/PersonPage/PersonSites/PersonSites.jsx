@@ -8,7 +8,7 @@ import './PersonSites.scss'
 
 type Props = { person: Object }
 
-export default class PersonSites extends React.PureComponent<Props> {
+export default class PersonSites extends React.Component<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired,
   }

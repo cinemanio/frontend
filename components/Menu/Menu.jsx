@@ -9,7 +9,7 @@ import './Menu.scss'
 
 type Props = { active?: string }
 
-export default class Menu extends React.PureComponent<Props> {
+export default class Menu extends React.Component<Props> {
   static defaultProps = {
     active: undefined
   }
