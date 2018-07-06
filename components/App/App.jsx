@@ -5,6 +5,8 @@ import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 
 import Layout from 'components/Layout/Layout'
+import SignIn from 'components/SignIn/SignIn'
+import SignUp from 'components/SignUp/SignUp'
 import MoviesPage from 'components/MoviesPage/MoviesPage'
 import MoviePage from 'components/MoviePage/MoviePage'
 import PersonsPage from 'components/PersonsPage/PersonsPage'
@@ -34,6 +36,8 @@ const App = ({ lang }: Object) => (
       <Layout path={routes.movie.list} component={MoviesPage} menuActive="movie"/>
       <Layout path={routes.person.detail} component={PersonPage} menuActive="person"/>
       <Layout path={routes.person.list} component={PersonsPage} menuActive="person"/>
+      <Layout path={routes.signin} component={SignIn}/>
+      <Layout path={routes.signup} component={SignUp}/>
       <Layout path="/500" component={Error500}/>
       <Layout path="*" component={Error404}/>
     </Switch>

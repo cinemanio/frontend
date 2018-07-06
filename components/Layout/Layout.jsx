@@ -6,6 +6,7 @@ import { PropTypes } from 'prop-types'
 import { translate } from 'react-i18next'
 
 import Menu from 'components/Menu/Menu'
+import routes from 'components/App/routes'
 
 import './Layout.scss'
 import Languages from './Languages/Languages'
@@ -38,7 +39,12 @@ export default class Layout extends React.Component<Props, State> {
     return (
       <Route {...rest} render={matchProps => (
         <div className="container" styleName="box">
-          <header><Link to="/">cineman.io</Link></header>
+          <header>
+            <Link to="/">cineman.io</Link>
+            <div styleName="right">
+              <Link to={routes.signin}>signin</Link>
+            </div>
+          </header>
           <div styleName="container">
             <Menu active={menuActive}/>
             {this.state.error
