@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import _ from 'lodash'
 
 import { getMockedNetworkFetch } from 'tests/helpers'
+import routes from 'components/App/routes'
 
 import app from './app'
 import poster from './fixtures/poster.json'
@@ -38,8 +39,18 @@ describe('Server Routes', () => {
   })
 
   it('should respond an index page', async () => {
-    const response = await client().get('/')
+    const response = await client().get(routes.index)
     expect(response.status).toEqual(302)
+  })
+
+  it('should respond an signin page', async () => {
+    const response = await client().get(routes.signin).set('Accept-Language', 'en')
+    expect(response.status).toEqual(200)
+  })
+
+  it('should respond an signup page', async () => {
+    const response = await client().get(routes.signup).set('Accept-Language', 'en')
+    expect(response.status).toEqual(200)
   })
 
   it('should respond 404 error page', async () => {
@@ -103,25 +114,25 @@ describe('Server Routes', () => {
   describe('Object(s) pages', () => {
     [
       [
-        'movie', 'movies', 'kids-1995-TW92aWVOb2RlOjk2MDc%3D', 'TW92aWVOb2RlOjk2MDc=', movies, movie, noMovie,
+        'movie', 'kids-1995-TW92aWVOb2RlOjk2MDc%3D', 'TW92aWVOb2RlOjk2MDc=', movies, movie, noMovie,
         { orderBy: 'relations_count__like' },
       ],
       [
-        'person', 'persons', 'david-fincher-UGVyc29uTm9kZToxNTQ%3D', 'UGVyc29uTm9kZToxNTQ=', persons, person, noPerson,
+        'person', 'david-fincher-UGVyc29uTm9kZToxNTQ%3D', 'UGVyc29uTm9kZToxNTQ=', persons, person, noPerson,
         { orderBy: 'relations_count__like' },
       ],
-    ].forEach(([object, objects, slug, id, objectsResponse, objectResponse, noResponse, defaults]) => {
-      it(`should respond a ${objects} page`, async () => {
-        const response = await client(objectsResponse).get(`/${objects}`).set('Accept-Language', 'en')
+    ].forEach(([object, slug, id, objectsResponse, objectResponse, noResponse, defaults]) => {
+      it(`should respond a ${object}s page`, async () => {
+        const response = await client(objectsResponse).get(routes[object].list).set('Accept-Language', 'en')
         expect(requestsLog).toHaveLength(3)
-        expect(requestsLog[2].operationName).toEqual(_.capitalize(objects))
+        expect(requestsLog[2].operationName).toEqual(_.capitalize(object) + 's')
         expect(requestsLog[2].variables).toEqual({ after: '', first: 100, ...defaults })
         expect(response.status).toEqual(200)
         expect(response.type).toEqual('text/html')
       })
 
       it(`should respond a ${object} page`, async () => {
-        const response = await client(objectResponse).get(`/${objects}/${slug}`).set('Accept-Language', 'en')
+        const response = await client(objectResponse).get(`${routes[object].list}/${slug}`).set('Accept-Language', 'en')
         expect(requestsLog).toHaveLength(1)
         expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
         expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: id })
@@ -130,7 +141,7 @@ describe('Server Routes', () => {
       })
 
       it(`should not respond a wrong ${object} page`, async () => {
-        const response = await client(noResponse).get(`/${objects}/none`).set('Accept-Language', 'en')
+        const response = await client(noResponse).get(`${routes[object].list}/none`).set('Accept-Language', 'en')
         expect(requestsLog).toHaveLength(1)
         expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
         expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: 'none' })

@@ -1,25 +1,29 @@
 // @flow
-import { observable, action, reaction } from 'mobx';
+import { observable, action, reaction } from 'mobx'
 
 class Token {
-  @observable token = window.localStorage.getItem('jwt');
+  @observable token
 
   constructor() {
-    reaction(
-      () => this.token,
-      (token) => {
-        if (token) {
-          window.localStorage.setItem('jwt', token);
-        } else {
-          window.localStorage.removeItem('jwt');
-        }
-      }
-    );
+    try {
+      this.token = window.localStorage.getItem('jwt')
+      reaction(
+        () => this.token,
+        (token) => {
+          if (token) {
+            window.localStorage.setItem('jwt', token)
+          } else {
+            window.localStorage.removeItem('jwt')
+          }
+        },
+      )
+    } catch (e) {
+    }
   }
 
   @action set(token: string) {
-    this.token = token;
+    this.token = token
   }
 }
 
-export default new Token();
+export default new Token()

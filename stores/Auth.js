@@ -1,5 +1,5 @@
 // @flow
-import { observable, action } from 'mobx'
+import { observable, computed, action } from 'mobx'
 
 // import agent from '../agent'
 import user from './User'
@@ -33,35 +33,39 @@ class Auth {
     this.values.password = ''
   }
 
-  @action login() {
-    this.inProgress = true
-    this.errors = undefined
-    return agent.Auth.login(this.values.email, this.values.password)
-      .then(data => token.set(data.user.token))
-      .then(user.pull)
-      .catch(action((err) => {
-        this.errors = err.response && err.response.body && err.response.body.errors
-        throw err
-      }))
-      .finally(action(() => {
-        this.inProgress = false
-      }))
+  @computed get submitDisabled() {
+    return !this.values.username || !this.values.password || this.inProgress
   }
 
-  @action register() {
-    this.inProgress = true
-    this.errors = undefined
-    return agent.Auth.register(this.values.username, this.values.email, this.values.password)
-      .then(data => token.set(data.user.token))
-      .then(user.pull)
-      .catch(action((err) => {
-        this.errors = err.response && err.response.body && err.response.body.errors
-        throw err
-      }))
-      .finally(action(() => {
-        this.inProgress = false
-      }))
-  }
+  // @action login() {
+  //   this.inProgress = true
+  //   this.errors = undefined
+  //   return agent.Auth.login(this.values.email, this.values.password)
+  //     .then(data => token.set(data.user.token))
+  //     .then(user.pull)
+  //     .catch(action((err) => {
+  //       this.errors = err.response && err.response.body && err.response.body.errors
+  //       throw err
+  //     }))
+  //     .finally(action(() => {
+  //       this.inProgress = false
+  //     }))
+  // }
+  //
+  // @action register() {
+  //   this.inProgress = true
+  //   this.errors = undefined
+  //   return agent.Auth.register(this.values.username, this.values.email, this.values.password)
+  //     .then(data => token.set(data.user.token))
+  //     .then(user.pull)
+  //     .catch(action((err) => {
+  //       this.errors = err.response && err.response.body && err.response.body.errors
+  //       throw err
+  //     }))
+  //     .finally(action(() => {
+  //       this.inProgress = false
+  //     }))
+  // }
 
   @action logout() {
     token.set(undefined)

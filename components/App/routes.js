@@ -1,4 +1,5 @@
 export default {
+  index: '/',
   movie: {
     list: '/movies',
     detail: '/movies/:slug'
