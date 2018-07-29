@@ -60,6 +60,10 @@ export default class SignIn extends React.Component<Props> {
     this.props.history.replace(routes.index)
   }
 
+  onError = (errors: Object) => {
+    this.props.auth.setErrors(errors.graphQLErrors.map(error => error.message))
+  }
+
   render() {
     return (
       <div className="auth-page">
@@ -76,7 +80,7 @@ export default class SignIn extends React.Component<Props> {
                 <title>{this.context.i18n.t('signin.title')}</title>
               </Helmet>
 
-              <Mutation mutation={SignIn.fragments.signin} update={this.updateCache}>
+              <Mutation mutation={SignIn.fragments.signin} update={this.updateCache} onError={this.onError}>
                 {(signin, { loading }) => (
                   <Observer>
                     {() => (

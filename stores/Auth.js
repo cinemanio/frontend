@@ -1,13 +1,11 @@
 // @flow
 import { observable, computed, action } from 'mobx'
 
-// import agent from '../agent'
-// import user from './User'
 import token from './Token'
 
 class Auth {
   @observable inProgress = false
-  @observable errors = []
+  @observable errors: Array<string> = []
 
   @observable values = {
     username: '',
@@ -27,45 +25,20 @@ class Auth {
     this.values.password = password
   }
 
+  @action setErrors(errors: Array<string>) {
+    this.errors = errors
+  }
+
   @action reset() {
     this.values.username = ''
     this.values.email = ''
     this.values.password = ''
+    this.setErrors([])
   }
 
   @computed get submitDisabled() {
     return !this.values.username || !this.values.password || this.inProgress
   }
-
-  // @action login() {
-  //   this.inProgress = true
-  //   this.errors = undefined
-  //   return agent.Auth.login(this.values.email, this.values.password)
-  //     .then(data => token.set(data.user.token))
-  //     .then(user.pull)
-  //     .catch(action((err) => {
-  //       this.errors = err.response && err.response.body && err.response.body.errors
-  //       throw err
-  //     }))
-  //     .finally(action(() => {
-  //       this.inProgress = false
-  //     }))
-  // }
-  //
-  // @action register() {
-  //   this.inProgress = true
-  //   this.errors = undefined
-  //   return agent.Auth.register(this.values.username, this.values.email, this.values.password)
-  //     .then(data => token.set(data.user.token))
-  //     .then(user.pull)
-  //     .catch(action((err) => {
-  //       this.errors = err.response && err.response.body && err.response.body.errors
-  //       throw err
-  //     }))
-  //     .finally(action(() => {
-  //       this.inProgress = false
-  //     }))
-  // }
 
   @action logout() {
     token.set(undefined)

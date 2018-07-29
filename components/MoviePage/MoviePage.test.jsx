@@ -54,6 +54,15 @@ describe('Movie Page Component', () => {
       it('should render role name', () => expect(wrapper.text()).toContain('Дженни'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Детки, Kids, 1995'))
     })
+
+    // it('should change language on the fly', async () => {
+    //   i18nClient.changeLanguage('en')
+    //   wrapper.update()
+    //   expect(wrapper.find('h1').text()).toBe('Kids')
+    //   i18nClient.changeLanguage('ru')
+    //   wrapper.update()
+    //   expect(wrapper.find('h1').text()).toBe('Детки')
+    // })
   })
 
   describe('GraphQL', () => {

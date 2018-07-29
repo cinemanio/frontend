@@ -11,11 +11,7 @@ export default class ListErrors extends React.PureComponent<Props> {
 
   render() {
     if (this.props.errors) {
-      return (
-        <ul className="error-messages">
-          {Object.keys(this.props.errors).map(key => <li key={key}>{key} {this.props.errors[key]}</li>)}
-        </ul>
-      )
+      return this.props.errors.map(error => <div key={error} className="alert alert-danger" role="alert">{error}</div>)
     } else {
       return null
     }
