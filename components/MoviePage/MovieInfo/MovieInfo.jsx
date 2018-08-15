@@ -97,7 +97,7 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderYear() {
-    return (
+    return !this.props.movie.year ? '' : (
       <span styleName="year">
         {this.props.movie.year}
       </span>
@@ -105,7 +105,7 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderGenres() {
-    return (
+    return this.props.movie.genres.length === 0 ? '' : (
       <span styleName="genres">
         {this.props.movie.genres.map(item => item[i18n.f('name')]).join(', ')}
       </span>
@@ -113,7 +113,7 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderCountries() {
-    return (
+    return this.props.movie.countries.length === 0 ? '' : (
       <span styleName="countries">
         {this.props.movie.countries.map((item, i) => (
           <span key={item[i18n.f('name')]}>
@@ -127,7 +127,7 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderRuntime() {
-    return (
+    return !this.props.movie.runtime ? '' : (
       <span styleName="runtime">
         <i/>{humanizeDuration(this.props.movie.runtime * 60 * 1000, { language: this.context.i18n.language })}
       </span>
@@ -135,7 +135,7 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderLanguages() {
-    if (!this.props.movie.languages) {
+    if (this.props.movie.languages.length === 0) {
       return ''
     }
     const lang = this.context.i18n.t('movie.info.language', { count: this.props.movie.languages.length })

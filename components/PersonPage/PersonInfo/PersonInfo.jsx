@@ -89,7 +89,7 @@ export default class PersonInfo extends React.Component<Props> {
   )
 
   renderRoles() {
-    return (
+    return this.props.person.roles.length === 0 ? '' : (
       <span styleName={`gender-${this.props.person.gender.toLowerCase()}`}>
         <i/>
         {this.props.person.roles.map(item => this.genderizeRole(item[i18n.f('name')])).join(', ')}
