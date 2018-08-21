@@ -140,6 +140,16 @@ describe('Server Routes', () => {
         expect(response.type).toEqual('text/html')
       })
 
+      it(`should respond a ${object} page for authenticated user`, async () => {
+        const response = await client(objectResponse).get(`${routes[object].list}/${slug}`).set('Accept-Language', 'en')
+          .set('Cookie', ['jwt=12345'])
+        expect(requestsLog).toHaveLength(0)
+        expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
+        expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: id })
+        expect(response.status).toEqual(200)
+        expect(response.type).toEqual('text/html')
+      })
+
       it(`should not respond a wrong ${object} page`, async () => {
         const response = await client(noResponse).get(`${routes[object].list}/none`).set('Accept-Language', 'en')
         expect(requestsLog).toHaveLength(1)
