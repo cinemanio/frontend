@@ -28,7 +28,8 @@ describe('SignIn Component', () => {
       </Provider>
     )
 
-    it('should render signin page and submit form', async () => {
+    it('should render signin page and submit form with mutation', async (done) => {
+      global.console.warn = jest.fn()
       wrapper = await mountGraphql(element, [mock])
 
       expect(wrapper.find('button').prop('disabled')).toBe(true)
@@ -43,8 +44,10 @@ describe('SignIn Component', () => {
 
       wrapper.find('form').simulate('submit')
 
-      // TODO: update doesn't get invoked without optimisticResponse
-      // expect(token.token).toBe(response.data.tokenAuth.token)
+      setTimeout(() => {
+        expect(token.token).toBe(response.data.tokenAuth.token)
+        done()
+      });
     })
   })
 })
