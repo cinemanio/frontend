@@ -39,7 +39,7 @@ describe('SignIn Component', () => {
       expect(auth.values.password).toBe(password)
 
       // expect(wrapper.find('button').prop('disabled')).toBe(false)
-      expect(token.token).toBe(null)
+      expect(token.token).toBeUndefined()
 
       wrapper.find('form').simulate('submit')
 

@@ -7,9 +7,11 @@ import { PropTypes } from 'prop-types'
 import ListErrors from 'components/ListErrors/ListErrors'
 import routes from 'components/App/routes'
 
+type Props = { auth: Object, history: Object }
+
 @inject('auth')
 @observer
-export default class SignUp extends React.Component {
+export default class SignUp extends React.Component<Props> {
   static propTypes = {
     auth: MobxPropTypes.observableObject.isRequired,
     history: PropTypes.object.isRequired,
@@ -19,13 +21,13 @@ export default class SignUp extends React.Component {
     this.props.auth.reset()
   }
 
-  handleUsernameChange = e => this.props.auth.setUsername(e.target.value)
+  handleUsernameChange = (e: Event) => this.props.auth.setUsername(e.target.value)
 
-  handleEmailChange = e => this.props.auth.setEmail(e.target.value)
+  handleEmailChange = (e: Event) => this.props.auth.setEmail(e.target.value)
 
-  handlePasswordChange = e => this.props.auth.setPassword(e.target.value)
+  handlePasswordChange = (e: Event) => this.props.auth.setPassword(e.target.value)
 
-  handleSubmitForm = (e) => {
+  handleSubmitForm = (e: Event) => {
     e.preventDefault()
     this.props.auth.register()
       .then(() => this.props.history.replace('/'))

@@ -10,10 +10,12 @@ import gql from 'graphql-tag'
 import ListErrors from 'components/ListErrors/ListErrors'
 import routes from 'components/App/routes'
 
+type Props = { auth: Object, token: Object, history: Object }
+
 @inject('auth', 'token')
 @withRouter
 @observer
-export default class SignIn extends React.Component<{}> {
+export default class SignIn extends React.Component<Props> {
   static propTypes = {
     auth: MobxPropTypes.observableObject.isRequired,
     token: MobxPropTypes.observableObject.isRequired,
@@ -38,9 +40,9 @@ export default class SignIn extends React.Component<{}> {
     this.props.auth.reset()
   }
 
-  handleUsernameChange = e => this.props.auth.setUsername(e.target.value)
+  handleUsernameChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setUsername(e.target.value)
 
-  handlePasswordChange = e => this.props.auth.setPassword(e.target.value)
+  handlePasswordChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setPassword(e.target.value)
 
   handleSubmitForm = (signin: Function) => (e: Event) => {
     e.preventDefault()
