@@ -26,26 +26,33 @@ export default class PersonSites extends React.Component<Props> {
         kinopoisk {
           url
         }
+        wikipedia {
+          edges {
+            node {
+              url
+              lang
+            }
+          }
+        }        
       }
     `
   }
 
   renderImdb() {
     const site = this.props.person.imdb
-    return !site ? '' : (
-      <li>
-        <a href={site.url}>IMDb</a>
-      </li>
-    )
+    return !site ? '' : <li><a href={site.url}>IMDb</a></li>
   }
 
   renderKinopoisk() {
     const site = this.props.person.kinopoisk
-    return !site ? '' : (
-      <li>
-        <a href={site.url}>Кинопоиск</a>
-      </li>
-    )
+    return !site ? '' : <li><a href={site.url}>Кинопоиск</a></li>
+  }
+
+  renderWikipedia() {
+    const sites = this.props.person.wikipedia.edges
+    return !sites ? '' : sites.map(({ node: site }) => (
+      <li><a href={site.url}>{`${site.lang}.wikipedia.org`}</a></li>
+    ))
   }
 
   render() {
@@ -55,6 +62,7 @@ export default class PersonSites extends React.Component<Props> {
           <ul>
             {this.renderImdb()}
             {this.renderKinopoisk()}
+            {this.renderWikipedia()}
           </ul>
         </Block>
       </div>
