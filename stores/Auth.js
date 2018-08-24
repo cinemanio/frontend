@@ -7,7 +7,7 @@ import token from './Token'
 
 class Auth {
   @observable inProgress = false
-  @observable errors = undefined
+  @observable errors = []
 
   @observable values = {
     username: '',

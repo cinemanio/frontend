@@ -34,9 +34,9 @@ describe('SignIn Component', () => {
 
       expect(wrapper.find('button').prop('disabled')).toBe(true)
 
-      wrapper.find('input[type="text"]').props().onChange({ target: { value: username } })
+      wrapper.find('input[type="text"]').props().onChange({ currentTarget: { value: username } })
       expect(auth.values.username).toBe(username)
-      wrapper.find('input[type="password"]').props().onChange({ target: { value: password } })
+      wrapper.find('input[type="password"]').props().onChange({ currentTarget: { value: password } })
       expect(auth.values.password).toBe(password)
 
       // expect(wrapper.find('button').prop('disabled')).toBe(false)

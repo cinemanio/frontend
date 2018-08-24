@@ -2,7 +2,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { inject, observer, PropTypes as MobxPropTypes } from 'mobx-react'
-import { PropTypes } from 'prop-types'
+// import { PropTypes } from 'prop-types'
 
 import ListErrors from 'components/ListErrors/ListErrors'
 import routes from 'components/App/routes'
@@ -14,23 +14,23 @@ type Props = { auth: Object, history: Object }
 export default class SignUp extends React.Component<Props> {
   static propTypes = {
     auth: MobxPropTypes.observableObject.isRequired,
-    history: PropTypes.object.isRequired,
+    // history: PropTypes.object.isRequired,
   }
 
   componentWillUnmount() {
     this.props.auth.reset()
   }
 
-  handleUsernameChange = (e: Event) => this.props.auth.setUsername(e.target.value)
+  handleUsernameChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setUsername(e.currentTarget.value)
 
-  handleEmailChange = (e: Event) => this.props.auth.setEmail(e.target.value)
+  handleEmailChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setEmail(e.currentTarget.value)
 
-  handlePasswordChange = (e: Event) => this.props.auth.setPassword(e.target.value)
+  handlePasswordChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setPassword(e.currentTarget.value)
 
   handleSubmitForm = (e: Event) => {
     e.preventDefault()
-    this.props.auth.register()
-      .then(() => this.props.history.replace('/'))
+    // this.props.auth.register()
+    //   .then(() => this.props.history.replace('/'))
   }
 
   render() {

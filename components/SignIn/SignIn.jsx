@@ -40,9 +40,9 @@ export default class SignIn extends React.Component<Props> {
     this.props.auth.reset()
   }
 
-  handleUsernameChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setUsername(e.target.value)
+  handleUsernameChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setUsername(e.currentTarget.value)
 
-  handlePasswordChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setPassword(e.target.value)
+  handlePasswordChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setPassword(e.currentTarget.value)
 
   handleSubmitForm = (signin: Function) => (e: Event) => {
     e.preventDefault()
