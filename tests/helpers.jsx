@@ -2,6 +2,7 @@
 /* eslint-disable promise/avoid-new */
 import React from 'react'
 import { mount } from 'enzyme'
+import { Provider } from 'mobx-react'
 import { MemoryRouter } from 'react-router-dom'
 import { MockedProvider } from 'react-apollo/test-utils'
 import { AutoSizer } from 'react-virtualized'
@@ -9,6 +10,7 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 
 import i18nClient from 'libs/i18nClient'
+import { stores } from 'components/App/App'
 
 export const mountOptions = {
   context: {
@@ -39,7 +41,8 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
   }
 }
 
-export const mountRouter = (element: Object) => mount(<MemoryRouter>{element}</MemoryRouter>, mountOptions)
+export const mountRouter = (element: Object) => mount(
+  <MemoryRouter><Provider {...stores}>{element}</Provider></MemoryRouter>, mountOptions)
 
 export const mountGraphql = async (element: React.Fragment, mocks: Array<Object>) => {
   const wrapper = mountRouter(<MockedProvider mocks={mocks}>{element}</MockedProvider>)

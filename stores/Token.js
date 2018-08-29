@@ -28,6 +28,7 @@ class Token {
       this.cookies = new Cookies(cookies)
       this.cookies.HAS_DOCUMENT_COOKIE = !node
       this.token = this.load()
+    // eslint-disable-next-line no-empty
     } catch (e) {
     }
   }
@@ -45,7 +46,7 @@ class Token {
    */
   save = (token: ?string) => {
     const options = {}
-    if (token) {
+    if (!token) {
       options.expires = new Date(1970, 1, 1)
     }
     this.cookies.set(this.cookieName, token, options)

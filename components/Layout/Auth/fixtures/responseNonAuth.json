@@ -1,0 +1,19 @@
+{
+  "errors": [
+    {
+      "message": "Error decoding signature",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "verifyToken"
+      ]
+    }
+  ],
+  "data": {
+    "verifyToken": null
+  }
+}

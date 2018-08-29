@@ -2,7 +2,7 @@
 import { observable, computed, action } from 'mobx'
 
 // import agent from '../agent'
-import user from './User'
+// import user from './User'
 import token from './Token'
 
 class Auth {
@@ -69,7 +69,7 @@ class Auth {
 
   @action logout() {
     token.set(undefined)
-    user.forget()
+    // user.forget()
     return Promise.resolve()
   }
 }

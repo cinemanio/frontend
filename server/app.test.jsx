@@ -4,7 +4,7 @@ import _ from 'lodash'
 
 import { getMockedNetworkFetch } from 'tests/helpers'
 import routes from 'components/App/routes'
-import Token from 'stores/Token'
+import token from 'stores/Token'
 
 import app from './app'
 import poster from './fixtures/poster.json'
@@ -141,13 +141,13 @@ describe('Server Routes', () => {
         expect(response.type).toEqual('text/html')
       })
 
-      it(`should respond a ${object} page for authenticated user`, async () => {
-        Token.set(Token.token)
-        expect(Token.token).toBe(undefined)
+      it('should set a token for authenticated user', async () => {
+        token.set(token.token)
+        expect(token.token).toBe(undefined)
         // TODO: test that Auth header is actually sent
         await client(objectResponse).get(`${routes[object].list}/${slug}`).set('Accept-Language', 'en')
           .set('Cookie', ['jwt=12345'])
-        expect(Token.token).toBe('12345')
+        expect(token.token).toBe('12345')
       })
 
       it(`should not respond a wrong ${object} page`, async () => {

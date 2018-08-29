@@ -6,10 +6,10 @@ import { PropTypes } from 'prop-types'
 import { translate } from 'react-i18next'
 
 import Menu from 'components/Menu/Menu'
-import routes from 'components/App/routes'
 
 import './Layout.scss'
 import Languages from './Languages/Languages'
+import Auth from './Auth/Auth'
 
 type Props = { component: Function, menuActive?: string }
 type State = { error: ?Error }
@@ -42,7 +42,7 @@ export default class Layout extends React.Component<Props, State> {
           <header>
             <Link to="/">cineman.io</Link>
             <div styleName="right">
-              <Link to={routes.signin}>signin</Link>
+              <Auth/>
             </div>
           </header>
           <div styleName="container">
