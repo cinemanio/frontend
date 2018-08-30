@@ -51,7 +51,7 @@ export default class PersonSites extends React.Component<Props> {
   renderWikipedia() {
     const sites = this.props.person.wikipedia.edges
     return !sites ? '' : sites.map(({ node: site }) => (
-      <li><a href={site.url}>{`${site.lang}.wikipedia.org`}</a></li>
+      <li key={site.lang}><a href={site.url}>{`${site.lang}.wikipedia.org`}</a></li>
     ))
   }
 

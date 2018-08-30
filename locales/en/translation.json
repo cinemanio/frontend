@@ -62,5 +62,8 @@
   "nothingFound": {
     "persons": "There is no such persons. Try to change search parameters.",
     "movies": "There is no such movies. Try to change search parameters."
+  },
+  "wikipedia": {
+    "title": "On Wikipedia"
   }
 }
