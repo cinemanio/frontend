@@ -4,11 +4,14 @@ import { PropTypes } from 'prop-types'
 
 import './Block.scss'
 
-type Props = { title: string, children: Object }
+type Props = { title: string | React.Fragment, children: React.Fragment }
 
 export default class Block extends React.PureComponent<Props> {
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node,
+    ]).isRequired,
     children: PropTypes.node.isRequired,
   }
 

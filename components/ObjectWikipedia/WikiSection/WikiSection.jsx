@@ -9,11 +9,19 @@ export default class WikiSection extends React.PureComponent<Props> {
     section: PropTypes.object.isRequired,
   }
 
+  renderTitle() {
+    return !this.props.section.data.title ? '' : <p><strong>{this.props.section.data.title}</strong></p>
+  }
+
+  renderContent() {
+    return !this.props.section.wiki ? '' : <p>{this.props.section.wiki}</p>
+  }
+
   render() {
     return (
       <div>
-        <p><strong>{this.props.section.data.title}</strong></p>
-        <p>{this.props.section.wiki}</p>
+        {this.renderTitle()}
+        {this.renderContent()}
       </div>
     )
   }

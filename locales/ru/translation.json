@@ -66,6 +66,7 @@
   },
   "wikipedia": {
     "title": "На Википедии",
-    "displayFull": "узнать больше"
+    "displayMore": "узнать больше",
+    "displayLess": "свернуть"
   }
 }

@@ -65,6 +65,7 @@
   },
   "wikipedia": {
     "title": "On Wikipedia",
-    "displayFull": "read more"
+    "displayMore": "read more",
+    "displayLess": "hide"
   }
 }

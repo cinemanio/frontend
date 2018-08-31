@@ -53,32 +53,46 @@ export default class ObjectWikipedia extends React.PureComponent<Props, State> {
     this.state = { full: false }
   }
 
-  get content(): string {
+  symbolsLimit: number = 500
+
+  get content(): ?string {
     const edges = this.props.object.wikipedia.edges.filter(edge => edge.node.lang === this.context.i18n.language)
     let content = edges.length > 0 ? edges[0].node.content : null
     if (content && !this.state.full) {
-      content = `${content.substring(0, 500)}…`
+      content = `${content.substring(0, this.symbolsLimit)}…`
     }
     return content
   }
 
-  displayFull = (e: Event) => {
+  display = (full: boolean) => (e: Event) => {
     e.preventDefault()
-    this.setState({ full: true })
+    this.setState({ full })
   }
 
-  renderLink() {
+  renderMore() {
     return this.state.full ? ''
-      : <a href="#" onClick={this.displayFull}>{this.context.i18n.t('wikipedia.displayFull')}</a>
+      : <button href="#" onClick={this.display(true)}>{this.context.i18n.t('wikipedia.displayMore')}</button>
+  }
+
+  renderTitle() {
+    const title = this.context.i18n.t('wikipedia.title')
+    return this.state.full
+      ? (
+        <div>
+          {title}
+          <button onClick={this.display(false)} styleName="hide">{this.context.i18n.t('wikipedia.displayLess')}</button>
+        </div>
+      ) : title
   }
 
   render() {
     const { content } = this
     return !content ? '' : (
       <div styleName="wikipedia">
-        <Block title={this.context.i18n.t('wikipedia.title')}>
-          {wtf(content).data.sections.map(section => <WikiSection key={section} section={section}/>)}
-          {this.renderLink()}
+        <Block title={this.renderTitle()}>
+          { // eslint-disable-next-line react/no-array-index-key
+            wtf(content).data.sections.map((section, i) => <WikiSection key={i} section={section}/>)}
+          {this.renderMore()}
         </Block>
       </div>
     )
