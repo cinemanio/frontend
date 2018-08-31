@@ -7,6 +7,7 @@ import gql from 'graphql-tag'
 import ObjectPage from 'components/ObjectPage/ObjectPage'
 import MovieImage from 'components/MovieImage/MovieImage'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
+import ObjectWikipedia from 'components/ObjectWikipedia/ObjectWikipedia'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 import i18n from 'libs/i18n'
 
@@ -44,6 +45,7 @@ class MoviePage extends React.Component<Props> {
           <MovieCast movie={movie}/>
         </div>
       </div>
+      <ObjectWikipedia object={movie}/>
     </div>
   )
 
@@ -76,6 +78,7 @@ export const MovieQuery = gql`
       ...MovieSites
       ...MovieCast
       ...MovieRelations
+      ...MovieWikipedia
     }
   }
   ${MovieInfo.fragments.all}
@@ -83,6 +86,7 @@ export const MovieQuery = gql`
   ${MovieSites.fragments.movie}
   ${MovieCast.fragments.movie}
   ${MovieRelations.fragments.movie}
+  ${ObjectWikipedia.fragments.movie}
 `
 
 const configObject = {

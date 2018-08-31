@@ -6,7 +6,7 @@ import gql from 'graphql-tag'
 import Block from 'components/Block/Block'
 import './MovieSites.scss'
 
-type Props = { movie: Object}
+type Props = { movie: Object }
 
 export default class MovieSites extends React.Component<Props> {
   static propTypes = {
@@ -28,8 +28,16 @@ export default class MovieSites extends React.Component<Props> {
           url
           rating
         }
+        wikipedia {
+          edges {
+            node {
+              url
+              lang
+            }
+          }
+        }
       }
-    `
+    `,
   }
 
   renderImdb() {
@@ -52,6 +60,13 @@ export default class MovieSites extends React.Component<Props> {
     )
   }
 
+  renderWikipedia() {
+    const sites = this.props.movie.wikipedia.edges
+    return !sites ? '' : sites.map(({ node: site }) => (
+      <li key={site.lang}><a href={site.url}>{`${site.lang}.wikipedia.org`}</a></li>
+    ))
+  }
+
   render() {
     return (
       <div styleName="box">
@@ -59,6 +74,7 @@ export default class MovieSites extends React.Component<Props> {
           <ul>
             {this.renderImdb()}
             {this.renderKinopoisk()}
+            {this.renderWikipedia()}
           </ul>
         </Block>
       </div>
