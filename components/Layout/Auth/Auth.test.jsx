@@ -40,7 +40,7 @@ describe('Auth Component', () => {
         result: responseNonAuth,
       }
       wrapper = await mountGraphql(element, [mock])
-      expect(wrapper.text()).toContain('signin')
+      expect(wrapper.text()).toContain('sign in')
     })
   })
 })

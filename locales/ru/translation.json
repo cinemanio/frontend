@@ -7,6 +7,9 @@
     "movies": "Фильмы",
     "persons": "Персоны"
   },
+  "auth": {
+    "signin": "войти"
+  },
   "filter": {
     "view": {
       "sectionTitle": "Показывать",

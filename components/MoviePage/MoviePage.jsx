@@ -2,6 +2,7 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
+import { translate } from 'react-i18next'
 import gql from 'graphql-tag'
 
 import ObjectPage from 'components/ObjectPage/ObjectPage'
@@ -18,6 +19,7 @@ import './MoviePage.scss'
 
 type Props = { data: Object }
 
+@translate()
 class MoviePage extends React.Component<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,

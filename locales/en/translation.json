@@ -7,6 +7,9 @@
     "movies": "Movies",
     "persons": "Persons"
   },
+  "auth": {
+    "signin": "sign in"
+  },
   "filter": {
     "view": {
       "sectionTitle": "Display",

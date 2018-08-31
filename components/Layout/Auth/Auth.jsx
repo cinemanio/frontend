@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { translate } from 'react-i18next'
 import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
 import gql from 'graphql-tag'
 
@@ -13,6 +14,7 @@ import MutationOnMount from './MutationOnMount/MutationOnMount'
 
 type InjectedProps = { user: typeof user, token: typeof token }
 
+@translate()
 @inject('user', 'token')
 export default class Auth extends InjectedComponent<{}, InjectedProps> {
   static propTypes = {
@@ -58,7 +60,7 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
         {
           () => (this.props.user.username
             ? <a href="#logout" title="Logout" onClick={this.logout}>{this.props.user.username}</a>
-            : <Link to={routes.signin}>signin</Link>)
+            : <Link to={routes.signin}>{this.props.i18n.t('auth.signin')}</Link>)
         }
       </MutationOnMount>
     )
