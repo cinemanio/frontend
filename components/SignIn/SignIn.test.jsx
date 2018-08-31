@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { mountGraphql } from 'tests/helpers'
 import i18nClient from 'libs/i18nClient'
@@ -8,11 +9,9 @@ import Token from 'stores/Token'
 import SignIn from './SignIn'
 import response from './fixtures/response.json'
 import invalidCredentials from './fixtures/invalid_credentials.json'
-import MoviePage from '../MoviePage/MoviePage'
-import Helmet from 'react-helmet'
 
 describe('SignIn Component', () => {
-  let element = <SignIn/>
+  const element = <SignIn/>
   let wrapper
   const username = 'username'
   const password = 'password'

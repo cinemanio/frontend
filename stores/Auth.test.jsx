@@ -16,5 +16,4 @@ describe('Auth Store', () => {
     auth.setErrors(errors)
     expect(auth.errors[0]).toBe(errors[0])
   })
-
 })
