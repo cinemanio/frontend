@@ -3,9 +3,12 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 import humanizeDuration from 'humanize-duration'
+import { translate } from 'react-i18next'
+import type { Translator } from 'react-i18next'
 
 import CountryFlag from 'components/CountryFlag/CountryFlag'
 import i18n from 'libs/i18n'
+import i18nClient from 'libs/i18nClient'
 
 import './MovieInfo.scss'
 
@@ -17,8 +20,10 @@ type Props = {
   runtime: ?boolean,
   languages: ?boolean,
   all: ?boolean,
+  i18n: Translator,
 }
 
+@translate()
 export default class MovieInfo extends React.Component<Props> {
   static defaultProps = {
     year: false,
@@ -26,10 +31,12 @@ export default class MovieInfo extends React.Component<Props> {
     countries: false,
     runtime: false,
     languages: false,
-    all: false
+    all: false,
+    i18n: i18nClient,
   }
 
   static propTypes = {
+    i18n: PropTypes.object,
     movie: PropTypes.object.isRequired,
     year: PropTypes.bool,
     genres: PropTypes.bool,
@@ -37,10 +44,6 @@ export default class MovieInfo extends React.Component<Props> {
     runtime: PropTypes.bool,
     languages: PropTypes.bool,
     all: PropTypes.bool,
-  }
-
-  static contextTypes = {
-    i18n: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -93,7 +96,7 @@ export default class MovieInfo extends React.Component<Props> {
           ${i18n.gql('name')}
         }
       }
-    `
+    `,
   }
 
   renderYear() {
@@ -129,7 +132,7 @@ export default class MovieInfo extends React.Component<Props> {
   renderRuntime() {
     return !this.props.movie.runtime ? '' : (
       <span styleName="runtime">
-        <i/>{humanizeDuration(this.props.movie.runtime * 60 * 1000, { language: this.context.i18n.language })}
+        <i/>{humanizeDuration(this.props.movie.runtime * 60 * 1000, { language: this.props.i18n.language })}
       </span>
     )
   }
@@ -138,7 +141,7 @@ export default class MovieInfo extends React.Component<Props> {
     if (this.props.movie.languages.length === 0) {
       return ''
     }
-    const lang = this.context.i18n.t('movie.info.language', { count: this.props.movie.languages.length })
+    const lang = this.props.i18n.t('movie.info.language', { count: this.props.movie.languages.length })
     return (
       <span styleName="languages">
         {`${this.props.movie.languages.map(item => item[i18n.f('name')]).join(', ')} ${lang}`}

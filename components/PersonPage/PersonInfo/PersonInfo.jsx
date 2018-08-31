@@ -1,10 +1,13 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { translate } from 'react-i18next'
+import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 
 import CountryFlag from 'components/CountryFlag/CountryFlag'
 import i18n from 'libs/i18n'
+import i18nClient from 'libs/i18nClient'
 import getFecha from 'libs/fecha'
 
 import './PersonInfo.scss'
@@ -15,26 +18,26 @@ type Props = {
   dates: ?boolean,
   country: ?boolean,
   all: ?boolean,
+  i18n: Translator,
 }
 
+@translate()
 export default class PersonInfo extends React.Component<Props> {
   static defaultProps = {
     roles: false,
     dates: false,
     country: false,
     all: false,
+    i18n: i18nClient,
   }
 
   static propTypes = {
+    i18n: PropTypes.object,
     person: PropTypes.object.isRequired,
     roles: PropTypes.bool,
     dates: PropTypes.bool,
     country: PropTypes.bool,
     all: PropTypes.bool,
-  }
-
-  static contextTypes = {
-    i18n: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -79,7 +82,7 @@ export default class PersonInfo extends React.Component<Props> {
   }
 
   formatDate = (date: string) => {
-    const fecha = getFecha(this.context.i18n.language)
+    const fecha = getFecha(this.props.i18n.language)
     return fecha.format(fecha.parse(date, 'YYYY-MM-DD'), 'mediumDate')
   }
 

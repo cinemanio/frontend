@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { translate } from 'react-i18next'
 
 import { mountGraphql, mockAutoSizer, selectFilterChange } from 'tests/helpers'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
@@ -22,7 +23,8 @@ describe('Movies Page Component', () => {
     beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
       const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: jest.fn() }
-      element = (<MoviesPage.WrappedComponent
+      const MoviesPagePure = translate()(MoviesPage.WrappedComponent)
+      element = (<MoviesPagePure
         data={data} genreData={genres.data} countryData={countries.data}/>)
       wrapper = await mountGraphql(element)
     })

@@ -1,6 +1,8 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { translate } from 'react-i18next'
+import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 import _ from 'lodash'
 
@@ -8,18 +10,20 @@ import MovieLink from 'components/MovieLink/MovieLink'
 import MovieImage from 'components/MovieImage/MovieImage'
 import Block from 'components/Block/Block'
 import i18n from 'libs/i18n'
+import i18nClient from 'libs/i18nClient'
 
 import './PersonCareer.scss'
 
-type Props = { person: Object }
+type Props = { person: Object, i18n: Translator }
 
+@translate()
 export default class PersonCast extends React.Component<Props> {
-  static propTypes = {
-    person: PropTypes.object.isRequired,
+  static defaultProps = {
+    i18n: i18nClient,
   }
-
-  static contextTypes = {
-    i18n: PropTypes.object.isRequired,
+  static propTypes = {
+    i18n: PropTypes.object,
+    person: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -43,7 +47,7 @@ export default class PersonCast extends React.Component<Props> {
         }      
       }
       ${MovieLink.fragments.movie}      
-    `
+    `,
   }
 
   /**
@@ -75,14 +79,14 @@ export default class PersonCast extends React.Component<Props> {
           </div>
           <div>{node.roles.join(', ')}</div>
         </div>
-      </div>)
+      </div>),
     )
   }
 
   render() {
     return (
       <div styleName="box">
-        <Block title={this.context.i18n.t('person.career.title')}>
+        <Block title={this.props.i18n.t('person.career.title')}>
           <div styleName="career">
             {this.renderCareer()}
           </div>

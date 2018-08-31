@@ -5,25 +5,24 @@ import { inject, observer, Observer, PropTypes as MobxPropTypes } from 'mobx-rea
 import { PropTypes } from 'prop-types'
 import { Mutation } from 'react-apollo'
 import { Helmet } from 'react-helmet'
+import { translate } from 'react-i18next'
 import gql from 'graphql-tag'
 
 import ListErrors from 'components/ListErrors/ListErrors'
 import routes from 'components/App/routes'
 
-type Props = { auth: Object, token: Object, history: Object }
+type Props = { auth: Object, token: Object, history: Object, i18n: Object }
 
+@translate()
 @inject('auth', 'token')
 @withRouter
 @observer
 export default class SignIn extends React.Component<Props> {
   static propTypes = {
+    i18n: PropTypes.object.isRequired,
     auth: MobxPropTypes.observableObject.isRequired,
     token: MobxPropTypes.observableObject.isRequired,
     history: PropTypes.object.isRequired,
-  }
-
-  static contextTypes = {
-    i18n: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -71,13 +70,13 @@ export default class SignIn extends React.Component<Props> {
           <div className="row">
             <div className="col-md-6 offset-md-3 col-xs-12">
 
-              <h1 className="text-xs-center">{this.context.i18n.t('signin.title')}</h1>
+              <h1 className="text-xs-center">{this.props.i18n.t('signin.title')}</h1>
               <p className="text-xs-center">
-                <Link to={routes.signup}>{this.context.i18n.t('signin.needAccount')}</Link>
+                <Link to={routes.signup}>{this.props.i18n.t('signin.needAccount')}</Link>
               </p>
 
               <Helmet>
-                <title>{this.context.i18n.t('signin.title')}</title>
+                <title>{this.props.i18n.t('signin.title')}</title>
               </Helmet>
 
               <Mutation mutation={SignIn.fragments.signin} update={this.updateCache} onError={this.onError}>
@@ -94,7 +93,7 @@ export default class SignIn extends React.Component<Props> {
                               <input
                                 className="form-control form-control-lg"
                                 type="text"
-                                placeholder={this.context.i18n.t('signin.placeholders.username')}
+                                placeholder={this.props.i18n.t('signin.placeholders.username')}
                                 value={this.props.auth.values.username}
                                 onChange={this.handleUsernameChange}
                               />
@@ -104,7 +103,7 @@ export default class SignIn extends React.Component<Props> {
                               <input
                                 className="form-control form-control-lg"
                                 type="password"
-                                placeholder={this.context.i18n.t('signin.placeholders.password')}
+                                placeholder={this.props.i18n.t('signin.placeholders.password')}
                                 value={this.props.auth.values.password}
                                 onChange={this.handlePasswordChange}
                               />
@@ -115,7 +114,7 @@ export default class SignIn extends React.Component<Props> {
                               type="submit"
                               disabled={this.props.auth.submitDisabled || loading}
                             >
-                              {this.context.i18n.t('signin.submit')}
+                              {this.props.i18n.t('signin.submit')}
                             </button>
 
                           </fieldset>
