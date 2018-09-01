@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
+import { translate } from 'react-i18next'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 import _ from 'lodash'
@@ -21,6 +22,7 @@ type Props = {
   data: Object,
   genreData: Object,
   countryData: Object,
+  i18n: Object,
 }
 
 type State = {
@@ -31,15 +33,13 @@ type State = {
   orderBy: string,
 }
 
+@translate()
 class MoviesPage extends React.Component<Props, State> {
   static propTypes = {
+    i18n: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,
     genreData: PropTypes.object.isRequired,
     countryData: PropTypes.object.isRequired,
-  }
-
-  static contextTypes = {
-    i18n: PropTypes.object.isRequired,
   }
 
   static defaults = {
@@ -66,27 +66,21 @@ class MoviesPage extends React.Component<Props, State> {
     orderBy: this.state.orderBy,
   })
 
-  get viewOptions() {
-    return [
-      { id: 'short', name: this.context.i18n.t('filter.view.short') },
-      // { id: 'full', name: this.context.i18n.t('filter.view.full') },
-    ]
-  }
+  getViewOptions = () => ([
+    { id: 'short', name: this.props.i18n.t('filter.view.short') },
+    // { id: 'full', name: this.props.i18n.t('filter.view.full') },
+  ])
 
-  get orderByOptions() {
-    return [
-      { id: 'year', name: this.context.i18n.t('filter.orderBy.year') },
-      { id: 'relations_count__like', name: this.context.i18n.t('filter.orderBy.like') },
-      { id: 'relations_count__dislike', name: this.context.i18n.t('filter.orderBy.dislike') },
-    ]
-  }
+  getOrderByOptions = () => ([
+    { id: 'year', name: this.props.i18n.t('filter.orderBy.year') },
+    { id: 'relations_count__like', name: this.props.i18n.t('filter.orderBy.like') },
+    { id: 'relations_count__dislike', name: this.props.i18n.t('filter.orderBy.dislike') },
+  ])
 
-  get relationFilterOptions() {
-    return MovieRelations.codes.map(code => ({
-      id: code,
-      [`name${_.capitalize(this.context.i18n.language)}`]: this.context.i18n.t(`filter.relation.${code}`),
-    }))
-  }
+  getRelationFilterOptions = () => MovieRelations.codes.map(code => ({
+    id: code,
+    [`name${_.capitalize(this.props.i18n.language)}`]: this.props.i18n.t(`filter.relation.${code}`),
+  }))
 
   renderMovie = ({ movie }) => {
     if (this.state.view === 'short') {
@@ -100,33 +94,33 @@ class MoviesPage extends React.Component<Props, State> {
 
   renderFilters = (refreshList: Function) => (
     <div>
-      <FieldSection title={this.context.i18n.t('filter.view.sectionTitle')}>
+      <FieldSection title={this.props.i18n.t('filter.view.sectionTitle')}>
         <SelectGeneric
           code="view"
-          list={this.viewOptions}
+          list={this.getViewOptions()}
           filters={this.state}
           setFilterState={params => this.setState(params, refreshList)}
         />
       </FieldSection>
-      <FieldSection title={this.context.i18n.t('filter.orderBy.sectionTitle')}>
+      <FieldSection title={this.props.i18n.t('filter.orderBy.sectionTitle')}>
         <SelectGeneric
           code="orderBy"
-          list={this.orderByOptions}
+          list={this.getOrderByOptions()}
           filters={this.state}
           setFilterState={params => this.setState(params, refreshList)}
         />
       </FieldSection>
-      <FieldSection title={this.context.i18n.t('filter.sectionTitle')}>
+      <FieldSection title={this.props.i18n.t('filter.sectionTitle')}>
         <SelectFilter
           code="relation"
-          title={this.context.i18n.t('filter.relation.sectionTitle')}
-          list={this.relationFilterOptions}
+          title={this.props.i18n.t('filter.relation.sectionTitle')}
+          list={this.getRelationFilterOptions()}
           filters={this.state}
           setFilterState={params => this.setState(params, refreshList)}
         />
         <SelectFilter
           code="genres"
-          title={this.context.i18n.t('filter.genres')}
+          title={this.props.i18n.t('filter.genres')}
           list={this.props.genreData.list}
           filters={this.state}
           setFilterState={params => this.setState(params, refreshList)}
@@ -134,7 +128,7 @@ class MoviesPage extends React.Component<Props, State> {
         />
         <SelectFilter
           code="countries"
-          title={this.context.i18n.t('filter.countries')}
+          title={this.props.i18n.t('filter.countries')}
           list={this.props.countryData.list}
           filters={this.state}
           setFilterState={params => this.setState(params, refreshList)}
@@ -148,7 +142,7 @@ class MoviesPage extends React.Component<Props, State> {
     <span>
       <ActiveFilters
         code="relation"
-        list={this.relationFilterOptions}
+        list={this.getRelationFilterOptions()}
         filters={this.state}
         setFilterState={params => this.setState(params, refreshList)}
       />
@@ -172,10 +166,10 @@ class MoviesPage extends React.Component<Props, State> {
   render() {
     return (
       <ObjectListPage
-        title={this.context.i18n.t('title.movies')}
+        title={this.props.i18n.t('title.movies')}
         renderFilters={this.renderFilters}
         renderActiveFilters={this.renderActiveFilters}
-        noResultsMessage={this.context.i18n.t('nothingFound.movies')}
+        noResultsMessage={this.props.i18n.t('nothingFound.movies')}
         renderItem={this.renderMovie}
         getVariables={this.getVariables}
         data={this.props.data}

@@ -5,9 +5,10 @@ import { ApolloProvider } from 'react-apollo'
 import { BrowserRouter } from 'react-router-dom'
 import { I18nextProvider } from 'react-i18next'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
+import { useStrict } from 'mobx'
 import fetch from 'unfetch'
 
-import App from 'components/App/App'
+import App, { stores } from 'components/App/App'
 import i18nClient from 'libs/i18nClient'
 import graphqlAuth from 'libs/graphqlAuth'
 
@@ -17,6 +18,11 @@ const client = new ApolloClient({
   link: graphqlAuth.concat(new HttpLink({ uri: window.API_URL, fetch })),
   cache: new InMemoryCache().restore(window.INITIAL_STATE),
 })
+
+// For easier debugging
+window.APP_STATE = stores
+
+useStrict(true)
 
 const ClientApp = () => (
   <ApolloProvider client={client}>

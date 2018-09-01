@@ -1,24 +1,28 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { translate } from 'react-i18next'
+import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 
 import PersonLink from 'components/PersonLink/PersonLink'
 import PersonImage from 'components/PersonImage/PersonImage'
 import Block from 'components/Block/Block'
 import i18n from 'libs/i18n'
+import i18nClient from 'libs/i18nClient'
 
 import './MovieCast.scss'
 
-type Props = { movie: Object }
+type Props = { movie: Object, i18n: Translator }
 
+@translate()
 export default class MovieCast extends React.Component<Props> {
-  static propTypes = {
-    movie: PropTypes.object.isRequired,
+  static defaultProps = {
+    i18n: i18nClient,
   }
-
-  static contextTypes = {
-    i18n: PropTypes.object.isRequired,
+  static propTypes = {
+    i18n: PropTypes.object,
+    movie: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -106,8 +110,8 @@ export default class MovieCast extends React.Component<Props> {
     return (
       <div styleName="box">
         {this.renderBlock('', this.getPersons(this.filterCreators, this.sortCreators))}
-        {this.renderBlock(this.context.i18n.t('movie.cast.cast'), this.getPersons(this.filterCast))}
-        {this.renderBlock(this.context.i18n.t('movie.cast.crew'), this.getPersons(this.filterCrew))}
+        {this.renderBlock(this.props.i18n.t('movie.cast.cast'), this.getPersons(this.filterCast))}
+        {this.renderBlock(this.props.i18n.t('movie.cast.crew'), this.getPersons(this.filterCrew))}
       </div>
     )
   }

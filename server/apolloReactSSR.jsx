@@ -11,6 +11,7 @@ import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 import App from 'components/App/App'
 import i18nServer from 'libs/i18nServer'
 import graphqlAuth from 'libs/graphqlAuth'
+import Token from 'stores/Token'
 
 import renderHtmlPage from './renderHtmlPage'
 import settings from '../settings'
@@ -44,6 +45,8 @@ export default (apolloHttpConf: Object) => {
   }
 
   return async (ctx: Object) => {
+    Token.init(ctx.req.headers.cookie, true)
+
     const client = new ApolloClient({
       ssrMode: true,
       link: graphqlAuth.concat(new HttpLink(apolloHttpConf)),

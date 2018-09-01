@@ -10,6 +10,11 @@ import actress from './fixtures/actress.json'
 describe('Person Info Component', () => {
   let element
   let wrapper
+  const content = {
+    roles: 'Actress',
+    country: 'USA',
+    dates: 'Aug 28, 1962',
+  }
 
   describe('Genderize', () => {
     beforeAll(() => {
@@ -31,11 +36,6 @@ describe('Person Info Component', () => {
 
   describe('flags', () => {
     element = <PersonInfo person={actress.data.person}/>
-    const content = {
-      roles: 'Actress',
-      country: 'USA',
-      dates: 'Aug 28, 1962',
-    }
 
     describe('blocks', () => {
       [
@@ -46,5 +46,22 @@ describe('Person Info Component', () => {
         { roles: true, country: true },
       ].forEach(itShouldRenderBlocks(content, element))
     })
+  })
+
+  describe('one block only', () => {
+    Object.entries(content).map(([type, text]) =>
+      it(`should render only ${type} block`, () => {
+        const person = { roles: [] }
+        const newType = type.replace('dates', 'dateBirth')
+        person[newType] = actress.data.person[newType]
+        if (type === 'roles') {
+          person.gender = 'FEMALE'
+        }
+        element = <PersonInfo person={person} all/>
+        wrapper = mount(element, mountOptions)
+        expect(wrapper.find('div').children()).toHaveLength(1)
+        expect(wrapper.text()).toContain(text)
+      }),
+    )
   })
 })

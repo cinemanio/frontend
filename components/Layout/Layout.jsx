@@ -3,17 +3,15 @@ import React from 'react'
 import RedBox from 'redbox-react'
 import { Route, Link } from 'react-router-dom'
 import { PropTypes } from 'prop-types'
-import { translate } from 'react-i18next'
-
-import Menu from 'components/Menu/Menu'
 
 import './Layout.scss'
 import Languages from './Languages/Languages'
+import Auth from './Auth/Auth'
+import Menu from './Menu/Menu'
 
 type Props = { component: Function, menuActive?: string }
 type State = { error: ?Error }
 
-@translate()
 export default class Layout extends React.Component<Props, State> {
   static defaultProps = {
     menuActive: undefined
@@ -38,7 +36,12 @@ export default class Layout extends React.Component<Props, State> {
     return (
       <Route {...rest} render={matchProps => (
         <div className="container" styleName="box">
-          <header><Link to="/">cineman.io</Link></header>
+          <header>
+            <Link to="/">cineman.io</Link>
+            <div styleName="right">
+              <Auth/>
+            </div>
+          </header>
           <div styleName="container">
             <Menu active={menuActive}/>
             {this.state.error

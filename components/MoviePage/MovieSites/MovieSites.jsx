@@ -1,20 +1,25 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { translate } from 'react-i18next'
+import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 
 import Block from 'components/Block/Block'
+import i18nClient from 'libs/i18nClient'
+
 import './MovieSites.scss'
 
-type Props = { movie: Object }
+type Props = { movie: Object, i18n: Translator }
 
+@translate()
 export default class MovieSites extends React.Component<Props> {
-  static propTypes = {
-    movie: PropTypes.object.isRequired,
+  static defaultProps = {
+    i18n: i18nClient,
   }
-
-  static contextTypes = {
-    i18n: PropTypes.object.isRequired,
+  static propTypes = {
+    i18n: PropTypes.object,
+    movie: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -45,7 +50,7 @@ export default class MovieSites extends React.Component<Props> {
     return !site ? '' : (
       <li>
         <a href={site.url}>IMDb</a>
-        {site.rating ? <span title={this.context.i18n.t('movie.sites.imdbRating')}>{site.rating}</span> : ''}
+        {site.rating ? <span title={this.props.i18n.t('movie.sites.imdbRating')}>{site.rating}</span> : ''}
       </li>
     )
   }
@@ -54,8 +59,8 @@ export default class MovieSites extends React.Component<Props> {
     const site = this.props.movie.kinopoisk
     return !site ? '' : (
       <li>
-        <a href={site.url}>{this.context.i18n.t('movie.sites.kinopoisk')}</a>
-        {site.rating ? <span title={this.context.i18n.t('movie.sites.kinopoiskRating')}>{site.rating}</span> : ''}
+        <a href={site.url}>{this.props.i18n.t('movie.sites.kinopoisk')}</a>
+        {site.rating ? <span title={this.props.i18n.t('movie.sites.kinopoiskRating')}>{site.rating}</span> : ''}
       </li>
     )
   }
@@ -70,7 +75,7 @@ export default class MovieSites extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
-        <Block title={this.context.i18n.t('movie.sites.title')}>
+        <Block title={this.props.i18n.t('movie.sites.title')}>
           <ul>
             {this.renderImdb()}
             {this.renderKinopoisk()}

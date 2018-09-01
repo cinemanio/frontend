@@ -1,4 +1,5 @@
 export default {
+  index: '/',
   movie: {
     list: '/movies',
     detail: '/movies/:slug'
@@ -6,5 +7,7 @@ export default {
   person: {
     list: '/persons',
     detail: '/persons/:slug'
-  }
+  },
+  signin: '/signin',
+  signup: '/signup',
 }
