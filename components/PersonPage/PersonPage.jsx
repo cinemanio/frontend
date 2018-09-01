@@ -7,6 +7,7 @@ import gql from 'graphql-tag'
 
 import ObjectPage from 'components/ObjectPage/ObjectPage'
 import PersonImage from 'components/PersonImage/PersonImage'
+import ObjectWikipedia from 'components/ObjectWikipedia/ObjectWikipedia'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 import i18n from 'libs/i18n'
 
@@ -46,6 +47,7 @@ class PersonPage extends React.Component<Props> {
           <PersonCareer person={person}/>
         </div>
       </div>
+      <ObjectWikipedia object={person}/>
     </div>
   )
 
@@ -80,7 +82,8 @@ export const PersonQuery = gql`
       ...PersonInfoAll
       ...PersonSites
       ...PersonCareer
-      ...PersonRelations      
+      ...PersonRelations
+      ...PersonWikipedia
     }
   }
   ${PersonImage.fragments.person}
@@ -88,6 +91,7 @@ export const PersonQuery = gql`
   ${PersonSites.fragments.person}
   ${PersonCareer.fragments.person}
   ${PersonRelations.fragments.person}
+  ${ObjectWikipedia.fragments.person}
 `
 
 const configObject = {

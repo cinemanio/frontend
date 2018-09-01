@@ -59,6 +59,7 @@ describe('Person Page Component', () => {
         <PersonPage match={{ params: { slug: response.data.person.id } }}/>, [mockPerson])
       expect(wrapper.find('PersonInfo')).toHaveLength(1)
       expect(wrapper.find('PersonImage')).toHaveLength(1)
+      expect(wrapper.find('ObjectWikipedia')).toHaveLength(1)
     })
 
     it('should render 404 page when response empty', async () => {

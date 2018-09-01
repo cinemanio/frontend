@@ -78,6 +78,7 @@ describe('Movie Page Component', () => {
         <MoviePage match={{ params: { slug: response.data.movie.id } }}/>, [mockMovie])
       expect(wrapper.find('MovieInfo')).toHaveLength(1)
       expect(wrapper.find('MovieImage')).toHaveLength(1)
+      expect(wrapper.find('ObjectWikipedia')).toHaveLength(1)
     })
 
     it('should render 404 page when response empty', async () => {
