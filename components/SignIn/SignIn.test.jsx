@@ -94,6 +94,22 @@ describe('SignIn Component', () => {
       })
     })
 
+    xit('should clear apollo cache after successful signin', async (done) => {
+      const client = { resetStore: jest.fn() }
+      wrapper = await mountGraphql(element, [mock])
+
+      setUsername(username)
+      setPassword(password)
+
+      expect(client.resetStore).not.toHaveBeenCalled()
+      wrapper.find('form').simulate('submit')
+
+      setTimeout(() => {
+        expect(client.resetStore).toHaveBeenCalled()
+        done()
+      })
+    })
+
     it('should render display error when mutation failed', async (done) => {
       wrapper = await mountGraphql(element, [{
         ...mock,

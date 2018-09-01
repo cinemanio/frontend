@@ -3,6 +3,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { translate } from 'react-i18next'
 import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
+import { ApolloConsumer } from 'react-apollo'
+import { ApolloClient } from 'apollo-client-preset'
 import gql from 'graphql-tag'
 
 import InjectedComponent from 'components/InjectedComponent/InjectedComponent'
@@ -32,11 +34,12 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
     `,
   }
 
-  logout = () => {
+  logout = (client: ApolloClient) => () => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm('Are you sure you want to logout?')) {
       this.props.token.set(undefined)
       this.props.user.logout()
+      client.resetStore()
     }
   }
 
@@ -45,24 +48,26 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
   }
 
   onError(error: Object) {
-    // supress errors, because if token is undefined "Error decoding signature" error will be returned
+    // suppress errors, because if token is undefined "Error decoding signature" error will be returned
     // console.log(error)
   }
 
   render() {
     return (
-      <MutationOnMount
-        mutation={Auth.fragments.verify}
-        variables={{ token: this.props.token.token }}
-        update={this.updateCache}
-        onError={this.onError}
-      >
-        {
-          () => (this.props.user.username
-            ? <a href="#logout" title="Logout" onClick={this.logout}>{this.props.user.username}</a>
-            : <Link to={routes.signin}>{this.props.i18n.t('auth.signin')}</Link>)
-        }
-      </MutationOnMount>
+      <ApolloConsumer>
+        {client => (
+          <MutationOnMount
+            mutation={Auth.fragments.verify}
+            variables={{ token: this.props.token.token }}
+            update={this.updateCache}
+            onError={this.onError}
+          >
+            {() => (this.props.user.username
+              ? <a href="#logout" title="Logout" onClick={this.logout(client)}>{this.props.user.username}</a>
+              : <Link to={routes.signin}>{this.props.i18n.t('auth.signin')}</Link>)}
+          </MutationOnMount>
+        )}
+      </ApolloConsumer>
     )
   }
 }

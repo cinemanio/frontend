@@ -3,7 +3,8 @@ import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { inject, observer, Observer, PropTypes as MobxPropTypes } from 'mobx-react'
 import { PropTypes } from 'prop-types'
-import { Mutation } from 'react-apollo'
+import { ApolloConsumer, Mutation } from 'react-apollo'
+import { ApolloClient } from 'apollo-client-preset'
 import { Helmet } from 'react-helmet'
 import { translate } from 'react-i18next'
 import gql from 'graphql-tag'
@@ -53,10 +54,10 @@ export default class SignIn extends React.Component<Props> {
     })
   }
 
-  updateCache = (cache: Object, { data: { tokenAuth: { token } } }: Object) => {
-    // client.resetStore()
+  updateCache = (client: ApolloClient) => (cache: Object, { data: { tokenAuth: { token } } }: Object) => {
+    client.resetStore()
     this.props.token.set(token)
-    this.props.history.replace(routes.index)
+    this.props.history.goBack()
   }
 
   onError = (errors: Object) => {
@@ -65,70 +66,74 @@ export default class SignIn extends React.Component<Props> {
 
   render() {
     return (
-      <div className="auth-page">
-        <div className="container page">
-          <div className="row">
-            <div className="col-md-6 offset-md-3 col-xs-12">
+      <ApolloConsumer>
+        {client => (
+          <div className="auth-page">
+            <div className="container page">
+              <div className="row">
+                <div className="col-md-6 offset-md-3 col-xs-12">
 
-              <h1 className="text-xs-center">{this.props.i18n.t('signin.title')}</h1>
-              <p className="text-xs-center">
-                <Link to={routes.signup}>{this.props.i18n.t('signin.needAccount')}</Link>
-              </p>
+                  <h1 className="text-xs-center">{this.props.i18n.t('signin.title')}</h1>
+                  <p className="text-xs-center">
+                    <Link to={routes.signup}>{this.props.i18n.t('signin.needAccount')}</Link>
+                  </p>
 
-              <Helmet>
-                <title>{this.props.i18n.t('signin.title')}</title>
-              </Helmet>
+                  <Helmet>
+                    <title>{this.props.i18n.t('signin.title')}</title>
+                  </Helmet>
 
-              <Mutation mutation={SignIn.fragments.signin} update={this.updateCache} onError={this.onError}>
-                {(signin, { loading }) => (
-                  <Observer>
-                    {() => (
-                      <div>
-                        <ListErrors errors={this.props.auth.errors}/>
+                  <Mutation mutation={SignIn.fragments.signin} update={this.updateCache(client)} onError={this.onError}>
+                    {(signin, { loading }) => (
+                      <Observer>
+                        {() => (
+                          <div>
+                            <ListErrors errors={this.props.auth.errors}/>
 
-                        <form onSubmit={this.handleSubmitForm(signin)}>
-                          <fieldset>
+                            <form onSubmit={this.handleSubmitForm(signin)}>
+                              <fieldset>
 
-                            <fieldset className="form-group">
-                              <input
-                                className="form-control form-control-lg"
-                                type="text"
-                                placeholder={this.props.i18n.t('signin.placeholders.username')}
-                                value={this.props.auth.values.username}
-                                onChange={this.handleUsernameChange}
-                              />
-                            </fieldset>
+                                <fieldset className="form-group">
+                                  <input
+                                    className="form-control form-control-lg"
+                                    type="text"
+                                    placeholder={this.props.i18n.t('signin.placeholders.username')}
+                                    value={this.props.auth.values.username}
+                                    onChange={this.handleUsernameChange}
+                                  />
+                                </fieldset>
 
-                            <fieldset className="form-group">
-                              <input
-                                className="form-control form-control-lg"
-                                type="password"
-                                placeholder={this.props.i18n.t('signin.placeholders.password')}
-                                value={this.props.auth.values.password}
-                                onChange={this.handlePasswordChange}
-                              />
-                            </fieldset>
+                                <fieldset className="form-group">
+                                  <input
+                                    className="form-control form-control-lg"
+                                    type="password"
+                                    placeholder={this.props.i18n.t('signin.placeholders.password')}
+                                    value={this.props.auth.values.password}
+                                    onChange={this.handlePasswordChange}
+                                  />
+                                </fieldset>
 
-                            <button
-                              className="btn btn-lg btn-primary pull-xs-right"
-                              type="submit"
-                              disabled={this.props.auth.submitDisabled || loading}
-                            >
-                              {this.props.i18n.t('signin.submit')}
-                            </button>
+                                <button
+                                  className="btn btn-lg btn-primary pull-xs-right"
+                                  type="submit"
+                                  disabled={this.props.auth.submitDisabled || loading}
+                                >
+                                  {this.props.i18n.t('signin.submit')}
+                                </button>
 
-                          </fieldset>
-                        </form>
-                      </div>
+                              </fieldset>
+                            </form>
+                          </div>
+                        )}
+                      </Observer>
                     )}
-                  </Observer>
-                )}
-              </Mutation>
+                  </Mutation>
 
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
+      </ApolloConsumer>
     )
   }
 }
