@@ -1,6 +1,8 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { translate } from 'react-i18next'
+import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 import wtf from 'wtf_wikipedia'
 
@@ -8,17 +10,19 @@ import Block from 'components/Block/Block'
 
 import WikiSection from './WikiSection/WikiSection'
 import './ObjectWikipedia.scss'
+import i18nClient from '../../libs/i18nClient'
 
-type Props = { object: Object }
+type Props = { object: Object, i18n: Translator }
 type State = { full: boolean }
 
-export default class ObjectWikipedia extends React.PureComponent<Props, State> {
-  static propTypes = {
-    object: PropTypes.object.isRequired,
+@translate()
+export default class ObjectWikipedia extends React.Component<Props, State> {
+  static defaultProps = {
+    i18n: i18nClient,
   }
-
-  static contextTypes = {
-    i18n: PropTypes.object.isRequired,
+  static propTypes = {
+    i18n: PropTypes.object,
+    object: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -56,7 +60,7 @@ export default class ObjectWikipedia extends React.PureComponent<Props, State> {
   symbolsLimit: number = 500
 
   get content(): ?string {
-    const edges = this.props.object.wikipedia.edges.filter(edge => edge.node.lang === this.context.i18n.language)
+    const edges = this.props.object.wikipedia.edges.filter(edge => edge.node.lang === this.props.i18n.language)
     let content = edges.length > 0 ? edges[0].node.content : null
     if (content && !this.state.full) {
       content = `${content.substring(0, this.symbolsLimit)}…`
@@ -71,16 +75,16 @@ export default class ObjectWikipedia extends React.PureComponent<Props, State> {
 
   renderMore() {
     return this.state.full ? ''
-      : <button href="#" onClick={this.display(true)}>{this.context.i18n.t('wikipedia.displayMore')}</button>
+      : <button href="#" onClick={this.display(true)}>{this.props.i18n.t('wikipedia.displayMore')}</button>
   }
 
   renderTitle() {
-    const title = this.context.i18n.t('wikipedia.title')
+    const title = this.props.i18n.t('wikipedia.title')
     return this.state.full
       ? (
         <div>
           {title}
-          <button onClick={this.display(false)} styleName="hide">{this.context.i18n.t('wikipedia.displayLess')}</button>
+          <button onClick={this.display(false)} styleName="hide">{this.props.i18n.t('wikipedia.displayLess')}</button>
         </div>
       ) : title
   }
