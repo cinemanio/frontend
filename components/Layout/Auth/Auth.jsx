@@ -52,21 +52,28 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
     // console.log(error)
   }
 
+  renderSignin(client: ApolloClient) {
+    return this.props.user.username
+      ? <a href="#logout" title="Logout" onClick={this.logout(client)}>{this.props.user.username}</a>
+      : <Link to={routes.signin}>{this.props.i18n.t('auth.signin')}</Link>
+  }
+
   render() {
     return (
       <ApolloConsumer>
-        {client => (
-          <MutationOnMount
-            mutation={Auth.fragments.verify}
-            variables={{ token: this.props.token.token }}
-            update={this.updateCache}
-            onError={this.onError}
-          >
-            {() => (this.props.user.username
-              ? <a href="#logout" title="Logout" onClick={this.logout(client)}>{this.props.user.username}</a>
-              : <Link to={routes.signin}>{this.props.i18n.t('auth.signin')}</Link>)}
-          </MutationOnMount>
-        )}
+        {client => (this.props.token.token
+          ? (
+            <MutationOnMount
+              mutation={Auth.fragments.verify}
+              variables={{ token: this.props.token.token }}
+              update={this.updateCache}
+              onError={this.onError}
+            >
+              {() => this.renderSignin(client)}
+            </MutationOnMount>
+          )
+          : this.renderSignin(client))
+        }
       </ApolloConsumer>
     )
   }

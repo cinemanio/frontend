@@ -70,26 +70,28 @@ class MoviePage extends React.Component<Props> {
   }
 }
 
-export const MovieQuery = gql`
-  query Movie($movieId: ID!) {
-    movie(id: $movieId) {
-      ${i18n.gql('title')}
-      title
-      ...MovieImage
-      ...MovieInfoAll
-      ...MovieSites
-      ...MovieCast
-      ...MovieRelations
-      ...MovieWikipedia
+MoviePage.queries = {
+  movie: gql`
+    query Movie($movieId: ID!) {
+      movie(id: $movieId) {
+        ${i18n.gql('title')}
+        title
+        ...MovieImage
+        ...MovieInfoAll
+        ...MovieSites
+        ...MovieCast
+        ...MovieRelations
+        ...MovieWikipedia
+      }
     }
-  }
-  ${MovieInfo.fragments.all}
-  ${MovieImage.fragments.movie}
-  ${MovieSites.fragments.movie}
-  ${MovieCast.fragments.movie}
-  ${MovieRelations.fragments.movie}
-  ${ObjectWikipedia.fragments.movie}
-`
+    ${MovieInfo.fragments.all}
+    ${MovieImage.fragments.movie}
+    ${MovieSites.fragments.movie}
+    ${MovieCast.fragments.movie}
+    ${MovieRelations.fragments.movie}
+    ${ObjectWikipedia.fragments.movie}
+  `
+}
 
 const configObject = {
   options: ({ match: { params: { slug } } }: Object) => ({
@@ -99,4 +101,4 @@ const configObject = {
   }),
 }
 
-export default graphql(MovieQuery, configObject)(MoviePage)
+export default graphql(MoviePage.queries.movie, configObject)(MoviePage)

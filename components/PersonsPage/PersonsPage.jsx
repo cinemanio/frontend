@@ -181,51 +181,55 @@ class PersonsPage extends React.Component<Props, State> {
   }
 }
 
-export const PersonsQuery = gql`
-  query Persons($first: Int!, $after: String, $roles: [ID!], $country: ID, $relation: String, $orderBy: String) {
-    list: persons(
-      first: $first,
-      after: $after,
-      roles: $roles,
-      country: $country,
-      relation: $relation,
-      orderBy: $orderBy
-    ) {
-      totalCount
-      edges {
-        person: node {
-          ...PersonShort
+PersonsPage.queries = {
+  persons: gql`
+    query Persons($first: Int!, $after: String, $roles: [ID!], $country: ID, $relation: String, $orderBy: String) {
+      list: persons(
+        first: $first,
+        after: $after,
+        roles: $roles,
+        country: $country,
+        relation: $relation,
+        orderBy: $orderBy
+      ) {
+        totalCount
+        edges {
+          person: node {
+            ...PersonShort
+          }
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
         }
       }
-      pageInfo {
-        endCursor
-        hasNextPage
+    }
+    ${PersonShort.fragments.person}
+  `,
+  roles: gql`
+    query Roles {
+      list: roles {
+        id
+        ${i18n.gql('name')}
       }
     }
-  }
-  ${PersonShort.fragments.person}
-`
-
-export const RolesQuery = gql`
-  query Roles {
-    list: roles {
-      id
-      ${i18n.gql('name')}
+  `,
+  countries: gql`
+    query Countries {
+      list: countries {
+        id
+        ${i18n.gql('name')}
+      }
     }
-  }
-`
+  `
+}
 
-export const CountryQuery = gql`
-  query Countries {
-    list: countries {
-      id
-      ${i18n.gql('name')}
-    }
-  }
-`
+const configObject = getConfigObject(PersonsPage.defaults)
+
+PersonsPage.variables = { persons: configObject.options().variables }
 
 export default compose(
-  graphql(RolesQuery, { name: 'roleData' }),
-  graphql(CountryQuery, { name: 'countryData' }),
-  graphql(PersonsQuery, getConfigObject(PersonsPage.defaults)),
+  graphql(PersonsPage.queries.roles, { name: 'roleData' }),
+  graphql(PersonsPage.queries.countries, { name: 'countryData' }),
+  graphql(PersonsPage.queries.persons, configObject),
 )(PersonsPage)

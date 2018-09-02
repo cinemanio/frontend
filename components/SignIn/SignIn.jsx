@@ -61,7 +61,11 @@ export default class SignIn extends React.Component<Props> {
   }
 
   onError = (errors: Object) => {
-    this.props.auth.setErrors(errors.graphQLErrors.map(error => error.message))
+    if (errors.graphQLErrors) {
+      this.props.auth.setErrors(errors.graphQLErrors.map(error => error.message))
+    } else {
+      console.error(errors)
+    }
   }
 
   render() {

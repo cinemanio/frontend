@@ -5,7 +5,8 @@ import { mountGraphql } from 'tests/helpers'
 import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
 
-import PersonPage, { PersonQuery } from './PersonPage'
+import PersonPage from './PersonPage'
+import { mockPerson } from './mocks'
 import PersonRelations from './PersonRelations/PersonRelations'
 import response from './fixtures/response.json'
 import emptyResponse from './fixtures/empty_response.json'
@@ -49,11 +50,6 @@ describe('Person Page Component', () => {
   })
 
   describe('GraphQL', () => {
-    const mockPerson = {
-      request: { query: PersonQuery, variables: { personId: response.data.person.id } },
-      result: response,
-    }
-
     it('should render person page', async () => {
       wrapper = await mountGraphql(
         <PersonPage match={{ params: { slug: response.data.person.id } }}/>, [mockPerson])
@@ -66,7 +62,7 @@ describe('Person Page Component', () => {
       wrapper = await mountGraphql(
         <PersonPage match={{ params: { slug: '' } }}/>,
         [{
-          request: { query: PersonQuery, variables: { personId: '' } },
+          request: { query: PersonPage.queries.person, variables: { personId: '' } },
           result: emptyResponse,
         }])
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)

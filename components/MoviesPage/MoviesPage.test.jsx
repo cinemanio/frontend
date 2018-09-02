@@ -7,7 +7,8 @@ import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
 
-import MoviesPage, { MoviesQuery, GenresQuery, CountryQuery } from './MoviesPage'
+import MoviesPage from './MoviesPage'
+import { mockMovies, mockGenres, mockCountries, mockWithParams } from './mocks'
 import response from './fixtures/response.json'
 import genres from './fixtures/genres.json'
 import countries from './fixtures/countries.json'
@@ -63,23 +64,6 @@ describe('Movies Page Component', () => {
   })
 
   describe('GraphQL', () => {
-    const mockMovies = {
-      request: { query: MoviesQuery, variables: { first: 100, after: '', orderBy: 'relations_count__like' } },
-      result: response,
-    }
-    const mockCountries = { request: { query: CountryQuery }, result: countries }
-    const mockGenres = { request: { query: GenresQuery }, result: genres }
-    const mockWithParams = params => ({
-      ...mockMovies,
-      request: {
-        ...mockMovies.request,
-        variables: {
-          ...mockMovies.request.variables,
-          ...params
-        },
-      },
-    })
-
     beforeAll(() => i18nClient.changeLanguage('en'))
 
     it('should render movies', async () => {

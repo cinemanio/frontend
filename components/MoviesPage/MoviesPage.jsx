@@ -179,51 +179,55 @@ class MoviesPage extends React.Component<Props, State> {
   }
 }
 
-export const MoviesQuery = gql`
-  query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String) {
-    list: movies(
-      first: $first, 
-      after: $after,
-      genres: $genres,
-      countries: $countries,
-      relation: $relation,
-      orderBy: $orderBy
-    ) {
-      totalCount
-      edges {
-        movie: node {
-          ...MovieShort
+MoviesPage.queries = {
+  movies: gql`
+    query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String) {
+      list: movies(
+        first: $first, 
+        after: $after,
+        genres: $genres,
+        countries: $countries,
+        relation: $relation,
+        orderBy: $orderBy
+      ) {
+        totalCount
+        edges {
+          movie: node {
+            ...MovieShort
+          }
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
         }
       }
-      pageInfo {
-        endCursor
-        hasNextPage
+    }
+    ${MovieShort.fragments.movie}
+  `,
+  genres: gql`
+    query Genres {
+      list: genres {
+        id
+        ${i18n.gql('name')}
       }
     }
-  }
-  ${MovieShort.fragments.movie}
-`
-
-export const GenresQuery = gql`
-  query Genres {
-    list: genres {
-      id
-      ${i18n.gql('name')}
+  `,
+  countries: gql`
+    query Countries {
+      list: countries {
+        id
+        ${i18n.gql('name')}
+      }
     }
-  }
-`
+  `,
+}
 
-export const CountryQuery = gql`
-  query Countries {
-    list: countries {
-      id
-      ${i18n.gql('name')}
-    }
-  }
-`
+const configObject = getConfigObject(MoviesPage.defaults)
+
+MoviesPage.variables = { movies: configObject.options().variables }
 
 export default compose(
-  graphql(GenresQuery, { name: 'genreData' }),
-  graphql(CountryQuery, { name: 'countryData' }),
-  graphql(MoviesQuery, getConfigObject(MoviesPage.defaults)),
+  graphql(MoviesPage.queries.genres, { name: 'genreData' }),
+  graphql(MoviesPage.queries.countries, { name: 'countryData' }),
+  graphql(MoviesPage.queries.movies, configObject),
 )(MoviesPage)

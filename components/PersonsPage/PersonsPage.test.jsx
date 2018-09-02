@@ -7,7 +7,8 @@ import PersonRelations from 'components/PersonPage/PersonRelations/PersonRelatio
 import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
 
-import PersonsPage, { PersonsQuery, CountryQuery, RolesQuery } from './PersonsPage'
+import PersonsPage from './PersonsPage'
+import { mockPersons, mockCountries, mockRoles, mockWithParams } from './mocks'
 import response from './fixtures/response.json'
 import roles from './fixtures/roles.json'
 import countries from './fixtures/countries.json'
@@ -62,23 +63,6 @@ describe('Persons Page Component', () => {
   })
 
   describe('GraphQL', () => {
-    const mockPersons = {
-      request: { query: PersonsQuery, variables: { first: 100, after: '', orderBy: 'relations_count__like' } },
-      result: response,
-    }
-    const mockCountries = { request: { query: CountryQuery }, result: countries }
-    const mockRoles = { request: { query: RolesQuery }, result: roles }
-    const mockWithParams = params => ({
-      ...mockPersons,
-      request: {
-        ...mockPersons.request,
-        variables: {
-          ...mockPersons.request.variables,
-          ...params
-        },
-      },
-    })
-
     beforeAll(() => i18nClient.changeLanguage('en'))
 
     it('should render persons', async () => {

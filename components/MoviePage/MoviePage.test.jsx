@@ -5,7 +5,8 @@ import { mountGraphql } from 'tests/helpers'
 import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
 
-import MoviePage, { MovieQuery } from './MoviePage'
+import MoviePage from './MoviePage'
+import { mockMovie } from './mocks'
 import MovieRelations from './MovieRelations/MovieRelations'
 import response from './fixtures/response.json'
 import emptyResponse from './fixtures/empty_response.json'
@@ -68,11 +69,6 @@ describe('Movie Page Component', () => {
   })
 
   describe('GraphQL', () => {
-    const mockMovie = {
-      request: { query: MovieQuery, variables: { movieId: response.data.movie.id } },
-      result: response,
-    }
-
     it('should render movie page', async () => {
       wrapper = await mountGraphql(
         <MoviePage match={{ params: { slug: response.data.movie.id } }}/>, [mockMovie])
@@ -85,7 +81,7 @@ describe('Movie Page Component', () => {
       wrapper = await mountGraphql(
         <MoviePage match={{ params: { slug: '' } }}/>,
         [{
-          request: { query: MovieQuery, variables: { movieId: '' } },
+          request: { query: MoviePage.queries.movie, variables: { movieId: '' } },
           result: emptyResponse,
         }])
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
@@ -99,7 +95,7 @@ describe('Movie Page Component', () => {
           {
             request: {
               query: MovieRelations.fragments.relate,
-              variables: { id: response.data.movie.id, code: 'fav' }
+              variables: { id: response.data.movie.id, code: 'fav' },
             },
             result: { data: mutationResponse(response.data.movie, 'fav') },
           },

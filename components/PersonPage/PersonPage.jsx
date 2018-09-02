@@ -70,29 +70,31 @@ class PersonPage extends React.Component<Props> {
   }
 }
 
-export const PersonQuery = gql`
-  query Person($personId: ID!) {
-    person(id: $personId) {
-      ${i18n.gql('name')}
-      name
-      roles {
+PersonPage.queries = {
+  person: gql`
+    query Person($personId: ID!) {
+      person(id: $personId) {
         ${i18n.gql('name')}
+        name
+        roles {
+          ${i18n.gql('name')}
+        }
+        ...PersonImage
+        ...PersonInfoAll
+        ...PersonSites
+        ...PersonCareer
+        ...PersonRelations
+        ...PersonWikipedia
       }
-      ...PersonImage
-      ...PersonInfoAll
-      ...PersonSites
-      ...PersonCareer
-      ...PersonRelations
-      ...PersonWikipedia
     }
-  }
-  ${PersonImage.fragments.person}
-  ${PersonInfo.fragments.all}
-  ${PersonSites.fragments.person}
-  ${PersonCareer.fragments.person}
-  ${PersonRelations.fragments.person}
-  ${ObjectWikipedia.fragments.person}
-`
+    ${PersonImage.fragments.person}
+    ${PersonInfo.fragments.all}
+    ${PersonSites.fragments.person}
+    ${PersonCareer.fragments.person}
+    ${PersonRelations.fragments.person}
+    ${ObjectWikipedia.fragments.person}
+  `
+}
 
 const configObject = {
   options: ({ match: { params: { slug } } }: Object) => ({
@@ -102,4 +104,4 @@ const configObject = {
   })
 }
 
-export default graphql(PersonQuery, configObject)(PersonPage)
+export default graphql(PersonPage.queries.person, configObject)(PersonPage)
