@@ -26,6 +26,29 @@ class MoviePage extends React.Component<Props> {
     data: PropTypes.object.isRequired,
   }
 
+  static queries = {
+    movie: gql`
+      query Movie($movieId: ID!) {
+        movie(id: $movieId) {
+          ${i18n.gql('title')}
+          title
+          ...MovieImage
+          ...MovieInfoAll
+          ...MovieSites
+          ...MovieCast
+          ...MovieRelations
+          ...MovieWikipedia
+        }
+      }
+      ${MovieInfo.fragments.all}
+      ${MovieImage.fragments.movie}
+      ${MovieSites.fragments.movie}
+      ${MovieCast.fragments.movie}
+      ${MovieRelations.fragments.movie}
+      ${ObjectWikipedia.fragments.movie}
+    `
+  }
+
   isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.title
 
   renderLayout = (movie: Object) => (
@@ -68,29 +91,6 @@ class MoviePage extends React.Component<Props> {
       renderLayout={this.renderLayout}
     />)
   }
-}
-
-MoviePage.queries = {
-  movie: gql`
-    query Movie($movieId: ID!) {
-      movie(id: $movieId) {
-        ${i18n.gql('title')}
-        title
-        ...MovieImage
-        ...MovieInfoAll
-        ...MovieSites
-        ...MovieCast
-        ...MovieRelations
-        ...MovieWikipedia
-      }
-    }
-    ${MovieInfo.fragments.all}
-    ${MovieImage.fragments.movie}
-    ${MovieSites.fragments.movie}
-    ${MovieCast.fragments.movie}
-    ${MovieRelations.fragments.movie}
-    ${ObjectWikipedia.fragments.movie}
-  `
 }
 
 const configObject = {

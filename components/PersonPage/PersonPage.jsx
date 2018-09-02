@@ -26,6 +26,32 @@ class PersonPage extends React.Component<Props> {
     data: PropTypes.object.isRequired,
   }
 
+  static queries = {
+    person: gql`
+      query Person($personId: ID!) {
+        person(id: $personId) {
+          ${i18n.gql('name')}
+          name
+          roles {
+            ${i18n.gql('name')}
+          }
+          ...PersonImage
+          ...PersonInfoAll
+          ...PersonSites
+          ...PersonCareer
+          ...PersonRelations
+          ...PersonWikipedia
+        }
+      }
+      ${PersonImage.fragments.person}
+      ${PersonInfo.fragments.all}
+      ${PersonSites.fragments.person}
+      ${PersonCareer.fragments.person}
+      ${PersonRelations.fragments.person}
+      ${ObjectWikipedia.fragments.person}
+    `
+  }
+
   isNamesEqual = (person: Object) => person[i18n.f('name')] === person.name
 
   renderLayout = (person: Object) => (
@@ -68,32 +94,6 @@ class PersonPage extends React.Component<Props> {
       renderLayout={this.renderLayout}
     />)
   }
-}
-
-PersonPage.queries = {
-  person: gql`
-    query Person($personId: ID!) {
-      person(id: $personId) {
-        ${i18n.gql('name')}
-        name
-        roles {
-          ${i18n.gql('name')}
-        }
-        ...PersonImage
-        ...PersonInfoAll
-        ...PersonSites
-        ...PersonCareer
-        ...PersonRelations
-        ...PersonWikipedia
-      }
-    }
-    ${PersonImage.fragments.person}
-    ${PersonInfo.fragments.all}
-    ${PersonSites.fragments.person}
-    ${PersonCareer.fragments.person}
-    ${PersonRelations.fragments.person}
-    ${ObjectWikipedia.fragments.person}
-  `
 }
 
 const configObject = {

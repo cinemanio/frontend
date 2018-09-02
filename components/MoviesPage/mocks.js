@@ -1,5 +1,4 @@
 import MoviesPage from './MoviesPage'
-
 import response from './fixtures/response.json'
 import countries from './fixtures/countries.json'
 import genres from './fixtures/genres.json'

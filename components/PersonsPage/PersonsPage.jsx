@@ -45,6 +45,51 @@ class PersonsPage extends React.Component<Props, State> {
     orderBy: 'relations_count__like',
   }
 
+  static variables = {}
+
+  static queries = {
+    persons: gql`
+      query Persons($first: Int!, $after: String, $roles: [ID!], $country: ID, $relation: String, $orderBy: String) {
+        list: persons(
+          first: $first,
+          after: $after,
+          roles: $roles,
+          country: $country,
+          relation: $relation,
+          orderBy: $orderBy
+        ) {
+          totalCount
+          edges {
+            person: node {
+              ...PersonShort
+            }
+          }
+          pageInfo {
+            endCursor
+            hasNextPage
+          }
+        }
+      }
+      ${PersonShort.fragments.person}
+    `,
+    roles: gql`
+      query Roles {
+        list: roles {
+          id
+          ${i18n.gql('name')}
+        }
+      }
+    `,
+    countries: gql`
+      query Countries {
+        list: countries {
+          id
+          ${i18n.gql('name')}
+        }
+      }
+    `
+  }
+
   constructor(props: Object) {
     super(props)
     this.state = {
@@ -179,49 +224,6 @@ class PersonsPage extends React.Component<Props, State> {
       />
     )
   }
-}
-
-PersonsPage.queries = {
-  persons: gql`
-    query Persons($first: Int!, $after: String, $roles: [ID!], $country: ID, $relation: String, $orderBy: String) {
-      list: persons(
-        first: $first,
-        after: $after,
-        roles: $roles,
-        country: $country,
-        relation: $relation,
-        orderBy: $orderBy
-      ) {
-        totalCount
-        edges {
-          person: node {
-            ...PersonShort
-          }
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
-      }
-    }
-    ${PersonShort.fragments.person}
-  `,
-  roles: gql`
-    query Roles {
-      list: roles {
-        id
-        ${i18n.gql('name')}
-      }
-    }
-  `,
-  countries: gql`
-    query Countries {
-      list: countries {
-        id
-        ${i18n.gql('name')}
-      }
-    }
-  `
 }
 
 const configObject = getConfigObject(PersonsPage.defaults)

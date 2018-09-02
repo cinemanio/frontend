@@ -1,5 +1,4 @@
 import PersonsPage from './PersonsPage'
-
 import response from './fixtures/response.json'
 import countries from './fixtures/countries.json'
 import roles from './fixtures/roles.json'

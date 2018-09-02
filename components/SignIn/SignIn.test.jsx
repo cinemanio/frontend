@@ -7,20 +7,13 @@ import Auth from 'stores/Auth'
 import Token from 'stores/Token'
 
 import SignIn from './SignIn'
+import { mockSignIn, setUsername, setPassword, signIn } from './mocks'
 import response from './fixtures/response.json'
 import invalidCredentials from './fixtures/invalid_credentials.json'
 
 describe('SignIn Component', () => {
   const element = <SignIn/>
   let wrapper
-  const username = 'username'
-  const password = 'password'
-  const mock = {
-    request: { query: SignIn.fragments.signin, variables: { username, password } },
-    result: response,
-  }
-  const setUsername = value => wrapper.find('input[type="text"]').props().onChange({ currentTarget: { value } })
-  const setPassword = value => wrapper.find('input[type="password"]').props().onChange({ currentTarget: { value } })
 
   describe('Unit', () => {
     beforeEach(async () => {
@@ -62,44 +55,43 @@ describe('SignIn Component', () => {
     })
 
     it('should render signin page, fill form and enable button', async () => {
-      wrapper = await mountGraphql(element, [mock])
-      const signIn = wrapper.find('SignIn')
+      wrapper = await mountGraphql(element, [mockSignIn])
+      const auth = wrapper.find('SignIn').prop('auth').values
 
       expect(wrapper.find('button').prop('disabled')).toBe(true)
 
-      expect(signIn.prop('auth').values.username).toBe('')
-      setUsername(username)
-      expect(signIn.prop('auth').values.username).toBe(username)
+      expect(auth.username).toBe('')
+      setUsername(wrapper, 'username')
+      expect(auth.username).toBe('username')
 
-      expect(signIn.prop('auth').values.password).toBe('')
-      setPassword(password)
-      expect(signIn.prop('auth').values.password).toBe(password)
+      expect(auth.password).toBe('')
+      setPassword(wrapper, 'password')
+      expect(auth.password).toBe('password')
 
       // expect(wrapper.find('button').prop('disabled')).toBe(false)
     })
 
     it('should submit form with mutation and populate token store', async (done) => {
-      wrapper = await mountGraphql(element, [mock])
-      setUsername(username)
-      setPassword(password)
+      wrapper = await mountGraphql(element, [mockSignIn])
+      setUsername(wrapper)
+      setPassword(wrapper)
 
-      const signIn = wrapper.find('SignIn')
-      expect(signIn.prop('token').token).toBeUndefined()
+      expect(wrapper.find('SignIn').prop('token').token).toBeUndefined()
 
       wrapper.find('form').simulate('submit')
 
       setTimeout(() => {
-        expect(signIn.prop('token').token).toBe(response.data.tokenAuth.token)
+        expect(wrapper.find('SignIn').prop('token').token).toBe(response.data.tokenAuth.token)
         done()
       })
     })
 
     xit('should clear apollo cache after successful signin', async (done) => {
       const client = { resetStore: jest.fn() }
-      wrapper = await mountGraphql(element, [mock])
+      wrapper = await mountGraphql(element, [mockSignIn])
 
-      setUsername(username)
-      setPassword(password)
+      setUsername(wrapper)
+      setPassword(wrapper)
 
       expect(client.resetStore).not.toHaveBeenCalled()
       wrapper.find('form').simulate('submit')
@@ -112,17 +104,14 @@ describe('SignIn Component', () => {
 
     it('should render display error when mutation failed', async (done) => {
       wrapper = await mountGraphql(element, [{
-        ...mock,
+        ...mockSignIn,
         result: invalidCredentials,
       }])
-      setUsername(username)
-      setPassword(password)
-
-      wrapper.find('form').simulate('submit')
+      signIn(wrapper)
       setTimeout(() => {
         expect(wrapper.text()).toContain('Please, enter valid credentials')
         done()
-      })
+      }, 10)
     })
   })
 })

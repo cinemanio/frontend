@@ -6,8 +6,7 @@ import user from 'stores/User'
 import token from 'stores/Token'
 
 import Auth from './Auth'
-import responseAuth from './fixtures/responseAuth.json'
-import responseNonAuth from './fixtures/responseNonAuth.json'
+import { mockAuthToken, mockAuthNoToken } from './mocks'
 
 describe('Auth Component', () => {
   let element
@@ -24,22 +23,14 @@ describe('Auth Component', () => {
     })
 
     it('should render username if verify successful', async () => {
-      token.set('123')
-      const mock = {
-        request: { query: Auth.fragments.verify, variables: { token: '123' } },
-        result: responseAuth,
-      }
-      wrapper = await mountGraphql(element, [mock])
-      expect(wrapper.text()).toContain(responseAuth.data.verifyToken.payload.username)
+      token.set(mockAuthToken.request.variables.token)
+      wrapper = await mountGraphql(element, [mockAuthToken])
+      expect(wrapper.text()).toContain(mockAuthToken.result.data.verifyToken.payload.username)
     })
 
     it('should render signin if verify unsuccessful', async () => {
       token.set(undefined)
-      const mock = {
-        request: { query: Auth.fragments.verify, variables: {} },
-        result: responseNonAuth,
-      }
-      wrapper = await mountGraphql(element, [mock])
+      wrapper = await mountGraphql(element, [mockAuthNoToken])
       expect(wrapper.text()).toContain('sign in')
     })
   })

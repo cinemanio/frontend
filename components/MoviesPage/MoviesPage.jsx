@@ -46,6 +46,53 @@ class MoviesPage extends React.Component<Props, State> {
     orderBy: 'relations_count__like',
   }
 
+  static variables = {}
+
+  static queries = {
+    movies: gql`
+      query Movies(
+        $first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String
+      ) {
+        list: movies(
+          first: $first, 
+          after: $after,
+          genres: $genres,
+          countries: $countries,
+          relation: $relation,
+          orderBy: $orderBy
+        ) {
+          totalCount
+          edges {
+            movie: node {
+              ...MovieShort
+            }
+          }
+          pageInfo {
+            endCursor
+            hasNextPage
+          }
+        }
+      }
+      ${MovieShort.fragments.movie}
+    `,
+    genres: gql`
+      query Genres {
+        list: genres {
+          id
+          ${i18n.gql('name')}
+        }
+      }
+    `,
+    countries: gql`
+      query Countries {
+        list: countries {
+          id
+          ${i18n.gql('name')}
+        }
+      }
+    `,
+  }
+
   constructor(props: Object) {
     super(props)
     this.state = {
@@ -177,49 +224,6 @@ class MoviesPage extends React.Component<Props, State> {
       />
     )
   }
-}
-
-MoviesPage.queries = {
-  movies: gql`
-    query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String) {
-      list: movies(
-        first: $first, 
-        after: $after,
-        genres: $genres,
-        countries: $countries,
-        relation: $relation,
-        orderBy: $orderBy
-      ) {
-        totalCount
-        edges {
-          movie: node {
-            ...MovieShort
-          }
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
-      }
-    }
-    ${MovieShort.fragments.movie}
-  `,
-  genres: gql`
-    query Genres {
-      list: genres {
-        id
-        ${i18n.gql('name')}
-      }
-    }
-  `,
-  countries: gql`
-    query Countries {
-      list: countries {
-        id
-        ${i18n.gql('name')}
-      }
-    }
-  `,
 }
 
 const configObject = getConfigObject(MoviesPage.defaults)

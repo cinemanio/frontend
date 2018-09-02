@@ -1,19 +1,20 @@
 import React from 'react'
+import { ApolloConsumer } from 'react-apollo'
 import _ from 'lodash'
 
 import { mountGraphql, mockAutoSizer } from 'tests/helpers'
 import i18nClient from 'libs/i18nClient'
 import Auth from 'stores/Auth'
 import Token from 'stores/Token'
-import SignIn from 'components/SignIn/SignIn'
 import { mockMovies, mockGenres, mockCountries } from 'components/MoviesPage/mocks'
 import { mockMovie } from 'components/MoviePage/mocks'
-import signInResponse from 'components/SignIn/fixtures/response.json'
+import { mockSignIn, signIn } from 'components/SignIn/mocks'
+import { mockAuthToken } from 'components/Layout/Auth/mocks'
 import moviesResponse from 'components/MoviesPage/fixtures/response.json'
 
 import App from './App'
 
-describe('SignIn Component', () => {
+describe('App Component', () => {
   const element = <App lang="en"/>
   let wrapper
   // const username = 'username'
@@ -40,18 +41,6 @@ describe('SignIn Component', () => {
       expect(wrapper.find('MoviesPage')).toHaveLength(1)
     })
 
-    const username = 'username'
-    const password = 'password'
-    const signinMock = {
-      request: { query: SignIn.fragments.signin, variables: { username, password } },
-      result: signInResponse,
-    }
-    const signIn = () => {
-      wrapper.find('SignIn').find('input[type="text"]').props().onChange({ currentTarget: { value: username } })
-      wrapper.find('SignIn').find('input[type="password"]').props().onChange({ currentTarget: { value: password } })
-      wrapper.find('SignIn').find('form').simulate('submit')
-    }
-
     it('should navigate from movies to movie page, then to person page', async () => {
       const mockFirstMovie = _.clone(mockMovie)
       mockFirstMovie.request.variables.movieId = moviesResponse.data.list.edges[0].movie.id
@@ -66,19 +55,29 @@ describe('SignIn Component', () => {
       // expect(wrapper.find('PersonPage')).toHaveLength(1)
     })
 
-    xit('should render default page, sign in and check signed username', async (done) => {
-      // console.log(mockMovies)
-      wrapper = await mountGraphql(element, [signinMock, mockMovies, mockCountries, mockGenres])
+    it('should render default page, sign in and check signed username', async (done) => {
+      const element1 = (<ApolloConsumer>
+        {(client) => {
+          // eslint-disable-next-line no-param-reassign
+          client.resetStore = jest.fn()
+          return element
+        }}
+      </ApolloConsumer>)
+      wrapper = await mountGraphql(element1, [mockSignIn, mockMovies, mockCountries, mockGenres, mockAuthToken])
       expect(wrapper.find('Auth').find('a').text()).toContain('sign in')
       expect(wrapper.find('SignIn')).toHaveLength(0)
       wrapper.find('Auth').find('a').simulate('click', { button: 0 })
       expect(wrapper.find('SignIn')).toHaveLength(1)
-      signIn()
+      signIn(wrapper)
       setTimeout(() => {
-        // console.log(wrapper.debug())
+        wrapper.update()
         expect(wrapper.find('SignIn')).toHaveLength(0)
-        done()
-      })
+        setTimeout(() => {
+          wrapper.update()
+          expect(wrapper.find('Auth').find('a').text()).toContain('john_lennon')
+          done()
+        }, 10)
+      }, 10)
     })
   })
 })

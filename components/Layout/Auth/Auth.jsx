@@ -2,7 +2,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { translate } from 'react-i18next'
-import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
+import { inject, observer, PropTypes as MobxPropTypes } from 'mobx-react'
 import { ApolloConsumer } from 'react-apollo'
 import { ApolloClient } from 'apollo-client-preset'
 import gql from 'graphql-tag'
@@ -18,6 +18,7 @@ type InjectedProps = { user: typeof user, token: typeof token }
 
 @translate()
 @inject('user', 'token')
+@observer
 export default class Auth extends InjectedComponent<{}, InjectedProps> {
   static propTypes = {
     user: MobxPropTypes.observableObject.isRequired,
@@ -49,20 +50,20 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
 
   onError(error: Object) {
     // suppress errors, because if token is undefined "Error decoding signature" error will be returned
-    // console.log(error)
+    // console.debug(error)
   }
 
-  renderSignin(client: ApolloClient) {
+  renderSignin(client: ?ApolloClient) {
     return this.props.user.username
       ? <a href="#logout" title="Logout" onClick={this.logout(client)}>{this.props.user.username}</a>
       : <Link to={routes.signin}>{this.props.i18n.t('auth.signin')}</Link>
   }
 
   render() {
-    return (
-      <ApolloConsumer>
-        {client => (this.props.token.token
-          ? (
+    return this.props.token.token
+      ? (
+        <ApolloConsumer>
+          {client => (
             <MutationOnMount
               mutation={Auth.fragments.verify}
               variables={{ token: this.props.token.token }}
@@ -71,10 +72,9 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
             >
               {() => this.renderSignin(client)}
             </MutationOnMount>
-          )
-          : this.renderSignin(client))
-        }
-      </ApolloConsumer>
-    )
+          )}
+        </ApolloConsumer>
+      )
+      : this.renderSignin()
   }
 }
