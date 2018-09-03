@@ -50,7 +50,7 @@ export default class PersonSites extends React.Component<Props> {
 
   renderKinopoisk() {
     const site = this.props.person.kinopoisk
-    return !site ? '' : <li><a href={site.url}>Кинопоиск</a></li>
+    return !site ? '' : <li><a href={site.url}>{this.props.i18n.t('movie.sites.kinopoisk')}</a></li>
   }
 
   renderWikipedia() {

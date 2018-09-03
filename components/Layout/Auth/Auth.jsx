@@ -2,7 +2,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { translate } from 'react-i18next'
-import { inject, observer, PropTypes as MobxPropTypes } from 'mobx-react'
+import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
 import { ApolloConsumer } from 'react-apollo'
 import { ApolloClient } from 'apollo-client-preset'
 import gql from 'graphql-tag'
@@ -13,12 +13,12 @@ import user from 'stores/User'
 import token from 'stores/Token'
 
 import MutationOnMount from './MutationOnMount/MutationOnMount'
+import './Auth.scss'
 
 type InjectedProps = { user: typeof user, token: typeof token }
 
 @translate()
 @inject('user', 'token')
-@observer
 export default class Auth extends InjectedComponent<{}, InjectedProps> {
   static propTypes = {
     user: MobxPropTypes.observableObject.isRequired,
@@ -36,12 +36,9 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
   }
 
   logout = (client: ApolloClient) => () => {
-    // eslint-disable-next-line no-restricted-globals
-    if (confirm('Are you sure you want to logout?')) {
-      this.props.token.set(undefined)
-      this.props.user.logout()
-      client.resetStore()
-    }
+    this.props.token.set(undefined)
+    this.props.user.logout()
+    client.resetStore()
   }
 
   updateCache = (cache: Object, { data: { verifyToken: { payload } } }: Object) => {
@@ -55,7 +52,14 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
 
   renderSignin(client: ?ApolloClient) {
     return this.props.user.username
-      ? <a href="#logout" title="Logout" onClick={this.logout(client)}>{this.props.user.username}</a>
+      ? (
+        <div>
+          <span styleName="username">{this.props.user.username}</span>
+          <a href="#logout" title={this.props.i18n.t('auth.logout')} onClick={this.logout(client)}>
+            {this.props.i18n.t('auth.logout')}
+          </a>
+        </div>
+      )
       : <Link to={routes.signin}>{this.props.i18n.t('auth.signin')}</Link>
   }
 

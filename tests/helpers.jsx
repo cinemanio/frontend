@@ -33,11 +33,14 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
   }
 }
 
-export const mountRouter = (element: Object) => mount(
-  <MemoryRouter><Provider {...stores}>{element}</Provider></MemoryRouter>, mountOptions)
+export const mountRouter = (element: Object, initialEntries: Array<string>) => mount(
+  <MemoryRouter initialEntries={initialEntries}>
+    <Provider {...stores}>{element}</Provider>
+  </MemoryRouter>,
+  mountOptions)
 
-export const mountGraphql = async (element: React.Fragment, mocks: Array<Object>) => {
-  const wrapper = mountRouter(<MockedProvider mocks={mocks}>{element}</MockedProvider>)
+export const mountGraphql = async (element: React.Fragment, mocks: Array<Object>, initialEntries: Array<string>) => {
+  const wrapper = mountRouter(<MockedProvider mocks={mocks}>{element}</MockedProvider>, initialEntries)
   await new Promise(resolve => setTimeout(resolve))
   wrapper.update()
   return wrapper

@@ -4,4 +4,12 @@
     top: 47px;
     border-bottom: 0;
   }
+
+  .nav-tabs a.nav-link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

@@ -8,13 +8,14 @@
     text-decoration: none;
     padding: 0;
     background-color: transparent;
-    border-top: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
-    border-bottom: 1px dotted;
+    border: 1px solid transparent;
     cursor: pointer;
     color: inherit;
     font-size: small;
+
+    &:hover {
+      border-bottom: 1px dotted;
+    }
 
     &.hide {
       float: right;

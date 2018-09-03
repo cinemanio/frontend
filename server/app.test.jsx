@@ -133,7 +133,7 @@ describe('Server Routes', () => {
       })
 
       it(`should respond a ${object} page`, async () => {
-        const response = await client(objectResponse).get(`${routes[object].list}/${slug}`).set('Accept-Language', 'en')
+        const response = await client(objectResponse).get(routes[object].getDetail(slug)).set('Accept-Language', 'en')
         expect(requestsLog).toHaveLength(1)
         expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
         expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: id })
@@ -142,16 +142,16 @@ describe('Server Routes', () => {
       })
 
       it('should set a token for authenticated user', async () => {
-        token.set(token.token)
+        token.set(undefined)
         expect(token.token).toBe(undefined)
         // TODO: test that Auth header is actually sent
-        await client(objectResponse).get(`${routes[object].list}/${slug}`).set('Accept-Language', 'en')
+        await client(objectResponse).get(routes[object].getDetail(slug)).set('Accept-Language', 'en')
           .set('Cookie', ['jwt=12345'])
         expect(token.token).toBe('12345')
       })
 
       it(`should not respond a wrong ${object} page`, async () => {
-        const response = await client(noResponse).get(`${routes[object].list}/none`).set('Accept-Language', 'en')
+        const response = await client(noResponse).get(routes[object].getDetail('none')).set('Accept-Language', 'en')
         expect(requestsLog).toHaveLength(1)
         expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
         expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: 'none' })
@@ -168,13 +168,13 @@ describe('Server Routes', () => {
     ].forEach(([lang, title]) => {
       it(`${lang} if cookie defined`, async () => {
         const cookie = `${settings.i18nCookieName}=${lang}`
-        const response = await client([genres, countries, movies]).get('/movies/').set('Cookie', [cookie])
+        const response = await client([genres, countries, movies]).get(routes.movie.list).set('Cookie', [cookie])
         expect(response.text).toContain(`<html lang="${lang}"`)
         expect(response.text).toContain(title)
       })
 
       it(`${lang} if browser accept language`, async () => {
-        const response = await client([genres, countries, movies]).get('/movies/').set('Accept-Language', lang)
+        const response = await client([genres, countries, movies]).get(routes.movie.list).set('Accept-Language', lang)
         expect(response.text).toContain(`<html lang="${lang}"`)
         expect(response.text).toContain(title)
       })

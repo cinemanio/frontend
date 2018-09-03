@@ -1,11 +1,11 @@
 // @flow
 import { observable, computed, action } from 'mobx'
+import type { IObservableArray } from 'mobx'
 
 import token from './Token'
 
 class Auth {
-  @observable inProgress = false
-  @observable errors: Array<string> = []
+  @observable errors: IObservableArray<string> = []
 
   @observable values = {
     username: '',
@@ -25,7 +25,7 @@ class Auth {
     this.values.password = password
   }
 
-  @action setErrors(errors: Array<string>) {
+  @action setErrors(errors: IObservableArray<string>) {
     this.errors = errors
   }
 
@@ -37,7 +37,7 @@ class Auth {
   }
 
   @computed get submitDisabled() {
-    return !this.values.username || !this.values.password || this.inProgress
+    return !this.values.username || !this.values.password
   }
 
   @action logout() {

@@ -8,7 +8,8 @@
     "persons": "Персоны"
   },
   "auth": {
-    "signin": "войти"
+    "signin": "войти",
+    "logout": "выйти"
   },
   "filter": {
     "view": {
