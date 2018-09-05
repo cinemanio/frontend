@@ -7,16 +7,19 @@ type Props = {
   list: Array<Object>,
   setFilterState: Function,
   code: string,
+  filters: Object,
 }
 
 export default class SelectGeneric extends React.PureComponent<Props> {
   static defaultProps = {
     list: [],
+    filters: {},
   }
 
   static propTypes = {
     setFilterState: PropTypes.func.isRequired,
     list: PropTypes.array,
+    filters: PropTypes.object,
     code: PropTypes.string.isRequired,
   }
 
@@ -30,7 +33,7 @@ export default class SelectGeneric extends React.PureComponent<Props> {
 
   render() {
     return (
-      <select name={this.props.code} onChange={this.change}>
+      <select name={this.props.code} onChange={this.change} value={this.props.filters[this.props.code]}>
         {this.renderOptions()}
       </select>
     )

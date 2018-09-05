@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { AutoSizer, InfiniteLoader, List } from 'react-virtualized'
+import { AutoSizer, InfiniteLoader, List, Collection } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
 import _ from 'lodash'
 
@@ -10,19 +10,21 @@ type Props = {
   data: Object,
   onScroll?: Function,
   rowHeight: number,
+  view: string,
 }
 
 export default class ObjectList extends React.Component<Props> {
   static defaultProps = {
     onScroll: () => {
-    }
+    },
   }
   static propTypes = {
     noResultsMessage: PropTypes.string.isRequired,
     renderItem: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     onScroll: PropTypes.func,
-    rowHeight: PropTypes.number.isRequired
+    rowHeight: PropTypes.number.isRequired,
+    view: PropTypes.string.isRequired,
   }
 
   /**
@@ -64,6 +66,15 @@ export default class ObjectList extends React.Component<Props> {
    */
   isItemLoaded = ({ index }: Object) => !this.hasNextPage || index < this.list.length
 
+  cellSizeAndPositionGetter = (totalWidth: number) => ({ index }) => {
+    const height = 250
+    const width = 200
+    const numberInRow = Math.floor(totalWidth / width)
+    const x = (index % numberInRow) * width
+    const y = Math.floor((index * width) / (numberInRow * width)) * height
+    return { height, width, x, y }
+  }
+
   renderNoResults = () => <p>{this.props.noResultsMessage}</p>
 
   /**
@@ -97,21 +108,34 @@ export default class ObjectList extends React.Component<Props> {
       >
         {({ onRowsRendered, registerChild }) => (
           <AutoSizer defaultHeight={400}>
-            {({ height, width }) => (
-              <List
-                ref={registerChild}
-                onRowsRendered={onRowsRendered}
-                noRowsRenderer={this.renderNoResults}
-                onScroll={this.props.onScroll}
-                rowRenderer={this.renderItem}
-                height={height - 30}
-                width={width - 10}
-                rowHeight={this.props.rowHeight}
-                rowCount={rowCount}
-                overscanRowCount={0}
-                _forceUpdateWhenChanged={this.props.data}
-              />
-            )}
+            {({ height, width }) => {
+              if (this.props.view === 'icon') {
+                return (<Collection
+                  ref={registerChild}
+                  onScroll={this.props.onScroll}
+                  cellRenderer={this.renderItem}
+                  cellSizeAndPositionGetter={this.cellSizeAndPositionGetter(width)}
+                  height={height - 30}
+                  width={width - 10}
+                  // rowHeight={this.props.rowHeight}
+                  cellCount={rowCount}
+                />)
+              } else {
+                return (<List
+                  ref={registerChild}
+                  onRowsRendered={onRowsRendered}
+                  noRowsRenderer={this.renderNoResults}
+                  onScroll={this.props.onScroll}
+                  rowRenderer={this.renderItem}
+                  height={height - 30}
+                  width={width - 10}
+                  rowHeight={this.props.rowHeight}
+                  rowCount={rowCount}
+                  overscanRowCount={0}
+                  _forceUpdateWhenChanged={this.props.data}
+                />)
+              }
+            }}
           </AutoSizer>
         )}
       </InfiniteLoader>
@@ -126,14 +150,14 @@ export const getConfigObject = (vars: ?Object) => ({
       first: 100,
       after: '',
       ...vars,
-    }
+    },
   }),
   force: true,
   props: ({ ownProps, data }: Object) => ({
     data: _.extend({}, data, {
       loadNextPage: () => data.fetchMore({
         variables: {
-          after: data.list.pageInfo.endCursor
+          after: data.list.pageInfo.endCursor,
         },
         updateQuery: (previousResult, { fetchMoreResult }) => ({
           // By returning `cursor` here, we update the `loadMore` function
@@ -141,10 +165,10 @@ export const getConfigObject = (vars: ?Object) => ({
           list: {
             totalCount: fetchMoreResult.list.totalCount,
             edges: [...previousResult.list.edges, ...fetchMoreResult.list.edges],
-            pageInfo: fetchMoreResult.list.pageInfo
-          }
-        })
-      })
-    })
-  })
+            pageInfo: fetchMoreResult.list.pageInfo,
+          },
+        }),
+      }),
+    }),
+  }),
 })

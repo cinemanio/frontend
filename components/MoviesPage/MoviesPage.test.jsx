@@ -36,7 +36,7 @@ describe('Movies Page Component', () => {
 
     it('should render select filters', () => {
       expect(wrapper.find('SelectGeneric')).toHaveLength(2)
-      expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(1)
+      expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(2)
       expect(wrapper.find('SelectGeneric[code="orderBy"]').find('option')).toHaveLength(3)
       expect(wrapper.find('SelectFilter')).toHaveLength(3)
       expect(wrapper.find('SelectFilter[code="relation"]').find('option')).toHaveLength(MovieRelations.codes.length + 1)

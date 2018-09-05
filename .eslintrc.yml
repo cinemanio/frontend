@@ -34,7 +34,7 @@ rules:
   no-underscore-dangle: [error, {allowAfterThis: true}]
 
   ### Stylistic issues
-  id-length: [error, {min: 2, exceptions: [_, e, i, d, j, k, v, s, q], properties: never}]
+  id-length: [error, {min: 2, exceptions: [_, e, i, d, j, k, v, s, q, x, y], properties: never}]
   max-len: [error, 121, 2, {ignoreUrls: true}]
   indent: [error, 2, {FunctionDeclaration: {parameters: first}}]
   spaced-comment: off

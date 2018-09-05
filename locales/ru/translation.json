@@ -14,6 +14,8 @@
   "filter": {
     "view": {
       "sectionTitle": "Показывать",
+      "poster": "Постеры",
+      "photo": "Фото",
       "short": "Кратко",
       "full": "Полно"
     },

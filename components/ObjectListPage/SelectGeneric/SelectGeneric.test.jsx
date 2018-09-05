@@ -22,6 +22,8 @@ describe('Select Generic Component', () => {
     expect(wrapper.find('option')).toHaveLength(3)
   })
 
+  it('should have default selected option', () => expect(wrapper.find('select').prop('value')).toBe('1'))
+
   it('should call setFilterState on change', () => {
     expect(element.props.setFilterState).not.toHaveBeenCalled()
     wrapper.find('select').simulate('change', { currentTarget: { value: '3' } })
