@@ -30,8 +30,6 @@ export default class MovieIcon extends React.Component<Props> {
     `
   }
 
-  isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.title
-
   render() {
     return (
       <div styleName="box">
@@ -39,7 +37,6 @@ export default class MovieIcon extends React.Component<Props> {
         <MovieLink movie={this.props.movie}>
           {this.props.movie[i18n.f('title')]} ({this.props.movie.year})
         </MovieLink>
-        <div styleName="subtitle">{this.isTitlesEqual(this.props.movie) ? '' : this.props.movie.title}</div>
       </div>
     )
   }

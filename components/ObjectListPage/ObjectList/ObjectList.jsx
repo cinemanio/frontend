@@ -8,24 +8,27 @@ type Props = {
   noResultsMessage: string,
   renderItem: Function,
   data: Object,
-  onScroll?: Function,
+  updatePage: Function,
   rowHeight: number,
   view: string,
 }
 
 export default class ObjectList extends React.Component<Props> {
-  static defaultProps = {
-    onScroll: () => {
-    },
-  }
   static propTypes = {
     noResultsMessage: PropTypes.string.isRequired,
     renderItem: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
-    onScroll: PropTypes.func,
+    updatePage: PropTypes.func.isRequired,
     rowHeight: PropTypes.number.isRequired,
     view: PropTypes.string.isRequired,
   }
+
+  /**
+   * Dimension of poster of photo in view=icon
+   * TODO: calculate it automatically
+   * @type {{width: number, height: number}}
+   */
+  iconDimensions: Object = { width: 180, height: 280 }
 
   /**
    * Check if data loaded and populated
@@ -67,12 +70,33 @@ export default class ObjectList extends React.Component<Props> {
   isItemLoaded = ({ index }: Object) => !this.hasNextPage || index < this.list.length
 
   cellSizeAndPositionGetter = (totalWidth: number) => ({ index }) => {
-    const height = 250
-    const width = 200
+    const { width, height } = this.iconDimensions
     const numberInRow = Math.floor(totalWidth / width)
     const x = (index % numberInRow) * width
     const y = Math.floor((index * width) / (numberInRow * width)) * height
     return { height, width, x, y }
+  }
+
+  onScrollList = ({ clientHeight, scrollTop }: Object) => {
+    const margin = 20
+    const page = Math.ceil(scrollTop / this.props.rowHeight) + Math.floor((clientHeight + margin)
+      / this.props.rowHeight)
+    this.props.updatePage(page)
+  }
+
+  onScrollIcon = ({ clientWidth, clientHeight, scrollTop }: Object) => {
+    const margin = 20
+    const { width, height } = this.iconDimensions
+    const numberInRow = Math.floor(clientWidth / width)
+    const page = (Math.ceil(scrollTop / height) + Math.floor((clientHeight + margin) / height)) * numberInRow
+    this.props.updatePage(page)
+  }
+
+  onSectionRendered = (onRowsRendered: Function) => ({ indices }) => {
+    onRowsRendered({
+      startIndex: indices[0],
+      stopIndex: indices[indices.length - 1],
+    })
   }
 
   renderNoResults = () => <p>{this.props.noResultsMessage}</p>
@@ -112,7 +136,8 @@ export default class ObjectList extends React.Component<Props> {
               if (this.props.view === 'icon') {
                 return (<Collection
                   ref={registerChild}
-                  onScroll={this.props.onScroll}
+                  onSectionRendered={this.onSectionRendered(onRowsRendered)}
+                  onScroll={this.onScrollIcon}
                   cellRenderer={this.renderItem}
                   cellSizeAndPositionGetter={this.cellSizeAndPositionGetter(width)}
                   height={height - 30}
@@ -125,7 +150,7 @@ export default class ObjectList extends React.Component<Props> {
                   ref={registerChild}
                   onRowsRendered={onRowsRendered}
                   noRowsRenderer={this.renderNoResults}
-                  onScroll={this.props.onScroll}
+                  onScroll={this.onScrollList}
                   rowRenderer={this.renderItem}
                   height={height - 30}
                   width={width - 10}

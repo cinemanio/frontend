@@ -19,8 +19,7 @@ type Props = {
 }
 
 type State = {
-  // orderBy: string,
-  scrollOffset: number,
+  page: number,
 }
 
 export default class ObjectListPage extends React.Component<Props, State> {
@@ -30,14 +29,13 @@ export default class ObjectListPage extends React.Component<Props, State> {
     renderActiveFilters: PropTypes.func.isRequired,
     renderFilters: PropTypes.func.isRequired,
     rowHeight: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
   }
 
   constructor(props: Object) {
     super(props)
     this.state = {
-      scrollOffset: 0
-      // orderBy: ''
+      page: 0,
     }
   }
 
@@ -47,16 +45,12 @@ export default class ObjectListPage extends React.Component<Props, State> {
       list: {
         totalCount: fetchMoreResult.list.totalCount,
         edges: fetchMoreResult.list.edges,
-        pageInfo: fetchMoreResult.list.pageInfo
-      }
-    })
+        pageInfo: fetchMoreResult.list.pageInfo,
+      },
+    }),
   })
 
-  onScroll = ({ clientHeight, scrollTop }: Object) => {
-    this.setState({
-      scrollOffset: Math.floor(scrollTop / this.props.rowHeight) + Math.floor(clientHeight / this.props.rowHeight)
-    })
-  }
+  updatePage = (page: number) => this.setState({ page })
 
   render() {
     const props = _.omit(this.props, ['title', 'renderFilters', 'renderActiveFilters', 'setFilterState'])
@@ -68,11 +62,11 @@ export default class ObjectListPage extends React.Component<Props, State> {
         </Helmet>
         <div styleName="list">
           <div styleName="caption">
-            <Pagination page={this.state.scrollOffset} data={this.props.data}/>
+            <Pagination page={this.state.page} data={this.props.data}/>
             {this.props.renderActiveFilters(this.refreshList)}
           </div>
           <ObjectList
-            onScroll={this.onScroll}
+            updatePage={this.updatePage}
             {...props}
           />
         </div>
