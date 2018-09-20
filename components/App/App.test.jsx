@@ -57,13 +57,15 @@ describe('App Component', () => {
     })
 
     it('should render default page, sign in, show loader, redirect back and check signed username', async (done) => {
-      const element1 = (<ApolloConsumer>
-        {(client) => {
-          // eslint-disable-next-line no-param-reassign
-          client.resetStore = jest.fn()
-          return element
-        }}
-      </ApolloConsumer>)
+      const element1 = (
+        <ApolloConsumer>
+          {(client) => {
+            // eslint-disable-next-line no-param-reassign
+            client.resetStore = jest.fn()
+            return element
+          }}
+        </ApolloConsumer>
+      )
       wrapper = await mountGraphql(element1, [mockSignIn, mockMovies, mockCountries, mockGenres, mockAuthToken])
       expect(wrapper.find('Auth').find('a').text()).toContain('sign in')
       expect(wrapper.find('SignIn')).toHaveLength(0)

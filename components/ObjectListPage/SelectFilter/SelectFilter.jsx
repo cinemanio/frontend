@@ -7,8 +7,8 @@ import i18n from 'libs/i18n'
 type Props = {
   code: string,
   title: string,
-  list: Array<Object>,
-  multiple: boolean,
+  list?: Array<Object>,
+  multiple?: boolean,
   filters: Object,
   setFilterState: Function,
 }

@@ -12,11 +12,17 @@ type Props = {
 export default class Pagination extends React.PureComponent<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,
-    page: PropTypes.number.isRequired
+    page: PropTypes.number.isRequired,
   }
 
   render() {
     return (this.props.data.loading || !this.props.data.list) ? ''
-      : (<span styleName="box">{this.props.page} / {this.props.data.list.totalCount}</span>)
+      : (
+        <span styleName="box">
+          {this.props.page}
+          /
+          {this.props.data.list.totalCount}
+        </span>
+      )
   }
 }

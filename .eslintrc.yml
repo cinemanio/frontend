@@ -2,19 +2,19 @@
 parser: babel-eslint
 
 extends:
-  - airbnb
-  - plugin:flowtype/recommended
-  - plugin:import/recommended
-  - plugin:jsx-a11y/recommended
+- airbnb
+- plugin:flowtype/recommended
+- plugin:import/recommended
+- plugin:jsx-a11y/recommended
 
 plugins:
-  - brackets
-  - react
-  - flowtype
-  - import
-  - jsx-a11y
-  - promise
-  - jest
+- brackets
+- react
+- flowtype
+- import
+- jsx-a11y
+- promise
+- jest
 
 globals:
   __DEBUG_SERVER_ERRORS__: true
@@ -38,8 +38,8 @@ rules:
   max-len: [error, 121, 2, {ignoreUrls: true}]
   indent: [error, 2, {FunctionDeclaration: {parameters: first}}]
   spaced-comment: off
-#  object-curly-spacing: off
-#  quotes: off
+  #  object-curly-spacing: off
+  #  quotes: off
   comma-dangle: [error, only-multiline, {functions: never}]
   semi: off
   no-else-return: off
@@ -80,6 +80,7 @@ rules:
   react/forbid-prop-types: [error, {forbid: ['all']}]
   react/sort-comp: [error, {order: ['static-methods', 'type-annotations', 'lifecycle', 'everything-else', 'render']}]
   react/prefer-stateless-function: [error, {ignorePureComponents: true}]
+  react/destructuring-assignment: off
 
   ### Flowtype
   flowtype/boolean-style: [error, boolean]
@@ -131,3 +132,7 @@ settings:
   import/resolver:
     webpack:
       config: 'webpack.base.config.js'
+
+parserOptions:
+  ecmaFeatures:
+    legacyDecorators: true

@@ -7,7 +7,10 @@ import { inject, observer, PropTypes as MobxPropTypes } from 'mobx-react'
 import ListErrors from 'components/ListErrors/ListErrors'
 import routes from 'components/App/routes'
 
-type Props = { auth: Object, history: Object }
+type Props = {
+  auth: Object,
+  // history: Object
+}
 
 @inject('auth')
 @observer

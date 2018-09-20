@@ -28,12 +28,12 @@ export default class PersonRelations extends React.Component<Props> {
     if (code === 'fav' && value) {
       response.relate.relation.like = true
     }
-    return response;
+    return response
   }
 
   render(): Array<React.Fragment> {
-    return codes.map(code =>
-      (<Relation
+    return codes.map(code => (
+      <Relation
         key={code}
         styleName={code}
         code={code}
@@ -42,7 +42,7 @@ export default class PersonRelations extends React.Component<Props> {
         fragment={PersonRelations.fragments.person}
         modifyOptimisticResponse={this.modifyOptimisticResponse}
         {...this.props}
-      />),
-    )
+      />
+    ))
   }
 }

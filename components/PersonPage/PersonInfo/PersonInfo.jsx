@@ -14,11 +14,11 @@ import './PersonInfo.scss'
 
 type Props = {
   person: Object,
-  roles: ?boolean,
-  dates: ?boolean,
-  country: ?boolean,
-  all: ?boolean,
-  i18n: Translator,
+  roles?: boolean,
+  dates?: boolean,
+  country?: boolean,
+  all?: boolean,
+  i18n?: Translator,
 }
 
 @translate()

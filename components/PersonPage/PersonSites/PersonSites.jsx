@@ -10,13 +10,14 @@ import i18nClient from 'libs/i18nClient'
 
 import './PersonSites.scss'
 
-type Props = { person: Object, i18n: Translator }
+type Props = { person: Object, i18n?: Translator }
 
 @translate()
 export default class PersonSites extends React.Component<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }
+
   static propTypes = {
     i18n: PropTypes.object,
     person: PropTypes.object.isRequired,

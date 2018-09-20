@@ -13,13 +13,14 @@ import i18nClient from 'libs/i18nClient'
 
 import './MovieCast.scss'
 
-type Props = { movie: Object, i18n: Translator }
+type Props = { movie: Object, i18n?: Translator }
 
 @translate()
 export default class MovieCast extends React.Component<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }
+
   static propTypes = {
     i18n: PropTypes.object,
     movie: PropTypes.object.isRequired,
@@ -52,6 +53,7 @@ export default class MovieCast extends React.Component<Props> {
 
   // TODO: avoid using role names for filtering
   static creatorNames = ['Director', 'Scenarist', 'Writer', 'Composer', 'Producer']
+
   static castNames = ['Actor']
 
   filterCreators(role: Object): boolean {
@@ -83,8 +85,8 @@ export default class MovieCast extends React.Component<Props> {
   }
 
   renderPersons(roles: Array<Object>): Array<React.Fragment> {
-    return roles.map(({ node }) =>
-      (<div key={node.id} styleName="person">
+    return roles.map(({ node }) => (
+      <div key={node.id} styleName="person">
         <div styleName="image"><PersonImage person={node.person} type="icon"/></div>
         <div>
           <PersonLink person={node.person}>
@@ -92,8 +94,8 @@ export default class MovieCast extends React.Component<Props> {
           </PersonLink>
           <div>{node[i18n.f('name')] || node.role[i18n.f('name')]}</div>
         </div>
-      </div>),
-    )
+      </div>
+    ))
   }
 
   renderBlock(title: string, persons: Array<Object>) {

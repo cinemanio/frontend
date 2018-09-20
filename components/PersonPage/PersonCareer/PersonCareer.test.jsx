@@ -9,13 +9,12 @@ import { data } from '../fixtures/response.json'
 describe('Person Career Component', () => {
   let element
   let wrapper
-  const getRole = (block, position) =>
-    wrapper.find('Block').at(block).find('MovieLink').at((position * 2) + 1)
-      .parents()
-      .at(1)
-      .children()
-      .at(1)
-      .text()
+  const getRole = (block, position) => wrapper.find('Block').at(block).find('MovieLink').at((position * 2) + 1)
+    .parents()
+    .at(1)
+    .children()
+    .at(1)
+    .text()
 
   beforeEach(() => {
     i18nClient.changeLanguage('en')

@@ -46,7 +46,7 @@ class MoviePage extends React.Component<Props> {
       ${MovieCast.fragments.movie}
       ${MovieRelations.fragments.movie}
       ${ObjectWikipedia.fragments.movie}
-    `
+    `,
   }
 
   isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.title
@@ -85,11 +85,13 @@ class MoviePage extends React.Component<Props> {
   }
 
   render() {
-    return (<ObjectPage
-      getTitle={this.getTitle}
-      object={this.props.data.movie}
-      renderLayout={this.renderLayout}
-    />)
+    return (
+      <ObjectPage
+        getTitle={this.getTitle}
+        object={this.props.data.movie}
+        renderLayout={this.renderLayout}
+      />
+    )
   }
 }
 

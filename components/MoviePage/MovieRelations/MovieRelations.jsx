@@ -29,12 +29,12 @@ export default class MovieRelations extends React.Component<Props> {
       response.relate.relation.like = true
       response.relate.relation.seen = true
     }
-    return response;
+    return response
   }
 
   render(): Array<React.Fragment> {
-    return codes.map(code =>
-      (<Relation
+    return codes.map(code => (
+      <Relation
         key={code}
         styleName={code}
         code={code}
@@ -43,7 +43,7 @@ export default class MovieRelations extends React.Component<Props> {
         fragment={MovieRelations.fragments.movie}
         modifyOptimisticResponse={this.modifyOptimisticResponse}
         {...this.props}
-      />),
-    )
+      />
+    ))
   }
 }

@@ -10,7 +10,7 @@ import routes from 'components/App/routes'
 
 import './Menu.scss'
 
-type Props = { active?: string, i18n: Translator }
+type Props = { active?: string, i18n?: Translator }
 
 @translate()
 export default class Menu extends React.Component<Props> {

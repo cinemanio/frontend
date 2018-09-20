@@ -14,13 +14,14 @@ import i18nClient from 'libs/i18nClient'
 
 import './PersonCareer.scss'
 
-type Props = { person: Object, i18n: Translator }
+type Props = { person: Object, i18n?: Translator }
 
 @translate()
 export default class PersonCast extends React.Component<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }
+
   static propTypes = {
     i18n: PropTypes.object,
     person: PropTypes.object.isRequired,
@@ -67,20 +68,20 @@ export default class PersonCast extends React.Component<Props> {
   }
 
   renderCareer(): Array<React.Fragment> {
-    return this.aggregatedCareerEdges.map(({ node }) =>
-      (<div key={node.id} styleName="movie">
+    return this.aggregatedCareerEdges.map(({ node }) => (
+      <div key={node.id} styleName="movie">
         <div styleName="image"><MovieImage movie={node.movie} type="icon"/></div>
         <div>
           <div styleName="title">
             <MovieLink movie={node.movie}>
               {node.movie[i18n.f('title')]}
             </MovieLink>
-            ({node.movie.year})
+            {`(${node.movie.year})`}
           </div>
           <div>{node.roles.join(', ')}</div>
         </div>
-      </div>),
-    )
+      </div>
+    ))
   }
 
   render() {

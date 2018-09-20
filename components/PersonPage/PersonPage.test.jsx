@@ -17,8 +17,7 @@ describe('Person Page Component', () => {
 
   describe('Unit', () => {
     beforeEach(async () => {
-      element = (<PersonPage.WrappedComponent
-        params={{ personId: '' }} data={response.data}/>)
+      element = <PersonPage.WrappedComponent params={{ personId: '' }} data={response.data}/>
       wrapper = await mountGraphql(element)
     })
 

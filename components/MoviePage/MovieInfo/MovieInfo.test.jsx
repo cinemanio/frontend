@@ -34,8 +34,8 @@ describe('Movie Info Component', () => {
   })
 
   describe('one block only', () => {
-    Object.entries(content).map(([type, text]) =>
-      it(`should render only ${type} block`, () => {
+    Object.entries(content).map(
+      ([type, text]) => it(`should render only ${type} block`, () => {
         const movie = { genres: [], countries: [], languages: [] }
         movie[type] = response.data.movie[type]
         element = <MovieInfo movie={movie} all/>

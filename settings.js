@@ -26,7 +26,7 @@ module.exports = {
       nsMode: 'default'
     },
     saveMissing: true,
-    missingKeyHandler: (lng, ns, key, fallbackValue) =>
-      console.error(`Key "${key}" not found in namespace "${ns}" of language "${lng}"`)
+    missingKeyHandler: (lng, ns, key, fallbackValue) => console.error(
+      `Key "${key}" not found in namespace "${ns}" of language "${lng}"`)
   }
 }

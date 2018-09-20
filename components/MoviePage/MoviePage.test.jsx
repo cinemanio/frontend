@@ -18,8 +18,7 @@ describe('Movie Page Component', () => {
   describe('Unit', () => {
     beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
-      element = (<MoviePage.WrappedComponent
-        params={{ movieId: '' }} data={response.data}/>)
+      element = <MoviePage.WrappedComponent params={{ movieId: '' }} data={response.data}/>
       wrapper = await mountGraphql(element)
     })
 
@@ -34,8 +33,8 @@ describe('Movie Page Component', () => {
       it('should render movie runtime', () => expect(wrapper.text()).toContain('1 hour, 31 minutes'))
       it('should render movie countries', () => expect(wrapper.text()).toContain('USA'))
       it('should render movie languages', () => expect(wrapper.text()).toContain('English'))
-      it('should render word rating', () =>
-        expect(wrapper.find('MovieSites').find('span').first().prop('title')).toContain('rating'))
+      it('should render word rating', () => expect(wrapper.find('MovieSites').find('span').first().prop('title'))
+        .toContain('rating'))
       it('should render kinopoisk', () => expect(wrapper.text()).toContain('kinopoisk.ru'))
       it('should render role name', () => expect(wrapper.text()).toContain('Jennie'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Kids, 1995'))
@@ -49,8 +48,8 @@ describe('Movie Page Component', () => {
       it('should render movie runtime', () => expect(wrapper.text()).toContain('1 час, 31 минут'))
       it('should render movie countries', () => expect(wrapper.text()).toContain('США'))
       it('should render movie languages', () => expect(wrapper.text()).toContain('Английский'))
-      it('should render word rating', () =>
-        expect(wrapper.find('MovieSites').find('span').first().prop('title')).toContain('Рейтинг'))
+      it('should render word rating', () => expect(wrapper.find('MovieSites').find('span').first().prop('title'))
+        .toContain('Рейтинг'))
       it('should render kinopoisk', () => expect(wrapper.text()).toContain('Кинопоиск'))
       it('should render role name', () => expect(wrapper.text()).toContain('Дженни'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Детки, Kids, 1995'))

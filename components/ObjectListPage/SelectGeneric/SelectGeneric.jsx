@@ -4,7 +4,7 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 
 type Props = {
-  list: Array<Object>,
+  list?: Array<Object>,
   setFilterState: Function,
   code: string,
 }

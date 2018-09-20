@@ -6,10 +6,10 @@ import { Mutation } from 'react-apollo'
 import mutationResponse from './mutationResponse'
 
 type Props = {
-  className?: string,
+  className: string,
   code: string,
   object: Object,
-  displayCounts: boolean,
+  displayCounts?: boolean,
   mutation: Object,
   fragment: Object,
   modifyOptimisticResponse: Function,
@@ -19,6 +19,7 @@ export default class Relation extends React.Component<Props> {
   static defaultProps = {
     displayCounts: true,
   }
+
   static propTypes = {
     className: PropTypes.string.isRequired,
     object: PropTypes.object.isRequired,
@@ -60,7 +61,8 @@ export default class Relation extends React.Component<Props> {
           return (
             <span className={this.props.className} {...params}>
               <span className={this.props.object.relation[this.props.code] ? 'active' : ''}>
-                <i/>{this.props.displayCounts ? this.props.object.relationsCount[this.props.code] : ''}
+                <i/>
+                {this.props.displayCounts ? this.props.object.relationsCount[this.props.code] : ''}
               </span>
             </span>
           )

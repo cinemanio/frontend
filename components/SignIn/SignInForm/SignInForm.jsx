@@ -9,7 +9,7 @@ import ListErrors from 'components/ListErrors/ListErrors'
 import i18nClient from 'libs/i18nClient'
 import Auth from 'stores/Auth'
 
-type Props = { auth: typeof Auth, i18n: Translator, signin: Function }
+type Props = { auth?: typeof Auth, i18n?: Translator, signin: Function }
 
 @translate()
 @inject('auth')
@@ -19,6 +19,7 @@ export default class SignInForm extends React.Component<Props> {
     i18n: i18nClient,
     auth: Auth,
   }
+
   static propTypes = {
     i18n: PropTypes.object,
     auth: MobxPropTypes.observableObject,
