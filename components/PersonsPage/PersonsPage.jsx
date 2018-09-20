@@ -101,8 +101,6 @@ class PersonsPage extends React.Component<Props, State> {
     }
   }
 
-  rowHeight: number = 80
-
   getVariables = () => ({
     relation: this.state.relation,
     roles: [...this.state.roles],
@@ -220,7 +218,7 @@ class PersonsPage extends React.Component<Props, State> {
         renderItem={this.renderPerson}
         getVariables={this.getVariables}
         data={this.props.data}
-        rowHeight={this.rowHeight}
+        view={this.state.view}
       />
     )
   }

@@ -9,7 +9,6 @@ type Props = {
   renderItem: Function,
   data: Object,
   updatePage: Function,
-  rowHeight: number,
   view: string,
 }
 
@@ -19,7 +18,6 @@ export default class ObjectList extends React.Component<Props> {
     renderItem: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     updatePage: PropTypes.func.isRequired,
-    rowHeight: PropTypes.number.isRequired,
     view: PropTypes.string.isRequired,
   }
 
@@ -29,6 +27,12 @@ export default class ObjectList extends React.Component<Props> {
    * @type {{width: number, height: number}}
    */
   iconDimensions: Object = { width: 180, height: 280 }
+
+  /**
+   * Height of small preview
+   * @type {number}
+   */
+  rowHeight: number = 80
 
   /**
    * Check if data loaded and populated
@@ -79,8 +83,8 @@ export default class ObjectList extends React.Component<Props> {
 
   onScrollList = ({ clientHeight, scrollTop }: Object) => {
     const margin = 20
-    const page = Math.ceil(scrollTop / this.props.rowHeight) + Math.floor((clientHeight + margin)
-      / this.props.rowHeight)
+    const page = Math.ceil(scrollTop / this.rowHeight) + Math.floor((clientHeight + margin)
+      / this.rowHeight)
     this.props.updatePage(page)
   }
 
@@ -142,7 +146,6 @@ export default class ObjectList extends React.Component<Props> {
                   cellSizeAndPositionGetter={this.cellSizeAndPositionGetter(width)}
                   height={height - 30}
                   width={width - 10}
-                  // rowHeight={this.props.rowHeight}
                   cellCount={rowCount}
                 />)
               } else {
@@ -154,7 +157,7 @@ export default class ObjectList extends React.Component<Props> {
                   rowRenderer={this.renderItem}
                   height={height - 30}
                   width={width - 10}
-                  rowHeight={this.props.rowHeight}
+                  rowHeight={this.rowHeight}
                   rowCount={rowCount}
                   overscanRowCount={0}
                   _forceUpdateWhenChanged={this.props.data}

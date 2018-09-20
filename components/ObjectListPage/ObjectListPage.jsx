@@ -14,7 +14,6 @@ type Props = {
   getVariables: Function,
   renderActiveFilters: Function,
   renderFilters: Function,
-  rowHeight: number,
   title: string,
 }
 
@@ -28,7 +27,6 @@ export default class ObjectListPage extends React.Component<Props, State> {
     getVariables: PropTypes.func.isRequired,
     renderActiveFilters: PropTypes.func.isRequired,
     renderFilters: PropTypes.func.isRequired,
-    rowHeight: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
   }
 

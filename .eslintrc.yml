@@ -50,7 +50,7 @@ rules:
   ### Brackets
   brackets/array-bracket-newline: error
   brackets/conditional-parens-newline: error
-  brackets/object-curly-newline: error
+  brackets/object-curly-newline: [error, {consistent: true}]
   brackets/call-parens-newline: off
   brackets/func-parens-newline: off
 

@@ -13,6 +13,8 @@ import response from './fixtures/response.json'
 import roles from './fixtures/roles.json'
 import countries from './fixtures/countries.json'
 import emptyResponse from './fixtures/empty_response.json'
+import MoviesPage from '../MoviesPage/MoviesPage'
+import { mockGenres, mockMovies } from '../MoviesPage/mocks'
 
 describe('Persons Page Component', () => {
   let element
@@ -104,6 +106,18 @@ describe('Persons Page Component', () => {
       selectFilterChange(wrapper, 'SelectFilter[code="country"]', 'Q291bnRyeU5vZGU6MTE=')
       selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
       selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'relations_count__dislike')
+    })
+
+    it('should paginate during scrolling', async () => {
+      wrapper = await mountGraphql(
+        <PersonsPage/>,
+        [
+          mockPersons, mockCountries, mockRoles,
+          mockWithParams({ after: 'YXJyYXljb25uZWN0aW9uOjk5' }),
+        ])
+      const target = wrapper.find('Grid').find('div').first().instance()
+      target.scrollTop = 9000
+      wrapper.find('Grid').find('div').first().prop('onScroll')({ target })
     })
 
     it('should change relation', async () => {

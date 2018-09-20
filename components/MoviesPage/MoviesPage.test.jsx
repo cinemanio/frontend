@@ -107,6 +107,23 @@ describe('Movies Page Component', () => {
       selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'year')
     })
 
+    it('should paginate during scrolling', async () => {
+      wrapper = await mountGraphql(
+        <MoviesPage/>,
+        [
+          mockMovies, mockCountries, mockGenres,
+          mockWithParams({ after: 'YXJyYXljb25uZWN0aW9uOjk5' }),
+        ])
+      const target = wrapper.find('Grid').find('div').first().instance()
+      target.scrollTop = 9000
+      expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
+      wrapper.find('Grid').find('div').first().prop('onScroll')({ target })
+      // setTimeout(() => {
+      //   expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(200)
+      //   done()
+      // })
+    })
+
     it('should change relation', async () => {
       wrapper = await mountGraphql(
         <MoviesPage/>,

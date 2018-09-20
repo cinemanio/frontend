@@ -105,8 +105,6 @@ class MoviesPage extends React.Component<Props, State> {
     }
   }
 
-  rowHeight: number = 80
-
   getVariables = () => ({
     relation: this.state.relation,
     genres: [...this.state.genres],
@@ -224,7 +222,6 @@ class MoviesPage extends React.Component<Props, State> {
         renderItem={this.renderMovie}
         getVariables={this.getVariables}
         data={this.props.data}
-        rowHeight={this.rowHeight}
         view={this.state.view}
       />
     )
