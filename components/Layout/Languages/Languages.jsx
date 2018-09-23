@@ -10,7 +10,7 @@ import i18nClient from 'libs/i18nClient'
 import './Languages.scss'
 import settings from '../../../settings'
 
-type Props = { i18n?: Translator }
+type Props = { i18n: Translator }
 
 @translate()
 export default class Languages extends React.Component<Props> {

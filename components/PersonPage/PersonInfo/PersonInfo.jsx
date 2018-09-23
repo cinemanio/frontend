@@ -18,7 +18,7 @@ type Props = {
   dates?: boolean,
   country?: boolean,
   all?: boolean,
-  i18n?: Translator,
+  i18n: Translator,
 }
 
 @translate()

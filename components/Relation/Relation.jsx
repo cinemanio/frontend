@@ -6,7 +6,7 @@ import { Mutation } from 'react-apollo'
 import mutationResponse from './mutationResponse'
 
 type Props = {
-  className: string,
+  className?: string,
   code: string,
   object: Object,
   displayCounts?: boolean,
@@ -17,11 +17,12 @@ type Props = {
 
 export default class Relation extends React.Component<Props> {
   static defaultProps = {
+    className: '',
     displayCounts: true,
   }
 
   static propTypes = {
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
     object: PropTypes.object.isRequired,
     code: PropTypes.string.isRequired,
     displayCounts: PropTypes.bool,

@@ -81,6 +81,7 @@ rules:
   react/sort-comp: [error, {order: ['static-methods', 'type-annotations', 'lifecycle', 'everything-else', 'render']}]
   react/prefer-stateless-function: [error, {ignorePureComponents: true}]
   react/destructuring-assignment: off
+  react/require-default-props: warn
 
   ### Flowtype
   flowtype/boolean-style: [error, boolean]

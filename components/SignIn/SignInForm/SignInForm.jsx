@@ -9,7 +9,7 @@ import ListErrors from 'components/ListErrors/ListErrors'
 import i18nClient from 'libs/i18nClient'
 import Auth from 'stores/Auth'
 
-type Props = { auth?: typeof Auth, i18n?: Translator, signin: Function }
+type Props = { auth: typeof Auth, i18n: Translator, signin: Function }
 
 @translate()
 @inject('auth')

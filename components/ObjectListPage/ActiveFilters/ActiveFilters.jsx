@@ -8,7 +8,7 @@ import './ActiveFilters.scss'
 
 type Props = {
   code: string,
-  list?: Array<Object>,
+  list: Array<Object>,
   multiple?: boolean,
   filters: Object,
   setFilterState: Function,
@@ -16,13 +16,12 @@ type Props = {
 
 export default class ActiveFilters extends React.Component<Props> {
   static defaultProps = {
-    list: [],
     multiple: false,
   }
 
   static propTypes = {
     code: PropTypes.string.isRequired,
-    list: PropTypes.array,
+    list: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     setFilterState: PropTypes.func.isRequired,
     multiple: PropTypes.bool,

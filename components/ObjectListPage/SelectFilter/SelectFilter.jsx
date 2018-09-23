@@ -7,7 +7,7 @@ import i18n from 'libs/i18n'
 type Props = {
   code: string,
   title: string,
-  list?: Array<Object>,
+  list: Array<Object>,
   multiple?: boolean,
   filters: Object,
   setFilterState: Function,
@@ -15,7 +15,6 @@ type Props = {
 
 export default class SelectFilter extends React.Component<Props> {
   static defaultProps = {
-    list: [],
     multiple: false
   }
 
@@ -24,7 +23,7 @@ export default class SelectFilter extends React.Component<Props> {
     title: PropTypes.string.isRequired,
     filters: PropTypes.object.isRequired,
     setFilterState: PropTypes.func.isRequired,
-    list: PropTypes.array,
+    list: PropTypes.array.isRequired,
     multiple: PropTypes.bool
   }
 

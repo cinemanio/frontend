@@ -10,7 +10,7 @@ import i18nClient from 'libs/i18nClient'
 
 import './MovieSites.scss'
 
-type Props = { movie: Object, i18n?: Translator }
+type Props = { movie: Object, i18n: Translator }
 
 @translate()
 export default class MovieSites extends React.Component<Props> {

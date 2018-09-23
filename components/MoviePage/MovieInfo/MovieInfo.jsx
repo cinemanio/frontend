@@ -20,7 +20,7 @@ type Props = {
   runtime?: boolean,
   languages?: boolean,
   all?: boolean,
-  i18n?: Translator,
+  i18n: Translator,
 }
 
 @translate()

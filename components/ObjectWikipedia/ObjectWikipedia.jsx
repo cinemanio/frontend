@@ -12,7 +12,7 @@ import WikiSection from './WikiSection/WikiSection'
 import './ObjectWikipedia.scss'
 import i18nClient from '../../libs/i18nClient'
 
-type Props = { object: Object, i18n?: Translator }
+type Props = { object: Object, i18n: Translator }
 type State = { full: boolean }
 
 @translate()
