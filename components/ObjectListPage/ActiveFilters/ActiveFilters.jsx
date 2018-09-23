@@ -16,12 +16,13 @@ type Props = {
 
 export default class ActiveFilters extends React.Component<Props> {
   static defaultProps = {
+    list: [],
     multiple: false,
   }
 
   static propTypes = {
     code: PropTypes.string.isRequired,
-    list: PropTypes.array.isRequired,
+    list: PropTypes.array,
     filters: PropTypes.object.isRequired,
     setFilterState: PropTypes.func.isRequired,
     multiple: PropTypes.bool,
