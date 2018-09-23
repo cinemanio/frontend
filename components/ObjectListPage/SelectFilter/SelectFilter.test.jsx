@@ -8,14 +8,16 @@ describe('Select Filter Component', () => {
   let wrapper
 
   beforeEach(() => {
-    element = (<SelectFilter
-      code="filter"
-      title="Filter"
-      list={[{ id: '1', name: '' }, { id: '2', name: '' }, { id: '3', name: '' }]}
-      filters={{ filter: new Set(['1', '2']) }}
-      setFilterState={jest.fn()}
-      multiple
-    />)
+    element = (
+      <SelectFilter
+        code="filter"
+        title="Filter"
+        list={[{ id: '1', name: '' }, { id: '2', name: '' }, { id: '3', name: '' }]}
+        filters={{ filter: new Set(['1', '2']) }}
+        setFilterState={jest.fn()}
+        multiple
+      />
+    )
     wrapper = shallow(element)
   })
 

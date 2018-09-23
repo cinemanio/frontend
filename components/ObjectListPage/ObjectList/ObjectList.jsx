@@ -17,6 +17,7 @@ export default class ObjectList extends React.Component<Props> {
     onScroll: () => {
     }
   }
+
   static propTypes = {
     noResultsMessage: PropTypes.string.isRequired,
     renderItem: PropTypes.func.isRequired,

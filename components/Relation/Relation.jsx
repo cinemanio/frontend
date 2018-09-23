@@ -9,7 +9,7 @@ type Props = {
   className?: string,
   code: string,
   object: Object,
-  displayCounts: boolean,
+  displayCounts?: boolean,
   mutation: Object,
   fragment: Object,
   modifyOptimisticResponse: Function,
@@ -17,10 +17,12 @@ type Props = {
 
 export default class Relation extends React.Component<Props> {
   static defaultProps = {
+    className: '',
     displayCounts: true,
   }
+
   static propTypes = {
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
     object: PropTypes.object.isRequired,
     code: PropTypes.string.isRequired,
     displayCounts: PropTypes.bool,
@@ -60,7 +62,8 @@ export default class Relation extends React.Component<Props> {
           return (
             <span className={this.props.className} {...params}>
               <span className={this.props.object.relation[this.props.code] ? 'active' : ''}>
-                <i/>{this.props.displayCounts ? this.props.object.relationsCount[this.props.code] : ''}
+                <i/>
+                {this.props.displayCounts ? this.props.object.relationsCount[this.props.code] : ''}
               </span>
             </span>
           )

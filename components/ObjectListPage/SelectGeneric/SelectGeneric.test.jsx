@@ -8,12 +8,14 @@ describe('Select Generic Component', () => {
   let wrapper
 
   beforeEach(() => {
-    element = (<SelectGeneric
-      list={[{ id: '1', name: '' }, { id: '2', name: '' }, { id: '3', name: '' }]}
-      code="view"
-      filters={{ view: '1' }}
-      setFilterState={jest.fn()}
-    />)
+    element = (
+      <SelectGeneric
+        list={[{ id: '1', name: '' }, { id: '2', name: '' }, { id: '3', name: '' }]}
+        code="view"
+        filters={{ view: '1' }}
+        setFilterState={jest.fn()}
+      />
+    )
     wrapper = shallow(element)
   })
 

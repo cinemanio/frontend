@@ -10,13 +10,9 @@ type Props = {
 }
 
 export default class SelectGeneric extends React.PureComponent<Props> {
-  static defaultProps = {
-    list: [],
-  }
-
   static propTypes = {
     setFilterState: PropTypes.func.isRequired,
-    list: PropTypes.array,
+    list: PropTypes.array.isRequired,
     code: PropTypes.string.isRequired,
   }
 

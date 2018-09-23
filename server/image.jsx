@@ -11,9 +11,9 @@ const stubPath = path.resolve(settings.baseDir, 'images/grey.jpg')
 
 export default (apolloHttpConf: Object) => async (ctx: Object) => {
   if (
-    ['movie', 'person'].indexOf(ctx.params.type) === -1 ||
-    ['poster', 'photo'].indexOf(ctx.params.image) === -1 ||
-    ['detail', 'icon', 'short_card', 'full_card'].indexOf(ctx.params.size) === -1
+    ['movie', 'person'].indexOf(ctx.params.type) === -1
+    || ['poster', 'photo'].indexOf(ctx.params.image) === -1
+    || ['detail', 'icon', 'short_card', 'full_card'].indexOf(ctx.params.size) === -1
   ) {
     ctx.status = 404
     return

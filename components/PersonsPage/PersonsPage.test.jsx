@@ -25,8 +25,7 @@ describe('Persons Page Component', () => {
     beforeEach(async () => {
       const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: jest.fn() }
       const PersonsPagePure = translate()(PersonsPage.WrappedComponent)
-      element = (<PersonsPagePure
-        data={data} roleData={roles.data} countryData={countries.data}/>)
+      element = <PersonsPagePure data={data} roleData={roles.data} countryData={countries.data}/>
       wrapper = await mountGraphql(element)
     })
 

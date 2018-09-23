@@ -8,7 +8,7 @@ type Props = {
   code: string,
   title: string,
   list: Array<Object>,
-  multiple: boolean,
+  multiple?: boolean,
   filters: Object,
   setFilterState: Function,
 }

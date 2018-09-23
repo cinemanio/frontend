@@ -25,8 +25,7 @@ describe('Movies Page Component', () => {
     beforeEach(async () => {
       const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: jest.fn() }
       const MoviesPagePure = translate()(MoviesPage.WrappedComponent)
-      element = (<MoviesPagePure
-        data={data} genreData={genres.data} countryData={countries.data}/>)
+      element = <MoviesPagePure data={data} genreData={genres.data} countryData={countries.data}/>
       wrapper = await mountGraphql(element)
     })
 

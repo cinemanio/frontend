@@ -17,6 +17,7 @@ export default class MovieSites extends React.Component<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }
+
   static propTypes = {
     i18n: PropTypes.object,
     movie: PropTypes.object.isRequired,

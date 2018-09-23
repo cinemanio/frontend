@@ -8,13 +8,15 @@ describe('Active Filters Component', () => {
   let wrapper
 
   beforeEach(() => {
-    element = (<ActiveFilters
-      code="filter"
-      list={[{ id: '1', name: 'Active 1' }, { id: '2', name: 'Active 2' }, { id: '3', name: '' }]}
-      filters={{ filter: new Set(['1', '2']) }}
-      setFilterState={jest.fn()}
-      multiple
-    />)
+    element = (
+      <ActiveFilters
+        code="filter"
+        list={[{ id: '1', name: 'Active 1' }, { id: '2', name: 'Active 2' }, { id: '3', name: '' }]}
+        filters={{ filter: new Set(['1', '2']) }}
+        setFilterState={jest.fn()}
+        multiple
+      />
+    )
     wrapper = mount(element)
   })
 

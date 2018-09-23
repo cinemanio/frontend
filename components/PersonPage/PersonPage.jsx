@@ -49,7 +49,7 @@ class PersonPage extends React.Component<Props> {
       ${PersonCareer.fragments.person}
       ${PersonRelations.fragments.person}
       ${ObjectWikipedia.fragments.person}
-    `
+    `,
   }
 
   isNamesEqual = (person: Object) => person[i18n.f('name')] === person.name
@@ -88,20 +88,22 @@ class PersonPage extends React.Component<Props> {
 
 
   render() {
-    return (<ObjectPage
-      getTitle={this.getTitle}
-      object={this.props.data.person}
-      renderLayout={this.renderLayout}
-    />)
+    return (
+      <ObjectPage
+        getTitle={this.getTitle}
+        object={this.props.data.person}
+        renderLayout={this.renderLayout}
+      />
+    )
   }
 }
 
 const configObject = {
   options: ({ match: { params: { slug } } }: Object) => ({
     variables: {
-      personId: getIdFromSlug(slug)
-    }
-  })
+      personId: getIdFromSlug(slug),
+    },
+  }),
 }
 
 export default graphql(PersonPage.queries.person, configObject)(PersonPage)

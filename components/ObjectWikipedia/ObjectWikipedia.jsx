@@ -20,6 +20,7 @@ export default class ObjectWikipedia extends React.Component<Props, State> {
   static defaultProps = {
     i18n: i18nClient,
   }
+
   static propTypes = {
     i18n: PropTypes.object,
     object: PropTypes.object.isRequired,
@@ -75,7 +76,7 @@ export default class ObjectWikipedia extends React.Component<Props, State> {
 
   renderMore() {
     return this.state.full ? ''
-      : <button href="#" onClick={this.display(true)}>{this.props.i18n.t('wikipedia.displayMore')}</button>
+      : <button type="button" onClick={this.display(true)}>{this.props.i18n.t('wikipedia.displayMore')}</button>
   }
 
   renderTitle() {
@@ -84,7 +85,9 @@ export default class ObjectWikipedia extends React.Component<Props, State> {
       ? (
         <div>
           {title}
-          <button onClick={this.display(false)} styleName="hide">{this.props.i18n.t('wikipedia.displayLess')}</button>
+          <button type="button" onClick={this.display(false)} styleName="hide">
+            {this.props.i18n.t('wikipedia.displayLess')}
+          </button>
         </div>
       ) : title
   }
