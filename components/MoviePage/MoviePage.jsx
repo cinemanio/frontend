@@ -31,7 +31,7 @@ class MoviePage extends React.Component<Props> {
       query Movie($movieId: ID!) {
         movie(id: $movieId) {
           ${i18n.gql('title')}
-          title
+          titleOriginal
           ...MovieImage
           ...MovieInfoAll
           ...MovieSites
@@ -49,7 +49,7 @@ class MoviePage extends React.Component<Props> {
     `,
   }
 
-  isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.title
+  isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.titleOriginal
 
   renderLayout = (movie: Object) => (
     <div styleName="box">
@@ -57,7 +57,7 @@ class MoviePage extends React.Component<Props> {
         <MovieRelations movie={movie}/>
       </div>
       <h1>{movie[i18n.f('title')]}</h1>
-      <h2>{this.isTitlesEqual(movie) ? '' : movie.title}</h2>
+      <h2>{this.isTitlesEqual(movie) ? '' : movie.titleOriginal}</h2>
       <MovieInfo movie={movie} all/>
       <div className="row">
         <div className="col-lg-2">
@@ -78,7 +78,7 @@ class MoviePage extends React.Component<Props> {
     const parts = []
     parts.push(movie[i18n.f('title')])
     if (!this.isTitlesEqual(movie)) {
-      parts.push(movie.title)
+      parts.push(movie.titleOriginal)
     }
     parts.push(movie.year)
     return parts.join(', ')

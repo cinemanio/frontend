@@ -31,7 +31,7 @@ class PersonPage extends React.Component<Props> {
       query Person($personId: ID!) {
         person(id: $personId) {
           ${i18n.gql('name')}
-          name
+          nameEn
           roles {
             ${i18n.gql('name')}
           }
@@ -52,7 +52,7 @@ class PersonPage extends React.Component<Props> {
     `,
   }
 
-  isNamesEqual = (person: Object) => person[i18n.f('name')] === person.name
+  isNamesEqual = (person: Object) => person[i18n.f('name')] === person.nameEn
 
   renderLayout = (person: Object) => (
     <div styleName="box">
@@ -60,7 +60,7 @@ class PersonPage extends React.Component<Props> {
         <PersonRelations person={person}/>
       </div>
       <h1>{person[i18n.f('name')]}</h1>
-      <h2>{this.isNamesEqual(person) ? '' : person.name}</h2>
+      <h2>{this.isNamesEqual(person) ? '' : person.nameEn}</h2>
       <PersonInfo person={person} all/>
       <div className="row">
         <div className="col-lg-2">
@@ -81,7 +81,7 @@ class PersonPage extends React.Component<Props> {
     const parts = []
     parts.push(person[i18n.f('name')])
     if (!this.isNamesEqual(person)) {
-      parts.push(person.name)
+      parts.push(person.nameEn)
     }
     return parts.concat(person.roles.map(role => role[i18n.f('name')])).join(', ')
   }
