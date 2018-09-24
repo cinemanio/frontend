@@ -6,6 +6,7 @@ import { mountGraphql, mockAutoSizer, selectFilterChange } from 'tests/helpers'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
+import User from 'stores/User'
 
 import MoviesPage from './MoviesPage'
 import { mockMovies, mockGenres, mockCountries, mockWithParams } from './mocks'
@@ -107,6 +108,7 @@ describe('Movies Page Component', () => {
     })
 
     it('should change relation', async () => {
+      User.login('user')
       wrapper = await mountGraphql(
         <MoviesPage/>,
         [
