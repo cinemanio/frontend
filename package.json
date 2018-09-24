@@ -90,7 +90,7 @@
     "react-alert": "4.0.4",
     "react-apollo": "2.1.5",
     "react-cookie": "3.0.3",
-    "react-dom": "16.4.0",
+    "react-dom": "16.4.2",
     "react-helmet": "5.2.0",
     "react-hot-loader": "4.0.0",
     "react-i18next": "7.6.1",
