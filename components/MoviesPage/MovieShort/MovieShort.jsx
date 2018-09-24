@@ -22,7 +22,7 @@ export default class MovieShort extends React.Component<Props> {
     movie: gql`
       fragment MovieShort on MovieNode {
         ${i18n.gql('title')}
-        title
+        titleOriginal
         ...MovieImage
         ...MovieLink
         ...MovieInfoYear
@@ -37,7 +37,7 @@ export default class MovieShort extends React.Component<Props> {
     `
   }
 
-  isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.title
+  isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.titleOriginal
 
   render() {
     return (
@@ -50,7 +50,7 @@ export default class MovieShort extends React.Component<Props> {
           <MovieLink movie={this.props.movie}>
             {this.props.movie[i18n.f('title')]}
           </MovieLink>
-          <div styleName="subtitle">{this.isTitlesEqual(this.props.movie) ? '' : this.props.movie.title}</div>
+          <div styleName="subtitle">{this.isTitlesEqual(this.props.movie) ? '' : this.props.movie.titleOriginal}</div>
           <MovieInfo movie={this.props.movie} year genres/>
         </div>
       </div>

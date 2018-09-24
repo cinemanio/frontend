@@ -40,7 +40,7 @@ export default class MovieCast extends React.Component<Props> {
                 ...PersonLink
               }
               role {
-                name
+                nameEn
                 ${i18n.gql('name')}
               }
             }
@@ -57,23 +57,23 @@ export default class MovieCast extends React.Component<Props> {
   static castNames = ['Actor']
 
   filterCreators(role: Object): boolean {
-    return MovieCast.creatorNames.indexOf(role.name) !== -1
+    return MovieCast.creatorNames.indexOf(role.nameEn) !== -1
   }
 
   filterCast(role: Object): boolean {
-    return MovieCast.castNames.indexOf(role.name) !== -1
+    return MovieCast.castNames.indexOf(role.nameEn) !== -1
   }
 
   filterCrew(role: Object): boolean {
-    return MovieCast.creatorNames.concat(MovieCast.castNames).indexOf(role.name) === -1
+    return MovieCast.creatorNames.concat(MovieCast.castNames).indexOf(role.nameEn) === -1
   }
 
   /**
    * Sort creators in the order of priority, defined in creatorNames
    */
   sortCreators(edge1: Object, edge2: Object) {
-    return MovieCast.creatorNames.indexOf(edge1.node.role.name)
-      - MovieCast.creatorNames.indexOf(edge2.node.role.name)
+    return MovieCast.creatorNames.indexOf(edge1.node.role.nameEn)
+      - MovieCast.creatorNames.indexOf(edge2.node.role.nameEn)
   }
 
   getPersons(roleFilter: Function, roleSort?: Function) {
