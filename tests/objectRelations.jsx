@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 
 import mutationResponse from 'components/Relation/mutationResponse'
@@ -6,15 +5,13 @@ import User from 'stores/User'
 
 import { getAlerts, mountGraphql } from './helpers'
 
-export default (Component: React.Component, query: Object, mock: Object, object: Object, message: string) => {
+export default (Component, query, mock, object, message) => {
   const favMock = {
     request: { query, variables: { id: object.id, code: 'fav' } },
     result: { data: mutationResponse(object, 'fav') },
   }
 
-  // $FlowFixMe
   describe('Relations', () => {
-    // $FlowFixMe
     it('should change relation and relations count', async () => {
       User.login('user')
       const wrapper = await mountGraphql(<Component match={{ params: { slug: object.id } }}/>, [mock, favMock])
@@ -25,7 +22,6 @@ export default (Component: React.Component, query: Object, mock: Object, object:
       expect(wrapper.find('Relation[code="fav"]').text()).toBe('3')
     })
 
-    // $FlowFixMe
     it('should change display one alert when switch relation on and off', async () => {
       User.login('user')
       const wrapper = await mountGraphql(<Component match={{ params: { slug: object.id } }}/>, [mock, favMock])
@@ -38,7 +34,6 @@ export default (Component: React.Component, query: Object, mock: Object, object:
       expect(getAlerts(wrapper)).toHaveLength(1)
     })
 
-    // $FlowFixMe
     it('should not change relation, but display alert if user is unauthenticated', async () => {
       User.logout()
       const wrapper = await mountGraphql(<Component match={{ params: { slug: object.id } }}/>, [mock])

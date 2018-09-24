@@ -21,6 +21,7 @@ type Props = {
   fragment: Object,
   modifyOptimisticResponse: Function,
   alert: Object,
+  user: typeof User,
   i18n: Translator,
 }
 
@@ -33,6 +34,7 @@ export default class Relation extends React.Component<Props> {
     displayCounts: true,
     user: User,
     i18n: i18nClient,
+    alert: {},
   }
 
   static propTypes = {
@@ -43,7 +45,7 @@ export default class Relation extends React.Component<Props> {
     mutation: PropTypes.object.isRequired,
     fragment: PropTypes.object.isRequired,
     modifyOptimisticResponse: PropTypes.func.isRequired,
-    alert: PropTypes.object.isRequired,
+    alert: PropTypes.object,
     user: MobxPropTypes.observableObject,
     i18n: PropTypes.object,
   }
