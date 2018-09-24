@@ -1,8 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountGraphql } from 'tests/helpers'
-import mutationResponse from 'components/Relation/mutationResponse'
+import { mountGraphql, itShouldTestRelations } from 'tests/helpers'
 import i18nClient from 'libs/i18nClient'
 
 import MoviePage from './MoviePage'
@@ -14,6 +13,7 @@ import emptyResponse from './fixtures/empty_response.json'
 describe('Movie Page Component', () => {
   let element
   let wrapper
+
 
   describe('Unit', () => {
     beforeAll(() => i18nClient.changeLanguage('en'))
@@ -68,6 +68,8 @@ describe('Movie Page Component', () => {
   })
 
   describe('GraphQL', () => {
+    beforeAll(() => i18nClient.changeLanguage('en'))
+
     it('should render movie page', async () => {
       wrapper = await mountGraphql(
         <MoviePage match={{ params: { slug: response.data.movie.id } }}/>, [mockMovie])
@@ -86,24 +88,7 @@ describe('Movie Page Component', () => {
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
     })
 
-    it('should change relation and relations count', async () => {
-      wrapper = await mountGraphql(
-        <MoviePage match={{ params: { slug: response.data.movie.id } }}/>,
-        [
-          mockMovie,
-          {
-            request: {
-              query: MovieRelations.fragments.relate,
-              variables: { id: response.data.movie.id, code: 'fav' },
-            },
-            result: { data: mutationResponse(response.data.movie, 'fav') },
-          },
-        ])
-      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(0)
-      expect(wrapper.find('Relation[code="fav"]').text()).toBe('2')
-      wrapper.find('Relation[code="fav"]').find('span').first().simulate('click')
-      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(1)
-      expect(wrapper.find('Relation[code="fav"]').text()).toBe('3')
-    })
+    itShouldTestRelations(MoviePage, MovieRelations.fragments.relate, mockMovie,
+      response.data.movie, 'You have been favorited the movie Kids (1995)')
   })
 })

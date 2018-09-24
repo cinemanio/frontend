@@ -6,6 +6,7 @@ import { mountGraphql, mockAutoSizer, selectFilterChange } from 'tests/helpers'
 import PersonRelations from 'components/PersonPage/PersonRelations/PersonRelations'
 import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
+import User from 'stores/User'
 
 import PersonsPage from './PersonsPage'
 import { mockPersons, mockCountries, mockRoles, mockWithParams } from './mocks'
@@ -106,6 +107,7 @@ describe('Persons Page Component', () => {
     })
 
     it('should change relation', async () => {
+      User.login('user')
       wrapper = await mountGraphql(
         <PersonsPage/>,
         [

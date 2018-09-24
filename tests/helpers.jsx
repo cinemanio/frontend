@@ -6,10 +6,16 @@ import { Provider } from 'mobx-react'
 import { MemoryRouter } from 'react-router-dom'
 import { MockedProvider } from 'react-apollo/test-utils'
 import { AutoSizer } from 'react-virtualized'
+import { Provider as AlertProvider } from 'react-alert'
+import { I18nextProvider } from 'react-i18next'
 import _ from 'lodash'
 
 import i18nClient from 'libs/i18nClient'
-import { stores } from 'components/App/App'
+import { stores, alertOptions } from 'components/App/App'
+import AlertTemplate from 'components/App/AlertTemplate/AlertTemplate'
+
+import objectRelations from './objectRelations'
+import objectInfo from './objectInfo'
 
 export const mountOptions = {}
 
@@ -35,7 +41,13 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
 
 export const mountRouter = (element: Object, initialEntries: Array<string>) => mount(
   <MemoryRouter initialEntries={initialEntries}>
-    <Provider {...stores}>{element}</Provider>
+    <Provider {...stores}>
+      <AlertProvider template={AlertTemplate} {...alertOptions}>
+        <I18nextProvider i18n={i18nClient}>
+          {element}
+        </I18nextProvider>
+      </AlertProvider>
+    </Provider>
   </MemoryRouter>,
   mountOptions)
 
@@ -65,19 +77,9 @@ export const selectFilterChange = (wrapper: Object, selector: string, value: str
   wrapper.update()
 }
 
-export const itShouldRenderBlocks = (content: Object, element: Object) => (props: Object) => {
-  // $FlowFixMe
-  it(`should render only ${Object.keys(props)} blocks`, () => {
-    i18nClient.changeLanguage('en')
-    const wrapper = mount(React.cloneElement(element, props), mountOptions)
-    _.forEach(content, (value, key) => {
-      // $FlowFixMe
-      let expectation = expect(wrapper.text())
-      // props does not contain key
-      if (Object.keys(props).indexOf(key) === -1 && props.all !== true) {
-        expectation = expectation.not
-      }
-      expectation.toContain(value)
-    })
-  })
-}
+
+export const getAlerts = (wrapper: Object) => wrapper.find('Relation').first().prop('alert').alerts
+
+export const itShouldTestRelations = objectRelations
+
+export const itShouldRenderBlocks = objectInfo
