@@ -73,6 +73,9 @@
     "displayMore": "узнать больше",
     "displayLess": "свернуть"
   },
+  "kinopoisk": {
+    "title": "На Кинопоиске"
+  },
   "signin": {
     "title": "Войти",
     "needAccount": "Нужна регистрация?",

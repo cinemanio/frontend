@@ -1,0 +1,5 @@
+@import 'mixins';
+
+.box {
+  @extend %text-box;
+}

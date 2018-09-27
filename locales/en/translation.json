@@ -72,6 +72,9 @@
     "displayMore": "read more",
     "displayLess": "hide"
   },
+  "kinopoisk": {
+    "title": "On Kinopoisk"
+  },
   "signin": {
     "title": "Sign In",
     "needAccount": "Need an account?",

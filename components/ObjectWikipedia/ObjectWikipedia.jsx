@@ -95,7 +95,7 @@ export default class ObjectWikipedia extends React.Component<Props, State> {
   render() {
     const { content } = this
     return !content ? '' : (
-      <div styleName="wikipedia">
+      <div styleName="box">
         <Block title={this.renderTitle()}>
           { // eslint-disable-next-line react/no-array-index-key
             wtf(content).data.sections.map((section, i) => <WikiSection key={i} section={section}/>)}

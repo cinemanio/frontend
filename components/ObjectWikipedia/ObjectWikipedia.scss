@@ -1,8 +1,7 @@
-.wikipedia {
-  background-color: #EEEEEE;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: inset 0.01rem 0.01rem 1rem #CCCCCC;
+@import 'mixins';
+
+.box {
+  @extend %text-box;
 
   button {
     text-decoration: none;
