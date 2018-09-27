@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountGraphql, itShouldTestRelations } from 'tests/helpers'
+import { mountGraphql, itShouldTestObjectRelations } from 'tests/helpers'
 import i18nClient from 'libs/i18nClient'
 
 import PersonPage from './PersonPage'
@@ -68,7 +68,7 @@ describe('Person Page Component', () => {
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
     })
 
-    itShouldTestRelations(PersonPage, PersonRelations.fragments.relate, mockPerson,
+    itShouldTestObjectRelations(PersonPage, PersonRelations.fragments.relate, mockPerson,
       response.data.person, 'You have been favorited the person David Fincher')
   })
 })

@@ -22,7 +22,7 @@ export default (Component, query, mock, object, message) => {
       expect(wrapper.find('Relation[code="fav"]').text()).toBe('3')
     })
 
-    it('should change display one alert when switch relation on and off', async () => {
+    it('should display one alert when switch relation on and off', async () => {
       User.login('user')
       const wrapper = await mountGraphql(<Component match={{ params: { slug: object.id } }}/>, [mock, favMock])
       expect(getAlerts(wrapper)).toHaveLength(0)

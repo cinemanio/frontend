@@ -2,9 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { translate } from 'react-i18next'
 
-import { mountGraphql, mockAutoSizer, selectFilterChange, paginate } from 'tests/helpers'
+import { mountGraphql, mockAutoSizer, selectFilterChange, paginate, itShouldTestObjectsRelations } from 'tests/helpers'
 import PersonRelations from 'components/PersonPage/PersonRelations/PersonRelations'
-import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
 import User from 'stores/User'
 
@@ -53,6 +52,7 @@ describe('Persons Page Component', () => {
 
     describe('i18n. en', () => {
       beforeAll(() => i18nClient.changeLanguage('en'))
+      it('should render filter relation options', () => expect(wrapper.text()).toContain('Relation'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Persons'))
     })
 
@@ -63,101 +63,80 @@ describe('Persons Page Component', () => {
   })
 
   describe('GraphQL', () => {
+    const mocks = [mockPersons, mockCountries, mockRoles]
     beforeAll(() => i18nClient.changeLanguage('en'))
 
     it('should render persons', async () => {
-      wrapper = await mountGraphql(<PersonsPage/>, [mockPersons, mockCountries, mockRoles])
+      wrapper = await mountGraphql(<PersonsPage/>, mocks)
       expect(wrapper.find('PersonShort').length).toBeGreaterThan(0)
       expect(wrapper.find('SelectFilter[code="roles"]').find('option').length).toBeGreaterThan(1)
       expect(wrapper.find('SelectFilter[code="country"]').find('option').length).toBeGreaterThan(1)
-    })
-
-    it('should send filter params in request', async () => {
-      global.console.warn = jest.fn()
-      wrapper = await mountGraphql(
-        <PersonsPage/>,
-        [
-          mockPersons, mockCountries, mockRoles,
-          mockWithParams({
-            relation: null,
-            roles: ['Um9sZU5vZGU6MTE='],
-            country: '',
-          }),
-          mockWithParams({
-            relation: null,
-            roles: ['Um9sZU5vZGU6MTE='],
-            country: 'Q291bnRyeU5vZGU6MTE=',
-          }),
-          mockWithParams({
-            relation: 'fav',
-            roles: ['Um9sZU5vZGU6MTE='],
-            country: 'Q291bnRyeU5vZGU6MTE=',
-          }),
-          mockWithParams({
-            orderBy: 'relations_count__dislike',
-            relation: 'fav',
-            roles: ['Um9sZU5vZGU6MTE='],
-            country: 'Q291bnRyeU5vZGU6MTE=',
-          }),
-        ])
-      selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
-      selectFilterChange(wrapper, 'SelectFilter[code="country"]', 'Q291bnRyeU5vZGU6MTE=')
-      selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
-      selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'relations_count__dislike')
-    })
-
-    it('should paginate during scrolling keeping selected filters', async () => {
-      wrapper = await mountGraphql(
-        <PersonsPage/>,
-        [
-          mockPersons, mockCountries, mockRoles,
-          mockWithParams({
-            relation: null,
-            roles: ['Um9sZU5vZGU6MTE='],
-            country: '',
-          }),
-          mockWithParams({
-            relation: null,
-            roles: ['Um9sZU5vZGU6MTE='],
-            country: '',
-            after: response.data.list.pageInfo.endCursor,
-          }),
-        ])
-      selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
-      expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
-      paginate(wrapper)
-      // TODO: fix amount of items after loading second page
-      // setTimeout(() => {
-      //   expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(200)
-      //   done()
-      // })
-    })
-
-    it('should change relation', async () => {
-      User.login('user')
-      wrapper = await mountGraphql(
-        <PersonsPage/>,
-        [
-          mockPersons, mockCountries, mockRoles,
-          {
-            request: {
-              query: PersonRelations.fragments.relate,
-              variables: { id: response.data.list.edges[0].person.id, code: 'fav' },
-            },
-            result: { data: mutationResponse(response.data.list.edges[0].person, 'fav') },
-          },
-        ])
-      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(0)
-      // expect(wrapper.find('Relation[code="fav"]').first().text()).toBe('2')
-      wrapper.find('Relation[code="fav"]').find('span').first().simulate('click')
-      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(1)
-      // expect(wrapper.find('Relation[code="fav"]').first().text()).toBe('3')
     })
 
     it('should render message if no results in response', async () => {
       wrapper = await mountGraphql(<PersonsPage/>, [{ ...mockPersons, result: emptyResponse }])
       expect(wrapper.find('PersonShort')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such persons.')
+    })
+
+    itShouldTestObjectsRelations(
+      PersonsPage, PersonRelations.fragments.relate, mocks, response.data.list.edges[0].person)
+
+    it('should send filter params in request', async (done) => {
+      User.login('user')
+      global.console.warn = jest.fn()
+      wrapper = await mountGraphql(<PersonsPage/>, mocks.concat([
+        mockWithParams({
+          relation: null,
+          roles: ['Um9sZU5vZGU6MTE='],
+          country: '',
+        }),
+        mockWithParams({
+          relation: null,
+          roles: ['Um9sZU5vZGU6MTE='],
+          country: 'Q291bnRyeU5vZGU6MTE=',
+        }),
+        mockWithParams({
+          relation: 'fav',
+          roles: ['Um9sZU5vZGU6MTE='],
+          country: 'Q291bnRyeU5vZGU6MTE=',
+        }),
+        mockWithParams({
+          orderBy: 'relations_count__dislike',
+          relation: 'fav',
+          roles: ['Um9sZU5vZGU6MTE='],
+          country: 'Q291bnRyeU5vZGU6MTE=',
+        }),
+      ]))
+      selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
+      selectFilterChange(wrapper, 'SelectFilter[code="country"]', 'Q291bnRyeU5vZGU6MTE=')
+      selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
+      selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'relations_count__dislike')
+      expect(wrapper.find('ActiveFilters[code="roles"]').find('span').text()).toBe('Translator')
+      expect(wrapper.find('ActiveFilters[code="country"]').find('span').text()).toBe('Benin')
+      expect(wrapper.find('ActiveFilters[code="relation"]').find('span').text()).toBe('Fav')
+      setTimeout(() => done())
+    })
+
+    it('should paginate during scrolling keeping selected filters', async (done) => {
+      wrapper = await mountGraphql(<PersonsPage/>, mocks.concat([
+        mockWithParams({
+          relation: null,
+          roles: ['Um9sZU5vZGU6MTE='],
+          country: '',
+        }),
+        mockWithParams({
+          relation: null,
+          roles: ['Um9sZU5vZGU6MTE='],
+          country: '',
+          after: response.data.list.pageInfo.endCursor,
+        }),
+      ]))
+      selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
+      expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
+      paginate(wrapper)
+      // TODO: test amount of items after loading second page
+      setTimeout(() => done())
     })
   })
 })
