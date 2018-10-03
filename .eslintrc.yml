@@ -3,6 +3,11 @@ parser: babel-eslint
 
 extends:
 - airbnb
+- prettier
+- prettier/flowtype
+- prettier/react
+- prettier/standard
+- prettier/unicorn
 - plugin:flowtype/recommended
 - plugin:import/recommended
 - plugin:jsx-a11y/recommended

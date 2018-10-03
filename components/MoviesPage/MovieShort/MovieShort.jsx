@@ -50,7 +50,7 @@ export default class MovieShort extends React.Component<Props> {
           <MovieLink movie={this.props.movie}>
             {this.props.movie[i18n.f('title')]}
           </MovieLink>
-          <div styleName="subtitle">{this.isTitlesEqual(this.props.movie) ? '' : this.props.movie.titleOriginal}</div>
+          <div styleName="subtitle">{this.isTitlesEqual(this.props.movie) ? null : this.props.movie.titleOriginal}</div>
           <MovieInfo movie={this.props.movie} year genres/>
         </div>
       </div>

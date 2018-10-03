@@ -55,12 +55,12 @@ export default class SelectFilter extends React.Component<Props> {
   }
 
   renderOption(item: Object) {
-    return this.active.indexOf(item.id) !== -1 ? ''
+    return this.active.indexOf(item.id) !== -1 ? null
       : <option key={item.id} value={item.id}>{item[i18n.f('name')]}</option>
   }
 
   render() {
-    return (!this.props.multiple && this.active.length > 0) ? '' : (
+    return (!this.props.multiple && this.active.length > 0) ? null : (
       // eslint-disable-next-line jsx-a11y/no-onchange
       <select name={this.props.code} onChange={this.filterBy}>
         <option value="">{this.props.title}</option>

@@ -60,7 +60,7 @@ class PersonPage extends React.Component<Props> {
         <PersonRelations person={person}/>
       </div>
       <h1>{person[i18n.f('name')]}</h1>
-      <h2>{this.isNamesEqual(person) ? '' : person.nameEn}</h2>
+      <h2>{this.isNamesEqual(person) ? null : person.nameEn}</h2>
       <PersonInfo person={person} all/>
       <div className="row">
         <div className="col-lg-2">

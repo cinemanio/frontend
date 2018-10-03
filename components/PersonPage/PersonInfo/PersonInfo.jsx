@@ -92,7 +92,7 @@ export default class PersonInfo extends React.Component<Props> {
   )
 
   renderRoles() {
-    return this.props.person.roles.length === 0 ? '' : (
+    return this.props.person.roles.length === 0 ? null : (
       <span styleName={`gender-${this.props.person.gender.toLowerCase()}`}>
         <i/>
         {this.props.person.roles.map(item => this.genderizeRole(item[i18n.f('name')])).join(', ')}
@@ -101,17 +101,17 @@ export default class PersonInfo extends React.Component<Props> {
   }
 
   renderDates() {
-    return !this.props.person.dateBirth ? '' : (
+    return !this.props.person.dateBirth ? null : (
       <span styleName="date">
         <i/>
         {this.formatDate(this.props.person.dateBirth)}
-        {!this.props.person.dateDeath ? '' : ` – ${this.formatDate(this.props.person.dateDeath)}`}
+        {!this.props.person.dateDeath ? null : ` – ${this.formatDate(this.props.person.dateDeath)}`}
       </span>
     )
   }
 
   renderCountry() {
-    return !this.props.person.country ? '' : (
+    return !this.props.person.country ? null : (
       <span styleName="country">
         <CountryFlag country={this.props.person.country}/>
         {this.props.person.country[i18n.f('name')]}

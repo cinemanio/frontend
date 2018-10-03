@@ -99,7 +99,7 @@ export default class MovieCast extends React.Component<Props> {
   }
 
   renderBlock(title: string, persons: Array<Object>) {
-    return persons.length === 0 ? '' : (
+    return persons.length === 0 ? null : (
       <Block title={title}>
         <div styleName="cast">
           {this.renderPersons(persons)}

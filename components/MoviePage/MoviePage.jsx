@@ -57,7 +57,7 @@ class MoviePage extends React.Component<Props> {
         <MovieRelations movie={movie}/>
       </div>
       <h1>{movie[i18n.f('title')]}</h1>
-      <h2>{this.isTitlesEqual(movie) ? '' : movie.titleOriginal}</h2>
+      <h2>{this.isTitlesEqual(movie) ? null : movie.titleOriginal}</h2>
       <MovieInfo movie={movie} all/>
       <div className="row">
         <div className="col-lg-2">

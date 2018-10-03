@@ -75,7 +75,7 @@ export default class ObjectWikipedia extends React.Component<Props, State> {
   }
 
   renderMore() {
-    return this.state.full ? ''
+    return this.state.full ? null
       : <button type="button" onClick={this.display(true)}>{this.props.i18n.t('wikipedia.displayMore')}</button>
   }
 
@@ -94,7 +94,7 @@ export default class ObjectWikipedia extends React.Component<Props, State> {
 
   render() {
     const { content } = this
-    return !content ? '' : (
+    return !content ? null : (
       <div styleName="wikipedia">
         <Block title={this.renderTitle()}>
           { // eslint-disable-next-line react/no-array-index-key

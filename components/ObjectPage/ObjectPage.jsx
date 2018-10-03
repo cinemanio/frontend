@@ -36,7 +36,7 @@ export default class ObjectPage extends React.Component<Props> {
     } else {
       return (
         <div>
-          {!this.props.getTitle ? '' : (
+          {!this.props.getTitle ? null : (
             <Helmet>
               <title>{this.props.getTitle(this.props.object)}</title>
             </Helmet>
