@@ -119,7 +119,8 @@ class MoviesPage extends React.Component<Props, State> {
   ])
 
   getOrderByOptions = () => ([
-    { id: 'year', name: this.props.i18n.t('filter.orderBy.year') },
+    { id: '-year', name: this.props.i18n.t('filter.orderBy.new') },
+    { id: 'year', name: this.props.i18n.t('filter.orderBy.old') },
     { id: 'relations_count__like', name: this.props.i18n.t('filter.orderBy.like') },
     { id: 'relations_count__dislike', name: this.props.i18n.t('filter.orderBy.dislike') },
   ])

@@ -6,6 +6,7 @@ import { PropTypes } from 'prop-types'
 type Props = {
   list: Array<Object>,
   setFilterState: Function,
+  filters: Object,
   code: string,
 }
 
@@ -13,6 +14,7 @@ export default class SelectGeneric extends React.PureComponent<Props> {
   static propTypes = {
     setFilterState: PropTypes.func.isRequired,
     list: PropTypes.array.isRequired,
+    filters: PropTypes.object.isRequired,
     code: PropTypes.string.isRequired,
   }
 
@@ -26,7 +28,7 @@ export default class SelectGeneric extends React.PureComponent<Props> {
 
   render() {
     return (
-      <select name={this.props.code} onChange={this.change}>
+      <select name={this.props.code} onChange={this.change} value={this.props.filters[this.props.code]}>
         {this.renderOptions()}
       </select>
     )

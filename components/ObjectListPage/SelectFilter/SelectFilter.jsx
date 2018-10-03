@@ -16,7 +16,7 @@ type Props = {
 export default class SelectFilter extends React.Component<Props> {
   static defaultProps = {
     list: [],
-    multiple: false
+    multiple: false,
   }
 
   static propTypes = {
@@ -25,7 +25,7 @@ export default class SelectFilter extends React.Component<Props> {
     filters: PropTypes.object.isRequired,
     setFilterState: PropTypes.func.isRequired,
     list: PropTypes.array,
-    multiple: PropTypes.bool
+    multiple: PropTypes.bool,
   }
 
   get active(): Array<string> {

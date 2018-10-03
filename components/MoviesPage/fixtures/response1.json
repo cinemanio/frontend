@@ -1,0 +1,3921 @@
+{
+  "data": {
+    "list": {
+      "totalCount": 910,
+      "edges": [
+        {
+          "movie": {
+            "titleEn": "Es ist nicht leicht ein Gott zu sein",
+            "titleRu": "\u0422\u0440\u0443\u0434\u043d\u043e \u0431\u044b\u0442\u044c \u0431\u043e\u0433\u043e\u043c",
+            "title": "Es ist nicht leicht ein Gott zu sein",
+            "id": "TW92aWVOb2RlOjE1Mw==",
+            "year": 1989,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Space sci-fi",
+                "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Tri sestry",
+            "titleRu": "\u0422\u0440\u0438 \u0441\u0435\u0441\u0442\u0440\u044b",
+            "title": "Tri sestry",
+            "id": "TW92aWVOb2RlOjE1NA==",
+            "year": 1994,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Soldaty.Zdravstvuj, rota, novyj god!",
+            "titleRu": "\u0421\u043e\u043b\u0434\u0430\u0442\u044b.\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439, \u0440\u043e\u0442\u0430, \u043d\u043e\u0432\u044b\u0439 \u0433\u043e\u0434!",
+            "title": "Soldaty.Zdravstvuj, rota, novyj god!",
+            "id": "TW92aWVOb2RlOjE1NQ==",
+            "year": 2004,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Angel",
+            "titleRu": "\u0410\u043d\u0433\u0435\u043b",
+            "title": "Angel",
+            "id": "TW92aWVOb2RlOjE1Nw==",
+            "year": 1999,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Moj muzh-inoplanetjanin",
+            "titleRu": "\u041c\u043e\u0439 \u043c\u0443\u0436-\u0438\u043d\u043e\u043f\u043b\u0430\u043d\u0435\u0442\u044f\u043d\u0438\u043d",
+            "title": "Moj muzh-inoplanetjanin",
+            "id": "TW92aWVOb2RlOjE1OA==",
+            "year": 1990,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Net spasenija ot ljubvi",
+            "titleRu": "\u041d\u0435\u0442 \u0441\u043f\u0430\u0441\u0435\u043d\u0438\u044f \u043e\u0442 \u043b\u044e\u0431\u0432\u0438",
+            "title": "Net spasenija ot ljubvi",
+            "id": "TW92aWVOb2RlOjE1OQ==",
+            "year": 2003,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Pravo na vybor",
+            "titleRu": "\u041f\u0440\u0430\u0432\u043e \u043d\u0430 \u0432\u044b\u0431\u043e\u0440",
+            "title": "Pravo na vybor",
+            "id": "TW92aWVOb2RlOjE2MA==",
+            "year": 1999,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Film",
+            "titleRu": "\u0424\u0438\u043b\u044c\u043c",
+            "title": "Film",
+            "id": "TW92aWVOb2RlOjE2MQ==",
+            "year": 1965,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "The Adventures of Prince Achmed ",
+            "titleRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f \u043f\u0440\u0438\u043d\u0446\u0430 \u0410\u0445\u043c\u0435\u0434\u0430",
+            "title": "The Adventures of Prince Achmed ",
+            "id": "TW92aWVOb2RlOjE2Mg==",
+            "year": 1926,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Tank \"Klim Voroshilov-2\"",
+            "titleRu": "\u0422\u0430\u043d\u043a \"\u041a\u043b\u0438\u043c \u0412\u043e\u0440\u043e\u0448\u0438\u043b\u043e\u0432-2\"",
+            "title": "Tank \"Klim Voroshilov-2\"",
+            "id": "TW92aWVOb2RlOjE2Mw==",
+            "year": 1990,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Mystery",
+                "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Tragicomedy",
+                "nameRu": "\u0422\u0440\u0430\u0433\u0438\u043a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "War",
+                "nameRu": "\u0412\u043e\u0439\u043d\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Koleso sud'by",
+            "titleRu": "\u041a\u043e\u043b\u0435\u0441\u043e \u0441\u0443\u0434\u044c\u0431\u044b",
+            "title": "Koleso sud'by",
+            "id": "TW92aWVOb2RlOjE2NA==",
+            "year": 2003,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Anatomie",
+            "titleRu": "\u0410\u043d\u0430\u0442\u043e\u043c\u0438\u044f",
+            "title": "Anatomie",
+            "id": "TW92aWVOb2RlOjE2NQ==",
+            "year": 2000,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Bankirshi",
+            "titleRu": "\u0411\u0430\u043d\u043a\u0438\u0440\u0448\u0438",
+            "title": "Bankirshi",
+            "id": "TW92aWVOb2RlOjE2Ng==",
+            "year": 2005,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Gori, moja zvezda",
+            "titleRu": "\u0413\u043e\u0440\u0438, \u043c\u043e\u044f \u0437\u0432\u0435\u0437\u0434\u0430",
+            "title": "Gori, moja zvezda",
+            "id": "TW92aWVOb2RlOjE2OA==",
+            "year": 1957,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Gabal",
+            "titleRu": "\u041f\u0430\u0440\u0438\u043a",
+            "title": "Gabal",
+            "id": "TW92aWVOb2RlOjE2OQ==",
+            "year": 2006,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Mystery",
+                "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Krabat",
+            "titleRu": "\u041a\u0440\u0430\u0431\u0430\u0442. \u0423\u0447\u0435\u043d\u0438\u043a \u043a\u043e\u043b\u0434\u0443\u043d\u0430",
+            "title": "Krabat",
+            "id": "TW92aWVOb2RlOjE3MA==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Fantasy",
+                "nameRu": "\u0424\u044d\u043d\u0442\u0435\u0437\u0438",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Russia 88",
+            "titleRu": "\u0420\u043e\u0441\u0441\u0438\u044f 88",
+            "title": "Russia 88",
+            "id": "TW92aWVOb2RlOjE3MQ==",
+            "year": 2009,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Dark Reel",
+            "titleRu": "\u0427\u0435\u0440\u043d\u0430\u044f \u043a\u0430\u0442\u0443\u0448\u043a\u0430",
+            "title": "Dark Reel",
+            "id": "TW92aWVOb2RlOjE3Mg==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Riding the Bullet",
+            "titleRu": "\u0412\u0435\u0440\u0445\u043e\u043c \u043d\u0430 \u043f\u0443\u043b\u0435",
+            "title": "Riding the Bullet",
+            "id": "TW92aWVOb2RlOjE3NA==",
+            "year": 2004,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Mystery",
+                "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Red Sands",
+            "titleRu": "\u0421\u0432\u044f\u0442\u0438\u043b\u0438\u0449\u0435 \u041a\u0440\u0430\u0441\u043d\u044b\u0445 \u041f\u0435\u0441\u043a\u043e\u0432",
+            "title": "Red Sands",
+            "id": "TW92aWVOb2RlOjE3NQ==",
+            "year": 2009,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Mystery",
+                "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Dva dnja chudes",
+            "titleRu": "\u0414\u0432\u0430 \u0434\u043d\u044f \u0447\u0443\u0434\u0435\u0441",
+            "title": "Dva dnja chudes",
+            "id": "TW92aWVOb2RlOjE3Ng==",
+            "year": 1970,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Children's",
+                "nameRu": "\u0414\u0435\u0442\u0441\u043a\u0438\u0439",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Gospodin Velikij Novgorod",
+            "titleRu": "\u0413\u043e\u0441\u043f\u043e\u0434\u0438\u043d \u0412\u0435\u043b\u0438\u043a\u0438\u0439 \u041d\u043e\u0432\u0433\u043e\u0440\u043e\u0434",
+            "title": "Gospodin Velikij Novgorod",
+            "id": "TW92aWVOb2RlOjE3Nw==",
+            "year": 1984,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Imja",
+            "titleRu": "\u0418\u043c\u044f",
+            "title": "Imja",
+            "id": "TW92aWVOb2RlOjE3OA==",
+            "year": 1988,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Obida",
+            "titleRu": "\u041e\u0431\u0438\u0434\u0430",
+            "title": "Obida",
+            "id": "TW92aWVOb2RlOjE3OQ==",
+            "year": 1986,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Rohtenburg",
+            "titleRu": "\u041a\u0430\u043d\u043d\u0438\u0431\u0430\u043b \u0438\u0437 \u0420\u043e\u0442\u0435\u043d\u0431\u0443\u0440\u0433\u0430",
+            "title": "Rohtenburg",
+            "id": "TW92aWVOb2RlOjE4Mw==",
+            "year": 2006,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Sex Drive",
+            "titleRu": "\u0421\u0435\u043a\u0441-\u0434\u0440\u0430\u0439\u0432",
+            "title": "Sex Drive",
+            "id": "TW92aWVOb2RlOjE4NA==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Road",
+                "nameRu": "\u0420\u043e\u0443\u0434-\u043c\u0443\u0432\u0438",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Young",
+                "nameRu": "\u041c\u043e\u043b\u043e\u0434\u0435\u0436\u044c",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Human Zoo",
+            "titleRu": "\u0412\u043e\u043b\u044c\u0435\u0440",
+            "title": "Human Zoo",
+            "id": "TW92aWVOb2RlOjM4",
+            "year": 2009,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "The Base",
+            "titleRu": "\u0411\u0430\u0437\u0430",
+            "title": "The Base",
+            "id": "TW92aWVOb2RlOjE5Mw==",
+            "year": 1999,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Mechtateli",
+            "titleRu": "\u041c\u0435\u0447\u0442\u0430\u0442\u0435\u043b\u0438",
+            "title": "Mechtateli",
+            "id": "TW92aWVOb2RlOjEwNA==",
+            "year": 1987,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Thirteen",
+            "titleRu": "\u0422\u0440\u0438\u043d\u0430\u0434\u0446\u0430\u0442\u044c",
+            "title": "Thirteen",
+            "id": "TW92aWVOb2RlOjE5Mg==",
+            "year": 2003,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Zanaves",
+            "titleRu": "\u0417\u0430\u043d\u0430\u0432\u0435\u0441",
+            "title": "Zanaves",
+            "id": "TW92aWVOb2RlOjE5MQ==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Novye prikljuchenija Arsena Ljupena",
+            "titleRu": "\u041d\u043e\u0432\u044b\u0435 \u043f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f \u0410\u0440\u0441\u0435\u043d\u0430 \u041b\u044e\u043f\u0435\u043d\u0430",
+            "title": "Novye prikljuchenija Arsena Ljupena",
+            "id": "TW92aWVOb2RlOjEwMw==",
+            "year": 1989,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "The Man with One Red Shoe",
+            "titleRu": "\u0427\u0435\u043b\u043e\u0432\u0435\u043a \u0432 \u043a\u0440\u0430\u0441\u043d\u043e\u043c \u0431\u043e\u0442\u0438\u043d\u043a\u0435",
+            "title": "The Man with One Red Shoe",
+            "id": "TW92aWVOb2RlOjY0",
+            "year": 1985,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Crimson Tide",
+            "titleRu": "\u0411\u0430\u0433\u0440\u043e\u0432\u044b\u0439 \u043f\u0440\u0438\u043b\u0438\u0432",
+            "title": "Crimson Tide",
+            "id": "TW92aWVOb2RlOjE5NA==",
+            "year": 1995,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Maestro vor",
+            "titleRu": "\u041c\u0430\u044d\u0441\u0442\u0440\u043e \u0432\u043e\u0440",
+            "title": "Maestro vor",
+            "id": "TW92aWVOb2RlOjE5NQ==",
+            "year": 1994,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "The Taking of Pelham One Two Three ",
+            "titleRu": "\u0417\u0430\u0445\u0432\u0430\u0442 \u043f\u043e\u0435\u0437\u0434\u0430 \u041f\u0435\u043b\u044d\u043c 1-2-3",
+            "title": "The Taking of Pelham One Two Three ",
+            "id": "TW92aWVOb2RlOjE5Nw==",
+            "year": 1974,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "\u00abLaguna\u00bb",
+            "titleRu": "\u00ab\u041b\u0430\u0433\u0443\u043d\u0430\u00bb",
+            "title": "\u00abLaguna\u00bb",
+            "id": "TW92aWVOb2RlOjEwOQ==",
+            "year": 2005,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Honogurai mizu no soko kara",
+            "titleRu": "\u0422\u0451\u043c\u043d\u044b\u0435 \u0432\u043e\u0434\u044b",
+            "title": "Honogurai mizu no soko kara",
+            "id": "TW92aWVOb2RlOjIwMA==",
+            "year": 2002,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Yulenka",
+            "titleRu": "\u042e\u043b\u0435\u043d\u044c\u043a\u0430",
+            "title": "Yulenka",
+            "id": "TW92aWVOb2RlOjIwMQ==",
+            "year": 2009,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Just business",
+            "titleRu": "\u041f\u0440\u043e\u0441\u0442\u043e \u0431\u0438\u0437\u043d\u0435\u0441",
+            "title": "Just business",
+            "id": "TW92aWVOb2RlOjIwMg==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Vospominanija o Sherloke Holmse",
+            "titleRu": "\u0412\u043e\u0441\u043f\u043e\u043c\u0438\u043d\u0430\u043d\u0438\u044f \u043e \u0428\u0435\u0440\u043b\u043e\u043a\u0435 \u0425\u043e\u043b\u043c\u0441\u0435",
+            "title": "Vospominanija o Sherloke Holmse",
+            "id": "TW92aWVOb2RlOjIwNQ==",
+            "year": 2000,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Chuzhaja zhena i muzh pod krovat'ju",
+            "titleRu": "\u0427\u0443\u0436\u0430\u044f \u0436\u0435\u043d\u0430 \u0438 \u043c\u0443\u0436 \u043f\u043e\u0434 \u043a\u0440\u043e\u0432\u0430\u0442\u044c\u044e",
+            "title": "Chuzhaja zhena i muzh pod krovat'ju",
+            "id": "TW92aWVOb2RlOjIwNw==",
+            "year": 1984,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Ljal'ka-Ruslan i ego drug San'ka",
+            "titleRu": "\u041b\u044f\u043b\u044c\u043a\u0430-\u0420\u0443\u0441\u043b\u0430\u043d \u0438 \u0435\u0433\u043e \u0434\u0440\u0443\u0433 \u0421\u0430\u043d\u044c\u043a\u0430",
+            "title": "Ljal'ka-Ruslan i ego drug San'ka",
+            "id": "TW92aWVOb2RlOjIwOA==",
+            "year": 1980,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "12 Rounds",
+            "titleRu": "12 \u0440\u0430\u0443\u043d\u0434\u043e\u0432",
+            "title": "12 Rounds",
+            "id": "TW92aWVOb2RlOjE4OA==",
+            "year": 2009,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Under en steinhimmel",
+            "titleRu": "\u041f\u043e\u0434 \u043a\u0430\u043c\u0435\u043d\u043d\u044b\u043c \u043d\u0435\u0431\u043e\u043c",
+            "title": "Under en steinhimmel",
+            "id": "TW92aWVOb2RlOjIxMQ==",
+            "year": 1974,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "War",
+                "nameRu": "\u0412\u043e\u0439\u043d\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Krasnyj diplomat. Stranitsy zhizni Leonida Krasina",
+            "titleRu": "\u041a\u0440\u0430\u0441\u043d\u044b\u0439 \u0434\u0438\u043f\u043b\u043e\u043c\u0430\u0442. \u0421\u0442\u0440\u0430\u043d\u0438\u0446\u044b \u0436\u0438\u0437\u043d\u0438 \u041b\u0435\u043e\u043d\u0438\u0434\u0430 \u041a\u0440\u0430\u0441\u0438\u043d\u0430",
+            "title": "Krasnyj diplomat. Stranitsy zhizni Leonida Krasina",
+            "id": "TW92aWVOb2RlOjIxMw==",
+            "year": 1971,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Biography",
+                "nameRu": "\u0411\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "History",
+                "nameRu": "\u0418\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u0439",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Bare et liv - historien om Fridtjof Nansen",
+            "titleRu": "\u0412\u0441\u0435\u0433\u043e \u043e\u0434\u043d\u0430 \u0436\u0438\u0437\u043d\u044c",
+            "title": "Bare et liv - historien om Fridtjof Nansen",
+            "id": "TW92aWVOb2RlOjIxNA==",
+            "year": 1968,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Biography",
+                "nameRu": "\u0411\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "V gorode S",
+            "titleRu": "\u0412 \u0433\u043e\u0440\u043e\u0434\u0435 \u0421",
+            "title": "V gorode S",
+            "id": "TW92aWVOb2RlOjIxNQ==",
+            "year": 1966,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "The Marine",
+            "titleRu": "\u041c\u043e\u0440\u0441\u043a\u043e\u0439 \u043f\u0435\u0445\u043e\u0442\u0438\u043d\u0435\u0446",
+            "title": "The Marine",
+            "id": "TW92aWVOb2RlOjE4Nw==",
+            "year": 2006,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Den schastya",
+            "titleRu": "\u0414\u0435\u043d\u044c \u0441\u0447\u0430\u0441\u0442\u044c\u044f",
+            "title": "Den schastya",
+            "id": "TW92aWVOb2RlOjIxNw==",
+            "year": 1963,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Chernaja chajka",
+            "titleRu": "\u0427\u0451\u0440\u043d\u0430\u044f \u0447\u0430\u0439\u043a\u0430",
+            "title": "Chernaja chajka",
+            "id": "TW92aWVOb2RlOjIxOA==",
+            "year": 1962,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Gorizont",
+            "titleRu": "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442",
+            "title": "Gorizont",
+            "id": "TW92aWVOb2RlOjIxOQ==",
+            "year": 1961,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Zelenyj dol",
+            "titleRu": "\u0417\u0435\u043b\u0451\u043d\u044b\u0439 \u0434\u043e\u043b",
+            "title": "Zelenyj dol",
+            "id": "TW92aWVOb2RlOjIyMQ==",
+            "year": 1954,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Children's",
+                "nameRu": "\u0414\u0435\u0442\u0441\u043a\u0438\u0439",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Dzhambul",
+            "titleRu": "\u0414\u0436\u0430\u043c\u0431\u0443\u043b",
+            "title": "Dzhambul",
+            "id": "TW92aWVOb2RlOjIyMg==",
+            "year": 1952,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "The Vampire",
+            "titleRu": "\u041f\u044c\u044e\u0449\u0438\u0435 \u043a\u0440\u043e\u0432\u044c",
+            "title": "The Vampire",
+            "id": "TW92aWVOb2RlOjIyMw==",
+            "year": 1991,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Mystery",
+                "nameRu": "\u041c\u0438\u0441\u0442\u0438\u043a\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Divorzio all'italiana",
+            "titleRu": "\u0420\u0430\u0437\u0432\u043e\u0434 \u043f\u043e-\u0438\u0442\u0430\u043b\u044c\u044f\u043d\u0441\u043a\u0438",
+            "title": "Divorzio all'italiana",
+            "id": "TW92aWVOb2RlOjIzMg==",
+            "year": 1961,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Hozjaeva Geony",
+            "titleRu": "\u0425\u043e\u0437\u044f\u0435\u0432\u0430 \u0413\u0435\u043e\u043d\u044b",
+            "title": "Hozjaeva Geony",
+            "id": "TW92aWVOb2RlOjIzMw==",
+            "year": 1992,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Vampiri Geoni",
+            "titleRu": "\u0412\u0430\u043c\u043f\u0438\u0440\u044b \u0413\u0435\u043e\u043d\u044b",
+            "title": "Vampiri Geoni",
+            "id": "TW92aWVOb2RlOjIzNA==",
+            "year": 1991,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Space sci-fi",
+                "nameRu": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Den' homjachka",
+            "titleRu": "\u0414\u0435\u043d\u044c \u0445\u043e\u043c\u044f\u0447\u043a\u0430",
+            "title": "Den' homjachka",
+            "id": "TW92aWVOb2RlOjIzNQ==",
+            "year": 2003,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Happy Tears",
+            "titleRu": "\u0421\u043b\u0435\u0437\u044b \u0441\u0447\u0430\u0441\u0442\u044c\u044f",
+            "title": "Happy Tears",
+            "id": "TW92aWVOb2RlOjIzNg==",
+            "year": 2009,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "The Gift to Stalin",
+            "titleRu": "\u041f\u043e\u0434\u0430\u0440\u043e\u043a \u0421\u0442\u0430\u043b\u0438\u043d\u0443",
+            "title": "The Gift to Stalin",
+            "id": "TW92aWVOb2RlOjIzNw==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Biography",
+                "nameRu": "\u0411\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "History",
+                "nameRu": "\u0418\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u0439",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Forbidden Games / Jeux interdits",
+            "titleRu": "\u0417\u0430\u043f\u0440\u0435\u0449\u0451\u043d\u043d\u044b\u0435 \u0438\u0433\u0440\u044b",
+            "title": "Forbidden Games / Jeux interdits",
+            "id": "TW92aWVOb2RlOjIzOQ==",
+            "year": 1951,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "War",
+                "nameRu": "\u0412\u043e\u0439\u043d\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "The Day and the Hour",
+            "titleRu": "\u0414\u0435\u043d\u044c \u0438 \u0447\u0430\u0441",
+            "title": "The Day and the Hour",
+            "id": "TW92aWVOb2RlOjI0MA==",
+            "year": 1962,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "War",
+                "nameRu": "\u0412\u043e\u0439\u043d\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Rider of the rain",
+            "titleRu": "\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440 \u0434\u043e\u0436\u0434\u044f",
+            "title": "Rider of the rain",
+            "id": "TW92aWVOb2RlOjI0MQ==",
+            "year": 1970,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Zhenikh s togo sveta",
+            "titleRu": "\u0416\u0435\u043d\u0438\u0445 \u0441 \u0442\u043e\u0433\u043e \u0441\u0432\u0435\u0442\u0430",
+            "title": "Zhenikh s togo sveta",
+            "id": "TW92aWVOb2RlOjI0Mg==",
+            "year": 1958,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "No Man's Land: The Rise of Reeker",
+            "titleRu": "\u0420\u0438\u043a\u0435\u0440 2",
+            "title": "No Man's Land: The Rise of Reeker",
+            "id": "TW92aWVOb2RlOjI0Mw==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Silverado",
+            "titleRu": "\u0421\u0438\u043b\u044c\u0432\u0435\u0440\u0430\u0434\u043e",
+            "title": "Silverado",
+            "id": "TW92aWVOb2RlOjI0NA==",
+            "year": 1985,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Western",
+                "nameRu": "\u0412\u0435\u0441\u0442\u0435\u0440\u043d",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Body Armour",
+            "titleRu": "\u0411\u0440\u043e\u043d\u0435\u0436\u0438\u043b\u0435\u0442",
+            "title": "Body Armour",
+            "id": "TW92aWVOb2RlOjI0NQ==",
+            "year": 2007,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "In Enemy Hands",
+            "titleRu": "U-429: \u041f\u043e\u0434\u0432\u043e\u0434\u043d\u0430\u044f \u0442\u044e\u0440\u044c\u043c\u0430",
+            "title": "In Enemy Hands",
+            "id": "TW92aWVOb2RlOjI0Ng==",
+            "year": 2004,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "War",
+                "nameRu": "\u0412\u043e\u0439\u043d\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Der Eisb\u00e4r",
+            "titleRu": "\u0411\u0435\u043b\u044b\u0439 \u043c\u0435\u0434\u0432\u0435\u0434\u044c",
+            "title": "Der Eisb\u00e4r",
+            "id": "TW92aWVOb2RlOjI0Nw==",
+            "year": 1998,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Vesennie perevertyshi",
+            "titleRu": "\u0412\u0435\u0441\u0435\u043d\u043d\u0438\u0435 \u043f\u0435\u0440\u0435\u0432\u0435\u0440\u0442\u044b\u0448\u0438",
+            "title": "Vesennie perevertyshi",
+            "id": "TW92aWVOb2RlOjI0OA==",
+            "year": 1974,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Nevernost'",
+            "titleRu": "\u041d\u0435\u0432\u0435\u0440\u043d\u043e\u0441\u0442\u044c",
+            "title": "Nevernost'",
+            "id": "TW92aWVOb2RlOjI0OQ==",
+            "year": 2006,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Glavnaja ulika",
+            "titleRu": "\u0413\u043b\u0430\u0432\u043d\u0430\u044f \u0443\u043b\u0438\u043a\u0430",
+            "title": "Glavnaja ulika",
+            "id": "TW92aWVOb2RlOjI1MA==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Zhivi i pomni",
+            "titleRu": "\u0416\u0438\u0432\u0438 \u0438 \u043f\u043e\u043c\u043d\u0438",
+            "title": "Zhivi i pomni",
+            "id": "TW92aWVOb2RlOjI1MQ==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Spasibo za ljubov'!",
+            "titleRu": "\u0421\u043f\u0430\u0441\u0438\u0431\u043e \u0437\u0430 \u043b\u044e\u0431\u043e\u0432\u044c!",
+            "title": "Spasibo za ljubov'!",
+            "id": "TW92aWVOb2RlOjI1Mg==",
+            "year": 2007,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "The Bad and the Beautiful",
+            "titleRu": "\u0417\u043b\u044b\u0435 \u0438 \u043a\u0440\u0430\u0441\u0438\u0432\u044b\u0435",
+            "title": "The Bad and the Beautiful",
+            "id": "TW92aWVOb2RlOjI1NA==",
+            "year": 1952,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Oj, moroz, moroz!",
+            "titleRu": "\u041e\u0439, \u043c\u043e\u0440\u043e\u0437, \u043c\u043e\u0440\u043e\u0437!",
+            "title": "Oj, moroz, moroz!",
+            "id": "TW92aWVOb2RlOjI1NQ==",
+            "year": 2005,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "A Sublime Love Story",
+            "titleRu": "\u0418 \u043f\u0440\u043e\u043b\u044c\u0435\u0442\u0441\u044f \u0434\u043e\u0436\u0434\u044c",
+            "title": "A Sublime Love Story",
+            "id": "TW92aWVOb2RlOjI1OA==",
+            "year": 2005,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Romance",
+                "nameRu": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Pyesa dlya passazhira",
+            "titleRu": "\u041f\u044c\u0435\u0441\u0430 \u0434\u043b\u044f \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0430",
+            "title": "Pyesa dlya passazhira",
+            "id": "TW92aWVOb2RlOjI1OQ==",
+            "year": 1995,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Viva Castro!",
+            "titleRu": "\u0412\u0438\u0432\u0430, \u041a\u0430\u0441\u0442\u0440\u043e!",
+            "title": "Viva Castro!",
+            "id": "TW92aWVOb2RlOjI2MA==",
+            "year": 1994,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Biography",
+                "nameRu": "\u0411\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "History",
+                "nameRu": "\u0418\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u0439",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Der Rote Baron",
+            "titleRu": "\u041a\u0440\u0430\u0441\u043d\u044b\u0439 \u0411\u0430\u0440\u043e\u043d",
+            "title": "Der Rote Baron",
+            "id": "TW92aWVOb2RlOjI2MQ==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Biography",
+                "nameRu": "\u0411\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "History",
+                "nameRu": "\u0418\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u0439",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "War",
+                "nameRu": "\u0412\u043e\u0439\u043d\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Black Moon",
+            "titleRu": "\u0427\u0451\u0440\u043d\u0430\u044f \u043b\u0443\u043d\u0430",
+            "title": "Black Moon",
+            "id": "TW92aWVOb2RlOjI2Mg==",
+            "year": 1975,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Surrealism",
+                "nameRu": "\u0421\u044e\u0440\u0440\u0435\u0430\u043b\u0438\u0437\u043c",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Les Aventuriers",
+            "titleRu": "\u0418\u0441\u043a\u0430\u0442\u0435\u043b\u0438 \u043f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0439",
+            "title": "Les Aventuriers",
+            "id": "TW92aWVOb2RlOjI2Mw==",
+            "year": 1967,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Temptation",
+            "titleRu": "\u0418\u0441\u043a\u0443\u0448\u0435\u043d\u0438\u0435",
+            "title": "Temptation",
+            "id": "TW92aWVOb2RlOjI2NA==",
+            "year": 1994,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Epicenter",
+            "titleRu": "\u042d\u043f\u0438\u0446\u0435\u043d\u0442\u0440",
+            "title": "Epicenter",
+            "id": "TW92aWVOb2RlOjI2NQ==",
+            "year": 2000,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Disaster",
+                "nameRu": "\u041a\u0430\u0442\u0430\u0441\u0442\u0440\u043e\u0444\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Serafino ",
+            "titleRu": "\u0421\u0435\u0440\u0430\u0444\u0438\u043d\u043e",
+            "title": "Serafino ",
+            "id": "TW92aWVOb2RlOjI2Ng==",
+            "year": 1969,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Look for the Woman",
+            "titleRu": "\u0420\u0436\u0435\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0442\u0438\u0432 \u041d\u0430\u043f\u043e\u043b\u0435\u043e\u043d\u0430",
+            "title": "Look for the Woman",
+            "id": "TW92aWVOb2RlOjI2Nw==",
+            "year": 2011,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Parody",
+                "nameRu": "\u041f\u0430\u0440\u043e\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "The Breed",
+            "titleRu": "\u041e\u0442\u0440\u043e\u0434\u044c\u0435",
+            "title": "The Breed",
+            "id": "TW92aWVOb2RlOjI2OA==",
+            "year": 2001,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Spartan",
+            "titleRu": "\u0421\u043f\u0430\u0440\u0442\u0430\u043d\u0435\u0446",
+            "title": "Spartan",
+            "id": "TW92aWVOb2RlOjI2OQ==",
+            "year": 2004,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Action",
+                "nameRu": "\u0411\u043e\u0435\u0432\u0438\u043a",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Survival of the Dead",
+            "titleRu": "\u0412\u044b\u0436\u0438\u0432\u0430\u043d\u0438\u0435 \u043c\u0435\u0440\u0442\u0432\u0435\u0446\u043e\u0432",
+            "title": "Survival of the Dead",
+            "id": "TW92aWVOb2RlOjI3MA==",
+            "year": 2009,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Horror",
+                "nameRu": "\u0423\u0436\u0430\u0441\u044b",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Mio Dio, Come Sono Cadutto in Basso",
+            "titleRu": "\u0411\u043e\u0436\u0435 \u043c\u043e\u0439, \u043a\u0430\u043a \u043d\u0438\u0437\u043a\u043e \u044f \u043f\u0430\u043b\u0430!",
+            "title": "Mio Dio, Come Sono Cadutto in Basso",
+            "id": "TW92aWVOb2RlOjI3MQ==",
+            "year": 1974,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Pistolet \u00abPiton 357\u00bb",
+            "titleRu": "\u041f\u0438\u0441\u0442\u043e\u043b\u0435\u0442 \u00ab\u041f\u0438\u0442\u043e\u043d 357\u00bb",
+            "title": "Pistolet \u00abPiton 357\u00bb",
+            "id": "TW92aWVOb2RlOjI3Mg==",
+            "year": 1976,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Crime",
+                "nameRu": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Drama",
+                "nameRu": "\u0414\u0440\u0430\u043c\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Thriller",
+                "nameRu": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Oruzhie",
+            "titleRu": "\u041e\u0440\u0443\u0436\u0438\u0435",
+            "title": "Oruzhie",
+            "id": "TW92aWVOb2RlOjI3Mw==",
+            "year": 2008,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Detective story",
+                "nameRu": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Samye schastlivye",
+            "titleRu": "\u0421\u0430\u043c\u044b\u0435 \u0441\u0447\u0430\u0441\u0442\u043b\u0438\u0432\u044b\u0435",
+            "title": "Samye schastlivye",
+            "id": "TW92aWVOb2RlOjI3NA==",
+            "year": 2005,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Prokljat'e d'javola",
+            "titleRu": "\u041f\u0440\u043e\u043a\u043b\u044f\u0442\u044c\u0435 \u0434\u044c\u044f\u0432\u043e\u043b\u0430",
+            "title": "Prokljat'e d'javola",
+            "id": "TW92aWVOb2RlOjI3Ng==",
+            "year": 2004,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Zalozhnik",
+            "titleRu": "\u0417\u0430\u043b\u043e\u0436\u043d\u0438\u043a",
+            "title": "Zalozhnik",
+            "id": "TW92aWVOb2RlOjI3Nw==",
+            "year": 1983,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Vsyo delo v brate",
+            "titleRu": "\u0412\u0441\u0435 \u0434\u0435\u043b\u043e \u0432 \u0431\u0440\u0430\u0442\u0435",
+            "title": "Vsyo delo v brate",
+            "id": "TW92aWVOb2RlOjI3OA==",
+            "year": 1976,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Children's",
+                "nameRu": "\u0414\u0435\u0442\u0441\u043a\u0438\u0439",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Comedy",
+                "nameRu": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Skazanie o hrabrom Hochbare",
+            "titleRu": "\u0421\u043a\u0430\u0437\u0430\u043d\u0438\u0435 \u043e \u0445\u0440\u0430\u0431\u0440\u043e\u043c \u0425\u043e\u0447\u0431\u0430\u0440\u0435",
+            "title": "Skazanie o hrabrom Hochbare",
+            "id": "TW92aWVOb2RlOjI3OQ==",
+            "year": 1987,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Skazka-21.",
+            "titleRu": "\u0421\u043a\u0430\u0437\u043a\u0430-21.",
+            "title": "Skazka-21.",
+            "id": "TW92aWVOb2RlOjI4Mg==",
+            "year": 2009,
+            "__typename": "MovieNode",
+            "genres": [
+              {
+                "nameEn": "Adventure",
+                "nameRu": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Children's",
+                "nameRu": "\u0414\u0435\u0442\u0441\u043a\u0438\u0439",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Fable",
+                "nameRu": "\u0421\u043a\u0430\u0437\u043a\u0430",
+                "__typename": "GenreNode"
+              },
+              {
+                "nameEn": "Young",
+                "nameRu": "\u041c\u043e\u043b\u043e\u0434\u0435\u0436\u044c",
+                "__typename": "GenreNode"
+              }
+            ],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        },
+        {
+          "movie": {
+            "titleEn": "Moj dobryj papa",
+            "titleRu": "\u041c\u043e\u0439 \u0434\u043e\u0431\u0440\u044b\u0439 \u043f\u0430\u043f\u0430",
+            "title": "Moj dobryj papa",
+            "id": "TW92aWVOb2RlOjEwMg==",
+            "year": 1969,
+            "__typename": "MovieNode",
+            "genres": [],
+            "relation": {
+              "fav": false,
+              "like": false,
+              "seen": false,
+              "dislike": false,
+              "want": false,
+              "ignore": false,
+              "have": false,
+              "__typename": "MovieRelationNode"
+            },
+            "relationsCount": {
+              "fav": 0,
+              "like": 0,
+              "seen": 0,
+              "dislike": 0,
+              "want": 0,
+              "ignore": 0,
+              "have": 0,
+              "__typename": "MovieRelationCountNode"
+            }
+          },
+          "__typename": "MovieNodeEdge"
+        }
+      ],
+      "pageInfo": {
+        "endCursor": "YXJyYXljb25uZWN0aW9uOjE5OQ==",
+        "hasNextPage": true,
+        "__typename": "PageInfo"
+      },
+      "__typename": "MovieNodeConnection"
+    }
+  }
+}
