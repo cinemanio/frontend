@@ -23,6 +23,6 @@ describe('ObjectKinopoiskInfo Component', () => {
 
   describe('i18n. ru', () => {
     beforeAll(() => i18nClient.changeLanguage('ru'))
-    it('should render ru content', () => expect(wrapper.text()).toContain('Да здравствует Лас-Вегас'))
+    it('should render ru content', () => expect(wrapper.text()).toContain('Действие картины разворачивается'))
   })
 })
