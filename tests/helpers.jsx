@@ -77,6 +77,12 @@ export const selectFilterChange = (wrapper: Object, selector: string, value: str
   wrapper.update()
 }
 
+export const paginate = (wrapper: Object) => {
+  const scrollContainer = wrapper.find('Grid').find('div').first()
+  const target = scrollContainer.instance()
+  target.scrollTop = 8100
+  scrollContainer.prop('onScroll')({ target })
+}
 
 export const getAlerts = (wrapper: Object) => wrapper.find('Relation').first().prop('alert').alerts
 

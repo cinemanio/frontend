@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { translate } from 'react-i18next'
 
-import { mountGraphql, mockAutoSizer, selectFilterChange } from 'tests/helpers'
+import { mountGraphql, mockAutoSizer, selectFilterChange, paginate } from 'tests/helpers'
 import PersonRelations from 'components/PersonPage/PersonRelations/PersonRelations'
 import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
@@ -24,7 +24,7 @@ describe('Persons Page Component', () => {
   describe('Unit', () => {
     beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
-      const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: jest.fn() }
+      const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: () => jest.fn() }
       const PersonsPagePure = translate()(PersonsPage.WrappedComponent)
       element = <PersonsPagePure data={data} roleData={roles.data} countryData={countries.data}/>
       wrapper = await mountGraphql(element)
@@ -104,6 +104,33 @@ describe('Persons Page Component', () => {
       selectFilterChange(wrapper, 'SelectFilter[code="country"]', 'Q291bnRyeU5vZGU6MTE=')
       selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
       selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'relations_count__dislike')
+    })
+
+    it('should paginate during scrolling keeping selected filters', async () => {
+      wrapper = await mountGraphql(
+        <PersonsPage/>,
+        [
+          mockPersons, mockCountries, mockRoles,
+          mockWithParams({
+            relation: null,
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: '',
+          }),
+          mockWithParams({
+            relation: null,
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: '',
+            after: response.data.list.pageInfo.endCursor,
+          }),
+        ])
+      selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
+      expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
+      paginate(wrapper)
+      // TODO: fix amount of items after loading second page
+      // setTimeout(() => {
+      //   expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(200)
+      //   done()
+      // })
     })
 
     it('should change relation', async () => {

@@ -73,6 +73,7 @@ export default class ObjectListPage extends React.Component<Props, State> {
           </div>
           <ObjectList
             onScroll={this.onScroll}
+            getVariables={this.props.getVariables}
             {...props}
           />
         </div>

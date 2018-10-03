@@ -19,7 +19,8 @@
     },
     "orderBy": {
       "sectionTitle": "Order by",
-      "year": "Year",
+      "new": "Year (new higher)",
+      "old": "Year (old higher)",
       "like": "Likes",
       "dislike": "Dislikes"
     },

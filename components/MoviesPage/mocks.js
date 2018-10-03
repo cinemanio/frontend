@@ -1,5 +1,8 @@
+import _ from 'lodash'
+
 import MoviesPage from './MoviesPage'
 import response from './fixtures/response.json'
+// import response1 from './fixtures/response1.json'
 import countries from './fixtures/countries.json'
 import genres from './fixtures/genres.json'
 
@@ -19,3 +22,9 @@ export const mockWithParams = params => ({
     },
   },
 })
+
+export const sliceResult = (mock, limit) => {
+  const newMock = _.cloneDeep(mock)
+  newMock.result.data.list.edges = newMock.result.data.list.edges.slice(0, limit)
+  return newMock
+}

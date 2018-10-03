@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { translate } from 'react-i18next'
 
-import { mountGraphql, mockAutoSizer, selectFilterChange } from 'tests/helpers'
+import { mountGraphql, mockAutoSizer, selectFilterChange, paginate } from 'tests/helpers'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
@@ -24,7 +24,7 @@ describe('Movies Page Component', () => {
   describe('Unit', () => {
     beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
-      const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: jest.fn() }
+      const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: () => jest.fn() }
       const MoviesPagePure = translate()(MoviesPage.WrappedComponent)
       element = <MoviesPagePure data={data} genreData={genres.data} countryData={countries.data}/>
       wrapper = await mountGraphql(element)
@@ -37,7 +37,7 @@ describe('Movies Page Component', () => {
     it('should render select filters', () => {
       expect(wrapper.find('SelectGeneric')).toHaveLength(2)
       expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(1)
-      expect(wrapper.find('SelectGeneric[code="orderBy"]').find('option')).toHaveLength(3)
+      expect(wrapper.find('SelectGeneric[code="orderBy"]').find('option')).toHaveLength(4)
       expect(wrapper.find('SelectFilter')).toHaveLength(3)
       expect(wrapper.find('SelectFilter[code="relation"]').find('option')).toHaveLength(MovieRelations.codes.length + 1)
       expect(wrapper.find('SelectFilter[code="genres"]').find('option')).toHaveLength(genres.data.list.length + 1)
@@ -101,10 +101,43 @@ describe('Movies Page Component', () => {
             orderBy: 'year',
           }),
         ])
+      // TODO: change amount of items on every filtration
+      // expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
       selectFilterChange(wrapper, 'SelectFilter[code="genres"]', 'R2VucmVOb2RlOjQ=')
+      // expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(90)
       selectFilterChange(wrapper, 'SelectFilter[code="countries"]', 'Q291bnRyeU5vZGU6MTE=')
       selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
       selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'year')
+      // expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(90)
+    })
+
+    it('should paginate during scrolling keeping selected filters', async () => {
+      wrapper = await mountGraphql(
+        <MoviesPage/>,
+        [
+          mockMovies, mockCountries, mockGenres,
+          mockWithParams({
+            orderBy: 'year',
+            relation: null,
+            genres: [],
+            countries: [],
+          }),
+          mockWithParams({
+            orderBy: 'year',
+            relation: null,
+            genres: [],
+            countries: [],
+            after: response.data.list.pageInfo.endCursor,
+          }),
+        ])
+      selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'year')
+      expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
+      paginate(wrapper)
+      // TODO: fix amount of items after loading second page
+      // setTimeout(() => {
+      //   expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(200)
+      //   done()
+      // })
     })
 
     it('should change relation', async () => {

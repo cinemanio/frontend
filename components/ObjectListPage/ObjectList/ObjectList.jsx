@@ -7,6 +7,7 @@ import _ from 'lodash'
 type Props = {
   noResultsMessage: string,
   renderItem: Function,
+  getVariables: Function,
   data: Object,
   onScroll?: Function,
   rowHeight: number,
@@ -15,15 +16,16 @@ type Props = {
 export default class ObjectList extends React.Component<Props> {
   static defaultProps = {
     onScroll: () => {
-    }
+    },
   }
 
   static propTypes = {
     noResultsMessage: PropTypes.string.isRequired,
     renderItem: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
+    getVariables: PropTypes.func.isRequired,
     onScroll: PropTypes.func,
-    rowHeight: PropTypes.number.isRequired
+    rowHeight: PropTypes.number.isRequired,
   }
 
   /**
@@ -56,7 +58,7 @@ export default class ObjectList extends React.Component<Props> {
     return this.props.data.loading
       ? () => {
       }
-      : this.props.data.loadNextPage
+      : this.props.data.loadNextPage(this.props.getVariables())
   }
 
   /**
@@ -120,21 +122,21 @@ export default class ObjectList extends React.Component<Props> {
   }
 }
 
-export const getConfigObject = (vars: ?Object) => ({
+export const getConfigObject = (defaults: ?Object) => ({
   options: () => ({
-    // $FlowFixMe
     variables: {
       first: 100,
       after: '',
-      ...vars,
-    }
+      ...defaults,
+    },
   }),
   force: true,
   props: ({ ownProps, data }: Object) => ({
     data: _.extend({}, data, {
-      loadNextPage: () => data.fetchMore({
+      loadNextPage: (variables: Object) => () => data.fetchMore({
         variables: {
-          after: data.list.pageInfo.endCursor
+          ...variables,
+          after: data.list.pageInfo.endCursor,
         },
         updateQuery: (previousResult, { fetchMoreResult }) => ({
           // By returning `cursor` here, we update the `loadMore` function
@@ -142,10 +144,10 @@ export const getConfigObject = (vars: ?Object) => ({
           list: {
             totalCount: fetchMoreResult.list.totalCount,
             edges: [...previousResult.list.edges, ...fetchMoreResult.list.edges],
-            pageInfo: fetchMoreResult.list.pageInfo
-          }
-        })
-      })
-    })
-  })
+            pageInfo: fetchMoreResult.list.pageInfo,
+          },
+        }),
+      }),
+    }),
+  }),
 })
