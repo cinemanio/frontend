@@ -41,14 +41,18 @@ export default class ObjectKinopoiskInfo extends React.Component<Props> {
   }
 
   get display(): boolean {
-    return this.props.object.kinopoisk.info && this.props.i18n.language === 'ru'
+    return this.content && this.props.i18n.language === 'ru'
+  }
+
+  get content(): string {
+    return this.props.object.kinopoisk && this.props.object.kinopoisk.info
   }
 
   render() {
     return !this.display ? '' : (
       <div styleName="box">
         <Block title={this.props.i18n.t('kinopoisk.title')}>
-          {this.props.object.kinopoisk.info}
+          {this.content}
         </Block>
       </div>
     )

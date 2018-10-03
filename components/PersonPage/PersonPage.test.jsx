@@ -56,6 +56,7 @@ describe('Person Page Component', () => {
       expect(wrapper.find('PersonInfo')).toHaveLength(1)
       expect(wrapper.find('PersonImage')).toHaveLength(1)
       expect(wrapper.find('ObjectWikipedia')).toHaveLength(1)
+      expect(wrapper.find('ObjectKinopoiskInfo')).toHaveLength(1)
     })
 
     it('should render 404 page when response empty', async () => {
