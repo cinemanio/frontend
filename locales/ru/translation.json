@@ -69,12 +69,14 @@
     "movies": "Фильмы не найдены. Попробуйте изменить условия поиска."
   },
   "wikipedia": {
-    "title": "На Википедии",
-    "displayMore": "узнать больше",
-    "displayLess": "свернуть"
+    "title": "На Википедии"
   },
   "kinopoisk": {
     "title": "На Кинопоиске"
+  },
+  "block": {
+    "displayMore": "узнать больше",
+    "displayLess": "свернуть"
   },
   "signin": {
     "title": "Войти",
