@@ -2,23 +2,4 @@
 
 .box {
   @extend %text-box;
-
-  button {
-    text-decoration: none;
-    padding: 0;
-    background-color: transparent;
-    border: 1px solid transparent;
-    cursor: pointer;
-    color: inherit;
-    font-size: small;
-
-    &:hover {
-      border-bottom: 1px dotted;
-    }
-
-    &.hide {
-      float: right;
-      font-weight: normal;
-    }
-  }
 }

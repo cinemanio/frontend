@@ -5,7 +5,7 @@ import { translate } from 'react-i18next'
 import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 
-import Block from 'components/Block/Block'
+import BlockText from 'components/BlockText/BlockText'
 
 import './ObjectKinopoiskInfo.scss'
 import i18nClient from '../../libs/i18nClient'
@@ -41,7 +41,7 @@ export default class ObjectKinopoiskInfo extends React.Component<Props> {
   }
 
   get display(): boolean {
-    return this.content && this.props.i18n.language === 'ru'
+    return !!this.content && this.props.i18n.language === 'ru'
   }
 
   get content(): string {
@@ -51,9 +51,7 @@ export default class ObjectKinopoiskInfo extends React.Component<Props> {
   render() {
     return !this.display ? '' : (
       <div styleName="box">
-        <Block title={this.props.i18n.t('kinopoisk.title')}>
-          {this.content}
-        </Block>
+        <BlockText title={this.props.i18n.t('kinopoisk.title')} content={this.content}/>
       </div>
     )
   }
