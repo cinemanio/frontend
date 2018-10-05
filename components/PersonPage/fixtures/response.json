@@ -24,6 +24,7 @@
       "kinopoisk": {
         "id": 399,
         "url": "http://www.kinopoisk.ru/name/399/",
+        "info": "Окончил Хофстра-колледж (ныне университет) и Киношколу при Калифорнийском университете в Лос-Анджелесе.",
         "__typename": "KinopoiskPersonNode"
       },
       "wikipedia": {

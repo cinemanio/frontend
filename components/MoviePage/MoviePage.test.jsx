@@ -76,6 +76,7 @@ describe('Movie Page Component', () => {
       expect(wrapper.find('MovieInfo')).toHaveLength(1)
       expect(wrapper.find('MovieImage')).toHaveLength(1)
       expect(wrapper.find('ObjectWikipedia')).toHaveLength(1)
+      expect(wrapper.find('ObjectKinopoiskInfo')).toHaveLength(1)
     })
 
     it('should render 404 page when response empty', async () => {

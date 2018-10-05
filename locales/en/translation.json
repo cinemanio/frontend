@@ -69,7 +69,12 @@
     "movies": "There is no such movies. Try to change search parameters."
   },
   "wikipedia": {
-    "title": "On Wikipedia",
+    "title": "On Wikipedia"
+  },
+  "kinopoisk": {
+    "title": "On Kinopoisk"
+  },
+  "block": {
     "displayMore": "read more",
     "displayLess": "hide"
   },
