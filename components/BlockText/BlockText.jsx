@@ -57,7 +57,7 @@ export default class BlockText extends React.PureComponent<Props, State> {
     return (this.state.full || this.content.length < BlockText.symbolsLimit) ? ''
       : (
         <button type="button" styleName="more" onClick={this.display(true)}>
-          {this.props.i18n.t('wikipedia.displayMore')}
+          {this.props.i18n.t('block.displayMore')}
         </button>
       )
   }
@@ -69,7 +69,7 @@ export default class BlockText extends React.PureComponent<Props, State> {
         <div>
           {title}
           <button type="button" styleName="hide" onClick={this.display(false)}>
-            {this.props.i18n.t('wikipedia.displayLess')}
+            {this.props.i18n.t('block.displayLess')}
           </button>
         </div>
       )
