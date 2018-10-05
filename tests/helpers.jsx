@@ -15,6 +15,7 @@ import { stores, alertOptions } from 'components/App/App'
 import AlertTemplate from 'components/App/AlertTemplate/AlertTemplate'
 
 import objectRelations from './objectRelations'
+import objectsRelations from './objectsRelations'
 import objectInfo from './objectInfo'
 
 export const mountOptions = {}
@@ -86,6 +87,8 @@ export const paginate = (wrapper: Object) => {
 
 export const getAlerts = (wrapper: Object) => wrapper.find('Relation').first().prop('alert').alerts
 
-export const itShouldTestRelations = objectRelations
+export const itShouldTestObjectRelations = objectRelations
+
+export const itShouldTestObjectsRelations = objectsRelations
 
 export const itShouldRenderBlocks = objectInfo
