@@ -11,8 +11,8 @@ describe('Select Filter Component', () => {
     element = (
       <SelectFilter
         code="filter"
-        title="Filter"
-        list={[{ id: '1', name: '' }, { id: '2', name: '' }, { id: '3', name: '' }]}
+        title="Name"
+        list={[{ id: '1', name: 'One' }, { id: '2', name: 'Two' }, { id: '3', name: 'Three' }]}
         filters={{ filter: new Set(['1', '2']) }}
         setFilterState={jest.fn()}
         multiple
@@ -24,13 +24,15 @@ describe('Select Filter Component', () => {
   it('should render select and all unselected options', () => {
     expect(wrapper.find('select')).toHaveLength(1)
     expect(wrapper.find('option')).toHaveLength(2)
-    expect(wrapper.find('option').at(0).text()).toBe('Filter')
+    expect(wrapper.find('option').at(0).text()).toBe('Name')
+    expect(wrapper.find('select').prop('value')).toBe('')
   })
 
-  it('should not render select if multiple=False and filters defined', () => {
-    wrapper = shallow(React.cloneElement(element, { multiple: false }))
-    expect(wrapper.find('select')).toHaveLength(0)
-    expect(wrapper.find('option')).toHaveLength(0)
+  it('should render select with selected value if multiple=False and filter defined', () => {
+    wrapper = shallow(React.cloneElement(element, { multiple: false, filters: { filter: '3' } }))
+    expect(wrapper.find('select')).toHaveLength(1)
+    expect(wrapper.find('option')).toHaveLength(4)
+    expect(wrapper.find('select').prop('value')).toBe('3')
   })
 
   it('should call setFilterState on change', () => {

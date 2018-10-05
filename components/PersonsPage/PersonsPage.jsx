@@ -3,6 +3,8 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { translate } from 'react-i18next'
 import { PropTypes } from 'prop-types'
+import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
+import { withAlert } from 'react-alert'
 import gql from 'graphql-tag'
 import _ from 'lodash'
 
@@ -14,6 +16,7 @@ import SelectGeneric from 'components/ObjectListPage/SelectGeneric/SelectGeneric
 import FieldSection from 'components/ObjectListPage/FieldSection/FieldSection'
 import PersonRelations from 'components/PersonPage/PersonRelations/PersonRelations'
 import i18n from 'libs/i18n'
+import User from 'stores/User'
 
 import PersonShort from './PersonShort/PersonShort'
 
@@ -22,6 +25,8 @@ type Props = {
   roleData: Object,
   countryData: Object,
   i18n: Object,
+  alert: Object,
+  user: typeof User,
 }
 
 type State = {
@@ -32,63 +37,27 @@ type State = {
   orderBy: string,
 }
 
+@withAlert
+@inject('user')
 @translate()
 class PersonsPage extends React.Component<Props, State> {
+  static defaultProps = {
+    user: User,
+    alert: {},
+  }
+
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,
     roleData: PropTypes.object.isRequired,
     countryData: PropTypes.object.isRequired,
+    user: MobxPropTypes.observableObject,
+    alert: PropTypes.object,
   }
 
-  static defaults = {
-    orderBy: 'relations_count__like',
-  }
+  static variables: Object
 
-  static variables = {}
-
-  static queries = {
-    persons: gql`
-      query Persons($first: Int!, $after: String, $roles: [ID!], $country: ID, $relation: String, $orderBy: String) {
-        list: persons(
-          first: $first,
-          after: $after,
-          roles: $roles,
-          country: $country,
-          relation: $relation,
-          orderBy: $orderBy
-        ) {
-          totalCount
-          edges {
-            person: node {
-              ...PersonShort
-            }
-          }
-          pageInfo {
-            endCursor
-            hasNextPage
-          }
-        }
-      }
-      ${PersonShort.fragments.person}
-    `,
-    roles: gql`
-      query Roles {
-        list: roles {
-          id
-          ${i18n.gql('name')}
-        }
-      }
-    `,
-    countries: gql`
-      query Countries {
-        list: countries {
-          id
-          ${i18n.gql('name')}
-        }
-      }
-    `
-  }
+  static queries: Object
 
   constructor(props: Object) {
     super(props)
@@ -97,7 +66,7 @@ class PersonsPage extends React.Component<Props, State> {
       roles: new Set([]),
       country: '',
       view: 'short',
-      ...PersonsPage.defaults,
+      orderBy: 'relations_count__like',
     }
   }
 
@@ -127,7 +96,7 @@ class PersonsPage extends React.Component<Props, State> {
   get relationFilterOptions() {
     return PersonRelations.codes.map(code => ({
       id: code,
-      [`name${_.capitalize(this.props.i18n.language)}`]: this.props.i18n.t(`filter.relation.${code}`),
+      [`name${_.capitalize(this.props.i18n.language)}`]: this.props.i18n.t(`filter.relations.${code}`),
     }))
   }
 
@@ -162,10 +131,16 @@ class PersonsPage extends React.Component<Props, State> {
       <FieldSection title={this.props.i18n.t('filter.sectionTitle')}>
         <SelectFilter
           code="relation"
-          title={this.props.i18n.t('filter.relation.sectionTitle')}
+          title={this.props.i18n.t('filter.relations.sectionTitle')}
           list={this.relationFilterOptions}
           filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
+          setFilterState={(params) => {
+            if (this.props.user.authenticated) {
+              this.setState(params, refreshList)
+            } else {
+              this.props.alert.error(this.props.i18n.t('filter.relations.authError'))
+            }
+          }}
         />
         <SelectFilter
           code="roles"
@@ -226,9 +201,51 @@ class PersonsPage extends React.Component<Props, State> {
   }
 }
 
-const configObject = getConfigObject(PersonsPage.defaults)
-
+// static vars should be defined outside, because of @withAlert decorator
+const configObject = getConfigObject({ orderBy: 'relations_count__like' })
 PersonsPage.variables = { persons: configObject.options().variables }
+PersonsPage.queries = {
+  persons: gql`
+      query Persons($first: Int!, $after: String, $roles: [ID!], $country: ID, $relation: String, $orderBy: String) {
+        list: persons(
+          first: $first,
+          after: $after,
+          roles: $roles,
+          country: $country,
+          relation: $relation,
+          orderBy: $orderBy
+        ) {
+          totalCount
+          edges {
+            person: node {
+              ...PersonShort
+            }
+          }
+          pageInfo {
+            endCursor
+            hasNextPage
+          }
+        }
+      }
+      ${PersonShort.fragments.person}
+    `,
+  roles: gql`
+      query Roles {
+        list: roles {
+          id
+          ${i18n.gql('name')}
+        }
+      }
+    `,
+  countries: gql`
+      query Countries {
+        list: countries {
+          id
+          ${i18n.gql('name')}
+        }
+      }
+    `,
+}
 
 export default compose(
   graphql(PersonsPage.queries.roles, { name: 'roleData' }),

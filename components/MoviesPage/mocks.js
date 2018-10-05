@@ -2,7 +2,6 @@ import _ from 'lodash'
 
 import MoviesPage from './MoviesPage'
 import response from './fixtures/response.json'
-// import response1 from './fixtures/response1.json'
 import countries from './fixtures/countries.json'
 import genres from './fixtures/genres.json'
 

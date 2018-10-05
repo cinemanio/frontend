@@ -9,7 +9,6 @@ export const mockPersons = {
 }
 export const mockCountries = { request: { query: PersonsPage.queries.countries }, result: countries }
 export const mockRoles = { request: { query: PersonsPage.queries.roles }, result: roles }
-
 export const mockWithParams = params => ({
   ...mockPersons,
   request: {

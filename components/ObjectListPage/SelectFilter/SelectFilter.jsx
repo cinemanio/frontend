@@ -51,18 +51,22 @@ export default class SelectFilter extends React.Component<Props> {
 
   filterBy = (e: SyntheticEvent<HTMLSelectElement>) => {
     this.setFilter(this.props.code, e.currentTarget.value)
-    e.currentTarget.value = ''
+    if (this.props.multiple) {
+      e.currentTarget.value = ''
+    }
   }
 
   renderOption(item: Object) {
-    return this.active.indexOf(item.id) !== -1 ? null
+    return this.props.multiple && this.active.indexOf(item.id) !== -1
+      ? null
       : <option key={item.id} value={item.id}>{item[i18n.f('name')]}</option>
   }
 
   render() {
-    return (!this.props.multiple && this.active.length > 0) ? null : (
+    const value = this.props.multiple ? '' : (this.props.filters[this.props.code] || '')
+    return (
       // eslint-disable-next-line jsx-a11y/no-onchange
-      <select name={this.props.code} onChange={this.filterBy}>
+      <select name={this.props.code} onChange={this.filterBy} value={value}>
         <option value="">{this.props.title}</option>
         {this.props.list.map((item: Object) => this.renderOption(item))}
       </select>

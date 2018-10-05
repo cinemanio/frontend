@@ -8,6 +8,7 @@ import gql from 'graphql-tag'
 import ObjectPage from 'components/ObjectPage/ObjectPage'
 import PersonImage from 'components/PersonImage/PersonImage'
 import ObjectWikipedia from 'components/ObjectWikipedia/ObjectWikipedia'
+import ObjectKinopoiskInfo from 'components/ObjectKinopoiskInfo/ObjectKinopoiskInfo'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 import i18n from 'libs/i18n'
 
@@ -41,6 +42,7 @@ class PersonPage extends React.Component<Props> {
           ...PersonCareer
           ...PersonRelations
           ...PersonWikipedia
+          ...PersonKinopoiskInfo          
         }
       }
       ${PersonImage.fragments.person}
@@ -49,6 +51,7 @@ class PersonPage extends React.Component<Props> {
       ${PersonCareer.fragments.person}
       ${PersonRelations.fragments.person}
       ${ObjectWikipedia.fragments.person}
+      ${ObjectKinopoiskInfo.fragments.person}      
     `,
   }
 
@@ -73,6 +76,7 @@ class PersonPage extends React.Component<Props> {
           <PersonCareer person={person}/>
         </div>
       </div>
+      <ObjectKinopoiskInfo object={person}/>
       <ObjectWikipedia object={person}/>
     </div>
   )

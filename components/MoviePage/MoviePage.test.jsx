@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountGraphql, itShouldTestRelations } from 'tests/helpers'
+import { mountGraphql, itShouldTestObjectRelations } from 'tests/helpers'
 import i18nClient from 'libs/i18nClient'
 
 import MoviePage from './MoviePage'
@@ -76,6 +76,7 @@ describe('Movie Page Component', () => {
       expect(wrapper.find('MovieInfo')).toHaveLength(1)
       expect(wrapper.find('MovieImage')).toHaveLength(1)
       expect(wrapper.find('ObjectWikipedia')).toHaveLength(1)
+      expect(wrapper.find('ObjectKinopoiskInfo')).toHaveLength(1)
     })
 
     it('should render 404 page when response empty', async () => {
@@ -88,7 +89,7 @@ describe('Movie Page Component', () => {
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
     })
 
-    itShouldTestRelations(MoviePage, MovieRelations.fragments.relate, mockMovie,
+    itShouldTestObjectRelations(MoviePage, MovieRelations.fragments.relate, mockMovie,
       response.data.movie, 'You have been favorited the movie Kids (1995)')
   })
 })

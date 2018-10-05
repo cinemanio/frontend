@@ -2,9 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { translate } from 'react-i18next'
 
-import { mountGraphql, mockAutoSizer, selectFilterChange, paginate } from 'tests/helpers'
+import { mountGraphql, mockAutoSizer, selectFilterChange, paginate, itShouldTestObjectsRelations } from 'tests/helpers'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
-import mutationResponse from 'components/Relation/mutationResponse'
 import i18nClient from 'libs/i18nClient'
 import User from 'stores/User'
 
@@ -64,43 +63,51 @@ describe('Movies Page Component', () => {
   })
 
   describe('GraphQL', () => {
+    const mocks = [mockMovies, mockCountries, mockGenres]
     beforeAll(() => i18nClient.changeLanguage('en'))
 
     it('should render movies', async () => {
-      wrapper = await mountGraphql(<MoviesPage/>, [mockMovies, mockCountries, mockGenres])
+      wrapper = await mountGraphql(<MoviesPage/>, mocks)
       expect(wrapper.find('MovieShort').length).toBeGreaterThan(0)
       expect(wrapper.find('SelectFilter[code="genres"]').find('option').length).toBeGreaterThan(1)
       expect(wrapper.find('SelectFilter[code="countries"]').find('option').length).toBeGreaterThan(1)
     })
 
-    it('should send filter params in request', async () => {
+    it('should render message if no results in response', async () => {
+      wrapper = await mountGraphql(<MoviesPage/>, [{ ...mockMovies, result: emptyResponse }])
+      expect(wrapper.find('MovieShort')).toHaveLength(0)
+      expect(wrapper.text()).toContain('There is no such movies.')
+    })
+
+    itShouldTestObjectsRelations(
+      MoviesPage, MovieRelations.fragments.relate, mocks, response.data.list.edges[0].movie)
+
+    it('should send filter params in request', async (done) => {
+      User.login('user')
       global.console.warn = jest.fn()
-      wrapper = await mountGraphql(
-        <MoviesPage/>,
-        [
-          mockMovies, mockCountries, mockGenres,
-          mockWithParams({
-            relation: null,
-            genres: ['R2VucmVOb2RlOjQ='],
-            countries: [],
-          }),
-          mockWithParams({
-            relation: null,
-            genres: ['R2VucmVOb2RlOjQ='],
-            countries: ['Q291bnRyeU5vZGU6MTE='],
-          }),
-          mockWithParams({
-            relation: 'fav',
-            genres: ['R2VucmVOb2RlOjQ='],
-            countries: ['Q291bnRyeU5vZGU6MTE='],
-          }),
-          mockWithParams({
-            relation: 'fav',
-            genres: ['R2VucmVOb2RlOjQ='],
-            countries: ['Q291bnRyeU5vZGU6MTE='],
-            orderBy: 'year',
-          }),
-        ])
+      wrapper = await mountGraphql(<MoviesPage/>, mocks.concat([
+        mockWithParams({
+          relation: null,
+          genres: ['R2VucmVOb2RlOjQ='],
+          countries: [],
+        }),
+        mockWithParams({
+          relation: null,
+          genres: ['R2VucmVOb2RlOjQ='],
+          countries: ['Q291bnRyeU5vZGU6MTE='],
+        }),
+        mockWithParams({
+          relation: 'fav',
+          genres: ['R2VucmVOb2RlOjQ='],
+          countries: ['Q291bnRyeU5vZGU6MTE='],
+        }),
+        mockWithParams({
+          relation: 'fav',
+          genres: ['R2VucmVOb2RlOjQ='],
+          countries: ['Q291bnRyeU5vZGU6MTE='],
+          orderBy: 'year',
+        }),
+      ]))
       // TODO: change amount of items on every filtration
       // expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
       selectFilterChange(wrapper, 'SelectFilter[code="genres"]', 'R2VucmVOb2RlOjQ=')
@@ -109,62 +116,33 @@ describe('Movies Page Component', () => {
       selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
       selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'year')
       // expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(90)
+      expect(wrapper.find('ActiveFilters[code="genres"]').find('span').text()).toBe('Western')
+      expect(wrapper.find('ActiveFilters[code="countries"]').find('span').text()).toBe('Benin')
+      expect(wrapper.find('ActiveFilters[code="relation"]').find('span').text()).toBe('Fav')
+      setTimeout(() => done())
     })
 
-    it('should paginate during scrolling keeping selected filters', async () => {
-      wrapper = await mountGraphql(
-        <MoviesPage/>,
-        [
-          mockMovies, mockCountries, mockGenres,
-          mockWithParams({
-            orderBy: 'year',
-            relation: null,
-            genres: [],
-            countries: [],
-          }),
-          mockWithParams({
-            orderBy: 'year',
-            relation: null,
-            genres: [],
-            countries: [],
-            after: response.data.list.pageInfo.endCursor,
-          }),
-        ])
+    it('should paginate during scrolling keeping selected filters', async (done) => {
+      wrapper = await mountGraphql(<MoviesPage/>, mocks.concat([
+        mockWithParams({
+          orderBy: 'year',
+          relation: null,
+          genres: [],
+          countries: [],
+        }),
+        mockWithParams({
+          orderBy: 'year',
+          relation: null,
+          genres: [],
+          countries: [],
+          after: response.data.list.pageInfo.endCursor,
+        }),
+      ]))
       selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'year')
       expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
       paginate(wrapper)
-      // TODO: fix amount of items after loading second page
-      // setTimeout(() => {
-      //   expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(200)
-      //   done()
-      // })
-    })
-
-    it('should change relation', async () => {
-      User.login('user')
-      wrapper = await mountGraphql(
-        <MoviesPage/>,
-        [
-          mockMovies, mockCountries, mockGenres,
-          {
-            request: {
-              query: MovieRelations.fragments.relate,
-              variables: { id: response.data.list.edges[0].movie.id, code: 'fav' },
-            },
-            result: { data: mutationResponse(response.data.list.edges[0].movie, 'fav') },
-          },
-        ])
-      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(0)
-      // expect(wrapper.find('Relation[code="fav"]').first().text()).toBe('2')
-      wrapper.find('Relation[code="fav"]').find('span').first().simulate('click')
-      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(1)
-      // expect(wrapper.find('Relation[code="fav"]').first().text()).toBe('3')
-    })
-
-    it('should render message if no results in response', async () => {
-      wrapper = await mountGraphql(<MoviesPage/>, [{ ...mockMovies, result: emptyResponse }])
-      expect(wrapper.find('MovieShort')).toHaveLength(0)
-      expect(wrapper.text()).toContain('There is no such movies.')
+      // TODO: test amount of items after loading second page
+      setTimeout(() => done())
     })
   })
 })

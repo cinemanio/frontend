@@ -19,7 +19,6 @@ type Props = {
 }
 
 type State = {
-  // orderBy: string,
   scrollOffset: number,
 }
 
@@ -37,7 +36,6 @@ export default class ObjectListPage extends React.Component<Props, State> {
     super(props)
     this.state = {
       scrollOffset: 0
-      // orderBy: ''
     }
   }
 

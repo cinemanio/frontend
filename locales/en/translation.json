@@ -25,8 +25,9 @@
       "dislike": "Dislikes"
     },
     "sectionTitle": "Filter by",
-    "relation": {
+    "relations": {
       "sectionTitle": "Relation",
+      "authError": "Please sign in to be able to filter by your preferences",
       "fav": "Fav",
       "like": "Like",
       "seen": "Seen",
@@ -69,7 +70,12 @@
     "movies": "There is no such movies. Try to change search parameters."
   },
   "wikipedia": {
-    "title": "On Wikipedia",
+    "title": "On Wikipedia"
+  },
+  "kinopoisk": {
+    "title": "On Kinopoisk"
+  },
+  "block": {
     "displayMore": "read more",
     "displayLess": "hide"
   },

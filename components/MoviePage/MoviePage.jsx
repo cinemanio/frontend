@@ -9,6 +9,7 @@ import ObjectPage from 'components/ObjectPage/ObjectPage'
 import MovieImage from 'components/MovieImage/MovieImage'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import ObjectWikipedia from 'components/ObjectWikipedia/ObjectWikipedia'
+import ObjectKinopoiskInfo from 'components/ObjectKinopoiskInfo/ObjectKinopoiskInfo'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 import i18n from 'libs/i18n'
 
@@ -38,6 +39,7 @@ class MoviePage extends React.Component<Props> {
           ...MovieCast
           ...MovieRelations
           ...MovieWikipedia
+          ...MovieKinopoiskInfo
         }
       }
       ${MovieInfo.fragments.all}
@@ -46,6 +48,7 @@ class MoviePage extends React.Component<Props> {
       ${MovieCast.fragments.movie}
       ${MovieRelations.fragments.movie}
       ${ObjectWikipedia.fragments.movie}
+      ${ObjectKinopoiskInfo.fragments.movie}
     `,
   }
 
@@ -70,6 +73,7 @@ class MoviePage extends React.Component<Props> {
           <MovieCast movie={movie}/>
         </div>
       </div>
+      <ObjectKinopoiskInfo object={movie}/>
       <ObjectWikipedia object={movie}/>
     </div>
   )

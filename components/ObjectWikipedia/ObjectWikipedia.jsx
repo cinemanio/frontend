@@ -6,17 +6,16 @@ import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 import wtf from 'wtf_wikipedia'
 
-import Block from 'components/Block/Block'
+import BlockText from 'components/BlockText/BlockText'
 
 import WikiSection from './WikiSection/WikiSection'
 import './ObjectWikipedia.scss'
 import i18nClient from '../../libs/i18nClient'
 
 type Props = { object: Object, i18n: Translator }
-type State = { full: boolean }
 
 @translate()
-export default class ObjectWikipedia extends React.Component<Props, State> {
+export default class ObjectWikipedia extends React.Component<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }
@@ -53,54 +52,19 @@ export default class ObjectWikipedia extends React.Component<Props, State> {
     `,
   }
 
-  constructor(props: Object) {
-    super(props)
-    this.state = { full: false }
-  }
-
-  symbolsLimit: number = 500
-
   get content(): ?string {
     const edges = this.props.object.wikipedia.edges.filter(edge => edge.node.lang === this.props.i18n.language)
-    let content = edges.length > 0 ? edges[0].node.content : null
-    if (content && !this.state.full) {
-      content = `${content.substring(0, this.symbolsLimit)}…`
-    }
-    return content
-  }
-
-  display = (full: boolean) => (e: Event) => {
-    e.preventDefault()
-    this.setState({ full })
-  }
-
-  renderMore() {
-    return this.state.full ? null
-      : <button type="button" onClick={this.display(true)}>{this.props.i18n.t('wikipedia.displayMore')}</button>
-  }
-
-  renderTitle() {
-    const title = this.props.i18n.t('wikipedia.title')
-    return this.state.full
-      ? (
-        <div>
-          {title}
-          <button type="button" onClick={this.display(false)} styleName="hide">
-            {this.props.i18n.t('wikipedia.displayLess')}
-          </button>
-        </div>
-      ) : title
+    return edges.length > 0 ? edges[0].node.content : null
   }
 
   render() {
     const { content } = this
     return !content ? null : (
-      <div styleName="wikipedia">
-        <Block title={this.renderTitle()}>
-          { // eslint-disable-next-line react/no-array-index-key
-            wtf(content).data.sections.map((section, i) => <WikiSection key={i} section={section}/>)}
-          {this.renderMore()}
-        </Block>
+      <div styleName="box">
+        <BlockText title={this.props.i18n.t('wikipedia.title')} content={content}>
+          {// eslint-disable-next-line react/no-array-index-key
+            text => wtf(text).data.sections.map((section, i) => <WikiSection key={i} section={section}/>)}
+        </BlockText>
       </div>
     )
   }
