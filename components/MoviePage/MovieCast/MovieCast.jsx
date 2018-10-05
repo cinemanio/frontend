@@ -72,8 +72,9 @@ export default class MovieCast extends React.Component<Props> {
    * Sort creators in the order of priority, defined in creatorNames
    */
   sortCreators(edge1: Object, edge2: Object) {
-    return MovieCast.creatorNames.indexOf(edge1.node.role.nameEn)
-      - MovieCast.creatorNames.indexOf(edge2.node.role.nameEn)
+    return (
+      MovieCast.creatorNames.indexOf(edge1.node.role.nameEn) - MovieCast.creatorNames.indexOf(edge2.node.role.nameEn)
+    )
   }
 
   getPersons(roleFilter: Function, roleSort?: Function) {
@@ -87,11 +88,11 @@ export default class MovieCast extends React.Component<Props> {
   renderPersons(roles: Array<Object>): Array<React.Fragment> {
     return roles.map(({ node }) => (
       <div key={node.id} styleName="person">
-        <div styleName="image"><PersonImage person={node.person} type="icon"/></div>
+        <div styleName="image">
+          <PersonImage person={node.person} type="icon" />
+        </div>
         <div>
-          <PersonLink person={node.person}>
-            {node.person[i18n.f('name')]}
-          </PersonLink>
+          <PersonLink person={node.person}>{node.person[i18n.f('name')]}</PersonLink>
           <div>{node[i18n.f('name')] || node.role[i18n.f('name')]}</div>
         </div>
       </div>
@@ -101,9 +102,7 @@ export default class MovieCast extends React.Component<Props> {
   renderBlock(title: string, persons: Array<Object>) {
     return persons.length === 0 ? null : (
       <Block title={title}>
-        <div styleName="cast">
-          {this.renderPersons(persons)}
-        </div>
+        <div styleName="cast">{this.renderPersons(persons)}</div>
       </Block>
     )
   }

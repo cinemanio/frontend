@@ -16,13 +16,10 @@ export default class Pagination extends React.PureComponent<Props> {
   }
 
   render() {
-    return (this.props.data.loading || !this.props.data.list) ? null
-      : (
-        <span styleName="box">
-          {this.props.page}
-          /
-          {this.props.data.list.totalCount}
-        </span>
-      )
+    return this.props.data.loading || !this.props.data.list ? null : (
+      <span styleName="box">
+        {this.props.page} / {this.props.data.list.totalCount}
+      </span>
+    )
   }
 }

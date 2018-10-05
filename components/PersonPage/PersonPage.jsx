@@ -60,24 +60,24 @@ class PersonPage extends React.Component<Props> {
   renderLayout = (person: Object) => (
     <div styleName="box">
       <div styleName="relations">
-        <PersonRelations person={person}/>
+        <PersonRelations person={person} />
       </div>
       <h1>{person[i18n.f('name')]}</h1>
       <h2>{this.isNamesEqual(person) ? null : person.nameEn}</h2>
-      <PersonInfo person={person} all/>
+      <PersonInfo person={person} all />
       <div className="row">
         <div className="col-lg-2">
           <div styleName="image">
-            <PersonImage person={person} type="detail"/>
+            <PersonImage person={person} type="detail" />
           </div>
-          <PersonSites person={person}/>
+          <PersonSites person={person} />
         </div>
         <div className="col-lg-10">
-          <PersonCareer person={person}/>
+          <PersonCareer person={person} />
         </div>
       </div>
-      <ObjectKinopoiskInfo object={person}/>
-      <ObjectWikipedia object={person}/>
+      <ObjectKinopoiskInfo object={person} />
+      <ObjectWikipedia object={person} />
     </div>
   )
 
@@ -90,20 +90,17 @@ class PersonPage extends React.Component<Props> {
     return parts.concat(person.roles.map(role => role[i18n.f('name')])).join(', ')
   }
 
-
   render() {
-    return (
-      <ObjectPage
-        getTitle={this.getTitle}
-        object={this.props.data.person}
-        renderLayout={this.renderLayout}
-      />
-    )
+    return <ObjectPage getTitle={this.getTitle} object={this.props.data.person} renderLayout={this.renderLayout} />
   }
 }
 
 const configObject = {
-  options: ({ match: { params: { slug } } }: Object) => ({
+  options: ({
+    match: {
+      params: { slug },
+    },
+  }: Object) => ({
     variables: {
       personId: getIdFromSlug(slug),
     },

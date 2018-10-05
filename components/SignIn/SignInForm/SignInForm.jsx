@@ -47,11 +47,9 @@ export default class SignInForm extends React.Component<Props> {
   render() {
     return (
       <form onSubmit={this.handleSubmitForm}>
-
-        <ListErrors errors={this.props.auth.errors}/>
+        <ListErrors errors={this.props.auth.errors} />
 
         <fieldset>
-
           <fieldset className="form-group">
             <input
               className="form-control form-control-lg"
@@ -79,7 +77,6 @@ export default class SignInForm extends React.Component<Props> {
           >
             {this.props.i18n.t('signin.submit')}
           </button>
-
         </fieldset>
       </form>
     )

@@ -25,10 +25,7 @@ export default class Menu extends React.Component<Props> {
   }
 
   get menu(): Array<Array<string>> {
-    return [
-      ['movie', this.props.i18n.t('menu.movies')],
-      ['person', this.props.i18n.t('menu.persons')]
-    ]
+    return [['movie', this.props.i18n.t('menu.movies')], ['person', this.props.i18n.t('menu.persons')]]
   }
 
   getClass(type: string) {
@@ -42,16 +39,14 @@ export default class Menu extends React.Component<Props> {
   renderMenu(): Array<React.Fragment> {
     return this.menu.map(([type, title]) => (
       <li className="nav-item" key={type}>
-        <Link to={routes[type].list} className={this.getClass(type)}>{title}</Link>
+        <Link to={routes[type].list} className={this.getClass(type)}>
+          {title}
+        </Link>
       </li>
     ))
   }
 
   render() {
-    return (
-      <ul className="nav nav-tabs">
-        {this.renderMenu()}
-      </ul>
-    )
+    return <ul className="nav nav-tabs">{this.renderMenu()}</ul>
   }
 }

@@ -14,7 +14,7 @@ type State = { error: ?Error }
 
 export default class Layout extends React.Component<Props, State> {
   static defaultProps = {
-    menuActive: undefined
+    menuActive: undefined,
   }
 
   static propTypes = {
@@ -34,27 +34,28 @@ export default class Layout extends React.Component<Props, State> {
   render() {
     const { component: Component, menuActive, ...rest } = this.props
     return (
-      <Route {...rest} render={matchProps => (
-        <div className="container" styleName="box">
-          <header>
-            <Link to="/">cineman.io</Link>
-            <div styleName="right">
-              <Auth/>
+      <Route
+        {...rest}
+        render={matchProps => (
+          <div className="container" styleName="box">
+            <header>
+              <Link to="/">cineman.io</Link>
+              <div styleName="right">
+                <Auth />
+              </div>
+            </header>
+            <div styleName="container">
+              <Menu active={menuActive} />
+              {this.state.error ? <RedBox error={this.state.error} /> : <Component {...matchProps} />}
             </div>
-          </header>
-          <div styleName="container">
-            <Menu active={menuActive}/>
-            {this.state.error
-              ? <RedBox error={this.state.error}/>
-              : <Component {...matchProps}/>}
+            <footer>
+              <div styleName="languages">
+                <Languages />
+              </div>
+            </footer>
           </div>
-          <footer>
-            <div styleName="languages">
-              <Languages/>
-            </div>
-          </footer>
-        </div>
-      )}/>
+        )}
+      />
     )
   }
 }

@@ -39,26 +39,38 @@ export default class PersonSites extends React.Component<Props> {
               lang
             }
           }
-        }        
+        }
       }
-    `
+    `,
   }
 
   renderImdb() {
     const site = this.props.person.imdb
-    return !site ? null : <li><a href={site.url}>IMDb</a></li>
+    return !site ? null : (
+      <li>
+        <a href={site.url}>IMDb</a>
+      </li>
+    )
   }
 
   renderKinopoisk() {
     const site = this.props.person.kinopoisk
-    return !site ? null : <li><a href={site.url}>{this.props.i18n.t('movie.sites.kinopoisk')}</a></li>
+    return !site ? null : (
+      <li>
+        <a href={site.url}>{this.props.i18n.t('movie.sites.kinopoisk')}</a>
+      </li>
+    )
   }
 
   renderWikipedia() {
     const sites = this.props.person.wikipedia.edges
-    return !sites ? null : sites.map(({ node: site }) => (
-      <li key={site.lang}><a href={site.url}>{`${site.lang}.wikipedia.org`}</a></li>
-    ))
+    return !sites
+      ? null
+      : sites.map(({ node: site }) => (
+          <li key={site.lang}>
+            <a href={site.url}>{`${site.lang}.wikipedia.org`}</a>
+          </li>
+        ))
   }
 
   render() {

@@ -13,7 +13,7 @@ type Props = { movie: Object, type: string }
 export default class MovieImage extends React.Component<Props> {
   static propTypes = {
     movie: PropTypes.object.isRequired,
-    type: PropTypes.string.isRequired
+    type: PropTypes.string.isRequired,
   }
 
   static fragments = {
@@ -23,7 +23,7 @@ export default class MovieImage extends React.Component<Props> {
         ...MovieLink
       }
       ${MovieLink.fragments.movie}
-    `
+    `,
   }
 
   render() {

@@ -22,13 +22,26 @@ describe('Active Filters Component', () => {
 
   it('should render all active filters', () => {
     expect(wrapper.find('span')).toHaveLength(2)
-    expect(wrapper.find('span').at(0).text()).toBe('Active 1')
-    expect(wrapper.find('span').at(1).text()).toBe('Active 2')
+    expect(
+      wrapper
+        .find('span')
+        .at(0)
+        .text()
+    ).toBe('Active 1')
+    expect(
+      wrapper
+        .find('span')
+        .at(1)
+        .text()
+    ).toBe('Active 2')
   })
 
   it('should call setFilterState on change', () => {
     expect(element.props.setFilterState).not.toHaveBeenCalled()
-    wrapper.find('span').at(0).simulate('click')
+    wrapper
+      .find('span')
+      .at(0)
+      .simulate('click')
     expect(element.props.setFilterState).toHaveBeenCalledWith({ filter: new Set(['2']) })
   })
 
@@ -39,12 +52,20 @@ describe('Active Filters Component', () => {
 
     it('should render one active filter', () => {
       expect(wrapper.find('span')).toHaveLength(1)
-      expect(wrapper.find('span').at(0).text()).toBe('Active 2')
+      expect(
+        wrapper
+          .find('span')
+          .at(0)
+          .text()
+      ).toBe('Active 2')
     })
 
     it('should call setFilterState on change', () => {
       expect(element.props.setFilterState).not.toHaveBeenCalled()
-      wrapper.find('span').at(0).simulate('click')
+      wrapper
+        .find('span')
+        .at(0)
+        .simulate('click')
       expect(element.props.setFilterState).toHaveBeenCalledWith({ filter: '' })
     })
   })

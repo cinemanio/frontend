@@ -14,6 +14,5 @@ describe('Object List Page Component', () => {
   //   element = <ObjectsPage/>
   // })
 
-  it('should do smth', () => {
-  })
+  it('should do smth', () => {})
 })

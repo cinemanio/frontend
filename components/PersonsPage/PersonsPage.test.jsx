@@ -25,7 +25,7 @@ describe('Persons Page Component', () => {
     beforeEach(async () => {
       const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: () => jest.fn() }
       const PersonsPagePure = translate()(PersonsPage.WrappedComponent)
-      element = <PersonsPagePure data={data} roleData={roles.data} countryData={countries.data}/>
+      element = <PersonsPagePure data={data} roleData={roles.data} countryData={countries.data} />
       wrapper = await mountGraphql(element)
     })
 
@@ -64,74 +64,90 @@ describe('Persons Page Component', () => {
 
   describe('GraphQL', () => {
     const mocks = [mockPersons, mockCountries, mockRoles]
+    const getActiveFilter = code =>
+      wrapper
+        .find(`ActiveFilters[code="${code}"]`)
+        .find('span')
+        .text()
+
     beforeAll(() => i18nClient.changeLanguage('en'))
 
     it('should render persons', async () => {
-      wrapper = await mountGraphql(<PersonsPage/>, mocks)
+      wrapper = await mountGraphql(<PersonsPage />, mocks)
       expect(wrapper.find('PersonShort').length).toBeGreaterThan(0)
       expect(wrapper.find('SelectFilter[code="roles"]').find('option').length).toBeGreaterThan(1)
       expect(wrapper.find('SelectFilter[code="country"]').find('option').length).toBeGreaterThan(1)
     })
 
     it('should render message if no results in response', async () => {
-      wrapper = await mountGraphql(<PersonsPage/>, [{ ...mockPersons, result: emptyResponse }])
+      wrapper = await mountGraphql(<PersonsPage />, [{ ...mockPersons, result: emptyResponse }])
       expect(wrapper.find('PersonShort')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such persons.')
     })
 
     itShouldTestObjectsRelations(
-      PersonsPage, PersonRelations.fragments.relate, mocks, response.data.list.edges[0].person)
+      PersonsPage,
+      PersonRelations.fragments.relate,
+      mocks,
+      response.data.list.edges[0].person
+    )
 
-    it('should send filter params in request', async (done) => {
+    it('should send filter params in request', async done => {
       User.login('user')
       global.console.warn = jest.fn()
-      wrapper = await mountGraphql(<PersonsPage/>, mocks.concat([
-        mockWithParams({
-          relation: null,
-          roles: ['Um9sZU5vZGU6MTE='],
-          country: '',
-        }),
-        mockWithParams({
-          relation: null,
-          roles: ['Um9sZU5vZGU6MTE='],
-          country: 'Q291bnRyeU5vZGU6MTE=',
-        }),
-        mockWithParams({
-          relation: 'fav',
-          roles: ['Um9sZU5vZGU6MTE='],
-          country: 'Q291bnRyeU5vZGU6MTE=',
-        }),
-        mockWithParams({
-          orderBy: 'relations_count__dislike',
-          relation: 'fav',
-          roles: ['Um9sZU5vZGU6MTE='],
-          country: 'Q291bnRyeU5vZGU6MTE=',
-        }),
-      ]))
+      wrapper = await mountGraphql(
+        <PersonsPage />,
+        mocks.concat([
+          mockWithParams({
+            relation: null,
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: '',
+          }),
+          mockWithParams({
+            relation: null,
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: 'Q291bnRyeU5vZGU6MTE=',
+          }),
+          mockWithParams({
+            relation: 'fav',
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: 'Q291bnRyeU5vZGU6MTE=',
+          }),
+          mockWithParams({
+            orderBy: 'relations_count__dislike',
+            relation: 'fav',
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: 'Q291bnRyeU5vZGU6MTE=',
+          }),
+        ])
+      )
       selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
       selectFilterChange(wrapper, 'SelectFilter[code="country"]', 'Q291bnRyeU5vZGU6MTE=')
       selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
       selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'relations_count__dislike')
-      expect(wrapper.find('ActiveFilters[code="roles"]').find('span').text()).toBe('Translator')
-      expect(wrapper.find('ActiveFilters[code="country"]').find('span').text()).toBe('Benin')
-      expect(wrapper.find('ActiveFilters[code="relation"]').find('span').text()).toBe('Fav')
+      expect(getActiveFilter('roles')).toBe('Translator')
+      expect(getActiveFilter('country')).toBe('Benin')
+      expect(getActiveFilter('relation')).toBe('Fav')
       setTimeout(() => done())
     })
 
-    it('should paginate during scrolling keeping selected filters', async (done) => {
-      wrapper = await mountGraphql(<PersonsPage/>, mocks.concat([
-        mockWithParams({
-          relation: null,
-          roles: ['Um9sZU5vZGU6MTE='],
-          country: '',
-        }),
-        mockWithParams({
-          relation: null,
-          roles: ['Um9sZU5vZGU6MTE='],
-          country: '',
-          after: response.data.list.pageInfo.endCursor,
-        }),
-      ]))
+    it('should paginate during scrolling keeping selected filters', async done => {
+      wrapper = await mountGraphql(
+        <PersonsPage />,
+        mocks.concat([
+          mockWithParams({
+            relation: null,
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: '',
+          }),
+          mockWithParams({
+            relation: null,
+            roles: ['Um9sZU5vZGU6MTE='],
+            country: '',
+            after: response.data.list.pageInfo.endCursor,
+          }),
+        ])
+      )
       selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
       expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
       paginate(wrapper)

@@ -42,7 +42,14 @@ export default class SignIn extends React.Component<Props> {
     this.props.auth.reset()
   }
 
-  updateCache = (client: ApolloClient) => (cache: Object, { data: { tokenAuth: { token } } }: Object) => {
+  updateCache = (client: ApolloClient) => (
+    cache: Object,
+    {
+      data: {
+        tokenAuth: { token },
+      },
+    }: Object
+  ) => {
     client.resetStore()
     this.props.token.set(token)
     this.props.history.goBack()
@@ -65,24 +72,24 @@ export default class SignIn extends React.Component<Props> {
         <ApolloConsumer>
           {client => (
             <Mutation mutation={SignIn.fragments.signin} update={this.updateCache(client)} onError={this.onError}>
-              {(signin, { loading }) => (loading
-                ? <Loader/>
-                : (
+              {(signin, { loading }) =>
+                loading ? (
+                  <Loader />
+                ) : (
                   <div className="container page">
                     <div className="row">
                       <div className="col-md-6 offset-md-3 col-xs-12">
-
                         <h1 className="text-xs-center">{this.props.i18n.t('signin.title')}</h1>
                         <p className="text-xs-center">
                           <Link to={routes.signup}>{this.props.i18n.t('signin.needAccount')}</Link>
                         </p>
 
-                        <SignInForm signin={signin}/>
-
+                        <SignInForm signin={signin} />
                       </div>
                     </div>
                   </div>
-                ))}
+                )
+              }
             </Mutation>
           )}
         </ApolloConsumer>

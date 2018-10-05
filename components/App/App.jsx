@@ -36,25 +36,21 @@ const App = ({ lang }: Object) => (
   <MobxProvider {...stores}>
     <AlertProvider template={AlertTemplate} {...alertOptions}>
       <div>
-        <Helmet
-          htmlAttributes={{ lang }}
-          defaultTitle="cineman.io"
-          titleTemplate="%s · cineman.io"
-        >
-          <script type="text/javascript" src="/public/app.js" async crossOrigin/>
-          <link rel="stylesheet" type="text/css" href="/public/app.css"/>
-          <link rel="icon" type="image/ico" href="/public/favicon.ico"/>
+        <Helmet htmlAttributes={{ lang }} defaultTitle="cineman.io" titleTemplate="%s · cineman.io">
+          <script type="text/javascript" src="/public/app.js" async crossOrigin />
+          <link rel="stylesheet" type="text/css" href="/public/app.css" />
+          <link rel="icon" type="image/ico" href="/public/favicon.ico" />
         </Helmet>
         <Switch>
-          <Route exact path="/" render={() => <Redirect to="/movies"/>}/>
-          <Layout path={routes.movie.detail} component={MoviePage} menuActive="movie"/>
-          <Layout path={routes.movie.list} component={MoviesPage} menuActive="movie"/>
-          <Layout path={routes.person.detail} component={PersonPage} menuActive="person"/>
-          <Layout path={routes.person.list} component={PersonsPage} menuActive="person"/>
-          <Layout path={routes.signin} component={SignIn}/>
-          <Layout path={routes.signup} component={SignUp}/>
-          <Layout path="/500" component={Error500}/>
-          <Layout path="*" component={Error404}/>
+          <Route exact path="/" render={() => <Redirect to="/movies" />} />
+          <Layout path={routes.movie.detail} component={MoviePage} menuActive="movie" />
+          <Layout path={routes.movie.list} component={MoviesPage} menuActive="movie" />
+          <Layout path={routes.person.detail} component={PersonPage} menuActive="person" />
+          <Layout path={routes.person.list} component={PersonsPage} menuActive="person" />
+          <Layout path={routes.signin} component={SignIn} />
+          <Layout path={routes.signup} component={SignUp} />
+          <Layout path="/500" component={Error500} />
+          <Layout path="*" component={Error404} />
         </Switch>
       </div>
     </AlertProvider>

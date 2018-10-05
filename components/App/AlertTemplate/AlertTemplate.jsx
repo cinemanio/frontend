@@ -18,7 +18,7 @@ export default class AlertTemplate extends React.PureComponent<Props> {
     return (
       <div style={this.props.style} styleName={this.props.options.type}>
         <button type="button" onClick={this.props.close} styleName="close">
-          <i/>
+          <i />
         </button>
         <span>{this.props.message}</span>
       </div>

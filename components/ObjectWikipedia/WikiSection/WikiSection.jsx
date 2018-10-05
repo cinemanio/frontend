@@ -10,7 +10,11 @@ export default class WikiSection extends React.PureComponent<Props> {
   }
 
   renderTitle() {
-    return !this.props.section.data.title ? null : <p><strong>{this.props.section.data.title}</strong></p>
+    return !this.props.section.data.title ? null : (
+      <p>
+        <strong>{this.props.section.data.title}</strong>
+      </p>
+    )
   }
 
   renderContent() {

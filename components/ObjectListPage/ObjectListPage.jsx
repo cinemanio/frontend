@@ -29,30 +29,31 @@ export default class ObjectListPage extends React.Component<Props, State> {
     renderActiveFilters: PropTypes.func.isRequired,
     renderFilters: PropTypes.func.isRequired,
     rowHeight: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
   }
 
   constructor(props: Object) {
     super(props)
     this.state = {
-      scrollOffset: 0
+      scrollOffset: 0,
     }
   }
 
-  refreshList = () => this.props.data.fetchMore({
-    variables: this.props.getVariables(),
-    updateQuery: (previousResult, { fetchMoreResult }) => ({
-      list: {
-        totalCount: fetchMoreResult.list.totalCount,
-        edges: fetchMoreResult.list.edges,
-        pageInfo: fetchMoreResult.list.pageInfo
-      }
+  refreshList = () =>
+    this.props.data.fetchMore({
+      variables: this.props.getVariables(),
+      updateQuery: (previousResult, { fetchMoreResult }) => ({
+        list: {
+          totalCount: fetchMoreResult.list.totalCount,
+          edges: fetchMoreResult.list.edges,
+          pageInfo: fetchMoreResult.list.pageInfo,
+        },
+      }),
     })
-  })
 
   onScroll = ({ clientHeight, scrollTop }: Object) => {
     this.setState({
-      scrollOffset: Math.floor(scrollTop / this.props.rowHeight) + Math.floor(clientHeight / this.props.rowHeight)
+      scrollOffset: Math.floor(scrollTop / this.props.rowHeight) + Math.floor(clientHeight / this.props.rowHeight),
     })
   }
 
@@ -62,23 +63,17 @@ export default class ObjectListPage extends React.Component<Props, State> {
       <div styleName="box">
         <Helmet>
           <title>{this.props.title}</title>
-          <body className="list"/>
+          <body className="list" />
         </Helmet>
         <div styleName="list">
           <div styleName="caption">
-            <Pagination page={this.state.scrollOffset} data={this.props.data}/>
+            <Pagination page={this.state.scrollOffset} data={this.props.data} />
             {this.props.renderActiveFilters(this.refreshList)}
           </div>
-          <ObjectList
-            onScroll={this.onScroll}
-            getVariables={this.props.getVariables}
-            {...props}
-          />
+          <ObjectList onScroll={this.onScroll} getVariables={this.props.getVariables} {...props} />
         </div>
         <div styleName="filters">
-          <div>
-            {this.props.renderFilters(this.refreshList)}
-          </div>
+          <div>{this.props.renderFilters(this.refreshList)}</div>
         </div>
       </div>
     )

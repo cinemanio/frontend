@@ -19,20 +19,20 @@ type Props = {
 export default class ObjectPage extends React.Component<Props> {
   static defaultProps = {
     object: undefined,
-    getTitle: undefined
+    getTitle: undefined,
   }
 
   static propTypes = {
     object: PropTypes.object,
     getTitle: PropTypes.func,
-    renderLayout: PropTypes.func.isRequired
+    renderLayout: PropTypes.func.isRequired,
   }
 
   render() {
     if (_.isNull(this.props.object)) {
-      return <Error404/>
+      return <Error404 />
     } else if (_.isUndefined(this.props.object)) {
-      return <Loader/>
+      return <Loader />
     } else {
       return (
         <div>

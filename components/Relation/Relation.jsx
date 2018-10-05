@@ -68,7 +68,7 @@ export default class Relation extends React.Component<Props> {
       })
       if (!enabled) {
         this.props.alert.success(
-          this.props.i18n.t(`alert.relations.${this.objectType.toLowerCase()}.${this.props.code}`, this.props.object),
+          this.props.i18n.t(`alert.relations.${this.objectType.toLowerCase()}.${this.props.code}`, this.props.object)
         )
       }
     } else {
@@ -76,7 +76,14 @@ export default class Relation extends React.Component<Props> {
     }
   }
 
-  updateCache = (cache: Object, { data: { relate: { relation, count } } }: Object) => {
+  updateCache = (
+    cache: Object,
+    {
+      data: {
+        relate: { relation, count },
+      },
+    }: Object
+  ) => {
     cache.writeFragment({
       id: `${this.objectType}Node:${this.props.object.id}`,
       fragment: this.props.fragment,
@@ -93,7 +100,7 @@ export default class Relation extends React.Component<Props> {
           return (
             <span className={this.props.className} {...params}>
               <span className={this.props.object.relation[this.props.code] ? 'active' : ''}>
-                <i/>
+                <i />
                 {this.props.displayCounts ? this.props.object.relationsCount[this.props.code] : ''}
               </span>
             </span>

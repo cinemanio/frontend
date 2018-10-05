@@ -14,11 +14,17 @@ describe('Movie Page Component', () => {
   let element
   let wrapper
 
-
   describe('Unit', () => {
+    const getRatingTitle = () =>
+      wrapper
+        .find('MovieSites')
+        .find('span')
+        .first()
+        .prop('title')
+
     beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
-      element = <MoviePage.WrappedComponent params={{ movieId: '' }} data={response.data}/>
+      element = <MoviePage.WrappedComponent params={{ movieId: '' }} data={response.data} />
       wrapper = await mountGraphql(element)
     })
 
@@ -33,8 +39,7 @@ describe('Movie Page Component', () => {
       it('should render movie runtime', () => expect(wrapper.text()).toContain('1 hour, 31 minutes'))
       it('should render movie countries', () => expect(wrapper.text()).toContain('USA'))
       it('should render movie languages', () => expect(wrapper.text()).toContain('English'))
-      it('should render word rating', () => expect(wrapper.find('MovieSites').find('span').first().prop('title'))
-        .toContain('rating'))
+      it('should render word rating', () => expect(getRatingTitle()).toContain('rating'))
       it('should render kinopoisk', () => expect(wrapper.text()).toContain('kinopoisk.ru'))
       it('should render role name', () => expect(wrapper.text()).toContain('Jennie'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Kids, 1995'))
@@ -48,8 +53,7 @@ describe('Movie Page Component', () => {
       it('should render movie runtime', () => expect(wrapper.text()).toContain('1 час, 31 минут'))
       it('should render movie countries', () => expect(wrapper.text()).toContain('США'))
       it('should render movie languages', () => expect(wrapper.text()).toContain('Английский'))
-      it('should render word rating', () => expect(wrapper.find('MovieSites').find('span').first().prop('title'))
-        .toContain('Рейтинг'))
+      it('should render word rating', () => expect(getRatingTitle()).toContain('Рейтинг'))
       it('should render kinopoisk', () => expect(wrapper.text()).toContain('Кинопоиск'))
       it('should render role name', () => expect(wrapper.text()).toContain('Дженни'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Детки, Kids, 1995'))
@@ -71,8 +75,7 @@ describe('Movie Page Component', () => {
     beforeAll(() => i18nClient.changeLanguage('en'))
 
     it('should render movie page', async () => {
-      wrapper = await mountGraphql(
-        <MoviePage match={{ params: { slug: response.data.movie.id } }}/>, [mockMovie])
+      wrapper = await mountGraphql(<MoviePage match={{ params: { slug: response.data.movie.id } }} />, [mockMovie])
       expect(wrapper.find('MovieInfo')).toHaveLength(1)
       expect(wrapper.find('MovieImage')).toHaveLength(1)
       expect(wrapper.find('ObjectWikipedia')).toHaveLength(1)
@@ -80,16 +83,21 @@ describe('Movie Page Component', () => {
     })
 
     it('should render 404 page when response empty', async () => {
-      wrapper = await mountGraphql(
-        <MoviePage match={{ params: { slug: '' } }}/>,
-        [{
+      wrapper = await mountGraphql(<MoviePage match={{ params: { slug: '' } }} />, [
+        {
           request: { query: MoviePage.queries.movie, variables: { movieId: '' } },
           result: emptyResponse,
-        }])
+        },
+      ])
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
     })
 
-    itShouldTestObjectRelations(MoviePage, MovieRelations.fragments.relate, mockMovie,
-      response.data.movie, 'You have been favorited the movie Kids (1995)')
+    itShouldTestObjectRelations(
+      MoviePage,
+      MovieRelations.fragments.relate,
+      mockMovie,
+      response.data.movie,
+      'You have been favorited the movie Kids (1995)'
+    )
   })
 })

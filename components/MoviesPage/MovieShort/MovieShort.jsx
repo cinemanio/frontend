@@ -34,7 +34,7 @@ export default class MovieShort extends React.Component<Props> {
       ${MovieInfo.fragments.year}
       ${MovieInfo.fragments.genres}
       ${MovieRelations.fragments.movie}
-    `
+    `,
   }
 
   isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.titleOriginal
@@ -42,16 +42,14 @@ export default class MovieShort extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
-        <MovieImage movie={this.props.movie} type="short_card"/>
+        <MovieImage movie={this.props.movie} type="short_card" />
         <div styleName="right">
           <div styleName="relations">
-            <MovieRelations movie={this.props.movie} displayCounts={false}/>
+            <MovieRelations movie={this.props.movie} displayCounts={false} />
           </div>
-          <MovieLink movie={this.props.movie}>
-            {this.props.movie[i18n.f('title')]}
-          </MovieLink>
+          <MovieLink movie={this.props.movie}>{this.props.movie[i18n.f('title')]}</MovieLink>
           <div styleName="subtitle">{this.isTitlesEqual(this.props.movie) ? null : this.props.movie.titleOriginal}</div>
-          <MovieInfo movie={this.props.movie} year genres/>
+          <MovieInfo movie={this.props.movie} year genres />
         </div>
       </div>
     )

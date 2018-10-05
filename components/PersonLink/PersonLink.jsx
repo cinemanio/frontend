@@ -10,7 +10,7 @@ type Props = { person: Object, children: Object }
 export default class PersonLink extends React.Component<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
   }
 
   static fragments = {
@@ -19,14 +19,11 @@ export default class PersonLink extends React.Component<Props> {
         id
         nameEn
       }
-    `
+    `,
   }
 
   get parts(): Array<string> {
-    return [
-      this.props.person.nameEn,
-      this.props.person.id
-    ]
+    return [this.props.person.nameEn, this.props.person.id]
   }
 
   render() {

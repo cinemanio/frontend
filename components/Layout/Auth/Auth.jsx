@@ -31,7 +31,7 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
         verifyToken(token: $token) {
           payload
         }
-      }      
+      }
     `,
   }
 
@@ -41,7 +41,14 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
     client.resetStore()
   }
 
-  updateCache = (cache: Object, { data: { verifyToken: { payload } } }: Object) => {
+  updateCache = (
+    cache: Object,
+    {
+      data: {
+        verifyToken: { payload },
+      },
+    }: Object
+  ) => {
     this.props.user.login(payload.username)
   }
 
@@ -51,34 +58,34 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
   }
 
   renderSignin(client: ?ApolloClient) {
-    return this.props.user.username
-      ? (
-        <div>
-          <span styleName="username">{this.props.user.username}</span>
-          <a href="#logout" title={this.props.i18n.t('auth.logout')} onClick={this.logout(client)}>
-            {this.props.i18n.t('auth.logout')}
-          </a>
-        </div>
-      )
-      : <Link to={routes.signin}>{this.props.i18n.t('auth.signin')}</Link>
+    return this.props.user.username ? (
+      <div>
+        <span styleName="username">{this.props.user.username}</span>
+        <a href="#logout" title={this.props.i18n.t('auth.logout')} onClick={this.logout(client)}>
+          {this.props.i18n.t('auth.logout')}
+        </a>
+      </div>
+    ) : (
+      <Link to={routes.signin}>{this.props.i18n.t('auth.signin')}</Link>
+    )
   }
 
   render() {
-    return this.props.token.token
-      ? (
-        <ApolloConsumer>
-          {client => (
-            <MutationOnMount
-              mutation={Auth.fragments.verify}
-              variables={{ token: this.props.token.token }}
-              update={this.updateCache}
-              onError={this.onError}
-            >
-              {() => this.renderSignin(client)}
-            </MutationOnMount>
-          )}
-        </ApolloConsumer>
-      )
-      : this.renderSignin()
+    return this.props.token.token ? (
+      <ApolloConsumer>
+        {client => (
+          <MutationOnMount
+            mutation={Auth.fragments.verify}
+            variables={{ token: this.props.token.token }}
+            update={this.updateCache}
+            onError={this.onError}
+          >
+            {() => this.renderSignin(client)}
+          </MutationOnMount>
+        )}
+      </ApolloConsumer>
+    ) : (
+      this.renderSignin()
+    )
   }
 }
