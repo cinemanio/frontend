@@ -1,8 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountGraphql } from 'tests/helpers'
-import mutationResponse from 'components/Relation/mutationResponse'
+import { mountGraphql, itShouldTestObjectRelations } from 'tests/helpers'
 import i18nClient from 'libs/i18nClient'
 
 import MoviePage from './MoviePage'
@@ -15,11 +14,11 @@ describe('Movie Page Component', () => {
   let element
   let wrapper
 
+
   describe('Unit', () => {
     beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
-      element = (<MoviePage.WrappedComponent
-        params={{ movieId: '' }} data={response.data}/>)
+      element = <MoviePage.WrappedComponent params={{ movieId: '' }} data={response.data}/>
       wrapper = await mountGraphql(element)
     })
 
@@ -34,8 +33,8 @@ describe('Movie Page Component', () => {
       it('should render movie runtime', () => expect(wrapper.text()).toContain('1 hour, 31 minutes'))
       it('should render movie countries', () => expect(wrapper.text()).toContain('USA'))
       it('should render movie languages', () => expect(wrapper.text()).toContain('English'))
-      it('should render word rating', () =>
-        expect(wrapper.find('MovieSites').find('span').first().prop('title')).toContain('rating'))
+      it('should render word rating', () => expect(wrapper.find('MovieSites').find('span').first().prop('title'))
+        .toContain('rating'))
       it('should render kinopoisk', () => expect(wrapper.text()).toContain('kinopoisk.ru'))
       it('should render role name', () => expect(wrapper.text()).toContain('Jennie'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Kids, 1995'))
@@ -49,8 +48,8 @@ describe('Movie Page Component', () => {
       it('should render movie runtime', () => expect(wrapper.text()).toContain('1 час, 31 минут'))
       it('should render movie countries', () => expect(wrapper.text()).toContain('США'))
       it('should render movie languages', () => expect(wrapper.text()).toContain('Английский'))
-      it('should render word rating', () =>
-        expect(wrapper.find('MovieSites').find('span').first().prop('title')).toContain('Рейтинг'))
+      it('should render word rating', () => expect(wrapper.find('MovieSites').find('span').first().prop('title'))
+        .toContain('Рейтинг'))
       it('should render kinopoisk', () => expect(wrapper.text()).toContain('Кинопоиск'))
       it('should render role name', () => expect(wrapper.text()).toContain('Дженни'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Детки, Kids, 1995'))
@@ -69,12 +68,15 @@ describe('Movie Page Component', () => {
   })
 
   describe('GraphQL', () => {
+    beforeAll(() => i18nClient.changeLanguage('en'))
+
     it('should render movie page', async () => {
       wrapper = await mountGraphql(
         <MoviePage match={{ params: { slug: response.data.movie.id } }}/>, [mockMovie])
       expect(wrapper.find('MovieInfo')).toHaveLength(1)
       expect(wrapper.find('MovieImage')).toHaveLength(1)
       expect(wrapper.find('ObjectWikipedia')).toHaveLength(1)
+      expect(wrapper.find('ObjectKinopoiskInfo')).toHaveLength(1)
     })
 
     it('should render 404 page when response empty', async () => {
@@ -87,24 +89,7 @@ describe('Movie Page Component', () => {
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
     })
 
-    it('should change relation and relations count', async () => {
-      wrapper = await mountGraphql(
-        <MoviePage match={{ params: { slug: response.data.movie.id } }}/>,
-        [
-          mockMovie,
-          {
-            request: {
-              query: MovieRelations.fragments.relate,
-              variables: { id: response.data.movie.id, code: 'fav' },
-            },
-            result: { data: mutationResponse(response.data.movie, 'fav') },
-          },
-        ])
-      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(0)
-      expect(wrapper.find('Relation[code="fav"]').text()).toBe('2')
-      wrapper.find('Relation[code="fav"]').find('span').first().simulate('click')
-      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(1)
-      expect(wrapper.find('Relation[code="fav"]').text()).toBe('3')
-    })
+    itShouldTestObjectRelations(MoviePage, MovieRelations.fragments.relate, mockMovie,
+      response.data.movie, 'You have been favorited the movie Kids (1995)')
   })
 })

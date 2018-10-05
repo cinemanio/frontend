@@ -9,7 +9,7 @@ import './ActiveFilters.scss'
 type Props = {
   code: string,
   list: Array<Object>,
-  multiple: boolean,
+  multiple?: boolean,
   filters: Object,
   setFilterState: Function,
 }
@@ -17,7 +17,7 @@ type Props = {
 export default class ActiveFilters extends React.Component<Props> {
   static defaultProps = {
     list: [],
-    multiple: false
+    multiple: false,
   }
 
   static propTypes = {
@@ -25,7 +25,7 @@ export default class ActiveFilters extends React.Component<Props> {
     list: PropTypes.array,
     filters: PropTypes.object.isRequired,
     setFilterState: PropTypes.func.isRequired,
-    multiple: PropTypes.bool
+    multiple: PropTypes.bool,
   }
 
   get active(): Array<string> {
@@ -54,8 +54,11 @@ export default class ActiveFilters extends React.Component<Props> {
   getFilterName = (filter: string) => this.props.list.filter(item => item.id === filter)[0][i18n.f('name')]
 
   render(): Array<React.Fragment> {
-    return this.active.map((filter: string) =>
-      <span key={filter} styleName="box" onClick={this.notFilterBy(filter)}>{this.getFilterName(filter)}<i/></span>)
+    return this.active.map((filter: string) => (
+      <span key={filter} styleName="box" onClick={this.notFilterBy(filter)}>
+        {this.getFilterName(filter)}
+        <i/>
+      </span>
+    ))
   }
 }
-

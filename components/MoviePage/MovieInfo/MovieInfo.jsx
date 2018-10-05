@@ -14,12 +14,12 @@ import './MovieInfo.scss'
 
 type Props = {
   movie: Object,
-  year: ?boolean,
-  genres: ?boolean,
-  countries: ?boolean,
-  runtime: ?boolean,
-  languages: ?boolean,
-  all: ?boolean,
+  year?: boolean,
+  genres?: boolean,
+  countries?: boolean,
+  runtime?: boolean,
+  languages?: boolean,
+  all?: boolean,
   i18n: Translator,
 }
 
@@ -132,7 +132,8 @@ export default class MovieInfo extends React.Component<Props> {
   renderRuntime() {
     return !this.props.movie.runtime ? '' : (
       <span styleName="runtime">
-        <i/>{humanizeDuration(this.props.movie.runtime * 60 * 1000, { language: this.props.i18n.language })}
+        <i/>
+        {humanizeDuration(this.props.movie.runtime * 60 * 1000, { language: this.props.i18n.language })}
       </span>
     )
   }

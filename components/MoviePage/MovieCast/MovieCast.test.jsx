@@ -10,13 +10,12 @@ import responseOnlyDirector from '../fixtures/response_only_director.json'
 describe('Movie Cast Component', () => {
   let element
   let wrapper
-  const getRole = (block, position) =>
-    wrapper.find('Block').at(block).find('PersonLink').at((position * 2) + 1)
-      .parents()
-      .at(0)
-      .children()
-      .at(1)
-      .text()
+  const getRole = (block, position) => wrapper.find('Block').at(block).find('PersonLink').at((position * 2) + 1)
+    .parents()
+    .at(0)
+    .children()
+    .at(1)
+    .text()
 
   beforeEach(() => {
     i18nClient.changeLanguage('en')

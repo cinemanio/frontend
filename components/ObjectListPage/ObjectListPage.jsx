@@ -65,6 +65,7 @@ export default class ObjectListPage extends React.Component<Props, State> {
           </div>
           <ObjectList
             updatePage={this.updatePage}
+            getVariables={this.props.getVariables}
             {...props}
           />
         </div>

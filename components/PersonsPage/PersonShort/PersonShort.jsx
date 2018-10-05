@@ -22,7 +22,7 @@ export default class PersonShort extends React.Component<Props> {
     person: gql`
       fragment PersonShort on PersonNode {
         ${i18n.gql('name')}
-        name
+        nameEn
         ...PersonImage
         ...PersonLink
         ...PersonInfoRoles
@@ -35,7 +35,7 @@ export default class PersonShort extends React.Component<Props> {
     `,
   }
 
-  isNamesEqual = (person: Object) => person[i18n.f('name')] === person.name
+  isNamesEqual = (person: Object) => person[i18n.f('name')] === person.nameEn
 
   render() {
     return (
@@ -48,7 +48,7 @@ export default class PersonShort extends React.Component<Props> {
           <PersonLink person={this.props.person}>
             {this.props.person[i18n.f('name')]}
           </PersonLink>
-          <div styleName="subtitle">{this.isNamesEqual(this.props.person) ? '' : this.props.person.name}</div>
+          <div styleName="subtitle">{this.isNamesEqual(this.props.person) ? '' : this.props.person.nameEn}</div>
           <PersonInfo person={this.props.person} roles/>
         </div>
       </div>

@@ -19,6 +19,7 @@ export default class SignInForm extends React.Component<Props> {
     i18n: i18nClient,
     auth: Auth,
   }
+
   static propTypes = {
     i18n: PropTypes.object,
     auth: MobxPropTypes.observableObject,

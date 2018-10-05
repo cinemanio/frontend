@@ -20,6 +20,7 @@ export default class MovieCast extends React.Component<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }
+
   static propTypes = {
     i18n: PropTypes.object,
     movie: PropTypes.object.isRequired,
@@ -39,7 +40,7 @@ export default class MovieCast extends React.Component<Props> {
                 ...PersonLink
               }
               role {
-                name
+                nameEn
                 ${i18n.gql('name')}
               }
             }
@@ -52,26 +53,27 @@ export default class MovieCast extends React.Component<Props> {
 
   // TODO: avoid using role names for filtering
   static creatorNames = ['Director', 'Scenarist', 'Writer', 'Composer', 'Producer']
+
   static castNames = ['Actor']
 
   filterCreators(role: Object): boolean {
-    return MovieCast.creatorNames.indexOf(role.name) !== -1
+    return MovieCast.creatorNames.indexOf(role.nameEn) !== -1
   }
 
   filterCast(role: Object): boolean {
-    return MovieCast.castNames.indexOf(role.name) !== -1
+    return MovieCast.castNames.indexOf(role.nameEn) !== -1
   }
 
   filterCrew(role: Object): boolean {
-    return MovieCast.creatorNames.concat(MovieCast.castNames).indexOf(role.name) === -1
+    return MovieCast.creatorNames.concat(MovieCast.castNames).indexOf(role.nameEn) === -1
   }
 
   /**
    * Sort creators in the order of priority, defined in creatorNames
    */
   sortCreators(edge1: Object, edge2: Object) {
-    return MovieCast.creatorNames.indexOf(edge1.node.role.name)
-      - MovieCast.creatorNames.indexOf(edge2.node.role.name)
+    return MovieCast.creatorNames.indexOf(edge1.node.role.nameEn)
+      - MovieCast.creatorNames.indexOf(edge2.node.role.nameEn)
   }
 
   getPersons(roleFilter: Function, roleSort?: Function) {
@@ -83,8 +85,8 @@ export default class MovieCast extends React.Component<Props> {
   }
 
   renderPersons(roles: Array<Object>): Array<React.Fragment> {
-    return roles.map(({ node }) =>
-      (<div key={node.id} styleName="person">
+    return roles.map(({ node }) => (
+      <div key={node.id} styleName="person">
         <div styleName="image"><PersonImage person={node.person} type="icon"/></div>
         <div>
           <PersonLink person={node.person}>
@@ -92,8 +94,8 @@ export default class MovieCast extends React.Component<Props> {
           </PersonLink>
           <div>{node[i18n.f('name')] || node.role[i18n.f('name')]}</div>
         </div>
-      </div>),
-    )
+      </div>
+    ))
   }
 
   renderBlock(title: string, persons: Array<Object>) {

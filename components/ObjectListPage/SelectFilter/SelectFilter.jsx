@@ -8,7 +8,7 @@ type Props = {
   code: string,
   title: string,
   list: Array<Object>,
-  multiple: boolean,
+  multiple?: boolean,
   filters: Object,
   setFilterState: Function,
 }
@@ -16,7 +16,7 @@ type Props = {
 export default class SelectFilter extends React.Component<Props> {
   static defaultProps = {
     list: [],
-    multiple: false
+    multiple: false,
   }
 
   static propTypes = {
@@ -25,7 +25,7 @@ export default class SelectFilter extends React.Component<Props> {
     filters: PropTypes.object.isRequired,
     setFilterState: PropTypes.func.isRequired,
     list: PropTypes.array,
-    multiple: PropTypes.bool
+    multiple: PropTypes.bool,
   }
 
   get active(): Array<string> {
@@ -51,18 +51,22 @@ export default class SelectFilter extends React.Component<Props> {
 
   filterBy = (e: SyntheticEvent<HTMLSelectElement>) => {
     this.setFilter(this.props.code, e.currentTarget.value)
-    e.currentTarget.value = ''
+    if (this.props.multiple) {
+      e.currentTarget.value = ''
+    }
   }
 
   renderOption(item: Object) {
-    return this.active.indexOf(item.id) !== -1 ? ''
+    return this.props.multiple && this.active.indexOf(item.id) !== -1
+      ? null
       : <option key={item.id} value={item.id}>{item[i18n.f('name')]}</option>
   }
 
   render() {
-    return (!this.props.multiple && this.active.length > 0) ? '' : (
+    const value = this.props.multiple ? '' : (this.props.filters[this.props.code] || '')
+    return (
       // eslint-disable-next-line jsx-a11y/no-onchange
-      <select name={this.props.code} onChange={this.filterBy}>
+      <select name={this.props.code} onChange={this.filterBy} value={value}>
         <option value="">{this.props.title}</option>
         {this.props.list.map((item: Object) => this.renderOption(item))}
       </select>

@@ -16,7 +16,6 @@ export default class MovieFull extends React.PureComponent<Props> {
     movie: gql`
       fragment MovieFull on MovieNode {
         id
-        title
         titleEn
         year
       }
@@ -34,7 +33,7 @@ export default class MovieFull extends React.PureComponent<Props> {
   render() {
     return (
       <ObjectLink type="movie" parts={this.parts}>
-        {this.props.movie.title}
+        {this.props.movie.titleEn}
       </ObjectLink>
     )
   }

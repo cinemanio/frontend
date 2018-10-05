@@ -1,8 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountGraphql } from 'tests/helpers'
-import mutationResponse from 'components/Relation/mutationResponse'
+import { mountGraphql, itShouldTestObjectRelations } from 'tests/helpers'
 import i18nClient from 'libs/i18nClient'
 
 import PersonPage from './PersonPage'
@@ -17,8 +16,7 @@ describe('Person Page Component', () => {
 
   describe('Unit', () => {
     beforeEach(async () => {
-      element = (<PersonPage.WrappedComponent
-        params={{ personId: '' }} data={response.data}/>)
+      element = <PersonPage.WrappedComponent params={{ personId: '' }} data={response.data}/>
       wrapper = await mountGraphql(element)
     })
 
@@ -50,12 +48,15 @@ describe('Person Page Component', () => {
   })
 
   describe('GraphQL', () => {
+    beforeAll(() => i18nClient.changeLanguage('en'))
+
     it('should render person page', async () => {
       wrapper = await mountGraphql(
         <PersonPage match={{ params: { slug: response.data.person.id } }}/>, [mockPerson])
       expect(wrapper.find('PersonInfo')).toHaveLength(1)
       expect(wrapper.find('PersonImage')).toHaveLength(1)
       expect(wrapper.find('ObjectWikipedia')).toHaveLength(1)
+      expect(wrapper.find('ObjectKinopoiskInfo')).toHaveLength(1)
     })
 
     it('should render 404 page when response empty', async () => {
@@ -68,24 +69,7 @@ describe('Person Page Component', () => {
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
     })
 
-    it('should change relation and relations count', async () => {
-      wrapper = await mountGraphql(
-        <PersonPage match={{ params: { slug: response.data.person.id } }}/>,
-        [
-          mockPerson,
-          {
-            request: {
-              query: PersonRelations.fragments.relate,
-              variables: { id: response.data.person.id, code: 'fav' },
-            },
-            result: { data: mutationResponse(response.data.person, 'fav') },
-          },
-        ])
-      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(0)
-      expect(wrapper.find('Relation[code="fav"]').text()).toBe('2')
-      wrapper.find('Relation[code="fav"]').find('span').first().simulate('click')
-      expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(1)
-      expect(wrapper.find('Relation[code="fav"]').text()).toBe('3')
-    })
+    itShouldTestObjectRelations(PersonPage, PersonRelations.fragments.relate, mockPerson,
+      response.data.person, 'You have been favorited the person David Fincher')
   })
 })

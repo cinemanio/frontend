@@ -7,5 +7,6 @@ import React from 'react'
 
 export default class InjectedComponent<Props, InjectedProps, State = void> extends React.Component<Props, State> {
   props: Props & InjectedProps
+
   state: State
 }

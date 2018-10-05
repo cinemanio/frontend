@@ -6,20 +6,15 @@ import { PropTypes } from 'prop-types'
 type Props = {
   list: Array<Object>,
   setFilterState: Function,
-  code: string,
   filters: Object,
+  code: string,
 }
 
 export default class SelectGeneric extends React.PureComponent<Props> {
-  static defaultProps = {
-    list: [],
-    filters: {},
-  }
-
   static propTypes = {
     setFilterState: PropTypes.func.isRequired,
-    list: PropTypes.array,
-    filters: PropTypes.object,
+    list: PropTypes.array.isRequired,
+    filters: PropTypes.object.isRequired,
     code: PropTypes.string.isRequired,
   }
 

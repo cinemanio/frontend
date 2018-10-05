@@ -21,13 +21,15 @@
     },
     "orderBy": {
       "sectionTitle": "Order by",
-      "year": "Year",
+      "new": "Year (new higher)",
+      "old": "Year (old higher)",
       "like": "Likes",
       "dislike": "Dislikes"
     },
     "sectionTitle": "Filter by",
-    "relation": {
+    "relations": {
       "sectionTitle": "Relation",
+      "authError": "Please sign in to be able to filter by your preferences",
       "fav": "Fav",
       "like": "Like",
       "seen": "Seen",
@@ -70,7 +72,12 @@
     "movies": "There is no such movies. Try to change search parameters."
   },
   "wikipedia": {
-    "title": "On Wikipedia",
+    "title": "On Wikipedia"
+  },
+  "kinopoisk": {
+    "title": "On Kinopoisk"
+  },
+  "block": {
     "displayMore": "read more",
     "displayLess": "hide"
   },
@@ -81,6 +88,25 @@
     "placeholders": {
       "username": "Enter your username",
       "password": "Enter your password"
+    }
+  },
+  "alert": {
+    "relations": {
+      "authError": "Please sign in to be able to save your preferences",
+      "movie": {
+        "fav": "You have been favorited the movie {{ titleEn }} ({{ year }})",
+        "like": "You have been liked the movie {{ titleEn }} ({{ year }})",
+        "seen": "You have been watched the movie {{ titleEn }} ({{ year }})",
+        "dislike": "You have not been liked the movie {{ titleEn }} ({{ year }})",
+        "want": "You want to watch the movie {{ titleEn }} ({{ year }})",
+        "ignore": "You want to hide the movie {{ titleEn }} ({{ year }})",
+        "have": "You have the movie {{ titleEn }} ({{ year }})"
+      },
+      "person": {
+        "fav": "You have been favorited the person {{ nameEn }}",
+        "like": "You like the person {{ nameEn }}",
+        "dislike": "You don't like the person {{ nameEn }}"
+      }
     }
   }
 }

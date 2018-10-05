@@ -7,6 +7,7 @@ import _ from 'lodash'
 type Props = {
   noResultsMessage: string,
   renderItem: Function,
+  getVariables: Function,
   data: Object,
   updatePage: Function,
   view: string,
@@ -19,6 +20,7 @@ export default class ObjectList extends React.Component<Props> {
     data: PropTypes.object.isRequired,
     updatePage: PropTypes.func.isRequired,
     view: PropTypes.string.isRequired,
+    getVariables: PropTypes.func.isRequired,
   }
 
   /**
@@ -64,7 +66,7 @@ export default class ObjectList extends React.Component<Props> {
     return this.props.data.loading
       ? () => {
       }
-      : this.props.data.loadNextPage
+      : this.props.data.loadNextPage(this.props.getVariables())
   }
 
   /**
@@ -73,7 +75,7 @@ export default class ObjectList extends React.Component<Props> {
    */
   isItemLoaded = ({ index }: Object) => !this.hasNextPage || index < this.list.length
 
-  cellSizeAndPositionGetter = (totalWidth: number) => ({ index }) => {
+  cellSizeAndPositionGetter = (totalWidth: number) => ({ index }: Object) => {
     const { width, height } = this.iconDimensions
     const numberInRow = Math.floor(totalWidth / width)
     const x = (index % numberInRow) * width
@@ -96,7 +98,7 @@ export default class ObjectList extends React.Component<Props> {
     this.props.updatePage(page)
   }
 
-  onSectionRendered = (onRowsRendered: Function) => ({ indices }) => {
+  onSectionRendered = (onRowsRendered: Function) => ({ indices }: Object) => {
     onRowsRendered({
       startIndex: indices[0],
       stopIndex: indices[indices.length - 1],
@@ -138,30 +140,34 @@ export default class ObjectList extends React.Component<Props> {
           <AutoSizer defaultHeight={400}>
             {({ height, width }) => {
               if (this.props.view === 'icon') {
-                return (<Collection
-                  ref={registerChild}
-                  onSectionRendered={this.onSectionRendered(onRowsRendered)}
-                  onScroll={this.onScrollIcon}
-                  cellRenderer={this.renderItem}
-                  cellSizeAndPositionGetter={this.cellSizeAndPositionGetter(width)}
-                  height={height - 30}
-                  width={width - 10}
-                  cellCount={rowCount}
-                />)
+                return (
+                  <Collection
+                    ref={registerChild}
+                    onSectionRendered={this.onSectionRendered(onRowsRendered)}
+                    onScroll={this.onScrollIcon}
+                    cellRenderer={this.renderItem}
+                    cellSizeAndPositionGetter={this.cellSizeAndPositionGetter(width)}
+                    height={height - 30}
+                    width={width - 10}
+                    cellCount={rowCount}
+                  />
+                )
               } else {
-                return (<List
-                  ref={registerChild}
-                  onRowsRendered={onRowsRendered}
-                  noRowsRenderer={this.renderNoResults}
-                  onScroll={this.onScrollList}
-                  rowRenderer={this.renderItem}
-                  height={height - 30}
-                  width={width - 10}
-                  rowHeight={this.rowHeight}
-                  rowCount={rowCount}
-                  overscanRowCount={0}
-                  _forceUpdateWhenChanged={this.props.data}
-                />)
+                return (
+                  <List
+                    ref={registerChild}
+                    onRowsRendered={onRowsRendered}
+                    noRowsRenderer={this.renderNoResults}
+                    onScroll={this.onScrollList}
+                    rowRenderer={this.renderItem}
+                    height={height - 30}
+                    width={width - 10}
+                    rowHeight={this.rowHeight}
+                    rowCount={rowCount}
+                    overscanRowCount={0}
+                    _forceUpdateWhenChanged={this.props.data}
+                  />
+                )
               }
             }}
           </AutoSizer>
@@ -171,20 +177,20 @@ export default class ObjectList extends React.Component<Props> {
   }
 }
 
-export const getConfigObject = (vars: ?Object) => ({
+export const getConfigObject = (defaults: ?Object) => ({
   options: () => ({
-    // $FlowFixMe
     variables: {
       first: 100,
       after: '',
-      ...vars,
+      ...defaults,
     },
   }),
   force: true,
   props: ({ ownProps, data }: Object) => ({
     data: _.extend({}, data, {
-      loadNextPage: () => data.fetchMore({
+      loadNextPage: (variables: Object) => () => data.fetchMore({
         variables: {
+          ...variables,
           after: data.list.pageInfo.endCursor,
         },
         updateQuery: (previousResult, { fetchMoreResult }) => ({

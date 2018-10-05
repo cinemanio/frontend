@@ -3,6 +3,8 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { translate } from 'react-i18next'
 import { PropTypes } from 'prop-types'
+import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
+import { withAlert } from 'react-alert'
 import gql from 'graphql-tag'
 import _ from 'lodash'
 
@@ -14,6 +16,7 @@ import SelectGeneric from 'components/ObjectListPage/SelectGeneric/SelectGeneric
 import FieldSection from 'components/ObjectListPage/FieldSection/FieldSection'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import i18n from 'libs/i18n'
+import User from 'stores/User'
 
 import MovieShort from './MovieShort/MovieShort'
 import MovieIcon from './MovieIcon/MovieIcon'
@@ -24,6 +27,8 @@ type Props = {
   genreData: Object,
   countryData: Object,
   i18n: Object,
+  alert: Object,
+  user: typeof User,
 }
 
 type State = {
@@ -34,65 +39,27 @@ type State = {
   orderBy: string,
 }
 
+@withAlert
+@inject('user')
 @translate()
 class MoviesPage extends React.Component<Props, State> {
+  static defaultProps = {
+    user: User,
+    alert: {},
+  }
+
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,
     genreData: PropTypes.object.isRequired,
     countryData: PropTypes.object.isRequired,
+    user: MobxPropTypes.observableObject,
+    alert: PropTypes.object,
   }
 
-  static defaults = {
-    orderBy: 'relations_count__like',
-  }
+  static variables: Object
 
-  static variables = {}
-
-  static queries = {
-    movies: gql`
-      query Movies(
-        $first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String
-      ) {
-        list: movies(
-          first: $first, 
-          after: $after,
-          genres: $genres,
-          countries: $countries,
-          relation: $relation,
-          orderBy: $orderBy
-        ) {
-          totalCount
-          edges {
-            movie: node {
-              ...MovieShort
-            }
-          }
-          pageInfo {
-            endCursor
-            hasNextPage
-          }
-        }
-      }
-      ${MovieShort.fragments.movie}
-    `,
-    genres: gql`
-      query Genres {
-        list: genres {
-          id
-          ${i18n.gql('name')}
-        }
-      }
-    `,
-    countries: gql`
-      query Countries {
-        list: countries {
-          id
-          ${i18n.gql('name')}
-        }
-      }
-    `,
-  }
+  static queries: Object
 
   constructor(props: Object) {
     super(props)
@@ -101,7 +68,7 @@ class MoviesPage extends React.Component<Props, State> {
       genres: new Set([]),
       countries: new Set([]),
       view: 'short',
-      ...MoviesPage.defaults,
+      orderBy: 'relations_count__like',
     }
   }
 
@@ -119,14 +86,15 @@ class MoviesPage extends React.Component<Props, State> {
   ])
 
   getOrderByOptions = () => ([
-    { id: 'year', name: this.props.i18n.t('filter.orderBy.year') },
+    { id: '-year', name: this.props.i18n.t('filter.orderBy.new') },
+    { id: 'year', name: this.props.i18n.t('filter.orderBy.old') },
     { id: 'relations_count__like', name: this.props.i18n.t('filter.orderBy.like') },
     { id: 'relations_count__dislike', name: this.props.i18n.t('filter.orderBy.dislike') },
   ])
 
   getRelationFilterOptions = () => MovieRelations.codes.map(code => ({
     id: code,
-    [`name${_.capitalize(this.props.i18n.language)}`]: this.props.i18n.t(`filter.relation.${code}`),
+    [`name${_.capitalize(this.props.i18n.language)}`]: this.props.i18n.t(`filter.relations.${code}`),
   }))
 
   renderMovie = ({ movie }) => {
@@ -162,10 +130,16 @@ class MoviesPage extends React.Component<Props, State> {
       <FieldSection title={this.props.i18n.t('filter.sectionTitle')}>
         <SelectFilter
           code="relation"
-          title={this.props.i18n.t('filter.relation.sectionTitle')}
+          title={this.props.i18n.t('filter.relations.sectionTitle')}
           list={this.getRelationFilterOptions()}
           filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
+          setFilterState={(params) => {
+            if (this.props.user.authenticated) {
+              this.setState(params, refreshList)
+            } else {
+              this.props.alert.error(this.props.i18n.t('filter.relations.authError'))
+            }
+          }}
         />
         <SelectFilter
           code="genres"
@@ -228,9 +202,53 @@ class MoviesPage extends React.Component<Props, State> {
   }
 }
 
-const configObject = getConfigObject(MoviesPage.defaults)
-
+// static vars should be defined outside, because of @withAlert decorator
+const configObject = getConfigObject({ orderBy: 'relations_count__like' })
 MoviesPage.variables = { movies: configObject.options().variables }
+MoviesPage.queries = {
+  movies: gql`
+      query Movies(
+        $first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String
+      ) {
+        list: movies(
+          first: $first,
+          after: $after,
+          genres: $genres,
+          countries: $countries,
+          relation: $relation,
+          orderBy: $orderBy
+        ) {
+          totalCount
+          edges {
+            movie: node {
+              ...MovieShort
+            }
+          }
+          pageInfo {
+            endCursor
+            hasNextPage
+          }
+        }
+      }
+      ${MovieShort.fragments.movie}
+    `,
+  genres: gql`
+      query Genres {
+        list: genres {
+          id
+          ${i18n.gql('name')}
+        }
+      }
+    `,
+  countries: gql`
+      query Countries {
+        list: countries {
+          id
+          ${i18n.gql('name')}
+        }
+      }
+    `,
+}
 
 export default compose(
   graphql(MoviesPage.queries.genres, { name: 'genreData' }),

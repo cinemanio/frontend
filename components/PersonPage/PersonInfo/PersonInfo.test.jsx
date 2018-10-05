@@ -49,8 +49,8 @@ describe('Person Info Component', () => {
   })
 
   describe('one block only', () => {
-    Object.entries(content).map(([type, text]) =>
-      it(`should render only ${type} block`, () => {
+    Object.entries(content).map(
+      ([type, text]) => it(`should render only ${type} block`, () => {
         const person = { roles: [] }
         const newType = type.replace('dates', 'dateBirth')
         person[newType] = actress.data.person[newType]

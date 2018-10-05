@@ -9,6 +9,7 @@ import ObjectPage from 'components/ObjectPage/ObjectPage'
 import MovieImage from 'components/MovieImage/MovieImage'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import ObjectWikipedia from 'components/ObjectWikipedia/ObjectWikipedia'
+import ObjectKinopoiskInfo from 'components/ObjectKinopoiskInfo/ObjectKinopoiskInfo'
 import { getIdFromSlug } from 'components/ObjectLink/ObjectLink'
 import i18n from 'libs/i18n'
 
@@ -31,13 +32,14 @@ class MoviePage extends React.Component<Props> {
       query Movie($movieId: ID!) {
         movie(id: $movieId) {
           ${i18n.gql('title')}
-          title
+          titleOriginal
           ...MovieImage
           ...MovieInfoAll
           ...MovieSites
           ...MovieCast
           ...MovieRelations
           ...MovieWikipedia
+          ...MovieKinopoiskInfo
         }
       }
       ${MovieInfo.fragments.all}
@@ -46,10 +48,11 @@ class MoviePage extends React.Component<Props> {
       ${MovieCast.fragments.movie}
       ${MovieRelations.fragments.movie}
       ${ObjectWikipedia.fragments.movie}
-    `
+      ${ObjectKinopoiskInfo.fragments.movie}
+    `,
   }
 
-  isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.title
+  isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.titleOriginal
 
   renderLayout = (movie: Object) => (
     <div styleName="box">
@@ -57,7 +60,7 @@ class MoviePage extends React.Component<Props> {
         <MovieRelations movie={movie}/>
       </div>
       <h1>{movie[i18n.f('title')]}</h1>
-      <h2>{this.isTitlesEqual(movie) ? '' : movie.title}</h2>
+      <h2>{this.isTitlesEqual(movie) ? '' : movie.titleOriginal}</h2>
       <MovieInfo movie={movie} all/>
       <div className="row">
         <div className="col-lg-2">
@@ -70,6 +73,7 @@ class MoviePage extends React.Component<Props> {
           <MovieCast movie={movie}/>
         </div>
       </div>
+      <ObjectKinopoiskInfo object={movie}/>
       <ObjectWikipedia object={movie}/>
     </div>
   )
@@ -78,18 +82,20 @@ class MoviePage extends React.Component<Props> {
     const parts = []
     parts.push(movie[i18n.f('title')])
     if (!this.isTitlesEqual(movie)) {
-      parts.push(movie.title)
+      parts.push(movie.titleOriginal)
     }
     parts.push(movie.year)
     return parts.join(', ')
   }
 
   render() {
-    return (<ObjectPage
-      getTitle={this.getTitle}
-      object={this.props.data.movie}
-      renderLayout={this.renderLayout}
-    />)
+    return (
+      <ObjectPage
+        getTitle={this.getTitle}
+        object={this.props.data.movie}
+        renderLayout={this.renderLayout}
+      />
+    )
   }
 }
 
