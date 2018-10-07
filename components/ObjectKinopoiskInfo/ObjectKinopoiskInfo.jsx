@@ -49,9 +49,11 @@ export default class ObjectKinopoiskInfo extends React.Component<Props> {
   }
 
   render() {
-    return !this.display ? '' : (
+    return !this.display ? (
+      ''
+    ) : (
       <div styleName="box">
-        <BlockText title={this.props.i18n.t('kinopoisk.title')} content={this.content}/>
+        <BlockText title={this.props.i18n.t('kinopoisk.title')} content={this.content} />
       </div>
     )
   }

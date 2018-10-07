@@ -27,13 +27,13 @@ export default class MovieIcon extends React.Component<Props> {
       }
       ${MovieImage.fragments.movie}
       ${MovieLink.fragments.movie}
-    `
+    `,
   }
 
   render() {
     return (
       <div styleName="box">
-        <MovieImage movie={this.props.movie} type="detail"/>
+        <MovieImage movie={this.props.movie} type="detail" />
         <MovieLink movie={this.props.movie}>
           {`${this.props.movie[i18n.f('title')]} (${this.props.movie.year})`}
         </MovieLink>

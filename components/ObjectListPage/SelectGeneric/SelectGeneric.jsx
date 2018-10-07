@@ -23,7 +23,11 @@ export default class SelectGeneric extends React.PureComponent<Props> {
   }
 
   renderOptions() {
-    return this.props.list.map(item => <option key={item.id} value={item.id}>{item.name}</option>)
+    return this.props.list.map(item => (
+      <option key={item.id} value={item.id}>
+        {item.name}
+      </option>
+    ))
   }
 
   render() {

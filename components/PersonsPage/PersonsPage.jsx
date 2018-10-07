@@ -100,9 +100,9 @@ class PersonsPage extends React.Component<Props, State> {
 
   renderPerson = ({ person }) => {
     if (this.state.view === 'short') {
-      return <PersonShort person={person}/>
+      return <PersonShort person={person} />
     } else if (this.state.view === 'full') {
-      return <PersonShort person={person}/>
+      return <PersonShort person={person} />
     } else {
       throw Error('Wrong value of state.view')
     }
@@ -132,7 +132,7 @@ class PersonsPage extends React.Component<Props, State> {
           title={this.props.i18n.t('filter.relations.sectionTitle')}
           list={this.relationFilterOptions}
           filters={this.state}
-          setFilterState={(params) => {
+          setFilterState={params => {
             if (this.props.user.authenticated) {
               this.setState(params, refreshList)
             } else {
@@ -204,49 +204,49 @@ const configObject = getConfigObject({ orderBy: 'relations_count__like' })
 PersonsPage.variables = { persons: configObject.options().variables }
 PersonsPage.queries = {
   persons: gql`
-      query Persons($first: Int!, $after: String, $roles: [ID!], $country: ID, $relation: String, $orderBy: String) {
-        list: persons(
-          first: $first,
-          after: $after,
-          roles: $roles,
-          country: $country,
-          relation: $relation,
-          orderBy: $orderBy
-        ) {
-          totalCount
-          edges {
-            person: node {
-              ...PersonShort
-            }
-          }
-          pageInfo {
-            endCursor
-            hasNextPage
+    query Persons($first: Int!, $after: String, $roles: [ID!], $country: ID, $relation: String, $orderBy: String) {
+      list: persons(
+        first: $first
+        after: $after
+        roles: $roles
+        country: $country
+        relation: $relation
+        orderBy: $orderBy
+      ) {
+        totalCount
+        edges {
+          person: node {
+            ...PersonShort
           }
         }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
       }
-      ${PersonShort.fragments.person}
-    `,
+    }
+    ${PersonShort.fragments.person}
+  `,
   roles: gql`
-      query Roles {
-        list: roles {
-          id
-          ${i18n.gql('name')}
-        }
+    query Roles {
+      list: roles {
+        id
+        ${i18n.gql('name')}
       }
-    `,
+    }
+  `,
   countries: gql`
-      query Countries {
-        list: countries {
-          id
-          ${i18n.gql('name')}
-        }
+    query Countries {
+      list: countries {
+        id
+        ${i18n.gql('name')}
       }
-    `,
+    }
+  `,
 }
 
 export default compose(
   graphql(PersonsPage.queries.roles, { name: 'roleData' }),
   graphql(PersonsPage.queries.countries, { name: 'countryData' }),
-  graphql(PersonsPage.queries.persons, configObject),
+  graphql(PersonsPage.queries.persons, configObject)
 )(PersonsPage)

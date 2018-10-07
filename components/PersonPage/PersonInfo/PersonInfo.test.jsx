@@ -18,7 +18,7 @@ describe('Person Info Component', () => {
 
   describe('Genderize', () => {
     beforeAll(() => {
-      element = <PersonInfo person={actress.data.person} roles/>
+      element = <PersonInfo person={actress.data.person} roles />
     })
 
     it('should render actress instead of actor for en lang', () => {
@@ -35,33 +35,29 @@ describe('Person Info Component', () => {
   })
 
   describe('flags', () => {
-    element = <PersonInfo person={actress.data.person}/>
+    element = <PersonInfo person={actress.data.person} />
 
     describe('blocks', () => {
-      [
-        { all: true },
-        { roles: true },
-        { dates: true },
-        { country: true },
-        { roles: true, country: true },
-      ].forEach(itShouldRenderBlocks(content, element))
+      ;[{ all: true }, { roles: true }, { dates: true }, { country: true }, { roles: true, country: true }].forEach(
+        itShouldRenderBlocks(content, element)
+      )
     })
   })
 
   describe('one block only', () => {
-    Object.entries(content).map(
-      ([type, text]) => it(`should render only ${type} block`, () => {
+    Object.entries(content).map(([type, text]) =>
+      it(`should render only ${type} block`, () => {
         const person = { roles: [] }
         const newType = type.replace('dates', 'dateBirth')
         person[newType] = actress.data.person[newType]
         if (type === 'roles') {
           person.gender = 'FEMALE'
         }
-        element = <PersonInfo person={person} all/>
+        element = <PersonInfo person={person} all />
         wrapper = mount(element, mountOptions)
         expect(wrapper.find('div').children()).toHaveLength(1)
         expect(wrapper.text()).toContain(text)
-      }),
+      })
     )
   })
 })

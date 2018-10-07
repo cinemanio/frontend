@@ -41,20 +41,16 @@ export default class SignUp extends React.Component<Props> {
       <div className="auth-page">
         <div className="container page">
           <div className="row">
-
             <div className="col-md-6 offset-md-3 col-xs-12">
               <h1 className="text-xs-center">Sign Up</h1>
               <p className="text-xs-center">
-                <Link to={routes.signin}>
-                  Have an account?
-                </Link>
+                <Link to={routes.signin}>Have an account?</Link>
               </p>
 
-              <ListErrors errors={this.props.auth.errors}/>
+              <ListErrors errors={this.props.auth.errors} />
 
               <form onSubmit={this.handleSubmitForm}>
                 <fieldset>
-
                   <fieldset className="form-group">
                     <input
                       className="form-control form-control-lg"
@@ -92,11 +88,9 @@ export default class SignUp extends React.Component<Props> {
                   >
                     Sign up
                   </button>
-
                 </fieldset>
               </form>
             </div>
-
           </div>
         </div>
       </div>

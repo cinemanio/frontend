@@ -37,16 +37,17 @@ export default class ObjectListPage extends React.Component<Props, State> {
     }
   }
 
-  refreshList = () => this.props.data.fetchMore({
-    variables: this.props.getVariables(),
-    updateQuery: (previousResult, { fetchMoreResult }) => ({
-      list: {
-        totalCount: fetchMoreResult.list.totalCount,
-        edges: fetchMoreResult.list.edges,
-        pageInfo: fetchMoreResult.list.pageInfo,
-      },
-    }),
-  })
+  refreshList = () =>
+    this.props.data.fetchMore({
+      variables: this.props.getVariables(),
+      updateQuery: (previousResult, { fetchMoreResult }) => ({
+        list: {
+          totalCount: fetchMoreResult.list.totalCount,
+          edges: fetchMoreResult.list.edges,
+          pageInfo: fetchMoreResult.list.pageInfo,
+        },
+      }),
+    })
 
   updatePage = (page: number) => this.setState({ page })
 
@@ -56,23 +57,17 @@ export default class ObjectListPage extends React.Component<Props, State> {
       <div styleName="box">
         <Helmet>
           <title>{this.props.title}</title>
-          <body className="list"/>
+          <body className="list" />
         </Helmet>
         <div styleName="list">
           <div styleName="caption">
-            <Pagination page={this.state.page} data={this.props.data}/>
+            <Pagination page={this.state.page} data={this.props.data} />
             {this.props.renderActiveFilters(this.refreshList)}
           </div>
-          <ObjectList
-            updatePage={this.updatePage}
-            getVariables={this.props.getVariables}
-            {...props}
-          />
+          <ObjectList updatePage={this.updatePage} getVariables={this.props.getVariables} {...props} />
         </div>
         <div styleName="filters">
-          <div>
-            {this.props.renderFilters(this.refreshList)}
-          </div>
+          <div>{this.props.renderFilters(this.refreshList)}</div>
         </div>
       </div>
     )

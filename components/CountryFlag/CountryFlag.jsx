@@ -11,7 +11,7 @@ type Props = { country: Object }
 
 export default class CountryFlag extends React.PureComponent<Props> {
   static propTypes = {
-    country: PropTypes.object.isRequired
+    country: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -20,15 +20,12 @@ export default class CountryFlag extends React.PureComponent<Props> {
         ${i18n.gql('name')}
         code
       }
-    `
+    `,
   }
 
   render() {
     return this.props.country.code ? (
-      <i
-        className={`flag flag-${this.props.country.code}`}
-        title={this.props.country[i18n.f('name')]}
-      />
-    ) : ''
+      <i className={`flag flag-${this.props.country.code}`} title={this.props.country[i18n.f('name')]} />
+    ) : null
   }
 }

@@ -16,7 +16,7 @@ describe('Person Page Component', () => {
 
   describe('Unit', () => {
     beforeEach(async () => {
-      element = <PersonPage.WrappedComponent params={{ personId: '' }} data={response.data}/>
+      element = <PersonPage.WrappedComponent params={{ personId: '' }} data={response.data} />
       wrapper = await mountGraphql(element)
     })
 
@@ -25,8 +25,8 @@ describe('Person Page Component', () => {
 
       it('should render person name', () => expect(wrapper.find('h1').text()).toBe('David Fincher'))
       it('should not render person original name', () => expect(wrapper.find('h2').text()).toBe(''))
-      it('should render person birth and death dates', () => expect(wrapper.text())
-        .toContain('Aug 28, 1962 – Jan 28, 2100'))
+      it('should render person birth and death dates', () =>
+        expect(wrapper.text()).toContain('Aug 28, 1962 – Jan 28, 2100'))
       it('should render person country', () => expect(wrapper.text()).toContain('USA'))
       it('should render person roles', () => expect(wrapper.text()).toContain('Director'))
       it('should render role name', () => expect(wrapper.text()).toContain('Bobby'))
@@ -38,8 +38,8 @@ describe('Person Page Component', () => {
 
       it('should render person name', () => expect(wrapper.find('h1').text()).toBe('Дэвид Финчер'))
       it('should not render person original name', () => expect(wrapper.find('h2').text()).toBe('David Fincher'))
-      it('should render person birth and death dates', () => expect(wrapper.text())
-        .toContain('Авг 28, 1962 – Янв 28, 2100'))
+      it('should render person birth and death dates', () =>
+        expect(wrapper.text()).toContain('Авг 28, 1962 – Янв 28, 2100'))
       it('should render person country', () => expect(wrapper.text()).toContain('США'))
       it('should render person roles', () => expect(wrapper.text()).toContain('Режиссер'))
       it('should render role name', () => expect(wrapper.text()).toContain('Бобби'))
@@ -51,8 +51,7 @@ describe('Person Page Component', () => {
     beforeAll(() => i18nClient.changeLanguage('en'))
 
     it('should render person page', async () => {
-      wrapper = await mountGraphql(
-        <PersonPage match={{ params: { slug: response.data.person.id } }}/>, [mockPerson])
+      wrapper = await mountGraphql(<PersonPage match={{ params: { slug: response.data.person.id } }} />, [mockPerson])
       expect(wrapper.find('PersonInfo')).toHaveLength(1)
       expect(wrapper.find('PersonImage')).toHaveLength(1)
       expect(wrapper.find('ObjectWikipedia')).toHaveLength(1)
@@ -60,16 +59,21 @@ describe('Person Page Component', () => {
     })
 
     it('should render 404 page when response empty', async () => {
-      wrapper = await mountGraphql(
-        <PersonPage match={{ params: { slug: '' } }}/>,
-        [{
+      wrapper = await mountGraphql(<PersonPage match={{ params: { slug: '' } }} />, [
+        {
           request: { query: PersonPage.queries.person, variables: { personId: '' } },
           result: emptyResponse,
-        }])
+        },
+      ])
       expect(wrapper.find('Status[code=404]')).toHaveLength(1)
     })
 
-    itShouldTestObjectRelations(PersonPage, PersonRelations.fragments.relate, mockPerson,
-      response.data.person, 'You have been favorited the person David Fincher')
+    itShouldTestObjectRelations(
+      PersonPage,
+      PersonRelations.fragments.relate,
+      mockPerson,
+      response.data.person,
+      'You have been favorited the person David Fincher'
+    )
   })
 })

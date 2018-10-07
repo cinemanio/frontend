@@ -9,7 +9,7 @@ type Props = { movie: Object }
 
 export default class MovieFull extends React.PureComponent<Props> {
   static propTypes = {
-    movie: PropTypes.object.isRequired
+    movie: PropTypes.object.isRequired,
   }
 
   static fragments = {
@@ -19,15 +19,11 @@ export default class MovieFull extends React.PureComponent<Props> {
         titleEn
         year
       }
-    `
+    `,
   }
 
   get parts(): Array<string> {
-    return [
-      this.props.movie.titleEn,
-      String(this.props.movie.year),
-      this.props.movie.id
-    ]
+    return [this.props.movie.titleEn, String(this.props.movie.year), this.props.movie.id]
   }
 
   render() {

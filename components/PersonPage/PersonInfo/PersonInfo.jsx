@@ -86,34 +86,32 @@ export default class PersonInfo extends React.Component<Props> {
     return fecha.format(fecha.parse(date, 'YYYY-MM-DD'), 'mediumDate')
   }
 
-  genderizeRole = (role: string) => (this.props.person.gender === 'MALE' ? role : role
-    .replace('Actor', 'Actress')
-    .replace('Актер', 'Актриса')
-  )
+  genderizeRole = (role: string) =>
+    this.props.person.gender === 'MALE' ? role : role.replace('Actor', 'Actress').replace('Актер', 'Актриса')
 
   renderRoles() {
-    return this.props.person.roles.length === 0 ? '' : (
+    return this.props.person.roles.length === 0 ? null : (
       <span styleName={`gender-${this.props.person.gender.toLowerCase()}`}>
-        <i/>
+        <i />
         {this.props.person.roles.map(item => this.genderizeRole(item[i18n.f('name')])).join(', ')}
       </span>
     )
   }
 
   renderDates() {
-    return !this.props.person.dateBirth ? '' : (
+    return !this.props.person.dateBirth ? null : (
       <span styleName="date">
-        <i/>
+        <i />
         {this.formatDate(this.props.person.dateBirth)}
-        {!this.props.person.dateDeath ? '' : ` – ${this.formatDate(this.props.person.dateDeath)}`}
+        {!this.props.person.dateDeath ? null : ` – ${this.formatDate(this.props.person.dateDeath)}`}
       </span>
     )
   }
 
   renderCountry() {
-    return !this.props.person.country ? '' : (
+    return !this.props.person.country ? null : (
       <span styleName="country">
-        <CountryFlag country={this.props.person.country}/>
+        <CountryFlag country={this.props.person.country} />
         {this.props.person.country[i18n.f('name')]}
       </span>
     )

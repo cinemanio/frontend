@@ -12,7 +12,7 @@ import response from './fixtures/response.json'
 import invalidCredentials from './fixtures/invalid_credentials.json'
 
 describe('SignIn Component', () => {
-  const element = <SignIn/>
+  const element = <SignIn />
   let wrapper
 
   describe('Unit', () => {
@@ -71,7 +71,7 @@ describe('SignIn Component', () => {
       // expect(wrapper.find('button').prop('disabled')).toBe(false)
     })
 
-    it('should submit form with mutation and populate token store', async (done) => {
+    it('should submit form with mutation and populate token store', async done => {
       wrapper = await mountGraphql(element, [mockSignIn])
       setUsername(wrapper)
       setPassword(wrapper)
@@ -86,7 +86,7 @@ describe('SignIn Component', () => {
       })
     })
 
-    xit('should clear apollo cache after successful signin', async (done) => {
+    xit('should clear apollo cache after successful signin', async done => {
       const client = { resetStore: jest.fn() }
       wrapper = await mountGraphql(element, [mockSignIn])
 
@@ -102,11 +102,13 @@ describe('SignIn Component', () => {
       })
     })
 
-    it('should render display error when mutation failed', async (done) => {
-      wrapper = await mountGraphql(element, [{
-        ...mockSignIn,
-        result: invalidCredentials,
-      }])
+    it('should render display error when mutation failed', async done => {
+      wrapper = await mountGraphql(element, [
+        {
+          ...mockSignIn,
+          result: invalidCredentials,
+        },
+      ])
       signIn(wrapper)
       setTimeout(() => {
         expect(wrapper.text()).toContain('Please, enter valid credentials')

@@ -10,24 +10,34 @@ import responseOnlyDirector from '../fixtures/response_only_director.json'
 describe('Movie Cast Component', () => {
   let element
   let wrapper
-  const getRole = (block, position) => wrapper.find('Block').at(block).find('PersonLink').at((position * 2) + 1)
-    .parents()
-    .at(0)
-    .children()
-    .at(1)
-    .text()
+  const getRole = (block, position) =>
+    wrapper
+      .find('Block')
+      .at(block)
+      .find('PersonLink')
+      .at(position * 2 + 1)
+      .parents()
+      .at(0)
+      .children()
+      .at(1)
+      .text()
+  const getImages = block =>
+    wrapper
+      .find('Block')
+      .at(block)
+      .find('PersonImage')
 
   beforeEach(() => {
     i18nClient.changeLanguage('en')
-    element = <MovieCast movie={data.movie}/>
+    element = <MovieCast movie={data.movie} />
     wrapper = mountRouter(element)
   })
 
   it('should render 3 blocks with roles in each', () => {
     expect(wrapper.find('Block')).toHaveLength(3)
-    expect(wrapper.find('Block').at(0).find('PersonImage')).toHaveLength(5)
-    expect(wrapper.find('Block').at(1).find('PersonImage')).toHaveLength(6)
-    expect(wrapper.find('Block').at(2).find('PersonImage')).toHaveLength(1)
+    expect(getImages(0)).toHaveLength(5)
+    expect(getImages(1)).toHaveLength(6)
+    expect(getImages(2)).toHaveLength(1)
   })
 
   it('should render creators sorted', () => {
@@ -39,7 +49,7 @@ describe('Movie Cast Component', () => {
   })
 
   it('should render 1 block if only creators in roles', () => {
-    element = <MovieCast movie={responseOnlyDirector.data.movie}/>
+    element = <MovieCast movie={responseOnlyDirector.data.movie} />
     wrapper = mountRouter(element)
     expect(wrapper.find('Block')).toHaveLength(1)
   })

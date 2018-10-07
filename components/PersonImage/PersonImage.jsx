@@ -13,7 +13,7 @@ type Props = { person: Object, type: string }
 export default class PersonImage extends React.Component<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired,
-    type: PropTypes.string.isRequired
+    type: PropTypes.string.isRequired,
   }
 
   static fragments = {
@@ -23,7 +23,7 @@ export default class PersonImage extends React.Component<Props> {
         ...PersonLink
       }
       ${PersonLink.fragments.person}
-    `
+    `,
   }
 
   render() {

@@ -63,10 +63,7 @@ export default class ObjectList extends React.Component<Props> {
    * Pass an empty callback to InfiniteLoader in case it asks us to load more than once.
    */
   get loadMoreItems(): Function {
-    return this.props.data.loading
-      ? () => {
-      }
-      : this.props.data.loadNextPage(this.props.getVariables())
+    return this.props.data.loading ? () => {} : this.props.data.loadNextPage(this.props.getVariables())
   }
 
   /**
@@ -85,8 +82,7 @@ export default class ObjectList extends React.Component<Props> {
 
   onScrollList = ({ clientHeight, scrollTop }: Object) => {
     const margin = 20
-    const page = Math.ceil(scrollTop / this.rowHeight) + Math.floor((clientHeight + margin)
-      / this.rowHeight)
+    const page = Math.ceil(scrollTop / this.rowHeight) + Math.floor((clientHeight + margin) / this.rowHeight)
     this.props.updatePage(page)
   }
 
@@ -114,9 +110,7 @@ export default class ObjectList extends React.Component<Props> {
    * @param style
    */
   renderItem = ({ index, key, style }: Object) => {
-    const content = this.isItemLoaded({ index })
-      ? this.props.renderItem(this.list[index])
-      : 'Loading...'
+    const content = this.isItemLoaded({ index }) ? this.props.renderItem(this.list[index]) : 'Loading...'
     return (
       <div key={key} style={style}>
         {content}
@@ -126,16 +120,10 @@ export default class ObjectList extends React.Component<Props> {
 
   render() {
     // If there are more items to be loaded then add an extra row to hold a loading indicator.
-    const rowCount = this.hasNextPage
-      ? this.list.length + 1
-      : this.list.length
+    const rowCount = this.hasNextPage ? this.list.length + 1 : this.list.length
 
     return (
-      <InfiniteLoader
-        isRowLoaded={this.isItemLoaded}
-        loadMoreRows={this.loadMoreItems}
-        rowCount={rowCount}
-      >
+      <InfiniteLoader isRowLoaded={this.isItemLoaded} loadMoreRows={this.loadMoreItems} rowCount={rowCount}>
         {({ onRowsRendered, registerChild }) => (
           <AutoSizer defaultHeight={400}>
             {({ height, width }) => {
@@ -188,21 +176,22 @@ export const getConfigObject = (defaults: ?Object) => ({
   force: true,
   props: ({ ownProps, data }: Object) => ({
     data: _.extend({}, data, {
-      loadNextPage: (variables: Object) => () => data.fetchMore({
-        variables: {
-          ...variables,
-          after: data.list.pageInfo.endCursor,
-        },
-        updateQuery: (previousResult, { fetchMoreResult }) => ({
-          // By returning `cursor` here, we update the `loadMore` function
-          // to the new cursor.
-          list: {
-            totalCount: fetchMoreResult.list.totalCount,
-            edges: [...previousResult.list.edges, ...fetchMoreResult.list.edges],
-            pageInfo: fetchMoreResult.list.pageInfo,
+      loadNextPage: (variables: Object) => () =>
+        data.fetchMore({
+          variables: {
+            ...variables,
+            after: data.list.pageInfo.endCursor,
           },
+          updateQuery: (previousResult, { fetchMoreResult }) => ({
+            // By returning `cursor` here, we update the `loadMore` function
+            // to the new cursor.
+            list: {
+              totalCount: fetchMoreResult.list.totalCount,
+              edges: [...previousResult.list.edges, ...fetchMoreResult.list.edges],
+              pageInfo: fetchMoreResult.list.pageInfo,
+            },
+          }),
         }),
-      }),
     }),
   }),
 })

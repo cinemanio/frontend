@@ -48,7 +48,7 @@ export default class MovieSites extends React.Component<Props> {
 
   renderImdb() {
     const site = this.props.movie.imdb
-    return !site ? '' : (
+    return !site ? null : (
       <li>
         <a href={site.url}>IMDb</a>
         {site.rating ? <span title={this.props.i18n.t('movie.sites.imdbRating')}>{site.rating}</span> : ''}
@@ -58,7 +58,7 @@ export default class MovieSites extends React.Component<Props> {
 
   renderKinopoisk() {
     const site = this.props.movie.kinopoisk
-    return !site ? '' : (
+    return !site ? null : (
       <li>
         <a href={site.url}>{this.props.i18n.t('movie.sites.kinopoisk')}</a>
         {site.rating ? <span title={this.props.i18n.t('movie.sites.kinopoiskRating')}>{site.rating}</span> : ''}
@@ -68,9 +68,13 @@ export default class MovieSites extends React.Component<Props> {
 
   renderWikipedia() {
     const sites = this.props.movie.wikipedia.edges
-    return !sites ? '' : sites.map(({ node: site }) => (
-      <li key={site.lang}><a href={site.url}>{`${site.lang}.wikipedia.org`}</a></li>
-    ))
+    return !sites
+      ? null
+      : sites.map(({ node: site }) => (
+          <li key={site.lang}>
+            <a href={site.url}>{`${site.lang}.wikipedia.org`}</a>
+          </li>
+        ))
   }
 
   render() {

@@ -21,15 +21,9 @@ export default class BlockText extends React.PureComponent<Props, State> {
 
   static propTypes = {
     i18n: PropTypes.object,
-    title: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node,
-    ]).isRequired,
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     content: PropTypes.string.isRequired,
-    children: PropTypes.oneOfType([
-      PropTypes.node,
-      PropTypes.func,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   }
 
   static symbolsLimit: number = 500
@@ -38,7 +32,6 @@ export default class BlockText extends React.PureComponent<Props, State> {
     super(props)
     this.state = { full: false }
   }
-
 
   get content(): string {
     if (this.props.content && !this.state.full) {
@@ -54,25 +47,25 @@ export default class BlockText extends React.PureComponent<Props, State> {
   }
 
   renderMore() {
-    return (this.state.full || this.content.length < BlockText.symbolsLimit) ? ''
-      : (
-        <button type="button" styleName="more" onClick={this.display(true)}>
-          {this.props.i18n.t('block.displayMore')}
-        </button>
-      )
+    return this.state.full || this.content.length < BlockText.symbolsLimit ? null : (
+      <button type="button" styleName="more" onClick={this.display(true)}>
+        {this.props.i18n.t('block.displayMore')}
+      </button>
+    )
   }
 
   renderTitle() {
     const { title } = this.props
-    return !this.state.full ? title
-      : (
-        <div>
-          {title}
-          <button type="button" styleName="hide" onClick={this.display(false)}>
-            {this.props.i18n.t('block.displayLess')}
-          </button>
-        </div>
-      )
+    return !this.state.full ? (
+      title
+    ) : (
+      <div>
+        {title}
+        <button type="button" styleName="hide" onClick={this.display(false)}>
+          {this.props.i18n.t('block.displayLess')}
+        </button>
+      </div>
+    )
   }
 
   renderContent() {
