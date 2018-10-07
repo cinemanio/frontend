@@ -40,16 +40,14 @@ export default class PersonShort extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
-        <PersonImage person={this.props.person} type="short_card"/>
+        <PersonImage person={this.props.person} type="short_card" />
         <div styleName="right">
           <div styleName="relations">
-            <PersonRelations person={this.props.person} displayCounts={false}/>
+            <PersonRelations person={this.props.person} displayCounts={false} />
           </div>
-          <PersonLink person={this.props.person}>
-            {this.props.person[i18n.f('name')]}
-          </PersonLink>
-          <div styleName="subtitle">{this.isNamesEqual(this.props.person) ? '' : this.props.person.nameEn}</div>
-          <PersonInfo person={this.props.person} roles/>
+          <PersonLink person={this.props.person}>{this.props.person[i18n.f('name')]}</PersonLink>
+          <div styleName="subtitle">{this.isNamesEqual(this.props.person) ? null : this.props.person.nameEn}</div>
+          <PersonInfo person={this.props.person} roles />
         </div>
       </div>
     )

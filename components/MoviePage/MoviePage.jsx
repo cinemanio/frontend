@@ -57,24 +57,24 @@ class MoviePage extends React.Component<Props> {
   renderLayout = (movie: Object) => (
     <div styleName="box">
       <div styleName="relations">
-        <MovieRelations movie={movie}/>
+        <MovieRelations movie={movie} />
       </div>
       <h1>{movie[i18n.f('title')]}</h1>
-      <h2>{this.isTitlesEqual(movie) ? '' : movie.titleOriginal}</h2>
-      <MovieInfo movie={movie} all/>
+      <h2>{this.isTitlesEqual(movie) ? null : movie.titleOriginal}</h2>
+      <MovieInfo movie={movie} all />
       <div className="row">
         <div className="col-lg-2">
           <div styleName="image">
-            <MovieImage movie={movie} type="detail"/>
+            <MovieImage movie={movie} type="detail" />
           </div>
-          <MovieSites movie={movie}/>
+          <MovieSites movie={movie} />
         </div>
         <div className="col-lg-10">
-          <MovieCast movie={movie}/>
+          <MovieCast movie={movie} />
         </div>
       </div>
-      <ObjectKinopoiskInfo object={movie}/>
-      <ObjectWikipedia object={movie}/>
+      <ObjectKinopoiskInfo object={movie} />
+      <ObjectWikipedia object={movie} />
     </div>
   )
 
@@ -89,18 +89,16 @@ class MoviePage extends React.Component<Props> {
   }
 
   render() {
-    return (
-      <ObjectPage
-        getTitle={this.getTitle}
-        object={this.props.data.movie}
-        renderLayout={this.renderLayout}
-      />
-    )
+    return <ObjectPage getTitle={this.getTitle} object={this.props.data.movie} renderLayout={this.renderLayout} />
   }
 }
 
 const configObject = {
-  options: ({ match: { params: { slug } } }: Object) => ({
+  options: ({
+    match: {
+      params: { slug },
+    },
+  }: Object) => ({
     variables: {
       movieId: getIdFromSlug(slug),
     },

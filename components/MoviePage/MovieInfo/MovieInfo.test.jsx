@@ -18,10 +18,10 @@ describe('Movie Info Component', () => {
   }
 
   describe('flags', () => {
-    element = <MovieInfo movie={response.data.movie}/>
+    element = <MovieInfo movie={response.data.movie} />
 
     describe('blocks', () => {
-      [
+      ;[
         { all: true },
         { year: true },
         { genres: true },
@@ -34,15 +34,15 @@ describe('Movie Info Component', () => {
   })
 
   describe('one block only', () => {
-    Object.entries(content).map(
-      ([type, text]) => it(`should render only ${type} block`, () => {
+    Object.entries(content).map(([type, text]) =>
+      it(`should render only ${type} block`, () => {
         const movie = { genres: [], countries: [], languages: [] }
         movie[type] = response.data.movie[type]
-        element = <MovieInfo movie={movie} all/>
+        element = <MovieInfo movie={movie} all />
         wrapper = mount(element, mountOptions)
         expect(wrapper.find('div').children()).toHaveLength(1)
         expect(wrapper.text()).toContain(text)
-      }),
+      })
     )
   })
 })

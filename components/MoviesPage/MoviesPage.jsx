@@ -80,28 +80,29 @@ class MoviesPage extends React.Component<Props, State> {
     orderBy: this.state.orderBy,
   })
 
-  getViewOptions = () => ([
+  getViewOptions = () => [
     { id: 'short', name: this.props.i18n.t('filter.view.short') },
     // { id: 'full', name: this.props.i18n.t('filter.view.full') },
-  ])
+  ]
 
-  getOrderByOptions = () => ([
+  getOrderByOptions = () => [
     { id: '-year', name: this.props.i18n.t('filter.orderBy.new') },
     { id: 'year', name: this.props.i18n.t('filter.orderBy.old') },
     { id: 'relations_count__like', name: this.props.i18n.t('filter.orderBy.like') },
     { id: 'relations_count__dislike', name: this.props.i18n.t('filter.orderBy.dislike') },
-  ])
+  ]
 
-  getRelationFilterOptions = () => MovieRelations.codes.map(code => ({
-    id: code,
-    [`name${_.capitalize(this.props.i18n.language)}`]: this.props.i18n.t(`filter.relations.${code}`),
-  }))
+  getRelationFilterOptions = () =>
+    MovieRelations.codes.map(code => ({
+      id: code,
+      [`name${_.capitalize(this.props.i18n.language)}`]: this.props.i18n.t(`filter.relations.${code}`),
+    }))
 
   renderMovie = ({ movie }) => {
     if (this.state.view === 'short') {
-      return <MovieShort movie={movie}/>
+      return <MovieShort movie={movie} />
     } else if (this.state.view === 'full') {
-      return <MovieFull movie={movie}/>
+      return <MovieFull movie={movie} />
     } else {
       throw Error('Wrong value of state.view')
     }
@@ -131,7 +132,7 @@ class MoviesPage extends React.Component<Props, State> {
           title={this.props.i18n.t('filter.relations.sectionTitle')}
           list={this.getRelationFilterOptions()}
           filters={this.state}
-          setFilterState={(params) => {
+          setFilterState={params => {
             if (this.props.user.authenticated) {
               this.setState(params, refreshList)
             } else {
@@ -205,51 +206,49 @@ const configObject = getConfigObject({ orderBy: 'relations_count__like' })
 MoviesPage.variables = { movies: configObject.options().variables }
 MoviesPage.queries = {
   movies: gql`
-      query Movies(
-        $first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String
+    query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String) {
+      list: movies(
+        first: $first
+        after: $after
+        genres: $genres
+        countries: $countries
+        relation: $relation
+        orderBy: $orderBy
       ) {
-        list: movies(
-          first: $first,
-          after: $after,
-          genres: $genres,
-          countries: $countries,
-          relation: $relation,
-          orderBy: $orderBy
-        ) {
-          totalCount
-          edges {
-            movie: node {
-              ...MovieShort
-            }
-          }
-          pageInfo {
-            endCursor
-            hasNextPage
+        totalCount
+        edges {
+          movie: node {
+            ...MovieShort
           }
         }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
       }
-      ${MovieShort.fragments.movie}
-    `,
+    }
+    ${MovieShort.fragments.movie}
+  `,
   genres: gql`
-      query Genres {
-        list: genres {
-          id
-          ${i18n.gql('name')}
-        }
+    query Genres {
+      list: genres {
+        id
+        ${i18n.gql('name')}
       }
-    `,
+    }
+  `,
   countries: gql`
-      query Countries {
-        list: countries {
-          id
-          ${i18n.gql('name')}
-        }
+    query Countries {
+      list: countries {
+        id
+        ${i18n.gql('name')}
       }
-    `,
+    }
+  `,
 }
 
 export default compose(
   graphql(MoviesPage.queries.genres, { name: 'genreData' }),
   graphql(MoviesPage.queries.countries, { name: 'countryData' }),
-  graphql(MoviesPage.queries.movies, configObject),
+  graphql(MoviesPage.queries.movies, configObject)
 )(MoviesPage)

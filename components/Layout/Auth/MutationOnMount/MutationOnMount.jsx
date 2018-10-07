@@ -18,7 +18,7 @@ export default class MutationOnMount extends React.PureComponent<{ children: Fun
       <Mutation {...other}>
         {(mutate, feedback) => (
           <React.Fragment>
-            <DoMutation mutate={mutate}/>
+            <DoMutation mutate={mutate} />
             {children && children(mutate, feedback)}
           </React.Fragment>
         )}

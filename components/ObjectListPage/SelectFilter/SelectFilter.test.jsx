@@ -24,7 +24,12 @@ describe('Select Filter Component', () => {
   it('should render select and all unselected options', () => {
     expect(wrapper.find('select')).toHaveLength(1)
     expect(wrapper.find('option')).toHaveLength(2)
-    expect(wrapper.find('option').at(0).text()).toBe('Name')
+    expect(
+      wrapper
+        .find('option')
+        .at(0)
+        .text()
+    ).toBe('Name')
     expect(wrapper.find('select').prop('value')).toBe('')
   })
 

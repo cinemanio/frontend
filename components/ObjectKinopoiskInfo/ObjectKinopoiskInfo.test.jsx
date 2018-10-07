@@ -12,7 +12,7 @@ describe('ObjectKinopoiskInfo Component', () => {
   let wrapper
 
   beforeEach(() => {
-    element = <ObjectKinopoiskInfo object={movieResponse.data.movie}/>
+    element = <ObjectKinopoiskInfo object={movieResponse.data.movie} />
     wrapper = mount(element, mountOptions)
   })
 
@@ -31,14 +31,14 @@ describe('ObjectKinopoiskInfo Component', () => {
   it('should not render block if no kinopoisk', () => {
     const movie = { ...movieResponse.data.movie }
     delete movie.kinopoisk
-    wrapper = mount(<ObjectKinopoiskInfo object={movie}/>, mountOptions)
+    wrapper = mount(<ObjectKinopoiskInfo object={movie} />, mountOptions)
     expect(wrapper.find('Block')).toHaveLength(0)
   })
 
   it('should not render block if no kinopoisk info', () => {
     const movie = { ...movieResponse.data.movie }
     movie.kinopoisk.info = ''
-    wrapper = mount(<ObjectKinopoiskInfo object={movie}/>, mountOptions)
+    wrapper = mount(<ObjectKinopoiskInfo object={movie} />, mountOptions)
     expect(wrapper.find('Block')).toHaveLength(0)
   })
 })

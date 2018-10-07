@@ -15,7 +15,7 @@ describe('Auth Component', () => {
   beforeAll(() => i18nClient.changeLanguage('en'))
 
   describe('GraphQL', () => {
-    element = <Auth/>
+    element = <Auth />
 
     beforeEach(() => {
       global.console.warn = jest.fn()

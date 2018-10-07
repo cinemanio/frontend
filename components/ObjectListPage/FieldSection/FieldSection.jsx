@@ -9,10 +9,7 @@ type Props = {
 
 export default class FieldSection extends React.PureComponent<Props> {
   static propTypes = {
-    children: PropTypes.oneOfType([
-      PropTypes.node,
-      PropTypes.array,
-    ]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.array]).isRequired,
     title: PropTypes.string.isRequired,
   }
 

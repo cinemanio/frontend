@@ -17,7 +17,7 @@ import moviesResponse from 'components/MoviesPage/fixtures/response.json'
 import App from './App'
 
 describe('App Component', () => {
-  const element = <App lang="en"/>
+  const element = <App lang="en" />
   let wrapper
 
   beforeAll(mockAutoSizer)
@@ -34,10 +34,13 @@ describe('App Component', () => {
       const mockFirstMovie = getMockMovie(moviesResponse.data.list.edges[0].movie.id)
       // mockFirstMovie.request.variables.movieId = moviesResponse.data.list.edges[0].movie.id
       // mockFirstMovie.result.data.movie.id = moviesResponse.data.list.edges[0].movie.id
-      wrapper = await mountGraphql(element, [mockMovies, mockCountries, mockGenres, mockFirstMovie],
-        [routes.movie.list])
+      wrapper = await mountGraphql(element, [mockMovies, mockCountries, mockGenres, mockFirstMovie], [routes.movie.list])
       expect(wrapper.find('MoviesPage')).toHaveLength(1)
-      wrapper.find('MovieLink').find('a').first().simulate('click', { button: 0 })
+      wrapper
+        .find('MovieLink')
+        .find('a')
+        .first()
+        .simulate('click', { button: 0 })
       expect(wrapper.find('MoviePage')).toHaveLength(1)
       // TODO: fix rendering movie content
       // console.log(wrapper.debug())
@@ -47,19 +50,26 @@ describe('App Component', () => {
 
     it('should navigate from movie page to person page and back to movie', async () => {
       const mockMoviePerson = getMockPerson('UGVyc29uTm9kZTozMTMy')
-      wrapper = await mountGraphql(element, [mockMovie, mockMoviePerson],
-        [routes.movie.getDetail(mockMovie.result.data.movie.id)])
+      wrapper = await mountGraphql(
+        element,
+        [mockMovie, mockMoviePerson],
+        [routes.movie.getDetail(mockMovie.result.data.movie.id)]
+      )
       expect(wrapper.find('MoviePage')).toHaveLength(1)
-      wrapper.find('PersonLink').find('a').first().simulate('click', { button: 0 })
+      wrapper
+        .find('PersonLink')
+        .find('a')
+        .first()
+        .simulate('click', { button: 0 })
       expect(wrapper.find('PersonPage')).toHaveLength(1)
       // TODO: fix rendering person content
       // wrapper.find('MovieLink').find('a').first().simulate('click', { button: 0 })
     })
 
-    it('should render default page, sign in, show loader, redirect back and check signed username', async (done) => {
+    it('should render default page, sign in, show loader, redirect back and check signed username', async done => {
       const element1 = (
         <ApolloConsumer>
-          {(client) => {
+          {client => {
             // eslint-disable-next-line no-param-reassign
             client.resetStore = jest.fn()
             return element
@@ -67,9 +77,17 @@ describe('App Component', () => {
         </ApolloConsumer>
       )
       wrapper = await mountGraphql(element1, [mockSignIn, mockMovies, mockCountries, mockGenres, mockAuthToken])
-      expect(wrapper.find('Auth').find('a').text()).toContain('sign in')
+      expect(
+        wrapper
+          .find('Auth')
+          .find('a')
+          .text()
+      ).toContain('sign in')
       expect(wrapper.find('SignIn')).toHaveLength(0)
-      wrapper.find('Auth').find('a').simulate('click', { button: 0 })
+      wrapper
+        .find('Auth')
+        .find('a')
+        .simulate('click', { button: 0 })
       expect(wrapper.find('SignIn')).toHaveLength(1)
       expect(wrapper.find(Loader)).toHaveLength(0)
       signIn(wrapper)
@@ -80,7 +98,12 @@ describe('App Component', () => {
         expect(wrapper.find(Loader)).toHaveLength(0)
         setTimeout(() => {
           wrapper.update()
-          expect(wrapper.find('Auth').find('a').text()).toContain('logout')
+          expect(
+            wrapper
+              .find('Auth')
+              .find('a')
+              .text()
+          ).toContain('logout')
           done()
         }, 10)
       }, 10)

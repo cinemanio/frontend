@@ -57,7 +57,7 @@ export default class ActiveFilters extends React.Component<Props> {
     return this.active.map((filter: string) => (
       <span key={filter} styleName="box" onClick={this.notFilterBy(filter)}>
         {this.getFilterName(filter)}
-        <i/>
+        <i />
       </span>
     ))
   }

@@ -3,6 +3,11 @@ parser: babel-eslint
 
 extends:
 - airbnb
+- prettier
+- prettier/flowtype
+- prettier/react
+- prettier/standard
+- prettier/unicorn
 - plugin:flowtype/recommended
 - plugin:import/recommended
 - plugin:jsx-a11y/recommended
@@ -36,7 +41,7 @@ rules:
   ### Stylistic issues
   id-length: [error, {min: 2, exceptions: [_, e, i, d, j, k, v, s, q], properties: never}]
   max-len: [error, 121, 2, {ignoreUrls: true}]
-  indent: [error, 2, {FunctionDeclaration: {parameters: first}}]
+  indent: [warn, 2, {FunctionDeclaration: {parameters: first}}]
   spaced-comment: off
   #  object-curly-spacing: off
   #  quotes: off
@@ -67,7 +72,7 @@ rules:
 
   ### React
   jsx-quotes: [warn, prefer-double]
-  react/jsx-indent: [error, 2]
+  react/jsx-indent: [warn, 2]
   react/jsx-boolean-value: warn
   react/jsx-curly-spacing: warn
   react/jsx-indent-props: off

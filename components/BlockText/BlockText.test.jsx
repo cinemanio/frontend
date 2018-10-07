@@ -22,7 +22,7 @@ describe('BlockText Component', () => {
   })
 
   it('should render title and content', () => {
-    element = <BlockText title={title} content={contentSmall}/>
+    element = <BlockText title={title} content={contentSmall} />
     wrapper = mount(element, mountOptions)
     expect(wrapper.text()).toContain(title)
     expect(wrapper.text()).toContain(contentSmall)
@@ -30,7 +30,7 @@ describe('BlockText Component', () => {
   })
 
   it('should cut content and render more button', () => {
-    element = <BlockText title={title} content={contentBig}/>
+    element = <BlockText title={title} content={contentBig} />
     wrapper = mount(element, mountOptions)
     expect(wrapper.text()).toContain(title)
     expect(wrapper.text()).not.toContain(contentBig)
@@ -38,7 +38,11 @@ describe('BlockText Component', () => {
   })
 
   it('should cut content and render more button with special renderer in children prop', () => {
-    element = <BlockText title={title} content={contentBig}>{text => text}</BlockText>
+    element = (
+      <BlockText title={title} content={contentBig}>
+        {text => text}
+      </BlockText>
+    )
     wrapper = mount(element, mountOptions)
     expect(wrapper.text()).toContain(title)
     expect(wrapper.text()).not.toContain(contentBig)

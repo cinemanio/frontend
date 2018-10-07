@@ -12,7 +12,7 @@ describe('ObjectWikipedia Component', () => {
   let wrapper
 
   beforeEach(() => {
-    element = (<ObjectWikipedia object={movieResponse.data.movie}/>)
+    element = <ObjectWikipedia object={movieResponse.data.movie} />
     wrapper = mount(element, mountOptions)
   })
 

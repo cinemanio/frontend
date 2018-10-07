@@ -70,12 +70,12 @@ export default class PersonCast extends React.Component<Props> {
   renderCareer(): Array<React.Fragment> {
     return this.aggregatedCareerEdges.map(({ node }) => (
       <div key={node.id} styleName="movie">
-        <div styleName="image"><MovieImage movie={node.movie} type="icon"/></div>
+        <div styleName="image">
+          <MovieImage movie={node.movie} type="icon" />
+        </div>
         <div>
           <div styleName="title">
-            <MovieLink movie={node.movie}>
-              {node.movie[i18n.f('title')]}
-            </MovieLink>
+            <MovieLink movie={node.movie}>{node.movie[i18n.f('title')]}</MovieLink>
             {`(${node.movie.year})`}
           </div>
           <div>{node.roles.join(', ')}</div>
@@ -88,9 +88,7 @@ export default class PersonCast extends React.Component<Props> {
     return (
       <div styleName="box">
         <Block title={this.props.i18n.t('person.career.title')}>
-          <div styleName="career">
-            {this.renderCareer()}
-          </div>
+          <div styleName="career">{this.renderCareer()}</div>
         </Block>
       </div>
     )
