@@ -39,7 +39,7 @@ rules:
   no-underscore-dangle: [error, {allowAfterThis: true}]
 
   ### Stylistic issues
-  id-length: [error, {min: 2, exceptions: [_, e, i, d, j, k, v, s, q], properties: never}]
+  id-length: [error, {min: 2, exceptions: [_, e, i, d, j, k, v, s, q, x, y], properties: never}]
   max-len: [error, 121, 2, {ignoreUrls: true}]
   indent: [warn, 2, {FunctionDeclaration: {parameters: first}}]
   spaced-comment: off
@@ -55,7 +55,7 @@ rules:
   ### Brackets
   brackets/array-bracket-newline: error
   brackets/conditional-parens-newline: error
-  brackets/object-curly-newline: error
+  brackets/object-curly-newline: [error, {consistent: true}]
   brackets/call-parens-newline: off
   brackets/func-parens-newline: off
 

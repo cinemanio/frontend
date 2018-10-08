@@ -19,6 +19,7 @@ import i18n from 'libs/i18n'
 import User from 'stores/User'
 
 import MovieShort from './MovieShort/MovieShort'
+import MovieIcon from './MovieIcon/MovieIcon'
 import MovieFull from './MovieFull/MovieFull'
 
 type Props = {
@@ -34,7 +35,7 @@ type State = {
   relation: ?string,
   genres: Set<string>,
   countries: Set<string>,
-  view: 'short' | 'full',
+  view: 'image' | 'short' | 'full',
   orderBy: string,
 }
 
@@ -71,8 +72,6 @@ class MoviesPage extends React.Component<Props, State> {
     }
   }
 
-  rowHeight: number = 80
-
   getVariables = () => ({
     relation: this.state.relation,
     genres: [...this.state.genres],
@@ -81,6 +80,7 @@ class MoviesPage extends React.Component<Props, State> {
   })
 
   getViewOptions = () => [
+    { id: 'image', name: this.props.i18n.t('filter.view.poster') },
     { id: 'short', name: this.props.i18n.t('filter.view.short') },
     // { id: 'full', name: this.props.i18n.t('filter.view.full') },
   ]
@@ -99,7 +99,9 @@ class MoviesPage extends React.Component<Props, State> {
     }))
 
   renderMovie = ({ movie }) => {
-    if (this.state.view === 'short') {
+    if (this.state.view === 'image') {
+      return <MovieIcon movie={movie} />
+    } else if (this.state.view === 'short') {
       return <MovieShort movie={movie} />
     } else if (this.state.view === 'full') {
       return <MovieFull movie={movie} />
@@ -195,7 +197,7 @@ class MoviesPage extends React.Component<Props, State> {
         renderItem={this.renderMovie}
         getVariables={this.getVariables}
         data={this.props.data}
-        rowHeight={this.rowHeight}
+        view={this.state.view}
       />
     )
   }

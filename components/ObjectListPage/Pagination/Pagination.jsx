@@ -15,10 +15,14 @@ export default class Pagination extends React.PureComponent<Props> {
     page: PropTypes.number.isRequired,
   }
 
+  get page(): number {
+    return this.props.page < this.props.data.list.totalCount ? this.props.page : this.props.data.list.totalCount
+  }
+
   render() {
     return this.props.data.loading || !this.props.data.list ? null : (
       <span styleName="box">
-        {this.props.page} / {this.props.data.list.totalCount}
+        {this.page} / {this.props.data.list.totalCount}
       </span>
     )
   }

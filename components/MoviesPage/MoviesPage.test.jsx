@@ -35,7 +35,7 @@ describe('Movies Page Component', () => {
 
     it('should render select filters', () => {
       expect(wrapper.find('SelectGeneric')).toHaveLength(2)
-      expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(1)
+      expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(2)
       expect(wrapper.find('SelectGeneric[code="orderBy"]').find('option')).toHaveLength(4)
       expect(wrapper.find('SelectFilter')).toHaveLength(3)
       expect(wrapper.find('SelectFilter[code="relation"]').find('option')).toHaveLength(MovieRelations.codes.length + 1)
@@ -77,6 +77,16 @@ describe('Movies Page Component', () => {
       expect(wrapper.find('MovieShort').length).toBeGreaterThan(0)
       expect(wrapper.find('SelectFilter[code="genres"]').find('option').length).toBeGreaterThan(1)
       expect(wrapper.find('SelectFilter[code="countries"]').find('option').length).toBeGreaterThan(1)
+    })
+
+    it('should render movies posters', async done => {
+      wrapper = await mountGraphql(
+        <MoviesPage />,
+        mocks.concat([mockWithParams({ relation: null, genres: [], countries: [] })])
+      )
+      selectFilterChange(wrapper, 'SelectGeneric[code="view"]', 'image')
+      expect(wrapper.find('MovieIcon').length).toBeGreaterThan(0)
+      setTimeout(() => done())
     })
 
     it('should render message if no results in response', async () => {

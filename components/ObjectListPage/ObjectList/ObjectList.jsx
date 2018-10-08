@@ -1,30 +1,29 @@
 // @flow
 import React from 'react'
-import { AutoSizer, InfiniteLoader, List } from 'react-virtualized'
+import { AutoSizer, InfiniteLoader } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
 import _ from 'lodash'
+
+import ObjectListCell from './ObjectListCell/ObjectListCell'
+import ObjectListRow from './ObjectListRow/ObjectListRow'
 
 type Props = {
   noResultsMessage: string,
   renderItem: Function,
   getVariables: Function,
   data: Object,
-  onScroll?: Function,
-  rowHeight: number,
+  updatePage: Function,
+  view: string,
 }
 
 export default class ObjectList extends React.Component<Props> {
-  static defaultProps = {
-    onScroll: () => {},
-  }
-
   static propTypes = {
     noResultsMessage: PropTypes.string.isRequired,
     renderItem: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
+    updatePage: PropTypes.func.isRequired,
+    view: PropTypes.string.isRequired,
     getVariables: PropTypes.func.isRequired,
-    onScroll: PropTypes.func,
-    rowHeight: PropTypes.number.isRequired,
   }
 
   /**
@@ -80,29 +79,33 @@ export default class ObjectList extends React.Component<Props> {
     )
   }
 
+  renderListItem(itemCount: number, onRowsRendered: Function, registerChild: Function, height: number, width: number) {
+    const props = {
+      itemCount,
+      onRowsRendered,
+      renderNoResults: this.renderNoResults,
+      ref: registerChild,
+      height: height - 30,
+      width: width - 10,
+      renderItem: this.renderItem,
+      updatePage: this.props.updatePage,
+    }
+    if (this.props.view === 'image') {
+      return <ObjectListCell {...props} />
+    } else {
+      return <ObjectListRow data={this.props.data} {...props} />
+    }
+  }
+
   render() {
     // If there are more items to be loaded then add an extra row to hold a loading indicator.
-    const rowCount = this.hasNextPage ? this.list.length + 1 : this.list.length
+    const itemCount = this.hasNextPage ? this.list.length + 1 : this.list.length
 
     return (
-      <InfiniteLoader isRowLoaded={this.isItemLoaded} loadMoreRows={this.loadMoreItems} rowCount={rowCount}>
+      <InfiniteLoader isRowLoaded={this.isItemLoaded} loadMoreRows={this.loadMoreItems} rowCount={itemCount}>
         {({ onRowsRendered, registerChild }) => (
           <AutoSizer defaultHeight={400}>
-            {({ height, width }) => (
-              <List
-                ref={registerChild}
-                onRowsRendered={onRowsRendered}
-                noRowsRenderer={this.renderNoResults}
-                onScroll={this.props.onScroll}
-                rowRenderer={this.renderItem}
-                height={height - 30}
-                width={width - 10}
-                rowHeight={this.props.rowHeight}
-                rowCount={rowCount}
-                overscanRowCount={0}
-                _forceUpdateWhenChanged={this.props.data}
-              />
-            )}
+            {({ height, width }) => this.renderListItem(itemCount, onRowsRendered, registerChild, height, width)}
           </AutoSizer>
         )}
       </InfiniteLoader>
