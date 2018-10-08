@@ -79,6 +79,16 @@ describe('Movies Page Component', () => {
       expect(wrapper.find('SelectFilter[code="countries"]').find('option').length).toBeGreaterThan(1)
     })
 
+    it('should render movies posters', async done => {
+      wrapper = await mountGraphql(
+        <MoviesPage />,
+        mocks.concat([mockWithParams({ relation: null, genres: [], countries: [] })])
+      )
+      selectFilterChange(wrapper, 'SelectGeneric[code="view"]', 'image')
+      expect(wrapper.find('MovieIcon').length).toBeGreaterThan(0)
+      setTimeout(() => done())
+    })
+
     it('should render message if no results in response', async () => {
       wrapper = await mountGraphql(<MoviesPage />, [{ ...mockMovies, result: emptyResponse }])
       expect(wrapper.find('MovieShort')).toHaveLength(0)
