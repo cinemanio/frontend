@@ -1,8 +1,11 @@
 // @flow
 import React from 'react'
-import { AutoSizer, InfiniteLoader, List, Collection } from 'react-virtualized'
+import { AutoSizer, InfiniteLoader } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
 import _ from 'lodash'
+
+import ObjectListCell from './ObjectListCell/ObjectListCell'
+import ObjectListRow from './ObjectListRow/ObjectListRow'
 
 type Props = {
   noResultsMessage: string,
@@ -22,19 +25,6 @@ export default class ObjectList extends React.Component<Props> {
     view: PropTypes.string.isRequired,
     getVariables: PropTypes.func.isRequired,
   }
-
-  /**
-   * Dimension of poster of photo in view=icon
-   * TODO: calculate it automatically
-   * @type {{width: number, height: number}}
-   */
-  iconDimensions: Object = { width: 180, height: 250 }
-
-  /**
-   * Height of small preview
-   * @type {number}
-   */
-  rowHeight: number = 80
 
   /**
    * Check if data loaded and populated
@@ -72,35 +62,6 @@ export default class ObjectList extends React.Component<Props> {
    */
   isItemLoaded = ({ index }: Object) => !this.hasNextPage || index < this.list.length
 
-  cellSizeAndPositionGetter = (totalWidth: number) => ({ index }: Object) => {
-    const { width, height } = this.iconDimensions
-    const numberInRow = Math.floor(totalWidth / width)
-    const x = (index % numberInRow) * width
-    const y = Math.floor((index * width) / (numberInRow * width)) * height
-    return { height, width, x, y }
-  }
-
-  onScrollList = ({ clientHeight, scrollTop }: Object) => {
-    const margin = 20
-    const page = Math.ceil(scrollTop / this.rowHeight) + Math.floor((clientHeight + margin) / this.rowHeight)
-    this.props.updatePage(page)
-  }
-
-  onScrollIcon = ({ clientWidth, clientHeight, scrollTop }: Object) => {
-    const margin = 20
-    const { width, height } = this.iconDimensions
-    const numberInRow = Math.floor(clientWidth / width)
-    const page = (Math.ceil(scrollTop / height) + Math.floor((clientHeight + margin) / height)) * numberInRow
-    this.props.updatePage(page)
-  }
-
-  onSectionRendered = (onRowsRendered: Function) => ({ indices }: Object) => {
-    onRowsRendered({
-      startIndex: indices[0],
-      stopIndex: indices[indices.length - 1],
-    })
-  }
-
   renderNoResults = () => <p>{this.props.noResultsMessage}</p>
 
   /**
@@ -118,46 +79,33 @@ export default class ObjectList extends React.Component<Props> {
     )
   }
 
+  renderListItem(itemCount: number, onRowsRendered: Function, registerChild: Function, height: number, width: number) {
+    const props = {
+      itemCount,
+      onRowsRendered,
+      renderNoResults: this.renderNoResults,
+      ref: registerChild,
+      height: height - 30,
+      width: width - 10,
+      renderItem: this.renderItem,
+      updatePage: this.props.updatePage,
+    }
+    if (this.props.view === 'image') {
+      return <ObjectListCell {...props} />
+    } else {
+      return <ObjectListRow data={this.props.data} {...props} />
+    }
+  }
+
   render() {
     // If there are more items to be loaded then add an extra row to hold a loading indicator.
-    const rowCount = this.hasNextPage ? this.list.length + 1 : this.list.length
+    const itemCount = this.hasNextPage ? this.list.length + 1 : this.list.length
 
     return (
-      <InfiniteLoader isRowLoaded={this.isItemLoaded} loadMoreRows={this.loadMoreItems} rowCount={rowCount}>
+      <InfiniteLoader isRowLoaded={this.isItemLoaded} loadMoreRows={this.loadMoreItems} rowCount={itemCount}>
         {({ onRowsRendered, registerChild }) => (
           <AutoSizer defaultHeight={400}>
-            {({ height, width }) => {
-              if (this.props.view === 'icon') {
-                return (
-                  <Collection
-                    ref={registerChild}
-                    onSectionRendered={this.onSectionRendered(onRowsRendered)}
-                    onScroll={this.onScrollIcon}
-                    cellRenderer={this.renderItem}
-                    cellSizeAndPositionGetter={this.cellSizeAndPositionGetter(width)}
-                    height={height - 30}
-                    width={width - 10}
-                    cellCount={rowCount}
-                  />
-                )
-              } else {
-                return (
-                  <List
-                    ref={registerChild}
-                    onRowsRendered={onRowsRendered}
-                    noRowsRenderer={this.renderNoResults}
-                    onScroll={this.onScrollList}
-                    rowRenderer={this.renderItem}
-                    height={height - 30}
-                    width={width - 10}
-                    rowHeight={this.rowHeight}
-                    rowCount={rowCount}
-                    overscanRowCount={0}
-                    _forceUpdateWhenChanged={this.props.data}
-                  />
-                )
-              }
-            }}
+            {({ height, width }) => this.renderListItem(itemCount, onRowsRendered, registerChild, height, width)}
           </AutoSizer>
         )}
       </InfiniteLoader>

@@ -35,7 +35,7 @@ type State = {
   relation: ?string,
   genres: Set<string>,
   countries: Set<string>,
-  view: 'icon' | 'short' | 'full',
+  view: 'image' | 'short' | 'full',
   orderBy: string,
 }
 
@@ -80,7 +80,7 @@ class MoviesPage extends React.Component<Props, State> {
   })
 
   getViewOptions = () => [
-    { id: 'icon', name: this.props.i18n.t('filter.view.poster') },
+    { id: 'image', name: this.props.i18n.t('filter.view.poster') },
     { id: 'short', name: this.props.i18n.t('filter.view.short') },
     // { id: 'full', name: this.props.i18n.t('filter.view.full') },
   ]
@@ -99,7 +99,7 @@ class MoviesPage extends React.Component<Props, State> {
     }))
 
   renderMovie = ({ movie }) => {
-    if (this.state.view === 'icon') {
+    if (this.state.view === 'image') {
       return <MovieIcon movie={movie} />
     } else if (this.state.view === 'short') {
       return <MovieShort movie={movie} />
