@@ -28,7 +28,7 @@ export default class ObjectList extends React.Component<Props> {
    * TODO: calculate it automatically
    * @type {{width: number, height: number}}
    */
-  iconDimensions: Object = { width: 180, height: 280 }
+  iconDimensions: Object = { width: 180, height: 250 }
 
   /**
    * Height of small preview
