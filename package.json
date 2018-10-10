@@ -19,7 +19,9 @@
     "server-start": "nodemon --inspect",
     "client-start": "webpack-dev-server --config ./webpack.dev.config.js",
     "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
-    "fetch-fragments-types": "babel-node ./lib/fragments/fetcher.js"
+    "fetch-fragments-types": "babel-node ./lib/fragments/fetcher.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/tests/setup.js",
@@ -71,7 +73,7 @@
     "ignore-styles": "5.0.1",
     "isomorphic-fetch": "2.2.1",
     "js-cookie": "2.2.0",
-    "koa": "next",
+    "koa": "2.2.0",
     "koa-favicon": "next",
     "koa-i18next-detector": "0.7.1",
     "koa-logger": "next",
@@ -114,7 +116,8 @@
     "webpack": "4.0.0",
     "webpack-bundle-tracker": "0.2.1",
     "webpack-cli": "3.1.0",
-    "wtf_wikipedia": "5.0.1"
+    "wtf_wikipedia": "5.0.1",
+    "snyk": "^1.103.1"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -144,5 +147,6 @@
     "rosie": "1.6.0",
     "supertest": "3.0.0",
     "webpack-dev-server": "3.0.0"
-  }
+  },
+  "snyk": true
 }
