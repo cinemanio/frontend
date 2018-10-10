@@ -8,6 +8,7 @@ import './Layout.scss'
 import Languages from './Languages/Languages'
 import Auth from './Auth/Auth'
 import Menu from './Menu/Menu'
+import Search from './Search/Search'
 
 type Props = { component: Function, menuActive?: string }
 type State = { error: ?Error }
@@ -40,7 +41,10 @@ export default class Layout extends React.Component<Props, State> {
           <div className="container" styleName="box">
             <header>
               <Link to="/">cineman.io</Link>
-              <div styleName="right">
+              <div styleName="search">
+                <Search />
+              </div>
+              <div styleName="auth">
                 <Auth />
               </div>
             </header>

@@ -34,6 +34,8 @@
     font-size: 2rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;
+    display: flex;
+    justify-content: space-between;
 
     a {
       text-decoration: none;
@@ -65,7 +67,7 @@
     box-shadow: 0.01rem 0.01rem 1rem #CCCCCC;
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
-    margin-top: 30px;
+    margin-top: 23px;
     margin-bottom: 0.5rem;
     height: 100%;
   }
@@ -77,8 +79,12 @@
     margin-right: 1rem;
   }
 
-  .right {
-    float: right;
+  .search {
+    font-size: 1rem;
+    padding-top: 1rem;
+  }
+
+  .auth {
     font-size: 1rem;
     font-weight: normal;
     padding: 1rem 1rem 0 0;
