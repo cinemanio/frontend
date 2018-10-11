@@ -6,6 +6,7 @@ import { PropTypes } from 'prop-types'
 import { InstantSearch, Index } from 'react-instantsearch/dom';
 
 import i18nClient from 'libs/i18nClient'
+import settings from '../../../settings'
 
 import './Search.scss'
 import AutoComplete from './AutoComplete/AutoComplete'
@@ -22,14 +23,12 @@ export default class Search extends React.Component<Props> {
     i18n: PropTypes.object,
   }
 
-
   render() {
     return (
       <InstantSearch
-        appId=""
-        apiKey=""
+        appId={settings.searchAppId}
+        apiKey={settings.searchApiKey}
         indexName="movie"
-        // searchClient={searchClient}
       >
         <AutoComplete />
         <Index indexName="person" />

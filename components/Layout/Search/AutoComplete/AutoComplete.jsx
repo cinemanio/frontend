@@ -5,27 +5,43 @@ import { PropTypes } from 'prop-types'
 import { connectAutoComplete } from 'react-instantsearch/connectors'
 import { Highlight } from 'react-instantsearch/dom'
 import Autosuggest from 'react-autosuggest'
+import { translate } from 'react-i18next'
+
+import i18nClient from 'libs/i18nClient'
+import routes from 'components/App/routes'
 
 import './AutoComplete.scss'
+import { withRouter } from 'react-router-dom'
 
-class Example extends React.Component<> {
+type Props = { i18n: Translator, history: Object }
+
+@translate()
+@connectAutoComplete
+@withRouter
+export default class AutoComplete extends React.Component<Props> {
+  static defaultProps = {
+    i18n: i18nClient,
+  }
+
   static propTypes = {
+    i18n: PropTypes.object,
     hits: PropTypes.arrayOf(PropTypes.object).isRequired,
     currentRefinement: PropTypes.string.isRequired,
     refine: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
   }
 
   state = {
     value: this.props.currentRefinement,
   }
 
-  onChange = (event, { newValue }) => {
+  onChange = (event: Event, { newValue }: Object) => {
     this.setState({
       value: newValue,
     })
   }
 
-  onSuggestionsFetchRequested = ({ value }) => {
+  onSuggestionsFetchRequested = ({ value }: Object) => {
     this.props.refine(value)
   }
 
@@ -33,46 +49,46 @@ class Example extends React.Component<> {
     this.props.refine()
   }
 
-  getSuggestionValue(hit) {
+  getSuggestionValue(hit: Object) {
     return hit.title_en
   }
 
-  renderSuggestion(hit) {
-    return <Highlight attribute="title_en" hit={hit} tagName="mark"/>
+  onSuggestionSelected = (event: Event, { suggestion }: Object) => {
+    // TODO: support for persons
+    this.props.history.push(routes.movie.detail.replace(':slug', suggestion.objectID))
   }
 
-  renderSectionTitle(section) {
+  // TODO: support for persons
+  renderSuggestion = (hit: Object) => <Highlight attribute="title_en" hit={hit} tagName="mark"/>
+
+  renderSectionTitle(section: Object) {
     return section.index
   }
 
-  getSectionSuggestions(section) {
+  getSectionSuggestions(section: Object) {
     return section.hits
   }
 
   render() {
-    const { hits } = this.props
-    const { value } = this.state
-
     const inputProps = {
-      placeholder: 'Search for a product...',
+      placeholder: this.props.i18n.t('search.placeholder'),
       onChange: this.onChange,
-      value,
+      value: this.state.value,
     }
 
     return (
       <Autosuggest
-        suggestions={hits}
-        multiSection={true}
+        suggestions={this.props.hits}
+        inputProps={inputProps}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        onSuggestionSelected={this.onSuggestionSelected}
         getSuggestionValue={this.getSuggestionValue}
         renderSuggestion={this.renderSuggestion}
-        inputProps={inputProps}
         renderSectionTitle={this.renderSectionTitle}
         getSectionSuggestions={this.getSectionSuggestions}
+        multiSection
       />
     )
   }
 }
-
-export default connectAutoComplete(Example)
