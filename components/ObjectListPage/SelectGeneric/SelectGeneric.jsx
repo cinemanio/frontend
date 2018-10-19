@@ -2,6 +2,9 @@
 /* eslint-disable jsx-a11y/no-onchange */
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { Select } from 'antd'
+
+const { Option } = Select
 
 type Props = {
   list: Array<Object>,
@@ -24,17 +27,17 @@ export default class SelectGeneric extends React.PureComponent<Props> {
 
   renderOptions() {
     return this.props.list.map(item => (
-      <option key={item.id} value={item.id}>
+      <Option key={item.id} value={item.id}>
         {item.name}
-      </option>
+      </Option>
     ))
   }
 
   render() {
     return (
-      <select name={this.props.code} onChange={this.change} value={this.props.filters[this.props.code]}>
+      <Select name={this.props.code} onChange={this.change} value={this.props.filters[this.props.code]}>
         {this.renderOptions()}
-      </select>
+      </Select>
     )
   }
 }

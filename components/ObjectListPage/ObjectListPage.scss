@@ -5,10 +5,12 @@
   .filters {
     flex-grow: 0;
 
-    select {
-      display: block;
-      width: 100%;
-      margin-bottom: 0.4rem;
+    :global {
+      .ant-select {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.4rem;
+      }
     }
   }
 

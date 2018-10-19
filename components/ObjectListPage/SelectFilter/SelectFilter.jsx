@@ -1,8 +1,11 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { Select } from 'antd'
 
 import i18n from 'libs/i18n'
+
+const { Option } = Select
 
 type Props = {
   code: string,
@@ -68,10 +71,10 @@ export default class SelectFilter extends React.Component<Props> {
     const value = this.props.multiple ? '' : this.props.filters[this.props.code] || ''
     return (
       // eslint-disable-next-line jsx-a11y/no-onchange
-      <select name={this.props.code} onChange={this.filterBy} value={value}>
-        <option value="">{this.props.title}</option>
+      <Select name={this.props.code} onChange={this.filterBy} value={value}>
+        <Option value="">{this.props.title}</Option>
         {this.props.list.map((item: Object) => this.renderOption(item))}
-      </select>
+      </Select>
     )
   }
 }
