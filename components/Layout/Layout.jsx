@@ -39,7 +39,7 @@ export default class Layout extends React.Component<Props, State> {
         {...rest}
         render={matchProps => (
           <Row type="flex" justify="center">
-            <Col span={10} styleName="box">
+            <Col span={14} styleName="box">
               <header>
                 <Link to="/">cineman.io</Link>
                 <div styleName="auth">
