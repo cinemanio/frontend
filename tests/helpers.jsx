@@ -24,7 +24,7 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
   let i = 0
   return (uri: string, data: Object) => {
     const request = JSON.parse(data.body)
-    console.debug(request)
+    // console.debug(request)
     if (requestsLog) {
       requestsLog.push(request)
     }

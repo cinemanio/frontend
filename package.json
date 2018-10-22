@@ -23,6 +23,9 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/tests/setup.js",
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!(antd)/)"
+    ],
     "moduleNameMapper": {
       "\\.(css|less|scss)$": "<rootDir>/tests/styleMock.js",
       "^((?:libs|stores|components|tests).*)$": "<rootDir>/$1"
