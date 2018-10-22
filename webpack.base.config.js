@@ -41,7 +41,7 @@ module.exports = {
         use: [{ loader: 'babel-loader' }]
       },
       {
-        test: /\.s?css$/,
+        test: /\.scss$/,
         // use value here is just configuration for ExtractTextPlugin.extract() method,
         // which get modificated and applied later in webpack.(dev|prod).config files.
         use: [
@@ -65,6 +65,25 @@ module.exports = {
             options: {
               includePaths: [path.resolve('styles')],
               data: '@import "styles/variables";'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        // use value here is just configuration for ExtractTextPlugin.extract() method,
+        // which get modificated and applied later in webpack.(dev|prod).config files.
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              modules: false,
+              // this value should be equal to value in .babelrc
+              localIdentName: '[name]__[local]__[hash:base64:5]'
             }
           }
         ]

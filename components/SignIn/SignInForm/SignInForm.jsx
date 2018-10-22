@@ -1,84 +1,85 @@
 // @flow
 import React from 'react'
-import { inject, observer, PropTypes as MobxPropTypes } from 'mobx-react'
+import { observer } from 'mobx-react'
 import { PropTypes } from 'prop-types'
 import { translate } from 'react-i18next'
 import type { Translator } from 'react-i18next'
+import { Form, Icon, Input, Button } from 'antd'
 
-import ListErrors from 'components/ListErrors/ListErrors'
 import i18nClient from 'libs/i18nClient'
-import Auth from 'stores/Auth'
 
-type Props = { auth: typeof Auth, i18n: Translator, signin: Function }
+import './SignInForm.scss'
+
+const FormItem = Form.Item
+
+type Props = { form: Object, i18n: Translator, signin: Function, loading: boolean }
 
 @translate()
-@inject('auth')
 @observer
 export default class SignInForm extends React.Component<Props> {
   static defaultProps = {
     i18n: i18nClient,
-    auth: Auth,
   }
 
   static propTypes = {
     i18n: PropTypes.object,
-    auth: MobxPropTypes.observableObject,
+    form: PropTypes.object.isRequired,
     signin: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
   }
 
   componentWillUnmount() {
-    this.props.auth.reset()
+    this.props.form.resetFields()
   }
-
-  handleUsernameChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setUsername(e.currentTarget.value)
-
-  handlePasswordChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setPassword(e.currentTarget.value)
 
   handleSubmitForm = (e: Event) => {
     e.preventDefault()
-    return this.props.signin({
-      variables: {
-        username: this.props.auth.values.username,
-        password: this.props.auth.values.password,
-      },
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        this.props.signin({
+          variables: {
+            username: values.username,
+            password: values.password,
+          },
+        })
+      }
     })
+  }
+
+  renderUsername() {
+    return this.props.form.getFieldDecorator('username', {
+      rules: [{ required: true, message: 'This field is required' }],
+    })(
+      <Input
+        prefix={<Icon type="user" styleName="icon" />}
+        placeholder={this.props.i18n.t('signin.placeholders.username')}
+      />
+    )
+  }
+
+  renderPassword() {
+    return this.props.form.getFieldDecorator('password', {
+      rules: [{ required: true, message: 'This field is required' }],
+    })(
+      <Input
+        prefix={<Icon type="lock" styleName="icon" />}
+        type="password"
+        placeholder={this.props.i18n.t('signin.placeholders.password')}
+      />
+    )
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmitForm}>
-        <ListErrors errors={this.props.auth.errors} />
-
-        <fieldset>
-          <fieldset className="form-group">
-            <input
-              className="form-control form-control-lg"
-              type="text"
-              placeholder={this.props.i18n.t('signin.placeholders.username')}
-              value={this.props.auth.values.username}
-              onChange={this.handleUsernameChange}
-            />
-          </fieldset>
-
-          <fieldset className="form-group">
-            <input
-              className="form-control form-control-lg"
-              type="password"
-              placeholder={this.props.i18n.t('signin.placeholders.password')}
-              value={this.props.auth.values.password}
-              onChange={this.handlePasswordChange}
-            />
-          </fieldset>
-
-          <button
-            className="btn btn-lg btn-primary pull-xs-right"
-            type="submit"
-            disabled={this.props.auth.submitDisabled}
-          >
+      <Form onSubmit={this.handleSubmitForm}>
+        <FormItem>{this.renderUsername()}</FormItem>
+        <FormItem>{this.renderPassword()}</FormItem>
+        <FormItem>
+          <Button type="primary" htmlType="submit" disabled={this.props.loading}>
             {this.props.i18n.t('signin.submit')}
-          </button>
-        </fieldset>
-      </form>
+          </Button>
+        </FormItem>
+      </Form>
     )
   }
 }

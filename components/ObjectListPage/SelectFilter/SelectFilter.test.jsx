@@ -22,27 +22,22 @@ describe('Select Filter Component', () => {
   })
 
   it('should render select and all unselected options', () => {
-    expect(wrapper.find('select')).toHaveLength(1)
-    expect(wrapper.find('option')).toHaveLength(2)
-    expect(
-      wrapper
-        .find('option')
-        .at(0)
-        .text()
-    ).toBe('Name')
-    expect(wrapper.find('select').prop('value')).toBe('')
+    expect(wrapper.find('Select')).toHaveLength(1)
+    expect(wrapper.find('Option')).toHaveLength(1)
+    expect(wrapper.find('Select').prop('placeholder')).toBe('Name')
+    expect(wrapper.find('Select').prop('value')).toBeUndefined()
   })
 
   it('should render select with selected value if multiple=False and filter defined', () => {
     wrapper = shallow(React.cloneElement(element, { multiple: false, filters: { filter: '3' } }))
-    expect(wrapper.find('select')).toHaveLength(1)
-    expect(wrapper.find('option')).toHaveLength(4)
-    expect(wrapper.find('select').prop('value')).toBe('3')
+    expect(wrapper.find('Select')).toHaveLength(1)
+    expect(wrapper.find('Option')).toHaveLength(3)
+    expect(wrapper.find('Select').prop('value')).toBe('3')
   })
 
   it('should call setFilterState on change', () => {
     expect(element.props.setFilterState).not.toHaveBeenCalled()
-    wrapper.find('select').simulate('change', { currentTarget: { value: '3' } })
+    wrapper.find('Select').simulate('change', '3')
     expect(element.props.setFilterState).toHaveBeenCalledWith({ filter: new Set(['1', '2', '3']) })
   })
 
@@ -52,13 +47,13 @@ describe('Select Filter Component', () => {
     })
 
     it('should render select and all options', () => {
-      expect(wrapper.find('select')).toHaveLength(1)
-      expect(wrapper.find('option')).toHaveLength(4)
+      expect(wrapper.find('Select')).toHaveLength(1)
+      expect(wrapper.find('Option')).toHaveLength(3)
     })
 
     it('should call setFilterState on change', () => {
       expect(element.props.setFilterState).not.toHaveBeenCalled()
-      wrapper.find('select').simulate('change', { currentTarget: { value: '3' } })
+      wrapper.find('Select').simulate('change', '3')
       expect(element.props.setFilterState).toHaveBeenCalledWith({ filter: '3' })
     })
   })
