@@ -5,6 +5,7 @@ import { PropTypes } from 'prop-types'
 import { connectAutoComplete } from 'react-instantsearch/connectors'
 import { Highlight } from 'react-instantsearch/dom'
 import Autosuggest from 'react-autosuggest'
+import { Input, Icon } from 'antd'
 
 import './AutoComplete.scss'
 
@@ -49,24 +50,26 @@ class Example extends React.Component<> {
     return section.hits
   }
 
-  render() {
-    const { hits } = this.props
-    const { value } = this.state
+  renderInputComponent(inputProps: Object) {
+    return <Input suffix={<Icon type="search" className="certain-category-icon"/>} {...inputProps}/>
+  }
 
+  render() {
     const inputProps = {
       placeholder: 'Search for a product...',
       onChange: this.onChange,
-      value,
+      value: this.state.value,
     }
 
     return (
       <Autosuggest
-        suggestions={hits}
+        suggestions={this.props.hits}
         multiSection={true}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         getSuggestionValue={this.getSuggestionValue}
         renderSuggestion={this.renderSuggestion}
+        renderInputComponent={this.renderInputComponent}
         inputProps={inputProps}
         renderSectionTitle={this.renderSectionTitle}
         getSectionSuggestions={this.getSectionSuggestions}

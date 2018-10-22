@@ -8,9 +8,9 @@ export const mockSignIn = {
   result: response,
 }
 export const setUsername = (wrapper, value) => wrapper
-  .find('input[type="text"]').props().onChange(value || username)
+  .find('SignIn').find('input[type="text"]').props().onChange(value || username)
 export const setPassword = (wrapper, value) => wrapper
-  .find('input[type="password"]').props().onChange(value || password)
+  .find('SignIn').find('input[type="password"]').props().onChange(value || password)
 export const signIn = (wrapper) => {
   setUsername(wrapper)
   setPassword(wrapper)

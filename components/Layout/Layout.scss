@@ -39,8 +39,6 @@
     font-size: 2rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;
-    display: flex;
-    justify-content: space-between;
 
     a {
       text-decoration: none;
@@ -71,7 +69,7 @@
     padding: 1.2rem;
     box-shadow: 0.01rem 0.01rem 1rem #CCCCCC;
     font-size: 0.9rem;
-    margin-top: 23px;
+    margin-top: 30px;
     margin-bottom: 0.5rem;
     height: 100%;
   }
@@ -85,13 +83,13 @@
 
   .search {
     font-size: 1rem;
-    padding-top: 1rem;
+    padding-top: 0.6rem;
   }
 
   .auth {
-    float: right;
+    text-align: right;
     font-size: 1rem;
     font-weight: normal;
-    padding: 1rem 1rem 0 0;
+    padding: 0.8rem 1rem 0 0;
   }
 }
