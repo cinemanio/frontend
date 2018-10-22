@@ -7,8 +7,6 @@ import i18n from 'libs/i18n'
 
 import './SelectFilter.scss'
 
-const { Option } = Select
-
 type Props = {
   code: string,
   title: string,
@@ -58,9 +56,9 @@ export default class SelectFilter extends React.Component<Props> {
 
   renderOption(item: Object) {
     return this.props.multiple && this.active.indexOf(item.id) !== -1 ? null : (
-      <Option key={item.id} value={item.id}>
+      <Select.Option key={item.id} value={item.id}>
         {item[i18n.f('name')]}
-      </Option>
+      </Select.Option>
     )
   }
 

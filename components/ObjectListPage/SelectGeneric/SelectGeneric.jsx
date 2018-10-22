@@ -3,8 +3,6 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import { Select } from 'antd'
 
-const { Option } = Select
-
 type Props = {
   list: Array<Object>,
   setFilterState: Function,
@@ -24,9 +22,9 @@ export default class SelectGeneric extends React.PureComponent<Props> {
 
   renderOptions() {
     return this.props.list.map(item => (
-      <Option key={item.id} value={item.id}>
+      <Select.Option key={item.id} value={item.id}>
         {item.name}
-      </Option>
+      </Select.Option>
     ))
   }
 

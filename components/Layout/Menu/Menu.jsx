@@ -11,8 +11,6 @@ import routes from 'components/App/routes'
 
 import './Menu.scss'
 
-const { TabPane } = Tabs
-
 type Props = { active?: string, i18n: Translator }
 
 @translate()
@@ -31,19 +29,16 @@ export default class Menu extends React.Component<Props> {
     return [['movie', this.props.i18n.t('menu.movies')], ['person', this.props.i18n.t('menu.persons')]]
   }
 
-  getClass(type: string) {
-    const classes = ['nav-link']
-    if (type === this.props.active) {
-      classes.push('active')
-    }
-    return classes.join(' ')
-  }
-
   renderMenu(): Array<React.Fragment> {
-    return this.menu.map(([type, title]) => <TabPane tab={<Link to={routes[type].list}>{title}</Link>} key={type}/>)
+    return this.menu.map(([type, title]) =>
+      <Tabs.TabPane tab={<Link to={routes[type].list}>{title}</Link>} key={type} />)
   }
 
   render() {
-    return <Tabs type="card">{this.renderMenu()}</Tabs>
+    return (
+      <Tabs activeKey={this.props.active} type="card">
+        {this.renderMenu()}
+      </Tabs>
+    )
   }
 }

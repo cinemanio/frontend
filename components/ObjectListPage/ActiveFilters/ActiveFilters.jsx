@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import { Tag } from 'antd';
+import { Tag } from 'antd'
 
 import i18n from 'libs/i18n'
 

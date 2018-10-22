@@ -3,7 +3,7 @@ import React from 'react'
 import RedBox from 'redbox-react'
 import { Route, Link } from 'react-router-dom'
 import { PropTypes } from 'prop-types'
-import { Row, Col } from 'antd'
+import { Row } from 'antd'
 
 import './Layout.scss'
 import Languages from './Languages/Languages'
@@ -39,23 +39,24 @@ export default class Layout extends React.Component<Props, State> {
         {...rest}
         render={matchProps => (
           <Row type="flex" justify="center">
-            {/*<Col span={14} styleName="box">*/}
+            {/* if use Col component here, SSR fails for some reason */}
+            <div className="ant-col-14" styleName="box">
               <header>
                 <Link to="/">cineman.io</Link>
                 <div styleName="auth">
-                  <Auth/>
+                  <Auth />
                 </div>
               </header>
               <div styleName="content">
-                <Menu active={menuActive}/>
-                {this.state.error ? <RedBox error={this.state.error}/> : <Component {...matchProps} />}
+                <Menu active={menuActive} />
+                {this.state.error ? <RedBox error={this.state.error} /> : <Component {...matchProps} />}
               </div>
               <footer>
                 <div styleName="languages">
-                  <Languages/>
+                  <Languages />
                 </div>
               </footer>
-            {/*</Col>*/}
+            </div>
           </Row>
         )}
       />
