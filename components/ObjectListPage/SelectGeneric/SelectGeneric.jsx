@@ -1,5 +1,4 @@
 // @flow
-/* eslint-disable jsx-a11y/no-onchange */
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import { Select } from 'antd'
@@ -21,9 +20,7 @@ export default class SelectGeneric extends React.PureComponent<Props> {
     code: PropTypes.string.isRequired,
   }
 
-  change = (e: SyntheticEvent<HTMLSelectElement>) => {
-    this.props.setFilterState({ [this.props.code]: e.currentTarget.value })
-  }
+  change = (value: string) => this.props.setFilterState({ [this.props.code]: value })
 
   renderOptions() {
     return this.props.list.map(item => (

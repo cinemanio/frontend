@@ -56,19 +56,15 @@ describe('SignIn Component', () => {
 
     it('should render signin page, fill form and enable button', async () => {
       wrapper = await mountGraphql(element, [mockSignIn])
-      const auth = wrapper.find('SignIn').prop('auth').values
+      const form = wrapper.find('SignInForm').prop('form')
 
-      expect(wrapper.find('button').prop('disabled')).toBe(true)
-
-      expect(auth.username).toBe('')
+      expect(form.getFieldsValue().username).toBe(undefined)
       setUsername(wrapper, 'username')
-      expect(auth.username).toBe('username')
+      expect(form.getFieldsValue().username).toBe('username')
 
-      expect(auth.password).toBe('')
+      expect(form.getFieldsValue().password).toBe(undefined)
       setPassword(wrapper, 'password')
-      expect(auth.password).toBe('password')
-
-      // expect(wrapper.find('button').prop('disabled')).toBe(false)
+      expect(form.getFieldsValue().password).toBe('password')
     })
 
     it('should submit form with mutation and populate token store', async done => {
