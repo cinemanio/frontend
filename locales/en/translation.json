@@ -88,6 +88,29 @@
     "placeholders": {
       "username": "Enter your username",
       "password": "Enter your password"
+    },
+    "errors": {
+      "usernameRequired": "Username field is required",
+      "passwordRequired": "Password field is required"
+    }
+  },
+  "signup": {
+    "title": "Sign Up",
+    "haveAccount": "Have an account?",
+    "submit": "Sign up",
+    "placeholders": {
+      "username": "Enter your username",
+      "email": "Enter your email",
+      "password": "Enter your password",
+      "passwordConfirm": "Confirm your password"
+    },
+    "errors": {
+      "usernameRequired": "Username field is required",
+      "emailRequired": "Email field is required",
+      "emailInvalid": "The input is not valid email",
+      "passwordRequired": "Password field is required",
+      "passwordConfirmRequired": "Password confirmation field is required",
+      "passwordsNotMatch": "Two passwords you entered are not match"
     }
   },
   "alert": {

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { inject, observer, PropTypes as MobxPropTypes } from 'mobx-react'
 import { PropTypes } from 'prop-types'
 import { ApolloConsumer, Mutation } from 'react-apollo'
@@ -10,7 +10,7 @@ import { translate } from 'react-i18next'
 import gql from 'graphql-tag'
 import { Row, Col, Form } from 'antd'
 
-// import routes from 'components/App/routes'
+import routes from 'components/App/routes'
 
 import SignInForm from './SignInForm/SignInForm'
 
@@ -71,9 +71,9 @@ export default class SignIn extends React.Component<Props> {
                 <Row type="flex" justify="center">
                   <Col span={10}>
                     <h1>{this.props.i18n.t('signin.title')}</h1>
-                    {/*<p>*/}
-                      {/*<Link to={routes.signup}>{this.props.i18n.t('signin.needAccount')}</Link>*/}
-                    {/*</p>*/}
+                    <p>
+                      <Link to={routes.signup}>{this.props.i18n.t('signin.needAccount')}</Link>
+                    </p>
                     <SignInForm signin={signin} form={this.props.form} loading={loading} />
                   </Col>
                 </Row>

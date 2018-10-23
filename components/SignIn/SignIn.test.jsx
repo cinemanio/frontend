@@ -13,6 +13,10 @@ import invalidCredentials from './fixtures/invalid_credentials.json'
 describe('SignIn Component', () => {
   const element = <SignIn />
   let wrapper
+  const getField = name => {
+    const form = wrapper.find('SignInForm').prop('form')
+    return form.getFieldsValue()[name]
+  }
 
   describe('Unit', () => {
     beforeEach(async () => {
@@ -33,33 +37,16 @@ describe('SignIn Component', () => {
       it('should render page title', () => expect(Helmet.peek().title).toBe('Войти'))
     })
 
-    // it('should change language on the fly', async () => {
-    //   i18nClient.changeLanguage('en')
-    //   wrapper = await mountGraphql(element)
-    //   expect(wrapper.find('button').text()).toBe('Sign in')
-    //   i18nClient.changeLanguage('ru')
-    //   console.log(wrapper.text())
-    //   wrapper.update()
-    //   console.log(wrapper.text())
-    //   expect(wrapper.find('button').text()).toBe('Войти')
-    // })
-  })
-
-  describe('GraphQL', () => {
-    const getField = name => {
-      const form = wrapper.find('SignInForm').prop('form')
-      return form.getFieldsValue()[name]
-    }
-
-    beforeEach(() => {
+    it('should change language on the fly', async () => {
       i18nClient.changeLanguage('en')
-      global.console.warn = jest.fn()
-      Token.set()
+      wrapper = await mountGraphql(element)
+      expect(wrapper.find('button').text()).toBe('Sign in')
+      i18nClient.changeLanguage('ru')
+      wrapper.update()
+      expect(wrapper.find('button').text()).toBe('Войти')
     })
 
-    it('should render signin page, fill form and enable button', async () => {
-      wrapper = await mountGraphql(element, [mockSignIn])
-
+    it('should render signup page and fill the form', () => {
       expect(getField('username')).toBe(undefined)
       setUsername(wrapper, 'username')
       expect(getField('username')).toBe('username')
@@ -68,15 +55,20 @@ describe('SignIn Component', () => {
       setPassword(wrapper, 'password')
       expect(getField('password')).toBe('password')
     })
+  })
+
+  describe('GraphQL', () => {
+    beforeEach(() => {
+      i18nClient.changeLanguage('en')
+      global.console.warn = jest.fn()
+      Token.set()
+    })
 
     it('should submit form with mutation and populate token store', async done => {
       wrapper = await mountGraphql(element, [mockSignIn])
-      setUsername(wrapper)
-      setPassword(wrapper)
 
       expect(wrapper.find('SignIn').prop('token').token).toBeUndefined()
-
-      wrapper.find('form').simulate('submit')
+      signIn(wrapper)
 
       setTimeout(() => {
         expect(wrapper.find('SignIn').prop('token').token).toBe(response.data.tokenAuth.token)
@@ -88,11 +80,8 @@ describe('SignIn Component', () => {
       const client = { resetStore: jest.fn() }
       wrapper = await mountGraphql(element, [mockSignIn])
 
-      setUsername(wrapper)
-      setPassword(wrapper)
-
       expect(client.resetStore).not.toHaveBeenCalled()
-      wrapper.find('form').simulate('submit')
+      signIn(wrapper)
 
       setTimeout(() => {
         expect(client.resetStore).toHaveBeenCalled()

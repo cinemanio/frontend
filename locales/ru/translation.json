@@ -89,6 +89,29 @@
     "placeholders": {
       "username": "Введите логин",
       "password": "Введите пароль"
+    },
+    "errors": {
+      "usernameRequired": "Поле логин обязательное",
+      "passwordRequired": "Поле пароль обязательное"
+    }
+  },
+  "signup": {
+    "title": "Зарегистрироваться",
+    "haveAccount": "Есть аккаунт?",
+    "submit": "Зарегистрироваться",
+    "placeholders": {
+      "username": "Введите логин",
+      "email": "Введите email",
+      "password": "Введите пароль",
+      "passwordConfirm": "Введите пароль повторно"
+    },
+    "errors": {
+      "usernameRequired": "Поле логин обязательное",
+      "emailRequired": "Поле email обязательное",
+      "emailInvalid": "Введенное значение не является правильным email",
+      "passwordRequired": "Поле пароль обязательное",
+      "passwordConfirmRequired": "Подтверждение пароля обязательно",
+      "passwordsNotMatch": "Введенные пароли не совпадают"
     }
   },
   "alert": {

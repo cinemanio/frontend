@@ -1,16 +1,18 @@
 import SignIn from './SignIn'
 import response from './fixtures/response.json'
 
-export const username = 'username'
-export const password = 'password'
+export const variables = {
+  username: 'username',
+  password: 'password',
+}
 export const mockSignIn = {
-  request: { query: SignIn.fragments.signin, variables: { username, password } },
+  request: { query: SignIn.fragments.signin, variables },
   result: response,
 }
 export const setUsername = (wrapper, value) => wrapper
-  .find('input[type="text"]').props().onChange(value || username)
+  .find('input[id="username"]').props().onChange(value || variables.username)
 export const setPassword = (wrapper, value) => wrapper
-  .find('input[type="password"]').props().onChange(value || password)
+  .find('input[type="password"]').props().onChange(value || variables.password)
 export const signIn = (wrapper) => {
   setUsername(wrapper)
   setPassword(wrapper)

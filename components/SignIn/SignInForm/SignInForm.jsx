@@ -36,19 +36,14 @@ export default class SignInForm extends React.Component<Props> {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.props.signin({
-          variables: {
-            username: values.username,
-            password: values.password,
-          },
-        })
+        this.props.signin({ variables: values })
       }
     })
   }
 
   renderUsername() {
     return this.props.form.getFieldDecorator('username', {
-      rules: [{ required: true, message: 'This field is required' }],
+      rules: [{ required: true, message: this.props.i18n.t('signin.errors.usernameRequired') }],
     })(
       <Input
         prefix={<Icon type="user" styleName="icon" />}
@@ -59,7 +54,7 @@ export default class SignInForm extends React.Component<Props> {
 
   renderPassword() {
     return this.props.form.getFieldDecorator('password', {
-      rules: [{ required: true, message: 'This field is required' }],
+      rules: [{ required: true, message: this.props.i18n.t('signin.errors.passwordRequired') }],
     })(
       <Input
         prefix={<Icon type="lock" styleName="icon" />}
