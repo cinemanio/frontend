@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import { translate } from 'react-i18next'
 import gql from 'graphql-tag'
+import { Row, Col } from 'antd'
 
 import ObjectPage from 'components/ObjectPage/ObjectPage'
 import MovieImage from 'components/MovieImage/MovieImage'
@@ -62,17 +63,17 @@ class MoviePage extends React.Component<Props> {
       <h1>{movie[i18n.f('title')]}</h1>
       <h2>{this.isTitlesEqual(movie) ? null : movie.titleOriginal}</h2>
       <MovieInfo movie={movie} all />
-      <div className="row">
-        <div className="col-lg-2">
+      <Row>
+        <Col span={4}>
           <div styleName="image">
             <MovieImage movie={movie} type="detail" />
           </div>
           <MovieSites movie={movie} />
-        </div>
-        <div className="col-lg-10">
+        </Col>
+        <Col span={20}>
           <MovieCast movie={movie} />
-        </div>
-      </div>
+        </Col>
+      </Row>
       <ObjectKinopoiskInfo object={movie} />
       <ObjectWikipedia object={movie} />
     </div>

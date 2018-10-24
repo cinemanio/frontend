@@ -14,14 +14,13 @@ import MoviePage from 'components/MoviePage/MoviePage'
 import PersonsPage from 'components/PersonsPage/PersonsPage'
 import PersonPage from 'components/PersonPage/PersonPage'
 import Error404 from 'components/errors/Error404'
-import auth from 'stores/Auth'
 import token from 'stores/Token'
 import user from 'stores/User'
 
 import routes from './routes'
 import AlertTemplate from './AlertTemplate/AlertTemplate'
 
-export const stores = { auth, token, user }
+export const stores = { token, user }
 
 export const alertOptions = {
   position: 'top center',

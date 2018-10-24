@@ -1,10 +1,9 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { Tag } from 'antd'
 
 import i18n from 'libs/i18n'
-
-import './ActiveFilters.scss'
 
 type Props = {
   code: string,
@@ -55,10 +54,9 @@ export default class ActiveFilters extends React.Component<Props> {
 
   render(): Array<React.Fragment> {
     return this.active.map((filter: string) => (
-      <span key={filter} styleName="box" onClick={this.notFilterBy(filter)}>
+      <Tag key={filter} onClose={this.notFilterBy(filter)} onClick={this.notFilterBy(filter)} closable>
         {this.getFilterName(filter)}
-        <i />
-      </span>
+      </Tag>
     ))
   }
 }

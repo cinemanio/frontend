@@ -6,6 +6,7 @@ import { connectAutoComplete } from 'react-instantsearch/connectors'
 import { Highlight } from 'react-instantsearch/dom'
 import Autosuggest from 'react-autosuggest'
 import { translate } from 'react-i18next'
+import { Input, Icon } from 'antd'
 
 import i18nClient from 'libs/i18nClient'
 import routes from 'components/App/routes'
@@ -69,6 +70,10 @@ export default class AutoComplete extends React.Component<Props> {
     return section.hits
   }
 
+  renderInputComponent(inputProps: Object) {
+    return <Input suffix={<Icon type="search" className="certain-category-icon"/>} {...inputProps}/>
+  }
+
   render() {
     const inputProps = {
       placeholder: this.props.i18n.t('search.placeholder'),
@@ -85,6 +90,7 @@ export default class AutoComplete extends React.Component<Props> {
         onSuggestionSelected={this.onSuggestionSelected}
         getSuggestionValue={this.getSuggestionValue}
         renderSuggestion={this.renderSuggestion}
+        renderInputComponent={this.renderInputComponent}
         renderSectionTitle={this.renderSectionTitle}
         getSectionSuggestions={this.getSectionSuggestions}
         multiSection

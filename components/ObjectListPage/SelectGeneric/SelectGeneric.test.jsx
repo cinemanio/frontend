@@ -20,15 +20,15 @@ describe('Select Generic Component', () => {
   })
 
   it('should render select and all unselected options', () => {
-    expect(wrapper.find('select')).toHaveLength(1)
-    expect(wrapper.find('option')).toHaveLength(3)
+    expect(wrapper.find('Select')).toHaveLength(1)
+    expect(wrapper.find('Option')).toHaveLength(3)
   })
 
-  it('should have default selected option', () => expect(wrapper.find('select').prop('value')).toBe('1'))
+  it('should have default selected option', () => expect(wrapper.find('Select').prop('value')).toBe('1'))
 
   it('should call setFilterState on change', () => {
     expect(element.props.setFilterState).not.toHaveBeenCalled()
-    wrapper.find('select').simulate('change', { currentTarget: { value: '3' } })
+    wrapper.find('Select').simulate('change', '3')
     expect(element.props.setFilterState).toHaveBeenCalledWith({ view: '3' })
   })
 })

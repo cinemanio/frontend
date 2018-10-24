@@ -1,8 +1,11 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { Select } from 'antd'
 
 import i18n from 'libs/i18n'
+
+import './SelectFilter.scss'
 
 type Props = {
   code: string,
@@ -49,29 +52,28 @@ export default class SelectFilter extends React.Component<Props> {
     this.props.setFilterState({ [name]: filterValue })
   }
 
-  filterBy = (e: SyntheticEvent<HTMLSelectElement>) => {
-    this.setFilter(this.props.code, e.currentTarget.value)
-    if (this.props.multiple) {
-      e.currentTarget.value = ''
-    }
-  }
+  filterBy = (value: string) => this.setFilter(this.props.code, value)
 
   renderOption(item: Object) {
     return this.props.multiple && this.active.indexOf(item.id) !== -1 ? null : (
-      <option key={item.id} value={item.id}>
+      <Select.Option key={item.id} value={item.id}>
         {item[i18n.f('name')]}
-      </option>
+      </Select.Option>
     )
   }
 
   render() {
-    const value = this.props.multiple ? '' : this.props.filters[this.props.code] || ''
+    const value = this.props.multiple ? undefined : this.props.filters[this.props.code] || undefined
     return (
-      // eslint-disable-next-line jsx-a11y/no-onchange
-      <select name={this.props.code} onChange={this.filterBy} value={value}>
-        <option value="">{this.props.title}</option>
+      <Select
+        name={this.props.code}
+        onChange={this.filterBy}
+        value={value}
+        defaultValue={value}
+        placeholder={this.props.title}
+      >
         {this.props.list.map((item: Object) => this.renderOption(item))}
-      </select>
+      </Select>
     )
   }
 }
