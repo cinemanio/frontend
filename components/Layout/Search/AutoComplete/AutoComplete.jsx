@@ -50,10 +50,14 @@ export default class AutoComplete extends React.Component<Props> {
     this.props.refine()
   }
 
-  getSuggestionValue(hit: Object) {
-    return hit.title_en
-  }
+  /**
+   * Value, which should be inserted, after click on suggestion
+   */
+  getSuggestionValue = () => ''
 
+  /**
+   * Callback after click on suggestion
+   */
   onSuggestionSelected = (event: Event, { suggestion }: Object) => {
     // TODO: support for persons
     this.props.history.push(routes.movie.detail.replace(':slug', suggestion.objectID))
@@ -71,7 +75,7 @@ export default class AutoComplete extends React.Component<Props> {
   }
 
   renderInputComponent(inputProps: Object) {
-    return <Input suffix={<Icon type="search" className="certain-category-icon"/>} {...inputProps}/>
+    return <Input suffix={<Icon type="search" styleName="icon"/>} {...inputProps}/>
   }
 
   render() {

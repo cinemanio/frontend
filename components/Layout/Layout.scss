@@ -23,15 +23,6 @@
         height: 100%;
       }
     }
-
-    :local .box {
-      display: flex;
-      flex-direction: column;
-
-      :local .content {
-        display: flex;
-      }
-    }
   }
 
   header {
@@ -62,6 +53,8 @@
 .box {
   max-width: 1000px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 
   .content {
     background-color: #FFFFFF;
