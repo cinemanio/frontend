@@ -43,23 +43,23 @@ export default class Layout extends React.Component<Props, State> {
             {/* if use Col component here, SSR fails for some reason */}
             <div className="ant-col-14" styleName="box">
               <header>
-                <div className="ant-col-6">
+                <div className="ant-col-6" styleName="logo">
                   <Link to="/">cineman.io</Link>
                 </div>
                 <div className="ant-col-12" styleName="search">
-                  <Search/>
+                  <Search />
                 </div>
                 <div className="ant-col-6" styleName="auth">
-                  <Auth/>
+                  <Auth />
                 </div>
               </header>
               <div styleName="content">
-                <Menu active={menuActive}/>
-                {this.state.error ? <RedBox error={this.state.error}/> : <Component {...matchProps} />}
+                <Menu active={menuActive} />
+                {this.state.error ? <RedBox error={this.state.error} /> : <Component {...matchProps} />}
               </div>
               <footer>
                 <div styleName="languages">
-                  <Languages/>
+                  <Languages />
                 </div>
               </footer>
             </div>

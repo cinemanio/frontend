@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const devMode = process.env.NODE_ENV !== 'production'
 
 // hide webpack2 deprecation warnings
 process.noDeprecation = true
@@ -17,19 +19,22 @@ module.exports = {
   },
   mode: process.env.NODE_ENV || 'development',
   performance: {
-    hints: process.env.NODE_ENV === 'production' ? 'warning' : false
+    hints: !devMode ? 'error' : 'warning',
+    maxEntrypointSize: 2000000,
+    maxAssetSize: 2000000,
   },
   output: {
     path: path.resolve('public'),
     // filename: '[name]-[hash].js',
     filename: '[name].js'
   },
+  devtool: false,
   plugins: [
-    new ExtractTextPlugin({
-      // filename: '[name]-[hash].css',
-      filename: '[name].css',
-      disable: process.env.NODE_ENV === 'development',
-      allChunks: true
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: devMode ? '[name].css' : '[name].css',
+      chunkFilename: devMode ? '[id].css' : '[id].css',
     }),
     new webpack.EnvironmentPlugin(Object.keys(process.env))
   ],
@@ -46,7 +51,7 @@ module.exports = {
         // which get modificated and applied later in webpack.(dev|prod).config files.
         use: [
           {
-            loader: 'style-loader'
+            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -75,7 +80,7 @@ module.exports = {
         // which get modificated and applied later in webpack.(dev|prod).config files.
         use: [
           {
-            loader: 'style-loader'
+            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',

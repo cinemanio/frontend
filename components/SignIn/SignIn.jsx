@@ -72,7 +72,7 @@ export default class SignIn extends React.Component<Props> {
                   <Col span={10}>
                     <h1>{this.props.i18n.t('signin.title')}</h1>
                     {/*<p>*/}
-                      {/*<Link to={routes.signup}>{this.props.i18n.t('signin.needAccount')}</Link>*/}
+                    {/*<Link to={routes.signup}>{this.props.i18n.t('signin.needAccount')}</Link>*/}
                     {/*</p>*/}
                     <SignInForm signin={signin} form={this.props.form} loading={loading} />
                   </Col>
