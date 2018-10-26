@@ -30,8 +30,9 @@ export default class Menu extends React.Component<Props> {
   }
 
   renderMenu(): Array<React.Fragment> {
-    return this.menu.map(([type, title]) =>
-      <Tabs.TabPane tab={<Link to={routes[type].list}>{title}</Link>} key={type} />)
+    return this.menu.map(([type, title]) => (
+      <Tabs.TabPane tab={<Link to={routes[type].list}>{title}</Link>} key={type} />
+    ))
   }
 
   render() {
