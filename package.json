@@ -12,14 +12,15 @@
     "start": "npm-run-all -p server-start client-start",
     "server-start": "nodemon --inspect",
     "client-start": "webpack-dev-server --config ./webpack.dev.config.js",
-    "test": "npm-run-all -s jest flow lint size -c",
+    "build": "webpack -p --config ./webpack.prod.config.js --progress",
+    "test": "npm-run-all -s jest flow lint build size -c",
     "jest": "jest --coverage .",
     "jest-watch": "jest --watch .",
     "flow": "flow check",
     "lint": "eslint --ext .js,.jsx .",
     "size": "bundlesize",
     "prettier": "prettier --write '{components,__{tests,mocks}__}/**/*.jsx'",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
+    "heroku-postbuild": "npm run build",
     "fetch-fragments-types": "babel-node ./lib/fragments/fetcher.js"
   },
   "jest": {
