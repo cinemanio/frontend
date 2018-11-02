@@ -5,13 +5,14 @@ import { Tag } from 'antd'
 import _ from 'lodash'
 
 import i18n from 'libs/i18n'
+import type { RangeType } from '../YearsFilter/YearsFilter'
 
 type Props = {
   code: string,
   list: Array<Object>,
   multiple?: boolean,
   range?: boolean,
-  default: { min: number, max: number },
+  default: RangeType,
   filters: Object,
   setFilterState: Function,
 }
@@ -39,44 +40,40 @@ export default class ActiveFilters extends React.Component<Props> {
   }
 
   get active(): Array<string> {
+    const active = []
     if (this.props.multiple) {
       return [...this.value]
     } else if (this.props.range) {
-      // TODO: refactor to make it nicer
       if (this.value.min === this.value.max) {
-        return [this.value.min]
-      } else if (this.value.min !== this.props.default.min && this.value.max !== this.props.default.max) {
-        return [this.value.min, this.value.max]
-      } else if (this.value.min !== this.props.default.min) {
-        return [this.value.min]
-      } else if (this.value.max !== this.props.default.max) {
-        return [this.value.max]
+        active.push(this.value.min)
       } else {
-        return []
+        if (this.value.min !== this.props.default.min) {
+          active.push(this.value.min)
+        }
+        if (this.value.max !== this.props.default.max) {
+          active.push(this.value.max)
+        }
       }
     } else if (this.value) {
-      return [this.value]
-    } else {
-      return []
+      active.push(this.value)
     }
+    return active
   }
 
   removeFilter = (name: string, value: string) => {
-    let filterValue = ''
+    let filterValue = _.clone(this.value)
     if (this.props.multiple) {
-      this.value.delete(value)
-      filterValue = this.value
+      filterValue.delete(value)
     } else if (this.props.range) {
       if (this.value.min === this.value.max) {
         filterValue = this.props.default
-      } else {
-        filterValue = _.clone(this.value)
-        if (this.value.min === value) {
-          filterValue.min = this.props.default.min
-        } else if (this.value.max === value) {
-          filterValue.max = this.props.default.max
-        }
+      } else if (this.value.min === value) {
+        filterValue.min = this.props.default.min
+      } else if (this.value.max === value) {
+        filterValue.max = this.props.default.max
       }
+    } else {
+      filterValue = ''
     }
     this.props.setFilterState({ [name]: filterValue })
   }

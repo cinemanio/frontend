@@ -6,12 +6,14 @@ import { Slider } from 'antd'
 
 import './YearsFilter.scss'
 
+export type RangeType = { min: number, max: number }
+
 type Props = {
   code: string,
   filters: Object,
   title: string,
   setFilterState: Function,
-  defaultRange: { min: number, max: number },
+  defaultRange: RangeType,
 }
 
 type State = {

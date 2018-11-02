@@ -15,6 +15,7 @@ import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
 import SelectGeneric from 'components/ObjectListPage/SelectGeneric/SelectGeneric'
 import FieldSection from 'components/ObjectListPage/FieldSection/FieldSection'
 import YearsFilter from 'components/ObjectListPage/YearsFilter/YearsFilter'
+import type { RangeType } from 'components/ObjectListPage/YearsFilter/YearsFilter'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import i18n from 'libs/i18n'
 import User from 'stores/User'
@@ -38,7 +39,7 @@ type State = {
   countries: Set<string>,
   view: 'image' | 'short' | 'full',
   orderBy: string,
-  yearsRange: { min: number, max: number },
+  yearsRange: RangeType,
 }
 
 @withAlert
@@ -109,11 +110,11 @@ class MoviesPage extends React.Component<Props, State> {
 
   renderMovie = ({ movie }) => {
     if (this.state.view === 'image') {
-      return <MovieIcon movie={movie} />
+      return <MovieIcon movie={movie}/>
     } else if (this.state.view === 'short') {
-      return <MovieShort movie={movie} />
+      return <MovieShort movie={movie}/>
     } else if (this.state.view === 'full') {
-      return <MovieFull movie={movie} />
+      return <MovieFull movie={movie}/>
     } else {
       throw Error('Wrong value of state.view')
     }
@@ -286,5 +287,5 @@ MoviesPage.queries = {
 export default compose(
   graphql(MoviesPage.queries.genres, { name: 'genreData' }),
   graphql(MoviesPage.queries.countries, { name: 'countryData' }),
-  graphql(MoviesPage.queries.movies, configObject)
+  graphql(MoviesPage.queries.movies, configObject),
 )(MoviesPage)
