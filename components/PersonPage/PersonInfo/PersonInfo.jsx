@@ -93,6 +93,9 @@ export default class PersonInfo extends React.Component<Props> {
     this.props.person.gender === 'MALE' ? role : role.replace('Actor', 'Actress').replace('Актер', 'Актриса')
 
   renderGender() {
+    if (!this.props.person.gender) {
+      return null
+    }
     const gender = {
       male: 'man',
       female: 'woman',
