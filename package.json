@@ -42,11 +42,11 @@
   "bundlesize": [
     {
       "path": "./public/app.js",
-      "maxSize": "700 kB"
+      "maxSize": "550 kB"
     },
     {
       "path": "./public/app.css",
-      "maxSize": "200 kB"
+      "maxSize": "5 kB"
     }
   ],
   "dependencies": {
@@ -76,7 +76,6 @@
     "extract-text-webpack-plugin": "4.0.0-alpha.0",
     "fecha": "2.3.2",
     "file-loader": "1.1.11",
-    "font-awesome": "4.7.0",
     "fs-readfile-promise": "3.0.1",
     "graphql": "0.13.2",
     "graphql-tag": "2.8.0",

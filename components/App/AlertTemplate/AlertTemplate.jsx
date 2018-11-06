@@ -15,12 +15,14 @@ export default class AlertTemplate extends React.PureComponent<Props> {
   }
 
   render() {
-    return <Alert
-      styleName="box"
-      type={this.props.options.type}
-      message={this.props.message}
-      afterClose={this.props.close}
-      closable
-    />
+    return (
+      <Alert
+        styleName="box"
+        type={this.props.options.type}
+        message={this.props.message}
+        afterClose={this.props.close}
+        closable
+      />
+    )
   }
 }
