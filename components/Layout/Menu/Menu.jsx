@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { translate } from 'react-i18next'
 import type { Translator } from 'react-i18next'
 import { PropTypes } from 'prop-types'
+import { Tabs } from 'antd'
 
 import i18nClient from 'libs/i18nClient'
 import routes from 'components/App/routes'
@@ -28,25 +29,17 @@ export default class Menu extends React.Component<Props> {
     return [['movie', this.props.i18n.t('menu.movies')], ['person', this.props.i18n.t('menu.persons')]]
   }
 
-  getClass(type: string) {
-    const classes = ['nav-link']
-    if (type === this.props.active) {
-      classes.push('active')
-    }
-    return classes.join(' ')
-  }
-
   renderMenu(): Array<React.Fragment> {
     return this.menu.map(([type, title]) => (
-      <li className="nav-item" key={type}>
-        <Link to={routes[type].list} className={this.getClass(type)}>
-          {title}
-        </Link>
-      </li>
+      <Tabs.TabPane tab={<Link to={routes[type].list}>{title}</Link>} key={type} />
     ))
   }
 
   render() {
-    return <ul className="nav nav-tabs">{this.renderMenu()}</ul>
+    return (
+      <Tabs activeKey={this.props.active} type="card">
+        {this.renderMenu()}
+      </Tabs>
+    )
   }
 }

@@ -1,24 +1,15 @@
-@import '~font-awesome/scss/font-awesome';
-
-@mixin fa-icon($type) {
-  @extend .fa;
-  @extend .fa-#{$type};
-}
-
-@mixin fa-icon-info($type) {
+%icon {
   i {
-    @include fa-icon($type);
     margin-right: 0.2rem;
   }
 }
 
-@mixin rel-fa-icon($type, $color) {
+@mixin rel-icon($color) {
   span {
     cursor: pointer;
     color: #999999;
 
     i {
-      @include fa-icon($type);
       border: 1px solid #DDDDDD;
       background-color: white;
       color: #DDDDDD;
@@ -91,6 +82,10 @@
   font-size: 0.7rem;
   color: #333333;
 
+  span {
+    @extend %icon;
+  }
+
   > span:not(:first-child) {
     &:before {
       content: '-';
@@ -134,7 +129,7 @@
   }
 
   :global {
-    .row {
+    .ant-row {
       margin-top: 1rem;
     }
   }

@@ -35,19 +35,19 @@ describe('Movies Page Component', () => {
 
     it('should render select filters', () => {
       expect(wrapper.find('SelectGeneric')).toHaveLength(2)
-      expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(2)
-      expect(wrapper.find('SelectGeneric[code="orderBy"]').find('option')).toHaveLength(4)
+      expect(wrapper.find('SelectGeneric[code="view"]').prop('list')).toHaveLength(2)
+      expect(wrapper.find('SelectGeneric[code="orderBy"]').prop('list')).toHaveLength(4)
       expect(wrapper.find('SelectFilter')).toHaveLength(3)
-      expect(wrapper.find('SelectFilter[code="relation"]').find('option')).toHaveLength(MovieRelations.codes.length + 1)
-      expect(wrapper.find('SelectFilter[code="genres"]').find('option')).toHaveLength(genres.data.list.length + 1)
-      expect(wrapper.find('SelectFilter[code="countries"]').find('option')).toHaveLength(countries.data.list.length + 1)
+      expect(wrapper.find('SelectFilter[code="relation"]').prop('list')).toHaveLength(MovieRelations.codes.length)
+      expect(wrapper.find('SelectFilter[code="genres"]').prop('list')).toHaveLength(genres.data.list.length)
+      expect(wrapper.find('SelectFilter[code="countries"]').prop('list')).toHaveLength(countries.data.list.length)
     })
 
     it('should render active filter, when filter selected', () => {
       expect(wrapper.find('ActiveFilters')).toHaveLength(3)
-      expect(wrapper.find('ActiveFilters[code="genres"]').find('span')).toHaveLength(0)
+      expect(wrapper.find('ActiveFilters[code="genres"]').find('Tag')).toHaveLength(0)
       selectFilterChange(wrapper, 'SelectFilter[code="genres"]', 'R2VucmVOb2RlOjQ=')
-      expect(wrapper.find('ActiveFilters[code="genres"]').find('span')).toHaveLength(1)
+      expect(wrapper.find('ActiveFilters[code="genres"]').find('Tag')).toHaveLength(1)
     })
 
     describe('i18n. en', () => {
@@ -67,7 +67,7 @@ describe('Movies Page Component', () => {
     const getActiveFilter = code =>
       wrapper
         .find(`ActiveFilters[code="${code}"]`)
-        .find('span')
+        .find('Tag')
         .text()
 
     beforeAll(() => i18nClient.changeLanguage('en'))
@@ -75,8 +75,8 @@ describe('Movies Page Component', () => {
     it('should render movies', async () => {
       wrapper = await mountGraphql(<MoviesPage />, mocks)
       expect(wrapper.find('MovieShort').length).toBeGreaterThan(0)
-      expect(wrapper.find('SelectFilter[code="genres"]').find('option').length).toBeGreaterThan(1)
-      expect(wrapper.find('SelectFilter[code="countries"]').find('option').length).toBeGreaterThan(1)
+      expect(wrapper.find('SelectFilter[code="genres"]').prop('list').length).toBeGreaterThan(1)
+      expect(wrapper.find('SelectFilter[code="countries"]').prop('list').length).toBeGreaterThan(1)
     })
 
     it('should render movies posters', async done => {

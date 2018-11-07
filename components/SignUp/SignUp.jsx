@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { inject, observer, PropTypes as MobxPropTypes } from 'mobx-react'
+import { observer, PropTypes as MobxPropTypes } from 'mobx-react'
 // import { PropTypes } from 'prop-types'
 
 import ListErrors from 'components/ListErrors/ListErrors'
@@ -12,7 +12,6 @@ type Props = {
   // history: Object
 }
 
-@inject('auth')
 @observer
 export default class SignUp extends React.Component<Props> {
   static propTypes = {

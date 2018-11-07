@@ -2,6 +2,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { PropTypes } from 'prop-types'
+import { Row, Col } from 'antd'
 import _ from 'lodash'
 
 import ObjectList from './ObjectList/ObjectList'
@@ -54,22 +55,22 @@ export default class ObjectListPage extends React.Component<Props, State> {
   render() {
     const props = _.omit(this.props, ['title', 'renderFilters', 'renderActiveFilters', 'setFilterState'])
     return (
-      <div styleName="box">
+      <Row type="flex" styleName="box">
         <Helmet>
           <title>{this.props.title}</title>
           <body className="list" />
         </Helmet>
-        <div styleName="list">
+        <Col span={20} styleName="list">
           <div styleName="caption">
             <Pagination page={this.state.page} data={this.props.data} />
             {this.props.renderActiveFilters(this.refreshList)}
           </div>
           <ObjectList updatePage={this.updatePage} getVariables={this.props.getVariables} {...props} />
-        </div>
-        <div styleName="filters">
+        </Col>
+        <Col span={4} styleName="filters">
           <div>{this.props.renderFilters(this.refreshList)}</div>
-        </div>
-      </div>
+        </Col>
+      </Row>
     )
   }
 }

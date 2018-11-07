@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
 import { translate } from 'react-i18next'
 import gql from 'graphql-tag'
+import { Row, Col } from 'antd'
 
 import ObjectPage from 'components/ObjectPage/ObjectPage'
 import PersonImage from 'components/PersonImage/PersonImage'
@@ -65,17 +66,17 @@ class PersonPage extends React.Component<Props> {
       <h1>{person[i18n.f('name')]}</h1>
       <h2>{this.isNamesEqual(person) ? null : person.nameEn}</h2>
       <PersonInfo person={person} all />
-      <div className="row">
-        <div className="col-lg-2">
+      <Row>
+        <Col span={4}>
           <div styleName="image">
             <PersonImage person={person} type="detail" />
           </div>
           <PersonSites person={person} />
-        </div>
-        <div className="col-lg-10">
+        </Col>
+        <Col span={20}>
           <PersonCareer person={person} />
-        </div>
-      </div>
+        </Col>
+      </Row>
       <ObjectKinopoiskInfo object={person} />
       <ObjectWikipedia object={person} />
     </div>

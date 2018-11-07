@@ -1,15 +1,23 @@
 :global {
-  ul.nav {
+  .ant-tabs-card {
     position: absolute;
-    top: 47px;
+    top: 46px;
     border-bottom: 0;
-  }
+    font-family: $font-family;
 
-  .nav-tabs a.nav-link {
-    text-decoration: none;
+    .ant-tabs-bar {
+      border-color: white;
+      border-bottom: 0;
 
-    &:hover {
-      text-decoration: underline;
+      .ant-tabs-tab {
+        border-color: transparent !important;
+        background: transparent !important;
+      }
+
+      .ant-tabs-tab-active {
+        border-color: #dee2e6 #dee2e6 white !important;
+        background: white !important;
+      }
     }
   }
 }

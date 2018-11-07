@@ -35,19 +35,19 @@ describe('Persons Page Component', () => {
 
     it('should render select filters', () => {
       expect(wrapper.find('SelectGeneric')).toHaveLength(2)
-      expect(wrapper.find('SelectGeneric[code="view"]').find('option')).toHaveLength(1)
-      expect(wrapper.find('SelectGeneric[code="orderBy"]').find('option')).toHaveLength(2)
+      expect(wrapper.find('SelectGeneric[code="view"]').prop('list')).toHaveLength(1)
+      expect(wrapper.find('SelectGeneric[code="orderBy"]').prop('list')).toHaveLength(2)
       expect(wrapper.find('SelectFilter')).toHaveLength(3)
-      expect(wrapper.find('SelectFilter[code="relation"]').find('option')).toHaveLength(PersonRelations.codes.length + 1)
-      expect(wrapper.find('SelectFilter[code="roles"]').find('option')).toHaveLength(roles.data.list.length + 1)
-      expect(wrapper.find('SelectFilter[code="country"]').find('option')).toHaveLength(countries.data.list.length + 1)
+      expect(wrapper.find('SelectFilter[code="relation"]').prop('list')).toHaveLength(PersonRelations.codes.length)
+      expect(wrapper.find('SelectFilter[code="roles"]').prop('list')).toHaveLength(roles.data.list.length)
+      expect(wrapper.find('SelectFilter[code="country"]').prop('list')).toHaveLength(countries.data.list.length)
     })
 
     it('should render active filter, when filter selected', () => {
       expect(wrapper.find('ActiveFilters')).toHaveLength(3)
-      expect(wrapper.find('ActiveFilters[code="roles"]').find('span')).toHaveLength(0)
+      expect(wrapper.find('ActiveFilters[code="roles"]').find('Tag')).toHaveLength(0)
       selectFilterChange(wrapper, 'SelectFilter[code="roles"]', 'Um9sZU5vZGU6MTE=')
-      expect(wrapper.find('ActiveFilters[code="roles"]').find('span')).toHaveLength(1)
+      expect(wrapper.find('ActiveFilters[code="roles"]').find('Tag')).toHaveLength(1)
     })
 
     describe('i18n. en', () => {
@@ -67,16 +67,15 @@ describe('Persons Page Component', () => {
     const getActiveFilter = code =>
       wrapper
         .find(`ActiveFilters[code="${code}"]`)
-        .find('span')
+        .find('Tag')
         .text()
 
     beforeAll(() => i18nClient.changeLanguage('en'))
 
     it('should render persons', async () => {
       wrapper = await mountGraphql(<PersonsPage />, mocks)
-      expect(wrapper.find('PersonShort').length).toBeGreaterThan(0)
-      expect(wrapper.find('SelectFilter[code="roles"]').find('option').length).toBeGreaterThan(1)
-      expect(wrapper.find('SelectFilter[code="country"]').find('option').length).toBeGreaterThan(1)
+      expect(wrapper.find('SelectFilter[code="roles"]').prop('list').length).toBeGreaterThan(1)
+      expect(wrapper.find('SelectFilter[code="country"]').prop('list').length).toBeGreaterThan(1)
     })
 
     it('should render message if no results in response', async () => {
