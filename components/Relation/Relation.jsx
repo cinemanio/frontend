@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types'
 import { Mutation } from 'react-apollo'
 import { withAlert } from 'react-alert'
 import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
+import { Icon } from 'antd'
 import type { Translator } from 'react-i18next'
 import { translate } from 'react-i18next'
 
@@ -20,6 +21,7 @@ type Props = {
   mutation: Object,
   fragment: Object,
   modifyOptimisticResponse: Function,
+  iconProps: Object,
   alert: Object,
   user: typeof User,
   i18n: Translator,
@@ -41,6 +43,7 @@ export default class Relation extends React.Component<Props> {
     className: PropTypes.string,
     object: PropTypes.object.isRequired,
     code: PropTypes.string.isRequired,
+    iconProps: PropTypes.object.isRequired,
     displayCounts: PropTypes.bool,
     mutation: PropTypes.object.isRequired,
     fragment: PropTypes.object.isRequired,
@@ -100,7 +103,7 @@ export default class Relation extends React.Component<Props> {
           return (
             <span className={this.props.className} {...params}>
               <span className={this.props.object.relation[this.props.code] ? 'active' : ''}>
-                <i />
+                <Icon {...this.props.iconProps} />
                 {this.props.displayCounts ? this.props.object.relationsCount[this.props.code] : ''}
               </span>
             </span>
