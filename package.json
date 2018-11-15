@@ -13,7 +13,7 @@
     "server-start": "nodemon --inspect",
     "client-start": "webpack-dev-server --config ./webpack.dev.config.js",
     "build": "webpack -p --config ./webpack.prod.config.js --progress --json > stats.json",
-    "test": "npm-run-all -s jest flow lint build size -c",
+    "test": "npm-run-all -s build jest flow lint size -c",
     "jest": "jest --coverage .",
     "jest-watch": "jest --watch .",
     "flow": "flow check",
