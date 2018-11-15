@@ -18,6 +18,7 @@ import token from 'stores/Token'
 import user from 'stores/User'
 
 import routes from './routes'
+import staticFiles from './static'
 import AlertTemplate from './AlertTemplate/AlertTemplate'
 
 export const stores = { token, user }
@@ -36,8 +37,8 @@ const App = ({ lang }: Object) => (
     <AlertProvider template={AlertTemplate} {...alertOptions}>
       <div>
         <Helmet htmlAttributes={{ lang }} defaultTitle="cineman.io" titleTemplate="%s · cineman.io">
-          <script type="text/javascript" src="/public/app.js" async crossOrigin />
-          <link rel="stylesheet" type="text/css" href="/public/app.css" />
+          {staticFiles.js.map(path => <script key={path} type="text/javascript" src={path} async crossOrigin />)}
+          {staticFiles.css.map(path => <link key={path} rel="stylesheet" type="text/css" href={path} />)}
           <link rel="icon" type="image/ico" href="/public/favicon.ico" />
         </Helmet>
         <Switch>

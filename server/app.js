@@ -28,7 +28,7 @@ const getApp = (apolloHttpConf: Object) => {
     }
   })
 
-  if (settings.env === 'development') {
+  if (settings.dev) {
     // in development env use proxy to webpack dev server
     const proxySettings = {
       target: `http://${settings.webpackServerHost}`,

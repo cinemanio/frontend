@@ -12,9 +12,9 @@ import App from 'components/App/App'
 import i18nServer from 'libs/i18nServer'
 import graphqlAuth from 'libs/graphqlAuth'
 import Token from 'stores/Token'
+import settings from 'settings'
 
 import renderHtmlPage from './renderHtmlPage'
-import settings from '../settings'
 
 Helmet.canUseDOM = false
 

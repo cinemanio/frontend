@@ -6,9 +6,9 @@ import type { Translator } from 'react-i18next'
 import Cookies from 'js-cookie'
 
 import i18nClient from 'libs/i18nClient'
+import settings from 'settings'
 
 import './Languages.scss'
-import settings from '../../../settings'
 
 type Props = { i18n: Translator }
 

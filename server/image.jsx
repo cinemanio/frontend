@@ -5,7 +5,7 @@ import _ from 'lodash'
 import readFilePromise from 'fs-readfile-promise'
 import path from 'path'
 
-import settings from '../settings'
+import settings from 'settings'
 
 const stubPath = path.resolve(settings.baseDir, 'images/grey.jpg')
 
