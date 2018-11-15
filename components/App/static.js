@@ -1,11 +1,12 @@
 import webpackStates from 'webpack-stats'
 import settings from 'settings'
 
-const extract = (section) =>
-  (webpackStates.status === 'done' && webpackStates.chunks[section])
-    ? webpackStates.chunks[section].map(chunk => chunk.publicPath) : []
+const extract = (regexp) =>
+  webpackStates.status === 'done'
+    ? webpackStates.chunks.app.map(chunk => chunk.publicPath).filter(path => path.match(regexp))
+    : []
 
 export default {
-  js: settings.dev ? ['/public/app.js'] : extract('app'),
-  css: settings.dev ? [] : extract('styles'),
+  js: settings.dev ? ['/public/app.js'] : extract(/\.js$/),
+  css: settings.dev ? [] : extract(/\.css$/),
 }

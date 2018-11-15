@@ -37,8 +37,12 @@ const App = ({ lang }: Object) => (
     <AlertProvider template={AlertTemplate} {...alertOptions}>
       <div>
         <Helmet htmlAttributes={{ lang }} defaultTitle="cineman.io" titleTemplate="%s · cineman.io">
-          {staticFiles.js.map(path => <script key={path} type="text/javascript" src={path} async crossOrigin />)}
-          {staticFiles.css.map(path => <link key={path} rel="stylesheet" type="text/css" href={path} />)}
+          {staticFiles.js.map(path => (
+            <script key={path} type="text/javascript" src={path} async crossOrigin />
+          ))}
+          {staticFiles.css.map(path => (
+            <link key={path} rel="stylesheet" type="text/css" href={path} />
+          ))}
           <link rel="icon" type="image/ico" href="/public/favicon.ico" />
         </Helmet>
         <Switch>
