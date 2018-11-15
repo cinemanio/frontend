@@ -165,7 +165,6 @@ module.exports = {
       stores: path.resolve('stores'),
       components: path.resolve('components'),
       settings: path.resolve('settings.js'),
-      'webpack-stats': path.resolve('webpack-stats.json'),
     },
   },
 }
