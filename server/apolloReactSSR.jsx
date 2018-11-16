@@ -15,6 +15,7 @@ import Token from 'stores/Token'
 import settings from 'settings'
 
 import renderHtmlPage from './renderHtmlPage'
+import bundle from './bundle'
 
 Helmet.canUseDOM = false
 
@@ -85,6 +86,6 @@ export default (apolloHttpConf: Object) => {
     }
 
     ctx.status = status
-    ctx.body = renderHtmlPage(markup, head, initialState, settings.backendApiUrl)
+    ctx.body = renderHtmlPage(markup, head, initialState, settings.backendApiUrl, bundle)
   }
 }
