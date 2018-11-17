@@ -15,7 +15,7 @@ export default (markup, head, state, apiUrl, bundle) => {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/ico" href="/public/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="${bundle.css}" />
-    <script type="text/javascript" src="${bundle.js}" async crossOrigin />
+    <script type="text/javascript" src="${bundle.js}" async crossOrigin></script>
     ${safeHead.meta.toString()}
     ${safeHead.title.toString()}
     ${safeHead.script.toString()}
