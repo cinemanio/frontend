@@ -5,7 +5,7 @@ import { Tag } from 'antd'
 import _ from 'lodash'
 
 import i18n from 'libs/i18n'
-import type { RangeType } from '../YearsFilter/YearsFilter'
+import type { RangeType } from 'components/ObjectListPageYearsFilter/YearsFilter'
 
 type Props = {
   code: string,

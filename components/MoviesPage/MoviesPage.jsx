@@ -110,11 +110,11 @@ class MoviesPage extends React.Component<Props, State> {
 
   renderMovie = ({ movie }) => {
     if (this.state.view === 'image') {
-      return <MovieIcon movie={movie}/>
+      return <MovieIcon movie={movie} />
     } else if (this.state.view === 'short') {
-      return <MovieShort movie={movie}/>
+      return <MovieShort movie={movie} />
     } else if (this.state.view === 'full') {
-      return <MovieFull movie={movie}/>
+      return <MovieFull movie={movie} />
     } else {
       throw Error('Wrong value of state.view')
     }
@@ -287,5 +287,5 @@ MoviesPage.queries = {
 export default compose(
   graphql(MoviesPage.queries.genres, { name: 'genreData' }),
   graphql(MoviesPage.queries.countries, { name: 'countryData' }),
-  graphql(MoviesPage.queries.movies, configObject),
+  graphql(MoviesPage.queries.movies, configObject)
 )(MoviesPage)
