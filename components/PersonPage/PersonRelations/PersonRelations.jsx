@@ -24,6 +24,12 @@ export default class PersonRelations extends React.Component<Props> {
     relate: mutation('Person', codes),
   }
 
+  icons = {
+    fav: { type: 'star' },
+    like: { type: 'like' },
+    dislike: { type: 'dislike' },
+  }
+
   modifyOptimisticResponse = (response: Object, code: string, value: boolean) => {
     if (code === 'fav' && value) {
       response.relate.relation.like = true
@@ -35,6 +41,7 @@ export default class PersonRelations extends React.Component<Props> {
     return codes.map(code => (
       <Relation
         key={code}
+        iconProps={this.icons[code]}
         styleName={code}
         code={code}
         object={this.props.person}

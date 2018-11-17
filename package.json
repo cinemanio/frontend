@@ -12,8 +12,8 @@
     "start": "npm-run-all -p server-start client-start",
     "server-start": "nodemon --inspect",
     "client-start": "webpack-dev-server --config ./webpack.dev.config.js",
-    "build": "webpack -p --config ./webpack.prod.config.js --progress --json > stats.json",
-    "test": "npm-run-all -s jest flow lint build size -c",
+    "build": "NODE_ENV=production webpack -p --config ./webpack.prod.config.js --progress --json > stats.json",
+    "test": "npm-run-all -s build jest flow lint size -c",
     "jest": "jest --coverage .",
     "jest-watch": "jest --watch .",
     "flow": "flow check",
@@ -41,12 +41,12 @@
   "license": "MIT",
   "bundlesize": [
     {
-      "path": "./public/app.js",
-      "maxSize": "700 kB"
+      "path": "./public/app.*.js",
+      "maxSize": "500 kB"
     },
     {
-      "path": "./public/app.css",
-      "maxSize": "200 kB"
+      "path": "./public/app.*.css",
+      "maxSize": "30 kB"
     }
   ],
   "dependencies": {
@@ -73,10 +73,8 @@
     "babel-register": "6.26.0",
     "core-js": "2.5.3",
     "css-loader": "0.28.10",
-    "extract-text-webpack-plugin": "4.0.0-alpha.0",
     "fecha": "2.3.2",
     "file-loader": "1.1.11",
-    "font-awesome": "4.7.0",
     "fs-readfile-promise": "3.0.1",
     "graphql": "0.13.2",
     "graphql-tag": "2.8.0",
@@ -102,7 +100,7 @@
     "pluralize": "7.0.0",
     "postcss-loader": "2.1.0",
     "postcss-scss": "1.0.2",
-    "prop-types": "15.6.0",
+    "prop-types": "15.6.2",
     "react": "16.4.0",
     "react-alert": "4.0.4",
     "react-apollo": "2.1.5",
@@ -127,7 +125,7 @@
     "unfetch": "3.0.0",
     "universal-cookie": "3.0.3",
     "url-loader": "0.6.2",
-    "webpack": "4.0.0",
+    "webpack": "4.23.0",
     "webpack-bundle-tracker": "0.2.1",
     "webpack-cli": "3.1.0",
     "wtf_wikipedia": "5.0.1"
@@ -158,8 +156,10 @@
     "jest": "23.6.0",
     "jest-watch-typeahead": "0.2.0",
     "lodash-webpack-plugin": "0.11.5",
+    "mini-css-extract-plugin": "0.4.4",
     "nodemon": "1.14.12",
     "npm-run-all": "4.1.3",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
     "prettier": "1.14.3",
     "raf": "3.4.0",
     "rosie": "1.6.0",

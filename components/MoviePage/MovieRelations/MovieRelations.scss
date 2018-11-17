@@ -1,29 +1,29 @@
-@import 'mixins.scss';
+@import 'mixins';
 
 .fav {
-  @include rel-fa-icon('star', #e25800);
+  @include rel-icon(#e25800);
 }
 
 .like {
-  @include rel-fa-icon('thumbs-up', #6b983e);
+  @include rel-icon(#6b983e);
 }
 
 .seen {
-  @include rel-fa-icon('eye', #1c658c);
+  @include rel-icon(#1c658c);
 }
 
 .dislike {
-  @include rel-fa-icon('thumbs-down', #cd132c);
+  @include rel-icon(#cd132c);
 }
 
 .want {
-  @include rel-fa-icon('check', #039988);
+  @include rel-icon(#039988);
 }
 
 .ignore {
-  @include rel-fa-icon('ban', #804500);
+  @include rel-icon(#804500);
 }
 
 .have {
-  @include rel-fa-icon('save', #d08d00);
+  @include rel-icon(#d08d00);
 }

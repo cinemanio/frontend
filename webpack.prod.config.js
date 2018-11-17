@@ -2,6 +2,7 @@
 const webpack = require('webpack')
 const BundleTracker = require('webpack-bundle-tracker')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const config = require('./webpack.base.config.js')
 
@@ -13,15 +14,12 @@ config.plugins.push(
   // removes a lot of debugging code in React
   new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
   // minifies your code
-  new UglifyJSPlugin()
+  new UglifyJSPlugin({
+    cache: true,
+    parallel: true,
+    sourceMap: false // set to true if you want JS source maps
+  }),
+  new OptimizeCSSAssetsPlugin({}),
 )
-
-// Configure SCSS: add minimize to css-loader and apply rules ExtractTextPlugin.extract()
-const extractSass = config.plugins[0]
-const extractSassConfig = {}
-extractSassConfig.fallback = 'style-loader'
-extractSassConfig.use = config.module.rules[1].use.slice(1)
-extractSassConfig.use[0].options.minimize = true
-config.module.rules[1].use = extractSass.extract(extractSassConfig)
 
 module.exports = config

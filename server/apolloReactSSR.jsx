@@ -12,9 +12,10 @@ import App from 'components/App/App'
 import i18nServer from 'libs/i18nServer'
 import graphqlAuth from 'libs/graphqlAuth'
 import Token from 'stores/Token'
+import settings from 'settings'
 
 import renderHtmlPage from './renderHtmlPage'
-import settings from '../settings'
+import bundle from './bundle'
 
 Helmet.canUseDOM = false
 
@@ -85,6 +86,6 @@ export default (apolloHttpConf: Object) => {
     }
 
     ctx.status = status
-    ctx.body = renderHtmlPage(markup, head, initialState, settings.backendApiUrl)
+    ctx.body = renderHtmlPage(markup, head, initialState, settings.backendApiUrl, bundle)
   }
 }

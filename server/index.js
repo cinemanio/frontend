@@ -1,8 +1,9 @@
 // @flow
 import register from 'ignore-styles'
 
+import settings from 'settings'
+
 import app from './app'
-import settings from '../settings'
 
 register(['.scss'])
 

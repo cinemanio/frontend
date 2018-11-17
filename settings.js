@@ -1,11 +1,11 @@
-const debug = process.env.NODE_ENV === 'development'
+const dev = process.env.NODE_ENV !== 'production'
 module.exports = {
   webpackServerHost: process.env.WEBPACK_SERVER_HOST || '127.0.0.1:3001',
   koaServerPort: process.env.PORT || 3000,
   backendApiUrl: process.env.BACKEND_API_URL || 'http://127.0.0.1:8000/graphql/',
   baseDir: __dirname,
   env: process.env.NODE_ENV || 'development',
-  debug,
+  dev,
   domain: process.env.DOMAIN,
   languages: [
     ['en', 'English'],
@@ -13,7 +13,7 @@ module.exports = {
   ],
   i18nCookieName: 'lang',
   i18n: {
-    debug,
+    debug: false,
     // fallbackLng: 'en',
     interpolation: {
       escapeValue: false // not needed for react!!

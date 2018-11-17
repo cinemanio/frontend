@@ -2,7 +2,7 @@
 import i18n from 'i18next'
 import _ from 'lodash'
 
-import settings from '../settings'
+import settings from 'settings'
 
 const getField = (field: string, lang: string) => `${field}${_.capitalize(lang)}`
 

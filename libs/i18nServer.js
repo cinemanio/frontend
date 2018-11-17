@@ -2,7 +2,7 @@ import i18n from 'i18next'
 import Backend from 'i18next-sync-fs-backend'
 import koaI18nextDetector from 'koa-i18next-detector'
 
-import settings from '../settings'
+import settings from 'settings'
 
 i18n
   .use(Backend)
