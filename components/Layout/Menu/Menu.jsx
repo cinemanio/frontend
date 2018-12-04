@@ -19,12 +19,13 @@ export default class Menu extends React.Component<Props> {
   static defaultProps = {
     active: undefined,
     i18n: i18nClient,
+    history: {},
   }
 
   static propTypes = {
     i18n: PropTypes.object,
     active: PropTypes.string,
-    history: PropTypes.object.isRequired,
+    history: PropTypes.object,
   }
 
   get menu(): Array<Array<string>> {
