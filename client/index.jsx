@@ -9,5 +9,5 @@ import '../images/favicon.ico'
 
 const target = document.getElementById('react-container')
 if (target) {
-  ReactDOM.hydrate(<ClientApp/>, target)
+  ReactDOM.hydrate(<ClientApp />, target)
 }

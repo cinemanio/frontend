@@ -38,7 +38,7 @@ export default (apolloHttpConf: Object) => {
     let markup = null
     let head = null
     try {
-      markup = ReactDOMServer.renderToString(<RedBox error={error}/>)
+      markup = ReactDOMServer.renderToString(<RedBox error={error} />)
     } finally {
       head = Helmet.rewind()
     }
@@ -51,7 +51,7 @@ export default (apolloHttpConf: Object) => {
     const client = new ApolloClient({
       ssrMode: true,
       link: graphqlAuth.concat(new HttpLink(apolloHttpConf)),
-      cache: new InMemoryCache()
+      cache: new InMemoryCache(),
     })
 
     const lang = i18nServer.services.languageDetector.detect(ctx).slice(0, 2)
@@ -62,7 +62,7 @@ export default (apolloHttpConf: Object) => {
       <ApolloProvider client={client}>
         <StaticRouter location={ctx.request.url} context={context}>
           <I18nextProvider i18n={i18nServer}>
-            <App lang={lang}/>
+            <App lang={lang} />
           </I18nextProvider>
         </StaticRouter>
       </ApolloProvider>

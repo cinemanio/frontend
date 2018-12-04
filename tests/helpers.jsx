@@ -40,17 +40,17 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
   }
 }
 
-export const mountRouter = (element: Object, initialEntries: Array<string>) => mount(
-  <MemoryRouter initialEntries={initialEntries}>
-    <Provider {...stores}>
-      <AlertProvider template={AlertTemplate} {...alertOptions}>
-        <I18nextProvider i18n={i18nClient}>
-          {element}
-        </I18nextProvider>
-      </AlertProvider>
-    </Provider>
-  </MemoryRouter>,
-  mountOptions)
+export const mountRouter = (element: Object, initialEntries: Array<string>) =>
+  mount(
+    <MemoryRouter initialEntries={initialEntries}>
+      <Provider {...stores}>
+        <AlertProvider template={AlertTemplate} {...alertOptions}>
+          <I18nextProvider i18n={i18nClient}>{element}</I18nextProvider>
+        </AlertProvider>
+      </Provider>
+    </MemoryRouter>,
+    mountOptions
+  )
 
 export const mountGraphql = async (element: React.Fragment, mocks: Array<Object>, initialEntries: Array<string>) => {
   const wrapper = mountRouter(<MockedProvider mocks={mocks}>{element}</MockedProvider>, initialEntries)
@@ -62,27 +62,35 @@ export const mountGraphql = async (element: React.Fragment, mocks: Array<Object>
 export const mockAutoSizer = () => {
   // $FlowFixMe
   spyOn(AutoSizer.prototype, 'render').and.callFake(function render() {
-    return (
-      <div ref={this._setRef}>
-        {this.props.children({ width: 200, height: 100 })}
-      </div>
-    )
+    return <div ref={this._setRef}>{this.props.children({ width: 200, height: 100 })}</div>
   })
 }
 
 export const selectFilterChange = (wrapper: Object, selector: string, value: string) => {
-  wrapper.find(selector).find('Select').first().props().onChange(value)
+  wrapper
+    .find(selector)
+    .find('Select')
+    .first()
+    .props()
+    .onChange(value)
   wrapper.update()
 }
 
 export const paginate = (wrapper: Object) => {
-  const scrollContainer = wrapper.find('Grid').find('div').first()
+  const scrollContainer = wrapper
+    .find('Grid')
+    .find('div')
+    .first()
   const target = scrollContainer.instance()
   target.scrollTop = 8100
   scrollContainer.prop('onScroll')({ target })
 }
 
-export const getAlerts = (wrapper: Object) => wrapper.find('Relation').first().prop('alert').alerts
+export const getAlerts = (wrapper: Object) =>
+  wrapper
+    .find('Relation')
+    .first()
+    .prop('alert').alerts
 
 export const itShouldTestObjectRelations = objectRelations
 

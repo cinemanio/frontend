@@ -2,17 +2,21 @@
 import { observable, computed, action } from 'mobx'
 
 class User {
-  @observable username: ?string
+  @observable
+  username: ?string
 
-  @computed get authenticated(): boolean {
+  @computed
+  get authenticated(): boolean {
     return !!this.username
   }
 
-  @action login(username: string) {
+  @action
+  login(username: string) {
     this.username = username
   }
 
-  @action logout() {
+  @action
+  logout() {
     this.username = undefined
   }
 }

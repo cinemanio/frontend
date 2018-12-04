@@ -34,10 +34,10 @@ module.exports = {
           name: 'app',
           test: /\.css$/,
           chunks: 'all',
-          enforce: true
-        }
-      }
-    }
+          enforce: true,
+        },
+      },
+    },
   },
   plugins: [
     new MiniCssExtractPlugin({

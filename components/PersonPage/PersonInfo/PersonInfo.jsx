@@ -26,6 +26,7 @@ type Props = {
 @translate()
 export default class PersonInfo extends React.Component<Props> {
   static defaultProps = {
+    gender: false,
     roles: false,
     dates: false,
     country: false,

@@ -23,7 +23,8 @@ import noPhoto from './fixtures/no_photo.json'
 
 describe('Server Routes', () => {
   let requestsLog
-  const client = (response) => {
+  const en = req => req.set('Accept-Language', 'en')
+  const client = response => {
     const mock = getMockedNetworkFetch(response, requestsLog)
     const httpConf = { fetch: mock, customFetch: mock }
     return request(app(httpConf).callback())
@@ -45,17 +46,17 @@ describe('Server Routes', () => {
   })
 
   it('should respond an signin page', async () => {
-    const response = await client().get(routes.signin).set('Accept-Language', 'en')
+    const response = await en(client().get(routes.signin))
     expect(response.status).toEqual(200)
   })
 
   xit('should respond an signup page', async () => {
-    const response = await client().get(routes.signup).set('Accept-Language', 'en')
+    const response = await en(client().get(routes.signup))
     expect(response.status).toEqual(200)
   })
 
   it('should respond 404 error page', async () => {
-    const response = await client().get('/404').set('Accept-Language', 'en')
+    const response = await en(client().get('/404'))
     expect(response.status).toEqual(404)
     expect(response.type).toEqual('text/html')
   })
@@ -67,38 +68,37 @@ describe('Server Routes', () => {
   })
 
   describe('Image app', () => {
-    [
-      ['movie', 'poster', poster, noMovie, noPoster],
-      ['person', 'photo', photo, noPerson, noPhoto],
-    ].forEach(([object, image, imageResponse, noObjectResponse, noImageResponse]) => {
-      const url = `/images/${object}/${image}/detail/TW92aWVOb2RlOjk2MDc%3D.jpg`
+    ;[['movie', 'poster', poster, noMovie, noPoster], ['person', 'photo', photo, noPerson, noPhoto]].forEach(
+      ([object, image, imageResponse, noObjectResponse, noImageResponse]) => {
+        const url = `/images/${object}/${image}/detail/TW92aWVOb2RlOjk2MDc%3D.jpg`
 
-      it(`should respond a ${object} ${image}`, async () => {
-        const response = await client(imageResponse).get(url)
-        expect(response.status).toEqual(200)
-        expect(requestsLog).toHaveLength(1)
-        expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
-        expect(requestsLog[0].query).toContain(object)
-        expect(requestsLog[0].query).toContain(image)
-        expect(requestsLog[0].query).toContain('detail')
-        expect(requestsLog[0].variables).toEqual({ id: 'TW92aWVOb2RlOjk2MDc=' })
-        expect(response.status).toEqual(200)
-        expect(response.type).toEqual('image/jpeg')
-      })
+        it(`should respond a ${object} ${image}`, async () => {
+          const response = await client(imageResponse).get(url)
+          expect(response.status).toEqual(200)
+          expect(requestsLog).toHaveLength(1)
+          expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
+          expect(requestsLog[0].query).toContain(object)
+          expect(requestsLog[0].query).toContain(image)
+          expect(requestsLog[0].query).toContain('detail')
+          expect(requestsLog[0].variables).toEqual({ id: 'TW92aWVOb2RlOjk2MDc=' })
+          expect(response.status).toEqual(200)
+          expect(response.type).toEqual('image/jpeg')
+        })
 
-      it(`should respond 404 for no ${object} ${image}`, async () => {
-        const response = await client(noObjectResponse).get(url)
-        expect(requestsLog).toHaveLength(1)
-        expect(response.status).toEqual(404)
-      })
+        it(`should respond 404 for no ${object} ${image}`, async () => {
+          const response = await client(noObjectResponse).get(url)
+          expect(requestsLog).toHaveLength(1)
+          expect(response.status).toEqual(404)
+        })
 
-      it(`should respond 404 for ${object} no ${image}`, async () => {
-        const response = await client(noImageResponse).get(url)
-        expect(requestsLog).toHaveLength(1)
-        expect(response.status).toEqual(200)
-        expect(response.type).toEqual('image/jpeg')
-      })
-    })
+        it(`should respond 404 for ${object} no ${image}`, async () => {
+          const response = await client(noImageResponse).get(url)
+          expect(requestsLog).toHaveLength(1)
+          expect(response.status).toEqual(200)
+          expect(response.type).toEqual('image/jpeg')
+        })
+      }
+    )
 
     it('should make a right camel cased request', async () => {
       await client(photo).get('/images/person/photo/short_card/TW92aWVOb2RlOjk2MDc%3D.jpg')
@@ -113,18 +113,28 @@ describe('Server Routes', () => {
   })
 
   describe('Object(s) pages', () => {
-    [
+    ;[
       [
-        'movie', 'kids-1995-TW92aWVOb2RlOjk2MDc%3D', 'TW92aWVOb2RlOjk2MDc=', movies, movie, noMovie,
+        'movie',
+        'kids-1995-TW92aWVOb2RlOjk2MDc%3D',
+        'TW92aWVOb2RlOjk2MDc=',
+        movies,
+        movie,
+        noMovie,
         { orderBy: 'relations_count__like' },
       ],
       [
-        'person', 'david-fincher-UGVyc29uTm9kZToxNTQ%3D', 'UGVyc29uTm9kZToxNTQ=', persons, person, noPerson,
+        'person',
+        'david-fincher-UGVyc29uTm9kZToxNTQ%3D',
+        'UGVyc29uTm9kZToxNTQ=',
+        persons,
+        person,
+        noPerson,
         { orderBy: 'relations_count__like' },
       ],
     ].forEach(([object, slug, id, objectsResponse, objectResponse, noResponse, defaults]) => {
       it(`should respond a ${object}s page`, async () => {
-        const response = await client(objectsResponse).get(routes[object].list).set('Accept-Language', 'en')
+        const response = await en(client(objectsResponse).get(routes[object].list))
         expect(requestsLog).toHaveLength(3)
         expect(requestsLog[2].operationName).toEqual(`${_.capitalize(object)}s`)
         expect(requestsLog[2].variables).toEqual({ after: '', first: 100, ...defaults })
@@ -133,7 +143,7 @@ describe('Server Routes', () => {
       })
 
       it(`should respond a ${object} page`, async () => {
-        const response = await client(objectResponse).get(routes[object].getDetail(slug)).set('Accept-Language', 'en')
+        const response = await en(client(objectResponse).get(routes[object].getDetail(slug)))
         expect(requestsLog).toHaveLength(1)
         expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
         expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: id })
@@ -145,13 +155,16 @@ describe('Server Routes', () => {
         token.set(undefined)
         expect(token.token).toBe(undefined)
         // TODO: test that Auth header is actually sent
-        await client(objectResponse).get(routes[object].getDetail(slug)).set('Accept-Language', 'en')
-          .set('Cookie', ['jwt=12345'])
+        await en(
+          client(objectResponse)
+            .get(routes[object].getDetail(slug))
+            .set('Cookie', ['jwt=12345'])
+        )
         expect(token.token).toBe('12345')
       })
 
       it(`should not respond a wrong ${object} page`, async () => {
-        const response = await client(noResponse).get(routes[object].getDetail('none')).set('Accept-Language', 'en')
+        const response = await en(client(noResponse).get(routes[object].getDetail('none')))
         expect(requestsLog).toHaveLength(1)
         expect(requestsLog[0].operationName).toEqual(_.capitalize(object))
         expect(requestsLog[0].variables).toEqual({ [`${object}Id`]: 'none' })
@@ -162,19 +175,20 @@ describe('Server Routes', () => {
   })
 
   describe('i18n. should translate to the language', () => {
-    [
-      ['ru', 'Фильмы'],
-      ['en', 'Movies'],
-    ].forEach(([lang, title]) => {
+    ;[['ru', 'Фильмы'], ['en', 'Movies']].forEach(([lang, title]) => {
       it(`${lang} if cookie defined`, async () => {
         const cookie = `${settings.i18nCookieName}=${lang}`
-        const response = await client([genres, countries, movies]).get(routes.movie.list).set('Cookie', [cookie])
+        const response = await client([genres, countries, movies])
+          .get(routes.movie.list)
+          .set('Cookie', [cookie])
         expect(response.text).toContain(`<html lang="${lang}"`)
         expect(response.text).toContain(title)
       })
 
       it(`${lang} if browser accept language`, async () => {
-        const response = await client([genres, countries, movies]).get(routes.movie.list).set('Accept-Language', lang)
+        const response = await client([genres, countries, movies])
+          .get(routes.movie.list)
+          .set('Accept-Language', lang)
         expect(response.text).toContain(`<html lang="${lang}"`)
         expect(response.text).toContain(title)
       })

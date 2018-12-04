@@ -80,13 +80,11 @@ class MoviePage extends React.Component<Props> {
   )
 
   getTitle = (movie: Object) => {
-    const parts = []
-    parts.push(movie[i18n.f('title')])
-    if (!this.isTitlesEqual(movie)) {
-      parts.push(movie.titleOriginal)
+    let originalTitle = ''
+    if (movie.titleOriginal && !this.isTitlesEqual(movie)) {
+      originalTitle = `${movie.titleOriginal} - `
     }
-    parts.push(movie.year)
-    return parts.join(', ')
+    return `${movie[i18n.f('title')]} (${originalTitle}${movie.year})`
   }
 
   render() {

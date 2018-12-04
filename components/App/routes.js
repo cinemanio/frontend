@@ -4,12 +4,12 @@ const routes = {
   movie: {
     list: '/movies',
     detail: '/movies/:slug',
-    getDetail: (id: string) => {}
+    getDetail: (id: string) => {},
   },
   person: {
     list: '/persons',
     detail: '/persons/:slug',
-    getDetail: (id: string) => {}
+    getDetail: (id: string) => {},
   },
   signin: '/signin',
   signup: '/signup',

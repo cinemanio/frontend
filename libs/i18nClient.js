@@ -14,11 +14,11 @@ i18n
     ...settings.i18n,
     resources: {
       ru: { translation: ru },
-      en: { translation: en }
+      en: { translation: en },
     },
     detection: {
       order: ['htmlTag'],
-    }
+    },
   })
 
 export default i18n

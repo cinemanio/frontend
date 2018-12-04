@@ -35,7 +35,7 @@ const App = ({ lang }: Object) => (
   <MobxProvider {...stores}>
     <AlertProvider template={AlertTemplate} {...alertOptions}>
       <div>
-        <Helmet htmlAttributes={{ lang }} defaultTitle="cineman.io" titleTemplate="%s · cineman.io"/>
+        <Helmet htmlAttributes={{ lang }} defaultTitle="cineman.io" titleTemplate="%s · cineman.io" />
         <Switch>
           <Route exact path="/" render={() => <Redirect to="/movies" />} />
           <Layout path={routes.movie.detail} component={MoviePage} menuActive="movie" />

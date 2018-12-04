@@ -19,7 +19,7 @@
     "flow": "flow check",
     "lint": "eslint --ext .js,.jsx .",
     "size": "bundlesize",
-    "prettier": "prettier --write '{components,__{tests,mocks}__}/**/*.jsx'",
+    "prettier": "prettier --write '**/*.js*' !public/** !coverage/** !stats.json",
     "heroku-postbuild": "npm run build",
     "fetch-fragments-types": "babel-node ./lib/fragments/fetcher.js"
   },
@@ -149,6 +149,7 @@
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jest": "21.22.0",
     "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-plugin-prettier": "3.0.0",
     "eslint-plugin-promise": "4.0.1",
     "eslint-plugin-react": "7.11.1",
     "faker": "4.1.0",

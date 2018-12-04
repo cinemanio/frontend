@@ -14,12 +14,12 @@ i18n
     backend: {
       loadPath: 'locales/{{lng}}/{{ns}}.json',
       addPath: 'locales/{{lng}}/{{ns}}.missing.json',
-      jsonIndent: 2
+      jsonIndent: 2,
     },
     detection: {
       order: ['cookie', 'header'],
       lookupCookie: settings.i18nCookieName,
-    }
+    },
   })
 
 export default i18n

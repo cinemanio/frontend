@@ -6,11 +6,7 @@ const settings = require('./settings')
 const config = require('./webpack.base.config.js')
 
 // Use webpack dev server
-config.entry.app = [
-  'babel-polyfill',
-  'react-hot-loader/patch',
-  './client/index',
-]
+config.entry.app = ['babel-polyfill', 'react-hot-loader/patch', './client/index']
 
 config.output.publicPath = `http://${settings.webpackServerHost}/public/`
 config.output.devtoolModuleFilenameTemplate = '/home'
@@ -43,7 +39,7 @@ config.plugins.push(
   new BundleTracker({ filename: './webpack-stats.json' }),
   new webpack.NamedModulesPlugin(),
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoEmitOnErrorsPlugin(), // don't reload if there is an error
+  new webpack.NoEmitOnErrorsPlugin() // don't reload if there is an error
 )
 
 config.devtool = 'cheap-module-source-map'
