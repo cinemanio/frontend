@@ -47,10 +47,12 @@ export default class Layout extends React.Component<Props, State> {
                   <Auth />
                 </div>
               </header>
-              <div styleName="content">
+              <main>
                 <Menu active={menuActive} />
-                {this.state.error ? <RedBox error={this.state.error} /> : <Component {...matchProps} />}
-              </div>
+                <div styleName="content">
+                  {this.state.error ? <RedBox error={this.state.error} /> : <Component {...matchProps} />}
+                </div>
+              </main>
               <footer>
                 <div styleName="languages">
                   <Languages />
