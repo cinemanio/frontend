@@ -158,8 +158,9 @@ describe('Movies Page Component', () => {
       setTimeout(() => done())
     })
 
-    it('should filter by years range', async () => {
+    describe('Years range filter', () => {
       const getRange = () => {
+        wrapper.update()
         const props = wrapper
           .find('YearsFilter')
           .find('Slider')
@@ -171,40 +172,128 @@ describe('Movies Page Component', () => {
         wrapper
           .find('YearsFilter')
           .instance()
-          .onChange(value)
+          .changeRange(value)
         wrapper
           .find('YearsFilter')
           .instance()
           .onAfterChange(value)
       }
-      wrapper = await mountGraphql(
-        <MoviesPage />,
-        mocks.concat([
-          mockWithParams({ ...filters, yearMin: 2000, yearMax: 2028 }),
-          mockWithParams({ ...filters, yearMin: 2000, yearMax: 2010 }),
-          mockWithParams({ ...filters, yearMin: 1900, yearMax: 2010 }),
-          mockWithParams({ ...filters, yearMin: 1900, yearMax: 2028 }),
-        ])
-      )
-      expect(getRange()).toEqual([1900, 2028])
-      // select min
-      setRange([2000, 2028])
-      wrapper.update()
-      expect(getRange()).toEqual([2000, 2028])
-      expect(getActiveFilters()).toBe('2000…')
-      // select max
-      setRange([2000, 2010])
-      wrapper.update()
-      expect(getRange()).toEqual([2000, 2010])
-      expect(getActiveFilters()).toBe('2000… …2010')
-      // unselect min
-      getActiveFilter('yearsRange', 0).simulate('click')
-      expect(getRange()).toEqual([1900, 2010])
-      expect(getActiveFilters()).toBe('…2010')
-      // unselect max
-      getActiveFilter('yearsRange', 0).simulate('click')
-      expect(getRange()).toEqual([1900, 2028])
-      expect(getActiveFilters()).toBe('')
+
+      beforeAll(() => {
+        global.console.warn = jest.fn()
+      })
+
+      it('should allow to unselect years filters', async () => {
+        wrapper = await mountGraphql(
+          <MoviesPage />,
+          mocks.concat([
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2010 }),
+            mockWithParams({ ...filters, yearMin: 1900, yearMax: 2010 }),
+            mockWithParams({ ...filters, yearMin: 1900, yearMax: 2028 }),
+          ])
+        )
+        setRange([2000, 2010])
+        expect(getRange()).toEqual([2000, 2010])
+        // unselect min
+        getActiveFilter('yearsRange', 0).simulate('click')
+        expect(getRange()).toEqual([1900, 2010])
+        expect(getActiveFilters()).toBe('…2010')
+        // unselect max
+        getActiveFilter('yearsRange', 0).simulate('click')
+        expect(getRange()).toEqual([1900, 2028])
+        expect(getActiveFilters()).toBe('')
+      })
+
+      it('should filter by years range', async () => {
+        wrapper = await mountGraphql(
+          <MoviesPage />,
+          mocks.concat([
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2028 }),
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2010 }),
+          ])
+        )
+        expect(getRange()).toEqual([1900, 2028])
+        // set min
+        setRange([2000, 2028])
+        expect(getRange()).toEqual([2000, 2028])
+        expect(getActiveFilters()).toBe('2000…')
+        // set max
+        setRange([2000, 2010])
+        expect(getRange()).toEqual([2000, 2010])
+        expect(getActiveFilters()).toBe('2000… …2010')
+      })
+
+      it('should filter by years input', async () => {
+        wrapper = await mountGraphql(
+          <MoviesPage />,
+          mocks.concat([
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2028 }),
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2010 }),
+          ])
+        )
+        expect(getRange()).toEqual([1900, 2028])
+        // set min
+        wrapper
+          .find('YearsFilter')
+          .find('input')
+          .first()
+          .simulate('change', { target: { value: '2000' } })
+        wrapper
+          .find('YearsFilter')
+          .find('input')
+          .first()
+          .simulate('blur')
+        expect(getRange()).toEqual([2000, 2028])
+        expect(getActiveFilters()).toBe('2000…')
+        // set max
+        wrapper
+          .find('YearsFilter')
+          .find('input')
+          .last()
+          .simulate('change', { target: { value: '2010' } })
+        wrapper
+          .find('YearsFilter')
+          .find('input')
+          .last()
+          .simulate('blur')
+        expect(getRange()).toEqual([2000, 2010])
+        expect(getActiveFilters()).toBe('2000… …2010')
+      })
+
+      it('should not let enter out of range values', async () => {
+        wrapper = await mountGraphql(
+          <MoviesPage />,
+          mocks.concat([mockWithParams({ ...filters, yearMin: 1, yearMax: 2028 })])
+        )
+        expect(
+          wrapper
+            .find('YearsFilter')
+            .find('InputNumber')
+            .first()
+            .prop('value')
+        ).toBe(1900)
+        // change min
+        wrapper
+          .find('YearsFilter')
+          .find('input')
+          .first()
+          .simulate('change', { target: { value: '1' } })
+        wrapper
+          .find('YearsFilter')
+          .find('input')
+          .first()
+          .simulate('blur')
+        expect(getRange()).toEqual([1900, 2028])
+        expect(getActiveFilters()).toBe('')
+        wrapper.update()
+        expect(
+          wrapper
+            .find('YearsFilter')
+            .find('InputNumber')
+            .first()
+            .prop('value')
+        ).toBe(1900)
+      })
     })
   })
 })

@@ -2,7 +2,8 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import { Slider } from 'antd'
+import { Col, InputNumber, Row, Slider } from 'antd'
+import _ from 'lodash'
 
 import './YearsFilter.scss'
 
@@ -31,7 +32,8 @@ export default class YearsFilter extends React.Component<Props, State> {
   }
 
   state = {
-    value: [this.props.filters[this.props.code].min, this.props.filters[this.props.code].max],
+    min: this.props.filters[this.props.code].min,
+    max: this.props.filters[this.props.code].max,
     moving: false,
   }
 
@@ -39,15 +41,21 @@ export default class YearsFilter extends React.Component<Props, State> {
    * Update slider's range, when we remove filtration
    */
   static getDerivedStateFromProps(props: Object, state: Object) {
-    const value = props.filters[props.code]
-    if (value !== state.value && !state.moving) {
-      return { value: [value.min, value.max] }
+    const { min, max } = props.filters[props.code]
+    if (min !== state.min && !state.moving) {
+      return { min }
+    } else if (max !== state.max && !state.moving) {
+      return { max }
     } else {
       return null
     }
   }
 
-  onChange = (value: Array<number>) => this.setState({ value, moving: true })
+  changeRange = (value: Array<number>) => this.setState({ min: value[0], max: value[1], moving: true })
+
+  changeMin = (value: number) => this.setState({ min: value, moving: true })
+
+  changeMax = (value: number) => this.setState({ max: value, moving: true })
 
   onAfterChange = (value: Array<number>) => {
     const name = this.props.code
@@ -55,17 +63,44 @@ export default class YearsFilter extends React.Component<Props, State> {
     this.props.setFilterState({ [name]: { min: value[0], max: value[1] } })
   }
 
+  onBlur = () => this.onAfterChange([this.state.min, this.state.max])
+
   render() {
     const { min, max } = this.props.defaultRange
     return (
       <div styleName="box">
         <div styleName="title">{this.props.title}</div>
+        <Row styleName="values">
+          <Col span={10}>
+            <InputNumber
+              size="small"
+              min={min}
+              max={_.min([max, this.props.filters[this.props.code].max])}
+              value={this.state.min}
+              onChange={this.changeMin}
+              onBlur={this.onBlur}
+            />
+          </Col>
+          <Col span={4} styleName="dots">
+            …
+          </Col>
+          <Col span={10}>
+            <InputNumber
+              size="small"
+              min={_.max([min, this.props.filters[this.props.code].min])}
+              max={max}
+              value={this.state.max}
+              onChange={this.changeMax}
+              onBlur={this.onBlur}
+            />
+          </Col>
+        </Row>
         <Slider
           max={max}
           min={min}
           defaultValue={[min, max]}
-          value={this.state.value}
-          onChange={this.onChange}
+          value={[this.state.min, this.state.max]}
+          onChange={this.changeRange}
           onAfterChange={this.onAfterChange}
           styleName="slider"
           range
