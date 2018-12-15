@@ -53,9 +53,17 @@ export default class YearsFilter extends React.Component<Props, State> {
 
   changeRange = (value: Array<number>) => this.setState({ min: value[0], max: value[1], moving: true })
 
-  changeMin = (value: number) => this.setState({ min: value, moving: true })
+  changeMin = (value: number) => {
+    if (parseInt(value, 10) == value) { // eslint-disable-line eqeqeq
+      this.setState({ min: value, moving: true })
+    }
+  }
 
-  changeMax = (value: number) => this.setState({ max: value, moving: true })
+  changeMax = (value: number) => {
+    if (parseInt(value, 10) == value) { // eslint-disable-line eqeqeq
+      this.setState({ max: value, moving: true })
+    }
+  }
 
   onAfterChange = (value: Array<number>) => {
     const name = this.props.code
@@ -63,7 +71,11 @@ export default class YearsFilter extends React.Component<Props, State> {
     this.props.setFilterState({ [name]: { min: value[0], max: value[1] } })
   }
 
-  onBlur = () => this.onAfterChange([this.state.min, this.state.max])
+  onBlurMin = (e: Event) =>
+    this.onAfterChange([parseInt(e.target.value, 10) || this.props.defaultRange.min, this.state.max])
+
+  onBlurMax = (e: Event) =>
+    this.onAfterChange([this.state.min, parseInt(e.target.value, 10) || this.props.defaultRange.max])
 
   render() {
     const { min, max } = this.props.defaultRange
@@ -76,9 +88,10 @@ export default class YearsFilter extends React.Component<Props, State> {
               size="small"
               min={min}
               max={_.min([max, this.props.filters[this.props.code].max])}
+              maxLength={4}
               value={this.state.min}
               onChange={this.changeMin}
-              onBlur={this.onBlur}
+              onBlur={this.onBlurMin}
             />
           </Col>
           <Col span={4} styleName="dots">
@@ -89,9 +102,10 @@ export default class YearsFilter extends React.Component<Props, State> {
               size="small"
               min={_.max([min, this.props.filters[this.props.code].min])}
               max={max}
+              maxLength={4}
               value={this.state.max}
               onChange={this.changeMax}
-              onBlur={this.onBlur}
+              onBlur={this.onBlurMax}
             />
           </Col>
         </Row>

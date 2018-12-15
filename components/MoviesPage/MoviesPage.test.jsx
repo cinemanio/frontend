@@ -178,6 +178,26 @@ describe('Movies Page Component', () => {
           .instance()
           .onAfterChange(value)
       }
+      const getMinInput = () =>
+        wrapper
+          .find('YearsFilter')
+          .find('input')
+          .first()
+      const getMaxInput = () =>
+        wrapper
+          .find('YearsFilter')
+          .find('input')
+          .last()
+      const setMin = value => {
+        const input = getMinInput()
+        input.simulate('change', { target: { value } })
+        input.simulate('blur')
+      }
+      const setMax = value => {
+        const input = getMaxInput()
+        input.simulate('change', { target: { value } })
+        input.simulate('blur')
+      }
 
       beforeAll(() => {
         global.console.warn = jest.fn()
@@ -232,67 +252,52 @@ describe('Movies Page Component', () => {
           ])
         )
         expect(getRange()).toEqual([1900, 2028])
-        // set min
-        wrapper
-          .find('YearsFilter')
-          .find('input')
-          .first()
-          .simulate('change', { target: { value: '2000' } })
-        wrapper
-          .find('YearsFilter')
-          .find('input')
-          .first()
-          .simulate('blur')
+        setMin('2000')
         expect(getRange()).toEqual([2000, 2028])
         expect(getActiveFilters()).toBe('2000…')
-        // set max
-        wrapper
-          .find('YearsFilter')
-          .find('input')
-          .last()
-          .simulate('change', { target: { value: '2010' } })
-        wrapper
-          .find('YearsFilter')
-          .find('input')
-          .last()
-          .simulate('blur')
+        setMax('2010')
         expect(getRange()).toEqual([2000, 2010])
         expect(getActiveFilters()).toBe('2000… …2010')
       })
 
-      it('should not let enter out of range values', async () => {
+      it('should not let min value set higher, than max', async () => {
         wrapper = await mountGraphql(
           <MoviesPage />,
-          mocks.concat([mockWithParams({ ...filters, yearMin: 1, yearMax: 2028 })])
+          mocks.concat([
+            mockWithParams({ ...filters, yearMin: 1900, yearMax: 1950 }),
+            mockWithParams({ ...filters, yearMin: 1950, yearMax: 1950 }),
+          ])
         )
-        expect(
-          wrapper
-            .find('YearsFilter')
-            .find('InputNumber')
-            .first()
-            .prop('value')
-        ).toBe(1900)
-        // change min
-        wrapper
-          .find('YearsFilter')
-          .find('input')
-          .first()
-          .simulate('change', { target: { value: '1' } })
-        wrapper
-          .find('YearsFilter')
-          .find('input')
-          .first()
-          .simulate('blur')
-        expect(getRange()).toEqual([1900, 2028])
-        expect(getActiveFilters()).toBe('')
-        wrapper.update()
-        expect(
-          wrapper
-            .find('YearsFilter')
-            .find('InputNumber')
-            .first()
-            .prop('value')
-        ).toBe(1900)
+        expect(getMinInput().prop('value')).toBe('1900')
+        setMax('1950')
+        setMin('2000')
+        expect(getRange()).toEqual([1950, 1950])
+        expect(getMinInput().prop('value')).toBe('1950')
+      })
+
+      describe('wrong values', () => {
+        beforeEach(async () => {
+          wrapper = await mountGraphql(
+            <MoviesPage />,
+            mocks.concat([mockWithParams({ ...filters, yearMin: 1900, yearMax: 2028 })])
+          )
+        })
+
+        it('should not let enter out of range values', async () => {
+          setMin('1')
+          setMax('3000')
+          expect(getRange()).toEqual([1900, 2028])
+          expect(getActiveFilters()).toBe('')
+          expect(getMinInput().prop('value')).toBe('1900')
+          expect(getMaxInput().prop('value')).toBe('2028')
+        })
+
+        it('should not let enter non integer value', async () => {
+          setMin('qwer')
+          setMax('2qwer')
+          expect(getMinInput().prop('value')).toBe('1900')
+          expect(getMaxInput().prop('value')).toBe('2028')
+        })
       })
     })
   })
