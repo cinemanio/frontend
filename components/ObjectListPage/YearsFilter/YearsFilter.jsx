@@ -18,7 +18,8 @@ type Props = {
 }
 
 type State = {
-  value: Array<number>,
+  min: number,
+  max: number,
   moving: boolean,
 }
 
@@ -54,13 +55,15 @@ export default class YearsFilter extends React.Component<Props, State> {
   changeRange = (value: Array<number>) => this.setState({ min: value[0], max: value[1], moving: true })
 
   changeMin = (value: number) => {
-    if (parseInt(value, 10) == value) { // eslint-disable-line eqeqeq
+    // eslint-disable-next-line eqeqeq
+    if (parseInt(value, 10) == value) {
       this.setState({ min: value, moving: true })
     }
   }
 
   changeMax = (value: number) => {
-    if (parseInt(value, 10) == value) { // eslint-disable-line eqeqeq
+    // eslint-disable-next-line eqeqeq
+    if (parseInt(value, 10) == value) {
       this.setState({ max: value, moving: true })
     }
   }
