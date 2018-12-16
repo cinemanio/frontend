@@ -44,7 +44,7 @@ describe('Movies Page Component', () => {
     })
 
     it('should render active filter, when filter selected', () => {
-      expect(wrapper.find('ActiveFilters')).toHaveLength(3)
+      expect(wrapper.find('ActiveFilters')).toHaveLength(4)
       expect(wrapper.find('ActiveFilters[code="genres"]').find('Tag')).toHaveLength(0)
       selectFilterChange(wrapper, 'SelectFilter[code="genres"]', 'R2VucmVOb2RlOjQ=')
       expect(wrapper.find('ActiveFilters[code="genres"]').find('Tag')).toHaveLength(1)
@@ -64,11 +64,18 @@ describe('Movies Page Component', () => {
 
   describe('GraphQL', () => {
     const mocks = [mockMovies, mockCountries, mockGenres]
-    const getActiveFilter = code =>
+    const filters = { relation: null, genres: [], countries: [], yearMin: 1900, yearMax: 2028 }
+    const getActiveFilter = (code, index) =>
       wrapper
         .find(`ActiveFilters[code="${code}"]`)
         .find('Tag')
-        .text()
+        .at(index)
+    const getActiveFilters = () =>
+      wrapper
+        .find(`ActiveFilters`)
+        .find('Tag')
+        .map(tag => tag.text())
+        .join(' ')
 
     beforeAll(() => i18nClient.changeLanguage('en'))
 
@@ -80,10 +87,7 @@ describe('Movies Page Component', () => {
     })
 
     it('should render movies posters', async done => {
-      wrapper = await mountGraphql(
-        <MoviesPage />,
-        mocks.concat([mockWithParams({ relation: null, genres: [], countries: [] })])
-      )
+      wrapper = await mountGraphql(<MoviesPage />, mocks.concat([mockWithParams(filters)]))
       selectFilterChange(wrapper, 'SelectGeneric[code="view"]', 'image')
       expect(wrapper.find('MovieIcon').length).toBeGreaterThan(0)
       setTimeout(() => done())
@@ -104,21 +108,22 @@ describe('Movies Page Component', () => {
         <MoviesPage />,
         mocks.concat([
           mockWithParams({
-            relation: null,
+            ...filters,
             genres: ['R2VucmVOb2RlOjQ='],
-            countries: [],
           }),
           mockWithParams({
-            relation: null,
+            ...filters,
             genres: ['R2VucmVOb2RlOjQ='],
             countries: ['Q291bnRyeU5vZGU6MTE='],
           }),
           mockWithParams({
+            ...filters,
             relation: 'fav',
             genres: ['R2VucmVOb2RlOjQ='],
             countries: ['Q291bnRyeU5vZGU6MTE='],
           }),
           mockWithParams({
+            ...filters,
             relation: 'fav',
             genres: ['R2VucmVOb2RlOjQ='],
             countries: ['Q291bnRyeU5vZGU6MTE='],
@@ -134,9 +139,7 @@ describe('Movies Page Component', () => {
       selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
       selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'year')
       // expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(90)
-      expect(getActiveFilter('genres')).toBe('Western')
-      expect(getActiveFilter('countries')).toBe('Benin')
-      expect(getActiveFilter('relation')).toBe('Fav')
+      expect(getActiveFilters()).toBe('Fav Western Benin')
       setTimeout(() => done())
     })
 
@@ -144,19 +147,8 @@ describe('Movies Page Component', () => {
       wrapper = await mountGraphql(
         <MoviesPage />,
         mocks.concat([
-          mockWithParams({
-            orderBy: 'year',
-            relation: null,
-            genres: [],
-            countries: [],
-          }),
-          mockWithParams({
-            orderBy: 'year',
-            relation: null,
-            genres: [],
-            countries: [],
-            after: response.data.list.pageInfo.endCursor,
-          }),
+          mockWithParams({ orderBy: 'year', ...filters }),
+          mockWithParams({ orderBy: 'year', ...filters, after: response.data.list.pageInfo.endCursor }),
         ])
       )
       selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'year')
@@ -164,6 +156,149 @@ describe('Movies Page Component', () => {
       paginate(wrapper)
       // TODO: test amount of items after loading second page
       setTimeout(() => done())
+    })
+
+    describe('Years range filter', () => {
+      const getRange = () => {
+        wrapper.update()
+        const props = wrapper
+          .find('YearsFilter')
+          .find('Slider')
+          .find('Steps')
+          .props()
+        return [props.lowerBound, props.upperBound]
+      }
+      const setRange = value => {
+        wrapper
+          .find('YearsFilter')
+          .instance()
+          .changeRange(value)
+        wrapper
+          .find('YearsFilter')
+          .instance()
+          .onAfterChange(value)
+      }
+      const getMinInput = () =>
+        wrapper
+          .find('YearsFilter')
+          .find('input')
+          .first()
+      const getMaxInput = () =>
+        wrapper
+          .find('YearsFilter')
+          .find('input')
+          .last()
+      const setMin = value => {
+        const input = getMinInput()
+        input.simulate('change', { target: { value } })
+        input.simulate('blur')
+      }
+      const setMax = value => {
+        const input = getMaxInput()
+        input.simulate('change', { target: { value } })
+        input.simulate('blur')
+      }
+
+      beforeAll(() => {
+        global.console.warn = jest.fn()
+      })
+
+      it('should allow to unselect years filters', async () => {
+        wrapper = await mountGraphql(
+          <MoviesPage />,
+          mocks.concat([
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2010 }),
+            mockWithParams({ ...filters, yearMin: 1900, yearMax: 2010 }),
+            mockWithParams({ ...filters, yearMin: 1900, yearMax: 2028 }),
+          ])
+        )
+        setRange([2000, 2010])
+        expect(getRange()).toEqual([2000, 2010])
+        // unselect min
+        getActiveFilter('yearsRange', 0).simulate('click')
+        expect(getRange()).toEqual([1900, 2010])
+        expect(getActiveFilters()).toBe('…2010')
+        // unselect max
+        getActiveFilter('yearsRange', 0).simulate('click')
+        expect(getRange()).toEqual([1900, 2028])
+        expect(getActiveFilters()).toBe('')
+      })
+
+      it('should filter by years range', async () => {
+        wrapper = await mountGraphql(
+          <MoviesPage />,
+          mocks.concat([
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2028 }),
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2010 }),
+          ])
+        )
+        expect(getRange()).toEqual([1900, 2028])
+        // set min
+        setRange([2000, 2028])
+        expect(getRange()).toEqual([2000, 2028])
+        expect(getActiveFilters()).toBe('2000…')
+        // set max
+        setRange([2000, 2010])
+        expect(getRange()).toEqual([2000, 2010])
+        expect(getActiveFilters()).toBe('2000… …2010')
+      })
+
+      it('should filter by years input', async () => {
+        wrapper = await mountGraphql(
+          <MoviesPage />,
+          mocks.concat([
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2028 }),
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2010 }),
+          ])
+        )
+        expect(getRange()).toEqual([1900, 2028])
+        setMin('2000')
+        expect(getRange()).toEqual([2000, 2028])
+        expect(getActiveFilters()).toBe('2000…')
+        setMax('2010')
+        expect(getRange()).toEqual([2000, 2010])
+        expect(getActiveFilters()).toBe('2000… …2010')
+      })
+
+      it('should not let min value set higher, than max', async () => {
+        wrapper = await mountGraphql(
+          <MoviesPage />,
+          mocks.concat([
+            mockWithParams({ ...filters, yearMin: 1900, yearMax: 1950 }),
+            mockWithParams({ ...filters, yearMin: 1950, yearMax: 1950 }),
+          ])
+        )
+        expect(getMinInput().prop('value')).toBe('1900')
+        setMax('1950')
+        setMin('2000')
+        expect(getRange()).toEqual([1950, 1950])
+        expect(getMinInput().prop('value')).toBe('1950')
+      })
+
+      describe('wrong values', () => {
+        beforeEach(async () => {
+          wrapper = await mountGraphql(
+            <MoviesPage />,
+            mocks.concat([mockWithParams({ ...filters, yearMin: 1900, yearMax: 2028 })])
+          )
+        })
+
+        it('should not let enter out of range values', async () => {
+          setMin('1')
+          setMax('3000')
+          expect(getRange()).toEqual([1900, 2028])
+          expect(getActiveFilters()).toBe('')
+          expect(getMinInput().prop('value')).toBe('1900')
+          expect(getMaxInput().prop('value')).toBe('2028')
+        })
+
+        it('should not let enter non integer value', async () => {
+          setMin('qwer')
+          setMax('2qwer')
+          expect(getMinInput().prop('value')).toBe('1900')
+          expect(getMaxInput().prop('value')).toBe('2028')
+        })
+      })
     })
   })
 })

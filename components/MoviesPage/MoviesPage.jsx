@@ -14,6 +14,8 @@ import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
 import SelectGeneric from 'components/ObjectListPage/SelectGeneric/SelectGeneric'
 import FieldSection from 'components/ObjectListPage/FieldSection/FieldSection'
+import YearsFilter from 'components/ObjectListPage/YearsFilter/YearsFilter'
+import type { RangeType } from 'components/ObjectListPage/YearsFilter/YearsFilter'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import i18n from 'libs/i18n'
 import User from 'stores/User'
@@ -37,6 +39,7 @@ type State = {
   countries: Set<string>,
   view: 'image' | 'short' | 'full',
   orderBy: string,
+  yearsRange: RangeType,
 }
 
 @withAlert
@@ -67,9 +70,14 @@ class MoviesPage extends React.Component<Props, State> {
       relation: null,
       genres: new Set([]),
       countries: new Set([]),
-      view: 'short',
-      orderBy: 'relations_count__like',
+      ...this.defaults,
     }
+  }
+
+  defaults = {
+    yearsRange: { min: 1900, max: new Date().getFullYear() + 10 },
+    view: 'short',
+    orderBy: 'relations_count__like',
   }
 
   getVariables = () => ({
@@ -77,6 +85,8 @@ class MoviesPage extends React.Component<Props, State> {
     genres: [...this.state.genres],
     countries: [...this.state.countries],
     orderBy: this.state.orderBy,
+    yearMin: this.state.yearsRange.min,
+    yearMax: this.state.yearsRange.max,
   })
 
   getViewOptions = () => [
@@ -110,6 +120,8 @@ class MoviesPage extends React.Component<Props, State> {
     }
   }
 
+  setFilterState = refreshList => params => this.setState(params, refreshList)
+
   renderFilters = (refreshList: Function) => (
     <div>
       <FieldSection title={this.props.i18n.t('filter.view.sectionTitle')}>
@@ -117,7 +129,7 @@ class MoviesPage extends React.Component<Props, State> {
           code="view"
           list={this.getViewOptions()}
           filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
+          setFilterState={this.setFilterState(refreshList)}
         />
       </FieldSection>
       <FieldSection title={this.props.i18n.t('filter.orderBy.sectionTitle')}>
@@ -125,7 +137,7 @@ class MoviesPage extends React.Component<Props, State> {
           code="orderBy"
           list={this.getOrderByOptions()}
           filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
+          setFilterState={this.setFilterState(refreshList)}
         />
       </FieldSection>
       <FieldSection title={this.props.i18n.t('filter.sectionTitle')}>
@@ -147,7 +159,7 @@ class MoviesPage extends React.Component<Props, State> {
           title={this.props.i18n.t('filter.genres')}
           list={this.props.genreData.list}
           filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
+          setFilterState={this.setFilterState(refreshList)}
           multiple
         />
         <SelectFilter
@@ -155,8 +167,15 @@ class MoviesPage extends React.Component<Props, State> {
           title={this.props.i18n.t('filter.countries')}
           list={this.props.countryData.list}
           filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
+          setFilterState={this.setFilterState(refreshList)}
           multiple
+        />
+        <YearsFilter
+          code="yearsRange"
+          title={this.props.i18n.t('filter.yearsRange')}
+          defaultRange={this.defaults.yearsRange}
+          filters={this.state}
+          setFilterState={this.setFilterState(refreshList)}
         />
       </FieldSection>
     </div>
@@ -168,21 +187,28 @@ class MoviesPage extends React.Component<Props, State> {
         code="relation"
         list={this.getRelationFilterOptions()}
         filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
+        setFilterState={this.setFilterState(refreshList)}
       />
       <ActiveFilters
         code="genres"
         list={this.props.genreData.list}
         filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
+        setFilterState={this.setFilterState(refreshList)}
         multiple
       />
       <ActiveFilters
         code="countries"
         list={this.props.countryData.list}
         filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
+        setFilterState={this.setFilterState(refreshList)}
         multiple
+      />
+      <ActiveFilters
+        code="yearsRange"
+        filters={this.state}
+        default={this.defaults.yearsRange}
+        setFilterState={this.setFilterState(refreshList)}
+        range
       />
     </span>
   )
@@ -208,7 +234,16 @@ const configObject = getConfigObject({ orderBy: 'relations_count__like' })
 MoviesPage.variables = { movies: configObject.options().variables }
 MoviesPage.queries = {
   movies: gql`
-    query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String) {
+    query Movies(
+      $first: Int!
+      $after: String
+      $genres: [ID!]
+      $countries: [ID!]
+      $relation: String
+      $orderBy: String
+      $yearMin: Float
+      $yearMax: Float
+    ) {
       list: movies(
         first: $first
         after: $after
@@ -216,6 +251,8 @@ MoviesPage.queries = {
         countries: $countries
         relation: $relation
         orderBy: $orderBy
+        year_Gte: $yearMin
+        year_Lte: $yearMax
       ) {
         totalCount
         edges {
