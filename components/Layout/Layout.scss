@@ -19,6 +19,10 @@
         height: 100%;
       }
 
+      main {
+        height: 100%;
+      }
+
       .ant-row-flex {
         height: 100%;
       }
@@ -44,7 +48,7 @@
       text-decoration: none;
 
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
   }
@@ -61,15 +65,17 @@
 
 .box {
   max-width: 1000px;
-  height: 100%;
 
-  .content {
+  main {
     background-color: #FFFFFF;
     border-radius: 5px;
-    padding: 1.2rem;
     box-shadow: 0.01rem 0.01rem 1rem #CCCCCC;
     margin-top: 30px;
     margin-bottom: 0.5rem;
+  }
+
+  .content {
+    padding: 1.2rem;
     height: 100%;
   }
 
@@ -85,5 +91,11 @@
     font-size: 1rem;
     font-weight: normal;
     padding: 1rem 1rem 0 0;
+
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
