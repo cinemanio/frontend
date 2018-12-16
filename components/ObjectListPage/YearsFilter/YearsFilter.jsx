@@ -74,10 +74,10 @@ export default class YearsFilter extends React.Component<Props, State> {
     this.props.setFilterState({ [name]: { min: value[0], max: value[1] } })
   }
 
-  onBlurMin = (e: Event) =>
+  onBlurMin = (e: {target: HTMLInputElement}) =>
     this.onAfterChange([parseInt(e.target.value, 10) || this.props.defaultRange.min, this.state.max])
 
-  onBlurMax = (e: Event) =>
+  onBlurMax = (e: {target: HTMLInputElement}) =>
     this.onAfterChange([this.state.min, parseInt(e.target.value, 10) || this.props.defaultRange.max])
 
   render() {
