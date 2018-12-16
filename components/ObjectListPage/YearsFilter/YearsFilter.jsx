@@ -52,32 +52,47 @@ export default class YearsFilter extends React.Component<Props, State> {
     }
   }
 
+  /**
+   * Handler triggered on every bit of years range change
+   * @param value
+   */
   changeRange = (value: Array<number>) => this.setState({ min: value[0], max: value[1], moving: true })
 
-  changeMin = (value: number) => {
+  /**
+   * Handler triggered on one limit of years range change
+   * @param name `min` | `max`
+   * @returns {Function}
+   */
+  changeLimit = (name: string) => (value: number) => {
+    // value comes as string, but needs to be allowed further if it contains digits only
     // eslint-disable-next-line eqeqeq
-    if (parseInt(value, 10) == value) {
-      this.setState({ min: value, moving: true })
+    if (parseInt(value, 10) == value && value >= this.props.defaultRange.min && value <= this.props.defaultRange.max) {
+      this.setState({ [name]: value, moving: true })
     }
   }
 
-  changeMax = (value: number) => {
-    // eslint-disable-next-line eqeqeq
-    if (parseInt(value, 10) == value) {
-      this.setState({ max: value, moving: true })
-    }
-  }
-
+  /**
+   * Handler triggered after years range change
+   * @param value
+   */
   onAfterChange = (value: Array<number>) => {
     const name = this.props.code
     this.setState({ moving: false })
     this.props.setFilterState({ [name]: { min: value[0], max: value[1] } })
   }
 
-  onBlurMin = (e: {target: HTMLInputElement}) =>
+  /**
+   * Handler triggered after min limit changed
+   * @param e
+   */
+  onBlurMin = (e: { target: HTMLInputElement }) =>
     this.onAfterChange([parseInt(e.target.value, 10) || this.props.defaultRange.min, this.state.max])
 
-  onBlurMax = (e: {target: HTMLInputElement}) =>
+  /**
+   * Handler triggered after max limit changed
+   * @param e
+   */
+  onBlurMax = (e: { target: HTMLInputElement }) =>
     this.onAfterChange([this.state.min, parseInt(e.target.value, 10) || this.props.defaultRange.max])
 
   render() {
@@ -93,7 +108,7 @@ export default class YearsFilter extends React.Component<Props, State> {
               max={_.min([max, this.props.filters[this.props.code].max])}
               maxLength={4}
               value={this.state.min}
-              onChange={this.changeMin}
+              onChange={this.changeLimit('min')}
               onBlur={this.onBlurMin}
             />
           </Col>
@@ -107,7 +122,7 @@ export default class YearsFilter extends React.Component<Props, State> {
               max={max}
               maxLength={4}
               value={this.state.max}
-              onChange={this.changeMax}
+              onChange={this.changeLimit('max')}
               onBlur={this.onBlurMax}
             />
           </Col>
