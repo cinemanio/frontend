@@ -8,6 +8,7 @@
     "transform-decorators-legacy",
     "transform-class-properties",
     "react-hot-loader/babel",
+    "lodash",
     [
       "react-css-modules",
       {

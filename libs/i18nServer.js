@@ -2,7 +2,7 @@ import i18n from 'i18next'
 import Backend from 'i18next-sync-fs-backend'
 import koaI18nextDetector from 'koa-i18next-detector'
 
-import settings from '../settings'
+import settings from 'settings'
 
 i18n
   .use(Backend)
@@ -14,12 +14,12 @@ i18n
     backend: {
       loadPath: 'locales/{{lng}}/{{ns}}.json',
       addPath: 'locales/{{lng}}/{{ns}}.missing.json',
-      jsonIndent: 2
+      jsonIndent: 2,
     },
     detection: {
       order: ['cookie', 'header'],
       lookupCookie: settings.i18nCookieName,
-    }
+    },
   })
 
 export default i18n

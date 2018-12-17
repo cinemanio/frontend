@@ -1,24 +1,5 @@
-@import 'mixins.scss';
+@import 'mixins';
 
 .box {
   @extend %info-box;
-
-  .year {
-  }
-
-  .runtime {
-    @include fa-icon-info('clock-o');
-  }
-
-  .genres {
-  }
-
-  .countries {
-    i {
-      margin-right: 0.2rem;
-    }
-  }
-
-  .languages {
-  }
 }

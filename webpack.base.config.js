@@ -1,8 +1,9 @@
 const path = require('path')
 const webpack = require('webpack')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const devMode = process.env.NODE_ENV !== 'production'
+const settings = require('./settings')
 
 // hide webpack2 deprecation warnings
 process.noDeprecation = true
@@ -14,73 +15,70 @@ module.exports = {
       // the order is important for IE
       // https://github.com/facebook/react/issues/8379#issuecomment-264858787
       // 'babel-polyfill',
-      path.resolve('client/index')
-    ]
+      path.resolve('client/index'),
+    ],
   },
-  mode: process.env.NODE_ENV || 'development',
-  performance: {
-    hints: !devMode ? 'error' : 'warning',
-    maxEntrypointSize: 2000000,
-    maxAssetSize: 2000000,
-  },
+  mode: settings.env,
+  // performance: {
+  //   hints: !settings.dev ? 'error' : 'warning',
+  // },
   output: {
     path: path.resolve('public'),
-    // filename: '[name]-[hash].js',
-    filename: '[name].js'
+    filename: settings.dev ? '[name].js' : '[name].[hash].js',
   },
   devtool: false,
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'app',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
+  },
   plugins: [
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: devMode ? '[name].css' : '[name].css',
-      chunkFilename: devMode ? '[id].css' : '[id].css',
+      filename: settings.dev ? '[name].css' : '[name].[hash].css',
+      // chunkFilename: settings.dev ? '[id].css' : '[id].[hash].css',
     }),
-    new webpack.EnvironmentPlugin(Object.keys(process.env))
+    // plugin helps to reduce js bundle up to 5Kb
+    new LodashModuleReplacementPlugin({
+      // shorthands: true,
+      cloning: true,
+      // currying: true,
+      caching: true,
+      // collections: true,
+      // exotics: true,
+      // guards: true,
+      // metadata: true,
+      // deburring: true,
+      // unicode: true,
+      // chaining: true,
+      // memoizing: true,
+      // coercions: true,
+      flattening: true,
+      // paths: true,
+      // placeholders: true,
+    }),
+    new webpack.EnvironmentPlugin(Object.keys(process.env)),
   ],
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules\/(?!(pretty-bytes))/,
-        use: [{ loader: 'babel-loader' }]
-      },
-      {
-        test: /\.scss$/,
-        // use value here is just configuration for ExtractTextPlugin.extract() method,
-        // which get modificated and applied later in webpack.(dev|prod).config files.
-        use: [
-          {
-            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              modules: true,
-              // this value should be equal to value in .babelrc
-              localIdentName: '[name]__[local]__[hash:base64:5]'
-            }
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              includePaths: [path.resolve('styles')],
-              data: '@import "styles/variables";'
-            }
-          }
-        ]
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.css$/,
-        // use value here is just configuration for ExtractTextPlugin.extract() method,
-        // which get modificated and applied later in webpack.(dev|prod).config files.
         use: [
           {
-            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+            loader: settings.dev ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -88,40 +86,73 @@ module.exports = {
               importLoaders: 2,
               modules: false,
               // this value should be equal to value in .babelrc
-              localIdentName: '[name]__[local]__[hash:base64:5]'
-            }
-          }
-        ]
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: settings.dev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              modules: true,
+              // this value should be equal to value in .babelrc
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.resolve('styles')],
+              data: '@import "styles/variables";',
+            },
+          },
+        ],
       },
       {
         test: /\.(map|png)$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 10000
-          }
-        }]
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
       },
       {
         test: /\.woff(2)?(\?\S*)?$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            mimetype: 'application/font-woff'
-          }
-        }]
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'application/font-woff',
+            },
+          },
+        ],
       },
       {
         test: /\.(ttf|eot|svg|ico)(\?\S*)?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]'
-          }
-        }]
-      }
-    ]
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            },
+          },
+        ],
+      },
+    ],
   },
   resolve: {
     modules: ['node_modules', 'bower_components'],
@@ -132,7 +163,8 @@ module.exports = {
       locales: path.resolve('locales'),
       tests: path.resolve('tests'),
       stores: path.resolve('stores'),
-      components: path.resolve('components')
-    }
-  }
+      components: path.resolve('components'),
+      settings: path.resolve('settings.js'),
+    },
+  },
 }

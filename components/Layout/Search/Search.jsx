@@ -2,7 +2,7 @@
 import React from 'react'
 import { InstantSearch, Index } from 'react-instantsearch/dom'
 
-import settings from '../../../settings'
+import settings from 'settings'
 
 import './Search.scss'
 import SearchField from './SearchField/SearchField'

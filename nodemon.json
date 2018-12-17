@@ -6,10 +6,5 @@
     "jsx": "./node_modules/.bin/jsx '$1' | node"
   },
   "ext": "js jsx",
-  "ignore": [
-    "node_modules/**/*.js",
-    "public/**",
-    "client/**",
-    "webpack-stats.json"
-  ]
+  "ignore": ["node_modules/**/*.js", "public/**", "client/**", "webpack-stats.json"]
 }

@@ -28,20 +28,16 @@ const getApp = (apolloHttpConf: Object) => {
     }
   })
 
-  if (settings.env === 'development') {
+  if (settings.dev) {
     // in development env use proxy to webpack dev server
     const proxySettings = {
       target: `http://${settings.webpackServerHost}`,
-      logs: true
+      logs: true,
     }
-    app
-      .use(proxy('/public', proxySettings))
-      .use(proxy('/locales', proxySettings))
+    app.use(proxy('/public', proxySettings)).use(proxy('/locales', proxySettings))
   } else {
     // in production env use mounted directory
-    app
-      .use(mount('/public', serve('public')))
-      .use(mount('/locales', serve('locales')))
+    app.use(mount('/public', serve('public'))).use(mount('/locales', serve('locales')))
   }
 
   app.use(router.routes())

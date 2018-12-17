@@ -60,14 +60,14 @@ export default class ObjectListPage extends React.Component<Props, State> {
           <title>{this.props.title}</title>
           <body className="list" />
         </Helmet>
-        <Col span={20} styleName="list">
+        <Col sm={16} md={18} lg={20} styleName="list">
           <div styleName="caption">
             <Pagination page={this.state.page} data={this.props.data} />
             {this.props.renderActiveFilters(this.refreshList)}
           </div>
           <ObjectList updatePage={this.updatePage} getVariables={this.props.getVariables} {...props} />
         </Col>
-        <Col span={4} styleName="filters">
+        <Col sm={8} md={6} lg={4} styleName="filters">
           <div>{this.props.renderFilters(this.refreshList)}</div>
         </Col>
       </Row>

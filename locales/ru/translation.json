@@ -20,7 +20,7 @@
       "full": "Полно"
     },
     "orderBy": {
-      "sectionTitle": "Сортировать",
+      "sectionTitle": "Сортировать по",
       "new": "Году (новые выше)",
       "old": "Году (старые выше)",
       "like": "Популярности",
@@ -41,7 +41,8 @@
     "roles": "Ролям",
     "country": "Стране",
     "genres": "Жанрам",
-    "countries": "Странам"
+    "countries": "Странам",
+    "yearsRange": "Годам"
   },
   "movie": {
     "info": {

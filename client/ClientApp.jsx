@@ -28,7 +28,7 @@ const ClientApp = () => (
   <ApolloProvider client={client}>
     <BrowserRouter>
       <I18nextProvider i18n={i18nClient}>
-        <App lang={lang}/>
+        <App lang={lang} />
       </I18nextProvider>
     </BrowserRouter>
   </ApolloProvider>

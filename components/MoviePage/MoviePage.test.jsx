@@ -42,7 +42,7 @@ describe('Movie Page Component', () => {
       it('should render word rating', () => expect(getRatingTitle()).toContain('rating'))
       it('should render kinopoisk', () => expect(wrapper.text()).toContain('kinopoisk.ru'))
       it('should render role name', () => expect(wrapper.text()).toContain('Jennie'))
-      it('should render page title', () => expect(Helmet.peek().title).toBe('Kids, 1995'))
+      it('should render page title', () => expect(Helmet.peek().title).toBe('Kids (1995)'))
     })
 
     describe('i18n. ru', () => {
@@ -56,7 +56,7 @@ describe('Movie Page Component', () => {
       it('should render word rating', () => expect(getRatingTitle()).toContain('Рейтинг'))
       it('should render kinopoisk', () => expect(wrapper.text()).toContain('Кинопоиск'))
       it('should render role name', () => expect(wrapper.text()).toContain('Дженни'))
-      it('should render page title', () => expect(Helmet.peek().title).toBe('Детки, Kids, 1995'))
+      it('should render page title', () => expect(Helmet.peek().title).toBe('Детки (Kids - 1995)'))
     })
 
     // it('should change language on the fly', () => {

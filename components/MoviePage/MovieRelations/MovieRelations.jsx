@@ -24,6 +24,16 @@ export default class MovieRelations extends React.Component<Props> {
     relate: mutation('Movie', codes),
   }
 
+  icons = {
+    fav: { type: 'star' },
+    like: { type: 'like' },
+    seen: { type: 'eye' },
+    dislike: { type: 'dislike' },
+    want: { type: 'check-circle' },
+    ignore: { type: 'stop' },
+    have: { type: 'save' },
+  }
+
   modifyOptimisticResponse = (response: Object, code: string, value: boolean) => {
     if (code === 'fav' && value) {
       response.relate.relation.like = true
@@ -37,6 +47,7 @@ export default class MovieRelations extends React.Component<Props> {
       <Relation
         key={code}
         styleName={code}
+        iconProps={this.icons[code]}
         code={code}
         object={this.props.movie}
         mutation={MovieRelations.fragments.relate}

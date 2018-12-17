@@ -41,7 +41,8 @@
     "roles": "Roles",
     "country": "Country",
     "genres": "Genres",
-    "countries": "Countries"
+    "countries": "Countries",
+    "yearsRange": "Years range"
   },
   "movie": {
     "info": {
