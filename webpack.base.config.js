@@ -26,7 +26,6 @@ module.exports = {
     path: path.resolve('public'),
     filename: settings.dev ? '[name].js' : '[name].[hash].js',
   },
-  devtool: false,
   optimization: {
     splitChunks: {
       cacheGroups: {

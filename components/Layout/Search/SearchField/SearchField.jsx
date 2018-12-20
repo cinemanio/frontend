@@ -8,14 +8,14 @@ import { translate } from 'react-i18next'
 import { Icon, Input, AutoComplete } from 'antd'
 import _ from 'lodash'
 
-const { Option } = AutoComplete
-const { OptGroup } = AutoComplete
-
 import i18nClient from 'libs/i18nClient'
 import routes from 'components/App/routes'
 
 import './SearchField.scss'
 import { withRouter } from 'react-router-dom'
+
+const { Option } = AutoComplete
+const { OptGroup } = AutoComplete
 
 type Props = { i18n: Translator, history: Object }
 
