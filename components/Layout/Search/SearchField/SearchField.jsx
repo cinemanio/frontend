@@ -15,8 +15,9 @@ import routes from 'components/App/routes'
 
 import './SearchField.scss'
 
-const { Option } = AutoComplete
-const { OptGroup } = AutoComplete
+// for some reason destructuring doesn't work in jest: ReferenceError: AutoComplete is not defined
+const Option = AutoComplete.Option // eslint-disable-line prefer-destructuring
+const OptGroup = AutoComplete.OptGroup // eslint-disable-line prefer-destructuring
 
 type Props = { i18n: Translator, history: Object, hits: Array<Object>, currentRefinement: string, refine: Function }
 type State = { value: string }
