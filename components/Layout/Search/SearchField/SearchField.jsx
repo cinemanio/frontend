@@ -18,7 +18,7 @@ import './SearchField.scss'
 const { Option } = AutoComplete
 const { OptGroup } = AutoComplete
 
-type Props = { i18n: Translator, history: Object }
+type Props = { i18n: Translator, history: Object, hits: Array<Object>, currentRefinement: string, refine: Function }
 type State = { value: string }
 
 @translate()
@@ -35,6 +35,10 @@ export class SearchFieldRaw extends React.Component<Props, State> {
     refine: PropTypes.func.isRequired,
     history: PropTypes.object.isRequired,
   }
+
+  searchDebounced: Function
+
+  searchThrottled: Function
 
   constructor(props: Object) {
     super(props)
@@ -53,9 +57,9 @@ export class SearchFieldRaw extends React.Component<Props, State> {
     this.props.refine('')
   }
 
-  search = value => this.props.refine(value)
+  search = (value: string) => this.props.refine(value)
 
-  onSearch = value => {
+  onSearch = (value: string) => {
     this.setState({ value })
     // If the query term is short or ends with a
     // space, trigger the more impatient version.

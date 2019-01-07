@@ -7,7 +7,6 @@ import i18nClient from 'libs/i18nClient'
 import response from './fixtures/response.json'
 import { SearchFieldRaw } from './SearchField'
 import { connectInstantSearch } from '../Search'
-import routes from '../../../App/routes'
 
 describe('Search Field Component', () => {
   let element
@@ -46,13 +45,12 @@ describe('Search Field Component', () => {
   })
 
   it('should navigate to objects page when click on suggestion and clean search input', () => {
-    wrapper.find('SearchFieldRaw').instance().props.history.push = jest.fn()
+    const { props } = wrapper.find('SearchFieldRaw').instance()
+    props.history.push = jest.fn()
     getSuggestions(0)
       .first()
       .simulate('click')
-    expect(wrapper.find('SearchFieldRaw').instance().props.history.push).toHaveBeenCalledWith(
-      '/movies/TW92aWVOb2RlOjcwMQ=='
-    )
-    expect(wrapper.find('SearchFieldRaw').instance().props.refine).toHaveBeenCalledWith('')
+    expect(props.history.push).toHaveBeenCalledWith('/movies/TW92aWVOb2RlOjcwMQ==')
+    expect(props.refine).toHaveBeenCalledWith('')
   })
 })

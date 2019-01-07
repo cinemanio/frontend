@@ -6,7 +6,7 @@ import settings from 'settings'
 
 import SearchField from './SearchField/SearchField'
 
-export const connectInstantSearch = element => (
+export const connectInstantSearch = (element: Object) => (
   <InstantSearch appId={settings.searchAppId} apiKey={settings.searchApiKey} indexName="movie">
     {element}
     <Index indexName="person" />
