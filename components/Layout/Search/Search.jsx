@@ -6,13 +6,15 @@ import settings from 'settings'
 
 import SearchField from './SearchField/SearchField'
 
+export const connectInstantSearch = element => (
+  <InstantSearch appId={settings.searchAppId} apiKey={settings.searchApiKey} indexName="movie">
+    {element}
+    <Index indexName="person" />
+  </InstantSearch>
+)
+
 export default class Search extends React.PureComponent<{}> {
   render() {
-    return (
-      <InstantSearch appId={settings.searchAppId} apiKey={settings.searchApiKey} indexName="movie">
-        <SearchField />
-        <Index indexName="person" />
-      </InstantSearch>
-    )
+    return connectInstantSearch(<SearchField />)
   }
 }

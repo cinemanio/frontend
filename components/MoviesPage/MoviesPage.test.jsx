@@ -64,7 +64,8 @@ describe('Movies Page Component', () => {
 
   describe('GraphQL', () => {
     const mocks = [mockMovies, mockCountries, mockGenres]
-    const filters = { relation: null, genres: [], countries: [], yearMin: 1900, yearMax: 2028 }
+    // TODO: move generation of defaults to MoviesPage
+    const filters = { relation: null, genres: [], countries: [], yearMin: 1900, yearMax: new Date().getFullYear() + 10 }
     const getActiveFilter = (code, index) =>
       wrapper
         .find(`ActiveFilters[code="${code}"]`)
@@ -159,6 +160,7 @@ describe('Movies Page Component', () => {
     })
 
     describe('Years range filter', () => {
+      const defaults = { min: filters.yearMin, max: filters.yearMax }
       const getRange = () => {
         wrapper.update()
         const props = wrapper
@@ -208,19 +210,19 @@ describe('Movies Page Component', () => {
           <MoviesPage />,
           mocks.concat([
             mockWithParams({ ...filters, yearMin: 2000, yearMax: 2010 }),
-            mockWithParams({ ...filters, yearMin: 1900, yearMax: 2010 }),
-            mockWithParams({ ...filters, yearMin: 1900, yearMax: 2028 }),
+            mockWithParams({ ...filters, yearMin: defaults.min, yearMax: 2010 }),
+            mockWithParams({ ...filters, yearMin: defaults.min, yearMax: defaults.max }),
           ])
         )
         setRange([2000, 2010])
         expect(getRange()).toEqual([2000, 2010])
         // unselect min
         getActiveFilter('yearsRange', 0).simulate('click')
-        expect(getRange()).toEqual([1900, 2010])
+        expect(getRange()).toEqual([defaults.min, 2010])
         expect(getActiveFilters()).toBe('…2010')
         // unselect max
         getActiveFilter('yearsRange', 0).simulate('click')
-        expect(getRange()).toEqual([1900, 2028])
+        expect(getRange()).toEqual([defaults.min, defaults.max])
         expect(getActiveFilters()).toBe('')
       })
 
@@ -228,14 +230,14 @@ describe('Movies Page Component', () => {
         wrapper = await mountGraphql(
           <MoviesPage />,
           mocks.concat([
-            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2028 }),
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: defaults.max }),
             mockWithParams({ ...filters, yearMin: 2000, yearMax: 2010 }),
           ])
         )
-        expect(getRange()).toEqual([1900, 2028])
+        expect(getRange()).toEqual([defaults.min, defaults.max])
         // set min
-        setRange([2000, 2028])
-        expect(getRange()).toEqual([2000, 2028])
+        setRange([2000, defaults.max])
+        expect(getRange()).toEqual([2000, defaults.max])
         expect(getActiveFilters()).toBe('2000…')
         // set max
         setRange([2000, 2010])
@@ -247,13 +249,13 @@ describe('Movies Page Component', () => {
         wrapper = await mountGraphql(
           <MoviesPage />,
           mocks.concat([
-            mockWithParams({ ...filters, yearMin: 2000, yearMax: 2028 }),
+            mockWithParams({ ...filters, yearMin: 2000, yearMax: defaults.max }),
             mockWithParams({ ...filters, yearMin: 2000, yearMax: 2010 }),
           ])
         )
-        expect(getRange()).toEqual([1900, 2028])
+        expect(getRange()).toEqual([defaults.min, defaults.max])
         setMin('2000')
-        expect(getRange()).toEqual([2000, 2028])
+        expect(getRange()).toEqual([2000, defaults.max])
         expect(getActiveFilters()).toBe('2000…')
         setMax('2010')
         expect(getRange()).toEqual([2000, 2010])
@@ -264,11 +266,11 @@ describe('Movies Page Component', () => {
         wrapper = await mountGraphql(
           <MoviesPage />,
           mocks.concat([
-            mockWithParams({ ...filters, yearMin: 1900, yearMax: 1950 }),
+            mockWithParams({ ...filters, yearMin: defaults.min, yearMax: 1950 }),
             mockWithParams({ ...filters, yearMin: 1950, yearMax: 1950 }),
           ])
         )
-        expect(getMinInput().prop('value')).toBe('1900')
+        expect(getMinInput().prop('value')).toBe(String(defaults.min))
         setMax('1950')
         setMin('2000')
         expect(getRange()).toEqual([1950, 1950])
@@ -279,24 +281,24 @@ describe('Movies Page Component', () => {
         beforeEach(async () => {
           wrapper = await mountGraphql(
             <MoviesPage />,
-            mocks.concat([mockWithParams({ ...filters, yearMin: 1900, yearMax: 2028 })])
+            mocks.concat([mockWithParams({ ...filters, yearMin: defaults.min, yearMax: defaults.max })])
           )
         })
 
         it('should not let enter out of range values', async () => {
           setMin('1')
           setMax('3000')
-          expect(getRange()).toEqual([1900, 2028])
+          expect(getRange()).toEqual([defaults.min, defaults.max])
           expect(getActiveFilters()).toBe('')
-          expect(getMinInput().prop('value')).toBe('1900')
-          expect(getMaxInput().prop('value')).toBe('2028')
+          expect(getMinInput().prop('value')).toBe(String(defaults.min))
+          expect(getMaxInput().prop('value')).toBe(String(defaults.max))
         })
 
         it('should not let enter non integer value', async () => {
           setMin('qwer')
           setMax('2qwer')
-          expect(getMinInput().prop('value')).toBe('1900')
-          expect(getMaxInput().prop('value')).toBe('2028')
+          expect(getMinInput().prop('value')).toBe(String(defaults.min))
+          expect(getMaxInput().prop('value')).toBe(String(defaults.max))
         })
       })
     })

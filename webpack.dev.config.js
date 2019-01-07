@@ -37,7 +37,7 @@ config.devServer = {
 // Add HotModuleReplacementPlugin and BundleTracker plugins
 config.plugins.push(
   new BundleTracker({ filename: './webpack-stats.json' }),
-  new webpack.SourceMapDevToolPlugin({}),
+  // new webpack.SourceMapDevToolPlugin({}),
   new webpack.NamedModulesPlugin(),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin() // don't reload if there is an error

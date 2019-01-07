@@ -21,7 +21,7 @@ config.plugins.push(
     parallel: true,
     sourceMap: false, // set to true if you want JS source maps
   }),
-  new OptimizeCSSAssetsPlugin({}),
+  new OptimizeCSSAssetsPlugin({})
 )
 
 module.exports = config
