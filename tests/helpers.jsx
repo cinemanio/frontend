@@ -2,7 +2,7 @@
 /* eslint-disable promise/avoid-new */
 import React from 'react'
 import { mount } from 'enzyme'
-import { Provider } from 'mobx-react'
+import { Provider as MobxProvider } from 'mobx-react'
 import { MemoryRouter } from 'react-router-dom'
 import { MockedProvider } from 'react-apollo/test-utils'
 import { AutoSizer } from 'react-virtualized'
@@ -43,11 +43,11 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
 export const mountRouter = (element: Object, initialEntries: Array<string>) =>
   mount(
     <MemoryRouter initialEntries={initialEntries}>
-      <Provider {...stores}>
+      <MobxProvider {...stores}>
         <AlertProvider template={AlertTemplate} {...alertOptions}>
           <I18nextProvider i18n={i18nClient}>{element}</I18nextProvider>
         </AlertProvider>
-      </Provider>
+      </MobxProvider>
     </MemoryRouter>,
     mountOptions
   )

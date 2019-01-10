@@ -109,5 +109,8 @@
         "dislike": "You don't like the person {{ nameEn }}"
       }
     }
+  },
+  "search": {
+    "placeholder": "Search for movies, persons and more..."
   }
 }

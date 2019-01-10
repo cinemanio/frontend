@@ -3,3 +3,4 @@
 /coverage
 /webpack-stats.json
 /stats.json
+/.env

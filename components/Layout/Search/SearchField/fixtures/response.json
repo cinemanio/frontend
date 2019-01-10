@@ -1,0 +1,227 @@
+{
+  "results": [
+    {
+      "hits": [
+        {
+          "title_en": "Tormented",
+          "title_ru": "Истерзанный",
+          "title_original": "",
+          "year": 2009,
+          "objectID": "TW92aWVOb2RlOjcwMQ==",
+          "_highlightResult": {
+            "title_en": {
+              "value": "<ais-highlight-0000000000>Torm</ais-highlight-0000000000>ented",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["term"]
+            },
+            "title_ru": {
+              "value": "Истерзанный",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title_original": {
+              "value": "",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "title_en": "Territoriya",
+          "title_ru": "Территория",
+          "title_original": "",
+          "year": 1979,
+          "objectID": "TW92aWVOb2RlOjQyNA==",
+          "_highlightResult": {
+            "title_en": {
+              "value": "<ais-highlight-0000000000>Terr</ais-highlight-0000000000>itoriya",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["term"]
+            },
+            "title_ru": {
+              "value": "Территория",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title_original": {
+              "value": "",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "title_en": "Temptation",
+          "title_ru": "Искушение",
+          "title_original": "",
+          "year": 1994,
+          "objectID": "TW92aWVOb2RlOjI2NA==",
+          "_highlightResult": {
+            "title_en": {
+              "value": "<ais-highlight-0000000000>Tem</ais-highlight-0000000000>ptation",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["term"]
+            },
+            "title_ru": {
+              "value": "Искушение",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title_original": {
+              "value": "",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "title_en": "Muriel ou le temps d’un retour",
+          "title_ru": "Мюриэль, или время возвращения",
+          "title_original": "",
+          "year": 1963,
+          "objectID": "TW92aWVOb2RlOjgwMQ==",
+          "_highlightResult": {
+            "title_en": {
+              "value": "Muriel ou le <ais-highlight-0000000000>tem</ais-highlight-0000000000>ps d’un retour",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["term"]
+            },
+            "title_ru": {
+              "value": "Мюриэль, или время возвращения",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title_original": {
+              "value": "",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "title_en": "L` Emploi du temps",
+          "title_ru": "Тайм аут",
+          "title_original": "",
+          "year": 2001,
+          "objectID": "TW92aWVOb2RlOjg5Mg==",
+          "_highlightResult": {
+            "title_en": {
+              "value": "L` Emploi du <ais-highlight-0000000000>tem</ais-highlight-0000000000>ps",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["term"]
+            },
+            "title_ru": {
+              "value": "Тайм аут",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            "title_original": {
+              "value": "",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        }
+      ],
+      "nbHits": 5,
+      "page": 0,
+      "nbPages": 1,
+      "hitsPerPage": 20,
+      "processingTimeMS": 1,
+      "exhaustiveNbHits": true,
+      "query": "term",
+      "params": "query=term&page=0&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&facets=%5B%5D&tagFilters=",
+      "index": "movie"
+    },
+    {
+      "hits": [
+        {
+          "name_en": "Terry Gilliam",
+          "name_ru": "Терри Гиллиам",
+          "objectID": "UGVyc29uTm9kZToyMTg=",
+          "_highlightResult": {
+            "name_en": {
+              "value": "<ais-highlight-0000000000>Terr</ais-highlight-0000000000>y Gilliam",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["term"]
+            },
+            "name_ru": {
+              "value": "Терри Гиллиам",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "name_en": "Terry Zwigoff",
+          "name_ru": "Терри Цвигофф",
+          "objectID": "UGVyc29uTm9kZTo3MTg=",
+          "_highlightResult": {
+            "name_en": {
+              "value": "<ais-highlight-0000000000>Terr</ais-highlight-0000000000>y Zwigoff",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["term"]
+            },
+            "name_ru": {
+              "value": "Терри Цвигофф",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "name_en": "Terry Rossio",
+          "name_ru": "Тэрри Россио",
+          "objectID": "UGVyc29uTm9kZTo0NzY=",
+          "_highlightResult": {
+            "name_en": {
+              "value": "<ais-highlight-0000000000>Terr</ais-highlight-0000000000>y Rossio",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["term"]
+            },
+            "name_ru": {
+              "value": "Тэрри Россио",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        },
+        {
+          "name_en": "Susumu Terajima",
+          "name_ru": "Сусуму Тэрадзима",
+          "objectID": "UGVyc29uTm9kZTo2ODM=",
+          "_highlightResult": {
+            "name_en": {
+              "value": "Susumu <ais-highlight-0000000000>Tera</ais-highlight-0000000000>jima",
+              "matchLevel": "full",
+              "fullyHighlighted": false,
+              "matchedWords": ["term"]
+            },
+            "name_ru": {
+              "value": "Сусуму Тэрадзима",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          }
+        }
+      ],
+      "nbHits": 4,
+      "page": 0,
+      "nbPages": 1,
+      "hitsPerPage": 20,
+      "processingTimeMS": 1,
+      "exhaustiveNbHits": true,
+      "query": "term",
+      "params": "query=term&page=0&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&facets=%5B%5D&tagFilters=",
+      "index": "person"
+    }
+  ]
+}
