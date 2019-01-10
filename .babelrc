@@ -1,12 +1,12 @@
 {
   "presets": [
-    "latest",
-    "stage-0",
-    "react"
+    "@babel/react",
+    "@babel/flow",
+    "@babel/env"
   ],
   "plugins": [
-    "transform-decorators-legacy",
-    "transform-class-properties",
+    ["@babel/proposal-decorators", { "legacy": true }],
+    ["@babel/proposal-class-properties", { "loose": true }],
     "react-hot-loader/babel",
     "lodash",
     [
@@ -31,15 +31,14 @@
       }
     ],
     [
-      "transform-runtime",
+      "@babel/transform-runtime",
       {
         "helpers": false,
-        "polyfill": false,
         "regenerator": true
       }
     ],
     [
-      "babel-plugin-webpack-alias",
+      "webpack-alias",
       {
         "config": "./webpack.base.config.js"
       }
