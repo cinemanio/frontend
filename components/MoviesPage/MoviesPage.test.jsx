@@ -108,15 +108,8 @@ describe('Movies Page Component', () => {
       wrapper = await mountGraphql(
         <MoviesPage />,
         mocks.concat([
-          mockWithParams({
-            ...filters,
-            genres: ['R2VucmVOb2RlOjQ='],
-          }),
-          mockWithParams({
-            ...filters,
-            genres: ['R2VucmVOb2RlOjQ='],
-            countries: ['Q291bnRyeU5vZGU6MTE='],
-          }),
+          mockWithParams({ ...filters, genres: ['R2VucmVOb2RlOjQ='] }),
+          mockWithParams({ ...filters, genres: ['R2VucmVOb2RlOjQ='], countries: ['Q291bnRyeU5vZGU6MTE='] }),
           mockWithParams({
             ...filters,
             relation: 'fav',
@@ -130,17 +123,28 @@ describe('Movies Page Component', () => {
             countries: ['Q291bnRyeU5vZGU6MTE='],
             orderBy: 'year',
           }),
+          mockWithParams({ ...filters, relation: 'fav', countries: ['Q291bnRyeU5vZGU6MTE='], orderBy: 'year' }),
+          mockWithParams({ ...filters, relation: 'fav', orderBy: 'year' }),
+          mockWithParams({ ...filters, orderBy: 'year' }),
         ])
       )
       // TODO: change amount of items on every filtration
       // expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
       selectFilterChange(wrapper, 'SelectFilter[code="genres"]', 'R2VucmVOb2RlOjQ=')
+      expect(getActiveFilters()).toBe('Western')
       // expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(90)
       selectFilterChange(wrapper, 'SelectFilter[code="countries"]', 'Q291bnRyeU5vZGU6MTE=')
+      expect(getActiveFilters()).toBe('Western Benin')
       selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
+      expect(getActiveFilters()).toBe('Fav Western Benin')
       selectFilterChange(wrapper, 'SelectGeneric[code="orderBy"]', 'year')
       // expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(90)
-      expect(getActiveFilters()).toBe('Fav Western Benin')
+      getActiveFilter('genres', 0).simulate('click')
+      expect(getActiveFilters()).toBe('Fav Benin')
+      getActiveFilter('countries', 0).simulate('click')
+      expect(getActiveFilters()).toBe('Fav')
+      getActiveFilter('relation', 0).simulate('click')
+      expect(getActiveFilters()).toBe('')
       setTimeout(() => done())
     })
 
@@ -156,7 +160,7 @@ describe('Movies Page Component', () => {
       expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
       paginate(wrapper)
       // TODO: test amount of items after loading second page
-      setTimeout(() => done())
+      setTimeout(done)
     })
 
     describe('Years range filter', () => {
@@ -205,7 +209,7 @@ describe('Movies Page Component', () => {
         global.console.warn = jest.fn()
       })
 
-      it('should allow to unselect years filters', async () => {
+      it('should allow to unselect years filters', async done => {
         wrapper = await mountGraphql(
           <MoviesPage />,
           mocks.concat([
@@ -224,6 +228,7 @@ describe('Movies Page Component', () => {
         getActiveFilter('yearsRange', 0).simulate('click')
         expect(getRange()).toEqual([defaults.min, defaults.max])
         expect(getActiveFilters()).toBe('')
+        setTimeout(done)
       })
 
       it('should filter by years range', async () => {

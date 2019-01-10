@@ -73,7 +73,7 @@ export default class ActiveFilters extends React.Component<Props> {
         filterValue.max = this.props.default.max
       }
     } else {
-      filterValue = ''
+      filterValue = null
     }
     this.props.setFilterState({ [name]: filterValue })
   }
