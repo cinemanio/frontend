@@ -31,15 +31,14 @@ export default class Languages extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
-        {settings.languages.map(
-          ([lang, title]) =>
-            this.props.i18n.language === lang ? (
-              <strong key={lang}>{title}</strong>
-            ) : (
-              <a key={lang} href={`#${lang}`} onClick={this.changeLanguage(lang)}>
-                {title}
-              </a>
-            )
+        {settings.languages.map(([lang, title]) =>
+          this.props.i18n.language === lang ? (
+            <strong key={lang}>{title}</strong>
+          ) : (
+            <a key={lang} href={`#${lang}`} onClick={this.changeLanguage(lang)}>
+              {title}
+            </a>
+          )
         )}
       </div>
     )
