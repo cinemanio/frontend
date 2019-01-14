@@ -35,8 +35,8 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
     } else {
       resp = response
     }
-    const getText = () => new Promise(resolve => resolve(JSON.stringify(resp)))
-    return new Promise(resolve => resolve({ text: getText }))
+    const getText = () => new Promise<Object>(resolve => resolve(JSON.stringify(resp)))
+    return new Promise<Object>(resolve => resolve({ text: getText }))
   }
 }
 

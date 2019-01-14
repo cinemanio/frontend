@@ -9,7 +9,7 @@ import i18nClient from 'libs/i18nClient'
 
 import './BlockText.scss'
 
-type Props = { title: string | React.Node, children?: React.Node, i18n: Translator, content: string }
+type Props = { title: string | React.Node, children?: React.Node | Function, i18n: Translator, content: string }
 type State = { full: boolean }
 
 @translate()

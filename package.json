@@ -67,7 +67,7 @@
     "fecha": "3.0.2",
     "file-loader": "3.0.1",
     "fs-readfile-promise": "3.0.1",
-    "graphql": "14.0.2",
+    "graphql": "git://github.com/graphql/graphql-js.git#npm",
     "graphql-tag": "2.10.0",
     "humanize-duration": "3.17.0",
     "i18next": "13.1.1",
