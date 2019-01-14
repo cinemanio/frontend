@@ -5,14 +5,14 @@
   "repository": "https://github.com/cinemanio/frontend.git",
   "main": "index.js",
   "engines": {
-    "node": "8.9.4",
-    "npm": "5.6.0"
+    "node": "11.6.0",
+    "npm": "6.5.0"
   },
   "scripts": {
     "start": "npm-run-all -p server-start client-start",
     "server-start": "nodemon --inspect",
     "client-start": "webpack-dev-server --config ./webpack.dev.config.js",
-    "build": "NODE_ENV=production webpack -p --config ./webpack.prod.config.js --progress --json > stats.json",
+    "build": "NODE_ENV=production webpack -p --config ./webpack.prod.config.js --json > stats.json",
     "test": "npm-run-all -s build jest flow lint size -c",
     "jest": "jest --coverage .",
     "jest-watch": "jest --watch .",
