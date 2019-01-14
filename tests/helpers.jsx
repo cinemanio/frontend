@@ -1,6 +1,6 @@
 // @flow
 /* eslint-disable promise/avoid-new */
-import React from 'react'
+import * as React from 'react'
 import { mount } from 'enzyme'
 import { Provider as MobxProvider } from 'mobx-react'
 import { MemoryRouter } from 'react-router-dom'
@@ -52,7 +52,7 @@ export const mountRouter = (element: Object, initialEntries: Array<string>) =>
     mountOptions
   )
 
-export const mountGraphql = async (element: React.Fragment, mocks: Array<Object>, initialEntries: Array<string>) => {
+export const mountGraphql = async (element: React.Node, mocks: Array<Object>, initialEntries: Array<string>) => {
   const wrapper = mountRouter(<MockedProvider mocks={mocks}>{element}</MockedProvider>, initialEntries)
   await new Promise(resolve => setTimeout(resolve))
   wrapper.update()

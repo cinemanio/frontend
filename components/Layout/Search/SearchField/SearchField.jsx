@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import type { Translator } from 'react-i18next'
 import { PropTypes } from 'prop-types'
 import { connectAutoComplete } from 'react-instantsearch/connectors'
@@ -94,9 +94,9 @@ export class SearchFieldRaw extends React.Component<Props, State> {
     return option
   }
 
-  renderOptions() {
+  renderOptions(): ?Array<React.Node> {
     return !this.state.value
-      ? ''
+      ? null
       : this.props.hits.map(group => (
           <OptGroup key={group.index} label={this.renderTitle(group.index)}>
             {group.hits.map(hit => (

@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { translate } from 'react-i18next'
 import type { Translator } from 'react-i18next'
@@ -36,7 +36,7 @@ export default class Menu extends React.Component<Props> {
     this.props.history.push(routes[key].list)
   }
 
-  renderMenu(): Array<React.Fragment> {
+  renderMenu(): Array<React.Node> {
     return this.menu.map(([type, title]) => (
       <Tabs.TabPane tab={<Link to={routes[type].list}>{title}</Link>} key={type} />
     ))

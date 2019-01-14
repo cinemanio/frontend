@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import { PropTypes } from 'prop-types'
 
 import fragment from 'components/Relation/fragment'
@@ -37,7 +37,7 @@ export default class PersonRelations extends React.Component<Props> {
     return response
   }
 
-  render(): Array<React.Fragment> {
+  render(): Array<React.Node> {
     return codes.map(code => (
       <Relation
         key={code}

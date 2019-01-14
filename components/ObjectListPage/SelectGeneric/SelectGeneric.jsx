@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import { PropTypes } from 'prop-types'
 import { Select } from 'antd'
 
@@ -20,7 +20,7 @@ export default class SelectGeneric extends React.PureComponent<Props> {
 
   change = (value: string) => this.props.setFilterState({ [this.props.code]: value })
 
-  renderOptions() {
+  renderOptions(): Array<React.Node> {
     return this.props.list.map(item => (
       <Select.Option key={item.id} value={item.id}>
         {item.name}
