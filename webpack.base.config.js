@@ -26,7 +26,6 @@ module.exports = {
     path: path.resolve('public'),
     filename: settings.dev ? '[name].js' : '[name].[hash].js',
   },
-  devtool: false,
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -48,7 +47,7 @@ module.exports = {
     }),
     // plugin helps to reduce js bundle up to 5Kb
     new LodashModuleReplacementPlugin({
-      // shorthands: true,
+      shorthands: true,
       cloning: true,
       // currying: true,
       caching: true,

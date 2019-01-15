@@ -1,8 +1,8 @@
 // @flow
 /* eslint-disable promise/avoid-new */
-import React from 'react'
+import * as React from 'react'
 import { mount } from 'enzyme'
-import { Provider } from 'mobx-react'
+import { Provider as MobxProvider } from 'mobx-react'
 import { MemoryRouter } from 'react-router-dom'
 import { MockedProvider } from 'react-apollo/test-utils'
 import { AutoSizer } from 'react-virtualized'
@@ -35,24 +35,24 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
     } else {
       resp = response
     }
-    const getText = () => new Promise(resolve => resolve(JSON.stringify(resp)))
-    return new Promise(resolve => resolve({ text: getText }))
+    const getText = () => new Promise<Object>(resolve => resolve(JSON.stringify(resp)))
+    return new Promise<Object>(resolve => resolve({ text: getText }))
   }
 }
 
 export const mountRouter = (element: Object, initialEntries: Array<string>) =>
   mount(
     <MemoryRouter initialEntries={initialEntries}>
-      <Provider {...stores}>
+      <MobxProvider {...stores}>
         <AlertProvider template={AlertTemplate} {...alertOptions}>
           <I18nextProvider i18n={i18nClient}>{element}</I18nextProvider>
         </AlertProvider>
-      </Provider>
+      </MobxProvider>
     </MemoryRouter>,
     mountOptions
   )
 
-export const mountGraphql = async (element: React.Fragment, mocks: Array<Object>, initialEntries: Array<string>) => {
+export const mountGraphql = async (element: React.Node, mocks: Array<Object>, initialEntries: Array<string>) => {
   const wrapper = mountRouter(<MockedProvider mocks={mocks}>{element}</MockedProvider>, initialEntries)
   await new Promise(resolve => setTimeout(resolve))
   wrapper.update()

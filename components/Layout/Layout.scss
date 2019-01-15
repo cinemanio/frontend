@@ -43,14 +43,7 @@
     font-size: 2rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;
-
-    a {
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
+    height: 56px;
   }
 
   a {
@@ -79,6 +72,24 @@
     height: 100%;
   }
 
+  .logo {
+    font-weight: bold;
+    font-size: 2rem;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .search {
+    font-size: 1rem;
+    padding-top: 0.6rem;
+  }
+
   .languages {
     text-align: right;
     font-size: 0.7rem;
@@ -88,9 +99,10 @@
 
   .auth {
     float: right;
+    text-align: right;
     font-size: 1rem;
     font-weight: normal;
-    padding: 1rem 1rem 0 0;
+    padding: 0.8rem 1rem 0 0;
 
     a {
       &:hover {

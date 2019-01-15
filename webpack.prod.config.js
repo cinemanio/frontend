@@ -9,6 +9,8 @@ const config = require('./webpack.base.config.js')
 // path is relative to make it working with URLs like https://www.nihms.nih.gov/ms/submission/create/
 config.output.publicPath = '/public/'
 
+config.devtool = false
+
 config.plugins.push(
   new BundleTracker({ filename: './webpack-stats.json' }),
   // removes a lot of debugging code in React

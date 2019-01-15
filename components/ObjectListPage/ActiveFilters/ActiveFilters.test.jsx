@@ -47,7 +47,7 @@ describe('Active Filters Component', () => {
     it('should call setFilterState on change', () => {
       expect(element.props.setFilterState).not.toHaveBeenCalled()
       getFilter(0).simulate('click')
-      expect(element.props.setFilterState).toHaveBeenCalledWith({ filter: '' })
+      expect(element.props.setFilterState).toHaveBeenCalledWith({ filter: null })
     })
   })
 
