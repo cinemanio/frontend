@@ -52,6 +52,7 @@
   "dependencies": {
     "@babel/core": "7.2.2",
     "@babel/polyfill": "7.2.5",
+    "@babel/register": "7.0.0",
     "@babel/runtime": "7.2.0",
     "algoliasearch": "3.32.0",
     "antd": "3.10.1",
