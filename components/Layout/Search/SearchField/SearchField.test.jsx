@@ -36,7 +36,7 @@ describe('Search Field Component', () => {
     )
   })
 
-  it('should render search query in input', () => expect(wrapper.find('input').props().value).toBe('query'))
+  it('should render search query in input', () => expect(wrapper.find('input').prop('value')).toBe('query'))
 
   it('should render 2 groups of suggestions: movies and persons', () => {
     expect(dropdownWrapper.find('MenuItemGroup')).toHaveLength(2)
@@ -52,5 +52,7 @@ describe('Search Field Component', () => {
       .simulate('click')
     expect(props.history.push).toHaveBeenCalledWith('/movies/TW92aWVOb2RlOjcwMQ==')
     expect(props.refine).toHaveBeenCalledWith('')
+    wrapper.update()
+    expect(wrapper.find('input').prop('value')).toBe('')
   })
 })

@@ -56,6 +56,7 @@ export class SearchFieldRaw extends React.Component<Props, State> {
     const [index, id] = value.split('-')
     this.props.history.push(routes[index].detail.replace(':slug', id))
     this.props.refine('')
+    this.setState({ value: '' })
   }
 
   search = (value: string) => this.props.refine(value)
