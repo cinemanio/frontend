@@ -100,7 +100,7 @@ describe('SignIn Component', () => {
       })
     })
 
-    it('should render display error when mutation failed, disable/enable button and keep username value', async done => {
+    it('should render error when mutation failed, disable/enable button and keep username value', async done => {
       wrapper = await mountGraphql(element, [
         {
           ...mockSignIn,

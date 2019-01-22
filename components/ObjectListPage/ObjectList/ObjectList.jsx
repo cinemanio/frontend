@@ -134,9 +134,8 @@ export const getConfigObject = (defaults: ?Object) => ({
             // By returning `cursor` here, we update the `loadMore` function
             // to the new cursor.
             list: {
-              totalCount: fetchMoreResult.list.totalCount,
+              ...fetchMoreResult.list,
               edges: [...previousResult.list.edges, ...fetchMoreResult.list.edges],
-              pageInfo: fetchMoreResult.list.pageInfo,
             },
           }),
         }),

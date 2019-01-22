@@ -41,13 +41,7 @@ export default class ObjectListPage extends React.Component<Props, State> {
   refreshList = () =>
     this.props.data.fetchMore({
       variables: this.props.getVariables(),
-      updateQuery: (previousResult, { fetchMoreResult }) => ({
-        list: {
-          totalCount: fetchMoreResult.list.totalCount,
-          edges: fetchMoreResult.list.edges,
-          pageInfo: fetchMoreResult.list.pageInfo,
-        },
-      }),
+      updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
     })
 
   updatePage = (page: number) => this.setState({ page })

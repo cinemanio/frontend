@@ -301,7 +301,7 @@ describe('Movies Page Component', () => {
 
         it('should not let enter non integer value', async () => {
           setMin('qwer')
-          setMax('2qwer')
+          setMax('qwer')
           expect(getMinInput().prop('value')).toBe(String(defaults.min))
           expect(getMaxInput().prop('value')).toBe(String(defaults.max))
         })
