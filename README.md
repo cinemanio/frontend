@@ -5,4 +5,4 @@
 [![Coverage Status](https://coveralls.io/repos/cinemanio/frontend/badge.svg?branch=master)](https://coveralls.io/r/cinemanio/frontend)
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Known Vulnerabilities](https://snyk.io/test/github/cinemanio/frontend/badge.svg)](https://snyk.io/test/github/cinemanio/frontend)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT) [![Greenkeeper badge](https://badges.greenkeeper.io/cinemanio/frontend.svg)](https://greenkeeper.io/)
