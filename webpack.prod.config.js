@@ -15,7 +15,7 @@ config.plugins.push(
   new BundleTracker({ filename: './webpack-stats.json' }),
   // removes a lot of debugging code in React
   new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
-  new OptimizeCSSAssetsPlugin({}),
+  new OptimizeCSSAssetsPlugin({})
 )
 
 config.optimization = {
@@ -24,6 +24,7 @@ config.optimization = {
     new TerserPlugin({
       parallel: true,
       cache: true,
+      extractComments: true,
       terserOptions: {
         ecma: 6,
       },
