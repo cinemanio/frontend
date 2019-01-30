@@ -7,10 +7,10 @@ import gql from 'graphql-tag'
 import wtf from 'wtf_wikipedia'
 
 import BlockText from 'components/BlockText/BlockText'
+import i18nClient from 'libs/i18nClient'
 
 import WikiSection from './WikiSection/WikiSection'
 import './ObjectWikipedia.scss'
-import i18nClient from '../../libs/i18nClient'
 
 type Props = { object: Object, i18n: Translator }
 
