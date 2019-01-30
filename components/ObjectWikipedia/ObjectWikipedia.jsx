@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import { PropTypes } from 'prop-types'
 import { translate } from 'react-i18next'
 import type { Translator } from 'react-i18next'
@@ -57,13 +57,18 @@ export default class ObjectWikipedia extends React.Component<Props> {
     return edges.length > 0 ? edges[0].node.content : null
   }
 
+  renderContent(text: string): Array<React.Node> {
+    const wikiText = text.replace(/\n/g, '\n\n')
+    // eslint-disable-next-line react/no-array-index-key
+    return wtf(wikiText).data.sections.map((section, i) => <WikiSection key={i} section={section} />)
+  }
+
   render() {
     const { content } = this
     return !content ? null : (
       <div styleName="box">
         <BlockText title={this.props.i18n.t('wikipedia.title')} content={content}>
-          {// eslint-disable-next-line react/no-array-index-key
-          text => wtf(text).data.sections.map((section, i) => <WikiSection key={i} section={section} />)}
+          {this.renderContent}
         </BlockText>
       </div>
     )
