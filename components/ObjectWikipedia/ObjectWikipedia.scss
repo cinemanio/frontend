@@ -2,4 +2,12 @@
 
 .box {
   @extend %text-box;
+
+  h4 {
+    font-size: 1.1rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
 }
