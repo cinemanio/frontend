@@ -10,9 +10,10 @@ import ObjectWikipedia from './ObjectWikipedia'
 describe('ObjectWikipedia Component', () => {
   let element
   let wrapper
+  const switchMode = () => wrapper.find('button').simulate('click')
   const expectFullContent = (sections, paragraphs) => () => {
     expect(wrapper.find('WikiSection')).toHaveLength(1)
-    wrapper.find('button').simulate('click')
+    switchMode()
     expect(wrapper.find('WikiSection')).toHaveLength(sections)
     expect(
       wrapper
@@ -20,7 +21,7 @@ describe('ObjectWikipedia Component', () => {
         .first()
         .find('p')
     ).toHaveLength(paragraphs)
-    wrapper.find('button').simulate('click')
+    switchMode()
     expect(wrapper.find('WikiSection')).toHaveLength(1)
   }
 
@@ -40,8 +41,11 @@ describe('ObjectWikipedia Component', () => {
     beforeAll(() => i18nClient.changeLanguage('ru'))
     it('should render ru content', () => expect(wrapper.text()).toContain('Да здравствует Лас-Вегас'))
     it('should render button', () => expect(wrapper.find('button').text()).toContain('узнать больше'))
-    // TODO: fix wtf_wikipedia cut some paragraphs
-    xit('should render all text', () => expect(wrapper.text()).toContain('Фильмография Элвиса Пресли'))
     it('should display full and short version of content', expectFullContent(10, 2))
+    // TODO: fix wtf_wikipedia cut some paragraphs
+    xit('should render all text', () => {
+      switchMode()
+      expect(wrapper.text()).toContain('Фильмография Элвиса Пресли')
+    })
   })
 })
