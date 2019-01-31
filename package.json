@@ -44,7 +44,7 @@
   "bundlesize": [
     {
       "path": "./public/app.*.js",
-      "maxSize": "585 kB"
+      "maxSize": "590 kB"
     },
     {
       "path": "./public/app.*.css",
