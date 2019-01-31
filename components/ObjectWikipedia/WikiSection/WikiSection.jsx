@@ -18,7 +18,7 @@ export default class WikiSection extends React.PureComponent<Props> {
     return this.props.section.data.paragraphs.map(paragraph => this.renderParagraph(paragraph))
   }
 
-  renderParagraph(paragraph: string) {
+  renderParagraph(paragraph: Object) {
     const text = paragraph.text()
     return !text ? null : <p key={text}>{text}</p>
   }
