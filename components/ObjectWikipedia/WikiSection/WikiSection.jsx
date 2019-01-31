@@ -18,7 +18,8 @@ export default class WikiSection extends React.PureComponent<Props> {
   }
 
   renderContent() {
-    return !this.props.section.wiki ? null : <p>{this.props.section.wiki}</p>
+    const text = this.props.section.text()
+    return !text ? null : <p>{text}</p>
   }
 
   render() {

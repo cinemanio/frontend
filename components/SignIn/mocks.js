@@ -10,13 +10,13 @@ export const mockSignIn = {
 export const setUsername = (wrapper, value) =>
   wrapper
     .find('SignIn')
-    .find('input[type="text"]')
+    .find('Input[id="username"]')
     .props()
     .onChange(value || username)
 export const setPassword = (wrapper, value) =>
   wrapper
     .find('SignIn')
-    .find('input[type="password"]')
+    .find('Input[id="password"]')
     .props()
     .onChange(value || password)
 export const signIn = wrapper => {

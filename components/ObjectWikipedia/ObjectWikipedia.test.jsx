@@ -23,7 +23,7 @@ describe('ObjectWikipedia Component', () => {
     it('should display full and short version of content', () => {
       expect(wrapper.find('WikiSection')).toHaveLength(1)
       wrapper.find('button').simulate('click')
-      expect(wrapper.find('WikiSection')).toHaveLength(13)
+      expect(wrapper.find('WikiSection')).toHaveLength(12)
       wrapper.find('button').simulate('click')
       expect(wrapper.find('WikiSection')).toHaveLength(1)
     })
