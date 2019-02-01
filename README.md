@@ -3,7 +3,7 @@
 [![Circle CI](https://circleci.com/gh/cinemanio/frontend/tree/master.svg?style=shield)](https://circleci.com/gh/cinemanio/frontend)
 [![Travis CI](https://img.shields.io/travis/cinemanio/frontend.svg?branch=master)](https://travis-ci.org/cinemanio/frontend)
 [![Coverage Status](https://coveralls.io/repos/cinemanio/frontend/badge.svg?branch=master)](https://coveralls.io/r/cinemanio/frontend)
-[![Greenkeeper](https://badges.greenkeeper.io/cinemanio/frontend.svg)](https://greenkeeper.io/)
+[![Greenkeeper](https://img.shields.io/badge/dependencies-monitored-green.svg)](https://greenkeeper.io/)
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Known Vulnerabilities](https://snyk.io/test/github/cinemanio/frontend/badge.svg)](https://snyk.io/test/github/cinemanio/frontend)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
