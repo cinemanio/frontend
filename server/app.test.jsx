@@ -121,7 +121,7 @@ describe('Server Routes', () => {
         movies,
         movie,
         noMovie,
-        { orderBy: 'relations_count__like' },
+        { orderBy: '-relations_count__like' },
       ],
       [
         'person',
@@ -130,7 +130,7 @@ describe('Server Routes', () => {
         persons,
         person,
         noPerson,
-        { orderBy: 'relations_count__like' },
+        { orderBy: '-relations_count__like' },
       ],
     ].forEach(([object, slug, id, objectsResponse, objectResponse, noResponse, defaults]) => {
       it(`should respond a ${object}s page`, async () => {

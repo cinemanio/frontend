@@ -77,7 +77,7 @@ class MoviesPage extends React.Component<Props, State> {
   defaults = {
     yearsRange: { min: 1900, max: new Date().getFullYear() + 10 },
     view: 'short',
-    orderBy: 'relations_count__like',
+    orderBy: '-relations_count__like',
   }
 
   getVariables = () => ({
@@ -98,8 +98,8 @@ class MoviesPage extends React.Component<Props, State> {
   getOrderByOptions = () => [
     { id: '-year', name: this.props.i18n.t('filter.orderBy.new') },
     { id: 'year', name: this.props.i18n.t('filter.orderBy.old') },
-    { id: 'relations_count__like', name: this.props.i18n.t('filter.orderBy.like') },
-    { id: 'relations_count__dislike', name: this.props.i18n.t('filter.orderBy.dislike') },
+    { id: '-relations_count__like', name: this.props.i18n.t('filter.orderBy.like') },
+    { id: '-relations_count__dislike', name: this.props.i18n.t('filter.orderBy.dislike') },
   ]
 
   getRelationFilterOptions = () =>
@@ -230,7 +230,7 @@ class MoviesPage extends React.Component<Props, State> {
 }
 
 // static vars should be defined outside, because of @withAlert decorator
-const configObject = getConfigObject({ orderBy: 'relations_count__like' })
+const configObject = getConfigObject({ orderBy: '-relations_count__like' })
 MoviesPage.variables = { movies: configObject.options().variables }
 MoviesPage.queries = {
   movies: gql`
