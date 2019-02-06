@@ -66,15 +66,13 @@ class MoviesPage extends React.Component<Props, State> {
 
   constructor(props: Object) {
     super(props)
-    this.state = {
-      relation: null,
-      genres: new Set([]),
-      countries: new Set([]),
-      ...this.defaults,
-    }
+    this.state = this.defaults
   }
 
   defaults = {
+    relation: null,
+    genres: new Set([]),
+    countries: new Set([]),
     yearsRange: { min: 1900, max: new Date().getFullYear() + 10 },
     view: 'short',
     orderBy: '-relations_count__like',

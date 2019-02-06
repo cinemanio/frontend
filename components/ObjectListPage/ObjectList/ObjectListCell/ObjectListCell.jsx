@@ -2,7 +2,6 @@
 import React from 'react'
 import { Collection } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
-import _ from 'lodash'
 
 type Props = {
   itemCount: number,
@@ -30,12 +29,12 @@ export default class ObjectListCell extends React.Component<Props> {
    */
   iconDimensions: Object = { width: 180, height: 250 }
 
-  onScrollImage = ({ clientWidth, clientHeight, scrollTop }: Object) => {
+  onScrollImage = (updatePage: Function) => ({ clientWidth, clientHeight, scrollTop }: Object) => {
     const margin = 20
     const { width, height } = this.iconDimensions
     const numberInRow = Math.floor(clientWidth / width)
     const page = (Math.ceil(scrollTop / height) + Math.floor((clientHeight + margin) / height)) * numberInRow
-    this.props.updatePage(page)
+    updatePage(page)
   }
 
   onSectionRendered = (onRowsRendered: Function) => ({ indices }: Object) => {
@@ -54,15 +53,15 @@ export default class ObjectListCell extends React.Component<Props> {
   }
 
   render() {
-    const props = _.omit(this.props, ['itemCount', 'onRowsRendered', 'renderItem', 'updatePage'])
+    const { itemCount, onRowsRendered, renderItem, updatePage, renderNoResults, ...props } = this.props
     return (
       <Collection
-        noContentRenderer={this.props.renderNoResults}
-        onSectionRendered={this.onSectionRendered(this.props.onRowsRendered)}
-        onScroll={this.onScrollImage}
-        cellRenderer={this.props.renderItem}
+        noContentRenderer={renderNoResults}
+        onSectionRendered={this.onSectionRendered(onRowsRendered)}
+        onScroll={this.onScrollImage(updatePage)}
+        cellRenderer={renderItem}
         cellSizeAndPositionGetter={this.cellSizeAndPositionGetter}
-        cellCount={this.props.itemCount}
+        cellCount={itemCount}
         {...props}
       />
     )
