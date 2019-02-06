@@ -7,7 +7,7 @@ import _ from 'lodash'
 import ObjectListCell from './ObjectListCell/ObjectListCell'
 import ObjectListRow from './ObjectListRow/ObjectListRow'
 
-type Props = {
+export type Props = {
   noResultsMessage: string,
   renderItem: Function,
   getVariables: Function,
