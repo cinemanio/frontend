@@ -22,18 +22,24 @@ export default class ObjectListCell extends React.Component<Props> {
     updatePage: PropTypes.func.isRequired,
   }
 
+  iconsInRow: number = 4
+
+  ratio: float = 0.7
+
   /**
    * Dimension of poster of photo in view=icon
-   * TODO: calculate it automatically from styles if possible
    * @type {{width: number, height: number}}
    */
-  iconDimensions: Object = { width: 180, height: 250 }
+  get iconDimensions() {
+    const width = Math.floor(this.props.width / this.iconsInRow)
+    const height = Math.floor(width / this.ratio)
+    return { width, height }
+  }
 
   onScrollImage = (updatePage: Function) => ({ clientWidth, clientHeight, scrollTop }: Object) => {
-    const margin = 20
     const { width, height } = this.iconDimensions
     const numberInRow = Math.floor(clientWidth / width)
-    const page = (Math.ceil(scrollTop / height) + Math.floor((clientHeight + margin) / height)) * numberInRow
+    const page = (Math.ceil(scrollTop / height) + Math.floor(clientHeight / height)) * numberInRow
     updatePage(page)
   }
 

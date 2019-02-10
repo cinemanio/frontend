@@ -3,14 +3,17 @@
 .box {
   display: flex;
   font-size: 0.8rem;
-  align-items: center;
+  align-items: left;
   text-align: center;
   font-weight: normal;
   flex-direction: column;
 
+  > div {
+    width: 95%;
+  }
+
   img {
-    width: 170px;
-    height: 240px;
+    width: 100%;
     margin-bottom: 0.2rem;
   }
 
@@ -19,8 +22,8 @@
     background-color: black;
     opacity: 0;
     position: absolute;
-    bottom: 10px;
-    width: 170px;
+    bottom: 0;
+    width: 95%;
     padding: 0.5rem 0.3rem;
 
     a {
