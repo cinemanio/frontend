@@ -102,7 +102,7 @@
     "pluralize": "7.0.0",
     "postcss-loader": "3.0.0",
     "postcss-scss": "2.0.0",
-    "prop-types": "15.7.1",
+    "prop-types": "15.7.2",
     "react": "16.8.1",
     "react-alert": "4.0.4",
     "react-apollo": "2.4.1",
