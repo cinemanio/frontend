@@ -51,7 +51,7 @@ export default class MovieRelations extends React.Component<Props> {
     return response
   }
 
-  render(): Array<React.Node> {
+  render(): React.Node {
     return codes.map(code => (
       <Relation
         key={code}

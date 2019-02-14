@@ -20,7 +20,7 @@ export default class SelectGeneric extends React.PureComponent<Props> {
 
   change = (value: string) => this.props.setFilterState({ [this.props.code]: value })
 
-  renderOptions(): Array<React.Node> {
+  renderOptions(): React.Node {
     return this.props.list.map(item => (
       <Select.Option key={item.id} value={item.id}>
         {item.name}
