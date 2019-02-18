@@ -1,41 +1,26 @@
 @import 'mixins';
 
 .box {
-  display: flex;
-  font-size: 0.8rem;
-  align-items: left;
-  text-align: center;
-  font-weight: normal;
-  flex-direction: column;
-
-  > div {
-    width: 95%;
-  }
+  margin-right: 1rem;
 
   img {
     width: 100%;
-    margin-bottom: 0.2rem;
+    //margin-bottom: 0.2rem;
   }
 
   .title {
     transition: .5s ease;
-    background-color: black;
+    background-color: orange;
     opacity: 0;
     position: absolute;
-    bottom: 0;
-    width: 95%;
-    padding: 0.5rem 0.3rem;
-
-    a {
-      color: white;
-    }
+    bottom: 2rem;
+    right: 0.5rem;
+    padding: 0.2rem 0.3rem;
+    font-size: 0.8rem;
+    text-align: right;
   }
 
   &:hover .title {
-    opacity: 0.8;
-
-    a {
-      opacity: 1;
-    }
+    opacity: 1;
   }
 }
