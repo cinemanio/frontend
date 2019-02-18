@@ -1,7 +1,7 @@
 # cineman.io frontend
 
 [![Circle CI](https://circleci.com/gh/cinemanio/frontend/tree/master.svg?style=shield)](https://circleci.com/gh/cinemanio/frontend)
-[![Travis CI](https://img.shields.io/travis/cinemanio/frontend.svg?branch=master)](https://travis-ci.org/cinemanio/frontend)
+[![Travis CI](https://api.travis-ci.org/cinemanio/frontend.svg?branch=master)](https://travis-ci.org/cinemanio/frontend)
 [![Coverage Status](https://coveralls.io/repos/cinemanio/frontend/badge.svg?branch=master)](https://coveralls.io/r/cinemanio/frontend)
 [![Greenkeeper](https://img.shields.io/badge/dependencies-monitored-green.svg)](https://greenkeeper.io/)
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)

@@ -96,7 +96,7 @@ export default class ActiveFilters extends React.Component<Props> {
     }
   }
 
-  render(): Array<React.Node> {
+  render(): React.Node {
     return this.active.map(filter => (
       <Tag key={filter} onClose={this.notFilterBy(filter)} onClick={this.notFilterBy(filter)} closable>
         {this.getFilterName(filter)}

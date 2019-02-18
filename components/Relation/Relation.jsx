@@ -25,6 +25,8 @@ type Props = {
   alert: Object,
   user: typeof User,
   i18n: Translator,
+  titleOn: string,
+  titleOff: string,
 }
 
 @withAlert
@@ -51,6 +53,8 @@ export default class Relation extends React.Component<Props> {
     alert: PropTypes.object,
     user: MobxPropTypes.observableObject,
     i18n: PropTypes.object,
+    titleOn: PropTypes.string.isRequired,
+    titleOff: PropTypes.string.isRequired,
   }
 
   get objectType() {
@@ -58,18 +62,38 @@ export default class Relation extends React.Component<Props> {
     return this.props.object.__typename.replace('Node', '')
   }
 
+  /**
+   * Whether relation is on of off
+   * @returns {*}
+   */
+  get active(): boolean {
+    return this.props.object.relation[this.props.code]
+  }
+
+  /**
+   * Title for icon
+   * @returns {string}
+   */
+  get title(): string {
+    return this.active ? this.props.titleOff : this.props.titleOn
+  }
+
+  /**
+   * Handler for toggling relation
+   * @param relate
+   * @returns {Function}
+   */
   changeRelation = (relate: Function) => () => {
     if (this.props.user.authenticated) {
       const optimisticResponse = mutationResponse(this.props.object, this.props.code)
-      const enabled = this.props.object.relation[this.props.code]
       relate({
         variables: {
           id: this.props.object.id,
           code: this.props.code,
         },
-        optimisticResponse: this.props.modifyOptimisticResponse(optimisticResponse, this.props.code, enabled),
+        optimisticResponse: this.props.modifyOptimisticResponse(optimisticResponse, this.props.code, this.active),
       })
-      if (!enabled) {
+      if (!this.active) {
         this.props.alert.success(
           this.props.i18n.t(`alert.relations.${this.objectType.toLowerCase()}.${this.props.code}`, this.props.object)
         )
@@ -99,10 +123,10 @@ export default class Relation extends React.Component<Props> {
     return (
       <Mutation mutation={this.props.mutation} update={this.updateCache}>
         {(relate, { data, loading }) => {
-          const params = loading ? {} : { onClick: this.changeRelation(relate) }
+          const params = loading ? {} : { onClick: this.changeRelation(relate), title: this.title }
           return (
             <span className={this.props.className} {...params}>
-              <span className={this.props.object.relation[this.props.code] ? 'active' : ''}>
+              <span className={this.active ? 'active' : ''}>
                 <Icon {...this.props.iconProps} />
                 {this.props.displayCounts ? this.props.object.relationsCount[this.props.code] : ''}
               </span>

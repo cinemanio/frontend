@@ -4,6 +4,7 @@ import { AutoSizer, InfiniteLoader } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
 import _ from 'lodash'
 
+import './ObjectList.scss'
 import ObjectListCell from './ObjectListCell/ObjectListCell'
 import ObjectListRow from './ObjectListRow/ObjectListRow'
 
@@ -86,7 +87,7 @@ export default class ObjectList extends React.Component<Props> {
       renderNoResults: this.renderNoResults,
       ref: registerChild,
       height: height - 30,
-      width: width - 10,
+      width,
       renderItem: this.renderItem,
       updatePage: this.props.updatePage,
     }

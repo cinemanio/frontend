@@ -1,20 +1,29 @@
 // @flow
 import * as React from 'react'
 import { PropTypes } from 'prop-types'
+import { translate } from 'react-i18next'
+import type { Translator } from 'react-i18next'
 
 import fragment from 'components/Relation/fragment'
 import mutation from 'components/Relation/mutation'
 import Relation from 'components/Relation/Relation'
 
 import './PersonRelations.scss'
+import i18nClient from 'libs/i18nClient'
 
 const codes = ['fav', 'like', 'dislike']
 
-type Props = { person: Object }
+type Props = { person: Object, i18n: Translator }
 
+@translate()
 export default class PersonRelations extends React.Component<Props> {
+  static defaultProps = {
+    i18n: i18nClient,
+  }
+
   static propTypes = {
     person: PropTypes.object.isRequired,
+    i18n: PropTypes.object,
   }
 
   static codes = codes
@@ -37,7 +46,7 @@ export default class PersonRelations extends React.Component<Props> {
     return response
   }
 
-  render(): Array<React.Node> {
+  render(): React.Node {
     return codes.map(code => (
       <Relation
         key={code}
@@ -48,6 +57,8 @@ export default class PersonRelations extends React.Component<Props> {
         mutation={PersonRelations.fragments.relate}
         fragment={PersonRelations.fragments.person}
         modifyOptimisticResponse={this.modifyOptimisticResponse}
+        titleOn={this.props.i18n.t(`titles.relations.person.on.${code}`)}
+        titleOff={this.props.i18n.t(`titles.relations.person.off.${code}`)}
         {...this.props}
       />
     ))

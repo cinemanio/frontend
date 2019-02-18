@@ -85,7 +85,7 @@ export default class MovieCast extends React.Component<Props> {
     return roles
   }
 
-  renderPersons(roles: Array<Object>): Array<React.Node> {
+  renderPersons(roles: Array<Object>): React.Node {
     return roles.map(({ node }) => (
       <div key={node.id} styleName="person">
         <div styleName="image">
