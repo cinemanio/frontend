@@ -68,7 +68,7 @@
     "apollo-client-preset": "1.0.8",
     "apollo-fetch": "0.7.0",
     "apollo-link-context": "1.0.12",
-    "autoprefixer": "9.4.7",
+    "autoprefixer": "9.4.8",
     "babel-plugin-import": "1.11.0",
     "babel-plugin-lodash": "3.3.4",
     "babel-plugin-react-css-modules": "5.0.0",
