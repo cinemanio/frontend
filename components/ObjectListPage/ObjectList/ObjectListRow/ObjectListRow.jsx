@@ -12,7 +12,7 @@ type Props = {
   itemCount: number,
 }
 
-export default class ObjectListRow extends React.Component<Props> {
+export default class ObjectListRow extends React.PureComponent<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,
     itemCount: PropTypes.number.isRequired,

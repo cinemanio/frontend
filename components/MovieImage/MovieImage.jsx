@@ -10,7 +10,7 @@ import './MovieImage.scss'
 
 type Props = { movie: Object, type: string }
 
-export default class MovieImage extends React.Component<Props> {
+export default class MovieImage extends React.PureComponent<Props> {
   static propTypes = {
     movie: PropTypes.object.isRequired,
     type: PropTypes.string.isRequired,

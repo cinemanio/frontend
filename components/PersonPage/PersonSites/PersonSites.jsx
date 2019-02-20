@@ -13,7 +13,7 @@ import './PersonSites.scss'
 type Props = { person: Object, i18n: Translator }
 
 @translate()
-export default class PersonSites extends React.Component<Props> {
+export default class PersonSites extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }

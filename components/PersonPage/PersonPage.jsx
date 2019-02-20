@@ -23,7 +23,7 @@ import './PersonPage.scss'
 type Props = { data: Object }
 
 @translate()
-class PersonPage extends React.Component<Props> {
+class PersonPage extends React.PureComponent<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,
   }
@@ -58,30 +58,6 @@ class PersonPage extends React.Component<Props> {
 
   isNamesEqual = (person: Object) => person[i18n.f('name')] === person.nameEn
 
-  renderLayout = (person: Object) => (
-    <div styleName="box">
-      <div styleName="relations">
-        <PersonRelations person={person} />
-      </div>
-      <h1>{person[i18n.f('name')]}</h1>
-      <h2>{this.isNamesEqual(person) ? null : person.nameEn}</h2>
-      <PersonInfo person={person} all />
-      <Row>
-        <Col span={4}>
-          <div styleName="image">
-            <PersonImage person={person} type="detail" />
-          </div>
-          <PersonSites person={person} />
-        </Col>
-        <Col span={20}>
-          <PersonCareer person={person} />
-        </Col>
-      </Row>
-      <ObjectKinopoiskInfo object={person} />
-      <ObjectWikipedia object={person} />
-    </div>
-  )
-
   getTitle = (person: Object) => {
     const parts = []
     parts.push(person[i18n.f('name')])
@@ -91,8 +67,40 @@ class PersonPage extends React.Component<Props> {
     return parts.concat(person.roles.map(role => role[i18n.f('name')])).join(', ')
   }
 
+  renderLayout(person: Object) {
+    return (
+      <div styleName="box">
+        <div styleName="relations">
+          <PersonRelations person={person} />
+        </div>
+        <h1>{person[i18n.f('name')]}</h1>
+        <h2>{this.isNamesEqual(person) ? null : person.nameEn}</h2>
+        <PersonInfo person={person} all />
+        <Row>
+          <Col span={4}>
+            <div styleName="image">
+              <PersonImage person={person} type="detail" />
+            </div>
+            <PersonSites person={person} />
+          </Col>
+          <Col span={20}>
+            <PersonCareer person={person} />
+          </Col>
+        </Row>
+        <ObjectKinopoiskInfo object={person} />
+        <ObjectWikipedia object={person} />
+      </div>
+    )
+  }
+
   render() {
-    return <ObjectPage getTitle={this.getTitle} object={this.props.data.person} renderLayout={this.renderLayout} />
+    return (
+      <ObjectPage
+        getTitle={this.getTitle}
+        object={this.props.data.person}
+        renderLayout={person => this.renderLayout(person)}
+      />
+    )
   }
 }
 

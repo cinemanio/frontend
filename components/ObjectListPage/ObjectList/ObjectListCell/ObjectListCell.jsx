@@ -12,7 +12,7 @@ type Props = {
   updatePage: Function,
 }
 
-export default class ObjectListCell extends React.Component<Props> {
+export default class ObjectListCell extends React.PureComponent<Props> {
   static propTypes = {
     itemCount: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
