@@ -35,11 +35,9 @@ export default class MovieIcon extends React.Component<Props> {
       <div styleName="box">
         <MovieImage movie={this.props.movie} type="detail"/>
         <div styleName="title">
-          <div>
-            <MovieLink movie={this.props.movie}>
-              {`${this.props.movie[i18n.f('title')]} (${this.props.movie.year})`}
-            </MovieLink>
-          </div>
+          <MovieLink movie={this.props.movie}>
+            {`${this.props.movie[i18n.f('title')]} (${this.props.movie.year})`}
+          </MovieLink>
         </div>
       </div>
     )
