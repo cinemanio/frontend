@@ -3,6 +3,8 @@ import React from 'react'
 import { Collection } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
 
+import './ObjectListCell.scss'
+
 type Props = {
   itemCount: number,
   width: number,

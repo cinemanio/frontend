@@ -2,8 +2,6 @@
 
 .box {
   height: 100%;
-  padding-bottom: 1rem;
-  margin-right: 1rem;
 
   > div:first-child {
     height: 100%;
@@ -16,19 +14,27 @@
 
   .title {
     opacity: 0;
-    transition: .5s ease;
-    background-color: orange;
-    position: absolute;
-    bottom: 2rem;
-    right: 0.5rem;
-    padding: 0.2rem 0.3rem;
-    font-size: 0.8rem;
-    text-align: right;
+    position: relative;
+
+    div {
+      transition: .5s ease;
+      background-color: black;
+      position: absolute;
+      padding: 0.5rem 0.3rem;
+      font-size: 0.8rem;
+      text-align: center;
+      bottom: 0;
+      width: 100%;
+    }
+
+    a {
+      color: white;
+    }
   }
 
   &:hover {
     .title {
-      opacity: 1;
+      opacity: 0.8;
     }
   }
 }
