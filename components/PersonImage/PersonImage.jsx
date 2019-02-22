@@ -6,11 +6,9 @@ import gql from 'graphql-tag'
 import PersonLink from 'components/PersonLink/PersonLink'
 import i18n from 'libs/i18n'
 
-import './PersonImage.scss'
-
 type Props = { person: Object, type: string }
 
-export default class PersonImage extends React.Component<Props> {
+export default class PersonImage extends React.PureComponent<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired,
     type: PropTypes.string.isRequired,

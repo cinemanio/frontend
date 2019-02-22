@@ -11,7 +11,7 @@ import './MovieIcon.scss'
 
 type Props = { movie: Object }
 
-export default class MovieIcon extends React.Component<Props> {
+export default class MovieIcon extends React.PureComponent<Props> {
   static propTypes = {
     movie: PropTypes.object.isRequired,
   }
