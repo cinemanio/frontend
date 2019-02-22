@@ -112,7 +112,7 @@
     "react-cookie": "3.0.8",
     "react-dom": "16.8.3",
     "react-helmet": "5.2.0",
-    "react-hot-loader": "4.6.3",
+    "react-hot-loader": "4.7.0",
     "react-i18next": "9.0.10",
     "react-instantsearch": "5.4.0",
     "react-loader": "2.4.5",
