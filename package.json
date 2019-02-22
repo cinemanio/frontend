@@ -142,7 +142,7 @@
     "babel-jest": "24.0.0",
     "babel-loader": "8.0.5",
     "bundlesize": "0.17.1",
-    "coveralls": "3.0.2",
+    "coveralls": "3.0.3",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.9.1",
     "eslint": "5.14.1",
