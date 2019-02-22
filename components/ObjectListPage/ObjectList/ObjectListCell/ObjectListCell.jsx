@@ -24,6 +24,9 @@ export default class ObjectListCell extends React.Component<Props> {
     updatePage: PropTypes.func.isRequired,
   }
 
+  // TODO: change when fixed https://github.com/facebook/react/issues/12553
+  collection: { current: any }
+
   constructor(props: Object) {
     super(props)
     this.collection = React.createRef()
@@ -39,7 +42,7 @@ export default class ObjectListCell extends React.Component<Props> {
 
   iconsInRow: number = 4
 
-  ratio: float = 0.7
+  ratio: number = 0.7
 
   resize = () => this.collection.current.recomputeCellSizesAndPositions()
 
