@@ -106,7 +106,104 @@ class MoviesPage extends React.Component<Props, State> {
       [`name${_.capitalize(this.props.i18n.language)}`]: this.props.i18n.t(`filter.relations.${code}`),
     }))
 
-  renderMovie = ({ movie }) => {
+  setFilterState = refreshList => params => this.setState(params, refreshList)
+
+  renderFilters(refreshList: Function) {
+    return (
+      <div>
+        <FieldSection title={this.props.i18n.t('filter.view.sectionTitle')}>
+          <SelectGeneric
+            code="view"
+            list={this.getViewOptions()}
+            filters={this.state}
+            setFilterState={this.setFilterState(refreshList)}
+          />
+        </FieldSection>
+        <FieldSection title={this.props.i18n.t('filter.orderBy.sectionTitle')}>
+          <SelectGeneric
+            code="orderBy"
+            list={this.getOrderByOptions()}
+            filters={this.state}
+            setFilterState={this.setFilterState(refreshList)}
+          />
+        </FieldSection>
+        <FieldSection title={this.props.i18n.t('filter.sectionTitle')}>
+          <SelectFilter
+            code="relation"
+            title={this.props.i18n.t('filter.relations.sectionTitle')}
+            list={this.getRelationFilterOptions()}
+            filters={this.state}
+            setFilterState={params => {
+              if (this.props.user.authenticated) {
+                this.setState(params, refreshList)
+              } else {
+                this.props.alert.error(this.props.i18n.t('filter.relations.authError'))
+              }
+            }}
+          />
+          <SelectFilter
+            code="genres"
+            title={this.props.i18n.t('filter.genres')}
+            list={this.props.genreData.list}
+            filters={this.state}
+            setFilterState={this.setFilterState(refreshList)}
+            multiple
+          />
+          <SelectFilter
+            code="countries"
+            title={this.props.i18n.t('filter.countries')}
+            list={this.props.countryData.list}
+            filters={this.state}
+            setFilterState={this.setFilterState(refreshList)}
+            multiple
+          />
+          <YearsFilter
+            code="yearsRange"
+            title={this.props.i18n.t('filter.yearsRange')}
+            defaultRange={this.defaults.yearsRange}
+            filters={this.state}
+            setFilterState={this.setFilterState(refreshList)}
+          />
+        </FieldSection>
+      </div>
+    )
+  }
+
+  renderActiveFilters(refreshList: Function) {
+    return (
+      <span>
+        <ActiveFilters
+          code="relation"
+          list={this.getRelationFilterOptions()}
+          filters={this.state}
+          setFilterState={this.setFilterState(refreshList)}
+        />
+        <ActiveFilters
+          code="genres"
+          list={this.props.genreData.list}
+          filters={this.state}
+          setFilterState={this.setFilterState(refreshList)}
+          multiple
+        />
+        <ActiveFilters
+          code="countries"
+          list={this.props.countryData.list}
+          filters={this.state}
+          setFilterState={this.setFilterState(refreshList)}
+          multiple
+        />
+        <ActiveFilters
+          code="yearsRange"
+          filters={this.state}
+          default={this.defaults.yearsRange}
+          setFilterState={this.setFilterState(refreshList)}
+          range
+        />
+      </span>
+    )
+  }
+
+  renderMovie(movie: Object) {
     if (this.state.view === 'image') {
       return <MovieIcon movie={movie} />
     } else if (this.state.view === 'short') {
@@ -118,107 +215,14 @@ class MoviesPage extends React.Component<Props, State> {
     }
   }
 
-  setFilterState = refreshList => params => this.setState(params, refreshList)
-
-  renderFilters = (refreshList: Function) => (
-    <div>
-      <FieldSection title={this.props.i18n.t('filter.view.sectionTitle')}>
-        <SelectGeneric
-          code="view"
-          list={this.getViewOptions()}
-          filters={this.state}
-          setFilterState={this.setFilterState(refreshList)}
-        />
-      </FieldSection>
-      <FieldSection title={this.props.i18n.t('filter.orderBy.sectionTitle')}>
-        <SelectGeneric
-          code="orderBy"
-          list={this.getOrderByOptions()}
-          filters={this.state}
-          setFilterState={this.setFilterState(refreshList)}
-        />
-      </FieldSection>
-      <FieldSection title={this.props.i18n.t('filter.sectionTitle')}>
-        <SelectFilter
-          code="relation"
-          title={this.props.i18n.t('filter.relations.sectionTitle')}
-          list={this.getRelationFilterOptions()}
-          filters={this.state}
-          setFilterState={params => {
-            if (this.props.user.authenticated) {
-              this.setState(params, refreshList)
-            } else {
-              this.props.alert.error(this.props.i18n.t('filter.relations.authError'))
-            }
-          }}
-        />
-        <SelectFilter
-          code="genres"
-          title={this.props.i18n.t('filter.genres')}
-          list={this.props.genreData.list}
-          filters={this.state}
-          setFilterState={this.setFilterState(refreshList)}
-          multiple
-        />
-        <SelectFilter
-          code="countries"
-          title={this.props.i18n.t('filter.countries')}
-          list={this.props.countryData.list}
-          filters={this.state}
-          setFilterState={this.setFilterState(refreshList)}
-          multiple
-        />
-        <YearsFilter
-          code="yearsRange"
-          title={this.props.i18n.t('filter.yearsRange')}
-          defaultRange={this.defaults.yearsRange}
-          filters={this.state}
-          setFilterState={this.setFilterState(refreshList)}
-        />
-      </FieldSection>
-    </div>
-  )
-
-  renderActiveFilters = (refreshList: Function) => (
-    <span>
-      <ActiveFilters
-        code="relation"
-        list={this.getRelationFilterOptions()}
-        filters={this.state}
-        setFilterState={this.setFilterState(refreshList)}
-      />
-      <ActiveFilters
-        code="genres"
-        list={this.props.genreData.list}
-        filters={this.state}
-        setFilterState={this.setFilterState(refreshList)}
-        multiple
-      />
-      <ActiveFilters
-        code="countries"
-        list={this.props.countryData.list}
-        filters={this.state}
-        setFilterState={this.setFilterState(refreshList)}
-        multiple
-      />
-      <ActiveFilters
-        code="yearsRange"
-        filters={this.state}
-        default={this.defaults.yearsRange}
-        setFilterState={this.setFilterState(refreshList)}
-        range
-      />
-    </span>
-  )
-
   render() {
     return (
       <ObjectListPage
         title={this.props.i18n.t('title.movies')}
-        renderFilters={this.renderFilters}
-        renderActiveFilters={this.renderActiveFilters}
+        renderFilters={refreshList => this.renderFilters(refreshList)}
+        renderActiveFilters={refreshList => this.renderActiveFilters(refreshList)}
+        renderItem={({ movie }) => this.renderMovie(movie)}
         noResultsMessage={this.props.i18n.t('nothingFound.movies')}
-        renderItem={this.renderMovie}
         getVariables={this.getVariables}
         data={this.props.data}
         view={this.state.view}

@@ -84,7 +84,7 @@ rules:
   react/jsx-closing-tag-location: off
   react/jsx-closing-bracket-location: off
   react/forbid-prop-types: [error, {forbid: ['all']}]
-  react/sort-comp: [error, {order: ['static-methods', 'type-annotations', 'lifecycle', 'everything-else', 'render']}]
+  react/sort-comp: [error, {order: ['static-methods', 'type-annotations', 'lifecycle', 'everything-else', '/^render.+$/', 'render']}]
   react/prefer-stateless-function: [error, {ignorePureComponents: true}]
   react/destructuring-assignment: off
   react/require-default-props: [error, {forbidDefaultForRequired: false}]

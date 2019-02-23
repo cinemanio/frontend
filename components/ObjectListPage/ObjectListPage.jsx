@@ -27,12 +27,7 @@ export default class ObjectListPage extends React.Component<Props, State> {
     title: PropTypes.string.isRequired,
   }
 
-  constructor(props: Object) {
-    super(props)
-    this.state = {
-      page: 0,
-    }
-  }
+  state = { page: 0 }
 
   refreshList = () =>
     this.props.data.fetchMore({

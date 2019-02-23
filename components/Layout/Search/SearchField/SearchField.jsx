@@ -43,11 +43,11 @@ export class SearchFieldRaw extends React.Component<Props, State> {
 
   constructor(props: Object) {
     super(props)
-    this.state = { value: this.props.currentRefinement }
-
     this.searchDebounced = debounce(500, this.search)
     this.searchThrottled = throttle(500, this.search)
   }
+
+  state = { value: this.props.currentRefinement }
 
   /**
    * Callback after click on suggestion

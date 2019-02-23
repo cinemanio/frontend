@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import gql from 'graphql-tag'
 import { translate } from 'react-i18next'
+import gql from 'graphql-tag'
 
 import MovieLink from 'components/MovieLink/MovieLink'
 import MovieImage from 'components/MovieImage/MovieImage'
@@ -15,7 +15,7 @@ import './MovieShort.scss'
 type Props = { movie: Object }
 
 @translate()
-export default class MovieShort extends React.Component<Props> {
+export default class MovieShort extends React.PureComponent<Props> {
   static propTypes = {
     movie: PropTypes.object.isRequired,
   }
