@@ -174,6 +174,6 @@
     "stylelint-scss": "3.5.4",
     "supertest": "3.4.2",
     "terser-webpack-plugin": "1.2.1",
-    "webpack-dev-server": "3.1.14"
+    "webpack-dev-server": "3.2.0"
   }
 }
