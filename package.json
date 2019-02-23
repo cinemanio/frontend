@@ -46,7 +46,7 @@
   "bundlesize": [
     {
       "path": "./public/app.*.js",
-      "maxSize": "590 kB"
+      "maxSize": "591 kB"
     },
     {
       "path": "./public/app.*.css",
@@ -65,7 +65,7 @@
     "@babel/register": "7.0.0",
     "@babel/runtime": "7.3.1",
     "algoliasearch": "3.32.0",
-    "antd": "3.13.2",
+    "antd": "3.13.5",
     "apollo-client": "2.4.13",
     "apollo-client-preset": "1.0.8",
     "apollo-fetch": "0.7.0",
