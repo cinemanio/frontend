@@ -28,10 +28,7 @@ export default class BlockText extends React.PureComponent<Props, State> {
 
   static symbolsLimit: number = 500
 
-  constructor(props: Object) {
-    super(props)
-    this.state = { full: false }
-  }
+  state = { full: false }
 
   get content(): string {
     if (this.props.content && !this.state.full) {

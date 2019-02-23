@@ -32,7 +32,7 @@ type Props = {
 @withAlert
 @inject('user')
 @translate()
-export default class Relation extends React.Component<Props> {
+export default class Relation extends React.PureComponent<Props> {
   static defaultProps = {
     className: '',
     displayCounts: true,

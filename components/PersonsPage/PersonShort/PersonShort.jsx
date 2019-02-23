@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { translate } from 'react-i18next'
 import gql from 'graphql-tag'
 
 import PersonLink from 'components/PersonLink/PersonLink'
@@ -13,7 +14,8 @@ import './PersonShort.scss'
 
 type Props = { person: Object }
 
-export default class PersonShort extends React.Component<Props> {
+@translate()
+export default class PersonShort extends React.PureComponent<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired,
   }

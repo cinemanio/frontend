@@ -16,7 +16,7 @@ import './MovieCast.scss'
 type Props = { movie: Object, i18n: Translator }
 
 @translate()
-export default class MovieCast extends React.Component<Props> {
+export default class MovieCast extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }

@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom'
 
 type Props = { code: number, children: Object }
 
-export default class Status extends React.Component<Props> {
+export default class Status extends React.PureComponent<Props> {
   static propTypes = {
     code: PropTypes.number.isRequired,
     children: PropTypes.node.isRequired,

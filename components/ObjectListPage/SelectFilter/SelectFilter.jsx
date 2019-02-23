@@ -16,7 +16,7 @@ type Props = {
   setFilterState: Function,
 }
 
-export default class SelectFilter extends React.Component<Props> {
+export default class SelectFilter extends React.PureComponent<Props> {
   static defaultProps = {
     list: [],
     multiple: false,

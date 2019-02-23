@@ -23,7 +23,7 @@ import './MoviePage.scss'
 type Props = { data: Object }
 
 @translate()
-class MoviePage extends React.Component<Props> {
+class MoviePage extends React.PureComponent<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,
   }
@@ -55,30 +55,6 @@ class MoviePage extends React.Component<Props> {
 
   isTitlesEqual = (movie: Object) => movie[i18n.f('title')] === movie.titleOriginal
 
-  renderLayout = (movie: Object) => (
-    <div styleName="box">
-      <div styleName="relations">
-        <MovieRelations movie={movie} />
-      </div>
-      <h1>{movie[i18n.f('title')]}</h1>
-      <h2>{this.isTitlesEqual(movie) ? null : movie.titleOriginal}</h2>
-      <MovieInfo movie={movie} all />
-      <Row>
-        <Col span={4}>
-          <div styleName="image">
-            <MovieImage movie={movie} type="detail" />
-          </div>
-          <MovieSites movie={movie} />
-        </Col>
-        <Col span={20}>
-          <MovieCast movie={movie} />
-        </Col>
-      </Row>
-      <ObjectKinopoiskInfo object={movie} />
-      <ObjectWikipedia object={movie} />
-    </div>
-  )
-
   getTitle = (movie: Object) => {
     let originalTitle = ''
     if (movie.titleOriginal && !this.isTitlesEqual(movie)) {
@@ -87,8 +63,40 @@ class MoviePage extends React.Component<Props> {
     return `${movie[i18n.f('title')]} (${originalTitle}${movie.year})`
   }
 
+  renderLayout(movie: Object) {
+    return (
+      <div styleName="box">
+        <div styleName="relations">
+          <MovieRelations movie={movie} />
+        </div>
+        <h1>{movie[i18n.f('title')]}</h1>
+        <h2>{this.isTitlesEqual(movie) ? null : movie.titleOriginal}</h2>
+        <MovieInfo movie={movie} all />
+        <Row>
+          <Col span={4}>
+            <div styleName="image">
+              <MovieImage movie={movie} type="detail" />
+            </div>
+            <MovieSites movie={movie} />
+          </Col>
+          <Col span={20}>
+            <MovieCast movie={movie} />
+          </Col>
+        </Row>
+        <ObjectKinopoiskInfo object={movie} />
+        <ObjectWikipedia object={movie} />
+      </div>
+    )
+  }
+
   render() {
-    return <ObjectPage getTitle={this.getTitle} object={this.props.data.movie} renderLayout={this.renderLayout} />
+    return (
+      <ObjectPage
+        getTitle={this.getTitle}
+        object={this.props.data.movie}
+        renderLayout={movie => this.renderLayout(movie)}
+      />
+    )
   }
 }
 

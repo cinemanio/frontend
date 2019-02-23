@@ -16,7 +16,7 @@ const codes = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
 type Props = { movie: Object, i18n: Translator }
 
 @translate()
-export default class MovieRelations extends React.Component<Props> {
+export default class MovieRelations extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }

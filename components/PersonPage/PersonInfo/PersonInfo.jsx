@@ -24,7 +24,7 @@ type Props = {
 }
 
 @translate()
-export default class PersonInfo extends React.Component<Props> {
+export default class PersonInfo extends React.PureComponent<Props> {
   static defaultProps = {
     gender: false,
     roles: false,
