@@ -3,6 +3,8 @@ import React from 'react'
 import { Collection } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
 
+import './ObjectListCell.scss'
+
 type Props = {
   itemCount: number,
   width: number,
@@ -22,18 +24,41 @@ export default class ObjectListCell extends React.PureComponent<Props> {
     updatePage: PropTypes.func.isRequired,
   }
 
+  // TODO: change when fixed https://github.com/facebook/react/issues/12553
+  collection: { current: any }
+
+  constructor(props: Object) {
+    super(props)
+    this.collection = React.createRef()
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.resize)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resize)
+  }
+
+  iconsInRow: number = 4
+
+  ratio: number = 0.7
+
+  resize = () => this.collection.current.recomputeCellSizesAndPositions()
+
   /**
    * Dimension of poster of photo in view=icon
-   * TODO: calculate it automatically from styles if possible
    * @type {{width: number, height: number}}
    */
-  iconDimensions: Object = { width: 180, height: 250 }
+  get iconDimensions() {
+    const width = Math.floor(this.props.width / this.iconsInRow)
+    const height = Math.floor(width / this.ratio)
+    return { width, height }
+  }
 
   onScrollImage = (updatePage: Function) => ({ clientWidth, clientHeight, scrollTop }: Object) => {
-    const margin = 20
-    const { width, height } = this.iconDimensions
-    const numberInRow = Math.floor(clientWidth / width)
-    const page = (Math.ceil(scrollTop / height) + Math.floor((clientHeight + margin) / height)) * numberInRow
+    const { height } = this.iconDimensions
+    const page = (Math.ceil(scrollTop / height) + Math.floor(clientHeight / height)) * this.iconsInRow
     updatePage(page)
   }
 
@@ -46,9 +71,8 @@ export default class ObjectListCell extends React.PureComponent<Props> {
 
   cellSizeAndPositionGetter = ({ index }: Object) => {
     const { width, height } = this.iconDimensions
-    const numberInRow = Math.floor(this.props.width / width)
-    const x = (index % numberInRow) * width
-    const y = Math.floor((index * width) / (numberInRow * width)) * height
+    const x = (index % this.iconsInRow) * width
+    const y = Math.floor((index * width) / (this.iconsInRow * width)) * height
     return { height, width, x, y }
   }
 
@@ -56,12 +80,14 @@ export default class ObjectListCell extends React.PureComponent<Props> {
     const { itemCount, onRowsRendered, renderItem, updatePage, renderNoResults, ...props } = this.props
     return (
       <Collection
+        ref={this.collection}
         noContentRenderer={renderNoResults}
         onSectionRendered={this.onSectionRendered(onRowsRendered)}
         onScroll={this.onScrollImage(updatePage)}
         cellRenderer={renderItem}
         cellSizeAndPositionGetter={this.cellSizeAndPositionGetter}
         cellCount={itemCount}
+        verticalOverscanSize={10}
         {...props}
       />
     )
