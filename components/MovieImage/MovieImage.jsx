@@ -6,8 +6,6 @@ import gql from 'graphql-tag'
 import MovieLink from 'components/MovieLink/MovieLink'
 import i18n from 'libs/i18n'
 
-import './MovieImage.scss'
-
 type Props = { movie: Object, type: string }
 
 export default class MovieImage extends React.PureComponent<Props> {
