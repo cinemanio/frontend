@@ -25,7 +25,7 @@ type Props = {
 }
 
 @translate()
-export default class MovieInfo extends React.Component<Props> {
+export default class MovieInfo extends React.PureComponent<Props> {
   static defaultProps = {
     year: false,
     genres: false,

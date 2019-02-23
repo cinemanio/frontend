@@ -17,7 +17,7 @@ export type Props = {
   view: string,
 }
 
-export default class ObjectList extends React.Component<Props> {
+export default class ObjectList extends React.PureComponent<Props> {
   static propTypes = {
     noResultsMessage: PropTypes.string.isRequired,
     renderItem: PropTypes.func.isRequired,
@@ -63,7 +63,9 @@ export default class ObjectList extends React.Component<Props> {
    */
   isItemLoaded = ({ index }: Object) => !this.hasNextPage || index < this.list.length
 
-  renderNoResults = () => <p>{this.props.noResultsMessage}</p>
+  renderNoResults() {
+    return <p>{this.props.noResultsMessage}</p>
+  }
 
   /**
    * Render a list item or a loading indicator.
@@ -71,7 +73,7 @@ export default class ObjectList extends React.Component<Props> {
    * @param key
    * @param style
    */
-  renderItem = ({ index, key, style }: Object) => {
+  renderItem({ index, key, style }: Object) {
     const content = this.isItemLoaded({ index }) ? this.props.renderItem(this.list[index]) : 'Loading...'
     return (
       <div key={key} style={style}>
@@ -84,11 +86,11 @@ export default class ObjectList extends React.Component<Props> {
     const props = {
       itemCount,
       onRowsRendered,
-      renderNoResults: this.renderNoResults,
+      renderNoResults: () => this.renderNoResults(),
       ref: registerChild,
       height: height - 30,
       width,
-      renderItem: this.renderItem,
+      renderItem: item => this.renderItem(item),
       updatePage: this.props.updatePage,
     }
     if (this.props.view === 'image') {

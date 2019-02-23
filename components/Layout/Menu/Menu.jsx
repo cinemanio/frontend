@@ -15,7 +15,7 @@ type Props = { active?: string, i18n: Translator, history: Object }
 
 @withRouter
 @translate()
-export default class Menu extends React.Component<Props> {
+export default class Menu extends React.PureComponent<Props> {
   static defaultProps = {
     active: undefined,
     i18n: i18nClient,

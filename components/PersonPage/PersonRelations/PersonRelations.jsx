@@ -16,7 +16,7 @@ const codes = ['fav', 'like', 'dislike']
 type Props = { person: Object, i18n: Translator }
 
 @translate()
-export default class PersonRelations extends React.Component<Props> {
+export default class PersonRelations extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }

@@ -7,7 +7,7 @@ import ObjectLink from '../ObjectLink/ObjectLink'
 
 type Props = { person: Object, children: Object }
 
-export default class PersonLink extends React.Component<Props> {
+export default class PersonLink extends React.PureComponent<Props> {
   static propTypes = {
     person: PropTypes.object.isRequired,
     children: PropTypes.node.isRequired,
