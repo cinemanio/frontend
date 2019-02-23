@@ -45,6 +45,10 @@ describe('Search Field Component', () => {
   })
 
   it('should navigate to objects page when click on suggestion and clean search input', () => {
+    // hide warning:
+    // When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused
+    // by dom structure change. Read more: https://ant.design/components/input/#FAQ
+    global.console.error = jest.fn()
     const { props } = wrapper.find('SearchFieldRaw').instance()
     props.history.push = jest.fn()
     getSuggestions(0)
