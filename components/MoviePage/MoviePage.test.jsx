@@ -97,7 +97,7 @@ describe('Movie Page Component', () => {
       MovieRelations.fragments.relate,
       mockMovie,
       response.data.movie,
-      'You have been favorited the movie Kids (1995)'
+      'You have favorited the movie Kids (1995)'
     )
   })
 })

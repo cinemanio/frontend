@@ -2,7 +2,6 @@
 import React from 'react'
 import { List } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
-import _ from 'lodash'
 
 type Props = {
   renderNoResults: Function,
@@ -13,7 +12,7 @@ type Props = {
   itemCount: number,
 }
 
-export default class ObjectListRow extends React.Component<Props> {
+export default class ObjectListRow extends React.PureComponent<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,
     itemCount: PropTypes.number.isRequired,
@@ -29,23 +28,23 @@ export default class ObjectListRow extends React.Component<Props> {
    */
   rowHeight: number = 80
 
-  onScrollList = ({ clientHeight, scrollTop }: Object) => {
+  onScrollList = (updatePage: Function) => ({ clientHeight, scrollTop }: Object) => {
     const margin = 20
     const page = Math.ceil(scrollTop / this.rowHeight) + Math.floor((clientHeight + margin) / this.rowHeight)
-    this.props.updatePage(page)
+    updatePage(page)
   }
 
   render() {
-    const props = _.omit(this.props, ['itemCount', 'renderItem', 'updatePage', 'data'])
+    const { itemCount, renderItem, updatePage, data, renderNoResults, ...props } = this.props
     return (
       <List
-        noRowsRenderer={this.props.renderNoResults}
-        onScroll={this.onScrollList}
-        rowRenderer={this.props.renderItem}
+        noRowsRenderer={renderNoResults}
+        onScroll={this.onScrollList(updatePage)}
+        rowRenderer={renderItem}
         rowHeight={this.rowHeight}
-        rowCount={this.props.itemCount}
+        rowCount={itemCount}
         overscanRowCount={0}
-        _forceUpdateWhenChanged={this.props.data} // autoupdate when changing order
+        _forceUpdateWhenChanged={data} // autoupdate when changing order
         {...props}
       />
     )

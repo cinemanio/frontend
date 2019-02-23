@@ -1,20 +1,29 @@
 // @flow
 import * as React from 'react'
 import { PropTypes } from 'prop-types'
+import { translate } from 'react-i18next'
+import type { Translator } from 'react-i18next'
 
 import fragment from 'components/Relation/fragment'
 import mutation from 'components/Relation/mutation'
 import Relation from 'components/Relation/Relation'
 
 import './MovieRelations.scss'
+import i18nClient from 'libs/i18nClient'
 
 const codes = ['fav', 'like', 'seen', 'dislike', 'want', 'ignore', 'have']
 
-type Props = { movie: Object }
+type Props = { movie: Object, i18n: Translator }
 
-export default class MovieRelations extends React.Component<Props> {
+@translate()
+export default class MovieRelations extends React.PureComponent<Props> {
+  static defaultProps = {
+    i18n: i18nClient,
+  }
+
   static propTypes = {
     movie: PropTypes.object.isRequired,
+    i18n: PropTypes.object,
   }
 
   static codes = codes
@@ -42,7 +51,7 @@ export default class MovieRelations extends React.Component<Props> {
     return response
   }
 
-  render(): Array<React.Node> {
+  render(): React.Node {
     return codes.map(code => (
       <Relation
         key={code}
@@ -53,6 +62,8 @@ export default class MovieRelations extends React.Component<Props> {
         mutation={MovieRelations.fragments.relate}
         fragment={MovieRelations.fragments.movie}
         modifyOptimisticResponse={this.modifyOptimisticResponse}
+        titleOn={this.props.i18n.t(`titles.relations.movie.on.${code}`)}
+        titleOff={this.props.i18n.t(`titles.relations.movie.off.${code}`)}
         {...this.props}
       />
     ))

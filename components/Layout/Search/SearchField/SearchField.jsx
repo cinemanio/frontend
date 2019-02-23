@@ -43,11 +43,11 @@ export class SearchFieldRaw extends React.Component<Props, State> {
 
   constructor(props: Object) {
     super(props)
-    this.state = { value: this.props.currentRefinement }
-
     this.searchDebounced = debounce(500, this.search)
     this.searchThrottled = throttle(500, this.search)
   }
+
+  state = { value: this.props.currentRefinement }
 
   /**
    * Callback after click on suggestion
@@ -95,21 +95,24 @@ export class SearchFieldRaw extends React.Component<Props, State> {
     return option
   }
 
-  renderOptions(): ?Array<React.Node> {
-    return !this.state.value
-      ? null
-      : this.props.hits.map(group => (
-          <OptGroup key={group.index} label={this.renderTitle(group.index)}>
-            {group.hits.map(hit => (
-              <Option key={hit.objectID} value={`${group.index}-${hit.objectID}`} object={hit}>
-                {this.renderOption(group.index, hit)}
-              </Option>
-            ))}
-          </OptGroup>
-        ))
+  renderOptionGroup(group: Object): ?React.Node {
+    return !group.hits.length ? null : (
+      <OptGroup key={group.index} label={this.renderTitle(group.index)}>
+        {group.hits.map(hit => (
+          <Option key={hit.objectID} value={`${group.index}-${hit.objectID}`} object={hit}>
+            {this.renderOption(group.index, hit)}
+          </Option>
+        ))}
+      </OptGroup>
+    )
+  }
+
+  renderOptions(): ?React.Node {
+    return !this.state.value ? null : this.props.hits.map(group => this.renderOptionGroup(group))
   }
 
   render() {
+    const suffix = <Icon type="search" styleName="icon" />
     return (
       <AutoComplete
         className="search"
@@ -126,7 +129,7 @@ export class SearchFieldRaw extends React.Component<Props, State> {
         autoClearSearchValue={false}
         value={this.state.value}
       >
-        <Input suffix={<Icon type="search" styleName="icon" />} placeholder={this.props.i18n.t('search.placeholder')} />
+        <Input suffix={suffix} placeholder={this.props.i18n.t('search.placeholder')} />
       </AutoComplete>
     )
   }

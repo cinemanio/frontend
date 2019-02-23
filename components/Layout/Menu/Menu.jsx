@@ -15,7 +15,7 @@ type Props = { active?: string, i18n: Translator, history: Object }
 
 @withRouter
 @translate()
-export default class Menu extends React.Component<Props> {
+export default class Menu extends React.PureComponent<Props> {
   static defaultProps = {
     active: undefined,
     i18n: i18nClient,
@@ -36,7 +36,7 @@ export default class Menu extends React.Component<Props> {
     this.props.history.push(routes[key].list)
   }
 
-  renderMenu(): Array<React.Node> {
+  renderMenu(): React.Node {
     return this.menu.map(([type, title]) => (
       <Tabs.TabPane tab={<Link to={routes[type].list}>{title}</Link>} key={type} />
     ))

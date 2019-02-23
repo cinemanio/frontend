@@ -15,7 +15,7 @@ import './ObjectWikipedia.scss'
 type Props = { object: Object, i18n: Translator }
 
 @translate()
-export default class ObjectWikipedia extends React.Component<Props> {
+export default class ObjectWikipedia extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }
@@ -57,7 +57,7 @@ export default class ObjectWikipedia extends React.Component<Props> {
     return edges.length > 0 ? edges[0].node.content : null
   }
 
-  renderContent(text: string): Array<React.Node> {
+  renderContent(text: string): React.Node {
     const wikiText = text.replace(/\n/g, '\n\n')
     // eslint-disable-next-line react/no-array-index-key
     return wtf(wikiText).data.sections.map((section, i) => <WikiSection key={i} section={section} />)
