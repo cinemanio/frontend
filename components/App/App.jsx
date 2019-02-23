@@ -14,18 +14,11 @@ import MoviePage from 'components/MoviePage/MoviePage'
 import PersonsPage from 'components/PersonsPage/PersonsPage'
 import PersonPage from 'components/PersonPage/PersonPage'
 import Error404 from 'components/errors/Error404'
-import token from 'stores/Token'
-import user from 'stores/User'
 
 import routes from './routes'
+import stores from './stores'
+import alertOptions from './alertOptions'
 import AlertTemplate from './AlertTemplate/AlertTemplate'
-
-export const stores = { token, user }
-
-export const alertOptions = {
-  position: 'top center',
-  timeout: 5000,
-}
 
 const Error500 = () => {
   throw Error()

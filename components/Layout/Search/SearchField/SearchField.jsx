@@ -4,7 +4,7 @@ import type { Translator } from 'react-i18next'
 import { PropTypes } from 'prop-types'
 import { connectAutoComplete } from 'react-instantsearch/connectors'
 import { Highlight } from 'react-instantsearch/dom'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import { withRouter } from 'react-router-dom'
 import { Icon, Input, AutoComplete } from 'antd'
 import { throttle, debounce } from 'throttle-debounce'
@@ -22,7 +22,7 @@ const OptGroup = AutoComplete.OptGroup // eslint-disable-line prefer-destructuri
 type Props = { i18n: Translator, history: Object, hits: Array<Object>, currentRefinement: string, refine: Function }
 type State = { value: string }
 
-@translate()
+@withTranslation()
 @withRouter
 export class SearchFieldRaw extends React.Component<Props, State> {
   static defaultProps = {

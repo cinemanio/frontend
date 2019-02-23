@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import type { Translator } from 'react-i18next'
 import { PropTypes } from 'prop-types'
 import { Tabs } from 'antd'
@@ -14,7 +14,7 @@ import './Menu.scss'
 type Props = { active?: string, i18n: Translator, history: Object }
 
 @withRouter
-@translate()
+@withTranslation()
 export default class Menu extends React.PureComponent<Props> {
   static defaultProps = {
     active: undefined,

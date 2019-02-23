@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import type { Translator } from 'react-i18next'
 import Cookies from 'js-cookie'
 
@@ -12,7 +12,7 @@ import './Languages.scss'
 
 type Props = { i18n: Translator }
 
-@translate()
+@withTranslation()
 export default class Languages extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,

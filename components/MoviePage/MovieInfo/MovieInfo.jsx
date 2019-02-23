@@ -3,7 +3,7 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import gql from 'graphql-tag'
 import humanizeDuration from 'humanize-duration'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import type { Translator } from 'react-i18next'
 
 import CountryFlag from 'components/CountryFlag/CountryFlag'
@@ -24,7 +24,7 @@ type Props = {
   i18n: Translator,
 }
 
-@translate()
+@withTranslation()
 export default class MovieInfo extends React.PureComponent<Props> {
   static defaultProps = {
     year: false,

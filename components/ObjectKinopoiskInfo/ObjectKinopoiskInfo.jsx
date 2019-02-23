@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 
@@ -12,7 +12,7 @@ import i18nClient from '../../libs/i18nClient'
 
 type Props = { object: Object, i18n: Translator }
 
-@translate()
+@withTranslation()
 export default class ObjectKinopoiskInfo extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,

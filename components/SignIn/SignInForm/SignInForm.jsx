@@ -2,7 +2,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { PropTypes } from 'prop-types'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import type { Translator } from 'react-i18next'
 import { Form, Icon, Input, Button } from 'antd'
 
@@ -14,7 +14,7 @@ const FormItem = Form.Item
 
 type Props = { form: Object, i18n: Translator, signin: Function, loading: boolean }
 
-@translate()
+@withTranslation()
 @observer
 export default class SignInForm extends React.Component<Props> {
   static defaultProps = {

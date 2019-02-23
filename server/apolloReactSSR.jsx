@@ -4,7 +4,6 @@ import ReactDOMServer from 'react-dom/server'
 import Helmet from 'react-helmet'
 import RedBox from 'redbox-react'
 import { StaticRouter } from 'react-router-dom'
-import { I18nextProvider } from 'react-i18next'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 import { ApolloProvider, renderToStringWithData } from 'react-apollo'
 
@@ -61,9 +60,7 @@ export default (apolloHttpConf: Object) => {
     const app = (
       <ApolloProvider client={client}>
         <StaticRouter location={ctx.request.url} context={context}>
-          <I18nextProvider i18n={i18nServer}>
-            <App lang={lang} />
-          </I18nextProvider>
+          <App lang={lang} />
         </StaticRouter>
       </ApolloProvider>
     )

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import { PropTypes } from 'prop-types'
 import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
 import { withAlert } from 'react-alert'
@@ -44,7 +44,7 @@ type State = {
 
 @withAlert
 @inject('user')
-@translate()
+@withTranslation()
 class MoviesPage extends React.Component<Props, State> {
   static defaultProps = {
     user: User,

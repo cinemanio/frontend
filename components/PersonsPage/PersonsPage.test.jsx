@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 import { mountGraphql, mockAutoSizer, selectFilterChange, paginate, itShouldTestObjectsRelations } from 'tests/helpers'
 import PersonRelations from 'components/PersonPage/PersonRelations/PersonRelations'
@@ -24,7 +24,7 @@ describe('Persons Page Component', () => {
     beforeAll(() => i18nClient.changeLanguage('en'))
     beforeEach(async () => {
       const data = { ...response.data, fetchMore: jest.fn(), loadNextPage: () => jest.fn() }
-      const PersonsPagePure = translate()(PersonsPage.WrappedComponent)
+      const PersonsPagePure = withTranslation()(PersonsPage.WrappedComponent)
       element = <PersonsPagePure data={data} roleData={roles.data} countryData={countries.data} />
       wrapper = await mountGraphql(element)
     })

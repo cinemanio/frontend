@@ -6,7 +6,7 @@ import { withAlert } from 'react-alert'
 import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
 import { Icon } from 'antd'
 import type { Translator } from 'react-i18next'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 import User from 'stores/User'
 import i18nClient from 'libs/i18nClient'
@@ -31,7 +31,7 @@ type Props = {
 
 @withAlert
 @inject('user')
-@translate()
+@withTranslation()
 export default class Relation extends React.PureComponent<Props> {
   static defaultProps = {
     className: '',

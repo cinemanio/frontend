@@ -2,7 +2,7 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import { PropTypes } from 'prop-types'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import gql from 'graphql-tag'
 import { Row, Col } from 'antd'
 
@@ -22,7 +22,7 @@ import './MoviePage.scss'
 
 type Props = { data: Object }
 
-@translate()
+@withTranslation()
 class MoviePage extends React.PureComponent<Props> {
   static propTypes = {
     data: PropTypes.object.isRequired,

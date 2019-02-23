@@ -6,7 +6,7 @@ import { PropTypes } from 'prop-types'
 import { ApolloConsumer, Mutation } from 'react-apollo'
 import { ApolloClient } from 'apollo-client-preset'
 import { Helmet } from 'react-helmet'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import gql from 'graphql-tag'
 import { Row, Col, Form } from 'antd'
 
@@ -16,7 +16,7 @@ import SignInForm from './SignInForm/SignInForm'
 
 type Props = { form: Object, token: Object, history: Object, i18n: Object }
 
-@translate()
+@withTranslation()
 @inject('token')
 @withRouter
 @observer

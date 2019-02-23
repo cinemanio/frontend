@@ -7,11 +7,11 @@ import { MemoryRouter } from 'react-router-dom'
 import { MockedProvider } from 'react-apollo/test-utils'
 import { AutoSizer } from 'react-virtualized'
 import { Provider as AlertProvider } from 'react-alert'
-import { I18nextProvider } from 'react-i18next'
 import _ from 'lodash'
 
-import i18nClient from 'libs/i18nClient'
-import { stores, alertOptions } from 'components/App/App'
+import 'libs/i18nClient'
+import stores from 'components/App/stores'
+import alertOptions from 'components/App/alertOptions'
 import AlertTemplate from 'components/App/AlertTemplate/AlertTemplate'
 
 import objectRelations from './objectRelations'
@@ -45,7 +45,7 @@ export const mountRouter = (element: Object, initialEntries: Array<string>) =>
     <MemoryRouter initialEntries={initialEntries}>
       <MobxProvider {...stores}>
         <AlertProvider template={AlertTemplate} {...alertOptions}>
-          <I18nextProvider i18n={i18nClient}>{element}</I18nextProvider>
+          {element}
         </AlertProvider>
       </MobxProvider>
     </MemoryRouter>,

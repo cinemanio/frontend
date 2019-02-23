@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import { Icon } from 'antd'
 import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
@@ -23,7 +23,7 @@ type Props = {
   i18n: Translator,
 }
 
-@translate()
+@withTranslation()
 export default class PersonInfo extends React.PureComponent<Props> {
   static defaultProps = {
     gender: false,

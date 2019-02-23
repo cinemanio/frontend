@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
 import { ApolloConsumer } from 'react-apollo'
 import { ApolloClient } from 'apollo-client-preset'
@@ -17,7 +17,7 @@ import './Auth.scss'
 
 type InjectedProps = { user: typeof user, token: typeof token }
 
-@translate()
+@withTranslation()
 @inject('user', 'token')
 export default class Auth extends InjectedComponent<{}, InjectedProps> {
   static propTypes = {
@@ -47,7 +47,7 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
       data: {
         verifyToken: { payload },
       },
-    }: Object
+    }: Object,
   ) => {
     this.props.user.login(payload.username)
   }

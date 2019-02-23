@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { PropTypes } from 'prop-types'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import type { Translator } from 'react-i18next'
 
 import Block from 'components/Block/Block'
@@ -12,7 +12,7 @@ import './BlockText.scss'
 type Props = { title: string | React.Node, children?: React.Node | Function, i18n: Translator, content: string }
 type State = { full: boolean }
 
-@translate()
+@withTranslation()
 export default class BlockText extends React.PureComponent<Props, State> {
   static defaultProps = {
     i18n: i18nClient,

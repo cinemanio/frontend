@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { PropTypes } from 'prop-types'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 
@@ -15,7 +15,7 @@ import './MovieCast.scss'
 
 type Props = { movie: Object, i18n: Translator }
 
-@translate()
+@withTranslation()
 export default class MovieCast extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,
