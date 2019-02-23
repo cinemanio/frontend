@@ -37,7 +37,7 @@ type State = {
   orderBy: string,
 }
 
-@withAlert
+@withAlert()
 @inject('user')
 @translate()
 class PersonsPage extends React.Component<Props, State> {

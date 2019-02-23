@@ -29,7 +29,7 @@ type Props = {
   titleOff: string,
 }
 
-@withAlert
+@withAlert()
 @inject('user')
 @translate()
 export default class Relation extends React.PureComponent<Props> {

@@ -42,7 +42,7 @@ type State = {
   yearsRange: RangeType,
 }
 
-@withAlert
+@withAlert()
 @inject('user')
 @translate()
 class MoviesPage extends React.Component<Props, State> {
