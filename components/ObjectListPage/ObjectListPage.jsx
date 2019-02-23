@@ -27,12 +27,7 @@ export default class ObjectListPage extends React.Component<Props, State> {
     title: PropTypes.string.isRequired,
   }
 
-  constructor(props: Object) {
-    super(props)
-    this.state = {
-      page: 0,
-    }
-  }
+  state = { page: 0 }
 
   refreshList = () =>
     this.props.data.fetchMore({
@@ -50,7 +45,7 @@ export default class ObjectListPage extends React.Component<Props, State> {
           <title>{title}</title>
           <body className="list" />
         </Helmet>
-        <Col sm={16} md={18} lg={20} styleName="list">
+        <Col sm={16} md={18} lg={20}>
           <div styleName="caption">
             <Pagination page={this.state.page} data={this.props.data} />
             {renderActiveFilters(this.refreshList)}

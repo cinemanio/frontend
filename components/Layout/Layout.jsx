@@ -24,10 +24,7 @@ export default class Layout extends React.Component<Props, State> {
     menuActive: PropTypes.string,
   }
 
-  constructor(props: Object) {
-    super(props)
-    this.state = { error: null }
-  }
+  state = { error: null }
 
   componentDidCatch(error: Error) {
     this.setState({ error })

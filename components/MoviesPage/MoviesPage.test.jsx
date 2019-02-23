@@ -52,13 +52,25 @@ describe('Movies Page Component', () => {
 
     describe('i18n. en', () => {
       beforeAll(() => i18nClient.changeLanguage('en'))
-      it('should render filter relation options', () => expect(wrapper.text()).toContain('Relation'))
+      it('should render filter title', () => expect(wrapper.text()).toContain('Filter by'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Movies'))
     })
 
     describe('i18n. ru', () => {
       beforeAll(() => i18nClient.changeLanguage('ru'))
+      it('should render filter title', () => expect(wrapper.text()).toContain('Фильтровать по'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Фильмы'))
+    })
+
+    it('should change language on the fly', () => {
+      i18nClient.changeLanguage('ru')
+      wrapper.update()
+      expect(wrapper.text()).toContain('The Game')
+      expect(wrapper.text()).toContain('Игра')
+      i18nClient.changeLanguage('en')
+      wrapper.update()
+      expect(wrapper.text()).toContain('The Game')
+      expect(wrapper.text()).not.toContain('Игра')
     })
   })
 

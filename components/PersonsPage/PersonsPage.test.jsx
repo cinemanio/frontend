@@ -52,13 +52,25 @@ describe('Persons Page Component', () => {
 
     describe('i18n. en', () => {
       beforeAll(() => i18nClient.changeLanguage('en'))
-      it('should render filter relation options', () => expect(wrapper.text()).toContain('Relation'))
+      it('should render filter title', () => expect(wrapper.text()).toContain('Filter by'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Persons'))
     })
 
     describe('i18n. ru', () => {
       beforeAll(() => i18nClient.changeLanguage('ru'))
+      it('should render filter title', () => expect(wrapper.text()).toContain('Фильтровать по'))
       it('should render page title', () => expect(Helmet.peek().title).toBe('Персоны'))
+    })
+
+    it('should change language on the fly', () => {
+      i18nClient.changeLanguage('ru')
+      wrapper.update()
+      expect(wrapper.text()).toContain('Дэвид Финчер')
+      expect(wrapper.text()).toContain('David Fincher')
+      i18nClient.changeLanguage('en')
+      wrapper.update()
+      expect(wrapper.text()).toContain('David Fincher')
+      expect(wrapper.text()).not.toContain('Дэвид Финчер')
     })
   })
 

@@ -7,12 +7,12 @@
 @mixin rel-icon($color) {
   span {
     cursor: pointer;
-    color: #999999;
+    color: #999;
 
     i {
-      border: 1px solid #DDDDDD;
+      border: 1px solid #ddd;
       background-color: white;
-      color: #DDDDDD;
+      color: #ddd;
     }
 
     &:hover {
@@ -21,7 +21,7 @@
       i {
         border: 1px solid $color;
         background-color: lighten($color, 30);
-        color: #FFFFFF;
+        color: #fff;
       }
     }
   }
@@ -31,7 +31,7 @@
       color: $color;
 
       i {
-        border: 1px solid #BBBBBB;
+        border: 1px solid #bbb;
         background-color: transparentize(lighten($color, 50), 0.4);
         color: $color;
       }
@@ -80,14 +80,14 @@
 
 %info-box {
   font-size: 0.7rem;
-  color: #333333;
+  color: #333;
 
   span {
     @extend %icon;
   }
 
   > span:not(:first-child) {
-    &:before {
+    &::before {
       content: '·';
       margin: 0 0.3rem;
     }
@@ -107,7 +107,7 @@
       span {
         font-weight: 600;
 
-        &:before {
+        &::before {
           content: ": ";
         }
       }
@@ -125,7 +125,7 @@
   h2 {
     min-height: 0.8rem;
     font-size: 1rem;
-    color: #777777;
+    color: #777;
   }
 
   :global {
@@ -137,7 +137,7 @@
 
 %short-box {
   display: flex;
-  border-bottom: 1px solid #CCCCCC;
+  border-bottom: 1px solid #ccc;
   font-size: 1.2rem;
   font-weight: normal;
   line-height: 1.3;
@@ -164,9 +164,9 @@
 }
 
 %text-box {
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   padding: 1rem;
   border-radius: 5px;
-  box-shadow: 0.01rem 0.01rem 1rem #BBBBBB;
+  box-shadow: 0.01rem 0.01rem 1rem #bbb;
   margin: 0.5rem 0.1rem 1rem 0.1rem;
 }

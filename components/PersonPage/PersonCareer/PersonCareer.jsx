@@ -17,7 +17,7 @@ import './PersonCareer.scss'
 type Props = { person: Object, i18n: Translator }
 
 @translate()
-export default class PersonCast extends React.Component<Props> {
+export default class PersonCast extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }

@@ -13,7 +13,7 @@ import i18nClient from '../../libs/i18nClient'
 type Props = { object: Object, i18n: Translator }
 
 @translate()
-export default class ObjectKinopoiskInfo extends React.Component<Props> {
+export default class ObjectKinopoiskInfo extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }
