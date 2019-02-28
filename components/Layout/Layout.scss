@@ -1,21 +1,90 @@
+:global a {
+  color: #333;
+
+  &:hover {
+    color: #333;
+    text-decoration: underline;
+  }
+}
+
+.box {
+  max-width: 1000px;
+  min-width: 700px;
+
+  main {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0.01rem 0.01rem 1rem #ccc;
+    margin-top: 30px;
+    margin-bottom: 0.5rem;
+  }
+
+  .content {
+    padding: 1.2rem;
+    height: 100%;
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 2rem;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .search {
+    font-size: 1rem;
+    padding-top: 1.6rem;
+  }
+
+  .languages {
+    text-align: right;
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+  }
+
+  .auth {
+    float: right;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: normal;
+    padding: 0.8rem 1rem 0 0;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 :global {
   html {
     height: 100%;
   }
 
   body {
-    background-color: #EEEEEE;
+    background-color: #eee;
     font-family: $font-family;
   }
 
   body.list {
     @extend body;
+
     height: 100%;
 
     div#react-container {
       height: 100%;
 
       > div {
+        height: 100%;
+      }
+
+      main {
         height: 100%;
       }
 
@@ -39,52 +108,6 @@
     font-size: 2rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;
-
-    a {
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  a {
-    color: #333333 !important;
-
-    &:hover {
-      color: #333333 !important;
-      text-decoration: underline !important;
-    }
-  }
-}
-
-.box {
-  max-width: 1000px;
-  height: 100%;
-
-  .content {
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    padding: 1.2rem;
-    box-shadow: 0.01rem 0.01rem 1rem #CCCCCC;
-    font-size: 0.9rem;
-    margin-top: 30px;
-    margin-bottom: 0.5rem;
-    height: 100%;
-  }
-
-  .languages {
-    text-align: right;
-    font-size: 0.7rem;
-    margin-bottom: 0.5rem;
-    margin-right: 1rem;
-  }
-
-  .auth {
-    float: right;
-    font-size: 1rem;
-    font-weight: normal;
-    padding: 1rem 1rem 0 0;
+    height: 56px;
   }
 }

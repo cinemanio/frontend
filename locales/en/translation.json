@@ -41,7 +41,8 @@
     "roles": "Roles",
     "country": "Country",
     "genres": "Genres",
-    "countries": "Countries"
+    "countries": "Countries",
+    "yearsRange": "Years range"
   },
   "movie": {
     "info": {
@@ -117,10 +118,10 @@
     "relations": {
       "authError": "Please sign in to be able to save your preferences",
       "movie": {
-        "fav": "You have been favorited the movie {{ titleEn }} ({{ year }})",
-        "like": "You have been liked the movie {{ titleEn }} ({{ year }})",
+        "fav": "You have favorited the movie {{ titleEn }} ({{ year }})",
+        "like": "You have liked the movie {{ titleEn }} ({{ year }})",
         "seen": "You have been watched the movie {{ titleEn }} ({{ year }})",
-        "dislike": "You have not been liked the movie {{ titleEn }} ({{ year }})",
+        "dislike": "You have not liked the movie {{ titleEn }} ({{ year }})",
         "want": "You want to watch the movie {{ titleEn }} ({{ year }})",
         "ignore": "You want to hide the movie {{ titleEn }} ({{ year }})",
         "have": "You have the movie {{ titleEn }} ({{ year }})"
@@ -129,6 +130,45 @@
         "fav": "You have been favorited the person {{ nameEn }}",
         "like": "You like the person {{ nameEn }}",
         "dislike": "You don't like the person {{ nameEn }}"
+      }
+    }
+  },
+  "search": {
+    "placeholder": "Search for movies, persons and more..."
+  },
+  "titles": {
+    "relations": {
+      "movie": {
+        "on": {
+          "fav": "I want to favorite this movie",
+          "like": "I like this movie",
+          "seen": "I have watched this movie",
+          "dislike": "I don't like this movie",
+          "want": "I want to watch this movie",
+          "ignore": "I want to hide this movie",
+          "have": "I have this movie"
+        },
+        "off": {
+          "fav": "I don't want to favorite this movie anymore",
+          "like": "I don't like this movie anymore",
+          "seen": "I haven't watched this movie",
+          "dislike": "I don't dislike this movie anymore",
+          "want": "I don't want to watch this movie anymore",
+          "ignore": "I don't want to hide this movie anymore",
+          "have": "I don't have this movie anymore"
+        }
+      },
+      "person": {
+        "on": {
+          "fav": "I want to favorite this person",
+          "like": "I like this person",
+          "dislike": "I don't like this person"
+        },
+        "off": {
+          "fav": "I don't want to favorite this person",
+          "like": "I don't like this person anymore",
+          "dislike": "I don't dislike this person anymore"
+        }
       }
     }
   }

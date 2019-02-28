@@ -1,4 +1,6 @@
-public
-node_modules
-coverage
-webpack-stats.json
+/public
+/node_modules
+/coverage
+/webpack-stats.json
+/stats.json
+/.env

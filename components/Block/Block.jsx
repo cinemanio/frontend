@@ -1,10 +1,10 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import { PropTypes } from 'prop-types'
 
 import './Block.scss'
 
-type Props = { title: string | React.Fragment, children: React.Fragment }
+type Props = { title: string | React.Node, children: React.Node }
 
 export default class Block extends React.PureComponent<Props> {
   static propTypes = {

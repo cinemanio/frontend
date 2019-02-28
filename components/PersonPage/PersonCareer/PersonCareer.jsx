@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import { PropTypes } from 'prop-types'
 import { translate } from 'react-i18next'
 import type { Translator } from 'react-i18next'
@@ -17,7 +17,7 @@ import './PersonCareer.scss'
 type Props = { person: Object, i18n: Translator }
 
 @translate()
-export default class PersonCast extends React.Component<Props> {
+export default class PersonCast extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }
@@ -67,7 +67,7 @@ export default class PersonCast extends React.Component<Props> {
     return _.values(career)
   }
 
-  renderCareer(): Array<React.Fragment> {
+  renderCareer(): React.Node {
     return this.aggregatedCareerEdges.map(({ node }) => (
       <div key={node.id} styleName="movie">
         <div styleName="image">

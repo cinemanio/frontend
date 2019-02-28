@@ -2,7 +2,8 @@
 import React from 'react'
 import { Collection } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
-import _ from 'lodash'
+
+import './ObjectListCell.scss'
 
 type Props = {
   itemCount: number,
@@ -13,7 +14,7 @@ type Props = {
   updatePage: Function,
 }
 
-export default class ObjectListCell extends React.Component<Props> {
+export default class ObjectListCell extends React.PureComponent<Props> {
   static propTypes = {
     itemCount: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
@@ -23,19 +24,42 @@ export default class ObjectListCell extends React.Component<Props> {
     updatePage: PropTypes.func.isRequired,
   }
 
+  // TODO: change when fixed https://github.com/facebook/react/issues/12553
+  collection: { current: any }
+
+  constructor(props: Object) {
+    super(props)
+    this.collection = React.createRef()
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.resize)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resize)
+  }
+
+  iconsInRow: number = 4
+
+  ratio: number = 0.7
+
+  resize = () => this.collection.current.recomputeCellSizesAndPositions()
+
   /**
    * Dimension of poster of photo in view=icon
-   * TODO: calculate it automatically from styles if possible
    * @type {{width: number, height: number}}
    */
-  iconDimensions: Object = { width: 180, height: 250 }
+  get iconDimensions() {
+    const width = Math.floor(this.props.width / this.iconsInRow)
+    const height = Math.floor(width / this.ratio)
+    return { width, height }
+  }
 
-  onScrollImage = ({ clientWidth, clientHeight, scrollTop }: Object) => {
-    const margin = 20
-    const { width, height } = this.iconDimensions
-    const numberInRow = Math.floor(clientWidth / width)
-    const page = (Math.ceil(scrollTop / height) + Math.floor((clientHeight + margin) / height)) * numberInRow
-    this.props.updatePage(page)
+  onScrollImage = (updatePage: Function) => ({ clientWidth, clientHeight, scrollTop }: Object) => {
+    const { height } = this.iconDimensions
+    const page = (Math.ceil(scrollTop / height) + Math.floor(clientHeight / height)) * this.iconsInRow
+    updatePage(page)
   }
 
   onSectionRendered = (onRowsRendered: Function) => ({ indices }: Object) => {
@@ -47,22 +71,23 @@ export default class ObjectListCell extends React.Component<Props> {
 
   cellSizeAndPositionGetter = ({ index }: Object) => {
     const { width, height } = this.iconDimensions
-    const numberInRow = Math.floor(this.props.width / width)
-    const x = (index % numberInRow) * width
-    const y = Math.floor((index * width) / (numberInRow * width)) * height
+    const x = (index % this.iconsInRow) * width
+    const y = Math.floor((index * width) / (this.iconsInRow * width)) * height
     return { height, width, x, y }
   }
 
   render() {
-    const props = _.omit(this.props, ['itemCount', 'onRowsRendered', 'renderItem', 'updatePage'])
+    const { itemCount, onRowsRendered, renderItem, updatePage, renderNoResults, ...props } = this.props
     return (
       <Collection
-        noContentRenderer={this.props.renderNoResults}
-        onSectionRendered={this.onSectionRendered(this.props.onRowsRendered)}
-        onScroll={this.onScrollImage}
-        cellRenderer={this.props.renderItem}
+        ref={this.collection}
+        noContentRenderer={renderNoResults}
+        onSectionRendered={this.onSectionRendered(onRowsRendered)}
+        onScroll={this.onScrollImage(updatePage)}
+        cellRenderer={renderItem}
         cellSizeAndPositionGetter={this.cellSizeAndPositionGetter}
-        cellCount={this.props.itemCount}
+        cellCount={itemCount}
+        verticalOverscanSize={10}
         {...props}
       />
     )

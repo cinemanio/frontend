@@ -1,39 +1,6 @@
-@import '~font-awesome/scss/font-awesome';
-@import 'mixins.scss';
-
-%container {
-  background-color: #FFFFFF;
+.box {
+  min-width: 500px;
   border-radius: 5px;
-  box-shadow: 0.01rem 0.01rem 1rem #CCCCCC;
-  padding: 0.5rem;
-  width: 500px;
-  color: #333333;
-  font-size: 0.9rem;
-}
-
-.info {
-  @extend %container;
-  background-color: #d2f5ff;
-}
-
-.success {
-  @extend %container;
-  background-color: #e9ffd9;
-}
-
-.error {
-  @extend %container;
-  background-color: #ffd5df;
-}
-
-.close {
-  i {
-    @include fa-icon('times');
-  }
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  float: right;
-  margin-top: -2px;
-  color: #333333;
+  box-shadow: 0.01rem 0.01rem 1rem #ccc;
+  margin-top: 0.5rem;
 }

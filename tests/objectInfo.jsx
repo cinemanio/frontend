@@ -6,7 +6,7 @@ import i18nClient from 'libs/i18nClient'
 
 import { mountOptions } from './helpers'
 
-export default (content, element) => (props) => {
+export default (content, element) => props => {
   it(`should render only ${Object.keys(props)} blocks`, () => {
     i18nClient.changeLanguage('en')
     const wrapper = mount(React.cloneElement(element, props), mountOptions)

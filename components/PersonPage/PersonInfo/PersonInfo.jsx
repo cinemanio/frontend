@@ -2,6 +2,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import { translate } from 'react-i18next'
+import { Icon } from 'antd'
 import type { Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 
@@ -14,6 +15,7 @@ import './PersonInfo.scss'
 
 type Props = {
   person: Object,
+  gender?: boolean,
   roles?: boolean,
   dates?: boolean,
   country?: boolean,
@@ -22,8 +24,9 @@ type Props = {
 }
 
 @translate()
-export default class PersonInfo extends React.Component<Props> {
+export default class PersonInfo extends React.PureComponent<Props> {
   static defaultProps = {
+    gender: false,
     roles: false,
     dates: false,
     country: false,
@@ -34,6 +37,7 @@ export default class PersonInfo extends React.Component<Props> {
   static propTypes = {
     i18n: PropTypes.object,
     person: PropTypes.object.isRequired,
+    gender: PropTypes.bool,
     roles: PropTypes.bool,
     dates: PropTypes.bool,
     country: PropTypes.bool,
@@ -89,19 +93,26 @@ export default class PersonInfo extends React.Component<Props> {
   genderizeRole = (role: string) =>
     this.props.person.gender === 'MALE' ? role : role.replace('Actor', 'Actress').replace('Актер', 'Актриса')
 
+  renderGender() {
+    if (!this.props.person.gender) {
+      return null
+    }
+    const gender = {
+      male: 'man',
+      female: 'woman',
+    }
+    const icon = gender[this.props.person.gender.toLowerCase()]
+    return !icon ? null : <Icon type={icon} />
+  }
+
   renderRoles() {
-    return this.props.person.roles.length === 0 ? null : (
-      <span styleName={`gender-${this.props.person.gender.toLowerCase()}`}>
-        <i />
-        {this.props.person.roles.map(item => this.genderizeRole(item[i18n.f('name')])).join(', ')}
-      </span>
-    )
+    return this.props.person.roles.map(item => this.genderizeRole(item[i18n.f('name')])).join(', ')
   }
 
   renderDates() {
     return !this.props.person.dateBirth ? null : (
-      <span styleName="date">
-        <i />
+      <span>
+        <Icon type="calendar" />
         {this.formatDate(this.props.person.dateBirth)}
         {!this.props.person.dateDeath ? null : ` – ${this.formatDate(this.props.person.dateDeath)}`}
       </span>
@@ -110,7 +121,7 @@ export default class PersonInfo extends React.Component<Props> {
 
   renderCountry() {
     return !this.props.person.country ? null : (
-      <span styleName="country">
+      <span>
         <CountryFlag country={this.props.person.country} />
         {this.props.person.country[i18n.f('name')]}
       </span>
@@ -120,6 +131,7 @@ export default class PersonInfo extends React.Component<Props> {
   render() {
     return (
       <div styleName="box">
+        {(this.props.gender || this.props.all) && this.renderGender()}
         {(this.props.roles || this.props.all) && this.renderRoles()}
         {(this.props.dates || this.props.all) && this.renderDates()}
         {(this.props.country || this.props.all) && this.renderCountry()}

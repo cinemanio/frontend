@@ -1,22 +1,39 @@
 :global {
-  .ant-tabs-card {
+  .ant-tabs.ant-tabs-card {
     position: absolute;
-    top: 46px;
+    top: 36px;
+    height: 50px;
     border-bottom: 0;
     font-family: $font-family;
 
-    .ant-tabs-bar {
+    > .ant-tabs-bar {
       border-color: white;
       border-bottom: 0;
+
+      .ant-tabs-nav-container {
+        height: 80px;
+      }
+
+      .ant-tabs-nav {
+        width: 300px;
+        margin-top: 10px;
+        padding-left: 1.2rem;
+      }
 
       .ant-tabs-tab {
         border-color: transparent !important;
         background: transparent !important;
+
+        &:hover {
+          a {
+            text-decoration: underline;
+          }
+        }
       }
 
       .ant-tabs-tab-active {
-        border-color: #dee2e6 #dee2e6 white !important;
         background: white !important;
+        box-shadow: 0.01rem 0.01rem 1rem #ccc;
       }
     }
   }

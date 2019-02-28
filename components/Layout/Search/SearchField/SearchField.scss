@@ -1,0 +1,49 @@
+.box {
+  width: 100%;
+  box-shadow: 0.01rem 0.01rem 1rem #ccc;
+
+  .icon {
+    color: #6e6e6e;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    font-size: 16px;
+  }
+}
+
+:global {
+  mark {
+    font-weight: 500;
+    background-color: inherit;
+    padding: 0;
+  }
+
+  .search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix {
+    padding-left: 2rem;
+  }
+
+  .search.ant-select-auto-complete .ant-select-selection__rendered {
+    line-height: 31px;
+  }
+
+  .search-dropdown .ant-select-dropdown-menu-item-group-title {
+    color: #666;
+    font-weight: bold;
+  }
+
+  .search-dropdown .ant-select-dropdown-menu-item-group {
+    border-bottom: 1px solid #f6f6f6;
+  }
+
+  .search-dropdown .ant-select-dropdown-menu-item {
+    padding-left: 1rem;
+  }
+
+  .search-dropdown .ant-select-dropdown-menu {
+    max-height: 300px;
+  }
+
+  .search.ant-select-focused {
+    :local .icon {
+      color: #108ee9 !important;
+    }
+  }
+}

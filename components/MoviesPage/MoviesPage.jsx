@@ -14,6 +14,8 @@ import ActiveFilters from 'components/ObjectListPage/ActiveFilters/ActiveFilters
 import SelectFilter from 'components/ObjectListPage/SelectFilter/SelectFilter'
 import SelectGeneric from 'components/ObjectListPage/SelectGeneric/SelectGeneric'
 import FieldSection from 'components/ObjectListPage/FieldSection/FieldSection'
+import YearsFilter from 'components/ObjectListPage/YearsFilter/YearsFilter'
+import type { RangeType } from 'components/ObjectListPage/YearsFilter/YearsFilter'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import i18n from 'libs/i18n'
 import User from 'stores/User'
@@ -37,6 +39,7 @@ type State = {
   countries: Set<string>,
   view: 'image' | 'short' | 'full',
   orderBy: string,
+  yearsRange: RangeType,
 }
 
 @withAlert
@@ -63,13 +66,16 @@ class MoviesPage extends React.Component<Props, State> {
 
   constructor(props: Object) {
     super(props)
-    this.state = {
-      relation: null,
-      genres: new Set([]),
-      countries: new Set([]),
-      view: 'short',
-      orderBy: 'relations_count__like',
-    }
+    this.state = this.defaults
+  }
+
+  defaults = {
+    relation: null,
+    genres: new Set([]),
+    countries: new Set([]),
+    yearsRange: { min: 1900, max: new Date().getFullYear() + 10 },
+    view: 'short',
+    orderBy: '-relations_count__like',
   }
 
   getVariables = () => ({
@@ -77,6 +83,8 @@ class MoviesPage extends React.Component<Props, State> {
     genres: [...this.state.genres],
     countries: [...this.state.countries],
     orderBy: this.state.orderBy,
+    yearMin: this.state.yearsRange.min,
+    yearMax: this.state.yearsRange.max,
   })
 
   getViewOptions = () => [
@@ -88,8 +96,8 @@ class MoviesPage extends React.Component<Props, State> {
   getOrderByOptions = () => [
     { id: '-year', name: this.props.i18n.t('filter.orderBy.new') },
     { id: 'year', name: this.props.i18n.t('filter.orderBy.old') },
-    { id: 'relations_count__like', name: this.props.i18n.t('filter.orderBy.like') },
-    { id: 'relations_count__dislike', name: this.props.i18n.t('filter.orderBy.dislike') },
+    { id: '-relations_count__like', name: this.props.i18n.t('filter.orderBy.like') },
+    { id: '-relations_count__dislike', name: this.props.i18n.t('filter.orderBy.dislike') },
   ]
 
   getRelationFilterOptions = () =>
@@ -98,7 +106,104 @@ class MoviesPage extends React.Component<Props, State> {
       [`name${_.capitalize(this.props.i18n.language)}`]: this.props.i18n.t(`filter.relations.${code}`),
     }))
 
-  renderMovie = ({ movie }) => {
+  setFilterState = refreshList => params => this.setState(params, refreshList)
+
+  renderFilters(refreshList: Function) {
+    return (
+      <div>
+        <FieldSection title={this.props.i18n.t('filter.view.sectionTitle')}>
+          <SelectGeneric
+            code="view"
+            list={this.getViewOptions()}
+            filters={this.state}
+            setFilterState={this.setFilterState(refreshList)}
+          />
+        </FieldSection>
+        <FieldSection title={this.props.i18n.t('filter.orderBy.sectionTitle')}>
+          <SelectGeneric
+            code="orderBy"
+            list={this.getOrderByOptions()}
+            filters={this.state}
+            setFilterState={this.setFilterState(refreshList)}
+          />
+        </FieldSection>
+        <FieldSection title={this.props.i18n.t('filter.sectionTitle')}>
+          <SelectFilter
+            code="relation"
+            title={this.props.i18n.t('filter.relations.sectionTitle')}
+            list={this.getRelationFilterOptions()}
+            filters={this.state}
+            setFilterState={params => {
+              if (this.props.user.authenticated) {
+                this.setState(params, refreshList)
+              } else {
+                this.props.alert.error(this.props.i18n.t('filter.relations.authError'))
+              }
+            }}
+          />
+          <SelectFilter
+            code="genres"
+            title={this.props.i18n.t('filter.genres')}
+            list={this.props.genreData.list}
+            filters={this.state}
+            setFilterState={this.setFilterState(refreshList)}
+            multiple
+          />
+          <SelectFilter
+            code="countries"
+            title={this.props.i18n.t('filter.countries')}
+            list={this.props.countryData.list}
+            filters={this.state}
+            setFilterState={this.setFilterState(refreshList)}
+            multiple
+          />
+          <YearsFilter
+            code="yearsRange"
+            title={this.props.i18n.t('filter.yearsRange')}
+            defaultRange={this.defaults.yearsRange}
+            filters={this.state}
+            setFilterState={this.setFilterState(refreshList)}
+          />
+        </FieldSection>
+      </div>
+    )
+  }
+
+  renderActiveFilters(refreshList: Function) {
+    return (
+      <span>
+        <ActiveFilters
+          code="relation"
+          list={this.getRelationFilterOptions()}
+          filters={this.state}
+          setFilterState={this.setFilterState(refreshList)}
+        />
+        <ActiveFilters
+          code="genres"
+          list={this.props.genreData.list}
+          filters={this.state}
+          setFilterState={this.setFilterState(refreshList)}
+          multiple
+        />
+        <ActiveFilters
+          code="countries"
+          list={this.props.countryData.list}
+          filters={this.state}
+          setFilterState={this.setFilterState(refreshList)}
+          multiple
+        />
+        <ActiveFilters
+          code="yearsRange"
+          filters={this.state}
+          default={this.defaults.yearsRange}
+          setFilterState={this.setFilterState(refreshList)}
+          range
+        />
+      </span>
+    )
+  }
+
+  renderMovie(movie: Object) {
     if (this.state.view === 'image') {
       return <MovieIcon movie={movie} />
     } else if (this.state.view === 'short') {
@@ -110,91 +215,14 @@ class MoviesPage extends React.Component<Props, State> {
     }
   }
 
-  renderFilters = (refreshList: Function) => (
-    <div>
-      <FieldSection title={this.props.i18n.t('filter.view.sectionTitle')}>
-        <SelectGeneric
-          code="view"
-          list={this.getViewOptions()}
-          filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
-        />
-      </FieldSection>
-      <FieldSection title={this.props.i18n.t('filter.orderBy.sectionTitle')}>
-        <SelectGeneric
-          code="orderBy"
-          list={this.getOrderByOptions()}
-          filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
-        />
-      </FieldSection>
-      <FieldSection title={this.props.i18n.t('filter.sectionTitle')}>
-        <SelectFilter
-          code="relation"
-          title={this.props.i18n.t('filter.relations.sectionTitle')}
-          list={this.getRelationFilterOptions()}
-          filters={this.state}
-          setFilterState={params => {
-            if (this.props.user.authenticated) {
-              this.setState(params, refreshList)
-            } else {
-              this.props.alert.error(this.props.i18n.t('filter.relations.authError'))
-            }
-          }}
-        />
-        <SelectFilter
-          code="genres"
-          title={this.props.i18n.t('filter.genres')}
-          list={this.props.genreData.list}
-          filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
-          multiple
-        />
-        <SelectFilter
-          code="countries"
-          title={this.props.i18n.t('filter.countries')}
-          list={this.props.countryData.list}
-          filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
-          multiple
-        />
-      </FieldSection>
-    </div>
-  )
-
-  renderActiveFilters = (refreshList: Function) => (
-    <span>
-      <ActiveFilters
-        code="relation"
-        list={this.getRelationFilterOptions()}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-      />
-      <ActiveFilters
-        code="genres"
-        list={this.props.genreData.list}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-        multiple
-      />
-      <ActiveFilters
-        code="countries"
-        list={this.props.countryData.list}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-        multiple
-      />
-    </span>
-  )
-
   render() {
     return (
       <ObjectListPage
         title={this.props.i18n.t('title.movies')}
-        renderFilters={this.renderFilters}
-        renderActiveFilters={this.renderActiveFilters}
+        renderFilters={refreshList => this.renderFilters(refreshList)}
+        renderActiveFilters={refreshList => this.renderActiveFilters(refreshList)}
+        renderItem={({ movie }) => this.renderMovie(movie)}
         noResultsMessage={this.props.i18n.t('nothingFound.movies')}
-        renderItem={this.renderMovie}
         getVariables={this.getVariables}
         data={this.props.data}
         view={this.state.view}
@@ -204,11 +232,20 @@ class MoviesPage extends React.Component<Props, State> {
 }
 
 // static vars should be defined outside, because of @withAlert decorator
-const configObject = getConfigObject({ orderBy: 'relations_count__like' })
+const configObject = getConfigObject({ orderBy: '-relations_count__like' })
 MoviesPage.variables = { movies: configObject.options().variables }
 MoviesPage.queries = {
   movies: gql`
-    query Movies($first: Int!, $after: String, $genres: [ID!], $countries: [ID!], $relation: String, $orderBy: String) {
+    query Movies(
+      $first: Int!
+      $after: String
+      $genres: [ID!]
+      $countries: [ID!]
+      $relation: String
+      $orderBy: String
+      $yearMin: Float
+      $yearMax: Float
+    ) {
       list: movies(
         first: $first
         after: $after
@@ -216,6 +253,8 @@ MoviesPage.queries = {
         countries: $countries
         relation: $relation
         orderBy: $orderBy
+        year_Gte: $yearMin
+        year_Lte: $yearMax
       ) {
         totalCount
         edges {

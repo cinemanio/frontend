@@ -6,14 +6,14 @@ export default (object: Object, code: string) => {
     relate: {
       relation: {
         ...object.relation,
-        __typename: `${type}RelationNode`
+        __typename: `${type}RelationNode`,
       },
       count: {
         ...object.relationsCount,
-        __typename: `${type}RelationCountNode`
+        __typename: `${type}RelationCountNode`,
       },
-      __typename: 'Relate'
-    }
+      __typename: 'Relate',
+    },
   }
   response.relate.count[code] += !object.relation[code] ? 1 : -1
   response.relate.relation[code] = !object.relation[code]

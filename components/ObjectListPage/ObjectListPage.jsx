@@ -3,24 +3,20 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { PropTypes } from 'prop-types'
 import { Row, Col } from 'antd'
-import _ from 'lodash'
 
-import ObjectList from './ObjectList/ObjectList'
+import ObjectList, { type Props as ObjectListProps } from './ObjectList/ObjectList'
 import Pagination from './Pagination/Pagination'
 
 import './ObjectListPage.scss'
 
-type Props = {
-  data: Object,
-  getVariables: Function,
+type ObjectListPageProps = {
   renderActiveFilters: Function,
   renderFilters: Function,
   title: string,
 }
-
-type State = {
-  page: number,
-}
+type InjectedProps = { updatePage: Function }
+type Props = $Diff<ObjectListProps, InjectedProps> & ObjectListPageProps
+type State = { page: number }
 
 export default class ObjectListPage extends React.Component<Props, State> {
   static propTypes = {
@@ -31,44 +27,33 @@ export default class ObjectListPage extends React.Component<Props, State> {
     title: PropTypes.string.isRequired,
   }
 
-  constructor(props: Object) {
-    super(props)
-    this.state = {
-      page: 0,
-    }
-  }
+  state = { page: 0 }
 
   refreshList = () =>
     this.props.data.fetchMore({
       variables: this.props.getVariables(),
-      updateQuery: (previousResult, { fetchMoreResult }) => ({
-        list: {
-          totalCount: fetchMoreResult.list.totalCount,
-          edges: fetchMoreResult.list.edges,
-          pageInfo: fetchMoreResult.list.pageInfo,
-        },
-      }),
+      updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
     })
 
   updatePage = (page: number) => this.setState({ page })
 
   render() {
-    const props = _.omit(this.props, ['title', 'renderFilters', 'renderActiveFilters', 'setFilterState'])
+    const { title, renderFilters, renderActiveFilters, ...props } = this.props
     return (
       <Row type="flex" styleName="box">
         <Helmet>
-          <title>{this.props.title}</title>
+          <title>{title}</title>
           <body className="list" />
         </Helmet>
-        <Col span={20} styleName="list">
+        <Col sm={16} md={18} lg={20}>
           <div styleName="caption">
             <Pagination page={this.state.page} data={this.props.data} />
-            {this.props.renderActiveFilters(this.refreshList)}
+            {renderActiveFilters(this.refreshList)}
           </div>
-          <ObjectList updatePage={this.updatePage} getVariables={this.props.getVariables} {...props} />
+          <ObjectList updatePage={this.updatePage} {...props} />
         </Col>
-        <Col span={4} styleName="filters">
-          <div>{this.props.renderFilters(this.refreshList)}</div>
+        <Col sm={8} md={6} lg={4} styleName="filters">
+          <div>{renderFilters(this.refreshList)}</div>
         </Col>
       </Row>
     )

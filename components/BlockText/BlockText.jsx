@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import { PropTypes } from 'prop-types'
 import { translate } from 'react-i18next'
 import type { Translator } from 'react-i18next'
@@ -9,7 +9,7 @@ import i18nClient from 'libs/i18nClient'
 
 import './BlockText.scss'
 
-type Props = { title: string | React.Fragment, children?: React.Fragment, i18n: Translator, content: string }
+type Props = { title: string | React.Node, children?: React.Node | Function, i18n: Translator, content: string }
 type State = { full: boolean }
 
 @translate()
@@ -28,10 +28,7 @@ export default class BlockText extends React.PureComponent<Props, State> {
 
   static symbolsLimit: number = 500
 
-  constructor(props: Object) {
-    super(props)
-    this.state = { full: false }
-  }
+  state = { full: false }
 
   get content(): string {
     if (this.props.content && !this.state.full) {

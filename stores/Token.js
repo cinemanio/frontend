@@ -3,7 +3,8 @@ import { observable, action, reaction } from 'mobx'
 import Cookies from 'universal-cookie'
 
 class Token {
-  @observable token: ?string
+  @observable
+  token: ?string
 
   cookieName = 'jwt'
 
@@ -14,7 +15,8 @@ class Token {
     reaction(() => this.token, this.save)
   }
 
-  @action set(token: ?string) {
+  @action
+  set(token: ?string) {
     this.token = token
   }
 
@@ -28,9 +30,8 @@ class Token {
       this.cookies = new Cookies(cookies)
       this.cookies.HAS_DOCUMENT_COOKIE = !node
       this.token = this.load()
-    // eslint-disable-next-line no-empty
-    } catch (e) {
-    }
+      // eslint-disable-next-line no-empty
+    } catch (e) {}
   }
 
   /**

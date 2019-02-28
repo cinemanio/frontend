@@ -59,15 +59,12 @@ class PersonsPage extends React.Component<Props, State> {
 
   static queries: Object
 
-  constructor(props: Object) {
-    super(props)
-    this.state = {
-      relation: null,
-      roles: new Set([]),
-      country: '',
-      view: 'short',
-      orderBy: 'relations_count__like',
-    }
+  state = {
+    relation: null,
+    roles: new Set([]),
+    country: '',
+    view: 'short',
+    orderBy: '-relations_count__like',
   }
 
   getVariables = () => ({
@@ -86,8 +83,8 @@ class PersonsPage extends React.Component<Props, State> {
 
   get orderByOptions() {
     return [
-      { id: 'relations_count__like', name: this.props.i18n.t('filter.orderBy.like') },
-      { id: 'relations_count__dislike', name: this.props.i18n.t('filter.orderBy.dislike') },
+      { id: '-relations_count__like', name: this.props.i18n.t('filter.orderBy.like') },
+      { id: '-relations_count__dislike', name: this.props.i18n.t('filter.orderBy.dislike') },
     ]
   }
 
@@ -98,7 +95,86 @@ class PersonsPage extends React.Component<Props, State> {
     }))
   }
 
-  renderPerson = ({ person }) => {
+  renderFilters(refreshList: Function) {
+    return (
+      <div>
+        <FieldSection title={this.props.i18n.t('filter.view.sectionTitle')}>
+          <SelectGeneric
+            code="view"
+            list={this.viewOptions}
+            filters={this.state}
+            setFilterState={params => this.setState(params, refreshList)}
+          />
+        </FieldSection>
+        <FieldSection title={this.props.i18n.t('filter.orderBy.sectionTitle')}>
+          <SelectGeneric
+            code="orderBy"
+            list={this.orderByOptions}
+            filters={this.state}
+            setFilterState={params => this.setState(params, refreshList)}
+          />
+        </FieldSection>
+        <FieldSection title={this.props.i18n.t('filter.sectionTitle')}>
+          <SelectFilter
+            code="relation"
+            title={this.props.i18n.t('filter.relations.sectionTitle')}
+            list={this.relationFilterOptions}
+            filters={this.state}
+            setFilterState={params => {
+              if (this.props.user.authenticated) {
+                this.setState(params, refreshList)
+              } else {
+                this.props.alert.error(this.props.i18n.t('filter.relations.authError'))
+              }
+            }}
+          />
+          <SelectFilter
+            code="roles"
+            title={this.props.i18n.t('filter.roles')}
+            list={this.props.roleData.list}
+            filters={this.state}
+            setFilterState={params => this.setState(params, refreshList)}
+            multiple
+          />
+          <SelectFilter
+            code="country"
+            title={this.props.i18n.t('filter.country')}
+            list={this.props.countryData.list}
+            filters={this.state}
+            setFilterState={params => this.setState(params, refreshList)}
+          />
+        </FieldSection>
+      </div>
+    )
+  }
+
+  renderActiveFilters(refreshList: Function) {
+    return (
+      <span>
+        <ActiveFilters
+          code="relation"
+          list={this.relationFilterOptions}
+          filters={this.state}
+          setFilterState={params => this.setState(params, refreshList)}
+        />
+        <ActiveFilters
+          code="roles"
+          list={this.props.roleData.list}
+          filters={this.state}
+          setFilterState={params => this.setState(params, refreshList)}
+          multiple
+        />
+        <ActiveFilters
+          code="country"
+          list={this.props.countryData.list}
+          filters={this.state}
+          setFilterState={params => this.setState(params, refreshList)}
+        />
+      </span>
+    )
+  }
+
+  renderPerson(person: Object) {
     if (this.state.view === 'short') {
       return <PersonShort person={person} />
     } else if (this.state.view === 'full') {
@@ -108,89 +184,14 @@ class PersonsPage extends React.Component<Props, State> {
     }
   }
 
-  renderFilters = (refreshList: Function) => (
-    <div>
-      <FieldSection title={this.props.i18n.t('filter.view.sectionTitle')}>
-        <SelectGeneric
-          code="view"
-          list={this.viewOptions}
-          filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
-        />
-      </FieldSection>
-      <FieldSection title={this.props.i18n.t('filter.orderBy.sectionTitle')}>
-        <SelectGeneric
-          code="orderBy"
-          list={this.orderByOptions}
-          filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
-        />
-      </FieldSection>
-      <FieldSection title={this.props.i18n.t('filter.sectionTitle')}>
-        <SelectFilter
-          code="relation"
-          title={this.props.i18n.t('filter.relations.sectionTitle')}
-          list={this.relationFilterOptions}
-          filters={this.state}
-          setFilterState={params => {
-            if (this.props.user.authenticated) {
-              this.setState(params, refreshList)
-            } else {
-              this.props.alert.error(this.props.i18n.t('filter.relations.authError'))
-            }
-          }}
-        />
-        <SelectFilter
-          code="roles"
-          title={this.props.i18n.t('filter.roles')}
-          list={this.props.roleData.list}
-          filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
-          multiple
-        />
-        <SelectFilter
-          code="country"
-          title={this.props.i18n.t('filter.country')}
-          list={this.props.countryData.list}
-          filters={this.state}
-          setFilterState={params => this.setState(params, refreshList)}
-        />
-      </FieldSection>
-    </div>
-  )
-
-  renderActiveFilters = (refreshList: Function) => (
-    <span>
-      <ActiveFilters
-        code="relation"
-        list={this.relationFilterOptions}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-      />
-      <ActiveFilters
-        code="roles"
-        list={this.props.roleData.list}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-        multiple
-      />
-      <ActiveFilters
-        code="country"
-        list={this.props.countryData.list}
-        filters={this.state}
-        setFilterState={params => this.setState(params, refreshList)}
-      />
-    </span>
-  )
-
   render() {
     return (
       <ObjectListPage
         title={this.props.i18n.t('title.persons')}
-        renderFilters={this.renderFilters}
-        renderActiveFilters={this.renderActiveFilters}
+        renderFilters={refreshList => this.renderFilters(refreshList)}
+        renderActiveFilters={refreshList => this.renderActiveFilters(refreshList)}
+        renderItem={({ person }) => this.renderPerson(person)}
         noResultsMessage={this.props.i18n.t('nothingFound.persons')}
-        renderItem={this.renderPerson}
         getVariables={this.getVariables}
         data={this.props.data}
         view={this.state.view}
@@ -200,7 +201,7 @@ class PersonsPage extends React.Component<Props, State> {
 }
 
 // static vars should be defined outside, because of @withAlert decorator
-const configObject = getConfigObject({ orderBy: 'relations_count__like' })
+const configObject = getConfigObject({ orderBy: '-relations_count__like' })
 PersonsPage.variables = { persons: configObject.options().variables }
 PersonsPage.queries = {
   persons: gql`

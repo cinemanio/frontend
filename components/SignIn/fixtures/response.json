@@ -2,7 +2,7 @@
   "data": {
     "tokenAuth": {
       "token": "zxcqweqd323124fgdfkj2o834uwkdfnlsr2834024",
-      "__typename":"ObtainJSONWebToken"
+      "__typename": "ObtainJSONWebToken"
     }
   }
 }

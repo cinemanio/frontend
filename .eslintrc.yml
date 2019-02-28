@@ -20,6 +20,7 @@ plugins:
 - jsx-a11y
 - promise
 - jest
+- prettier
 
 globals:
   __DEBUG_SERVER_ERRORS__: true
@@ -83,10 +84,10 @@ rules:
   react/jsx-closing-tag-location: off
   react/jsx-closing-bracket-location: off
   react/forbid-prop-types: [error, {forbid: ['all']}]
-  react/sort-comp: [error, {order: ['static-methods', 'type-annotations', 'lifecycle', 'everything-else', 'render']}]
+  react/sort-comp: [error, {order: ['static-methods', 'type-annotations', 'lifecycle', 'everything-else', '/^render.+$/', 'render']}]
   react/prefer-stateless-function: [error, {ignorePureComponents: true}]
   react/destructuring-assignment: off
-  react/require-default-props: warn
+  react/require-default-props: [error, {forbidDefaultForRequired: false}]
 
   ### Flowtype
   flowtype/boolean-style: [error, boolean]
@@ -131,6 +132,9 @@ rules:
   jest/no-identical-title: error
   jest/prefer-to-have-length: error
   jest/valid-expect: error
+
+  ### Prettier
+  prettier/prettier: error
 
 settings:
   flowtype:

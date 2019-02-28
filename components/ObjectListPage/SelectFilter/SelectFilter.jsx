@@ -9,14 +9,14 @@ import './SelectFilter.scss'
 
 type Props = {
   code: string,
+  filters: Object,
   title: string,
   list: Array<Object>,
   multiple?: boolean,
-  filters: Object,
   setFilterState: Function,
 }
 
-export default class SelectFilter extends React.Component<Props> {
+export default class SelectFilter extends React.PureComponent<Props> {
   static defaultProps = {
     list: [],
     multiple: false,
@@ -24,8 +24,8 @@ export default class SelectFilter extends React.Component<Props> {
 
   static propTypes = {
     code: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
     filters: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
     setFilterState: PropTypes.func.isRequired,
     list: PropTypes.array,
     multiple: PropTypes.bool,

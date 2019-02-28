@@ -11,6 +11,7 @@ import i18n from 'libs/i18n'
 import i18nClient from 'libs/i18nClient'
 
 import './MovieInfo.scss'
+import { Icon } from 'antd'
 
 type Props = {
   movie: Object,
@@ -24,7 +25,7 @@ type Props = {
 }
 
 @translate()
-export default class MovieInfo extends React.Component<Props> {
+export default class MovieInfo extends React.PureComponent<Props> {
   static defaultProps = {
     year: false,
     genres: false,
@@ -100,18 +101,18 @@ export default class MovieInfo extends React.Component<Props> {
   }
 
   renderYear() {
-    return !this.props.movie.year ? null : <span styleName="year">{this.props.movie.year}</span>
+    return !this.props.movie.year ? null : <span>{this.props.movie.year}</span>
   }
 
   renderGenres() {
     return this.props.movie.genres.length === 0 ? null : (
-      <span styleName="genres">{this.props.movie.genres.map(item => item[i18n.f('name')]).join(', ')}</span>
+      <span>{this.props.movie.genres.map(item => item[i18n.f('name')]).join(', ')}</span>
     )
   }
 
   renderCountries() {
     return this.props.movie.countries.length === 0 ? null : (
-      <span styleName="countries">
+      <span>
         {this.props.movie.countries.map((item, i) => (
           <span key={item[i18n.f('name')]}>
             {i > 0 ? ', ' : ''}
@@ -125,8 +126,8 @@ export default class MovieInfo extends React.Component<Props> {
 
   renderRuntime() {
     return !this.props.movie.runtime ? null : (
-      <span styleName="runtime">
-        <i />
+      <span>
+        <Icon type="clock-circle" />
         {humanizeDuration(this.props.movie.runtime * 60 * 1000, { language: this.props.i18n.language })}
       </span>
     )
@@ -137,11 +138,7 @@ export default class MovieInfo extends React.Component<Props> {
       return ''
     }
     const lang = this.props.i18n.t('movie.info.language', { count: this.props.movie.languages.length })
-    return (
-      <span styleName="languages">
-        {`${this.props.movie.languages.map(item => item[i18n.f('name')]).join(', ')} ${lang}`}
-      </span>
-    )
+    return <span>{`${this.props.movie.languages.map(item => item[i18n.f('name')]).join(', ')} ${lang}`}</span>
   }
 
   render() {

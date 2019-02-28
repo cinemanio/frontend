@@ -4,10 +4,11 @@ import { AutoSizer, InfiniteLoader } from 'react-virtualized'
 import { PropTypes } from 'prop-types'
 import _ from 'lodash'
 
+import './ObjectList.scss'
 import ObjectListCell from './ObjectListCell/ObjectListCell'
 import ObjectListRow from './ObjectListRow/ObjectListRow'
 
-type Props = {
+export type Props = {
   noResultsMessage: string,
   renderItem: Function,
   getVariables: Function,
@@ -16,7 +17,7 @@ type Props = {
   view: string,
 }
 
-export default class ObjectList extends React.Component<Props> {
+export default class ObjectList extends React.PureComponent<Props> {
   static propTypes = {
     noResultsMessage: PropTypes.string.isRequired,
     renderItem: PropTypes.func.isRequired,
@@ -62,7 +63,9 @@ export default class ObjectList extends React.Component<Props> {
    */
   isItemLoaded = ({ index }: Object) => !this.hasNextPage || index < this.list.length
 
-  renderNoResults = () => <p>{this.props.noResultsMessage}</p>
+  renderNoResults() {
+    return <p>{this.props.noResultsMessage}</p>
+  }
 
   /**
    * Render a list item or a loading indicator.
@@ -70,7 +73,7 @@ export default class ObjectList extends React.Component<Props> {
    * @param key
    * @param style
    */
-  renderItem = ({ index, key, style }: Object) => {
+  renderItem({ index, key, style }: Object) {
     const content = this.isItemLoaded({ index }) ? this.props.renderItem(this.list[index]) : 'Loading...'
     return (
       <div key={key} style={style}>
@@ -83,11 +86,11 @@ export default class ObjectList extends React.Component<Props> {
     const props = {
       itemCount,
       onRowsRendered,
-      renderNoResults: this.renderNoResults,
+      renderNoResults: () => this.renderNoResults(),
       ref: registerChild,
       height: height - 30,
-      width: width - 10,
-      renderItem: this.renderItem,
+      width,
+      renderItem: item => this.renderItem(item),
       updatePage: this.props.updatePage,
     }
     if (this.props.view === 'image') {
@@ -134,9 +137,8 @@ export const getConfigObject = (defaults: ?Object) => ({
             // By returning `cursor` here, we update the `loadMore` function
             // to the new cursor.
             list: {
-              totalCount: fetchMoreResult.list.totalCount,
+              ...fetchMoreResult.list,
               edges: [...previousResult.list.edges, ...fetchMoreResult.list.edges],
-              pageInfo: fetchMoreResult.list.pageInfo,
             },
           }),
         }),

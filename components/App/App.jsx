@@ -35,11 +35,7 @@ const App = ({ lang }: Object) => (
   <MobxProvider {...stores}>
     <AlertProvider template={AlertTemplate} {...alertOptions}>
       <div>
-        <Helmet htmlAttributes={{ lang }} defaultTitle="cineman.io" titleTemplate="%s · cineman.io">
-          <script type="text/javascript" src="/public/app.js" async crossOrigin />
-          <link rel="stylesheet" type="text/css" href="/public/app.css" />
-          <link rel="icon" type="image/ico" href="/public/favicon.ico" />
-        </Helmet>
+        <Helmet htmlAttributes={{ lang }} defaultTitle="cineman.io" titleTemplate="%s · cineman.io" />
         <Switch>
           <Route exact path="/" render={() => <Redirect to="/movies" />} />
           <Layout path={routes.movie.detail} component={MoviePage} menuActive="movie" />

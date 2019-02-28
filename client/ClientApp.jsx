@@ -5,7 +5,7 @@ import { ApolloProvider } from 'react-apollo'
 import { BrowserRouter } from 'react-router-dom'
 import { I18nextProvider } from 'react-i18next'
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
-import { useStrict } from 'mobx'
+import { configure } from 'mobx'
 import fetch from 'unfetch'
 
 import App, { stores } from 'components/App/App'
@@ -22,13 +22,15 @@ const client = new ApolloClient({
 // For easier debugging
 window.APP_STATE = stores
 
-useStrict(true)
+configure({
+  enforceActions: 'observed',
+})
 
 const ClientApp = () => (
   <ApolloProvider client={client}>
     <BrowserRouter>
       <I18nextProvider i18n={i18nClient}>
-        <App lang={lang}/>
+        <App lang={lang} />
       </I18nextProvider>
     </BrowserRouter>
   </ApolloProvider>

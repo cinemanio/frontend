@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import { PropTypes } from 'prop-types'
 import { translate } from 'react-i18next'
 import type { Translator } from 'react-i18next'
@@ -16,7 +16,7 @@ import './MovieCast.scss'
 type Props = { movie: Object, i18n: Translator }
 
 @translate()
-export default class MovieCast extends React.Component<Props> {
+export default class MovieCast extends React.PureComponent<Props> {
   static defaultProps = {
     i18n: i18nClient,
   }
@@ -85,7 +85,7 @@ export default class MovieCast extends React.Component<Props> {
     return roles
   }
 
-  renderPersons(roles: Array<Object>): Array<React.Fragment> {
+  renderPersons(roles: Array<Object>): React.Node {
     return roles.map(({ node }) => (
       <div key={node.id} styleName="person">
         <div styleName="image">

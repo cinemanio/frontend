@@ -9,6 +9,7 @@ import './Layout.scss'
 import Languages from './Languages/Languages'
 import Auth from './Auth/Auth'
 import Menu from './Menu/Menu'
+import Search from './Search/Search'
 
 type Props = { component: Function, menuActive?: string }
 type State = { error: ?Error }
@@ -23,10 +24,7 @@ export default class Layout extends React.Component<Props, State> {
     menuActive: PropTypes.string,
   }
 
-  constructor(props: Object) {
-    super(props)
-    this.state = { error: null }
-  }
+  state = { error: null }
 
   componentDidCatch(error: Error) {
     this.setState({ error })
@@ -42,15 +40,22 @@ export default class Layout extends React.Component<Props, State> {
             {/* if use Col component here, SSR fails for some reason */}
             <div className="ant-col-14" styleName="box">
               <header>
-                <Link to="/">cineman.io</Link>
-                <div styleName="auth">
+                <div className="ant-col-6" styleName="logo">
+                  <Link to="/">cineman.io</Link>
+                </div>
+                <div className="ant-col-12" styleName="search">
+                  <Search />
+                </div>
+                <div className="ant-col-6" styleName="auth">
                   <Auth />
                 </div>
               </header>
-              <div styleName="content">
+              <main>
                 <Menu active={menuActive} />
-                {this.state.error ? <RedBox error={this.state.error} /> : <Component {...matchProps} />}
-              </div>
+                <div styleName="content">
+                  {this.state.error ? <RedBox error={this.state.error} /> : <Component {...matchProps} />}
+                </div>
+              </main>
               <footer>
                 <div styleName="languages">
                   <Languages />
