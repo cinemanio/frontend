@@ -46,11 +46,11 @@
   "bundlesize": [
     {
       "path": "./public/app.*.js",
-      "maxSize": "591 kB"
+      "maxSize": "592 kB"
     },
     {
       "path": "./public/app.*.css",
-      "maxSize": "30 kB"
+      "maxSize": "28 kB"
     }
   ],
   "dependencies": {
@@ -174,6 +174,6 @@
     "stylelint-scss": "3.5.4",
     "supertest": "3.4.2",
     "terser-webpack-plugin": "1.2.3",
-    "webpack-dev-server": "3.2.0"
+    "webpack-dev-server": "3.2.1"
   }
 }
