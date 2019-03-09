@@ -172,7 +172,7 @@
     "stylelint": "9.10.1",
     "stylelint-config-standard": "18.2.0",
     "stylelint-scss": "3.5.4",
-    "supertest": "3.4.2",
+    "supertest": "4.0.0",
     "terser-webpack-plugin": "1.2.3",
     "webpack-dev-server": "3.2.1"
   }
