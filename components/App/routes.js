@@ -13,9 +13,18 @@ const routes = {
   },
   signin: '/signin',
   signup: '/signup',
+  settings: '/settings',
+  password: {
+    change: '/password/change',
+    forgot: '/password/forgot',
+    reset: '/password/reset/:uid/:token',
+    getReset: (uid: string, token: string) => {},
+  },
 }
 
 routes.movie.getDetail = (id: string) => routes.movie.detail.replace(':slug', id)
 routes.person.getDetail = (id: string) => routes.person.detail.replace(':slug', id)
+routes.password.getReset = (uid: string, token: string) =>
+  routes.password.reset.replace(':uid', uid).replace(':token', token)
 
 export default routes

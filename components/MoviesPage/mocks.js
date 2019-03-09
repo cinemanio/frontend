@@ -1,3 +1,4 @@
+// @flow
 import _ from 'lodash'
 
 import MoviesPage from './MoviesPage'
@@ -11,7 +12,7 @@ export const mockMovies = {
 }
 export const mockCountries = { request: { query: MoviesPage.queries.countries }, result: countries }
 export const mockGenres = { request: { query: MoviesPage.queries.genres }, result: genres }
-export const mockWithParams = params => ({
+export const mockWithParams = (params: Object) => ({
   ...mockMovies,
   request: {
     ...mockMovies.request,
@@ -22,7 +23,7 @@ export const mockWithParams = params => ({
   },
 })
 
-export const sliceResult = (mock, limit) => {
+export const sliceResult = (mock: Object, limit: number) => {
   const newMock = _.cloneDeep(mock)
   newMock.result.data.list.edges = newMock.result.data.list.edges.slice(0, limit)
   return newMock

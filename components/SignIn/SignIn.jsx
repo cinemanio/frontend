@@ -1,25 +1,25 @@
 // @flow
 import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
-import { inject, observer, PropTypes as MobxPropTypes } from 'mobx-react'
+import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
 import { PropTypes } from 'prop-types'
 import { ApolloConsumer, Mutation } from 'react-apollo'
 import { ApolloClient } from 'apollo-client-preset'
 import { Helmet } from 'react-helmet'
-import { translate } from 'react-i18next'
+import { translate, type Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 import { Row, Col, Form } from 'antd'
 
 import routes from 'components/App/routes'
+import token from 'stores/Token'
 
 import SignInForm from './SignInForm/SignInForm'
 
-type Props = { form: Object, token: Object, history: Object, i18n: Object }
+type Props = { form: Object, token: typeof token, history: Object, i18n: Translator }
 
 @translate()
 @inject('token')
 @withRouter
-@observer
 @Form.create()
 export default class SignIn extends React.Component<Props> {
   static propTypes = {
@@ -30,7 +30,7 @@ export default class SignIn extends React.Component<Props> {
   }
 
   static fragments = {
-    signin: gql`
+    mutation: gql`
       mutation TokenAuth($username: String!, $password: String!) {
         tokenAuth(username: $username, password: $password) {
           token
@@ -39,10 +39,12 @@ export default class SignIn extends React.Component<Props> {
     `,
   }
 
+  static i18nPrefix = 'signin'
+
   updateCache = (client: ApolloClient) => (cache: Object, { data }: Object) => {
     client.resetStore()
     this.props.token.set(data.tokenAuth.token)
-    this.props.history.goBack()
+    this.props.history.push(routes.index)
   }
 
   onError = (errors: Object) => {
@@ -66,15 +68,15 @@ export default class SignIn extends React.Component<Props> {
         </Helmet>
         <ApolloConsumer>
           {client => (
-            <Mutation mutation={SignIn.fragments.signin} update={this.updateCache(client)} onError={this.onError}>
-              {(signin, { loading }) => (
+            <Mutation mutation={SignIn.fragments.mutation} update={this.updateCache(client)} onError={this.onError}>
+              {(submit, { loading }) => (
                 <Row type="flex" justify="center">
                   <Col span={10}>
                     <h1>{this.props.i18n.t('signin.title')}</h1>
                     <p>
                       <Link to={routes.signup}>{this.props.i18n.t('signin.needAccount')}</Link>
                     </p>
-                    <SignInForm signin={signin} form={this.props.form} loading={loading} />
+                    <SignInForm submit={submit} form={this.props.form} loading={loading} />
                   </Col>
                 </Row>
               )}

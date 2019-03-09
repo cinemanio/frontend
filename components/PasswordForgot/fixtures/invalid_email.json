@@ -1,0 +1,17 @@
+{
+  "errors": [
+    {
+      "message": "Enter a valid email address.",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": ["resetPasswordRequest"]
+    }
+  ],
+  "data": {
+    "resetPasswordRequest": null
+  }
+}

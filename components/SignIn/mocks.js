@@ -1,31 +1,15 @@
-import SignIn from './SignIn'
-import response from './fixtures/response.json'
+// @flow
+import faker from 'faker'
 
-export const variables = {
-  username: 'username',
-  password: 'password',
+import submitter from 'tests/submitter'
+
+import SignIn from './SignIn'
+import SignInForm from './SignInForm/SignInForm'
+import response from './fixtures/response'
+
+const vars = {
+  username: faker.internet.userName(),
+  password: faker.internet.password(),
 }
-export const mockSignIn = {
-  request: { query: SignIn.fragments.signin, variables },
-  result: response,
-}
-export const setUsername = (wrapper, value) =>
-  wrapper
-    .find('SignIn')
-    .find('Input[id="username"]')
-    .props()
-    .onChange(value || variables.username)
-export const setPassword = (wrapper, value) =>
-  wrapper
-    .find('SignIn')
-    .find('Input[id="password"]')
-    .props()
-    .onChange(value || variables.password)
-export const signIn = wrapper => {
-  setUsername(wrapper)
-  setPassword(wrapper)
-  wrapper
-    .find('SignIn')
-    .find('form')
-    .simulate('submit')
-}
+
+export default submitter(SignIn, SignInForm, vars, response)
