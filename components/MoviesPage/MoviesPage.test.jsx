@@ -107,6 +107,7 @@ describe('Movies Page Component', () => {
     })
 
     it('should render message if no results in response', async () => {
+      global.console.warn = jest.fn()
       wrapper = await mountGraphql(<MoviesPage />, [{ ...mockMovies, result: emptyResponse }])
       expect(wrapper.find('MovieShort')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such movies.')

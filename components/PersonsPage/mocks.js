@@ -1,3 +1,4 @@
+// @flow
 import PersonsPage from './PersonsPage'
 import response from './fixtures/response.json'
 import countries from './fixtures/countries.json'
@@ -9,7 +10,7 @@ export const mockPersons = {
 }
 export const mockCountries = { request: { query: PersonsPage.queries.countries }, result: countries }
 export const mockRoles = { request: { query: PersonsPage.queries.roles }, result: roles }
-export const mockWithParams = params => ({
+export const mockWithParams = (params: Object) => ({
   ...mockPersons,
   request: {
     ...mockPersons.request,

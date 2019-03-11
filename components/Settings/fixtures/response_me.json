@@ -1,0 +1,9 @@
+{
+  "data": {
+    "me": {
+      "username": "user",
+      "email": "user@gmail.com",
+      "__typename": "UserNode"
+    }
+  }
+}

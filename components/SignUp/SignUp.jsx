@@ -1,97 +1,97 @@
 // @flow
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { observer, PropTypes as MobxPropTypes } from 'mobx-react'
-// import { PropTypes } from 'prop-types'
+import { observer } from 'mobx-react'
+import { ApolloClient } from 'apollo-client-preset'
+import { Col, Form, Row } from 'antd'
+import { translate, type Translator } from 'react-i18next'
+import { PropTypes } from 'prop-types'
+import gql from 'graphql-tag'
+import { Helmet } from 'react-helmet'
+import { ApolloConsumer, Mutation } from 'react-apollo'
 
-import ListErrors from 'components/ListErrors/ListErrors'
 import routes from 'components/App/routes'
 
-type Props = {
-  auth: Object,
-  // history: Object
-}
+import SignUpForm from './SignUpForm/SignUpForm'
 
+type Props = { form: Object, i18n: Translator }
+type State = { submitted: boolean }
+
+@translate()
 @observer
-export default class SignUp extends React.Component<Props> {
+@Form.create()
+export default class SignUp extends React.Component<Props, State> {
   static propTypes = {
-    auth: MobxPropTypes.observableObject.isRequired,
-    // history: PropTypes.object.isRequired,
+    i18n: PropTypes.object.isRequired,
+    form: PropTypes.object.isRequired,
   }
 
-  componentWillUnmount() {
-    this.props.auth.reset()
+  static fragments = {
+    mutation: gql`
+      mutation RegisterUser($username: String!, $email: String!, $password: String!) {
+        registerUser(username: $username, email: $email, password: $password) {
+          ok
+        }
+      }
+    `,
   }
 
-  handleUsernameChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setUsername(e.currentTarget.value)
+  static i18nPrefix = 'signup'
 
-  handleEmailChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setEmail(e.currentTarget.value)
+  state = { submitted: false }
 
-  handlePasswordChange = (e: SyntheticEvent<HTMLInputElement>) => this.props.auth.setPassword(e.currentTarget.value)
+  updateCache = (client: ApolloClient) => (cache: Object, { data }: Object) => {
+    client.resetStore()
+    this.setState({ submitted: data.registerUser.ok })
+  }
 
-  handleSubmitForm = (e: Event) => {
-    e.preventDefault()
-    // this.props.auth.register()
-    //   .then(() => this.props.history.replace('/'))
+  onError = (errors: Object) => {
+    if (errors.graphQLErrors) {
+      this.props.form.setFields({
+        username: {
+          value: this.props.form.getFieldValue('username'),
+          errors: errors.graphQLErrors,
+        },
+      })
+    } else {
+      console.error(errors)
+    }
   }
 
   render() {
     return (
-      <div className="auth-page">
-        <div className="container page">
-          <div className="row">
-            <div className="col-md-6 offset-md-3 col-xs-12">
-              <h1 className="text-xs-center">Sign Up</h1>
-              <p className="text-xs-center">
-                <Link to={routes.signin}>Have an account?</Link>
-              </p>
-
-              <ListErrors errors={this.props.auth.errors} />
-
-              <form onSubmit={this.handleSubmitForm}>
-                <fieldset>
-                  <fieldset className="form-group">
-                    <input
-                      className="form-control form-control-lg"
-                      type="text"
-                      placeholder="Username"
-                      value={this.props.auth.values.username}
-                      onChange={this.handleUsernameChange}
-                    />
-                  </fieldset>
-
-                  <fieldset className="form-group">
-                    <input
-                      className="form-control form-control-lg"
-                      type="email"
-                      placeholder="Email"
-                      value={this.props.auth.values.email}
-                      onChange={this.handleEmailChange}
-                    />
-                  </fieldset>
-
-                  <fieldset className="form-group">
-                    <input
-                      className="form-control form-control-lg"
-                      type="password"
-                      placeholder="Password"
-                      value={this.props.auth.values.password}
-                      onChange={this.handlePasswordChange}
-                    />
-                  </fieldset>
-
-                  <button
-                    className="btn btn-lg btn-primary pull-xs-right"
-                    type="submit"
-                    disabled={this.props.auth.inProgress}
-                  >
-                    Sign up
-                  </button>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
+      <div>
+        <Helmet>
+          <title>{this.props.i18n.t('signup.title')}</title>
+        </Helmet>
+        <Row type="flex" justify="center">
+          <Col span={10}>
+            {this.state.submitted ? (
+              <div>
+                <h1>{this.props.i18n.t('signup.done.title')}</h1>
+                <p>{this.props.i18n.t('signup.done.message')}</p>
+              </div>
+            ) : (
+              <div>
+                <h1>{this.props.i18n.t('signup.title')}</h1>
+                <p>
+                  <Link to={routes.signin}>{this.props.i18n.t('signup.haveAccount')}</Link>
+                </p>
+                <ApolloConsumer>
+                  {client => (
+                    <Mutation
+                      mutation={SignUp.fragments.mutation}
+                      update={this.updateCache(client)}
+                      onError={this.onError}
+                    >
+                      {(submit, { loading }) => <SignUpForm submit={submit} form={this.props.form} loading={loading} />}
+                    </Mutation>
+                  )}
+                </ApolloConsumer>
+              </div>
+            )}
+          </Col>
+        </Row>
       </div>
     )
   }

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
-import { translate } from 'react-i18next'
+import { translate, type Translator } from 'react-i18next'
 import { PropTypes } from 'prop-types'
 import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
 import { withAlert } from 'react-alert'
@@ -28,7 +28,7 @@ type Props = {
   data: Object,
   genreData: Object,
   countryData: Object,
-  i18n: Object,
+  i18n: Translator,
   alert: Object,
   user: typeof User,
 }

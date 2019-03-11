@@ -1,9 +1,0 @@
-.username {
-  font-weight: bold;
-  padding-right: 0.5rem;
-
-  &::after {
-    content: '·';
-    padding-left: 0.5rem;
-  }
-}
