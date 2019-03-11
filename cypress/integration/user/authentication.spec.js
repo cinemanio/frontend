@@ -1,19 +1,16 @@
-const user = {
-  username: 'user',
-  password: 'password',
-}
-
 describe('Authentication', () => {
+  const user = Cypress.env('user')
+
   beforeEach(() => {
-    cy.visit('/signin')
     cy.lang('en')
+    cy.visit('/signin')
   })
 
   it('greets with right title', () => {
     cy.contains('h1', 'Sign In')
   })
 
-  xit('has link to registration', () => {
+  it('has link to registration', () => {
     cy.contains('Need an account?').should('have.attr', 'href', '/signup')
   })
 

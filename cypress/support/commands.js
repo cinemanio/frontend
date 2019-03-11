@@ -1,3 +1,4 @@
+// @flow
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -10,14 +11,12 @@
 //
 //
 // -- This is a parent command --
-import Cookies from 'universal-cookie'
+import User from 'stores/User'
 
-import i18nClient from '../../libs/i18nClient'
-
-Cypress.Commands.add('login', (username, password) => {
+Cypress.Commands.add('login', (username: string, password: string) => {
   cy.request({
     method: 'post',
-    url: 'https://cinemanio-backend.herokuapp.com/graphql/',
+    url: Cypress.env('backendUrl'),
     body: {
       operationName: 'TokenAuth',
       variables: { username, password },
@@ -26,14 +25,13 @@ Cypress.Commands.add('login', (username, password) => {
         'tokenAuth(username: $username, password: $password) {\n    token\n    __typename\n  }\n' +
         '}',
     },
-  }).then(response => new Cookies().set('jwt', response.body.data.tokenAuth.token, {}))
+  }).then((response: Object) => {
+    cy.setCookie('jwt', response.body.data.tokenAuth.token, {})
+    User.login(username)
+  })
 })
 
-Cypress.Commands.add('lang', (language) => {
-  new Cookies().set('lang', language, {})
-  i18nClient.changeLanguage(language)
-  cy.contains('English').click()
-})
+Cypress.Commands.add('lang', (language: string) => cy.setCookie('lang', language))
 
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })

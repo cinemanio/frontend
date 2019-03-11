@@ -59,7 +59,7 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
   }
 
   renderSignin(client: ?ApolloClient) {
-    return this.props.user.username ? (
+    return this.props.user.authenticated ? (
       <div>
         <Link to={routes.settings} styleName="username">
           {this.props.user.username}

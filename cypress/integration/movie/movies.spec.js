@@ -1,6 +1,5 @@
-describe('Movies Page', () => {
+describe('Movies', () => {
   beforeEach(() => {
-    cy.login('user', 'password')
     cy.lang('en')
     cy.visit('/movies')
   })
