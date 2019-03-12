@@ -39,7 +39,9 @@ describe('Settings', () => {
     })
 
     it('navigates to / on save', () => {
-      cy.get('form').contains('Save settings').click()
+      cy.get('form')
+        .contains('Save settings')
+        .click()
       cy.url().should('be', '/')
     })
   })
