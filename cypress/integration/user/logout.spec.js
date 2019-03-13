@@ -1,3 +1,4 @@
+// @flow
 describe('Logout', () => {
   const user = Cypress.env('user')
 

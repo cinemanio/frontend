@@ -1,12 +1,11 @@
+// @flow
 describe('Settings', () => {
   beforeEach(() => {
     cy.lang('en')
     cy.visit('/settings')
   })
 
-  it('redirect to signin', () => {
-    cy.url().should('be', '/signin')
-  })
+  it('redirect to signin', () => cy.url().should('be', '/signin'))
 
   describe('Authenticated', () => {
     const user = Cypress.env('user')
@@ -17,21 +16,14 @@ describe('Settings', () => {
       cy.visit('/settings')
     })
 
-    it('greets with right title', () => {
-      cy.contains('h1', 'Account Settings')
-    })
+    it('greets with right title', () => cy.contains('h1', 'Account Settings'))
 
-    it('has link to password change', () => {
-      cy.contains('Change password').should('have.attr', 'href', '/password/change')
-    })
+    it('has link to password change', () =>
+      cy.contains('Change password').should('have.attr', 'href', '/password/change'))
 
-    it('has username value', () => {
-      cy.get('#username').should('have.value', user.username)
-    })
+    it('has username value', () => cy.get('#username').should('have.value', user.username))
 
-    it('has email value', () => {
-      cy.get('#email').should('have.value', user.email)
-    })
+    it('has email value', () => cy.get('#email').should('have.value', user.email))
 
     it('requires valid email', () => {
       cy.get('#email').clear().type('wrong{enter}')
@@ -39,9 +31,7 @@ describe('Settings', () => {
     })
 
     it('navigates to / on save', () => {
-      cy.get('form')
-        .contains('Save settings')
-        .click()
+      cy.contains('Save settings').click()
       cy.url().should('be', '/')
     })
   })
