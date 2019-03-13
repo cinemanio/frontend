@@ -22,7 +22,8 @@
     "stylelint": "stylelint '**/*.scss'",
     "size": "bundlesize",
     "prettier": "prettier --write '**/*.js*' !public/** !coverage/** !stats.json !flow-typed/**",
-    "cypress:open": "cypress open",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "heroku-postbuild": "npm run build",
     "fetch-fragments-types": "babel-node ./lib/fragments/fetcher.js"
   },

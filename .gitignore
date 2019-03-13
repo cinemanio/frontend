@@ -1,5 +1,6 @@
 /public
 /node_modules
+/cypress/videos
 /coverage
 /webpack-stats.json
 /stats.json
