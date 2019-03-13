@@ -1,13 +1,15 @@
 // @flow
 import { observable, computed, action } from 'mobx'
 
+import token from 'stores/Token'
+
 class User {
   @observable
   username: ?string
 
   @computed
   get authenticated(): boolean {
-    return !!this.username
+    return !!token.token
   }
 
   @action

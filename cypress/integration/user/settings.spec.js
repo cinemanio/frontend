@@ -1,6 +1,10 @@
 describe('Settings', () => {
-  it('redirect to signin', () => {
+  beforeEach(() => {
+    cy.lang('en')
     cy.visit('/settings')
+  })
+
+  it('redirect to signin', () => {
     cy.url().should('be', '/signin')
   })
 
@@ -22,19 +26,15 @@ describe('Settings', () => {
     })
 
     it('has username value', () => {
-      cy.get('form')
-        .should('contain', user.username)
-        .click()
+      cy.get('#username').should('have.value', user.username)
     })
 
     it('has email value', () => {
-      cy.get('form')
-        .should('contain', user.email)
-        .click()
+      cy.get('#email').should('have.value', user.email)
     })
 
     it('requires valid email', () => {
-      cy.get('#email').type('wrong{enter}')
+      cy.get('#email').clear().type('wrong{enter}')
       cy.get('form').should('contain', 'is not valid email')
     })
 

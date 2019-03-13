@@ -7,8 +7,9 @@ describe('Logout', () => {
     cy.visit('/')
   })
 
-  it('should logout', () => {
+  it('should logout successfully', () => {
+    cy.contains(user.username)
     cy.contains('logout').click()
-    cy.should('contain', 'sign in')
+    cy.contains('sign in')
   })
 })

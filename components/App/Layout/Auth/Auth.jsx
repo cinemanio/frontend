@@ -2,7 +2,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { translate } from 'react-i18next'
-import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
+import { observer, inject, PropTypes as MobxPropTypes } from 'mobx-react'
 import { ApolloConsumer } from 'react-apollo'
 import { ApolloClient } from 'apollo-client-preset'
 import gql from 'graphql-tag'
@@ -19,6 +19,7 @@ type InjectedProps = { user: typeof user, token: typeof token }
 
 @translate()
 @inject('user', 'token')
+@observer
 export default class Auth extends InjectedComponent<{}, InjectedProps> {
   static propTypes = {
     user: MobxPropTypes.observableObject.isRequired,

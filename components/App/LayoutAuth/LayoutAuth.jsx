@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
+import { observer, inject, PropTypes as MobxPropTypes } from 'mobx-react'
 import { Redirect } from 'react-router-dom'
 import { withAlert } from 'react-alert'
 import { translate, type Translator } from 'react-i18next'
@@ -15,8 +15,9 @@ import Layout, { type Props as LayoutProps } from '../Layout/Layout'
 type Props = LayoutProps & { user: typeof User, i18n: Translator, alert: Object }
 
 @withAlert
-@inject('user')
 @translate()
+@inject('user')
+@observer
 export default class LayoutAuth extends React.Component<Props> {
   static defaultProps = {
     user: User,
