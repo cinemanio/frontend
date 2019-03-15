@@ -158,7 +158,7 @@
     "eslint-plugin-promise": "4.0.1",
     "eslint-plugin-react": "7.12.4",
     "faker": "4.1.0",
-    "flow-bin": "0.94.0",
+    "flow-bin": "0.95.0",
     "jest": "24.0.0",
     "jest-watch-typeahead": "0.2.1",
     "lodash-webpack-plugin": "0.11.5",
