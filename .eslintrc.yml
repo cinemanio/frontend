@@ -42,10 +42,8 @@ rules:
   ### Stylistic issues
   id-length: [error, {min: 2, exceptions: [_, e, i, d, j, k, v, s, q, x, y], properties: never}]
   max-len: [error, 121, 2, {ignoreUrls: true}]
-  indent: [warn, 2, {FunctionDeclaration: {parameters: first}}]
+  indent: off
   spaced-comment: off
-  #  object-curly-spacing: off
-  #  quotes: off
   comma-dangle: [error, only-multiline, {functions: never}]
   semi: off
   no-else-return: off
@@ -73,7 +71,7 @@ rules:
 
   ### React
   jsx-quotes: [warn, prefer-double]
-  react/jsx-indent: [warn, 2]
+  react/jsx-indent: off
   react/jsx-boolean-value: warn
   react/jsx-curly-spacing: warn
   react/jsx-indent-props: off
