@@ -1,7 +1,9 @@
 // @flow
 describe('Movies', () => {
-  const total = 910
-  const moviesSelector = '.ReactVirtualized__Grid.ReactVirtualized__List'
+  const total = 1000
+  const gridSelector = 'div[aria-label="grid"]'
+  const moviesShortSelector = '.ReactVirtualized__Grid.ReactVirtualized__List'
+  const moviesPostersSelector = '.ReactVirtualized__Collection'
   const alertSelector = '.ant-alert'
   const filtersSelector = '.ant-tag'
   const dropdownSelector = '.ant-select'
@@ -80,15 +82,24 @@ describe('Movies', () => {
     cy.visit('/movies')
   })
 
-  describe('By default', () => {
-    ;[['Display', 'Short'], ['Order by', 'Likes']].forEach(([selectName, defaultOption]) => {
-      it(`should have selected option '${defaultOption}' of '${selectName}'`, () =>
-        expectSelectValue(selectName, defaultOption))
-    })
+  it('should have selected default options and display short previews', () => {
+    ;[['Display', 'Short'], ['Order by', 'Likes']].forEach(([selectName, defaultOption]) =>
+      expectSelectValue(selectName, defaultOption)
+    )
+    // movies previews should be short
+    cy.get(moviesShortSelector)
   })
 
   it('should display movies as big posters', () => {
     selectDropdownValue('Display', 'Posters')
+    cy.get(moviesPostersSelector)
+  })
+
+  it('should scroll posters to the bottom and display correct page', () => {
+    selectDropdownValue('Display', 'Posters')
+    expectPage(8)
+    cy.get(gridSelector).scrollTo('bottom')
+    expectPage(104)
   })
 
   it('should order by year desc', () => {
@@ -103,7 +114,7 @@ describe('Movies', () => {
 
   it('should scroll movies to the bottom and display correct page', () => {
     expectPage(4)
-    cy.get(moviesSelector).scrollTo('bottom')
+    cy.get(gridSelector).scrollTo('bottom')
     expectPage(102)
   })
 

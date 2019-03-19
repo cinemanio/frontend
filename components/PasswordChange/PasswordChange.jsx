@@ -46,8 +46,8 @@ export default class PasswordChange extends React.Component<Props, State> {
   onError = (errors: Object) => {
     if (errors.graphQLErrors) {
       this.props.form.setFields({
-        email: {
-          value: this.props.form.getFieldValue('email'),
+        oldPassword: {
+          value: this.props.form.getFieldValue('oldPassword'),
           errors: errors.graphQLErrors,
         },
       })

@@ -46,7 +46,11 @@ export default class PasswordChangeForm extends React.Component<Props> {
       rules: [{ required: true, message: this.props.i18n.t('passwordChange.errors.oldPasswordRequired') }],
     }
     return this.props.form.getFieldDecorator('oldPassword', options)(
-      <InputWithIcon iconType="lock" type="password" placeholder={this.props.i18n.t('passwordChange.placeholders.oldPassword')} />
+      <InputWithIcon
+        iconType="lock"
+        type="password"
+        placeholder={this.props.i18n.t('passwordChange.placeholders.oldPassword')}
+      />
     )
   }
 
