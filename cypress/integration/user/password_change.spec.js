@@ -5,13 +5,12 @@ describe('Password Change', () => {
     cy.visit('/password/change')
   })
 
-  it('redirect to signin', () => cy.url().should('be', '/signin'))
+  it('redirect to signin if not authenticated', () => cy.pathname('/signin'))
 
   describe('Authenticated', () => {
     const user = Cypress.env('user')
 
     beforeEach(() => {
-      cy.lang('en')
       cy.login(user.username, user.password)
       cy.visit('/password/change')
     })
@@ -36,13 +35,13 @@ describe('Password Change', () => {
     it('requires correct old password', () => {
       cy.get('#oldPassword').type('wrong')
       cy.get('#newPassword').type('new_password{enter}')
-      cy.get('form').should('contain', 'is not valid email')
+      cy.get('form').should('contain', 'old password was entered incorrectly')
     })
 
     it('navigates to / on save', () => {
       cy.get('#oldPassword').type(`${user.password}`)
       cy.get('#newPassword').type(`${user.password}{enter}`)
-      cy.url().should('be', '/')
+      cy.pathname('/')
     })
   })
 })

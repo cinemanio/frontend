@@ -5,13 +5,12 @@ describe('Settings', () => {
     cy.visit('/settings')
   })
 
-  it('redirect to signin', () => cy.url().should('be', '/signin'))
+  it('redirect to signin if not authenticated', () => cy.pathname('/signin'))
 
   describe('Authenticated', () => {
     const user = Cypress.env('user')
 
     beforeEach(() => {
-      cy.lang('en')
       cy.login(user.username, user.password)
       cy.visit('/settings')
     })
@@ -21,9 +20,10 @@ describe('Settings', () => {
     it('has link to password change', () =>
       cy.contains('Change password').should('have.attr', 'href', '/password/change'))
 
-    it('has username value', () => cy.get('#username').should('have.value', user.username))
-
-    it('has email value', () => cy.get('#email').should('have.value', user.email))
+    it('has initial values', () => {
+      cy.get('#email').should('have.value', user.email)
+      cy.get('#username').should('have.value', user.username)
+    })
 
     it('requires valid email', () => {
       cy.get('#email').clear().type('wrong{enter}')
@@ -32,7 +32,7 @@ describe('Settings', () => {
 
     it('navigates to / on save', () => {
       cy.contains('Save settings').click()
-      cy.url().should('be', '/')
+      cy.pathname('/')
     })
   })
 })

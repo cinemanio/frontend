@@ -33,6 +33,8 @@ Cypress.Commands.add('login', (username: string, password: string) => {
 
 Cypress.Commands.add('lang', (language: string) => cy.setCookie('lang', language))
 
+Cypress.Commands.add('pathname', (pathname: string) => cy.location('pathname').should('equal', pathname))
+
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //

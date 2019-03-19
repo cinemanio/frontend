@@ -1,5 +1,5 @@
 // @flow
-describe('Authentication', () => {
+describe('Login', () => {
   const user = Cypress.env('user')
 
   beforeEach(() => {
@@ -33,6 +33,15 @@ describe('Authentication', () => {
     cy.get('#username').type(user.username)
     cy.get('#password').type(`${user.password}{enter}`)
     cy.contains(user.username)
-    cy.url().should('be', '/')
+    cy.pathname('/movies')
+  })
+
+  describe('Authenticated', () => {
+    beforeEach(() => {
+      cy.login(user.username, user.password)
+      cy.visit('/signin')
+    })
+
+    it('redirect to / if authenticated', () => cy.pathname('/movies'))
   })
 })
