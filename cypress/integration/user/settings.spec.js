@@ -26,13 +26,15 @@ describe('Settings', () => {
     })
 
     it('requires valid email', () => {
-      cy.get('#email').clear().type('wrong{enter}')
+      cy.get('#email')
+        .clear()
+        .type('wrong{enter}')
       cy.get('form').should('contain', 'is not valid email')
     })
 
     it('navigates to / on save', () => {
       cy.contains('Save settings').click()
-      cy.pathname('/')
+      cy.pathname('/movies')
     })
   })
 })

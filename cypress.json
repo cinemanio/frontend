@@ -2,6 +2,7 @@
   "baseUrl": "http://localhost:3000",
   "video": false,
   "env": {
+    "emailsDir": "tmp/emails/",
     "backendUrl": "http://localhost:8000/graphql/",
     "user": {
       "email": "testuser@gmail.com",

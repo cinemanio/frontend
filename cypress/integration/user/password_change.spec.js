@@ -17,8 +17,7 @@ describe('Password Change', () => {
 
     it('greets with right title', () => cy.contains('h1', 'Change Password'))
 
-    it('has link to account settings', () =>
-      cy.contains('Change settings').should('have.attr', 'href', '/settings'))
+    it('has link to account settings', () => cy.contains('Change settings').should('have.attr', 'href', '/settings'))
 
     it('requires old password', () => {
       cy.get('form')
@@ -38,10 +37,11 @@ describe('Password Change', () => {
       cy.get('form').should('contain', 'old password was entered incorrectly')
     })
 
-    it('navigates to / on save', () => {
+    it('navigates to / on save and send email', () => {
       cy.get('#oldPassword').type(`${user.password}`)
       cy.get('#newPassword').type(`${user.password}{enter}`)
-      cy.pathname('/')
+      cy.pathname('/movies')
+      cy.emailSent('Your password on cineman.io has been changed successfully')
     })
   })
 })

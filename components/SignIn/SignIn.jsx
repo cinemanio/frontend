@@ -63,7 +63,9 @@ export default class SignIn extends React.Component<Props> {
   }
 
   render() {
-    return this.props.user.authenticated ? <Redirect to={routes.index} /> : (
+    return this.props.user.authenticated ? (
+      <Redirect to={routes.index} />
+    ) : (
       <div>
         <Helmet>
           <title>{this.props.i18n.t('signin.title')}</title>

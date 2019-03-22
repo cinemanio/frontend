@@ -35,6 +35,16 @@ Cypress.Commands.add('lang', (language: string) => cy.setCookie('lang', language
 
 Cypress.Commands.add('pathname', (pathname: string) => cy.location('pathname').should('equal', pathname))
 
+Cypress.Commands.add('emailSent', (text: string) => {
+  cy.wait(1000)
+  cy.exec(`ls ${Cypress.env('emailsDir')} | wc -l`)
+    .its('stdout')
+    .should('equal', '1')
+  cy.exec(`ls ${Cypress.env('emailsDir')}`).then(({ stdout }) =>
+    cy.readFile(`${Cypress.env('emailsDir')}${stdout}`).should('contain', text)
+  )
+})
+
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //

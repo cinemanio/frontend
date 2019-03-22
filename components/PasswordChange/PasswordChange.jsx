@@ -10,6 +10,8 @@ import { translate, type Translator } from 'react-i18next'
 import gql from 'graphql-tag'
 import { Row, Col, Form } from 'antd'
 
+import routes from 'components/App/routes'
+
 import PasswordChangeForm from './PasswordChangeForm/PasswordChangeForm'
 
 type Props = { form: Object, i18n: Translator, history: Object }
@@ -40,7 +42,7 @@ export default class PasswordChange extends React.Component<Props, State> {
 
   updateCache = (client: ApolloClient) => (cache: Object, { data }: Object) => {
     client.resetStore()
-    this.props.history.goBack()
+    this.props.history.push(routes.index)
   }
 
   onError = (errors: Object) => {
