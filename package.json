@@ -118,7 +118,7 @@
     "react-router": "5.0.0",
     "react-router-dom": "5.0.0",
     "react-router-named-routes": "0.0.23",
-    "react-transition-group": "2.6.1",
+    "react-transition-group": "2.7.0",
     "react-virtualized": "9.21.0",
     "redbox-react": "1.6.0",
     "sass-loader": "7.1.0",
