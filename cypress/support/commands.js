@@ -40,10 +40,17 @@ Cypress.Commands.add('emailSent', (text: string) => {
   cy.exec(`ls ${Cypress.env('emailsDir')} | wc -l`)
     .its('stdout')
     .should('equal', '1')
-  cy.exec(`ls ${Cypress.env('emailsDir')}`).then(({ stdout }) =>
-    cy.readFile(`${Cypress.env('emailsDir')}${stdout}`).should('contain', text)
-  )
+  return cy
+    .exec(`ls ${Cypress.env('emailsDir')}`)
+    .then(({ stdout }) => cy.readFile(`${Cypress.env('emailsDir')}${stdout}`).should('contain', text))
 })
+
+Cypress.Commands.add('recreateUser', () =>
+  cy.exec(
+    // TODO: orginize better this command call
+    '/Users/ramusus/.virtualenvs/cinemanio/bin/python ./manage.py seed_test_user --settings=cinemanio.settings_test'
+  )
+)
 
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })

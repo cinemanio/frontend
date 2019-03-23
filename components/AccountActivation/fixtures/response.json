@@ -1,0 +1,13 @@
+{
+  "data": {
+    "activateUser": {
+      "token": "zxcqweqd323124fgdfkj2o834uwkdfnlsr2834024",
+      "payload": {
+        "username": "john_lennon",
+        "exp": 1535464831,
+        "orig_iat": 1535464531
+      },
+      "__typename": "ObtainJSONWebToken"
+    }
+  }
+}

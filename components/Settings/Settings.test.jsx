@@ -2,7 +2,7 @@ import React from 'react'
 
 import { mountGraphql } from 'tests/helpers'
 import i18nClient from 'libs/i18nClient'
-import User from 'stores/User'
+import Token from 'stores/Token'
 
 import Settings from './Settings'
 import submitter from './mocks'
@@ -16,7 +16,7 @@ describe('Settings Component', () => {
   beforeEach(() => {
     i18nClient.changeLanguage('en')
     global.console.warn = jest.fn()
-    User.login('user')
+    Token.set('token')
   })
 
   itShould.test(element)

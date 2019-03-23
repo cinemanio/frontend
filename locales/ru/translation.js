@@ -153,6 +153,10 @@ export default {
       passwordRequired: 'Поле пароль обязательное',
     },
   },
+  activation: {
+    title: 'Активация аккаунта',
+    message: 'Ваш аккаунт был успешно активирован',
+  },
   settings: {
     title: 'Настройки аккаунта',
     changePassword: 'Поменять пароль',

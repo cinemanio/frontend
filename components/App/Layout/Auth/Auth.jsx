@@ -8,11 +8,11 @@ import { ApolloClient } from 'apollo-client-preset'
 import gql from 'graphql-tag'
 
 import InjectedComponent from 'components/InjectedComponent/InjectedComponent'
+import MutationOnMount from 'components/MutationOnMount/MutationOnMount'
 import routes from 'components/App/routes'
 import user from 'stores/User'
 import token from 'stores/Token'
 
-import MutationOnMount from './MutationOnMount/MutationOnMount'
 import './Auth.scss'
 
 type InjectedProps = { user: typeof user, token: typeof token }
@@ -43,15 +43,8 @@ export default class Auth extends InjectedComponent<{}, InjectedProps> {
     client.resetStore()
   }
 
-  updateCache = (
-    cache: Object,
-    {
-      data: {
-        verifyToken: { payload },
-      },
-    }: Object
-  ) => {
-    this.props.user.login(payload.username)
+  updateCache = (cache: Object, { data }: Object) => {
+    this.props.user.login(data.verifyToken.payload.username)
   }
 
   onError(error: Object) {

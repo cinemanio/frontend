@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { withRouter, Link, Redirect } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { inject, PropTypes as MobxPropTypes } from 'mobx-react'
 import { PropTypes } from 'prop-types'
 import { ApolloConsumer, Mutation } from 'react-apollo'
@@ -12,14 +12,13 @@ import { Row, Col, Form } from 'antd'
 
 import routes from 'components/App/routes'
 import token from 'stores/Token'
-import user from 'stores/User'
 
 import SignInForm from './SignInForm/SignInForm'
 
-type Props = { form: Object, token: typeof token, user: typeof user, history: Object, i18n: Translator }
+type Props = { form: Object, token: typeof token, history: Object, i18n: Translator }
 
 @translate()
-@inject('token', 'user')
+@inject('token')
 @withRouter
 @Form.create()
 export default class SignIn extends React.Component<Props> {
@@ -27,7 +26,6 @@ export default class SignIn extends React.Component<Props> {
     i18n: PropTypes.object.isRequired,
     form: PropTypes.object.isRequired,
     token: MobxPropTypes.observableObject.isRequired,
-    user: MobxPropTypes.observableObject.isRequired,
     history: PropTypes.object.isRequired,
   }
 
@@ -63,9 +61,7 @@ export default class SignIn extends React.Component<Props> {
   }
 
   render() {
-    return this.props.user.authenticated ? (
-      <Redirect to={routes.index} />
-    ) : (
+    return (
       <div>
         <Helmet>
           <title>{this.props.i18n.t('signin.title')}</title>

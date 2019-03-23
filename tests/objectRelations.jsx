@@ -1,7 +1,7 @@
 import React from 'react'
 
 import mutationResponse from 'components/Relation/mutationResponse'
-import User from 'stores/User'
+import Token from 'stores/Token'
 
 import { getAlerts, mountGraphql } from './helpers'
 
@@ -21,7 +21,7 @@ export default (Component, query, mock, object, message) => {
         .simulate('click')
 
     it('should change relation and relations count', async () => {
-      User.login('user')
+      Token.set('token')
       wrapper = await mountGraphql(<Component match={{ params: { slug: object.id } }} />, [mock, favMock])
       expect(wrapper.find('Relation[code="fav"]').find('span[className="active"]')).toHaveLength(0)
       expect(wrapper.find('Relation[code="fav"]').text()).toBe('2')
@@ -31,7 +31,7 @@ export default (Component, query, mock, object, message) => {
     })
 
     it('should display one alert when switch relation on and off', async () => {
-      User.login('user')
+      Token.set('token')
       wrapper = await mountGraphql(<Component match={{ params: { slug: object.id } }} />, [mock, favMock])
       expect(getAlerts(wrapper)).toHaveLength(0)
       fav()
@@ -43,7 +43,7 @@ export default (Component, query, mock, object, message) => {
     })
 
     it('should not change relation, but display alert if user is unauthenticated', async () => {
-      User.logout()
+      Token.set(undefined)
       wrapper = await mountGraphql(<Component match={{ params: { slug: object.id } }} />, [mock])
       expect(getAlerts(wrapper)).toHaveLength(0)
       fav()

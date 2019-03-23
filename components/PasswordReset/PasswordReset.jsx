@@ -51,16 +51,7 @@ export default class PasswordReset extends React.Component<Props, State> {
   }
 
   onError = (errors: Object) => {
-    if (errors.graphQLErrors) {
-      this.props.form.setFields({
-        email: {
-          value: this.props.form.getFieldValue('email'),
-          errors: errors.graphQLErrors,
-        },
-      })
-    } else {
-      console.error(errors)
-    }
+    console.error(errors)
   }
 
   render() {

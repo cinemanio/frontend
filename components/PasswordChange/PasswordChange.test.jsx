@@ -2,6 +2,7 @@ import React from 'react'
 
 import { mountGraphql } from 'tests/helpers'
 import i18nClient from 'libs/i18nClient'
+import Token from 'stores/Token'
 
 import PasswordChange from './PasswordChange'
 import submitter from './mocks'
@@ -15,20 +16,21 @@ describe('PasswordChange Component', () => {
   beforeEach(() => {
     i18nClient.changeLanguage('en')
     global.console.warn = jest.fn()
+    Token.set('token')
   })
 
   itShould.test(element)
 
-  it('should submit form with mutation and navigate back', async done => {
+  it('should submit form with mutation and navigate to index', async done => {
     wrapper = await mountGraphql(element, mocks)
-    wrapper.find('PasswordChange').prop('history').goBack = jest.fn()
-    const goBack = () => wrapper.find('PasswordChange').prop('history').goBack
+    wrapper.find('PasswordChange').prop('history').push = jest.fn()
+    const push = () => wrapper.find('PasswordChange').prop('history').push
 
-    expect(goBack()).not.toHaveBeenCalled()
+    expect(push()).not.toHaveBeenCalled()
     submit(wrapper)
 
     setTimeout(() => {
-      expect(goBack()).toHaveBeenCalled()
+      expect(push()).toHaveBeenCalled()
       done()
     })
   })

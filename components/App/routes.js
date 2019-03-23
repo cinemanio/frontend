@@ -13,6 +13,7 @@ const routes = {
   },
   signin: '/signin',
   signup: '/signup',
+  activation: '/account/activate/:key',
   settings: '/settings',
   password: {
     change: '/password/change',
@@ -24,6 +25,7 @@ const routes = {
 
 routes.movie.getDetail = (id: string) => routes.movie.detail.replace(':slug', id)
 routes.person.getDetail = (id: string) => routes.person.detail.replace(':slug', id)
+routes.getActivation = (key: string) => routes.activation.replace(':key', key)
 routes.password.getReset = (uid: string, token: string) =>
   routes.password.reset.replace(':uid', uid).replace(':token', token)
 

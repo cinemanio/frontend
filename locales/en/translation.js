@@ -153,6 +153,10 @@ export default {
       passwordRequired: 'Password field is required',
     },
   },
+  activation: {
+    title: 'Account Activation',
+    message: 'Your account has been activated successfully',
+  },
   settings: {
     title: 'Account Settings',
     changePassword: 'Change password',

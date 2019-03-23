@@ -1,20 +1,20 @@
 import React from 'react'
 
 import mutationResponse from 'components/Relation/mutationResponse'
-import User from 'stores/User'
+import Token from 'stores/Token'
 import { mountGraphql, selectFilterChange } from 'tests/helpers'
 
 export default (Component, query, mocks, object) => {
   describe('Relations', () => {
     it('should display alert when filter by relation if user is unauthenticated', async () => {
-      User.logout()
+      Token.set(undefined)
       global.console.warn = jest.fn()
       const wrapper = await mountGraphql(<Component />, mocks)
       selectFilterChange(wrapper, 'SelectFilter[code="relation"]', 'fav')
     })
 
     it('should change relation', async () => {
-      User.login('user')
+      Token.set('token')
       const wrapper = await mountGraphql(
         <Component />,
         mocks.concat([

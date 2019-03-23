@@ -41,7 +41,8 @@
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
-    ]
+    ],
+    "testPathIgnorePatterns": ["/node_modules/", "/cypress/"]
   },
   "author": "ramusus <ramusus@gmail.com>",
   "license": "MIT",

@@ -37,6 +37,12 @@ describe('Password Change', () => {
       cy.get('form').should('contain', 'old password was entered incorrectly')
     })
 
+    it('requires new password to be different from username', () => {
+      cy.get('#oldPassword').type(`${user.password}`)
+      cy.get('#newPassword').type(`${user.username}{enter}`)
+      cy.get('form').should('contain', 'password is too similar to the username')
+    })
+
     it('navigates to / on save and send email', () => {
       cy.get('#oldPassword').type(`${user.password}`)
       cy.get('#newPassword').type(`${user.password}{enter}`)
