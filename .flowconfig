@@ -1,7 +1,10 @@
 [ignore]
 .*/node_modules/jsonlint/.*
 .*/node_modules/fbjs/.*
+.*/node_modules/module-deps/.*
 .*y18n
+# TODO: include cypress tests
+.*/cypress/.*
 
 [include]
 ./components

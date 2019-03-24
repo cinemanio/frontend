@@ -7,3 +7,8 @@ plugins:
 
 env:
   cypress/globals: true
+
+rules:
+  jest/valid-expect: off
+  promise/catch-or-return: off
+  promise/always-return: off

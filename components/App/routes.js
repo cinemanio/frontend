@@ -14,6 +14,7 @@ const routes = {
   signin: '/signin',
   signup: '/signup',
   activation: '/account/activate/:key',
+  getActivation: (key: string) => {},
   settings: '/settings',
   password: {
     change: '/password/change',

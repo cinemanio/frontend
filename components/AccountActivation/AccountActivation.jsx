@@ -15,13 +15,14 @@ import token from 'stores/Token'
 import user from 'stores/User'
 import Loader from 'react-loader'
 
-type Props = { user: typeof user, token: typeof token, i18n: Translator }
+type Props = { user: typeof user, token: typeof token, i18n: Translator, match: Object }
+type State = { error: string }
 
 @translate()
 @inject('token', 'user')
 @withRouter
 @Form.create()
-export default class AccountActivation extends React.Component<Props> {
+export default class AccountActivation extends React.Component<Props, State> {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     user: MobxPropTypes.observableObject.isRequired,

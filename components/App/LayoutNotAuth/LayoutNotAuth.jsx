@@ -11,7 +11,7 @@ import i18nClient from 'libs/i18nClient'
 import routes from '../routes'
 import Layout, { type Props as LayoutProps } from '../Layout/Layout'
 
-type Props = LayoutProps & { user: typeof User, i18n: Translator, alert: Object }
+type Props = LayoutProps & { user: typeof User, i18n: Translator }
 
 @translate()
 @inject('user')
