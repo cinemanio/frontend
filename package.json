@@ -52,7 +52,7 @@
   "bundlesize": [
     {
       "path": "./public/app.*.js",
-      "maxSize": "591 kB"
+      "maxSize": "592 kB"
     },
     {
       "path": "./public/app.*.css",
@@ -166,7 +166,7 @@
     "eslint-plugin-promise": "4.0.1",
     "eslint-plugin-react": "7.12.4",
     "faker": "4.1.0",
-    "flow-bin": "0.94.0",
+    "flow-bin": "0.95.1",
     "flow-typed": "2.5.1",
     "jest": "24.5.0",
     "jest-watch-typeahead": "0.2.1",
