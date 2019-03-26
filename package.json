@@ -14,7 +14,7 @@
     "start:client": "webpack-dev-server --config ./webpack.dev.config.js",
     "build": "NODE_ENV=production webpack -p --config ./webpack.prod.config.js --json > stats.json",
     "test": "npm-run-all -s jest flow lint build size -c",
-    "jest": "jest --coverage --maxWorkers=2 .",
+    "jest": "jest --coverage --maxWorkers=1 .",
     "jest:watch": "jest --watch .",
     "flow": "flow check",
     "lint": "npm-run-all -p eslint stylelint",
