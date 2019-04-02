@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-// const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const settings = require('./settings')
@@ -46,24 +46,24 @@ module.exports = {
       // chunkFilename: settings.dev ? '[id].css' : '[id].[hash].css',
     }),
     // plugin helps to reduce js bundle up to 5Kb
-    // new LodashModuleReplacementPlugin({
-    //   shorthands: true,
-    //   cloning: true,
-    //   // currying: true,
-    //   caching: true,
-    //   // collections: true,
-    //   // exotics: true,
-    //   // guards: true,
-    //   // metadata: true,
-    //   // deburring: true,
-    //   // unicode: true,
-    //   // chaining: true,
-    //   // memoizing: true,
-    //   // coercions: true,
-    //   flattening: true,
-    //   // paths: true,
-    //   // placeholders: true,
-    // }),
+    new LodashModuleReplacementPlugin({
+      shorthands: true,
+      cloning: true,
+      // currying: true,
+      caching: true,
+      // collections: true,
+      // exotics: true,
+      // guards: true,
+      // metadata: true,
+      // deburring: true,
+      // unicode: true,
+      // chaining: true,
+      // memoizing: true,
+      // coercions: true,
+      flattening: true,
+      // paths: true,
+      // placeholders: true,
+    }),
     new webpack.EnvironmentPlugin(Object.keys(process.env)),
   ],
   module: {
