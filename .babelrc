@@ -8,7 +8,6 @@
     ["@babel/proposal-decorators", { "legacy": true }],
     ["@babel/proposal-class-properties", { "loose": true }],
     "react-hot-loader/babel",
-    "lodash",
     [
       "react-css-modules",
       {
