@@ -43,7 +43,9 @@ export default class Layout extends React.Component<Props, State> {
                 <div className="ant-col-6" styleName="logo">
                   <Link to="/">cineman.io</Link>
                 </div>
-                <div className="ant-col-12" styleName="search" />
+                <div className="ant-col-12" styleName="search">
+                  <Search />
+                </div>
                 <div className="ant-col-6" styleName="auth">
                   <Auth />
                 </div>
