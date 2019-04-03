@@ -9,7 +9,6 @@ import './Layout.scss'
 import Languages from './Languages/Languages'
 import Auth from './Auth/Auth'
 import Menu from './Menu/Menu'
-import Search from './Search/Search'
 
 export type Props = { component: Function, menuActive?: string }
 type State = { error: ?Error }
@@ -43,9 +42,7 @@ export default class Layout extends React.Component<Props, State> {
                 <div className="ant-col-6" styleName="logo">
                   <Link to="/">cineman.io</Link>
                 </div>
-                <div className="ant-col-12" styleName="search">
-                  <Search />
-                </div>
+                <div className="ant-col-12" styleName="search" />
                 <div className="ant-col-6" styleName="auth">
                   <Auth />
                 </div>
