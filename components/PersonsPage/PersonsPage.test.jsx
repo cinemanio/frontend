@@ -5,7 +5,7 @@ import { translate } from 'react-i18next'
 import { mountGraphql, mockAutoSizer, selectFilterChange, paginate, itShouldTestObjectsRelations } from 'tests/helpers'
 import PersonRelations from 'components/PersonPage/PersonRelations/PersonRelations'
 import i18nClient from 'libs/i18nClient'
-import User from 'stores/User'
+import Token from 'stores/Token'
 
 import PersonsPage from './PersonsPage'
 import { mockPersons, mockCountries, mockRoles, mockWithParams } from './mocks'
@@ -104,7 +104,7 @@ describe('Persons Page Component', () => {
     )
 
     it('should send filter params in request', async done => {
-      User.login('user')
+      Token.set('token')
       global.console.warn = jest.fn()
       wrapper = await mountGraphql(
         <PersonsPage />,
@@ -139,7 +139,7 @@ describe('Persons Page Component', () => {
       expect(getActiveFilter('roles')).toBe('Translator')
       expect(getActiveFilter('country')).toBe('Benin')
       expect(getActiveFilter('relation')).toBe('Fav')
-      setTimeout(() => done())
+      setTimeout(done)
     })
 
     it('should paginate during scrolling keeping selected filters', async done => {
@@ -163,7 +163,7 @@ describe('Persons Page Component', () => {
       expect(wrapper.find('ObjectList').prop('data').list.edges).toHaveLength(100)
       paginate(wrapper)
       // TODO: test amount of items after loading second page
-      setTimeout(() => done())
+      setTimeout(done)
     })
   })
 })

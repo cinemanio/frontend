@@ -47,10 +47,11 @@ class Token {
    */
   save = (token: ?string) => {
     const options = {}
-    if (!token) {
-      options.expires = new Date(1970, 1, 1)
+    if (token) {
+      this.cookies.set(this.cookieName, token, options)
+    } else {
+      this.cookies.remove(this.cookieName, options)
     }
-    this.cookies.set(this.cookieName, token, options)
   }
 }
 

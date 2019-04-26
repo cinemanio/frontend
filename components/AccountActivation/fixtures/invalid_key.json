@@ -1,0 +1,17 @@
+{
+  "errors": [
+    {
+      "message": "The activation key you provided is invalid.",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": ["activateUser"]
+    }
+  ],
+  "data": {
+    "activateUser": null
+  }
+}

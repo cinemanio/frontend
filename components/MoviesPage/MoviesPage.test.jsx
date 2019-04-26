@@ -5,7 +5,7 @@ import { translate } from 'react-i18next'
 import { mountGraphql, mockAutoSizer, selectFilterChange, paginate, itShouldTestObjectsRelations } from 'tests/helpers'
 import MovieRelations from 'components/MoviePage/MovieRelations/MovieRelations'
 import i18nClient from 'libs/i18nClient'
-import User from 'stores/User'
+import Token from 'stores/Token'
 
 import MoviesPage from './MoviesPage'
 import { mockMovies, mockGenres, mockCountries, mockWithParams } from './mocks'
@@ -103,10 +103,11 @@ describe('Movies Page Component', () => {
       wrapper = await mountGraphql(<MoviesPage />, mocks.concat([mockWithParams(filters)]))
       selectFilterChange(wrapper, 'SelectGeneric[code="view"]', 'image')
       expect(wrapper.find('MovieIcon').length).toBeGreaterThan(0)
-      setTimeout(() => done())
+      setTimeout(done)
     })
 
     it('should render message if no results in response', async () => {
+      global.console.warn = jest.fn()
       wrapper = await mountGraphql(<MoviesPage />, [{ ...mockMovies, result: emptyResponse }])
       expect(wrapper.find('MovieShort')).toHaveLength(0)
       expect(wrapper.text()).toContain('There is no such movies.')
@@ -115,7 +116,7 @@ describe('Movies Page Component', () => {
     itShouldTestObjectsRelations(MoviesPage, MovieRelations.fragments.relate, mocks, response.data.list.edges[0].movie)
 
     it('should send filter params in request', async done => {
-      User.login('user')
+      Token.set('token')
       global.console.warn = jest.fn()
       wrapper = await mountGraphql(
         <MoviesPage />,
@@ -157,7 +158,7 @@ describe('Movies Page Component', () => {
       expect(getActiveFilters()).toBe('Fav')
       getActiveFilter('relation', 0).simulate('click')
       expect(getActiveFilters()).toBe('')
-      setTimeout(() => done())
+      setTimeout(done)
     })
 
     it('should paginate during scrolling keeping selected filters', async done => {

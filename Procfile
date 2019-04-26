@@ -1,1 +1,1 @@
-web: node --harmony index.js
+web: npm run start:prod

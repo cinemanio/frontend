@@ -1,6 +1,9 @@
+/tmp
 /public
 /node_modules
+/cypress/videos
 /coverage
 /webpack-stats.json
 /stats.json
 /.env
+/manage.py

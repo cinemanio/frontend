@@ -6,9 +6,13 @@ import PropTypes from 'prop-types'
 import { Provider as MobxProvider } from 'mobx-react'
 import { Provider as AlertProvider } from 'react-alert'
 
-import Layout from 'components/Layout/Layout'
 import SignIn from 'components/SignIn/SignIn'
 import SignUp from 'components/SignUp/SignUp'
+import AccountActivation from 'components/AccountActivation/AccountActivation'
+import Settings from 'components/Settings/Settings'
+import PasswordForgot from 'components/PasswordForgot/PasswordForgot'
+import PasswordReset from 'components/PasswordReset/PasswordReset'
+import PasswordChange from 'components/PasswordChange/PasswordChange'
 import MoviesPage from 'components/MoviesPage/MoviesPage'
 import MoviePage from 'components/MoviePage/MoviePage'
 import PersonsPage from 'components/PersonsPage/PersonsPage'
@@ -19,6 +23,9 @@ import user from 'stores/User'
 
 import routes from './routes'
 import AlertTemplate from './AlertTemplate/AlertTemplate'
+import Layout from './Layout/Layout'
+import LayoutAuth from './LayoutAuth/LayoutAuth'
+import LayoutNotAuth from './LayoutNotAuth/LayoutNotAuth'
 
 export const stores = { token, user }
 
@@ -37,13 +44,18 @@ const App = ({ lang }: Object) => (
       <div>
         <Helmet htmlAttributes={{ lang }} defaultTitle="cineman.io" titleTemplate="%s · cineman.io" />
         <Switch>
-          <Route exact path="/" render={() => <Redirect to="/movies" />} />
-          <Layout path={routes.movie.detail} component={MoviePage} menuActive="movie" />
-          <Layout path={routes.movie.list} component={MoviesPage} menuActive="movie" />
-          <Layout path={routes.person.detail} component={PersonPage} menuActive="person" />
-          <Layout path={routes.person.list} component={PersonsPage} menuActive="person" />
-          <Layout path={routes.signin} component={SignIn} />
-          <Layout path={routes.signup} component={SignUp} />
+          <Route exact path="/" render={() => <Redirect to={routes.movie.list} />} />
+          <Layout path={routes.movie.detail} component={MoviePage} menuActive={routes.movie.list} />
+          <Layout path={routes.movie.list} component={MoviesPage} menuActive={routes.movie.list} />
+          <Layout path={routes.person.detail} component={PersonPage} menuActive={routes.person.list} />
+          <Layout path={routes.person.list} component={PersonsPage} menuActive={routes.person.list} />
+          <LayoutNotAuth path={routes.signin} component={SignIn} />
+          <LayoutNotAuth path={routes.signup} component={SignUp} />
+          <Layout path={routes.activation} component={AccountActivation} />
+          <LayoutNotAuth path={routes.password.forgot} component={PasswordForgot} />
+          <LayoutNotAuth path={routes.password.reset} component={PasswordReset} />
+          <LayoutAuth path={routes.password.change} component={PasswordChange} />
+          <LayoutAuth path={routes.settings} component={Settings} />
           <Layout path="/500" component={Error500} />
           <Layout path="*" component={Error404} />
         </Switch>

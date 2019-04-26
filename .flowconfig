@@ -1,24 +1,28 @@
 [ignore]
 .*/node_modules/jsonlint/.*
 .*/node_modules/fbjs/.*
+.*/node_modules/module-deps/.*
 .*y18n
+# TODO: include cypress tests
+.*/cypress/.*
 
 [include]
 ./components
 ./libs
 
 [libs]
-# ./flow/typed
+flow-typed
 
 [options]
 esproposal.class_static_fields=enable
 esproposal.class_instance_fields=enable
 esproposal.decorators=ignore
+server.max_workers=2
 
 # solution from here https://stackoverflow.com/questions/36912675/flow-required-module-not-found
 module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/stub/cssModules.js'
 module.name_mapper.extension='ico' -> '<PROJECT_ROOT>/flow/stub/cssModules.js'
-module.name_mapper='^\(libs\|stores\|components\)\/\(.*\)$' -> '<PROJECT_ROOT>/\1/\2'
+module.name_mapper='^\(libs\|stores\|tests\|components\)\/\(.*\)$' -> '<PROJECT_ROOT>/\1/\2'
 module.name_mapper='^settings$' -> '<PROJECT_ROOT>/\0'
 
 suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe

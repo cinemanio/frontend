@@ -40,7 +40,7 @@ export const getMockedNetworkFetch = (response: Object | Array<Object>, requests
   }
 }
 
-export const mountRouter = (element: Object, initialEntries: Array<string>) =>
+export const mountRouter = (element: Object, initialEntries: ?Array<string>) =>
   mount(
     <MemoryRouter initialEntries={initialEntries}>
       <MobxProvider {...stores}>
@@ -52,7 +52,7 @@ export const mountRouter = (element: Object, initialEntries: Array<string>) =>
     mountOptions
   )
 
-export const mountGraphql = async (element: React.Node, mocks: Array<Object>, initialEntries: Array<string>) => {
+export const mountGraphql = async (element: React.Node, mocks: Array<Object>, initialEntries: ?Array<string>) => {
   const wrapper = mountRouter(<MockedProvider mocks={mocks}>{element}</MockedProvider>, initialEntries)
   await new Promise(resolve => setTimeout(resolve))
   wrapper.update()
