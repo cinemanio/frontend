@@ -1,33 +1,35 @@
 // @flow
-const routes = {
+const routes: Object = {
   index: '/',
   movie: {
     list: '/movies',
     detail: '/movies/:slug',
-    getDetail: (id: string) => {},
+    getDetail(id: string) {
+      return this.detail.replace(':slug', id)
+    },
   },
   person: {
     list: '/persons',
     detail: '/persons/:slug',
-    getDetail: (id: string) => {},
+    getDetail(id: string) {
+      return this.detail.replace(':slug', id)
+    },
   },
   signin: '/signin',
   signup: '/signup',
   activation: '/account/activate/:key',
-  getActivation: (key: string) => {},
+  getActivation(key: string) {
+    return this.activation.replace(':key', key)
+  },
   settings: '/settings',
   password: {
     change: '/password/change',
     forgot: '/password/forgot',
     reset: '/password/reset/:uid/:token',
-    getReset: (uid: string, token: string) => {},
+    getReset(uid: string, token: string) {
+      return this.reset.replace(':uid', uid).replace(':token', token)
+    },
   },
 }
-
-routes.movie.getDetail = (id: string) => routes.movie.detail.replace(':slug', id)
-routes.person.getDetail = (id: string) => routes.person.detail.replace(':slug', id)
-routes.getActivation = (key: string) => routes.activation.replace(':key', key)
-routes.password.getReset = (uid: string, token: string) =>
-  routes.password.reset.replace(':uid', uid).replace(':token', token)
 
 export default routes
