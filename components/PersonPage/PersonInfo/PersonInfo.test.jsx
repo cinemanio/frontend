@@ -1,7 +1,8 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import { itShouldRenderBlocks, mountOptions } from 'tests/helpers'
+import { mountOptions } from 'tests/helpers'
+import itShouldRenderBlocks from 'tests/objectInfo'
 import i18nClient from 'libs/i18nClient'
 
 import PersonInfo from './PersonInfo'

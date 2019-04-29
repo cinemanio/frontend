@@ -1,7 +1,8 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import { itShouldRenderBlocks, mountOptions } from 'tests/helpers'
+import { mountOptions } from 'tests/helpers'
+import itShouldRenderBlocks from 'tests/objectInfo'
 
 import MovieInfo from './MovieInfo'
 import response from '../fixtures/response.json'

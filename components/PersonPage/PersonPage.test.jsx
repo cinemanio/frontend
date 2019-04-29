@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { mountGraphql, itShouldTestObjectRelations } from 'tests/helpers'
+import { mountGraphql } from 'tests/helpers'
+import itShouldTestObjectRelations from 'tests/objectRelations'
 import i18nClient from 'libs/i18nClient'
 
 import PersonPage from './PersonPage'
