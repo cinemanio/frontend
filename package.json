@@ -121,7 +121,7 @@
     "react-hot-loader": "4.8.4",
     "react-i18next": "9.0.10",
     "react-loader": "2.4.5",
-    "react-router": "5.0.0",
+    "react-router": "5.0.1",
     "react-router-dom": "5.0.0",
     "react-router-named-routes": "0.0.23",
     "react-transition-group": "4.0.0",
