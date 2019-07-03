@@ -118,7 +118,7 @@
     "react-cookie": "4.0.0",
     "react-dom": "16.8.6",
     "react-helmet": "5.2.1",
-    "react-hot-loader": "4.8.4",
+    "react-hot-loader": "4.12.1",
     "react-i18next": "9.0.10",
     "react-loader": "2.4.5",
     "react-router": "5.0.0",
