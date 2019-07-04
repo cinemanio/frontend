@@ -1,0 +1,58 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - sass-resources-loader > async > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - node-sass > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - babel-plugin-lodash > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - antd > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - '@babel/core > lodash':
+        patched: '2019-07-04T07:19:35.385Z'
+    - node-sass > sass-graph > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - antd > rc-tabs > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - antd > rc-table > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - antd > rc-steps > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - antd > rc-form > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - babel-plugin-webpack-alias > babel-types > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - '@babel/core > @babel/types > lodash':
+        patched: '2019-07-04T07:19:35.385Z'
+    - react-hot-loader > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - babel-plugin-react-css-modules > @babel/types > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - babel-plugin-lodash > @babel/types > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - '@babel/preset-env > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2019-07-04T07:19:35.385Z'
+    - babel-plugin-lodash > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - node-sass > gaze > globule > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - antd > rc-editor-mention > rc-editor-core > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - babel-plugin-import > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2019-07-04T07:19:35.385Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/types > lodash':
+        patched: '2019-07-04T07:19:35.385Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2019-07-04T07:19:35.385Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2019-07-04T07:19:35.385Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2019-07-04T07:19:35.385Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2019-07-04T07:19:35.385Z'
