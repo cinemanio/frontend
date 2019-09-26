@@ -71,7 +71,7 @@
     "@babel/preset-react": "7.0.0",
     "@babel/register": "7.4.4",
     "@babel/runtime": "7.4.4",
-    "algoliasearch": "3.32.1",
+    "algoliasearch": "3.35.0",
     "antd": "3.17.0",
     "apollo-client": "2.5.1",
     "apollo-client-preset": "1.0.8",
