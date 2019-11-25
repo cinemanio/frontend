@@ -120,7 +120,7 @@
     "react-helmet": "5.2.1",
     "react-hot-loader": "4.8.4",
     "react-i18next": "9.0.10",
-    "react-loader": "2.4.5",
+    "react-loader": "2.4.6",
     "react-router": "5.0.0",
     "react-router-dom": "5.0.0",
     "react-router-named-routes": "0.0.23",
