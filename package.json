@@ -72,7 +72,7 @@
     "@babel/register": "7.4.4",
     "@babel/runtime": "7.4.4",
     "algoliasearch": "3.32.1",
-    "antd": "3.17.0",
+    "antd": "3.26.0",
     "apollo-client": "2.5.1",
     "apollo-client-preset": "1.0.8",
     "apollo-fetch": "0.7.0",
