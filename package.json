@@ -141,7 +141,7 @@
     "wtf_wikipedia": "7.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.4.4",
+    "@babel/cli": "7.7.7",
     "@cypress/browserify-preprocessor": "2.0.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
