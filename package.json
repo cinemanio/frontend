@@ -104,7 +104,7 @@
     "koa-router": "7.4.0",
     "koa-static": "next",
     "lodash": "4.17.11",
-    "mobx": "5.9.4",
+    "mobx": "5.15.4",
     "mobx-react": "5.4.3",
     "node-sass": "4.12.0",
     "pluralize": "7.0.0",
