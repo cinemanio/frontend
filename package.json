@@ -86,7 +86,7 @@
     "fecha": "3.0.3",
     "file-loader": "3.0.1",
     "fs-readfile-promise": "3.0.1",
-    "graphql": "14.3.0",
+    "graphql": "15.0.0",
     "graphql-tag": "2.10.1",
     "humanize-duration": "3.18.0",
     "i18next": "15.1.0",
