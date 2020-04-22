@@ -148,7 +148,7 @@
     "babel-jest": "24.7.1",
     "babel-loader": "8.0.5",
     "bundlesize": "0.17.1",
-    "coveralls": "3.0.3",
+    "coveralls": "3.0.13",
     "cypress": "3.2.0",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.12.1",
