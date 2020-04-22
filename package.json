@@ -138,7 +138,7 @@
     "webpack": "4.30.0",
     "webpack-bundle-tracker": "0.3.0",
     "webpack-cli": "3.3.2",
-    "wtf_wikipedia": "7.3.0"
+    "wtf_wikipedia": "8.2.0"
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",
