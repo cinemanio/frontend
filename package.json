@@ -103,7 +103,7 @@
     "koa-proxies": "0.8.1",
     "koa-router": "7.4.0",
     "koa-static": "next",
-    "lodash": "4.17.11",
+    "lodash": "4.17.17",
     "mobx": "5.9.4",
     "mobx-react": "5.4.3",
     "node-sass": "4.12.0",
